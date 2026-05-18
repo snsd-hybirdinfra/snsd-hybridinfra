@@ -1,0 +1,98 @@
+﻿# {{ scenario_name }}
+
+# Scenario Relationship Graph
+
+| Field | Value |
+|---|---|
+| Scenario | {{ scenario_name }} |
+| Lifecycle Level | {{ lifecycle_level }} |
+
+---
+
+# Upstream Relationships
+
+{% for item in upstream %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Downstream Relationships
+
+{% for item in downstream %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Related Visibility Scenarios
+
+{% for item in related_visibility %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Related Correlation Scenarios
+
+{% for item in related_correlation %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Related Recovery Scenarios
+
+{% for item in related_recovery %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Related Resilience Scenarios
+
+{% for item in related_resilience %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Related Continuity Scenarios
+
+{% for item in related_continuity %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Related Modules
+
+{% for item in modules %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}
+
+---
+
+# Related Adapters
+
+{% for item in adapters %}
+- {{ item }}
+{% else %}
+- None
+{% endfor %}

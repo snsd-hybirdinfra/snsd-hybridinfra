@@ -8,9 +8,15 @@ from src.template_renderer import render_template
 
 
 SCHEMA_PATH = "schemas/scenario-relationship-schema.yaml"
-EXAMPLE_PATH = "examples/vpn-relationship-graph.yaml"
+
+EXAMPLE_PATH = (
+    "examples/vpn-relationship-graph.yaml"
+)
+
 TEMPLATE_DIR = "templates"
+
 TEMPLATE_NAME = "relationship-graph.md.j2"
+
 OUTPUT_DIR = "outputs/graphs"
 
 
@@ -33,7 +39,9 @@ def main():
         exported
     )
 
-    output_path = Path(OUTPUT_DIR) / f"{exported['scenario_name']}.md"
+    output_path = Path(
+        OUTPUT_DIR
+    ) / f"{exported['scenario_name']}.md"
 
     output_path.parent.mkdir(
         parents=True,
@@ -43,7 +51,9 @@ def main():
     with open(output_path, "w", encoding="utf-8") as file:
         file.write(rendered)
 
-    print(f"Relationship graph generated: {output_path}")
+    print(
+        f"Relationship graph generated: {output_path}"
+    )
 
 
 if __name__ == "__main__":

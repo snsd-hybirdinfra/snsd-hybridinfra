@@ -1,0 +1,26 @@
+﻿scenario_name: vpn-connectivity-monitoring
+
+lifecycle_level: level-1-visibility
+
+operational_scope: enterprise-network-connectivity
+
+environment: hybrid-infrastructure
+
+readme_template: level-1-visibility.md.j2
+
+modules:
+  - telemetry-aggregation-module
+  - latency-analysis-module
+
+adapters:
+  - prometheus-adapter
+  - grafana-adapter
+
+previous_scenarios: []
+
+next_scenarios:
+  - vpn-latency-correlation
+
+diagrams:
+  - architecture-overview
+  - workflow-lifecycle

@@ -1,0 +1,62 @@
+﻿# {{ scenario_name }}
+
+# Scenario Metadata
+
+| Field | Value |
+|---|---|
+| Scenario Name | {{ scenario_name }} |
+| Lifecycle Level | {{ lifecycle_level }} |
+| Operational Scope | {{ operational_scope }} |
+| Environment | {{ environment }} |
+
+---
+
+# Correlation Objectives
+
+- dependency analysis
+- anomaly correlation
+- operational reasoning
+
+---
+
+# Correlation Workflow
+
+## Detection
+
+Telemetry anomaly identification.
+
+## Dependency Analysis
+
+Cross-system relationship analysis.
+
+## Correlation Logic
+
+Operational reasoning workflow.
+
+---
+
+# Used Modules
+
+{% for module in modules %}
+- {{ module }}
+{% endfor %}
+
+---
+
+# Related Scenarios
+
+## Previous
+
+{% for scenario in previous_scenarios %}
+- {{ scenario }}
+{% else %}
+- None
+{% endfor %}
+
+## Next
+
+{% for scenario in next_scenarios %}
+- {{ scenario }}
+{% else %}
+- None
+{% endfor %}
