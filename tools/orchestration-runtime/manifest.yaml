@@ -1,16 +1,15 @@
 ﻿tool:
-  name: tool-dependency-validator
-  category: validator
+  name: orchestration-runtime
+  category: runtime
   runtime: python
   entrypoint: main.py
   requirements: requirements.txt
   bootstrap: true
-  orchestration: true
+  orchestration: false
   state: active
-  order: 95
+  order: 5
   execution_policy:
     enabled: true
     allow_parallel: false
     critical: true
     continue_on_failure: false
-

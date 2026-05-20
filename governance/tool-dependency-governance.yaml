@@ -42,9 +42,18 @@
   complexity-validator:
     depends_on: []
 
+  tool-boundary-validator:
+    depends_on: []
+
+  tool-dependency-validator:
+    depends_on:
+      - tool-boundary-validator
+
   scenario-governance-validator:
     depends_on:
       - capability-validator
       - adjacency-validator
       - qualification-validator
       - complexity-validator
+      - tool-boundary-validator
+      - tool-dependency-validator

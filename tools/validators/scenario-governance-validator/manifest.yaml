@@ -7,3 +7,9 @@
   orchestration: true
   state: active
   order: 90
+  execution_policy:
+    enabled: true
+    allow_parallel: false
+    critical: true
+    continue_on_failure: false
+

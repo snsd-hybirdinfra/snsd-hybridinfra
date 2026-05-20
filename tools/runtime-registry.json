@@ -1,5 +1,16 @@
 [
   {
+    "name": "orchestration-runtime",
+    "category": "runtime",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": false,
+    "state": "active",
+    "order": 5,
+    "path": "tools\\orchestration-runtime"
+  },
+  {
     "name": "metadata-parser",
     "category": "parser",
     "runtime": "python",
@@ -97,5 +108,38 @@
     "state": "active",
     "order": 90,
     "path": "tools\\validators\\scenario-governance-validator"
+  },
+  {
+    "name": "tool-dependency-validator",
+    "category": "validator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 95,
+    "path": "tools\\validators\\tool-dependency-validator"
+  },
+  {
+    "name": "tool-boundary-validator",
+    "category": "validator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 96,
+    "path": "tools\\validators\\tool-boundary-validator"
+  },
+  {
+    "name": "runtime-cleaner",
+    "category": "maintenance",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": false,
+    "state": "active",
+    "order": 100,
+    "path": "tools\\maintenance\\runtime-cleaner"
   }
 ]

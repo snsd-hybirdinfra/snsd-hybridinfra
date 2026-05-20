@@ -1,7 +1,7 @@
 ﻿from pathlib import Path
+import os
 import subprocess
 import yaml
-import os
 
 from src.dependency_resolver import (
     load_dependency_graph,
@@ -39,16 +39,9 @@ from src.execution_graph_renderer import (
     render_execution_graph
 )
 
-REPO_ROOT = (
-    Path(__file__)
-    .resolve()
-    .parents[2]
-)
 
-TOOLS_ROOT = (
-    REPO_ROOT
-    / "tools"
-)
+REPO_ROOT = Path(__file__).resolve().parents[2]
+TOOLS_ROOT = REPO_ROOT / "tools"
 
 
 def load_yaml(path: Path):
@@ -66,9 +59,7 @@ def discover_tools():
 
     tools = {}
 
-    for manifest_path in TOOLS_ROOT.rglob(
-        "manifest.yaml"
-    ):
+    for manifest_path in TOOLS_ROOT.rglob("manifest.yaml"):
 
         manifest = load_yaml(
             manifest_path
@@ -76,10 +67,7 @@ def discover_tools():
 
         tool = manifest["tool"]
 
-        if not tool.get(
-            "orchestration",
-            False
-        ):
+        if not tool.get("orchestration", False):
 
             continue
 
@@ -88,24 +76,48 @@ def discover_tools():
             continue
 
         tools[tool["name"]] = {
-
-            "name":
-                tool["name"],
-
-            "path":
-                manifest_path.parent,
-
-            "entrypoint":
-                tool["entrypoint"]
+            "name": tool["name"],
+            "path": manifest_path.parent,
+            "entrypoint": tool["entrypoint"],
+            "execution_policy": tool.get(
+                "execution_policy",
+                {}
+            )
         }
 
     return tools
+
+
+def register_runtime_log_artifact(
+    run_context: dict,
+    log_path: Path
+):
+
+    register_artifact(
+        run_context,
+        "orchestration-runtime",
+        "runtime-log",
+        str(log_path)
+    )
 
 
 def execute_tool(
     tool: dict,
     run_context: dict
 ):
+
+    policy = tool.get(
+        "execution_policy",
+        {}
+    )
+
+    if not policy.get("enabled", True):
+
+        print(
+            f"Skipping disabled tool: {tool['name']}"
+        )
+
+        return
 
     tool_log = start_tool_log(
         run_context,
@@ -126,11 +138,9 @@ def execute_tool(
         / tool["entrypoint"]
     )
 
-    tool_workspace = (
-        create_tool_workspace(
-            run_context,
-            tool["name"]
-        )
+    tool_workspace = create_tool_workspace(
+        run_context,
+        tool["name"]
     )
 
     print(
@@ -146,8 +156,7 @@ def execute_tool(
         tool_log = finish_tool_log(
             tool_log,
             "failed",
-            f"Missing python executable: "
-            f"{python_path}"
+            f"Missing python executable: {python_path}"
         )
 
         log_path = write_tool_log(
@@ -155,33 +164,32 @@ def execute_tool(
             tool_log
         )
 
-        register_artifact(
-             run_context,
-            "orchestration-runtime",
-            "runtime-log",
-            str(log_path)
+        register_runtime_log_artifact(
+            run_context,
+            log_path
         )
 
+        if not policy.get("critical", True):
+
+            print(
+                f"Non-critical tool missing python executable: {tool['name']}"
+            )
+
+            return
+
         raise FileNotFoundError(
-            f"Python executable not found: "
-            f"{python_path}"
+            f"Python executable not found: {python_path}"
         )
 
     env = os.environ.copy()
 
-    env["RUN_ID"] = (
-        run_context["run_id"]
-    )
+    env["RUN_ID"] = run_context["run_id"]
+    env["TOOL_WORKSPACE"] = str(tool_workspace)
+    env["EXECUTION_MODE"] = run_context["execution_mode"]
 
-    env["TOOL_WORKSPACE"] = (
-        str(tool_workspace)
-    )
+    try:
 
-    env["EXECUTION_MODE"] = (
-        run_context["execution_mode"]
-    )
-
-    result = subprocess.run(
+        result = subprocess.run(
         [
             str(python_path),
             str(main_path)
@@ -189,9 +197,43 @@ def execute_tool(
         cwd=str(tool_path),
         capture_output=True,
         text=True,
-        env=env
-    )
+        env=env,
+        timeout=300
+        )
 
+    except subprocess.TimeoutExpired:
+
+        tool_log = finish_tool_log(
+            tool_log,
+            "failed",
+            "Execution timeout exceeded."
+        )
+
+        log_path = write_tool_log(
+            run_context,
+            tool_log
+        )
+
+        register_runtime_log_artifact(
+            run_context,
+            log_path
+        )
+
+        if not policy.get(
+            "critical",
+            True
+        ):
+
+            print(
+                f"Non-critical tool timeout: "
+                f"{tool['name']}"
+            )
+
+            return
+
+        raise RuntimeError(
+            f"{tool['name']} timeout exceeded."
+        )
     print(result.stdout)
 
     if result.returncode != 0:
@@ -205,19 +247,25 @@ def execute_tool(
         )
 
         log_path = write_tool_log(
-        run_context,
-        tool_log
+            run_context,
+            tool_log
         )
 
-        register_artifact(
+        register_runtime_log_artifact(
             run_context,
-            "orchestration-runtime",
-            "runtime-log",
-            str(log_path)
+            log_path
         )
+
+        if not policy.get("critical", True):
+
+            print(
+                f"Non-critical tool failed: {tool['name']}"
+            )
+
+            return
 
         raise RuntimeError(
-        f"{tool['name']} execution failed."
+            f"{tool['name']} execution failed."
         )
 
     tool_log = finish_tool_log(
@@ -226,19 +274,75 @@ def execute_tool(
     )
 
     log_path = write_tool_log(
-    run_context,
-    tool_log
-)
+        run_context,
+        tool_log
+    )
 
-    register_artifact(
-    run_context,
-    "orchestration-runtime",
-    "runtime-log",
-    str(log_path)
-)
+    register_runtime_log_artifact(
+        run_context,
+        log_path
+    )
 
     print(
         f"{tool['name']} completed."
+    )
+
+
+def finalize_run(
+    run_context: dict
+):
+
+    summary_path = write_run_summary(
+        run_context
+    )
+
+    summary_artifact = register_artifact(
+        run_context,
+        "orchestration-runtime",
+        "run-summary",
+        str(summary_path)
+    )
+
+    register_artifact_handoff(
+        run_context,
+        summary_artifact["artifact_id"],
+        "orchestration-runtime",
+        "scenario-governance-validator",
+        "governance-input"
+    )
+
+    graph_path = build_execution_graph(
+        run_context
+    )
+
+    register_artifact(
+        run_context,
+        "orchestration-runtime",
+        "execution-graph",
+        str(graph_path)
+    )
+
+    svg_path = render_execution_graph(
+        run_context
+    )
+
+    register_artifact(
+        run_context,
+        "orchestration-runtime",
+        "diagram",
+        str(svg_path)
+    )
+
+    print(
+        f"Run summary written: {summary_path}"
+    )
+
+    print(
+        f"Execution graph written: {graph_path}"
+    )
+
+    print(
+        f"Execution graph SVG written: {svg_path}"
     )
 
 
@@ -247,20 +351,15 @@ def main():
     run_context = create_run_context()
 
     print(
-        f"Run ID: "
-        f"{run_context['run_id']}"
+        f"Run ID: {run_context['run_id']}"
     )
 
     tools = discover_tools()
 
-    dependency_graph = (
-        load_dependency_graph()
-    )
+    dependency_graph = load_dependency_graph()
 
-    execution_order = (
-        resolve_execution_order(
-            dependency_graph
-        )
+    execution_order = resolve_execution_order(
+        dependency_graph
     )
 
     print(
@@ -287,58 +386,15 @@ def main():
             tools[tool_name],
             run_context
         )
-    summary_path = write_run_summary(
-    run_context
+
+    finalize_run(
+        run_context
     )
 
-    summary_artifact = register_artifact(
-    run_context,
-    "orchestration-runtime",
-    "run-summary",
-    str(summary_path)
-    )
-
-    register_artifact_handoff(
-    run_context,
-    summary_artifact["artifact_id"],
-    "orchestration-runtime",
-    "scenario-governance-validator",
-    "governance-input"
-    )
-    print(
-    f"Run summary written: {summary_path}"
-    )
     print(
         "Runtime-governed orchestration completed."
     )
-    graph_path = build_execution_graph(
-        run_context
-    )
-    svg_path = render_execution_graph(
-    run_context
-    )
 
-    svg_artifact = register_artifact(
-    run_context,
-    "orchestration-runtime",
-    "diagram",
-    str(svg_path)
-    )
-
-    print(
-    f"Execution graph SVG written: "
-    f"{svg_path}"
-    )
-    graph_artifact = register_artifact(
-    run_context,
-    "orchestration-runtime",
-    "execution-graph",
-    str(graph_path)
-    )
-
-    print(
-        f"Execution graph written: {graph_path}"
-    )
 
 if __name__ == "__main__":
     main()

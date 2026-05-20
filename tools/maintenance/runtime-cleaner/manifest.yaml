@@ -7,3 +7,10 @@
   bootstrap: true
   orchestration: false
   state: active
+  order: 100
+  execution_policy:
+    enabled: true
+    allow_parallel: false
+    critical: true
+    continue_on_failure: false
+

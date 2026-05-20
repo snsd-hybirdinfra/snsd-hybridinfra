@@ -1,0 +1,23 @@
+﻿execution_policy_defaults:
+
+  enabled: true
+  allow_parallel: false
+  critical: true
+  continue_on_failure: false
+
+execution_policy_rules:
+
+  critical_tools:
+    failure_behavior: stop-runtime
+
+  non_critical_tools:
+    failure_behavior: warn-and-continue
+
+  parallel_execution:
+    default_allowed: false
+    requires_isolation: true
+    requires_artifact_handoff: true
+
+  disabled_tools:
+    bootstrap_allowed: false
+    orchestration_allowed: false

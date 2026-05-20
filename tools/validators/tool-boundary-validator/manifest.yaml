@@ -1,13 +1,12 @@
 ﻿tool:
-  name: tool-dependency-validator
+  name: tool-boundary-validator
   category: validator
   runtime: python
   entrypoint: main.py
-  requirements: requirements.txt
   bootstrap: true
   orchestration: true
   state: active
-  order: 95
+  order: 96
   execution_policy:
     enabled: true
     allow_parallel: false
