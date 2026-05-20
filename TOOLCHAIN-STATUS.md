@@ -452,3 +452,57 @@ Target:
 - freeze governance docs
 - verify scenario catalog outputs
 - prepare commit checkpoint
+
+---
+
+# SHARED RUNTIME AUTHORITY FREEZE
+
+## Authoritative Shared Runtime Root
+
+The authoritative shared runtime root is:
+
+shared-runtime/
+
+## Purpose
+
+shared-runtime/ owns repository-wide contracts and registries.
+
+## Authoritative Contents
+
+- schemas
+- registries
+- topology contracts
+- governance contracts
+- metadata contracts
+- tooling manifest contracts
+
+## Non-Authoritative Runtime Locations
+
+The following paths are not authoritative shared runtime roots:
+
+- tools/shared-runtime/
+- tool-local schemas used only for migration compatibility
+- nested tool-local copies of governance or registry data
+
+## Governance Rule
+
+Repository-wide contracts must be placed under:
+
+shared-runtime/
+
+Tool-local schemas are allowed only when:
+
+- they are temporary compatibility adapters
+- they do not redefine repository-wide governance
+- they are not used as authoritative source of truth
+
+## Runtime Discovery Rule
+
+Manifest discovery may exist under tools/shared-runtime/ only as tooling implementation code.
+
+It must not own repository-wide contracts.
+
+## Current Decision
+
+shared-runtime/ is frozen as the single authoritative platform contract layer.
+
