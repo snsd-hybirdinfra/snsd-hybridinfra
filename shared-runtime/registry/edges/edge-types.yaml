@@ -1,0 +1,41 @@
+﻿relationship_types:
+
+  telemetry-stream:
+    allowed_directions:
+      - outbound
+    allowed_criticality:
+      - low
+      - medium
+      - high
+
+  visibility-feed:
+    allowed_directions:
+      - outbound
+    allowed_criticality:
+      - low
+      - medium
+      - high
+
+  dependency:
+    allowed_directions:
+      - inbound
+      - outbound
+      - bidirectional
+    allowed_criticality:
+      - medium
+      - high
+      - critical
+
+  recovery-trigger:
+    allowed_directions:
+      - outbound
+    allowed_criticality:
+      - high
+      - critical
+
+  governance-report:
+    allowed_directions:
+      - outbound
+    allowed_criticality:
+      - low
+      - medium

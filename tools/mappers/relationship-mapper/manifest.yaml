@@ -1,0 +1,10 @@
+﻿tool:
+  name: relationship-mapper
+  category: mapper
+  runtime: python
+  entrypoint: main.py
+  requirements: requirements.txt
+  bootstrap: true
+  orchestration: true
+  state: active
+  order: 20

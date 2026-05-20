@@ -1,0 +1,11 @@
+scenario_name: kubernetes-node-recovery
+lifecycle_level: level-3-recovery
+operational_scope: platform-operations
+environment: hybrid-infrastructure
+capabilities:
+- recovery-orchestration
+- node-restoration
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture

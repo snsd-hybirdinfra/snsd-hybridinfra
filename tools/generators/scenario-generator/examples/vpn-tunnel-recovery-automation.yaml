@@ -1,0 +1,21 @@
+﻿scenario_name: vpn-tunnel-recovery-automation
+
+lifecycle_level: level-3-recovery
+
+operational_scope: enterprise-network-recovery
+
+environment: hybrid-infrastructure
+
+capabilities:
+  - telemetry-aggregation
+  - latency-analysis
+  - recovery-orchestration
+
+previous_scenarios:
+  - vpn-latency-correlation
+
+next_scenarios:
+  - multi-site-routing-failover
+
+diagrams:
+  - topology-architecture

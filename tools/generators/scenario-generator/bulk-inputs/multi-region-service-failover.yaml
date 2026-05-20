@@ -1,0 +1,11 @@
+scenario_name: multi-region-service-failover
+lifecycle_level: level-4-resilience
+operational_scope: cloud-operations
+environment: hybrid-infrastructure
+capabilities:
+- distributed-failover
+- multi-region-resilience
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture

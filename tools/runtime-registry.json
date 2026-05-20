@@ -1,0 +1,101 @@
+[
+  {
+    "name": "metadata-parser",
+    "category": "parser",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 10,
+    "path": "tools\\parsers\\metadata-parser"
+  },
+  {
+    "name": "relationship-mapper",
+    "category": "mapper",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 20,
+    "path": "tools\\mappers\\relationship-mapper"
+  },
+  {
+    "name": "scenario-generator",
+    "category": "generator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 30,
+    "path": "tools\\generators\\scenario-generator"
+  },
+  {
+    "name": "diagram-renderer",
+    "category": "renderer",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": false,
+    "state": "active",
+    "order": 40,
+    "path": "tools\\renderers\\diagram-renderer"
+  },
+  {
+    "name": "taxonomy-validator",
+    "category": "validator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 50,
+    "path": "tools\\validators\\taxonomy-validator"
+  },
+  {
+    "name": "governance-checker",
+    "category": "validator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 60,
+    "path": "tools\\validators\\governance-checker"
+  },
+  {
+    "name": "topology-validator",
+    "category": "validator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 70,
+    "path": "tools\\validators\\topology-validator"
+  },
+  {
+    "name": "capability-validator",
+    "category": "validator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 80,
+    "path": "tools\\validators\\capability-validator"
+  },
+  {
+    "name": "scenario-governance-validator",
+    "category": "validator",
+    "runtime": "python",
+    "entrypoint": "main.py",
+    "bootstrap": true,
+    "orchestration": true,
+    "state": "active",
+    "order": 90,
+    "path": "tools\\validators\\scenario-governance-validator"
+  }
+]

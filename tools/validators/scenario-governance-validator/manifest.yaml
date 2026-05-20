@@ -1,0 +1,9 @@
+﻿tool:
+  name: scenario-governance-validator
+  category: validator
+  runtime: python
+  entrypoint: main.py
+  bootstrap: true
+  orchestration: true
+  state: active
+  order: 90

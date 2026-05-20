@@ -1,0 +1,10 @@
+﻿tool:
+  name: topology-validator
+  category: validator
+  runtime: python
+  entrypoint: main.py
+  requirements: requirements.txt
+  bootstrap: true
+  orchestration: true
+  state: active
+  order: 70

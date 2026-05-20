@@ -1,0 +1,20 @@
+﻿scenario_name: enterprise-network-continuity
+
+lifecycle_level: level-5-continuity
+
+operational_scope: enterprise-operational-continuity
+
+environment: hybrid-infrastructure
+
+capabilities:
+  - continuity-governance
+  - executive-visibility
+  - cross-domain-coordination
+
+previous_scenarios:
+  - multi-site-routing-failover
+
+next_scenarios: []
+
+diagrams:
+  - topology-architecture

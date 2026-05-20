@@ -1,0 +1,39 @@
+﻿runtime_cleanup_policy:
+
+  workspace_root:
+    path: tools/runtime-workspace
+
+  retention:
+
+    keep_latest_runs: 5
+
+    delete_incomplete_runs: true
+
+    archive_before_delete: false
+
+  protected_files:
+
+    - run-context.json
+    - run-summary.json
+    - artifacts.json
+    - artifact-lineage.json
+    - execution-graph.json
+    - execution-graph.svg
+
+  cleanup_rules:
+
+    stale_run_detection:
+      enabled: true
+
+    incomplete_run_detection:
+      required_any:
+        - run-summary.json
+        - logs
+
+    deletion_scope:
+      - runtime-workspace-run-directories
+
+  governance_notes:
+
+    Runtime workspace is execution evidence.
+    Do not commit runtime workspace contents unless explicitly required for documentation evidence.

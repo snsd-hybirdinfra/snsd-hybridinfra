@@ -1,0 +1,10 @@
+﻿tool:
+  name: diagram-renderer
+  category: renderer
+  runtime: python
+  entrypoint: main.py
+  requirements: requirements.txt
+  bootstrap: true
+  orchestration: false
+  state: active
+  order: 40

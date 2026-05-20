@@ -1,0 +1,51 @@
+﻿{% extends "shared/base-readme.md.j2" %}
+
+{% set workflow_section %}
+
+## Detection
+
+Multi-source telemetry anomaly detection.
+
+## Correlation
+
+Cross-system dependency correlation analysis.
+
+## Dependency Analysis
+
+Operational impact propagation analysis between infrastructure components.
+
+## Visibility
+
+Correlated operational visibility generation.
+
+## Incident Context
+
+Correlation-aware incident context establishment.
+
+{% endset %}
+
+{% set validation_section %}
+
+- telemetry correlation validation
+- dependency mapping validation
+- cross-system operational visibility validation
+- alert correlation validation
+- impact propagation validation
+
+{% endset %}
+
+{% set governance_notes %}
+
+L2 scenarios must remain correlation-oriented.
+
+Avoid:
+
+- large-scale recovery orchestration
+- distributed survivability workflows
+- enterprise continuity governance
+
+Primary objective:
+
+cross-system operational reasoning and dependency visibility.
+
+{% endset %}

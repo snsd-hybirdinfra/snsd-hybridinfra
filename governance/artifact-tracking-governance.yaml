@@ -1,0 +1,23 @@
+﻿artifact_tracking:
+
+  required_fields:
+    - artifact_id
+    - run_id
+    - produced_by
+    - artifact_type
+    - artifact_path
+    - produced_at
+
+  artifact_types:
+    - readme
+    - diagram
+    - metadata
+    - validation-report
+    - relationship-graph
+    - runtime-log
+    - run-summary
+
+  handoff_policy:
+    explicit_handoff_required: true
+    cross_tool_read_requires_manifest: true
+    overwrite_requires_approval: true

@@ -1,0 +1,16 @@
+﻿domain,lifecycle_level,scenario_name,primary_capability,adjacent_capabilities,complexity,target_outcome
+network-operations,level-1-visibility,vpn-connectivity-monitoring,telemetry-aggregation,visibility-monitoring,L1,connectivity-visibility
+network-operations,level-2-correlation,vpn-latency-correlation,latency-analysis,dependency-correlation,L2,network-impact-analysis
+network-operations,level-3-recovery,vpn-tunnel-recovery-automation,recovery-orchestration,rollback-validation,L3,automated-tunnel-recovery
+network-operations,level-4-resilience,multi-site-routing-failover,distributed-failover,resilience-coordination,L4,distributed-network-survivability
+network-operations,level-5-continuity,enterprise-network-continuity,continuity-governance,executive-visibility,L5,enterprise-network-continuity
+cloud-operations,level-1-visibility,cloud-instance-health-monitoring,telemetry-aggregation,instance-visibility,L1,cloud-health-visibility
+cloud-operations,level-2-correlation,multi-region-latency-correlation,latency-analysis,cross-region-correlation,L2,regional-impact-analysis
+cloud-operations,level-3-recovery,cloud-instance-recovery-automation,recovery-orchestration,instance-restoration,L3,automated-cloud-recovery
+cloud-operations,level-4-resilience,multi-region-service-failover,distributed-failover,multi-region-resilience,L4,regional-service-survivability
+cloud-operations,level-5-continuity,enterprise-cloud-continuity,continuity-governance,cross-cloud-coordination,L5,enterprise-cloud-continuity
+platform-operations,level-1-visibility,kubernetes-cluster-visibility,telemetry-aggregation,cluster-visibility,L1,platform-health-visibility
+platform-operations,level-2-correlation,pod-failure-correlation,dependency-correlation,workload-analysis,L2,platform-impact-analysis
+platform-operations,level-3-recovery,kubernetes-node-recovery,recovery-orchestration,node-restoration,L3,automated-platform-recovery
+platform-operations,level-4-resilience,multi-cluster-failover,distributed-failover,cluster-coordination,L4,multi-cluster-survivability
+platform-operations,level-5-continuity,enterprise-platform-continuity,continuity-governance,executive-platform-visibility,L5,enterprise-platform-continuity

@@ -1,0 +1,11 @@
+scenario_name: cloud-instance-health-monitoring
+lifecycle_level: level-1-visibility
+operational_scope: cloud-operations
+environment: hybrid-infrastructure
+capabilities:
+- telemetry-aggregation
+- instance-visibility
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture

@@ -1,0 +1,17 @@
+﻿scenario_name: vpn-connectivity-monitoring
+lifecycle_level: level-1-visibility
+operational_scope: enterprise-network-connectivity
+environment: hybrid-infrastructure
+readme_template: level-1-visibility.md.j2
+
+capabilities:
+  - telemetry-aggregation
+  - latency-analysis
+
+previous_scenarios: []
+
+next_scenarios:
+  - vpn-latency-correlation
+
+diagrams:
+  - topology-architecture

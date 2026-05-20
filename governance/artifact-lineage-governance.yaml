@@ -1,0 +1,29 @@
+﻿artifact_lineage:
+
+  required_handoff_fields:
+    - handoff_id
+    - run_id
+    - artifact_id
+    - source_tool
+    - target_tool
+    - handoff_type
+    - handed_off_at
+
+  handoff_types:
+    - validation-input
+    - topology-input
+    - metadata-input
+    - governance-input
+    - runtime-log-input
+
+  governance_rules:
+
+    explicit_registration_required: true
+
+    forbidden_patterns:
+      - implicit-cross-tool-read
+      - undeclared-artifact-consumption
+      - overwrite-without-lineage
+
+    lineage_tracking:
+      enabled: true

@@ -1,0 +1,40 @@
+﻿execution_isolation:
+
+  workspace_root:
+    path: tools/runtime-workspace
+
+  run_context:
+
+    required_fields:
+      - run_id
+      - started_at
+      - execution_mode
+      - tool_name
+
+  isolation_rules:
+
+    tool_outputs:
+      policy: tool-local
+      path_pattern: tools/{tool_category}/{tool_name}/outputs
+
+    runtime_outputs:
+      policy: run-scoped
+      path_pattern: tools/runtime-workspace/{run_id}/{tool_name}
+
+    shared_artifacts:
+      policy: explicit-handoff-only
+
+  forbidden_patterns:
+
+    - direct-cross-tool-output-write
+    - shared-output-overwrite
+    - implicit-artifact-consumption
+    - parallel-write-to-same-target
+
+  required_artifact_handoff:
+
+    - source_tool
+    - target_tool
+    - artifact_type
+    - artifact_path
+    - produced_at

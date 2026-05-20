@@ -1,0 +1,31 @@
+﻿tool_states:
+
+  active:
+    description: production-ready tool participating in runtime workflows
+
+  experimental:
+    description: prototype tool allowed for isolated validation only
+
+  deprecated:
+    description: retired tool retained for compatibility or migration reference
+
+  disabled:
+    description: tool excluded from bootstrap and orchestration
+
+state_rules:
+
+  active:
+    bootstrap_allowed: true
+    orchestration_allowed: true
+
+  experimental:
+    bootstrap_allowed: true
+    orchestration_allowed: false
+
+  deprecated:
+    bootstrap_allowed: false
+    orchestration_allowed: false
+
+  disabled:
+    bootstrap_allowed: false
+    orchestration_allowed: false

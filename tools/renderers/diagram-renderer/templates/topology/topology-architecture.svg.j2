@@ -1,0 +1,113 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg"
+     width="{{ canvas_width }}"
+     height="{{ canvas_height }}">
+
+    <defs>
+        <marker id="arrow"
+                markerWidth="10"
+                markerHeight="10"
+                refX="8"
+                refY="3"
+                orient="auto"
+                markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z"
+                  fill="#94a3b8" />
+        </marker>
+    </defs>
+
+    <style>
+        .background { fill: #0f172a; }
+        .title { font-size: 28px; font-weight: bold; fill: #ffffff; }
+        .layer-box { fill: #111827; stroke: #334155; stroke-width: 1.5; rx: 16; }
+        .layer-title { fill: #94a3b8; font-size: 16px; font-weight: bold; }
+        .node { fill: #1f2937; stroke: #60a5fa; stroke-width: 2; rx: 12; }
+        .node-text { fill: #ffffff; font-size: 14px; }
+        .capability-text { fill: #93c5fd; font-size: 12px; }
+        .edge { fill: none; stroke: #94a3b8; stroke-width: 2; marker-end: url(#arrow); }
+        .edge-label-bg { fill: #0f172a; opacity: 0.95; rx: 6; }
+        .edge-text { fill: #cbd5e1; font-size: 12px; }
+    </style>
+
+    <rect class="background" width="100%" height="100%" />
+
+    <text x="40" y="50" class="title">{{ title }}</text>
+
+    {% for layer in layers %}
+    {% set pos = layer_positions[layer] %}
+
+    <rect class="layer-box"
+          x="{{ pos.x }}"
+          y="{{ pos.y }}"
+          width="{{ pos.width }}"
+          height="{{ pos.height }}" />
+
+    <text class="layer-title"
+          x="{{ pos.x + 20 }}"
+          y="{{ pos.y + 35 }}">
+        {{ layer }} layer
+    </text>
+    {% endfor %}
+
+    {% for node in topology_nodes %}
+    {% set pos = node_positions[node.id] %}
+
+    <rect class="node"
+          x="{{ pos.x }}"
+          y="{{ pos.y }}"
+          width="{{ pos.width }}"
+          height="{{ pos.height }}" />
+
+    <text class="node-text"
+          x="{{ pos.x + 20 }}"
+          y="{{ pos.y + 35 }}">
+        {{ node.label }}
+    </text>
+
+    <text class="node-text"
+          x="{{ pos.x + 20 }}"
+          y="{{ pos.y + 60 }}">
+        Role: {{ node.role }}
+    </text>
+
+    {% for capability in node.capabilities %}
+    <text class="capability-text"
+          x="{{ pos.x + 20 }}"
+          y="{{ pos.y + 90 + (loop.index0 * 18) }}">
+        - {{ capability }}
+    </text>
+    {% endfor %}
+    {% endfor %}
+
+    {% for edge in topology_edges %}
+    {% set source = node_positions[edge.source] %}
+    {% set target = node_positions[edge.target] %}
+
+    {% set source_anchor_x = source.x + source.width %}
+    {% set source_anchor_y = source.y + (source.height / 2) %}
+    {% set target_anchor_x = target.x %}
+    {% set target_anchor_y = target.y + (target.height / 2) %}
+
+    {% set control_offset = 90 %}
+    {% set label_x = source_anchor_x + 40 %}
+    {% set label_y = source_anchor_y - 58 %}
+
+    <path class="edge"
+          d="M {{ source_anchor_x }} {{ source_anchor_y }}
+             C {{ source_anchor_x + control_offset }} {{ source_anchor_y - 70 }},
+               {{ target_anchor_x - control_offset }} {{ target_anchor_y - 70 }},
+               {{ target_anchor_x }} {{ target_anchor_y }}" />
+
+    <rect class="edge-label-bg"
+          x="{{ label_x - 8 }}"
+          y="{{ label_y - 16 }}"
+          width="140"
+          height="24" />
+
+    <text class="edge-text"
+          x="{{ label_x }}"
+          y="{{ label_y }}">
+        {{ edge.relationship }}
+    </text>
+    {% endfor %}
+
+</svg>

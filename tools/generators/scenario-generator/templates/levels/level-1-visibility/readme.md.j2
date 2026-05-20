@@ -1,0 +1,47 @@
+﻿{% extends "shared/base-readme.md.j2" %}
+
+{% set workflow_section %}
+
+## Detection
+
+Telemetry collection and operational visibility monitoring.
+
+## Monitoring
+
+VPN connectivity telemetry aggregation and health monitoring.
+
+## Visibility
+
+Dashboard-based operational visibility validation.
+
+## Alerting
+
+Connectivity anomaly alert generation.
+
+{% endset %}
+
+{% set validation_section %}
+
+- telemetry continuity validation
+- visibility pipeline validation
+- connectivity health validation
+- dashboard operational visibility validation
+
+{% endset %}
+
+{% set governance_notes %}
+
+L1 scenarios must remain visibility-oriented.
+
+Avoid:
+
+- recovery orchestration
+- distributed coordination
+- resilience governance
+- enterprise continuity orchestration
+
+Primary objective:
+
+enterprise operational visibility establishment.
+
+{% endset %}

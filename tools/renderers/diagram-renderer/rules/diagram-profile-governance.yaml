@@ -1,0 +1,28 @@
+﻿level-1-visibility:
+
+  required:
+    - architecture-overview
+    - workflow-lifecycle
+
+level-2-correlation:
+
+  required:
+    - architecture-overview
+    - dependency-correlation-map
+
+level-3-recovery:
+
+  required:
+    - recovery-workflow
+
+level-4-resilience:
+
+  required:
+    - distributed-topology
+    - failover-coordination-map
+
+level-5-continuity:
+
+  required:
+    - enterprise-operational-map
+    - continuity-governance-flow

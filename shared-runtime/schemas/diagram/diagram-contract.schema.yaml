@@ -1,0 +1,42 @@
+﻿type: object
+
+required:
+  - diagram_type
+  - output_name
+  - lifecycle_level
+
+properties:
+
+  diagram_type:
+    type: string
+
+  output_name:
+    type: string
+
+  lifecycle_level:
+    type: string
+
+  modules:
+    type: array
+    items:
+      type: string
+
+  adapters:
+    type: array
+    items:
+      type: string
+
+  workflow_steps:
+    type: array
+    items:
+      type: string
+
+  topology_nodes:
+    type: array
+    items:
+      type: object
+
+  topology_edges:
+    type: array
+    items:
+      type: object

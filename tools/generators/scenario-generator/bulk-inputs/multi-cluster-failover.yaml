@@ -1,0 +1,11 @@
+scenario_name: multi-cluster-failover
+lifecycle_level: level-4-resilience
+operational_scope: platform-operations
+environment: hybrid-infrastructure
+capabilities:
+- distributed-failover
+- cluster-coordination
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture

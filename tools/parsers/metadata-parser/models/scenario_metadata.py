@@ -1,4 +1,5 @@
 ﻿from dataclasses import dataclass, field
+from typing import Dict
 from typing import List
 
 
@@ -16,5 +17,11 @@ class ScenarioMetadata:
     next_scenarios: List[str] = field(default_factory=list)
 
     diagrams: List[str] = field(default_factory=list)
+
+    diagram_profiles: List[str] = field(default_factory=list)
+
+    diagram_placement: Dict[str, str] = field(
+        default_factory=dict
+    )
 
     readme_template: str = ""

@@ -1,0 +1,21 @@
+﻿scenario_name: multi-site-routing-failover
+
+lifecycle_level: level-4-resilience
+
+operational_scope: distributed-network-resilience
+
+environment: hybrid-infrastructure
+
+capabilities:
+  - distributed-failover
+  - resilience-coordination
+  - survivability-validation
+
+previous_scenarios:
+  - vpn-tunnel-recovery-automation
+
+next_scenarios:
+  - enterprise-network-continuity
+
+diagrams:
+  - topology-architecture

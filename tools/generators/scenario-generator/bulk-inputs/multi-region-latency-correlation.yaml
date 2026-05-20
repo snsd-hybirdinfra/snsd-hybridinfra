@@ -1,0 +1,11 @@
+scenario_name: multi-region-latency-correlation
+lifecycle_level: level-2-correlation
+operational_scope: cloud-operations
+environment: hybrid-infrastructure
+capabilities:
+- latency-analysis
+- cross-region-correlation
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture

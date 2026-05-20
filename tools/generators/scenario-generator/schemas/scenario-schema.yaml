@@ -1,0 +1,62 @@
+﻿type: object
+
+required:
+  - scenario_name
+  - lifecycle_level
+  - operational_scope
+  - environment
+
+properties:
+
+  scenario_name:
+    type: string
+
+  lifecycle_level:
+    type: string
+
+  operational_scope:
+    type: string
+
+  environment:
+    type: string
+
+  capabilities:
+    type: array
+    items:
+      type: string
+
+  readme_template:
+    type: string
+
+  modules:
+    type: array
+    items:
+      type: string
+
+  adapters:
+    type: array
+    items:
+      type: string
+
+  previous_scenarios:
+    type: array
+    items:
+      type: string
+
+  next_scenarios:
+    type: array
+    items:
+      type: string
+
+  diagrams:
+    type: array
+    items:
+      type: string
+
+  diagram_profiles:
+    type: array
+    items:
+      type: string
+
+  diagram_placement:
+    type: object

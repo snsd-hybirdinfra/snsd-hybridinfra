@@ -1,0 +1,21 @@
+﻿scenario_name: vpn-connectivity-monitoring
+
+lifecycle_level: level-1-visibility
+
+title: VPN Connectivity Monitoring
+
+diagram_type: architecture-overview
+
+modules:
+  - telemetry-aggregation-module
+  - latency-analysis-module
+
+adapters:
+  - prometheus-adapter
+  - grafana-adapter
+
+workflow_steps:
+  - telemetry collection
+  - vpn health monitoring
+  - connectivity validation
+  - operational visibility

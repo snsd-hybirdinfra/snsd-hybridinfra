@@ -1,0 +1,21 @@
+﻿type: object
+
+required:
+  - required_sections
+  - required_lifecycle_flow
+  - required_diagram_policy
+
+properties:
+
+  required_sections:
+    type: array
+    items:
+      type: string
+
+  required_lifecycle_flow:
+    type: array
+    items:
+      type: string
+
+  required_diagram_policy:
+    type: object

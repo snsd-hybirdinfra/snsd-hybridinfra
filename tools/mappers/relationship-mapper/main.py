@@ -1,49 +1,107 @@
-﻿from pathlib import Path
+﻿import yaml
+import json
 
-from src.loader import load_yaml
-from src.validator import validate_relationship_graph
-from src.parser import parse_relationship_graph
-from src.exporter import export_relationship_graph
-from src.template_renderer import render_template
+from pathlib import Path
 
 
-SCHEMA_PATH = "schemas/scenario-relationship-schema.yaml"
-EXAMPLE_PATH = "examples/vpn-relationship-graph.yaml"
-TEMPLATE_DIR = "templates"
-TEMPLATE_NAME = "relationship-graph.md.j2"
-OUTPUT_DIR = "outputs/graphs"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+
+
+TOPOLOGY_PATH = (
+    REPO_ROOT
+    / "shared-runtime"
+    / "schemas"
+    / "topology"
+    / "examples"
+    / "vpn-connectivity-topology.yaml"
+)
+
+OUTPUT_PATH = (
+    REPO_ROOT
+    / "tools"
+    / "mappers"
+    / "relationship-mapper"
+    / "outputs"
+    / "relationship-graph.json"
+)
+
+
+def load_yaml(path: Path):
+
+    with open(
+        path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        return yaml.safe_load(file)
+
+
+def build_relationship_graph(
+    topology: dict
+):
+
+    graph = {
+
+        "topology_name":
+            topology["topology_name"],
+
+        "nodes":
+            topology["nodes"],
+
+        "relationships":
+            []
+    }
+
+    for edge in topology["edges"]:
+
+        graph["relationships"].append({
+
+            "source":
+                edge["source"],
+
+            "target":
+                edge["target"],
+
+            "relationship":
+                edge["relationship"],
+
+            "criticality":
+                edge["criticality"]
+        })
+
+    return graph
 
 
 def main():
 
-    raw_data = load_yaml(EXAMPLE_PATH)
-
-    validate_relationship_graph(
-        raw_data,
-        SCHEMA_PATH
+    topology = load_yaml(
+        TOPOLOGY_PATH
     )
 
-    graph = parse_relationship_graph(raw_data)
-
-    exported = export_relationship_graph(graph)
-
-    rendered = render_template(
-        TEMPLATE_DIR,
-        TEMPLATE_NAME,
-        exported
+    graph = build_relationship_graph(
+        topology
     )
 
-    output_path = Path(OUTPUT_DIR) / f"{exported['scenario_name']}.md"
+    with open(
+        OUTPUT_PATH,
+        "w",
+        encoding="utf-8"
+    ) as file:
 
-    output_path.parent.mkdir(
-        parents=True,
-        exist_ok=True
+        json.dump(
+            graph,
+            file,
+            indent=2
+        )
+
+    print(
+        "Relationship graph exported."
     )
 
-    with open(output_path, "w", encoding="utf-8") as file:
-        file.write(rendered)
-
-    print(f"Relationship graph generated: {output_path}")
+    print(
+        f"Output: {OUTPUT_PATH}"
+    )
 
 
 if __name__ == "__main__":

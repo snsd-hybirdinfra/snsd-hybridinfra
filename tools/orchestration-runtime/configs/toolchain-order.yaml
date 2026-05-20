@@ -1,0 +1,39 @@
+﻿toolchain_order:
+
+  - metadata-parser
+  - relationship-mapper
+  - scenario-generator
+  - diagram-renderer
+  - taxonomy-validator
+  - governance-checker
+
+artifact_flow:
+
+  metadata-parser:
+    output: normalized_metadata
+
+  relationship-mapper:
+    input: normalized_metadata
+    output: relationship_graph
+
+  scenario-generator:
+    input:
+      - normalized_metadata
+      - relationship_graph
+    output: scenario_package
+
+  diagram-renderer:
+    input: scenario_package
+    output:
+      - svg_sources
+      - png_artifacts
+
+  taxonomy-validator:
+    input: scenario_package
+    output: taxonomy_report
+
+  governance-checker:
+    input:
+      - scenario_package
+      - taxonomy_report
+    output: governance_report

@@ -1,0 +1,9 @@
+﻿tool:
+  name: runtime-cleaner
+  category: maintenance
+  runtime: python
+  entrypoint: main.py
+  requirements: requirements.txt
+  bootstrap: true
+  orchestration: false
+  state: active

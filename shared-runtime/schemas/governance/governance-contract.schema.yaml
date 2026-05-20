@@ -1,0 +1,30 @@
+﻿type: object
+
+required:
+  - required_sections
+  - lifecycle_flow
+  - diagram_policy
+
+properties:
+
+  required_sections:
+    type: array
+    items:
+      type: string
+
+  lifecycle_flow:
+    type: array
+    items:
+      type: string
+
+  diagram_policy:
+    type: object
+
+  related_scenario_policy:
+    type: object
+
+  module_naming_policy:
+    type: object
+
+  adapter_naming_policy:
+    type: object

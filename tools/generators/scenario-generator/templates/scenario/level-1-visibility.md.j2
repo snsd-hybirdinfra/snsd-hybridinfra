@@ -1,5 +1,7 @@
 ﻿# {{ scenario_name }}
 
+![topology-architecture](./diagrams/topology-architecture.png)
+
 # Scenario Metadata
 
 | Field | Value |
@@ -8,6 +10,14 @@
 | Lifecycle Level | {{ lifecycle_level }} |
 | Operational Scope | {{ operational_scope }} |
 | Environment | {{ environment }} |
+
+---
+
+# Operational Capabilities
+
+{% for capability in capabilities %}
+- {{ capability }}
+{% endfor %}
 
 ---
 
@@ -24,6 +34,22 @@
 {% for adapter in adapters %}
 - {{ adapter }}
 {% endfor %}
+
+---
+
+# Operational Workflow
+
+## Detection
+
+Telemetry anomaly identification.
+
+## Visibility
+
+Operational visibility workflow.
+
+## Validation
+
+Connectivity validation workflow.
 
 ---
 

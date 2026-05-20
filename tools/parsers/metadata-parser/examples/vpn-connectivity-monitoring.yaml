@@ -1,12 +1,16 @@
 ﻿scenario_name: vpn-connectivity-monitoring
-
 lifecycle_level: level-1-visibility
-
 operational_scope: enterprise-network-connectivity
-
 environment: hybrid-infrastructure
-
 readme_template: level-1-visibility.md.j2
+
+diagram_profiles:
+  - architecture-overview
+  - workflow-lifecycle
+
+diagram_placement:
+  architecture-overview: top
+  workflow-lifecycle: workflow-section
 
 modules:
   - telemetry-aggregation-module

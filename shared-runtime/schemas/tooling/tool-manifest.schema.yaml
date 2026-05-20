@@ -1,0 +1,43 @@
+﻿type: object
+
+required:
+  - tool
+
+properties:
+
+  tool:
+    type: object
+
+    required:
+      - name
+      - category
+      - runtime
+      - entrypoint
+      - bootstrap
+      - orchestration
+
+    properties:
+
+      name:
+        type: string
+
+      category:
+        type: string
+
+      runtime:
+        type: string
+
+      entrypoint:
+        type: string
+
+      requirements:
+        type: string
+
+      bootstrap:
+        type: boolean
+
+      orchestration:
+        type: boolean
+
+      order:
+        type: integer

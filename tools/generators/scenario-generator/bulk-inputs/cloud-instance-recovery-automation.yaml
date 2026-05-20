@@ -1,0 +1,11 @@
+scenario_name: cloud-instance-recovery-automation
+lifecycle_level: level-3-recovery
+operational_scope: cloud-operations
+environment: hybrid-infrastructure
+capabilities:
+- recovery-orchestration
+- instance-restoration
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture

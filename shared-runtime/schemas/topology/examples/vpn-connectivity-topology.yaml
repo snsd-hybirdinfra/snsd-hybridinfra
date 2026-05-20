@@ -1,0 +1,67 @@
+﻿topology_name: vpn-connectivity-monitoring
+lifecycle_level: level-1-visibility
+
+nodes:
+
+  - id: vpn_gateway
+    label: VPN Gateway
+    type: infrastructure
+    layer: connectivity
+    role: ingress
+    capabilities: []
+
+  - id: branch_router
+    label: Branch Router
+    type: infrastructure
+    layer: connectivity
+    role: routing
+    capabilities: []
+
+  - id: telemetry_engine
+    label: Telemetry Engine
+    type: observability
+    layer: telemetry
+    role: monitoring
+    capabilities:
+      - telemetry-aggregation
+
+  - id: latency_analyzer
+    label: Latency Analyzer
+    type: observability
+    layer: telemetry
+    role: analysis
+    capabilities:
+      - latency-analysis
+
+  - id: grafana_dashboard
+    label: Grafana Dashboard
+    type: visualization
+    layer: visibility
+    role: dashboard
+    capabilities: []
+
+edges:
+
+  - source: vpn_gateway
+    target: telemetry_engine
+    relationship: telemetry-stream
+    direction: outbound
+    criticality: high
+
+  - source: branch_router
+    target: latency_analyzer
+    relationship: telemetry-stream
+    direction: outbound
+    criticality: high
+
+  - source: telemetry_engine
+    target: grafana_dashboard
+    relationship: visibility-feed
+    direction: outbound
+    criticality: medium
+
+  - source: latency_analyzer
+    target: grafana_dashboard
+    relationship: visibility-feed
+    direction: outbound
+    criticality: medium

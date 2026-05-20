@@ -1,0 +1,11 @@
+scenario_name: vpn-tunnel-recovery-automation
+lifecycle_level: level-3-recovery
+operational_scope: network-operations
+environment: hybrid-infrastructure
+capabilities:
+- recovery-orchestration
+- rollback-validation
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture

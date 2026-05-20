@@ -1,0 +1,24 @@
+﻿scenario_name: vpn-connectivity-monitoring
+
+lifecycle_level: level-1-visibility
+
+title: VPN Connectivity Workflow Lifecycle
+
+diagram_type: workflow-lifecycle
+
+output_name: workflow-lifecycle
+
+modules:
+  - telemetry-aggregation-module
+  - latency-analysis-module
+
+adapters:
+  - prometheus-adapter
+  - grafana-adapter
+
+workflow_steps:
+  - telemetry collection
+  - vpn tunnel health check
+  - reachability verification
+  - latency observation
+  - visibility validation

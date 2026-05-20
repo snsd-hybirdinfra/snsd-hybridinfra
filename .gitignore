@@ -1,0 +1,61 @@
+﻿# Python
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+
+venv/
+.venv/
+
+# Runtime Workspace
+
+tools/runtime-workspace/
+
+# Playwright
+
+playwright-report/
+test-results/
+
+# VSCode
+
+.vscode/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Logs
+
+*.log
+
+# Build
+
+dist/
+build/
+
+# Coverage
+
+.coverage
+htmlcov/
+
+# Cache
+
+.pytest_cache/
+
+# Generated Runtime Artifacts
+
+*.tmp
+*.cache
+
+# Node
+
+node_modules/
+
+# SVG exports generated during runtime
+
+tools/**/outputs/
+

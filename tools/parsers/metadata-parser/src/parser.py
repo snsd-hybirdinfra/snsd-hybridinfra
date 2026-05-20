@@ -17,5 +17,13 @@ def parse_scenario_metadata(data: dict) -> ScenarioMetadata:
 
         diagrams=data.get("diagrams", []),
 
-        readme_template=data.get("readme_template", "")
+        diagram_profiles=data.get(
+            "diagram_profiles",
+            []
+        ),
+
+        readme_template=data.get(
+            "readme_template",
+            ""
+        )
     )

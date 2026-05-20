@@ -1,0 +1,11 @@
+scenario_name: kubernetes-cluster-visibility
+lifecycle_level: level-1-visibility
+operational_scope: platform-operations
+environment: hybrid-infrastructure
+capabilities:
+- telemetry-aggregation
+- cluster-visibility
+previous_scenarios: []
+next_scenarios: []
+diagrams:
+- topology-architecture
