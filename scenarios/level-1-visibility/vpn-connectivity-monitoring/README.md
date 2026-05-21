@@ -1,6 +1,6 @@
 ﻿﻿# vpn-connectivity-monitoring
 
-![topology-architecture](./diagrams/topology-architecture.png)
+![Architecture Overview](./diagrams/architecture-overview.png)
 
 # Scenario Metadata
 
@@ -110,5 +110,6 @@ Avoid:
 Primary objective:
 
 enterprise operational visibility establishment.
+
 
 

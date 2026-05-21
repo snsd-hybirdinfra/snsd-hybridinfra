@@ -1,0 +1,75 @@
+﻿diagram:
+  scenario: {{ scenario_name }}
+  lifecycle: {{ lifecycle_level }}
+  type: workflow-overview
+  theme: dark-operational
+
+layers:
+  - id: telemetry
+    label: Telemetry Stage
+
+  - id: analysis
+    label: Analysis Stage
+
+  - id: operational
+    label: Operational Stage
+
+  - id: evidence
+    label: Evidence Stage
+
+nodes:
+  - id: telemetry_ingestion
+    type: telemetry-source
+    layer: telemetry
+    label: Telemetry Ingestion
+
+  - id: visibility_analysis
+    type: analysis-layer
+    layer: analysis
+    label: Visibility Analysis
+
+  - id: anomaly_detection
+    type: analysis-layer
+    layer: analysis
+    label: Anomaly Detection
+
+  - id: alert_propagation
+    type: alert-layer
+    layer: operational
+    label: Alert Propagation
+
+  - id: evidence_aggregation
+    type: evidence-layer
+    layer: evidence
+    label: Evidence Aggregation
+
+  - id: visibility_validation
+    type: evidence-layer
+    layer: evidence
+    label: Visibility Validation
+
+edges:
+  - from: telemetry_ingestion
+    to: visibility_analysis
+    type: telemetry-flow
+    label: telemetry signals
+
+  - from: visibility_analysis
+    to: anomaly_detection
+    type: validation-flow
+    label: threshold evaluation
+
+  - from: anomaly_detection
+    to: alert_propagation
+    type: alert-flow
+    label: anomaly visibility
+
+  - from: alert_propagation
+    to: evidence_aggregation
+    type: evidence-flow
+    label: alert timeline
+
+  - from: evidence_aggregation
+    to: visibility_validation
+    type: validation-flow
+    label: validation evidence

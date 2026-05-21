@@ -1,5 +1,4 @@
 ﻿from pathlib import Path
-import shutil
 import sys
 
 from src.loader import load_yaml
@@ -10,28 +9,33 @@ from src.exporter import export_metadata
 from src.template_renderer import render_template
 from src.template_resolver import resolve_level_template
 
-from src.diagram_runner import (
-    run_diagram_renderer
+from src.diagram_spec_generator import (
+    generate_level_1_specs
+)
+
+from src.diagram_renderer_bridge import (
+    render_scenario_diagrams
 )
 
 
-SCHEMA_PATH = "schemas/scenario-schema.yaml"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+
+SCHEMA_PATH = (
+    REPO_ROOT
+    / "tools"
+    / "generators"
+    / "scenario-generator"
+    / "schemas"
+    / "scenario-schema.yaml"
+)
 
 DEFAULT_EXAMPLE_PATH = (
     "examples/vpn-connectivity-monitoring.yaml"
 )
 
-SCENARIO_ROOT = "../../../scenarios"
-
-REPO_ROOT = Path(__file__).resolve().parents[3]
-
-RENDERER_OUTPUT = (
+SCENARIO_ROOT = (
     REPO_ROOT
-    / "tools"
-    / "renderers"
-    / "diagram-renderer"
-    / "outputs"
-    / "topology-architecture.png"
+    / "scenarios"
 )
 
 
@@ -65,40 +69,31 @@ def create_scenario_structure(
         )
 
 
-def distribute_diagrams(
-    scenario_path: Path
+def generate_diagram_specs(
+    scenario_path: Path,
+    exported: dict
 ):
 
-    diagram_dir = (
-        scenario_path
-        / "diagrams"
-    )
+    lifecycle_level = exported[
+        "lifecycle_level"
+    ]
 
-    diagram_dir.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+    scenario_name = exported[
+        "scenario_name"
+    ]
 
-    target_path = (
-        diagram_dir
-        / "topology-architecture.png"
-    )
+    if lifecycle_level == "level-1-visibility":
 
-    if not RENDERER_OUTPUT.exists():
-
-        raise FileNotFoundError(
-            f"Rendered PNG not found: "
-            f"{RENDERER_OUTPUT}"
+        generate_level_1_specs(
+            scenario_path,
+            scenario_name
         )
 
-    shutil.copy2(
-        RENDERER_OUTPUT,
-        target_path
-    )
+        return
 
     print(
-        f"Distributed topology diagram: "
-        f"{target_path}"
+        f"Diagram spec generation skipped "
+        f"for lifecycle: {lifecycle_level}"
     )
 
 
@@ -117,7 +112,7 @@ def main():
 
     validate_metadata(
         raw_data,
-        SCHEMA_PATH
+        str(SCHEMA_PATH)
     )
 
     metadata = parse_scenario_metadata(
@@ -140,11 +135,11 @@ def main():
 
     scenario_path = (
 
-        Path(SCENARIO_ROOT)
+    SCENARIO_ROOT
 
-        / exported["lifecycle_level"]
+    / exported["lifecycle_level"]
 
-        / exported["scenario_name"]
+    / exported["scenario_name"]
     )
 
     scenario_path.mkdir(
@@ -170,18 +165,22 @@ def main():
         file.write(rendered)
 
     print(
-        f"Scenario package generated: "
-        f"{scenario_path}"
+        f"Scenario README generated: "
+        f"{readme_path}"
+    )
+
+    generate_diagram_specs(
+        scenario_path,
+        exported
+    )
+
+    render_scenario_diagrams(
+        scenario_path
     )
 
     print(
-        "Invoking diagram renderer..."
-    )
-
-    run_diagram_renderer()
-
-    distribute_diagrams(
-        scenario_path
+        f"Scenario package generated: "
+        f"{scenario_path}"
     )
 
     print(

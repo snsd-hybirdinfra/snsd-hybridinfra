@@ -1,0 +1,73 @@
+﻿diagram:
+  scenario: vpn-connectivity-monitoring
+  lifecycle: level-1-visibility
+  type: architecture-overview
+  theme: dark-operational
+
+layers:
+  - id: infrastructure
+    label: Infrastructure Layer
+
+  - id: telemetry
+    label: Telemetry Layer
+
+  - id: analysis
+    label: Analysis Layer
+
+  - id: operational
+    label: Operational Layer
+
+  - id: evidence
+    label: Evidence Layer
+
+nodes:
+  - id: operational_source
+    type: telemetry-source
+    layer: infrastructure
+    label: Operational Source
+
+  - id: telemetry_pipeline
+    type: telemetry-pipeline
+    layer: telemetry
+    label: Telemetry Pipeline
+
+  - id: visibility_analysis
+    type: analysis-layer
+    layer: analysis
+    label: Visibility Analysis
+
+  - id: operational_alerts
+    type: alert-layer
+    layer: operational
+    label: Operational Alerts
+
+  - id: evidence_layer
+    type: evidence-layer
+    layer: evidence
+    label: Operational Evidence
+
+edges:
+  - from: operational_source
+    to: telemetry_pipeline
+    type: telemetry-flow
+    label: telemetry signals
+
+  - from: telemetry_pipeline
+    to: visibility_analysis
+    type: telemetry-flow
+    label: aggregated metrics
+
+  - from: visibility_analysis
+    to: operational_alerts
+    type: alert-flow
+    label: anomaly visibility
+
+  - from: operational_alerts
+    to: evidence_layer
+    type: evidence-flow
+    label: alert evidence
+
+  - from: visibility_analysis
+    to: evidence_layer
+    type: validation-flow
+    label: validation evidence
