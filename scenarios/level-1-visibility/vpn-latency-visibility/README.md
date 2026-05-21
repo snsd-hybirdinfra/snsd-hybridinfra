@@ -210,3 +210,4 @@ This scenario defines the Level-1 golden reference for VPN latency visibility.
 
 It establishes a visibility-only operational scenario focused on telemetry realism, alert visibility, evidence aggregation, and operational observability without introducing recovery, failover, rollback, or continuity logic.
 
+

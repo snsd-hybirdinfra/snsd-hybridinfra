@@ -1,6 +1,6 @@
 ﻿﻿# kubernetes-node-recovery
 
-![topology-architecture](./diagrams/topology-architecture.png)
+![topology-architecture](./diagrams/architecture-overview.png)
 
 # Scenario Metadata
 
@@ -118,5 +118,6 @@ Avoid:
 Primary objective:
 
 recovery orchestration and operational restoration automation.
+
 
 

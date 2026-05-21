@@ -1,6 +1,6 @@
 ﻿﻿# cloud-instance-health-monitoring
 
-![topology-architecture](./diagrams/topology-architecture.png)
+![topology-architecture](./diagrams/architecture-overview.png)
 
 # Scenario Metadata
 
@@ -110,5 +110,6 @@ Avoid:
 Primary objective:
 
 enterprise operational visibility establishment.
+
 
 
