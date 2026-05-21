@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="820">
+<rect width="100%" height="100%" fill="#0f172a" />
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" /></marker></defs>
+<text x="40" y="55" fill="#ffffff" font-size="32" font-weight="bold">vpn-latency-correlation</text>
+<text x="40" y="92" fill="#cbd5e1" font-size="16">level-2-correlation</text>
+<text x="40" y="230" fill="#94a3b8" font-size="18" font-weight="bold">Telemetry Layer</text>
+<line x1="40" y1="248" x2="2100" y2="248" stroke="#334155" stroke-width="1.5" />
+<text x="40" y="-30" fill="#94a3b8" font-size="18" font-weight="bold">Correlation Layer</text>
+<line x1="40" y1="-12" x2="2100" y2="-12" stroke="#334155" stroke-width="1.5" />
+<text x="40" y="350" fill="#94a3b8" font-size="18" font-weight="bold">Analysis Layer</text>
+<line x1="40" y1="368" x2="2100" y2="368" stroke="#334155" stroke-width="1.5" />
+<text x="40" y="470" fill="#94a3b8" font-size="18" font-weight="bold">Operational Layer</text>
+<line x1="40" y1="488" x2="2100" y2="488" stroke="#334155" stroke-width="1.5" />
+<text x="40" y="590" fill="#94a3b8" font-size="18" font-weight="bold">Evidence Layer</text>
+<line x1="40" y1="608" x2="2100" y2="608" stroke="#334155" stroke-width="1.5" />
+<line x1="420" y1="300" x2="180" y2="540" stroke="#38bdf8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="300.0" y="362.0" fill="#cbd5e1" font-size="12" text-anchor="middle">telemetry aggregation</text>
+<line x1="420" y1="540" x2="180" y2="420" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrow)" />
+<text x="300.0" y="422.0" fill="#cbd5e1" font-size="12" text-anchor="middle">anomaly linkage</text>
+<line x1="420" y1="420" x2="180" y2="540" stroke="#f97316" stroke-width="3" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="300.0" y="422.0" fill="#cbd5e1" font-size="12" text-anchor="middle">operational correlation</text>
+<line x1="420" y1="540" x2="180" y2="660" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow)" />
+<text x="300.0" y="542.0" fill="#cbd5e1" font-size="12" text-anchor="middle">correlation evidence</text>
+<rect x="180" y="260" width="240" height="80" rx="14" fill="#2563eb" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="198" y="294" fill="#ffffff" font-size="15" font-weight="bold">Telemetry Ingestion</text>
+<text x="198" y="318" fill="#e2e8f0" font-size="11">telemetry-source</text>
+<rect x="180" y="500" width="240" height="80" rx="14" fill="#7c3aed" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="198" y="534" fill="#ffffff" font-size="15" font-weight="bold">Anomaly Correlation</text>
+<text x="198" y="558" fill="#e2e8f0" font-size="11">analysis-layer</text>
+<rect x="180" y="380" width="240" height="80" rx="14" fill="#7c3aed" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="198" y="414" fill="#ffffff" font-size="15" font-weight="bold">Impact Analysis</text>
+<text x="198" y="438" fill="#e2e8f0" font-size="11">analysis-layer</text>
+<rect x="180" y="500" width="240" height="80" rx="14" fill="#ea580c" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="198" y="534" fill="#ffffff" font-size="15" font-weight="bold">Alert Coordination</text>
+<text x="198" y="558" fill="#e2e8f0" font-size="11">alert-layer</text>
+<rect x="180" y="620" width="240" height="80" rx="14" fill="#16a34a" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="198" y="654" fill="#ffffff" font-size="15" font-weight="bold">Correlation Evidence</text>
+<text x="198" y="678" fill="#e2e8f0" font-size="11">evidence-layer</text>
+</svg>

@@ -1,0 +1,68 @@
+﻿diagram:
+  scenario: {{ scenario_name }}
+  lifecycle: {{ lifecycle_level }}
+  type: workflow-overview
+  theme: dark-operational
+
+layers:
+  - id: detection
+    label: Detection Stage
+
+  - id: continuity
+    label: Continuity Stage
+
+  - id: governance
+    label: Governance Stage
+
+  - id: coordination
+    label: Coordination Stage
+
+  - id: evidence
+    label: Evidence Stage
+
+nodes:
+  - id: enterprise_detection
+    type: telemetry-source
+    layer: detection
+    label: Enterprise Detection
+
+  - id: continuity_activation
+    type: alert-layer
+    layer: continuity
+    label: Continuity Activation
+
+  - id: executive_coordination
+    type: analysis-layer
+    layer: governance
+    label: Executive Coordination
+
+  - id: survivability_coordination
+    type: analysis-layer
+    layer: coordination
+    label: Survivability Coordination
+
+  - id: continuity_confirmation
+    type: evidence-layer
+    layer: evidence
+    label: Continuity Confirmation
+
+edges:
+  - from: enterprise_detection
+    to: continuity_activation
+    type: alert-flow
+    label: continuity trigger
+
+  - from: continuity_activation
+    to: executive_coordination
+    type: validation-flow
+    label: escalation visibility
+
+  - from: executive_coordination
+    to: survivability_coordination
+    type: validation-flow
+    label: cross-domain coordination
+
+  - from: survivability_coordination
+    to: continuity_confirmation
+    type: evidence-flow
+    label: continuity evidence

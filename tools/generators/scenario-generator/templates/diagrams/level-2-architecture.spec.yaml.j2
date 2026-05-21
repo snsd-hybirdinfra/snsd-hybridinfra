@@ -1,0 +1,68 @@
+﻿diagram:
+  scenario: {{ scenario_name }}
+  lifecycle: {{ lifecycle_level }}
+  type: architecture-overview
+  theme: dark-operational
+
+layers:
+  - id: telemetry
+    label: Telemetry Layer
+
+  - id: correlation
+    label: Correlation Layer
+
+  - id: analysis
+    label: Analysis Layer
+
+  - id: operational
+    label: Operational Layer
+
+  - id: evidence
+    label: Evidence Layer
+
+nodes:
+  - id: telemetry_ingestion
+    type: telemetry-source
+    layer: telemetry
+    label: Telemetry Ingestion
+
+  - id: anomaly_correlation
+    type: analysis-layer
+    layer: correlation
+    label: Anomaly Correlation
+
+  - id: impact_analysis
+    type: analysis-layer
+    layer: analysis
+    label: Impact Analysis
+
+  - id: alert_coordination
+    type: alert-layer
+    layer: operational
+    label: Alert Coordination
+
+  - id: evidence_aggregation
+    type: evidence-layer
+    layer: evidence
+    label: Correlation Evidence
+
+edges:
+  - from: telemetry_ingestion
+    to: anomaly_correlation
+    type: telemetry-flow
+    label: telemetry aggregation
+
+  - from: anomaly_correlation
+    to: impact_analysis
+    type: validation-flow
+    label: anomaly linkage
+
+  - from: impact_analysis
+    to: alert_coordination
+    type: alert-flow
+    label: operational correlation
+
+  - from: alert_coordination
+    to: evidence_aggregation
+    type: evidence-flow
+    label: correlation evidence

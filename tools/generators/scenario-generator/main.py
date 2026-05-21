@@ -9,14 +9,15 @@ from src.exporter import export_metadata
 from src.template_renderer import render_template
 from src.template_resolver import resolve_level_template
 
-from src.diagram_spec_generator import (
-    generate_level_1_specs
-)
+
 
 from src.diagram_renderer_bridge import (
     render_scenario_diagrams
 )
 
+from src.diagram_spec_generator import (
+    LIFECYCLE_SPEC_GENERATORS
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
@@ -82,20 +83,25 @@ def generate_diagram_specs(
         "scenario_name"
     ]
 
-    if lifecycle_level == "level-1-visibility":
+    generator = (
+        LIFECYCLE_SPEC_GENERATORS.get(
+            lifecycle_level
+        )
+    )
 
-        generate_level_1_specs(
-            scenario_path,
-            scenario_name
+    if generator is None:
+
+        print(
+            f"No diagram generator registered "
+            f"for lifecycle: {lifecycle_level}"
         )
 
         return
 
-    print(
-        f"Diagram spec generation skipped "
-        f"for lifecycle: {lifecycle_level}"
+    generator(
+        scenario_path,
+        scenario_name
     )
-
 
 def main():
 

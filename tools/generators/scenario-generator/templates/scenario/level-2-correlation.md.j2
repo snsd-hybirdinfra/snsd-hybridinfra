@@ -1,63 +1,55 @@
-﻿# {{ scenario_name }}
+﻿@"
+# {{ scenario_name }}
+
+![Architecture Overview](./diagrams/architecture-overview.png)
+
+---
 
 # Scenario Metadata
 
 | Field | Value |
 |---|---|
-| Scenario Name | {{ scenario_name }} |
-| Lifecycle Level | {{ lifecycle_level }} |
-| Operational Scope | {{ operational_scope }} |
+| Lifecycle | {{ lifecycle_level }} |
+| Category | {{ category }} |
+| Severity | {{ severity }} |
+| Priority | {{ priority }} |
 | Environment | {{ environment }} |
 
 ---
 
-# Correlation Objectives
+# Scenario Overview
 
-- dependency analysis
-- anomaly correlation
-- operational reasoning
+{{ description }}
 
 ---
 
-# Correlation Workflow
+# Operational Workflow
 
-## Detection
+![Workflow Overview](./diagrams/workflow-overview.png)
 
-Telemetry anomaly identification.
-
-## Dependency Analysis
-
-Cross-system relationship analysis.
-
-## Correlation Logic
-
-Operational reasoning workflow.
+1. Telemetry ingestion
+2. Cross-domain anomaly detection
+3. Correlation analysis
+4. Operational impact aggregation
+5. Alert propagation
+6. Evidence aggregation
 
 ---
 
-# Used Modules
+# Validation Strategy
 
-{% for module in modules %}
-- {{ module }}
-{% endfor %}
+| Validation Target | Purpose |
+|---|---|
+| Correlation Consistency | Validate anomaly linkage |
+| Telemetry Integrity | Validate telemetry continuity |
+| Alert Correlation | Validate operational alert propagation |
+| Evidence Aggregation | Validate operational evidence consistency |
 
 ---
 
-# Related Scenarios
+# Summary
 
-## Previous
-
-{% for scenario in previous_scenarios %}
-- {{ scenario }}
-{% else %}
-- None
-{% endfor %}
-
-## Next
-
-{% for scenario in next_scenarios %}
-- {{ scenario }}
-{% else %}
-- None
-{% endfor %}
-
+This scenario establishes Level-2 operational anomaly correlation workflows across enterprise hybrid infrastructure environments.
+"@ | Set-Content `
+".\tools\generators\scenario-generator\templates\levels\level-2-correlation\readme.md.j2" `
+-Encoding UTF8

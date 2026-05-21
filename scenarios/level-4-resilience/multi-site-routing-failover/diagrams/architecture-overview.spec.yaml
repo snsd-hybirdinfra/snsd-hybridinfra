@@ -1,0 +1,68 @@
+﻿diagram:
+  scenario: multi-site-routing-failover
+  lifecycle: level-4-resilience
+  type: architecture-overview
+  theme: dark-operational
+
+layers:
+  - id: detection
+    label: Detection Layer
+
+  - id: resilience
+    label: Resilience Layer
+
+  - id: failover
+    label: Failover Layer
+
+  - id: validation
+    label: Validation Layer
+
+  - id: evidence
+    label: Evidence Layer
+
+nodes:
+  - id: regional_degradation
+    type: telemetry-source
+    layer: detection
+    label: Regional Degradation
+
+  - id: failover_coordination
+    type: alert-layer
+    layer: resilience
+    label: Failover Coordination
+
+  - id: route_convergence
+    type: analysis-layer
+    layer: failover
+    label: Route Convergence
+
+  - id: survivability_validation
+    type: evidence-layer
+    layer: validation
+    label: Survivability Validation
+
+  - id: resilience_evidence
+    type: evidence-layer
+    layer: evidence
+    label: Resilience Evidence
+
+edges:
+  - from: regional_degradation
+    to: failover_coordination
+    type: alert-flow
+    label: failover activation
+
+  - from: failover_coordination
+    to: route_convergence
+    type: validation-flow
+    label: routing transition
+
+  - from: route_convergence
+    to: survivability_validation
+    type: validation-flow
+    label: survivability validation
+
+  - from: survivability_validation
+    to: resilience_evidence
+    type: evidence-flow
+    label: resilience evidence

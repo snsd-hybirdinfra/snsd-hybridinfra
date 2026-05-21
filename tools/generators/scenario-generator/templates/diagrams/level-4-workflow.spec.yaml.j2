@@ -1,0 +1,68 @@
+﻿diagram:
+  scenario: {{ scenario_name }}
+  lifecycle: {{ lifecycle_level }}
+  type: workflow-overview
+  theme: dark-operational
+
+layers:
+  - id: detection
+    label: Detection Stage
+
+  - id: resilience
+    label: Resilience Stage
+
+  - id: failover
+    label: Failover Stage
+
+  - id: validation
+    label: Validation Stage
+
+  - id: evidence
+    label: Evidence Stage
+
+nodes:
+  - id: degradation_detection
+    type: telemetry-source
+    layer: detection
+    label: Degradation Detection
+
+  - id: distributed_failover
+    type: alert-layer
+    layer: resilience
+    label: Distributed Failover
+
+  - id: dependency_failover
+    type: analysis-layer
+    layer: failover
+    label: Dependency Failover
+
+  - id: survivability_validation
+    type: analysis-layer
+    layer: validation
+    label: Survivability Validation
+
+  - id: resilience_confirmation
+    type: evidence-layer
+    layer: evidence
+    label: Resilience Confirmation
+
+edges:
+  - from: degradation_detection
+    to: distributed_failover
+    type: alert-flow
+    label: failover trigger
+
+  - from: distributed_failover
+    to: dependency_failover
+    type: validation-flow
+    label: dependency sequencing
+
+  - from: dependency_failover
+    to: survivability_validation
+    type: validation-flow
+    label: survivability verification
+
+  - from: survivability_validation
+    to: resilience_confirmation
+    type: evidence-flow
+    label: resilience evidence

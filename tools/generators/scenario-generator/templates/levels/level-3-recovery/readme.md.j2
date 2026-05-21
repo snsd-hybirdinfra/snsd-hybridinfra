@@ -1,56 +1,189 @@
-﻿{% extends "shared/base-readme.md.j2" %}
+﻿# 1. Repository Path
 
-{% set workflow_section %}
+    /scenarios/{{ lifecycle_level }}/{{ scenario_name }}
 
-## Detection
+---
 
-Operational degradation and recovery trigger detection.
+# 2. Scenario Metadata
 
-## Correlation
+| Field | Value |
+|---|---|
+| Scenario Name | {{ scenario_name }} |
+| Lifecycle | {{ lifecycle_level }} |
+| Severity | {{ severity }} |
+| Environment | {{ environment }} |
+| Validation Scope | Recovery Orchestration |
 
-Infrastructure dependency and service impact analysis.
+---
 
-## Incident Coordination
+# 3. Scenario Purpose
 
-Operational incident coordination and escalation workflow.
+{{ description }}
 
-## Recovery Orchestration
+This scenario establishes Level-3 recovery orchestration by coordinating restoration sequencing, rollback visibility, recovery validation, and operational evidence generation.
 
-Automated recovery execution and rollback coordination.
+---
 
-## Validation
+# 4. Operational Relevance
 
-Post-recovery operational validation and service restoration verification.
+Recovery scenarios represent the transition from detection and correlation into controlled operational restoration.
 
-## Reporting
+This scenario focuses on restoring service health through coordinated recovery workflows while validating that recovery actions are observable, reviewable, and operationally safe.
 
-Recovery execution evidence collection and reporting.
+---
 
-{% endset %}
+# 5. Design Reasoning
 
-{% set validation_section %}
+This scenario intentionally remains within the Level-3 Recovery lifecycle boundary.
 
-- recovery automation validation
-- rollback workflow validation
-- recovery dependency validation
-- service restoration validation
-- operational evidence validation
+The design allows recovery orchestration, rollback visibility, restoration sequencing, and recovery validation.
 
-{% endset %}
+Distributed resilience failover, enterprise continuity escalation, and executive governance coordination are intentionally excluded.
 
-{% set governance_notes %}
+---
 
-L3 scenarios must remain recovery-oriented.
+# 6. Scenario Objectives
 
-Avoid:
+- Coordinate recovery orchestration workflows
+- Validate rollback visibility
+- Restore operational service health
+- Validate recovery sequencing
+- Aggregate recovery evidence
+- Preserve strict Level-3 Recovery lifecycle purity
 
-- enterprise continuity governance
-- multi-region survivability orchestration
-- executive continuity coordination
+---
 
-Primary objective:
+# 7. Scenario Architecture
 
-recovery orchestration and operational restoration automation.
+![Architecture Overview](./diagrams/architecture-overview.png)
 
-{% endset %}
+The operational architecture focuses on recovery coordination across detection, recovery execution, validation, and evidence layers.
 
+---
+
+# 8. Used Modules
+
+| Module | Operational Responsibility |
+|---|---|
+| Recovery Coordination Module | Coordinate restoration workflows |
+| Rollback Visibility Module | Validate rollback-oriented operational visibility |
+| Recovery Sequencing Module | Coordinate restoration ordering |
+| Recovery Evidence Module | Aggregate recovery validation evidence |
+
+---
+
+# 9. Used Adapters
+
+| Adapter | Integration Responsibility |
+|---|---|
+| Recovery Execution Adapter | Trigger controlled recovery actions |
+| Prometheus Adapter | Aggregate recovery telemetry |
+| Grafana Visualization Adapter | Present recovery dashboards |
+| Alertmanager Notification Adapter | Propagate recovery alerts |
+
+---
+
+# 10. Implementation Approach
+
+The implementation approach follows a recovery-first operational flow.
+
+Telemetry and correlation evidence initiate recovery orchestration. Recovery sequencing coordinates restoration actions, rollback visibility, and dependency-aware validation.
+
+Evidence aggregation consolidates recovery timelines, dashboard evidence, rollback evidence, and restoration validation outputs.
+
+---
+
+# 11. Telemetry & Evidence Strategy
+
+## Telemetry Metrics
+
+| Metric | Operational Purpose |
+|---|---|
+| recovery_duration_seconds | Measure recovery execution duration |
+| rollback_execution_count | Track rollback visibility |
+| recovery_validation_success_percent | Validate recovery completion |
+| service_health_after_recovery_percent | Confirm restored service health |
+
+## Alert Strategy
+
+| Alert | Operational Trigger |
+|---|---|
+| Recovery Execution Alert | Recovery orchestration activated |
+| Rollback Visibility Alert | Rollback path observed |
+| Recovery Validation Failure Alert | Restoration validation failed |
+
+## Evidence Strategy
+
+| Evidence | Validation Purpose |
+|---|---|
+| Recovery Timeline Evidence | Validate recovery sequencing |
+| Rollback Evidence | Validate rollback visibility |
+| Recovery Dashboard Evidence | Validate recovery observability |
+| Restoration Evidence | Confirm recovery success |
+
+---
+
+# 12. Operational Workflow
+
+![Workflow Overview](./diagrams/workflow-overview.png)
+
+## Recovery Flow
+
+    Degradation Confirmation
+    → Recovery Orchestration Activation
+    → Restoration Sequencing
+    → Rollback Visibility Validation
+    → Recovery Validation
+    → Evidence Aggregation
+    → Restoration Confirmation
+
+---
+
+# 13. Validation Workflow
+
+| Validation Target | Validation Purpose |
+|---|---|
+| Recovery Sequencing | Confirm restoration order |
+| Rollback Visibility | Confirm rollback path observability |
+| Service Health | Confirm restored operational health |
+| Evidence Aggregation | Confirm recovery evidence collection |
+| Lifecycle Purity | Confirm no L4/L5 scope leakage |
+
+## Validation Flow
+
+    Recovery Telemetry Validation
+    → Restoration Verification
+    → Rollback Visibility Verification
+    → Dashboard Validation
+    → Evidence Verification
+    → Recovery Confirmation
+
+---
+
+# 14. Scenario Package Structure
+
+    {{ scenario_name }}/
+    ├── README.md
+    ├── diagrams/
+    ├── evidence/
+    ├── artifacts/
+    ├── architecture/
+    └── implementation/
+
+---
+
+# 15. Related Scenarios
+
+| Relationship Type | Scenario |
+|---|---|
+| Previous Lifecycle Scenario | /scenarios/level-2-correlation/cross-region-network-anomaly-correlation |
+| Next Lifecycle Scenario | /scenarios/level-4-resilience/multi-region-service-failover-resilience |
+| Continuity Reference | /scenarios/level-5-continuity/enterprise-service-continuity-coordination |
+
+---
+
+# 16. Summary
+
+This scenario defines a Level-3 recovery-oriented operational scenario.
+
+It prioritizes recovery orchestration, rollback visibility, restoration validation, and operational evidence aggregation while preserving strict Level-3 Recovery lifecycle purity.

@@ -1,0 +1,65 @@
+﻿diagram:
+  scenario: {{ scenario_name }}
+  lifecycle: {{ lifecycle_level }}
+  type: architecture-overview
+  theme: dark-operational
+
+layers:
+  - id: detection
+    label: Detection Layer
+
+  - id: recovery
+    label: Recovery Layer
+
+  - id: validation
+    label: Validation Layer
+
+  - id: evidence
+    label: Evidence Layer
+
+nodes:
+  - id: degradation_confirmation
+    type: telemetry-source
+    layer: detection
+    label: Degradation Confirmation
+
+  - id: recovery_orchestration
+    type: alert-layer
+    layer: recovery
+    label: Recovery Orchestration
+
+  - id: rollback_visibility
+    type: analysis-layer
+    layer: recovery
+    label: Rollback Visibility
+
+  - id: recovery_validation
+    type: evidence-layer
+    layer: validation
+    label: Recovery Validation
+
+  - id: recovery_evidence
+    type: evidence-layer
+    layer: evidence
+    label: Recovery Evidence
+
+edges:
+  - from: degradation_confirmation
+    to: recovery_orchestration
+    type: alert-flow
+    label: recovery activation
+
+  - from: recovery_orchestration
+    to: rollback_visibility
+    type: validation-flow
+    label: rollback visibility
+
+  - from: rollback_visibility
+    to: recovery_validation
+    type: validation-flow
+    label: restoration validation
+
+  - from: recovery_validation
+    to: recovery_evidence
+    type: evidence-flow
+    label: recovery evidence
