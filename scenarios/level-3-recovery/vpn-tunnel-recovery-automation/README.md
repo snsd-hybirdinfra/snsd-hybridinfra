@@ -6,18 +6,32 @@
 
 # 2. Scenario Metadata
 
-| Field | Value |
+﻿| Field | Value |
 |---|---|
+| Scenario ID | SCN-L3-VPN-TUNNEL-RECOVERY-AUTOMATION |
 | Scenario Name | vpn-tunnel-recovery-automation |
+| Scenario Title | VPN Tunnel Recovery Automation |
 | Lifecycle | level-3-recovery |
-| Severity |  |
-| Environment | hybrid-infrastructure |
-| Validation Scope | Recovery Orchestration |
-
+| Severity | Critical |
+| Priority | P1 |
+| Environment | Hybrid Infrastructure |
+| Category | Enterprise Network Recovery |
+| Validation Scope | VPN Tunnel Recovery Orchestration |
+| Operational Domain | network-operations |
+| Operational Pattern | recovery |
+| Capability Tier | recovery-orchestration |
+| Telemetry Scope | tunnel health, recovery duration, route restoration, validation status |
+| Recovery Scope | vpn tunnel restoration |
+| Governance Scope | none |
+| Template Profile | canonical-lifecycle |
+| Diagram Profile | core-operational |
+| Validation Profile | recovery-validation |
+| Maturity Profile | golden-baseline |
 ---
 
 # 3. Scenario Purpose
 
+Establish operational recovery orchestration for VPN tunnel degradation through restoration sequencing, rollback visibility, and recovery validation.
 
 
 This scenario establishes Level-3 recovery orchestration by coordinating restoration sequencing, rollback visibility, recovery validation, and operational evidence generation.
@@ -187,3 +201,4 @@ Evidence aggregation consolidates recovery timelines, dashboard evidence, rollba
 This scenario defines a Level-3 recovery-oriented operational scenario.
 
 It prioritizes recovery orchestration, rollback visibility, restoration validation, and operational evidence aggregation while preserving strict Level-3 Recovery lifecycle purity.
+

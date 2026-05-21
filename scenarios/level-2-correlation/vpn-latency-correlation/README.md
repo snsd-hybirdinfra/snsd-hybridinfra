@@ -6,18 +6,32 @@
 
 # 2. Scenario Metadata
 
-| Field | Value |
+﻿| Field | Value |
 |---|---|
+| Scenario ID | SCN-L2-VPN-LATENCY-CORRELATION |
 | Scenario Name | vpn-latency-correlation |
+| Scenario Title | VPN Latency Correlation |
 | Lifecycle | level-2-correlation |
-| Severity |  |
-| Environment | hybrid-infrastructure |
-| Validation Scope | Correlation Visibility |
-
+| Severity | High |
+| Priority | P1 |
+| Environment | Hybrid Infrastructure |
+| Category | Enterprise Network Correlation |
+| Validation Scope | Network Anomaly Correlation |
+| Operational Domain | network-operations |
+| Operational Pattern | correlation |
+| Capability Tier | correlation-analysis |
+| Telemetry Scope | VPN latency, packet loss, jitter, route visibility |
+| Recovery Scope | none |
+| Governance Scope | none |
+| Template Profile | canonical-lifecycle |
+| Diagram Profile | core-operational |
+| Validation Profile | correlation-validation |
+| Maturity Profile | golden-baseline |
 ---
 
 # 3. Scenario Purpose
 
+Establish operational correlation for VPN latency degradation, packet loss anomalies, and cross-domain network visibility signals.
 
 
 This scenario establishes Level-2 correlation visibility by connecting distributed telemetry signals, anomaly patterns, dependency indicators, and operational evidence into a correlation-oriented analysis workflow.
@@ -205,3 +219,5 @@ This workflow intentionally excludes recovery orchestration, rollback execution,
 This scenario defines a Level-2 correlation-oriented operational scenario.
 
 It prioritizes cross-signal reasoning, dependency visibility, anomaly relationship analysis, alert correlation, and operational evidence aggregation while preserving strict Level-2 Correlation lifecycle purity.
+
+

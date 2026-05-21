@@ -3,60 +3,73 @@
 required:
   - scenario_name
   - lifecycle_level
-  - operational_scope
+  - category
+  - severity
+  - priority
   - environment
+  - description
 
 properties:
 
+  scenario_id:
+    type: string
+
   scenario_name:
+    type: string
+
+  scenario_title:
     type: string
 
   lifecycle_level:
     type: string
 
-  operational_scope:
+  operational_domain:
+    type: string
+
+  operational_pattern:
+    type: string
+
+  capability_tier:
+    type: string
+
+  category:
+    type: string
+
+  severity:
+    type: string
+
+  priority:
     type: string
 
   environment:
     type: string
 
-  capabilities:
-    type: array
-    items:
-      type: string
-
-  readme_template:
+  validation_scope:
     type: string
 
-  modules:
-    type: array
-    items:
-      type: string
+  telemetry_scope:
+    type: string
 
-  adapters:
-    type: array
-    items:
-      type: string
+  recovery_scope:
+    type: string
 
-  previous_scenarios:
-    type: array
-    items:
-      type: string
+  governance_scope:
+    type: string
 
-  next_scenarios:
-    type: array
-    items:
-      type: string
+  description:
+    type: string
 
-  diagrams:
-    type: array
-    items:
-      type: string
+  template_profile:
+    type: string
 
-  diagram_profiles:
-    type: array
-    items:
-      type: string
+  diagram_profile:
+    type: string
 
-  diagram_placement:
+  validation_profile:
+    type: string
+
+  maturity_profile:
+    type: string
+
+  relationships:
     type: object

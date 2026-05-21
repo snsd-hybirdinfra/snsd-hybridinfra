@@ -1,48 +1,182 @@
-﻿{% extends "shared/base-readme.md.j2" %}
+﻿# 1. Repository Path
 
-{% set workflow_section %}
+    /scenarios/{{ lifecycle_level }}/{{ scenario_name }}
 
-## Detection
+---
 
-Telemetry collection and operational visibility monitoring.
+# 2. Scenario Metadata
 
-## Monitoring
+{% include 'shared/metadata-table.md.j2' %}
 
-VPN connectivity telemetry aggregation and health monitoring.
+---
 
-## Visibility
+# 3. Scenario Purpose
 
-Dashboard-based operational visibility validation.
+{{ description }}
 
-## Alerting
+This scenario establishes Level-1 visibility by collecting telemetry signals, exposing operational health, and generating visibility-oriented evidence.
 
-Connectivity anomaly alert generation.
+---
 
-{% endset %}
+# 4. Operational Relevance
 
-{% set validation_section %}
+Level-1 visibility scenarios establish the operational baseline required before correlation, recovery, resilience, or continuity workflows can be trusted.
 
-- telemetry continuity validation
-- visibility pipeline validation
-- connectivity health validation
-- dashboard operational visibility validation
+This scenario focuses on making infrastructure conditions observable, measurable, and reviewable.
 
-{% endset %}
+---
 
-{% set governance_notes %}
+# 5. Design Reasoning
 
-L1 scenarios must remain visibility-oriented.
+This scenario intentionally remains within the Level-1 Visibility lifecycle boundary.
 
-Avoid:
+The design focuses on telemetry collection, monitoring visibility, dashboard review, alert visibility, and operational evidence generation.
 
-- recovery orchestration
-- distributed coordination
-- resilience governance
-- enterprise continuity orchestration
+Recovery orchestration, rollback execution, distributed failover, and continuity governance are intentionally excluded.
 
-Primary objective:
+---
 
-enterprise operational visibility establishment.
+# 6. Scenario Objectives
 
-{% endset %}
+- Establish telemetry visibility
+- Validate monitoring continuity
+- Surface operational health indicators
+- Generate alert visibility
+- Aggregate visibility evidence
+- Preserve strict Level-1 Visibility lifecycle purity
 
+---
+
+# 7. Scenario Architecture
+
+![Architecture Overview](./diagrams/architecture-overview.png)
+
+The operational architecture focuses on visibility across telemetry source, telemetry pipeline, analysis, alerting, and evidence layers.
+
+---
+
+# 8. Used Modules
+
+| Module | Operational Responsibility |
+|---|---|
+| Telemetry Collection Module | Collect operational telemetry signals |
+| Visibility Analysis Module | Analyze operational health visibility |
+| Alert Visibility Module | Surface visibility-oriented alerts |
+| Evidence Aggregation Module | Consolidate visibility evidence |
+
+---
+
+# 9. Used Adapters
+
+| Adapter | Integration Responsibility |
+|---|---|
+| Prometheus Adapter | Aggregate telemetry metrics |
+| Grafana Visualization Adapter | Present visibility dashboards |
+| Alertmanager Notification Adapter | Propagate visibility alerts |
+| Telemetry Source Adapter | Collect infrastructure health signals |
+
+---
+
+# 10. Implementation Approach
+
+The implementation approach follows a visibility-first operational flow.
+
+Telemetry signals are collected from infrastructure sources and aggregated into centralized observability pipelines. Visibility analysis evaluates health indicators and surfaces anomalies through dashboards and alerts.
+
+Evidence aggregation consolidates metric snapshots, dashboard views, alert timelines, and validation outputs.
+
+The implementation intentionally avoids recovery execution, rollback automation, failover orchestration, and continuity escalation.
+
+---
+
+# 11. Telemetry & Evidence Strategy
+
+## Telemetry Metrics
+
+| Metric | Operational Purpose |
+|---|---|
+| telemetry_availability_percent | Validate telemetry continuity |
+| service_health_visibility_percent | Confirm observable service health |
+| alert_visibility_count | Validate alert visibility generation |
+| dashboard_refresh_success_percent | Confirm dashboard visibility consistency |
+
+## Alert Strategy
+
+| Alert | Operational Trigger |
+|---|---|
+| Visibility Signal Missing Alert | Telemetry signal unavailable |
+| Health Visibility Degradation Alert | Operational health visibility degraded |
+| Monitoring Pipeline Warning | Visibility pipeline instability detected |
+
+## Evidence Strategy
+
+| Evidence | Validation Purpose |
+|---|---|
+| Telemetry Query Evidence | Validate telemetry aggregation |
+| Dashboard Evidence | Validate operational visibility |
+| Alert Timeline Evidence | Validate alert propagation |
+| Visibility Validation Evidence | Confirm observable operational state |
+
+---
+
+# 12. Operational Workflow
+
+![Workflow Overview](./diagrams/workflow-overview.png)
+
+## Visibility Flow
+
+    Telemetry Collection
+    → Monitoring Aggregation
+    → Visibility Analysis
+    → Alert Visibility
+    → Evidence Aggregation
+    → Visibility Validation
+
+---
+
+# 13. Validation Workflow
+
+| Validation Target | Validation Purpose |
+|---|---|
+| Telemetry Continuity | Confirm telemetry collection is observable |
+| Monitoring Visibility | Confirm operational monitoring visibility |
+| Alert Visibility | Confirm visibility alert generation |
+| Evidence Aggregation | Confirm visibility evidence collection |
+| Lifecycle Purity | Confirm no recovery or resilience workflow is introduced |
+
+## Validation Flow
+
+    Telemetry Validation
+    → Monitoring Visibility Verification
+    → Alert Visibility Verification
+    → Dashboard Validation
+    → Evidence Verification
+    → Visibility Confirmation
+
+---
+
+# 14. Scenario Package Structure
+
+    {{ scenario_name }}/
+    ├── README.md
+    ├── diagrams/
+    ├── evidence/
+    ├── artifacts/
+    ├── architecture/
+    └── implementation/
+
+---
+
+# 15. Related Scenarios
+
+| Relationship Type | Scenario |
+|---|---|
+| Next Lifecycle Scenario | {{ relationships.next_lifecycle_scenario | default('N/A') }} |
+
+---
+
+# 16. Summary
+
+This scenario defines a Level-1 visibility-oriented operational scenario.
+
+It prioritizes telemetry visibility, monitoring continuity, alert visibility, and operational evidence aggregation while preserving strict Level-1 Visibility lifecycle purity.

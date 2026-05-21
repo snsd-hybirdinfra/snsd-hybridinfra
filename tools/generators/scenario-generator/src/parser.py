@@ -1,98 +1,140 @@
-﻿from models.scenario_metadata import ScenarioMetadata
-
-from configs.diagram_profile_mapping import (
-    DIAGRAM_PROFILE_MAPPING
-)
-
-from configs.diagram_placement_mapping import (
-    DIAGRAM_PLACEMENT_MAPPING
-)
-
-from src.capability_inference import (
-    infer_modules_and_adapters
-)
+﻿from dataclasses import dataclass
+from typing import Optional
 
 
-def parse_scenario_metadata(data: dict) -> ScenarioMetadata:
+@dataclass
+class ScenarioMetadata:
 
-    lifecycle_level = data["lifecycle_level"]
+    scenario_id: Optional[str]
 
-    capabilities = data.get(
-        "capabilities",
-        []
-    )
+    scenario_name: str
 
-    inferred = infer_modules_and_adapters(
-        capabilities
-    )
+    scenario_title: Optional[str]
 
-    default_diagrams = DIAGRAM_PROFILE_MAPPING.get(
-        lifecycle_level,
-        []
-    )
+    lifecycle_level: str
 
-    diagram_profiles = data.get(
-        "diagram_profiles",
-        default_diagrams
-    )
+    operational_domain: Optional[str]
 
-    default_placement = {}
+    operational_pattern: Optional[str]
 
-    for diagram in diagram_profiles:
+    capability_tier: Optional[str]
 
-        default_placement[diagram] = (
-            DIAGRAM_PLACEMENT_MAPPING.get(
-                diagram,
-                "section"
-            )
-        )
+    category: str
+
+    severity: str
+
+    priority: str
+
+    environment: str
+
+    validation_scope: Optional[str]
+
+    telemetry_scope: Optional[str]
+
+    recovery_scope: Optional[str]
+
+    governance_scope: Optional[str]
+
+    description: str
+
+    template_profile: Optional[str]
+
+    diagram_profile: Optional[str]
+
+    validation_profile: Optional[str]
+
+    maturity_profile: Optional[str]
+
+    relationships: Optional[dict]
+
+
+def parse_scenario_metadata(
+    raw_data: dict
+):
 
     return ScenarioMetadata(
 
-        scenario_name=data["scenario_name"],
-
-        lifecycle_level=lifecycle_level,
-
-        operational_scope=data["operational_scope"],
-
-        environment=data["environment"],
-
-        capabilities=capabilities,
-
-        modules=data.get(
-            "modules",
-            inferred["modules"]
+        scenario_id=raw_data.get(
+            "scenario_id"
         ),
 
-        adapters=data.get(
-            "adapters",
-            inferred["adapters"]
+        scenario_name=raw_data[
+            "scenario_name"
+        ],
+
+        scenario_title=raw_data.get(
+            "scenario_title"
         ),
 
-        previous_scenarios=data.get(
-            "previous_scenarios",
-            []
+        lifecycle_level=raw_data[
+            "lifecycle_level"
+        ],
+
+        operational_domain=raw_data.get(
+            "operational_domain"
         ),
 
-        next_scenarios=data.get(
-            "next_scenarios",
-            []
+        operational_pattern=raw_data.get(
+            "operational_pattern"
         ),
 
-        diagrams=data.get(
-            "diagrams",
-            diagram_profiles
+        capability_tier=raw_data.get(
+            "capability_tier"
         ),
 
-        diagram_profiles=diagram_profiles,
+        category=raw_data[
+            "category"
+        ],
 
-        diagram_placement=data.get(
-            "diagram_placement",
-            default_placement
+        severity=raw_data[
+            "severity"
+        ],
+
+        priority=raw_data[
+            "priority"
+        ],
+
+        environment=raw_data[
+            "environment"
+        ],
+
+        validation_scope=raw_data.get(
+            "validation_scope"
         ),
 
-        readme_template=data.get(
-            "readme_template",
-            ""
+        telemetry_scope=raw_data.get(
+            "telemetry_scope"
+        ),
+
+        recovery_scope=raw_data.get(
+            "recovery_scope"
+        ),
+
+        governance_scope=raw_data.get(
+            "governance_scope"
+        ),
+
+        description=raw_data[
+            "description"
+        ],
+
+        template_profile=raw_data.get(
+            "template_profile"
+        ),
+
+        diagram_profile=raw_data.get(
+            "diagram_profile"
+        ),
+
+        validation_profile=raw_data.get(
+            "validation_profile"
+        ),
+
+        maturity_profile=raw_data.get(
+            "maturity_profile"
+        ),
+
+        relationships=raw_data.get(
+            "relationships"
         )
     )

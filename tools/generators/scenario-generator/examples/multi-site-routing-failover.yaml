@@ -1,21 +1,34 @@
-﻿scenario_name: multi-site-routing-failover
-
+﻿scenario_id: SCN-L4-MULTI-SITE-ROUTING-FAILOVER
+scenario_name: multi-site-routing-failover
+scenario_title: Multi-Site Routing Failover
 lifecycle_level: level-4-resilience
 
-operational_scope: distributed-network-resilience
+operational_domain: network-operations
+operational_pattern: resilience
+capability_tier: distributed-resilience
 
-environment: hybrid-infrastructure
+category: Enterprise Network Resilience
+severity: Critical
+priority: P1
+environment: Hybrid Multi-Site Infrastructure
 
-capabilities:
-  - distributed-failover
-  - resilience-coordination
-  - survivability-validation
+validation_scope: Distributed Routing Failover Resilience
+telemetry_scope: regional availability, route convergence, failover duration, survivability status
+recovery_scope: distributed failover coordination
+governance_scope: none
 
-previous_scenarios:
-  - vpn-tunnel-recovery-automation
+description: >
+  Establish distributed resilience coordination for multi-site routing failover
+  through route convergence validation, survivability visibility, and resilience evidence.
 
-next_scenarios:
-  - enterprise-network-continuity
+template_profile: canonical-lifecycle
+diagram_profile: core-operational
+validation_profile: resilience-validation
+maturity_profile: golden-baseline
 
-diagrams:
-  - topology-architecture
+relationships:
+  previous_lifecycle_scenario: /scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+  next_lifecycle_scenario: /scenarios/level-5-continuity/enterprise-network-continuity
+  related_capabilities:
+    - Distributed Failover Coordination Module
+    - Regional Resilience Visibility Module

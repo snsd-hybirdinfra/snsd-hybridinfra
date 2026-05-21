@@ -6,18 +6,32 @@
 
 # 2. Scenario Metadata
 
-| Field | Value |
+﻿| Field | Value |
 |---|---|
+| Scenario ID | SCN-L4-MULTI-SITE-ROUTING-FAILOVER |
 | Scenario Name | multi-site-routing-failover |
+| Scenario Title | Multi-Site Routing Failover |
 | Lifecycle | level-4-resilience |
-| Severity |  |
-| Environment | hybrid-infrastructure |
-| Validation Scope | Distributed Resilience |
-
+| Severity | Critical |
+| Priority | P1 |
+| Environment | Hybrid Multi-Site Infrastructure |
+| Category | Enterprise Network Resilience |
+| Validation Scope | Distributed Routing Failover Resilience |
+| Operational Domain | network-operations |
+| Operational Pattern | resilience |
+| Capability Tier | distributed-resilience |
+| Telemetry Scope | regional availability, route convergence, failover duration, survivability status |
+| Recovery Scope | distributed failover coordination |
+| Governance Scope | none |
+| Template Profile | canonical-lifecycle |
+| Diagram Profile | core-operational |
+| Validation Profile | resilience-validation |
+| Maturity Profile | golden-baseline |
 ---
 
 # 3. Scenario Purpose
 
+Establish distributed resilience coordination for multi-site routing failover through route convergence validation, survivability visibility, and resilience evidence.
 
 
 This scenario establishes Level-4 resilience by coordinating distributed failover, survivability validation, dependency-aware resilience workflows, and operational evidence generation.
@@ -190,3 +204,4 @@ The implementation intentionally avoids executive continuity escalation and ente
 This scenario defines a Level-4 resilience-oriented operational scenario.
 
 It prioritizes distributed failover coordination, regional survivability, route convergence validation, technical service continuity, and resilience evidence aggregation while preserving strict Level-4 Resilience lifecycle purity.
+

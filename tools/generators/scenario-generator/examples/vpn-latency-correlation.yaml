@@ -1,20 +1,34 @@
-﻿scenario_name: vpn-latency-correlation
-
+﻿scenario_id: SCN-L2-VPN-LATENCY-CORRELATION
+scenario_name: vpn-latency-correlation
+scenario_title: VPN Latency Correlation
 lifecycle_level: level-2-correlation
 
-operational_scope: enterprise-network-correlation
+operational_domain: network-operations
+operational_pattern: correlation
+capability_tier: correlation-analysis
 
-environment: hybrid-infrastructure
+category: Enterprise Network Correlation
+severity: High
+priority: P1
+environment: Hybrid Infrastructure
 
-capabilities:
-  - telemetry-aggregation
-  - latency-analysis
+validation_scope: Network Anomaly Correlation
+telemetry_scope: VPN latency, packet loss, jitter, route visibility
+recovery_scope: none
+governance_scope: none
 
-previous_scenarios:
-  - vpn-connectivity-monitoring
+description: >
+  Establish operational correlation for VPN latency degradation,
+  packet loss anomalies, and cross-domain network visibility signals.
 
-next_scenarios:
-  - vpn-tunnel-recovery-automation
+template_profile: canonical-lifecycle
+diagram_profile: core-operational
+validation_profile: correlation-validation
+maturity_profile: golden-baseline
 
-diagrams:
-  - topology-architecture
+relationships:
+  previous_lifecycle_scenario: /scenarios/level-1-visibility/vpn-connectivity-monitoring
+  next_lifecycle_scenario: /scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+  related_capabilities:
+    - Cross-Domain Telemetry Aggregation Module
+    - Anomaly Correlation Module

@@ -1,20 +1,33 @@
-﻿scenario_name: enterprise-network-continuity
-
+﻿scenario_id: SCN-L5-ENTERPRISE-NETWORK-CONTINUITY
+scenario_name: enterprise-network-continuity
+scenario_title: Enterprise Network Continuity
 lifecycle_level: level-5-continuity
 
-operational_scope: enterprise-operational-continuity
+operational_domain: network-operations
+operational_pattern: continuity
+capability_tier: enterprise-continuity
 
-environment: hybrid-infrastructure
+category: Enterprise Network Continuity
+severity: Critical
+priority: P1
+environment: Enterprise Hybrid Infrastructure
 
-capabilities:
-  - continuity-governance
-  - executive-visibility
-  - cross-domain-coordination
+validation_scope: Enterprise Network Continuity Coordination
+telemetry_scope: enterprise availability, escalation timing, cross-domain impact, governance execution
+recovery_scope: organizational continuity coordination
+governance_scope: executive escalation and continuity governance
 
-previous_scenarios:
-  - multi-site-routing-failover
+description: >
+  Establish enterprise continuity coordination for network service disruption
+  through executive visibility, governance-aware escalation, and cross-domain survivability validation.
 
-next_scenarios: []
+template_profile: canonical-lifecycle
+diagram_profile: core-operational
+validation_profile: continuity-validation
+maturity_profile: golden-baseline
 
-diagrams:
-  - topology-architecture
+relationships:
+  previous_lifecycle_scenario: /scenarios/level-4-resilience/multi-site-routing-failover
+  related_capabilities:
+    - Enterprise Continuity Coordination Module
+    - Executive Escalation Visibility Module

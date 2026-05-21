@@ -6,18 +6,32 @@
 
 # 2. Scenario Metadata
 
-| Field | Value |
+﻿| Field | Value |
 |---|---|
+| Scenario ID | SCN-L5-ENTERPRISE-NETWORK-CONTINUITY |
 | Scenario Name | enterprise-network-continuity |
+| Scenario Title | Enterprise Network Continuity |
 | Lifecycle | level-5-continuity |
-| Severity |  |
-| Environment | hybrid-infrastructure |
-| Validation Scope | Enterprise Continuity Coordination |
-
+| Severity | Critical |
+| Priority | P1 |
+| Environment | Enterprise Hybrid Infrastructure |
+| Category | Enterprise Network Continuity |
+| Validation Scope | Enterprise Network Continuity Coordination |
+| Operational Domain | network-operations |
+| Operational Pattern | continuity |
+| Capability Tier | enterprise-continuity |
+| Telemetry Scope | enterprise availability, escalation timing, cross-domain impact, governance execution |
+| Recovery Scope | organizational continuity coordination |
+| Governance Scope | executive escalation and continuity governance |
+| Template Profile | canonical-lifecycle |
+| Diagram Profile | core-operational |
+| Validation Profile | continuity-validation |
+| Maturity Profile | golden-baseline |
 ---
 
 # 3. Scenario Purpose
 
+Establish enterprise continuity coordination for network service disruption through executive visibility, governance-aware escalation, and cross-domain survivability validation.
 
 
 This scenario establishes Level-5 enterprise continuity by coordinating executive visibility, governance-aware escalation, cross-domain survivability, continuity validation, and enterprise evidence generation.
@@ -192,3 +206,4 @@ The implementation intentionally focuses on organizational continuity and govern
 This scenario defines a Level-5 continuity-oriented operational scenario.
 
 It prioritizes enterprise continuity coordination, executive escalation visibility, governance-aware validation, organizational survivability, and continuity evidence aggregation while preserving strict Level-5 Continuity lifecycle purity.
+

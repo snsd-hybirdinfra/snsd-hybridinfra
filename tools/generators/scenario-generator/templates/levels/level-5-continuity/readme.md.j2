@@ -6,13 +6,7 @@
 
 # 2. Scenario Metadata
 
-| Field | Value |
-|---|---|
-| Scenario Name | {{ scenario_name }} |
-| Lifecycle | {{ lifecycle_level }} |
-| Severity | {{ severity }} |
-| Environment | {{ environment }} |
-| Validation Scope | Enterprise Continuity Coordination |
+{% include 'shared/metadata-table.md.j2' %}
 
 ---
 
@@ -192,3 +186,5 @@ The implementation intentionally focuses on organizational continuity and govern
 This scenario defines a Level-5 continuity-oriented operational scenario.
 
 It prioritizes enterprise continuity coordination, executive escalation visibility, governance-aware validation, organizational survivability, and continuity evidence aggregation while preserving strict Level-5 Continuity lifecycle purity.
+
+

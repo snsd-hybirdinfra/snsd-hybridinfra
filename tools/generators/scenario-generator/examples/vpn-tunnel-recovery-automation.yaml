@@ -1,21 +1,34 @@
-﻿scenario_name: vpn-tunnel-recovery-automation
-
+﻿scenario_id: SCN-L3-VPN-TUNNEL-RECOVERY-AUTOMATION
+scenario_name: vpn-tunnel-recovery-automation
+scenario_title: VPN Tunnel Recovery Automation
 lifecycle_level: level-3-recovery
 
-operational_scope: enterprise-network-recovery
+operational_domain: network-operations
+operational_pattern: recovery
+capability_tier: recovery-orchestration
 
-environment: hybrid-infrastructure
+category: Enterprise Network Recovery
+severity: Critical
+priority: P1
+environment: Hybrid Infrastructure
 
-capabilities:
-  - telemetry-aggregation
-  - latency-analysis
-  - recovery-orchestration
+validation_scope: VPN Tunnel Recovery Orchestration
+telemetry_scope: tunnel health, recovery duration, route restoration, validation status
+recovery_scope: vpn tunnel restoration
+governance_scope: none
 
-previous_scenarios:
-  - vpn-latency-correlation
+description: >
+  Establish operational recovery orchestration for VPN tunnel degradation
+  through restoration sequencing, rollback visibility, and recovery validation.
 
-next_scenarios:
-  - multi-site-routing-failover
+template_profile: canonical-lifecycle
+diagram_profile: core-operational
+validation_profile: recovery-validation
+maturity_profile: golden-baseline
 
-diagrams:
-  - topology-architecture
+relationships:
+  previous_lifecycle_scenario: /scenarios/level-2-correlation/vpn-latency-correlation
+  next_lifecycle_scenario: /scenarios/level-4-resilience/multi-site-routing-failover
+  related_capabilities:
+    - Recovery Coordination Module
+    - Rollback Visibility Module

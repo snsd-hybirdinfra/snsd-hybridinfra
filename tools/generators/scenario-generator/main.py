@@ -9,7 +9,9 @@ from src.exporter import export_metadata
 from src.template_renderer import render_template
 from src.template_resolver import resolve_level_template
 
-
+from src.lifecycle_profile_loader import (
+    resolve_lifecycle_profile
+)
 
 from src.diagram_renderer_bridge import (
     render_scenario_diagrams
@@ -128,7 +130,18 @@ def main():
     exported = export_metadata(
         metadata
     )
+    lifecycle_profile = (
+        resolve_lifecycle_profile(
+            exported["lifecycle_level"]
+    )
+    )
 
+    for key, value in lifecycle_profile.items():
+
+        exported.setdefault(
+            key,
+            value
+        )
     resolve_level_template(
         exported["lifecycle_level"]
     )

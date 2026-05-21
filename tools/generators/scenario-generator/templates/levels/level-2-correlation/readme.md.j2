@@ -6,13 +6,7 @@
 
 # 2. Scenario Metadata
 
-| Field | Value |
-|---|---|
-| Scenario Name | {{ scenario_name }} |
-| Lifecycle | {{ lifecycle_level }} |
-| Severity | {{ severity }} |
-| Environment | {{ environment }} |
-| Validation Scope | Correlation Visibility |
+{% include 'shared/metadata-table.md.j2' %}
 
 ---
 
@@ -205,3 +199,6 @@ This workflow intentionally excludes recovery orchestration, rollback execution,
 This scenario defines a Level-2 correlation-oriented operational scenario.
 
 It prioritizes cross-signal reasoning, dependency visibility, anomaly relationship analysis, alert correlation, and operational evidence aggregation while preserving strict Level-2 Correlation lifecycle purity.
+
+
+
