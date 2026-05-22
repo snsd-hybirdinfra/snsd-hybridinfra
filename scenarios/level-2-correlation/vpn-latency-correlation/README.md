@@ -205,12 +205,24 @@ This workflow intentionally excludes recovery orchestration, rollback execution,
 
 # 15. Related Scenarios
 
-| Relationship Type | Scenario |
+﻿
+| Relationship Type | Reference |
 |---|---|
-| Previous Lifecycle Scenario | /scenarios/level-1-visibility/vpn-latency-visibility |
-| Next Lifecycle Scenario | /scenarios/level-3-recovery/database-recovery-orchestration |
-| Resilience Reference | /scenarios/level-4-resilience/multi-region-service-failover-resilience |
-| Continuity Reference | /scenarios/level-5-continuity/enterprise-service-continuity-coordination |
+
+| Previous Lifecycle Scenario | /scenarios/level-1-visibility/vpn-connectivity-monitoring |
+
+| Next Lifecycle Scenario | /scenarios/level-3-recovery/vpn-tunnel-recovery-automation |
+
+
+
+
+| Aggregation Source | /scenarios/level-1-visibility/vpn-connectivity-monitoring |
+
+
+
+| Operational Rollup | /scenarios/level-3-recovery/vpn-tunnel-recovery-automation |
+
+
 
 ---
 

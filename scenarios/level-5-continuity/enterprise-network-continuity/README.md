@@ -192,12 +192,20 @@ The implementation intentionally focuses on organizational continuity and govern
 
 # 15. Related Scenarios
 
-| Relationship Type | Scenario |
+﻿
+| Relationship Type | Reference |
 |---|---|
-| Previous Lifecycle Scenario | /scenarios/level-4-resilience/multi-region-service-failover-resilience |
-| Visibility Reference | /scenarios/level-1-visibility/vpn-latency-visibility |
-| Correlation Reference | /scenarios/level-2-correlation/cross-region-network-anomaly-correlation |
-| Recovery Reference | /scenarios/level-3-recovery/database-recovery-orchestration |
+
+| Previous Lifecycle Scenario | /scenarios/level-4-resilience/multi-site-routing-failover |
+
+
+| Convergence Parent | /scenarios/level-4-resilience/multi-site-routing-failover |
+
+
+
+| Aggregation Source | /scenarios/level-4-resilience/multi-site-routing-failover |
+
+
 
 ---
 

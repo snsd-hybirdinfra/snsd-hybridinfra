@@ -188,11 +188,24 @@ Evidence aggregation consolidates recovery timelines, dashboard evidence, rollba
 
 # 15. Related Scenarios
 
-| Relationship Type | Scenario |
+﻿
+| Relationship Type | Reference |
 |---|---|
-| Previous Lifecycle Scenario | /scenarios/level-2-correlation/cross-region-network-anomaly-correlation |
-| Next Lifecycle Scenario | /scenarios/level-4-resilience/multi-region-service-failover-resilience |
-| Continuity Reference | /scenarios/level-5-continuity/enterprise-service-continuity-coordination |
+
+| Previous Lifecycle Scenario | /scenarios/level-2-correlation/vpn-latency-correlation |
+
+| Next Lifecycle Scenario | /scenarios/level-4-resilience/multi-site-routing-failover |
+
+
+
+
+| Aggregation Source | /scenarios/level-2-correlation/vpn-latency-correlation |
+
+
+
+| Operational Rollup | /scenarios/level-4-resilience/multi-site-routing-failover |
+
+
 
 ---
 

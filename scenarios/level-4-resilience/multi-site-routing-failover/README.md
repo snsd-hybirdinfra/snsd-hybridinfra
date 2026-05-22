@@ -192,10 +192,22 @@ The implementation intentionally avoids executive continuity escalation and ente
 
 # 15. Related Scenarios
 
-| Relationship Type | Scenario |
+﻿
+| Relationship Type | Reference |
 |---|---|
-| Previous Lifecycle Scenario | /scenarios/level-3-recovery/database-recovery-orchestration |
-| Next Lifecycle Scenario | /scenarios/level-5-continuity/enterprise-service-continuity-coordination |
+
+| Previous Lifecycle Scenario | /scenarios/level-3-recovery/vpn-tunnel-recovery-automation |
+
+| Next Lifecycle Scenario | /scenarios/level-5-continuity/enterprise-network-continuity |
+
+
+| Continuity Reference | /scenarios/level-5-continuity/enterprise-network-continuity |
+
+
+| Aggregation Source | /scenarios/level-3-recovery/vpn-tunnel-recovery-automation |
+
+
+
 
 ---
 

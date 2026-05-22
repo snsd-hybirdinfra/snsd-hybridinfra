@@ -189,9 +189,20 @@ The implementation intentionally avoids recovery execution, rollback automation,
 
 # 15. Related Scenarios
 
-| Relationship Type | Scenario |
+﻿
+| Relationship Type | Reference |
 |---|---|
+
+
 | Next Lifecycle Scenario | /scenarios/level-2-correlation/vpn-latency-correlation |
+
+
+
+
+
+| Operational Rollup | /scenarios/level-2-correlation/vpn-latency-correlation |
+
+
 
 ---
 
