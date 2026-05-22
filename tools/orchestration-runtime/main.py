@@ -3,9 +3,8 @@ import os
 import subprocess
 import yaml
 
-from src.dependency_resolver import (
-    load_dependency_graph,
-    resolve_execution_order
+from src.execution_planner import (
+    build_execution_plan
 )
 
 from src.run_context import (
@@ -37,6 +36,10 @@ from src.execution_graph import (
 
 from src.execution_graph_renderer import (
     render_execution_graph
+)
+
+from src.execution_report_writer import (
+    write_execution_report
 )
 
 
@@ -117,7 +120,7 @@ def execute_tool(
             f"Skipping disabled tool: {tool['name']}"
         )
 
-        return
+        return "SKIPPED"
 
     tool_log = start_tool_log(
         run_context,
@@ -175,7 +178,7 @@ def execute_tool(
                 f"Non-critical tool missing python executable: {tool['name']}"
             )
 
-            return
+            return "WARNING"
 
         raise FileNotFoundError(
             f"Python executable not found: {python_path}"
@@ -190,15 +193,15 @@ def execute_tool(
     try:
 
         result = subprocess.run(
-        [
-            str(python_path),
-            str(main_path)
-        ],
-        cwd=str(tool_path),
-        capture_output=True,
-        text=True,
-        env=env,
-        timeout=300
+            [
+                str(python_path),
+                str(main_path)
+            ],
+            cwd=str(tool_path),
+            capture_output=True,
+            text=True,
+            env=env,
+            timeout=300
         )
 
     except subprocess.TimeoutExpired:
@@ -229,11 +232,12 @@ def execute_tool(
                 f"{tool['name']}"
             )
 
-            return
+            return "WARNING"
 
         raise RuntimeError(
             f"{tool['name']} timeout exceeded."
         )
+
     print(result.stdout)
 
     if result.returncode != 0:
@@ -262,7 +266,7 @@ def execute_tool(
                 f"Non-critical tool failed: {tool['name']}"
             )
 
-            return
+            return "WARNING"
 
         raise RuntimeError(
             f"{tool['name']} execution failed."
@@ -286,6 +290,8 @@ def execute_tool(
     print(
         f"{tool['name']} completed."
     )
+
+    return "COMPLETED"
 
 
 def finalize_run(
@@ -348,6 +354,8 @@ def finalize_run(
 
 def main():
 
+    execution_results = []
+
     run_context = create_run_context()
 
     print(
@@ -356,11 +364,12 @@ def main():
 
     tools = discover_tools()
 
-    dependency_graph = load_dependency_graph()
+    execution_plan = build_execution_plan()
 
-    execution_order = resolve_execution_order(
-        dependency_graph
-    )
+    execution_order = [
+    item["tool"]
+    for item in execution_plan
+    ]
 
     print(
         "Dependency-aware orchestration order:"
@@ -382,13 +391,57 @@ def main():
 
             continue
 
-        execute_tool(
-            tools[tool_name],
-            run_context
-        )
+        try:
+
+            status = execute_tool(
+                tools[tool_name],
+                run_context
+            )
+
+            execution_results.append(
+                {
+                    "tool": tool_name,
+                    "status": status,
+                    "notes": "execution completed"
+                }
+            )
+
+        except Exception as error:
+
+            execution_results.append(
+                {
+                    "tool": tool_name,
+                    "status": "FAILED",
+                    "notes": str(error)
+                }
+            )
+
+            print(
+                f"Execution failed: {tool_name}"
+            )
+
+            print(
+                str(error)
+            )
+
+            policy = tools[tool_name].get(
+                "execution_policy",
+                {}
+            )
+
+            if policy.get(
+                "critical",
+                True
+            ):
+
+                break
 
     finalize_run(
         run_context
+    )
+
+    write_execution_report(
+        execution_results
     )
 
     print(

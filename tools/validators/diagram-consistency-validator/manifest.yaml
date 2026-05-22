@@ -5,7 +5,7 @@
   entrypoint: main.py
   requirements: requirements.txt
   bootstrap: true
-  orchestration: false
+  orchestration: true
   state: active
   order: 210
   execution_policy:

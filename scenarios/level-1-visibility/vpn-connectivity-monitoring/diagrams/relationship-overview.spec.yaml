@@ -36,6 +36,17 @@ nodes:
     label: next lifecycle
 
 
+
+
+
+  - id: rollup_1
+    type: rollup-node
+    lifecycle: rollup
+    label: operational rollup
+
+
+
+
 edges:
 
 
@@ -44,4 +55,15 @@ edges:
     to: next_scenario
     type: lifecycle-chain
     label: next lifecycle
+
+
+
+
+
+  - from: current_scenario
+    to: rollup_1
+    type: rollup-flow
+    label: rollup
+
+
 

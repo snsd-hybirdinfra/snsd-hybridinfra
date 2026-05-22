@@ -1,16 +1,15 @@
 ﻿tool:
-  name: diagram-renderer
-  category: renderer
+  name: scenario-relationship-validator
+  category: validator
   runtime: python
-  entrypoint: generate_all_diagrams.py
+  entrypoint: main.py
   requirements: requirements.txt
   bootstrap: true
   orchestration: true
   state: active
-  order: 40
+  order: 220
   execution_policy:
     enabled: true
     allow_parallel: false
-    critical: true
-    continue_on_failure: false
-
+    critical: false
+    continue_on_failure: true

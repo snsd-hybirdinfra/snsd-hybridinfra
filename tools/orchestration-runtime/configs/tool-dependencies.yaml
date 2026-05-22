@@ -1,0 +1,27 @@
+tool_dependencies:
+
+  scenario-generator:
+    depends_on: []
+
+  diagram-renderer:
+    depends_on:
+      - scenario-generator
+
+  scenario-relationship-validator:
+    depends_on:
+      - scenario-generator
+
+  artifact-existence-validator:
+    depends_on:
+      - scenario-generator
+      - diagram-renderer
+
+  diagram-consistency-validator:
+    depends_on:
+      - diagram-renderer
+
+  scenario-governance-validator:
+    depends_on:
+      - diagram-consistency-validator
+      - scenario-relationship-validator
+      - artifact-existence-validator

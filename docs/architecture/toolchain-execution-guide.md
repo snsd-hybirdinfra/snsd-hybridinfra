@@ -113,3 +113,47 @@ Expected result:
     manifest discovery success
     orchestration success
     runtime registry export success
+
+---
+
+# Artifact Contract Governance
+
+The toolchain uses artifact contracts to define required outputs between runtime stages.
+
+Authoritative contract file:
+
+    /tools/orchestration-runtime/configs/artifact-contracts.yaml
+
+## Contract Purpose
+
+Artifact contracts define:
+
+- required runtime outputs
+- downstream execution prerequisites
+- validation report dependencies
+- governance report dependencies
+- visualization artifact requirements
+
+## Current Enforcement Mode
+
+Current mode:
+
+    documentation-aligned governance
+
+Future mode:
+
+    runtime-enforced artifact validation
+
+## Required Artifact Flow
+
+    normalized_metadata
+    → relationship_graph
+    → scenario_package
+    → svg_sources / png_artifacts
+    → taxonomy_report
+    → relationship_validation_report
+    → governance_report
+
+## Governance Rule
+
+governance-checker must not be considered complete unless taxonomy validation and relationship validation outputs are both available.

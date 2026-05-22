@@ -1,136 +1,84 @@
-﻿from pathlib import Path
-import yaml
+﻿from collections import defaultdict, deque
 
-
-REPO_ROOT = (
-    Path(__file__)
-    .resolve()
-    .parents[3]
-)
-
-DEPENDENCY_PATH = (
-    REPO_ROOT
-    / "governance"
-    / "tool-dependency-governance.yaml"
+from src.dependency_loader import (
+    load_dependencies
 )
 
 
-def load_yaml(path: Path):
+def resolve_execution_order():
 
-    with open(
-        path,
-        "r",
-        encoding="utf-8"
-    ) as file:
+    dependencies = load_dependencies()
 
-        return yaml.safe_load(file)
+    graph = defaultdict(list)
+    indegree = defaultdict(int)
 
+    all_tools = set()
 
-def load_dependency_graph():
+    for tool, config in dependencies.items():
 
-    rules = load_yaml(
-        DEPENDENCY_PATH
-    )
+        all_tools.add(tool)
 
-    return rules[
-        "tool_dependencies"
-    ]
-
-
-def resolve_execution_order(
-    graph: dict
-):
-
-    resolved = []
-    visiting = set()
-    visited = set()
-
-    def visit(tool_name: str):
-
-        if tool_name in visited:
-            return
-
-        if tool_name in visiting:
-            raise ValueError(
-                f"Circular dependency detected: {tool_name}"
-            )
-
-        visiting.add(tool_name)
-
-        for dependency in graph[tool_name].get("depends_on", []):
-
-            if dependency not in graph:
-                raise ValueError(
-                    f"Unknown dependency: {dependency}"
-                )
-
-            visit(dependency)
-
-        visiting.remove(tool_name)
-        visited.add(tool_name)
-        resolved.append(tool_name)
-
-    for tool_name in graph.keys():
-        visit(tool_name)
-
-    return resolved
-
-
-def resolve_execution_groups(
-    graph: dict
-):
-
-    remaining = set(graph.keys())
-    completed = set()
-    groups = []
-
-    while remaining:
-
-        ready = []
-
-        for tool_name in sorted(remaining):
-
-            dependencies = set(
-                graph[tool_name].get("depends_on", [])
-            )
-
-            if dependencies.issubset(completed):
-
-                ready.append(tool_name)
-
-        if not ready:
-
-            raise ValueError(
-                "Circular or unresolved dependency detected."
-            )
-
-        groups.append(ready)
-
-        for tool_name in ready:
-
-            remaining.remove(tool_name)
-            completed.add(tool_name)
-
-    return groups
-
-
-def main():
-
-    graph = load_dependency_graph()
-
-    groups = resolve_execution_groups(
-        graph
-    )
-
-    print("Parallel execution groups:")
-
-    for index, group in enumerate(groups, start=1):
-
-        print(
-            f"Group {index}: "
-            f"{', '.join(group)}"
+        depends_on = config.get(
+            "depends_on",
+            []
         )
+
+        for dependency in depends_on:
+
+            all_tools.add(dependency)
+
+            graph[dependency].append(tool)
+
+            indegree[tool] += 1
+
+    for tool in all_tools:
+
+        indegree[tool] = indegree[tool]
+
+    queue = deque([
+        tool
+        for tool in sorted(all_tools)
+        if indegree[tool] == 0
+    ])
+
+    result = []
+
+    while queue:
+
+        current = queue.popleft()
+
+        result.append(current)
+
+        for neighbor in graph[current]:
+
+            indegree[neighbor] -= 1
+
+            if indegree[neighbor] == 0:
+
+                queue.append(neighbor)
+
+    if len(result) != len(all_tools):
+
+        raise RuntimeError(
+            "Dependency cycle detected."
+        )
+
+    return result
 
 
 if __name__ == "__main__":
-    main()
+
+    order = resolve_execution_order()
+
+    print(
+        "\nExecution Order:\n"
+    )
+
+    for step, tool in enumerate(
+        order,
+        start=1
+    ):
+
+        print(
+            f"{step}. {tool}"
+        )

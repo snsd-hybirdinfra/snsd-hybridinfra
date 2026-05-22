@@ -5,6 +5,7 @@
   - scenario-generator
   - diagram-renderer
   - taxonomy-validator
+  - scenario-relationship-validator
   - governance-checker
 
 artifact_flow:
@@ -32,8 +33,15 @@ artifact_flow:
     input: scenario_package
     output: taxonomy_report
 
+  scenario-relationship-validator:
+    input:
+      - normalized_metadata
+      - relationship_graph
+    output: relationship_validation_report
+
   governance-checker:
     input:
       - scenario_package
       - taxonomy_report
+      - relationship_validation_report
     output: governance_report
