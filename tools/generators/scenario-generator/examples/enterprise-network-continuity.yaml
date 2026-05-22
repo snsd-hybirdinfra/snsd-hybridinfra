@@ -28,6 +28,9 @@ maturity_profile: golden-baseline
 
 relationships:
   previous_lifecycle_scenario: /scenarios/level-4-resilience/multi-site-routing-failover
+  aggregation_sources:
+    - /scenarios/level-4-resilience/multi-site-routing-failover
+  convergence_parent: /scenarios/level-4-resilience/multi-site-routing-failover
   related_capabilities:
     - Enterprise Continuity Coordination Module
     - Executive Escalation Visibility Module

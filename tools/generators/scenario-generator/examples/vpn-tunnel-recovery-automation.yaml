@@ -29,6 +29,10 @@ maturity_profile: golden-baseline
 relationships:
   previous_lifecycle_scenario: /scenarios/level-2-correlation/vpn-latency-correlation
   next_lifecycle_scenario: /scenarios/level-4-resilience/multi-site-routing-failover
+  aggregation_sources:
+    - /scenarios/level-2-correlation/vpn-latency-correlation
+  operational_rollups:
+    - /scenarios/level-4-resilience/multi-site-routing-failover
   related_capabilities:
     - Recovery Coordination Module
     - Rollback Visibility Module

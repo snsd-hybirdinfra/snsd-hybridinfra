@@ -72,4 +72,46 @@ properties:
     type: string
 
   relationships:
+
     type: object
+
+    properties:
+
+      previous_lifecycle_scenario:
+        type: string
+
+      next_lifecycle_scenario:
+        type: string
+
+      aggregation_sources:
+        type: array
+
+        items:
+          type: string
+
+      operational_rollups:
+        type: array
+
+        items:
+          type: string
+
+      convergence_parent:
+        type: string
+
+      convergence_children:
+        type: array
+
+        items:
+          type: string
+
+      resilience_reference:
+        type: string
+
+      continuity_reference:
+        type: string
+
+      related_capabilities:
+        type: array
+
+        items:
+          type: string

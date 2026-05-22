@@ -28,6 +28,8 @@ maturity_profile: golden-baseline
 
 relationships:
   next_lifecycle_scenario: /scenarios/level-2-correlation/vpn-latency-correlation
+  operational_rollups:
+    - /scenarios/level-2-correlation/vpn-latency-correlation
   related_capabilities:
     - VPN Telemetry Collection Module
     - Latency Visibility Analysis Module

@@ -29,6 +29,11 @@ maturity_profile: golden-baseline
 relationships:
   previous_lifecycle_scenario: /scenarios/level-3-recovery/vpn-tunnel-recovery-automation
   next_lifecycle_scenario: /scenarios/level-5-continuity/enterprise-network-continuity
+  aggregation_sources:
+    - /scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+  convergence_children:
+    - /scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+  continuity_reference: /scenarios/level-5-continuity/enterprise-network-continuity
   related_capabilities:
     - Distributed Failover Coordination Module
     - Regional Resilience Visibility Module

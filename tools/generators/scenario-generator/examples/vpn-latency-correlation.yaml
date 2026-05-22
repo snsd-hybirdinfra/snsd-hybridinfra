@@ -29,6 +29,10 @@ maturity_profile: golden-baseline
 relationships:
   previous_lifecycle_scenario: /scenarios/level-1-visibility/vpn-connectivity-monitoring
   next_lifecycle_scenario: /scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+  aggregation_sources:
+    - /scenarios/level-1-visibility/vpn-connectivity-monitoring
+  operational_rollups:
+    - /scenarios/level-3-recovery/vpn-tunnel-recovery-automation
   related_capabilities:
     - Cross-Domain Telemetry Aggregation Module
     - Anomaly Correlation Module
