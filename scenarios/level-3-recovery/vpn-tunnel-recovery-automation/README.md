@@ -206,7 +206,8 @@ Evidence aggregation consolidates recovery timelines, dashboard evidence, rollba
 | Operational Rollup | /scenarios/level-4-resilience/multi-site-routing-failover |
 
 
-
+﻿
+![Relationship Overview](./diagrams/relationship-overview.png)
 ---
 
 # 16. Summary

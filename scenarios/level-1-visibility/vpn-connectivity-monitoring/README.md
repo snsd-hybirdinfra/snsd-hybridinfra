@@ -203,7 +203,8 @@ The implementation intentionally avoids recovery execution, rollback automation,
 | Operational Rollup | /scenarios/level-2-correlation/vpn-latency-correlation |
 
 
-
+﻿
+![Relationship Overview](./diagrams/relationship-overview.png)
 ---
 
 # 16. Summary

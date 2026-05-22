@@ -207,7 +207,8 @@ The implementation intentionally focuses on organizational continuity and govern
 
 
 
----
+﻿
+![Relationship Overview](./diagrams/relationship-overview.png)---
 
 # 16. Summary
 

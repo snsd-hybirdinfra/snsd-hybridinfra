@@ -217,3 +217,28 @@ LIFECYCLE_SPEC_GENERATORS = {
     "level-5-continuity":
         generate_level_5_specs
 }
+
+def generate_relationship_spec(
+    scenario_path: Path,
+    scenario_name: str,
+    lifecycle_level: str,
+    relationships: dict
+):
+
+    diagrams_path = (
+        scenario_path
+        / "diagrams"
+    )
+
+    context = {
+        "scenario_name": scenario_name,
+        "lifecycle_level": lifecycle_level,
+        "relationships": relationships or {}
+    }
+
+    render_template(
+        "relationship-overview.spec.yaml.j2",
+        diagrams_path
+        / "relationship-overview.spec.yaml",
+        context
+    )

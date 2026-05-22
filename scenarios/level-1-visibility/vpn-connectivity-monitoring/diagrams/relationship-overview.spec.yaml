@@ -1,0 +1,47 @@
+﻿diagram:
+  scenario: vpn-connectivity-monitoring
+  lifecycle: level-1-visibility
+  type: relationship-overview
+  theme: dark-operational
+
+relationship_pyramid:
+
+  level-1:
+    label: Visibility Foundation
+
+  level-2:
+    label: Correlation Aggregation
+
+  level-3:
+    label: Recovery Concentration
+
+  level-4:
+    label: Resilience Convergence
+
+  level-5:
+    label: Enterprise Continuity Rollup
+
+nodes:
+
+  - id: current_scenario
+    type: scenario-node
+    lifecycle: level-1-visibility
+    label: vpn-connectivity-monitoring
+
+
+
+  - id: next_scenario
+    type: relationship-node
+    lifecycle: next
+    label: next lifecycle
+
+
+edges:
+
+
+
+  - from: current_scenario
+    to: next_scenario
+    type: lifecycle-chain
+    label: next lifecycle
+

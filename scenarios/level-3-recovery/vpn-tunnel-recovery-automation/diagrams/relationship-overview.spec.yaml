@@ -1,0 +1,59 @@
+﻿diagram:
+  scenario: vpn-tunnel-recovery-automation
+  lifecycle: level-3-recovery
+  type: relationship-overview
+  theme: dark-operational
+
+relationship_pyramid:
+
+  level-1:
+    label: Visibility Foundation
+
+  level-2:
+    label: Correlation Aggregation
+
+  level-3:
+    label: Recovery Concentration
+
+  level-4:
+    label: Resilience Convergence
+
+  level-5:
+    label: Enterprise Continuity Rollup
+
+nodes:
+
+  - id: current_scenario
+    type: scenario-node
+    lifecycle: level-3-recovery
+    label: vpn-tunnel-recovery-automation
+
+
+  - id: previous_scenario
+    type: relationship-node
+    lifecycle: previous
+    label: previous lifecycle
+
+
+
+  - id: next_scenario
+    type: relationship-node
+    lifecycle: next
+    label: next lifecycle
+
+
+edges:
+
+
+  - from: previous_scenario
+    to: current_scenario
+    type: lifecycle-chain
+    label: previous lifecycle
+
+
+
+  - from: current_scenario
+    to: next_scenario
+    type: lifecycle-chain
+    label: next lifecycle
+

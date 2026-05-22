@@ -223,7 +223,8 @@ This workflow intentionally excludes recovery orchestration, rollback execution,
 | Operational Rollup | /scenarios/level-3-recovery/vpn-tunnel-recovery-automation |
 
 
-
+﻿
+![Relationship Overview](./diagrams/relationship-overview.png)
 ---
 
 # 16. Summary

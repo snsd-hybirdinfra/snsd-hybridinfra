@@ -18,7 +18,8 @@ from src.diagram_renderer_bridge import (
 )
 
 from src.diagram_spec_generator import (
-    LIFECYCLE_SPEC_GENERATORS
+    LIFECYCLE_SPEC_GENERATORS,
+    generate_relationship_spec
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -77,25 +78,18 @@ def generate_diagram_specs(
     exported: dict
 ):
 
-    lifecycle_level = exported[
-        "lifecycle_level"
-    ]
+    lifecycle_level = exported["lifecycle_level"]
+    scenario_name = exported["scenario_name"]
 
-    scenario_name = exported[
-        "scenario_name"
-    ]
-
-    generator = (
-        LIFECYCLE_SPEC_GENERATORS.get(
-            lifecycle_level
-        )
+    generator = LIFECYCLE_SPEC_GENERATORS.get(
+        lifecycle_level
     )
 
     if generator is None:
 
         print(
-            f"No diagram generator registered "
-            f"for lifecycle: {lifecycle_level}"
+            f"No diagram generator registered for lifecycle: "
+            f"{lifecycle_level}"
         )
 
         return
@@ -105,6 +99,13 @@ def generate_diagram_specs(
         scenario_name
     )
 
+    generate_relationship_spec(
+        scenario_path,
+        scenario_name,
+        lifecycle_level,
+        exported.get("relationships", {})
+    )
+    
 def main():
 
     input_path = resolve_input_path()

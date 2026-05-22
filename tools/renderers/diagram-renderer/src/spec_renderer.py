@@ -5,9 +5,6 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-
-
 if len(sys.argv) < 2:
 
     raise ValueError(
@@ -32,7 +29,13 @@ STYLE = {
     "telemetry-pipeline": "#0891b2",
     "analysis-layer": "#7c3aed",
     "alert-layer": "#ea580c",
-    "evidence-layer": "#16a34a"
+    "evidence-layer": "#16a34a",
+
+    "scenario-node": "#2563eb",
+    "relationship-node": "#64748b",
+    "aggregation-node": "#0891b2",
+    "convergence-node": "#9333ea",
+    "rollup-node": "#16a34a"
 }
 
 
@@ -59,6 +62,30 @@ EDGE_STYLE = {
         "color": "#cbd5e1",
         "width": 2,
         "dasharray": "4,4"
+    },
+
+    "lifecycle-chain": {
+        "color": "#94a3b8",
+        "width": 2,
+        "dasharray": ""
+    },
+
+    "aggregation-flow": {
+        "color": "#38bdf8",
+        "width": 2,
+        "dasharray": "6,4"
+    },
+
+    "convergence-flow": {
+        "color": "#a855f7",
+        "width": 3,
+        "dasharray": ""
+    },
+
+    "rollup-flow": {
+        "color": "#22c55e",
+        "width": 3,
+        "dasharray": "8,4"
     }
 }
 
@@ -68,7 +95,16 @@ LAYER_Y = {
     "telemetry": 260,
     "analysis": 380,
     "operational": 500,
-    "evidence": 620
+    "evidence": 620,
+    "detection": 140,
+    "correlation": 260,
+    "recovery": 260,
+    "resilience": 260,
+    "failover": 380,
+    "continuity": 260,
+    "governance": 380,
+    "coordination": 500,
+    "validation": 500
 }
 
 
@@ -113,12 +149,76 @@ def load_yaml(path: Path):
         return yaml.safe_load(file)
 
 
-def render_svg(spec: dict):
+def calculate_positions(
+    spec: dict,
+    nodes: list
+):
 
-    nodes = spec["nodes"]
-    edges = spec["edges"]
+    diagram_type = spec["diagram"].get(
+        "type",
+        "architecture-overview"
+    )
 
     positions = {}
+
+    if diagram_type == "relationship-overview":
+
+        base_y = 380
+
+        for node in nodes:
+
+            node_id = node["id"]
+
+            if node_id == "current_scenario":
+
+                positions[node_id] = {
+                    "x": 830,
+                    "y": base_y
+                }
+
+            elif node_id.startswith("previous"):
+
+                positions[node_id] = {
+                    "x": 430,
+                    "y": base_y
+                }
+
+            elif node_id.startswith("next"):
+
+                positions[node_id] = {
+                    "x": 1230,
+                    "y": base_y
+                }
+
+            elif node_id.startswith("aggregation"):
+
+                positions[node_id] = {
+                    "x": 430,
+                    "y": base_y + 180
+                }
+
+            elif node_id.startswith("rollup"):
+
+                positions[node_id] = {
+                    "x": 1230,
+                    "y": base_y + 180
+                }
+
+            elif node_id.startswith("convergence"):
+
+                positions[node_id] = {
+                    "x": 830,
+                    "y": base_y - 180
+                }
+
+            else:
+
+                positions[node_id] = {
+                    "x": 830,
+                    "y": base_y + 280
+                }
+
+        return positions
 
     layer_counts = {}
 
@@ -146,7 +246,108 @@ def render_svg(spec: dict):
             current_index + 1
         )
 
-    width = 2200
+    return positions
+
+
+def append_layer_guides(
+    lines: list,
+    spec: dict,
+    diagram_type: str
+):
+
+    if diagram_type == "relationship-overview":
+
+        lines.append(
+            '<text x="40" y="185" fill="#94a3b8" '
+            'font-size="18" font-weight="bold">'
+            'Convergence / Governance'
+            '</text>'
+        )
+
+        lines.append(
+            '<text x="40" y="365" fill="#94a3b8" '
+            'font-size="18" font-weight="bold">'
+            'Lifecycle Chain'
+            '</text>'
+        )
+
+        lines.append(
+            '<text x="40" y="545" fill="#94a3b8" '
+            'font-size="18" font-weight="bold">'
+            'Aggregation / Rollup'
+            '</text>'
+        )
+
+        for y in [200, 380, 560]:
+
+            lines.append(
+                f'<line x1="40" y1="{y}" '
+                f'x2="1800" y2="{y}" '
+                f'stroke="#334155" stroke-width="1.5" />'
+            )
+
+        return
+
+    for layer in spec.get("layers", []):
+
+        layer_y = LAYER_Y.get(
+            layer["id"],
+            0
+        )
+
+        lines.append(
+            f'<text x="40" y="{layer_y - 30}" '
+            f'fill="#94a3b8" font-size="18" font-weight="bold">'
+            f'{layer["label"]}'
+            f'</text>'
+        )
+
+        lines.append(
+            f'<line x1="40" y1="{layer_y - 12}" '
+            f'x2="2100" y2="{layer_y - 12}" '
+            f'stroke="#334155" stroke-width="1.5" />'
+        )
+
+
+def get_edge_coordinates(
+    diagram_type: str,
+    source: dict,
+    target: dict
+):
+
+    if diagram_type == "relationship-overview":
+
+        return {
+            "x1": source["x"] + 120,
+            "y1": source["y"] + 40,
+            "x2": target["x"] + 120,
+            "y2": target["y"] + 40
+        }
+
+    return {
+        "x1": source["x"] + 240,
+        "y1": source["y"] + 40,
+        "x2": target["x"],
+        "y2": target["y"] + 40
+    }
+
+
+def render_svg(spec: dict):
+
+    nodes = spec["nodes"]
+    edges = spec["edges"]
+
+    diagram_type = spec["diagram"].get(
+        "type",
+        "architecture-overview"
+    )
+
+    positions = calculate_positions(
+        spec,
+        nodes
+    )
+
+    width = 1900
     height = 820
 
     lines = [
@@ -170,25 +371,11 @@ def render_svg(spec: dict):
         f'</text>'
     ]
 
-    for layer in spec.get("layers", []):
-
-        layer_y = LAYER_Y.get(
-            layer["id"],
-            0
-        )
-
-        lines.append(
-            f'<text x="40" y="{layer_y - 30}" '
-            f'fill="#94a3b8" font-size="18" font-weight="bold">'
-            f'{layer["label"]}'
-            f'</text>'
-        )
-
-        lines.append(
-            f'<line x1="40" y1="{layer_y - 12}" '
-            f'x2="2100" y2="{layer_y - 12}" '
-            f'stroke="#334155" stroke-width="1.5" />'
-        )
+    append_layer_guides(
+        lines,
+        spec,
+        diagram_type
+    )
 
     for edge in edges:
 
@@ -209,12 +396,18 @@ def render_svg(spec: dict):
             }
         )
 
+        coords = get_edge_coordinates(
+            diagram_type,
+            source,
+            target
+        )
+
         lines.append(
             f'<line '
-            f'x1="{source["x"] + 240}" '
-            f'y1="{source["y"] + 40}" '
-            f'x2="{target["x"]}" '
-            f'y2="{target["y"] + 40}" '
+            f'x1="{coords["x1"]}" '
+            f'y1="{coords["y1"]}" '
+            f'x2="{coords["x2"]}" '
+            f'y2="{coords["y2"]}" '
             f'stroke="{edge_style["color"]}" '
             f'stroke-width="{edge_style["width"]}" '
             f'stroke-dasharray="{edge_style["dasharray"]}" '
@@ -222,12 +415,12 @@ def render_svg(spec: dict):
         )
 
         mid_x = (
-            source["x"] + target["x"]
-        ) / 2 + 120
+            coords["x1"] + coords["x2"]
+        ) / 2
 
         mid_y = (
-            source["y"] + target["y"]
-        ) / 2 - 18
+            coords["y1"] + coords["y2"]
+        ) / 2 - 14
 
         lines.append(
             f'<text '

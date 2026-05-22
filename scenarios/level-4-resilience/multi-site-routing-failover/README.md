@@ -208,7 +208,8 @@ The implementation intentionally avoids executive continuity escalation and ente
 
 
 
-
+﻿
+![Relationship Overview](./diagrams/relationship-overview.png)
 ---
 
 # 16. Summary

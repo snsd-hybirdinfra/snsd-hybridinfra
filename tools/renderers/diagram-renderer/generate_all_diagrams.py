@@ -2,7 +2,7 @@
 import subprocess
 
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 
 RENDERER = (
     REPO_ROOT
@@ -69,3 +69,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

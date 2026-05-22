@@ -1,0 +1,97 @@
+﻿diagram:
+  scenario: multi-site-routing-failover
+  lifecycle: level-4-resilience
+  type: relationship-overview
+  theme: dark-operational
+
+relationship_pyramid:
+
+  level-1:
+    label: Visibility Foundation
+
+  level-2:
+    label: Correlation Aggregation
+
+  level-3:
+    label: Recovery Concentration
+
+  level-4:
+    label: Resilience Convergence
+
+  level-5:
+    label: Enterprise Continuity Rollup
+
+nodes:
+
+  - id: current_scenario
+    type: scenario-node
+    lifecycle: level-4-resilience
+    label: multi-site-routing-failover
+
+
+  - id: previous_scenario
+    type: relationship-node
+    lifecycle: previous
+    label: previous lifecycle
+
+
+
+  - id: next_scenario
+    type: relationship-node
+    lifecycle: next
+    label: next lifecycle
+
+
+
+
+  - id: aggregation_1
+    type: aggregation-node
+    lifecycle: aggregation
+    label: aggregation source
+
+
+
+
+
+
+  - id: convergence_1
+    type: convergence-node
+    lifecycle: convergence
+    label: convergence child
+
+
+
+edges:
+
+
+  - from: previous_scenario
+    to: current_scenario
+    type: lifecycle-chain
+    label: previous lifecycle
+
+
+
+  - from: current_scenario
+    to: next_scenario
+    type: lifecycle-chain
+    label: next lifecycle
+
+
+
+
+  - from: aggregation_1
+    to: current_scenario
+    type: aggregation-flow
+    label: aggregation
+
+
+
+
+
+
+  - from: convergence_1
+    to: current_scenario
+    type: convergence-flow
+    label: convergence
+
+

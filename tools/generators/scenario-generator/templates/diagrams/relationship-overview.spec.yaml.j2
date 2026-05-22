@@ -1,0 +1,145 @@
+﻿diagram:
+  scenario: {{ scenario_name }}
+  lifecycle: {{ lifecycle_level }}
+  type: relationship-overview
+  theme: dark-operational
+
+relationship_pyramid:
+
+  level-1:
+    label: Visibility Foundation
+
+  level-2:
+    label: Correlation Aggregation
+
+  level-3:
+    label: Recovery Concentration
+
+  level-4:
+    label: Resilience Convergence
+
+  level-5:
+    label: Enterprise Continuity Rollup
+
+nodes:
+
+  - id: current_scenario
+    type: scenario-node
+    lifecycle: {{ lifecycle_level }}
+    label: {{ scenario_name }}
+
+{% if relationships.previous_lifecycle_scenario %}
+
+  - id: previous_scenario
+    type: relationship-node
+    lifecycle: previous
+    label: previous lifecycle
+
+{% endif %}
+
+{% if relationships.next_lifecycle_scenario %}
+
+  - id: next_scenario
+    type: relationship-node
+    lifecycle: next
+    label: next lifecycle
+
+{% endif %}
+
+{% if relationships.aggregation_sources %}
+
+{% for source in relationships.aggregation_sources %}
+
+  - id: aggregation_{{ loop.index }}
+    type: aggregation-node
+    lifecycle: aggregation
+    label: aggregation source
+
+{% endfor %}
+
+{% endif %}
+
+{% if relationships.operational_rollups %}
+
+{% for rollup in relationships.operational_rollups %}
+
+  - id: rollup_{{ loop.index }}
+    type: rollup-node
+    lifecycle: rollup
+    label: operational rollup
+
+{% endfor %}
+
+{% endif %}
+
+{% if relationships.convergence_children %}
+
+{% for child in relationships.convergence_children %}
+
+  - id: convergence_{{ loop.index }}
+    type: convergence-node
+    lifecycle: convergence
+    label: convergence child
+
+{% endfor %}
+
+{% endif %}
+
+edges:
+
+{% if relationships.previous_lifecycle_scenario %}
+
+  - from: previous_scenario
+    to: current_scenario
+    type: lifecycle-chain
+    label: previous lifecycle
+
+{% endif %}
+
+{% if relationships.next_lifecycle_scenario %}
+
+  - from: current_scenario
+    to: next_scenario
+    type: lifecycle-chain
+    label: next lifecycle
+
+{% endif %}
+
+{% if relationships.aggregation_sources %}
+
+{% for source in relationships.aggregation_sources %}
+
+  - from: aggregation_{{ loop.index }}
+    to: current_scenario
+    type: aggregation-flow
+    label: aggregation
+
+{% endfor %}
+
+{% endif %}
+
+{% if relationships.operational_rollups %}
+
+{% for rollup in relationships.operational_rollups %}
+
+  - from: current_scenario
+    to: rollup_{{ loop.index }}
+    type: rollup-flow
+    label: rollup
+
+{% endfor %}
+
+{% endif %}
+
+{% if relationships.convergence_children %}
+
+{% for child in relationships.convergence_children %}
+
+  - from: convergence_{{ loop.index }}
+    to: current_scenario
+    type: convergence-flow
+    label: convergence
+
+{% endfor %}
+
+{% endif %}
