@@ -1,5 +1,6 @@
 ﻿from pathlib import Path
 from datetime import datetime
+from collections import Counter
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -11,6 +12,30 @@ REPORT_DIR = (
 )
 
 
+REPORT_PATH = (
+    REPORT_DIR
+    / "latest-toolchain-execution-report.md"
+)
+
+
+def count_statuses(
+    results: list
+):
+
+    counter = Counter()
+
+    for result in results:
+
+        counter[
+            result.get(
+                "status",
+                "UNKNOWN"
+            )
+        ] += 1
+
+    return counter
+
+
 def write_execution_report(
     results: list
 ):
@@ -20,15 +45,26 @@ def write_execution_report(
         exist_ok=True
     )
 
-    report_path = (
-        REPORT_DIR
-        / "latest-toolchain-execution-report.md"
+    status_counts = count_statuses(
+        results
     )
 
     lines = [
         "# Toolchain Execution Report",
         "",
         f"Generated At: {datetime.utcnow().isoformat()}Z",
+        "",
+        "## Summary",
+        "",
+        "| Status | Count |",
+        "|---|---:|",
+        f"| COMPLETED | {status_counts.get('COMPLETED', 0)} |",
+        f"| WARNING | {status_counts.get('WARNING', 0)} |",
+        f"| FAILED | {status_counts.get('FAILED', 0)} |",
+        f"| BLOCKED | {status_counts.get('BLOCKED', 0)} |",
+        f"| SKIPPED | {status_counts.get('SKIPPED', 0)} |",
+        "",
+        "## Tool Results",
         "",
         "| Tool | Status | Notes |",
         "|---|---|---|"
@@ -42,11 +78,11 @@ def write_execution_report(
             f"{result.get('notes', '')} |"
         )
 
-    report_path.write_text(
+    REPORT_PATH.write_text(
         "\n".join(lines),
         encoding="utf-8"
     )
 
     print(
-        f"Execution report generated: {report_path}"
+        f"Execution report generated: {REPORT_PATH}"
     )
