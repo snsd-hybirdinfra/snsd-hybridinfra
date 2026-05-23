@@ -13,6 +13,7 @@ EXECUTION_STATES = {
     "READY": "READY",
     "BLOCKED": "BLOCKED",
     "COMPLETED": "COMPLETED",
+    "WARNING": "WARNING",
     "FAILED": "FAILED"
 }
 
@@ -28,6 +29,7 @@ def build_execution_plan():
     for tool in order:
 
         depends_on = []
+        critical = True
 
         if tool in dependencies:
 
@@ -36,6 +38,13 @@ def build_execution_plan():
             ].get(
                 "depends_on",
                 []
+            )
+
+            critical = dependencies[
+                tool
+            ].get(
+                "critical",
+                True
             )
 
         state = (
@@ -48,6 +57,7 @@ def build_execution_plan():
             {
                 "tool": tool,
                 "depends_on": depends_on,
+                "critical": critical,
                 "state": state
             }
         )
@@ -67,7 +77,8 @@ if __name__ == "__main__":
 
         print(
             f"{item['tool']} "
-            f"[{item['state']}]"
+            f"[{item['state']}] "
+            f"critical={item['critical']}"
         )
 
         if item["depends_on"]:

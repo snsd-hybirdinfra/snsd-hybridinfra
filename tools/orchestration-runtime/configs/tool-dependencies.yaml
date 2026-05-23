@@ -1,26 +1,72 @@
-tool_dependencies:
+﻿tool_dependencies:
 
-  scenario-generator:
+  metadata-parser:
+    critical: true
     depends_on: []
 
+  relationship-mapper:
+    critical: true
+    depends_on:
+      - metadata-parser
+
+  scenario-generator:
+    critical: true
+    depends_on:
+      - relationship-mapper
+
   diagram-renderer:
+    critical: true
     depends_on:
       - scenario-generator
 
   scenario-relationship-validator:
+    critical: true
     depends_on:
       - scenario-generator
 
   artifact-existence-validator:
+    critical: true
     depends_on:
       - scenario-generator
       - diagram-renderer
 
   diagram-consistency-validator:
+    critical: true
     depends_on:
       - diagram-renderer
 
+  taxonomy-validator:
+    critical: false
+    depends_on:
+      - scenario-generator
+
+  topology-validator:
+    critical: false
+    depends_on:
+      - scenario-generator
+
+  capability-validator:
+    critical: false
+    depends_on:
+      - scenario-generator
+
+  tool-boundary-validator:
+    critical: false
+    depends_on:
+      - scenario-generator
+
+  tool-dependency-validator:
+    critical: false
+    depends_on:
+      - scenario-generator
+
+  governance-checker:
+    critical: true
+    depends_on:
+      - taxonomy-validator
+
   scenario-governance-validator:
+    critical: true
     depends_on:
       - diagram-consistency-validator
       - scenario-relationship-validator

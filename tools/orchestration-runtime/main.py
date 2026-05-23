@@ -103,7 +103,6 @@ def register_runtime_log_artifact(
         str(log_path)
     )
 
-
 def execute_tool(
     tool: dict,
     run_context: dict
@@ -240,6 +239,11 @@ def execute_tool(
 
     print(result.stdout)
 
+    warning_detected = (
+        "WARNING:"
+        in result.stdout
+    )
+
     if result.returncode != 0:
 
         print(result.stderr)
@@ -272,9 +276,15 @@ def execute_tool(
             f"{tool['name']} execution failed."
         )
 
+    final_status = (
+        "WARNING"
+        if warning_detected
+        else "COMPLETED"
+    )
+
     tool_log = finish_tool_log(
         tool_log,
-        "success"
+        final_status.lower()
     )
 
     log_path = write_tool_log(
@@ -288,11 +298,10 @@ def execute_tool(
     )
 
     print(
-        f"{tool['name']} completed."
+        f"{tool['name']} {final_status.lower()}."
     )
 
-    return "COMPLETED"
-
+    return final_status
 
 def finalize_run(
     run_context: dict
@@ -355,6 +364,7 @@ def finalize_run(
 def main():
 
     execution_results = []
+    execution_status = {}
 
     run_context = create_run_context()
 
@@ -366,16 +376,13 @@ def main():
 
     execution_plan = build_execution_plan()
 
-    execution_order = [
-    item["tool"]
-    for item in execution_plan
-    ]
-
     print(
-        "Dependency-aware orchestration order:"
+        "Dependency-aware orchestration plan:"
     )
 
-    for tool_name in execution_order:
+    for item in execution_plan:
+
+        tool_name = item["tool"]
 
         if tool_name not in tools:
 
@@ -385,9 +392,53 @@ def main():
             f"- {tool_name}"
         )
 
-    for tool_name in execution_order:
+    for item in execution_plan:
+
+        tool_name = item["tool"]
+
+        depends_on = item.get(
+            "depends_on",
+            []
+        )
+
+        critical = item.get(
+            "critical",
+            True
+        )
 
         if tool_name not in tools:
+
+            continue
+
+        blocked_dependencies = [
+            dependency
+            for dependency in depends_on
+            if execution_status.get(
+                dependency
+            ) in [
+                "FAILED",
+                "BLOCKED"
+            ]
+        ]
+
+        if blocked_dependencies:
+
+            execution_status[tool_name] = "BLOCKED"
+
+            execution_results.append(
+                {
+                    "tool": tool_name,
+                    "status": "BLOCKED",
+                    "notes": (
+                        "blocked by failed dependencies: "
+                        + ", ".join(blocked_dependencies)
+                    )
+                }
+            )
+
+            print(
+                f"Blocked: {tool_name}"
+            )
 
             continue
 
@@ -398,43 +449,47 @@ def main():
                 run_context
             )
 
+            execution_status[tool_name] = status
+
+            notes = (
+                "execution completed with warnings"
+                if status == "WARNING"
+                else "execution completed"
+            )
+
             execution_results.append(
                 {
                     "tool": tool_name,
                     "status": status,
-                    "notes": "execution completed"
+                    "notes": notes
                 }
             )
 
         except Exception as error:
 
+            status = (
+                "FAILED"
+                if critical
+                else "WARNING"
+            )
+
+            execution_status[tool_name] = status
+
             execution_results.append(
                 {
                     "tool": tool_name,
-                    "status": "FAILED",
+                    "status": status,
                     "notes": str(error)
                 }
             )
 
             print(
-                f"Execution failed: {tool_name}"
+                f"Execution {status.lower()}: {tool_name}"
             )
 
             print(
                 str(error)
             )
-
-            policy = tools[tool_name].get(
-                "execution_policy",
-                {}
-            )
-
-            if policy.get(
-                "critical",
-                True
-            ):
-
-                break
 
     finalize_run(
         run_context
@@ -448,6 +503,6 @@ def main():
         "Runtime-governed orchestration completed."
     )
 
-
+    
 if __name__ == "__main__":
     main()
