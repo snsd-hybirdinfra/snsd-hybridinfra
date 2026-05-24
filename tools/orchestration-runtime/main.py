@@ -42,6 +42,7 @@ from src.execution_report_writer import (
     write_execution_report
 )
 
+from datetime import datetime
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_ROOT = REPO_ROOT / "tools"
@@ -304,7 +305,8 @@ def execute_tool(
     return final_status
 
 def finalize_run(
-    run_context: dict
+    run_context: dict,
+    execution_results: list
 ):
 
     summary_path = write_run_summary(
@@ -338,9 +340,9 @@ def finalize_run(
     )
 
     svg_path = render_execution_graph(
-        run_context
+    run_context,
+    execution_results
     )
-
     register_artifact(
         run_context,
         "orchestration-runtime",
@@ -425,6 +427,8 @@ def main():
 
             execution_status[tool_name] = "BLOCKED"
 
+            timestamp = datetime.utcnow()
+
             execution_results.append(
                 {
                     "tool": tool_name,
@@ -432,7 +436,10 @@ def main():
                     "notes": (
                         "blocked by failed dependencies: "
                         + ", ".join(blocked_dependencies)
-                    )
+                    ),
+                    "started_at": timestamp.isoformat() + "Z",
+                    "finished_at": timestamp.isoformat() + "Z",
+                    "duration_seconds": 0
                 }
             )
 
@@ -442,11 +449,33 @@ def main():
 
             continue
 
+        started_at = datetime.utcnow()
+
         try:
+
+            injected_failure_tool = os.environ.get(
+                "INJECT_FAILURE_TOOL"
+            )
+
+            if injected_failure_tool == tool_name:
+
+                raise RuntimeError(
+                    f"Injected failure for test: {tool_name}"
+                )
 
             status = execute_tool(
                 tools[tool_name],
                 run_context
+            )
+
+            finished_at = datetime.utcnow()
+
+            duration_seconds = round(
+                (
+                    finished_at
+                    - started_at
+                ).total_seconds(),
+                3
             )
 
             execution_status[tool_name] = status
@@ -461,11 +490,24 @@ def main():
                 {
                     "tool": tool_name,
                     "status": status,
-                    "notes": notes
+                    "notes": notes,
+                    "started_at": started_at.isoformat() + "Z",
+                    "finished_at": finished_at.isoformat() + "Z",
+                    "duration_seconds": duration_seconds
                 }
             )
 
         except Exception as error:
+
+            finished_at = datetime.utcnow()
+
+            duration_seconds = round(
+                (
+                    finished_at
+                    - started_at
+                ).total_seconds(),
+                3
+            )
 
             status = (
                 "FAILED"
@@ -479,7 +521,10 @@ def main():
                 {
                     "tool": tool_name,
                     "status": status,
-                    "notes": str(error)
+                    "notes": str(error),
+                    "started_at": started_at.isoformat() + "Z",
+                    "finished_at": finished_at.isoformat() + "Z",
+                    "duration_seconds": duration_seconds
                 }
             )
 
@@ -492,7 +537,8 @@ def main():
             )
 
     finalize_run(
-        run_context
+        run_context,
+        execution_results
     )
 
     write_execution_report(

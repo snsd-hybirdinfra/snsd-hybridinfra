@@ -13,14 +13,11 @@ from src.lifecycle_profile_loader import (
     resolve_lifecycle_profile
 )
 
-from src.diagram_renderer_bridge import (
-    render_scenario_diagrams
-)
-
 from src.diagram_spec_generator import (
     LIFECYCLE_SPEC_GENERATORS,
     generate_relationship_spec
 )
+
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
@@ -57,7 +54,6 @@ def create_scenario_structure(
 ):
 
     directories = [
-
         "architecture",
         "implementation",
         "evidence",
@@ -67,7 +63,10 @@ def create_scenario_structure(
 
     for directory in directories:
 
-        (base_path / directory).mkdir(
+        (
+            base_path
+            / directory
+        ).mkdir(
             parents=True,
             exist_ok=True
         )
@@ -78,8 +77,13 @@ def generate_diagram_specs(
     exported: dict
 ):
 
-    lifecycle_level = exported["lifecycle_level"]
-    scenario_name = exported["scenario_name"]
+    lifecycle_level = exported[
+        "lifecycle_level"
+    ]
+
+    scenario_name = exported[
+        "scenario_name"
+    ]
 
     generator = LIFECYCLE_SPEC_GENERATORS.get(
         lifecycle_level
@@ -103,9 +107,13 @@ def generate_diagram_specs(
         scenario_path,
         scenario_name,
         lifecycle_level,
-        exported.get("relationships", {})
+        exported.get(
+            "relationships",
+            {}
+        )
     )
-    
+
+
 def main():
 
     input_path = resolve_input_path()
@@ -131,10 +139,9 @@ def main():
     exported = export_metadata(
         metadata
     )
-    lifecycle_profile = (
-        resolve_lifecycle_profile(
-            exported["lifecycle_level"]
-    )
+
+    lifecycle_profile = resolve_lifecycle_profile(
+        exported["lifecycle_level"]
     )
 
     for key, value in lifecycle_profile.items():
@@ -143,6 +150,7 @@ def main():
             key,
             value
         )
+
     resolve_level_template(
         exported["lifecycle_level"]
     )
@@ -154,12 +162,9 @@ def main():
     )
 
     scenario_path = (
-
-    SCENARIO_ROOT
-
-    / exported["lifecycle_level"]
-
-    / exported["scenario_name"]
+        SCENARIO_ROOT
+        / exported["lifecycle_level"]
+        / exported["scenario_name"]
     )
 
     scenario_path.mkdir(
@@ -182,7 +187,9 @@ def main():
         encoding="utf-8"
     ) as file:
 
-        file.write(rendered)
+        file.write(
+            rendered
+        )
 
     print(
         f"Scenario README generated: "
@@ -192,10 +199,6 @@ def main():
     generate_diagram_specs(
         scenario_path,
         exported
-    )
-
-    render_scenario_diagrams(
-        scenario_path
     )
 
     print(

@@ -66,8 +66,8 @@ def write_execution_report(
         "",
         "## Tool Results",
         "",
-        "| Tool | Status | Notes |",
-        "|---|---|---|"
+        "| Tool | Status | Duration Seconds | Notes |",
+        "|---|---|---:|---|"
     ]
 
     for result in results:
@@ -75,6 +75,7 @@ def write_execution_report(
         lines.append(
             f"| {result.get('tool')} | "
             f"{result.get('status')} | "
+            f"{result.get('duration_seconds', '')} | "
             f"{result.get('notes', '')} |"
         )
 
