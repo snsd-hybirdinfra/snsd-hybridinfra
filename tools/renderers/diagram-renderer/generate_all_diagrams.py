@@ -1,8 +1,23 @@
 ﻿from pathlib import Path
+import sys
 import subprocess
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
+
+sys.path.append(
+    str(
+        REPO_ROOT
+        / "tools"
+    )
+)
+
+from shared_runtime.src.runtime_encoding import (
+    configure_runtime_encoding
+)
+
+configure_runtime_encoding()
+
 
 RENDERER = (
     REPO_ROOT
@@ -83,7 +98,9 @@ def render_spec(spec_path: Path):
             str(RENDERER),
             str(spec_path)
         ],
-        check=True
+        check=True,
+        encoding="utf-8",
+        errors="replace"
     )
 
 

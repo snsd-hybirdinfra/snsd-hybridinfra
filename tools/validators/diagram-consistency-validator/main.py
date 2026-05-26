@@ -1,4 +1,23 @@
 ﻿from pathlib import Path
+import sys
+
+sys.path.append(
+    str(
+        Path(__file__).resolve().parents[3]
+        / "tools"
+    )
+)
+
+from shared_runtime.src.runtime_encoding import (
+    configure_runtime_encoding
+)
+
+from shared_runtime.src.validator_findings import (
+    write_validator_findings
+)
+
+configure_runtime_encoding()
+
 import re
 import yaml
 
@@ -10,16 +29,25 @@ SCENARIOS_ROOT = (
     / "scenarios"
 )
 
-RULES_PATH = (
+POLICY_PATH = (
     Path(__file__).resolve().parent
     / "rules"
-    / "lifecycle-semantic-rules.yaml"
+    / "diagram-policy.yaml"
 )
 
 
 IMAGE_PATTERN = re.compile(
     r"!\[[^\]]*\]\((\.\/diagrams\/[^)]+)\)"
 )
+
+
+def is_strict_golden_scenario(
+    readme_path: Path
+):
+
+    return "vpn-latency-visibility" in str(
+        readme_path
+    )
 
 
 def load_yaml(path: Path):
@@ -33,25 +61,31 @@ def load_yaml(path: Path):
         return yaml.safe_load(file)
 
 
-def is_strict_golden_scenario(readme_path: Path):
+def extract_lifecycle(
+    readme_path: Path
+):
 
-    return "vpn-latency-visibility" in str(readme_path)
+    for part in readme_path.parts:
 
-
-def extract_lifecycle(readme_path: Path):
-
-    parts = readme_path.parts
-
-    for part in parts:
-
-        if part.startswith("level-"):
+        if part.startswith(
+            "level-"
+        ):
 
             return part
 
     return None
 
 
-def extract_diagram_references(readme_path: Path):
+def extract_scenario_name(
+    readme_path: Path
+):
+
+    return readme_path.parent.name
+
+
+def extract_diagram_references(
+    readme_path: Path
+):
 
     content = readme_path.read_text(
         encoding="utf-8"
@@ -62,45 +96,78 @@ def extract_diagram_references(readme_path: Path):
     )
 
 
-def validate_lifecycle_semantics(
+def extract_diagram_name(
+    reference: str
+):
+
+    return (
+        Path(reference)
+        .stem
+    )
+
+
+def validate_missing_diagram(
+    findings: list,
     readme_path: Path,
-    rules: dict
+    diagram_path: Path,
+    diagram_name: str,
+    policy: dict
 ):
 
     lifecycle = extract_lifecycle(
         readme_path
     )
 
-    if lifecycle is None:
+    scenario = extract_scenario_name(
+        readme_path
+    )
+
+    requirement = (
+        policy
+        .get(lifecycle, {})
+        .get(
+            diagram_name,
+            "optional"
+        )
+    )
+
+    if requirement == "optional":
 
         return
 
-    lifecycle_rules = (
-        rules
-        .get("lifecycle_rules", {})
-        .get(lifecycle, {})
+    category = (
+        "missing-recommended-diagram"
+        if requirement == "recommended"
+        else "missing-required-diagram"
     )
 
-    forbidden_terms = lifecycle_rules.get(
-        "forbidden",
-        []
+    message = (
+        f"Missing {requirement} diagram: "
+        f"{diagram_path}"
     )
 
-    content = readme_path.read_text(
-        encoding="utf-8"
-    ).lower()
+    findings.append(
+        {
+            "severity": "WARNING",
+            "category": category,
+            "scenario": scenario,
+            "lifecycle": lifecycle,
+            "diagram": diagram_name,
+            "path": str(diagram_path),
+            "message": message
+        }
+    )
 
-    for term in forbidden_terms:
-
-        if term.lower() in content:
-
-            print(
-                f"WARNING: Lifecycle semantic term found in "
-                f"{readme_path}: '{term}' for {lifecycle}"
-            )
+    print(
+        f"WARNING: {message}"
+    )
 
 
-def validate_readme_diagrams(readme_path: Path):
+def validate_readme_diagrams(
+    readme_path: Path,
+    policy: dict,
+    findings: list
+):
 
     scenario_dir = readme_path.parent
 
@@ -109,6 +176,10 @@ def validate_readme_diagrams(readme_path: Path):
     )
 
     for reference in references:
+
+        diagram_name = extract_diagram_name(
+            reference
+        )
 
         diagram_path = (
             scenario_dir
@@ -120,27 +191,39 @@ def validate_readme_diagrams(readme_path: Path):
 
         if not diagram_path.exists():
 
-            if is_strict_golden_scenario(readme_path):
+            if is_strict_golden_scenario(
+                readme_path
+            ):
 
                 raise FileNotFoundError(
                     f"Missing referenced diagram: "
                     f"{diagram_path}"
                 )
 
-            print(
-                f"WARNING: Missing non-strict diagram: "
-                f"{diagram_path}"
+            validate_missing_diagram(
+                findings,
+                readme_path,
+                diagram_path,
+                diagram_name,
+                policy
             )
 
             continue
 
         if (
             diagram_path.suffix == ".png"
-            and is_strict_golden_scenario(readme_path)
+            and is_strict_golden_scenario(
+                readme_path
+            )
         ):
 
-            svg_path = diagram_path.with_suffix(".svg")
-            spec_path = diagram_path.with_suffix(".spec.yaml")
+            svg_path = diagram_path.with_suffix(
+                ".svg"
+            )
+
+            spec_path = diagram_path.with_suffix(
+                ".spec.yaml"
+            )
 
             if not svg_path.exists():
 
@@ -156,19 +239,24 @@ def validate_readme_diagrams(readme_path: Path):
                     f"{spec_path}"
                 )
 
-    return len(references)
+    return len(
+        references
+    )
 
 
 def main():
 
-    rules = load_yaml(
-        RULES_PATH
+    policy = load_yaml(
+        POLICY_PATH
     )
 
     readmes = sorted(
-        SCENARIOS_ROOT.rglob("README.md")
+        SCENARIOS_ROOT.rglob(
+            "README.md"
+        )
     )
 
+    findings = []
     checked = 0
     references = 0
 
@@ -176,22 +264,32 @@ def main():
 
         checked += 1
 
-        validate_lifecycle_semantics(
+        references += validate_readme_diagrams(
             readme,
-            rules
+            policy,
+            findings
         )
 
-        references += validate_readme_diagrams(
-            readme
-        )
+    output_path, status = write_validator_findings(
+        "diagram-consistency-validator",
+        findings
+    )
 
     print(
-        f"Diagram and lifecycle semantic validation completed. "
+        f"Diagram consistency validation completed. "
         f"README files checked: {checked}, "
-        f"diagram references checked: {references}"
+        f"diagram references checked: {references}, "
+        f"findings: {len(findings)}"
+    )
+
+    print(
+        f"Validator findings written: {output_path}"
+    )
+
+    print(
+        f"Validator status: {status}"
     )
 
 
 if __name__ == "__main__":
     main()
-

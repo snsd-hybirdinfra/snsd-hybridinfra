@@ -506,3 +506,39 @@ It must not own repository-wide contracts.
 
 shared-runtime/ is frozen as the single authoritative platform contract layer.
 
+
+---
+
+# Runtime Performance Optimization Update
+
+## Summary
+
+The orchestration runtime has been optimized to reduce redundant diagram generation and improve execution observability.
+
+## Changes
+
+- separated scenario generation from diagram rendering
+- converted diagram rendering to incremental execution
+- added execution duration metrics
+- added warning-aware execution reporting
+- added DAG-based runtime visualization
+- added runtime state coloring
+- added slow-tool visibility
+
+## Current Runtime Characteristics
+
+- scenario-generator now focuses on README and diagram spec generation
+- diagram-renderer owns SVG/PNG rendering
+- unchanged diagram specs are skipped
+- warning-producing validators no longer incorrectly appear as fully clean executions
+- runtime reports now expose duration per tool
+
+## Observed Improvement
+
+- scenario-generator reduced from approximately 6 seconds to approximately 1 second
+- diagram-renderer reduced from approximately 49 seconds to single-digit seconds when no specs changed
+
+## Current Known Bottlenecks
+
+- diagram-renderer still has subprocess and Python startup overhead even when all specs are skipped
+- scenario-governance-validator remains the next meaningful optimization candidate

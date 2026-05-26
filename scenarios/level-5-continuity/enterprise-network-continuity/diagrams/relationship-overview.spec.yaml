@@ -36,6 +36,17 @@ nodes:
 
 
 
+
+
+  - id: aggregation_1
+    type: aggregation-node
+    lifecycle: aggregation
+    label: aggregation source
+
+
+
+
+
 edges:
 
 
@@ -43,5 +54,16 @@ edges:
     to: current_scenario
     type: lifecycle-chain
     label: previous lifecycle
+
+
+
+
+
+  - from: aggregation_1
+    to: current_scenario
+    type: aggregation-flow
+    label: aggregation
+
+
 
 

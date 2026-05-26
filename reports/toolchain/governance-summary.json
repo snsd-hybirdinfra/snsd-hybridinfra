@@ -1,0 +1,23 @@
+{
+  "run_id": "ffe3275c-7fa0-4773-b550-a2778fd00e5d",
+  "status": "WARNING",
+  "validators": {
+    "diagram-consistency-validator": {
+      "status": "WARNING",
+      "finding_count": 12
+    },
+    "lifecycle-semantic-validator": {
+      "status": "WARNING",
+      "finding_count": 14
+    }
+  },
+  "severity_summary": {
+    "WARNING": 17,
+    "ERROR": 9
+  },
+  "category_summary": {
+    "missing-recommended-diagram": 3,
+    "missing-required-diagram": 9,
+    "lifecycle-semantic-leakage": 14
+  }
+}

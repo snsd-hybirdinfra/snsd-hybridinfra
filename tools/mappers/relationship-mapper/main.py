@@ -2,6 +2,20 @@
 import json
 
 from pathlib import Path
+import sys
+
+sys.path.append(
+    str(
+        Path(__file__).resolve().parents[3]
+        / "tools"
+    )
+)
+
+from shared_runtime.src.runtime_encoding import (
+    configure_runtime_encoding
+)
+
+configure_runtime_encoding()
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -106,3 +120,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

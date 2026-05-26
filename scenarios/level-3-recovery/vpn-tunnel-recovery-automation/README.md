@@ -34,15 +34,19 @@
 Establish operational recovery orchestration for VPN tunnel degradation through restoration sequencing, rollback visibility, and recovery validation.
 
 
-This scenario establishes Level-3 recovery orchestration by coordinating restoration sequencing, rollback visibility, recovery validation, and operational evidence generation.
+This scenario establishes Level-3 recovery orchestration by validating when controlled operational intervention is justified, coordinating restoration sequencing, preserving rollback visibility, and proving recovery success through evidence.
+
+The scenario focuses on safe recovery execution after visibility and correlation workflows confirm that continued degradation is operationally riskier than controlled restoration.
 
 ---
 
 # 4. Operational Relevance
 
-Recovery scenarios represent the transition from detection and correlation into controlled operational restoration.
+Recovery scenarios represent the transition from operational interpretation into controlled intervention.
 
-This scenario focuses on restoring service health through coordinated recovery workflows while validating that recovery actions are observable, reviewable, and operationally safe.
+At Level-3, recovery actions must be justified by telemetry validation, dependency visibility, and correlation evidence before automation or restoration sequencing begins.
+
+This scenario ensures recovery is observable, reversible where applicable, evidence-backed, and validated before downstream resilience or continuity workflows are introduced.
 
 ---
 
@@ -50,19 +54,20 @@ This scenario focuses on restoring service health through coordinated recovery w
 
 This scenario intentionally remains within the Level-3 Recovery lifecycle boundary.
 
-The design allows recovery orchestration, rollback visibility, restoration sequencing, and recovery validation.
+The design allows recovery orchestration, rollback visibility, restoration sequencing, automation safety validation, dependency stabilization review, and recovery evidence aggregation.
 
-Distributed resilience failover, enterprise continuity escalation, and executive governance coordination are intentionally excluded.
+Distributed resilience failover, multi-site survivability coordination, enterprise continuity escalation, and executive governance coordination are intentionally excluded.
 
 ---
 
 # 6. Scenario Objectives
 
-- Coordinate recovery orchestration workflows
-- Validate rollback visibility
-- Restore operational service health
-- Validate recovery sequencing
-- Aggregate recovery evidence
+- Determine when recovery intervention is operationally justified
+- Coordinate controlled recovery orchestration workflows
+- Validate rollback visibility before and during restoration
+- Restore operational service health through sequenced recovery actions
+- Validate dependency stabilization after recovery
+- Aggregate recovery and rollback evidence
 - Preserve strict Level-3 Recovery lifecycle purity
 
 ---
@@ -71,39 +76,45 @@ Distributed resilience failover, enterprise continuity escalation, and executive
 
 ![Architecture Overview](./diagrams/architecture-overview.png)
 
-The operational architecture focuses on recovery coordination across detection, recovery execution, validation, and evidence layers.
+The operational architecture focuses on recovery coordination across detection, decision logic, recovery execution, rollback visibility, validation, and evidence layers.
+
+Each layer contributes to controlled intervention governance by ensuring recovery actions are observable, bounded, reversible where applicable, and validated after execution.
 
 ---
 
 # 8. Used Modules
 
-| Module | Operational Responsibility |
-|---|---|
-| Recovery Coordination Module | Coordinate restoration workflows |
-| Rollback Visibility Module | Validate rollback-oriented operational visibility |
-| Recovery Sequencing Module | Coordinate restoration ordering |
-| Recovery Evidence Module | Aggregate recovery validation evidence |
+| Module | Operational Responsibility | Lifecycle Contribution |
+|---|---|---|
+| Recovery Coordination Module | Coordinate restoration workflows and recovery sequencing | Enables controlled Level-3 intervention |
+| Recovery Decision Module | Validate whether operational intervention is justified | Prevents premature or unsafe recovery execution |
+| Rollback Visibility Module | Validate rollback-oriented operational visibility | Preserves reversibility and safety review |
+| Recovery Sequencing Module | Coordinate restoration ordering | Reduces recovery-induced dependency instability |
+| Recovery Evidence Module | Aggregate recovery validation evidence | Preserves reviewable recovery proof |
 
 ---
 
 # 9. Used Adapters
 
-| Adapter | Integration Responsibility |
-|---|---|
-| Recovery Execution Adapter | Trigger controlled recovery actions |
-| Prometheus Adapter | Aggregate recovery telemetry |
-| Grafana Visualization Adapter | Present recovery dashboards |
-| Alertmanager Notification Adapter | Propagate recovery alerts |
+| Adapter | Integration Responsibility | Operational Contribution |
+|---|---|---|
+| Recovery Execution Adapter | Trigger controlled recovery actions | Executes approved restoration workflow |
+| Prometheus Adapter | Aggregate recovery telemetry | Supports recovery and stabilization validation |
+| Grafana Visualization Adapter | Present recovery dashboards | Supports operator and reviewer visibility |
+| Alertmanager Notification Adapter | Propagate recovery alerts | Tracks recovery activation and validation alerts |
+| Rollback Control Adapter | Expose rollback state and execution visibility | Supports rollback readiness review |
 
 ---
 
 # 10. Implementation Approach
 
-The implementation approach follows a recovery-first operational flow.
+The implementation approach follows a recovery-first but safety-gated operational flow.
 
-Telemetry and correlation evidence initiate recovery orchestration. Recovery sequencing coordinates restoration actions, rollback visibility, and dependency-aware validation.
+Telemetry and correlation evidence initiate recovery review. Recovery decision logic confirms whether degradation is persistent, operationally meaningful, and safe to address through controlled intervention.
 
-Evidence aggregation consolidates recovery timelines, dashboard evidence, rollback evidence, and restoration validation outputs.
+Recovery sequencing coordinates restoration actions, rollback visibility, dependency stabilization checks, and post-recovery validation.
+
+Evidence aggregation consolidates recovery timelines, dashboard evidence, rollback evidence, dependency stabilization evidence, and restoration validation outputs.
 
 ---
 
@@ -117,64 +128,146 @@ Evidence aggregation consolidates recovery timelines, dashboard evidence, rollba
 | rollback_execution_count | Track rollback visibility |
 | recovery_validation_success_percent | Validate recovery completion |
 | service_health_after_recovery_percent | Confirm restored service health |
+| dependency_stabilization_percent | Confirm downstream state stabilization |
+| alert_normalization_percent | Confirm alert state returns to expected baseline |
 
 ## Alert Strategy
 
-| Alert | Operational Trigger |
-|---|---|
-| Recovery Execution Alert | Recovery orchestration activated |
-| Rollback Visibility Alert | Rollback path observed |
-| Recovery Validation Failure Alert | Restoration validation failed |
+| Alert | Operational Trigger | Operational Meaning |
+|---|---|---|
+| Recovery Execution Alert | Recovery orchestration activated | Controlled intervention has started |
+| Rollback Visibility Alert | Rollback path observed or required | Rollback readiness must be reviewed |
+| Recovery Validation Failure Alert | Restoration validation failed | Recovery outcome is not operationally trusted |
+| Dependency Stabilization Warning | Dependency state remains degraded after recovery | Recovery may be incomplete or unsafe |
 
 ## Evidence Strategy
 
 | Evidence | Validation Purpose |
 |---|---|
 | Recovery Timeline Evidence | Validate recovery sequencing |
-| Rollback Evidence | Validate rollback visibility |
+| Rollback Evidence | Validate rollback visibility and reversibility |
 | Recovery Dashboard Evidence | Validate recovery observability |
+| Dependency Stabilization Evidence | Confirm downstream stabilization |
 | Restoration Evidence | Confirm recovery success |
 
 ---
 
-# 12. Operational Workflow
+# 12. Detection Workflow
+
+Persistent degradation patterns, failed correlation stabilization, repeated alert conditions, or operational impact escalation initiate recovery-oriented operational review workflows.
+
+Recovery escalation occurs only when visibility and correlation workflows determine that passive observation or interpretation is insufficient to preserve operational stability.
+
+Detection does not automatically imply recovery execution. It initiates recovery decision review.
+
+## Detection Flow
+
+    Degradation Confirmation
+    → Correlation Review
+    → Recovery Threshold Evaluation
+    → Recovery Decision Review
+    → Controlled Intervention Readiness Check
+
+---
+
+# 13. Recovery Decision Logic
+
+Recovery orchestration is initiated only after telemetry validation, dependency visibility confirmation, and correlation review determine that operational intervention is safer than continued degradation propagation.
+
+The workflow validates that recovery execution is justified, bounded, observable, and reversible where applicable.
+
+Rollback visibility is preserved before restoration sequencing begins in order to reduce irreversible recovery escalation risk.
+
+## Recovery Decision Boundaries
+
+| Required Before Recovery | Not Sufficient Alone |
+|---|---|
+| Confirmed degradation persistence | Single alert event |
+| Correlation-supported operational impact | Unverified metric spike |
+| Recovery safety check | Manual assumption |
+| Rollback visibility | Unvalidated rollback path |
+| Evidence capture readiness | Informal operator observation |
+
+---
+
+# 14. Recovery & Automation Workflow
 
 ![Workflow Overview](./diagrams/workflow-overview.png)
 
 ## Recovery Flow
 
     Degradation Confirmation
+    → Recovery Decision Logic
     → Recovery Orchestration Activation
     → Restoration Sequencing
     → Rollback Visibility Validation
+    → Dependency Stabilization Review
     → Recovery Validation
     → Evidence Aggregation
     → Restoration Confirmation
 
+## Workflow Description
+
+The workflow begins after visibility and correlation workflows confirm that degradation is operationally meaningful.
+
+Recovery orchestration activates controlled restoration steps according to defined sequencing boundaries. Rollback visibility is verified before and during restoration to preserve operational safety.
+
+Dependency stabilization review confirms that recovery did not amplify downstream degradation or create secondary operational instability.
+
+This workflow intentionally excludes distributed resilience failover, multi-site survivability coordination, enterprise continuity escalation, and executive governance coordination.
+
+## Operational Decision Points
+
+| Decision Point | Operator Question | Expected Evidence |
+|---|---|---|
+| Recovery Escalation Review | Is operational intervention justified? | Correlation and degradation evidence |
+| Automation Safety Review | Is automated recovery safer than continued degradation? | Recovery decision evidence |
+| Rollback Readiness Review | Can recovery be safely reversed if necessary? | Rollback visibility evidence |
+| Dependency Stabilization Review | Did restoration stabilize dependent services? | Dependency stabilization evidence |
+| Recovery Completion Review | Has operational health normalized? | Recovery validation evidence |
+| Lifecycle Boundary Review | Was L4/L5 scope intentionally excluded? | Lifecycle purity evidence |
+
 ---
 
-# 13. Validation Workflow
+# 15. Recovery Validation Workflow
 
-| Validation Target | Validation Purpose |
-|---|---|
-| Recovery Sequencing | Confirm restoration order |
-| Rollback Visibility | Confirm rollback path observability |
-| Service Health | Confirm restored operational health |
-| Evidence Aggregation | Confirm recovery evidence collection |
-| Lifecycle Purity | Confirm no L4/L5 scope leakage |
+| Validation Target | Validation Purpose | PASS Basis |
+|---|---|---|
+| Recovery Sequencing | Confirm restoration order was controlled | Recovery timeline shows expected sequence |
+| Rollback Visibility | Confirm rollback path observability | Rollback evidence exists and is reviewable |
+| Service Health | Confirm restored operational health | Post-recovery metrics meet expected baseline |
+| Dependency Stabilization | Confirm dependent services stabilized | Dependency validation evidence shows no residual degradation |
+| Alert Normalization | Confirm alert state returned to expected baseline | Alert timeline shows recovery normalization |
+| Evidence Aggregation | Confirm recovery evidence collection | Recovery artifacts are present and reviewable |
+| Lifecycle Purity | Confirm no L4/L5 scope leakage | README and workflow exclude resilience/continuity ownership |
 
 ## Validation Flow
 
     Recovery Telemetry Validation
     → Restoration Verification
     → Rollback Visibility Verification
+    → Dependency Stabilization Verification
+    → Alert Normalization Review
     → Dashboard Validation
     → Evidence Verification
     → Recovery Confirmation
 
 ---
 
-# 14. Scenario Package Structure
+# 16. Evidence Outputs
+
+| Evidence Output | Source | Validation Meaning | Package Location |
+|---|---|---|---|
+| recovery-timeline-evidence.md | Recovery execution timeline | Confirms restoration sequencing | evidence/ |
+| rollback-visibility-evidence.md | Rollback validation output | Confirms rollback safety visibility | evidence/ |
+| recovery-dashboard-evidence.png | Recovery dashboard capture | Confirms operator recovery visibility | evidence/ |
+| dependency-stabilization-evidence.md | Dependency validation output | Confirms stabilized downstream state | evidence/ |
+| alert-normalization-evidence.md | Alertmanager timeline | Confirms alert state normalization | evidence/ |
+| recovery-validation-summary.md | Recovery validation workflow | Confirms Level-3 recovery readiness | evidence/ |
+
+---
+
+# 17. Scenario Package Structure
 
     vpn-tunnel-recovery-automation/
     ├── README.md
@@ -186,7 +279,7 @@ Evidence aggregation consolidates recovery timelines, dashboard evidence, rollba
 
 ---
 
-# 15. Related Scenarios
+# 18. Related Scenarios
 
 ﻿
 | Relationship Type | Reference |
@@ -210,9 +303,8 @@ Evidence aggregation consolidates recovery timelines, dashboard evidence, rollba
 ![Relationship Overview](./diagrams/relationship-overview.png)
 ---
 
-# 16. Summary
+# 19. Summary
 
 This scenario defines a Level-3 recovery-oriented operational scenario.
 
-It prioritizes recovery orchestration, rollback visibility, restoration validation, and operational evidence aggregation while preserving strict Level-3 Recovery lifecycle purity.
-
+It establishes controlled intervention governance by validating recovery decision logic, coordinating restoration sequencing, preserving rollback visibility, validating dependency stabilization, and aggregating reviewable recovery evidence while preserving strict Level-3 Recovery lifecycle purity.

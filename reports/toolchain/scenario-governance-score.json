@@ -1,0 +1,184 @@
+{
+  "scenario_count": 16,
+  "scenarios": {
+    "cloud-instance-recovery-automation": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "cross-region-network-anomaly-correlation": {
+      "score": 92,
+      "grade": "B",
+      "finding_count": 4,
+      "severity_summary": {
+        "WARNING": 4
+      },
+      "category_summary": {
+        "missing-recommended-diagram": 1,
+        "lifecycle-semantic-leakage": 3
+      }
+    },
+    "database-recovery-orchestration": {
+      "score": 93,
+      "grade": "B",
+      "finding_count": 2,
+      "severity_summary": {
+        "ERROR": 1,
+        "WARNING": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1,
+        "lifecycle-semantic-leakage": 1
+      }
+    },
+    "enterprise-cloud-continuity": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "enterprise-platform-continuity": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "enterprise-service-continuity-coordination": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "kubernetes-node-recovery": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "multi-cluster-failover": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "multi-region-latency-correlation": {
+      "score": 98,
+      "grade": "A",
+      "finding_count": 1,
+      "severity_summary": {
+        "WARNING": 1
+      },
+      "category_summary": {
+        "missing-recommended-diagram": 1
+      }
+    },
+    "multi-region-service-failover": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "multi-region-service-failover-resilience": {
+      "score": 95,
+      "grade": "B",
+      "finding_count": 1,
+      "severity_summary": {
+        "ERROR": 1
+      },
+      "category_summary": {
+        "missing-required-diagram": 1
+      }
+    },
+    "multi-site-routing-failover": {
+      "score": 98,
+      "grade": "A",
+      "finding_count": 1,
+      "severity_summary": {
+        "WARNING": 1
+      },
+      "category_summary": {
+        "lifecycle-semantic-leakage": 1
+      }
+    },
+    "pod-failure-correlation": {
+      "score": 98,
+      "grade": "A",
+      "finding_count": 1,
+      "severity_summary": {
+        "WARNING": 1
+      },
+      "category_summary": {
+        "missing-recommended-diagram": 1
+      }
+    },
+    "vpn-connectivity-monitoring": {
+      "score": 92,
+      "grade": "B",
+      "finding_count": 4,
+      "severity_summary": {
+        "WARNING": 4
+      },
+      "category_summary": {
+        "lifecycle-semantic-leakage": 4
+      }
+    },
+    "vpn-latency-correlation": {
+      "score": 94,
+      "grade": "B",
+      "finding_count": 3,
+      "severity_summary": {
+        "WARNING": 3
+      },
+      "category_summary": {
+        "lifecycle-semantic-leakage": 3
+      }
+    },
+    "vpn-latency-visibility": {
+      "score": 96,
+      "grade": "A",
+      "finding_count": 2,
+      "severity_summary": {
+        "WARNING": 2
+      },
+      "category_summary": {
+        "lifecycle-semantic-leakage": 2
+      }
+    }
+  }
+}

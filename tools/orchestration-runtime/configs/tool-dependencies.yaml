@@ -71,3 +71,14 @@
       - diagram-consistency-validator
       - scenario-relationship-validator
       - artifact-existence-validator
+
+  lifecycle-semantic-validator:
+    critical: false
+    depends_on:
+      - scenario-generator
+
+  lifecycle-chain-validator:
+    critical: false
+    depends_on:
+      - scenario-generator
+      - lifecycle-semantic-validator

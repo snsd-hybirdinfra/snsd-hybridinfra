@@ -34,7 +34,9 @@
 Establish operational visibility for VPN connectivity degradation across hybrid infrastructure environments.
 
 
-This scenario establishes Level-1 visibility by collecting telemetry signals, exposing operational health, and generating visibility-oriented evidence.
+This scenario establishes foundational operational visibility for hybrid VPN infrastructure by detecting early-stage connectivity degradation before higher-level correlation, recovery, or resilience workflows become necessary.
+
+The scenario focuses on exposing telemetry anomalies, validating monitoring continuity, and preserving observable operational state required for future lifecycle workflows.
 
 ---
 
@@ -42,7 +44,9 @@ This scenario establishes Level-1 visibility by collecting telemetry signals, ex
 
 Level-1 visibility scenarios establish the operational baseline required before correlation, recovery, resilience, or continuity workflows can be trusted.
 
-This scenario focuses on making infrastructure conditions observable, measurable, and reviewable.
+Without reliable visibility, downstream operational workflows may operate on incomplete, stale, or misleading infrastructure state.
+
+This scenario reduces blind-operation risk by making VPN connectivity conditions observable, measurable, and reviewable before operational escalation occurs.
 
 ---
 
@@ -50,19 +54,19 @@ This scenario focuses on making infrastructure conditions observable, measurable
 
 This scenario intentionally remains within the Level-1 Visibility lifecycle boundary.
 
-The design focuses on telemetry collection, monitoring visibility, dashboard review, alert visibility, and operational evidence generation.
+The design focuses on telemetry collection, monitoring visibility, dashboard review, alert visibility, visibility interpretation, and operational evidence generation.
 
-Recovery orchestration, rollback execution, distributed failover, and continuity governance are intentionally excluded.
+Recovery orchestration, rollback execution, distributed failover, resilience coordination, and continuity governance are intentionally excluded.
 
 ---
 
 # 6. Scenario Objectives
 
-- Establish telemetry visibility
-- Validate monitoring continuity
-- Surface operational health indicators
-- Generate alert visibility
-- Aggregate visibility evidence
+- Establish telemetry visibility for VPN connectivity health
+- Validate monitoring pipeline continuity
+- Surface operational health indicators before dependency escalation
+- Generate visibility-oriented alert evidence
+- Aggregate dashboard, metric, and alert evidence
 - Preserve strict Level-1 Visibility lifecycle purity
 
 ---
@@ -73,27 +77,29 @@ Recovery orchestration, rollback execution, distributed failover, and continuity
 
 The operational architecture focuses on visibility across telemetry source, telemetry pipeline, analysis, alerting, and evidence layers.
 
+Each layer contributes to observable infrastructure state without introducing recovery orchestration or resilience coordination.
+
 ---
 
 # 8. Used Modules
 
-| Module | Operational Responsibility |
-|---|---|
-| Telemetry Collection Module | Collect operational telemetry signals |
-| Visibility Analysis Module | Analyze operational health visibility |
-| Alert Visibility Module | Surface visibility-oriented alerts |
-| Evidence Aggregation Module | Consolidate visibility evidence |
+| Module | Operational Responsibility | Lifecycle Contribution |
+|---|---|---|
+| Telemetry Collection Module | Collect VPN latency, packet loss, jitter, and interface utilization signals | Establish observable infrastructure state |
+| Visibility Analysis Module | Interpret health indicators and visibility degradation patterns | Support Level-1 operational visibility reasoning |
+| Alert Visibility Module | Surface visibility-oriented alerts for operational review | Initiate visibility escalation without recovery action |
+| Evidence Aggregation Module | Consolidate metric, dashboard, alert, and validation evidence | Preserve reviewable visibility evidence |
 
 ---
 
 # 9. Used Adapters
 
-| Adapter | Integration Responsibility |
-|---|---|
-| Prometheus Adapter | Aggregate telemetry metrics |
-| Grafana Visualization Adapter | Present visibility dashboards |
-| Alertmanager Notification Adapter | Propagate visibility alerts |
-| Telemetry Source Adapter | Collect infrastructure health signals |
+| Adapter | Integration Responsibility | Operational Contribution |
+|---|---|---|
+| Prometheus Adapter | Aggregate telemetry metrics | Supports metric-based visibility validation |
+| Grafana Visualization Adapter | Present visibility dashboards | Supports reviewer and operator visibility review |
+| Alertmanager Notification Adapter | Propagate visibility alerts | Supports visibility escalation tracking |
+| Telemetry Source Adapter | Collect infrastructure health signals | Supports raw operational state observation |
 
 ---
 
@@ -101,11 +107,11 @@ The operational architecture focuses on visibility across telemetry source, tele
 
 The implementation approach follows a visibility-first operational flow.
 
-Telemetry signals are collected from infrastructure sources and aggregated into centralized observability pipelines. Visibility analysis evaluates health indicators and surfaces anomalies through dashboards and alerts.
+Telemetry signals are collected from infrastructure sources and aggregated into centralized observability pipelines. Visibility analysis evaluates VPN health indicators and surfaces degradation patterns through dashboards and alerts.
 
-Evidence aggregation consolidates metric snapshots, dashboard views, alert timelines, and validation outputs.
+Evidence aggregation consolidates metric snapshots, dashboard views, alert timelines, and validation outputs so the scenario can be reviewed without relying on external explanation.
 
-The implementation intentionally avoids recovery execution, rollback automation, failover orchestration, and continuity escalation.
+The implementation intentionally avoids recovery execution, rollback automation, failover orchestration, resilience coordination, and continuity escalation.
 
 ---
 
@@ -115,31 +121,70 @@ The implementation intentionally avoids recovery execution, rollback automation,
 
 | Metric | Operational Purpose |
 |---|---|
+| vpn_latency_ms | Identify connectivity degradation before service impact escalation |
+| vpn_packet_loss_percent | Detect packet delivery instability across VPN paths |
+| vpn_jitter_ms | Identify unstable tunnel performance affecting session reliability |
+| interface_utilization_percent | Detect traffic saturation that may affect VPN tunnel health |
 | telemetry_availability_percent | Validate telemetry continuity |
-| service_health_visibility_percent | Confirm observable service health |
-| alert_visibility_count | Validate alert visibility generation |
 | dashboard_refresh_success_percent | Confirm dashboard visibility consistency |
 
 ## Alert Strategy
 
-| Alert | Operational Trigger |
-|---|---|
-| Visibility Signal Missing Alert | Telemetry signal unavailable |
-| Health Visibility Degradation Alert | Operational health visibility degraded |
-| Monitoring Pipeline Warning | Visibility pipeline instability detected |
+| Alert | Operational Trigger | Operational Meaning |
+|---|---|---|
+| Visibility Signal Missing Alert | Telemetry signal unavailable | Observability pipeline may be incomplete or degraded |
+| VPN Health Visibility Degradation Alert | Latency, packet loss, or jitter exceeds visibility threshold | Connectivity health requires operational review |
+| Monitoring Pipeline Warning | Visibility pipeline instability detected | Metric interpretation may be unreliable until pipeline health is confirmed |
 
 ## Evidence Strategy
 
 | Evidence | Validation Purpose |
 |---|---|
-| Telemetry Query Evidence | Validate telemetry aggregation |
-| Dashboard Evidence | Validate operational visibility |
-| Alert Timeline Evidence | Validate alert propagation |
-| Visibility Validation Evidence | Confirm observable operational state |
+| Telemetry Query Evidence | Validate telemetry aggregation and query availability |
+| Dashboard Evidence | Validate operational visibility and reviewer readability |
+| Alert Timeline Evidence | Validate alert propagation and visibility escalation |
+| Visibility Validation Evidence | Confirm observable operational state before lifecycle progression |
 
 ---
 
-# 12. Operational Workflow
+# 12. Detection Workflow
+
+Telemetry anomalies across VPN latency, packet loss, jitter, or interface utilization initiate visibility-oriented operational review.
+
+The monitoring pipeline evaluates whether the degradation pattern represents a missing signal, transient telemetry instability, monitoring pipeline degradation, or actual VPN connectivity deterioration.
+
+Visibility escalation occurs before recovery orchestration is introduced. This preserves Level-1 lifecycle purity while ensuring downstream correlation and recovery workflows can rely on observable infrastructure state.
+
+## Detection Flow
+
+    VPN Telemetry Signal
+    → Monitoring Pipeline Collection
+    → Visibility Threshold Evaluation
+    → Alert Visibility Generation
+    → Operator Visibility Review
+
+---
+
+# 13. Correlation & Analysis
+
+Level-1 analysis remains limited to visibility interpretation and operational state confirmation.
+
+The scenario validates telemetry consistency across metric sources, dashboard views, and alert timelines to reduce false-positive visibility degradation.
+
+Dependency escalation analysis, root-cause determination, recovery decision-making, and resilience coordination are intentionally deferred to higher lifecycle scenarios.
+
+## Analysis Boundaries
+
+| Included | Excluded |
+|---|---|
+| Telemetry consistency review | Root-cause ownership |
+| Visibility degradation interpretation | Recovery decision execution |
+| Monitoring pipeline health confirmation | Distributed failover analysis |
+| Alert visibility confirmation | Continuity governance |
+
+---
+
+# 14. Operational Workflow
 
 ![Workflow Overview](./diagrams/workflow-overview.png)
 
@@ -152,17 +197,26 @@ The implementation intentionally avoids recovery execution, rollback automation,
     → Evidence Aggregation
     → Visibility Validation
 
+## Operational Decision Points
+
+| Decision Point | Operator Question | Expected Evidence |
+|---|---|---|
+| Telemetry availability review | Are VPN health signals observable? | Telemetry query evidence |
+| Dashboard visibility review | Can the operator inspect current VPN health? | Dashboard evidence |
+| Alert visibility review | Was degradation surfaced for review? | Alert timeline evidence |
+| Lifecycle boundary review | Was recovery intentionally excluded? | Validation evidence |
+
 ---
 
-# 13. Validation Workflow
+# 15. Validation Workflow
 
-| Validation Target | Validation Purpose |
-|---|---|
-| Telemetry Continuity | Confirm telemetry collection is observable |
-| Monitoring Visibility | Confirm operational monitoring visibility |
-| Alert Visibility | Confirm visibility alert generation |
-| Evidence Aggregation | Confirm visibility evidence collection |
-| Lifecycle Purity | Confirm no recovery or resilience workflow is introduced |
+| Validation Target | Validation Purpose | PASS Basis |
+|---|---|---|
+| Telemetry Continuity | Confirm VPN telemetry collection is observable | Required metrics are queryable |
+| Monitoring Visibility | Confirm operational monitoring visibility | Dashboard shows current health indicators |
+| Alert Visibility | Confirm visibility alert generation | Alert timeline records visibility event |
+| Evidence Aggregation | Confirm visibility evidence collection | Evidence artifacts are present and reviewable |
+| Lifecycle Purity | Confirm no recovery or resilience workflow is introduced | README and workflow exclude recovery/failover execution |
 
 ## Validation Flow
 
@@ -175,7 +229,18 @@ The implementation intentionally avoids recovery execution, rollback automation,
 
 ---
 
-# 14. Scenario Package Structure
+# 16. Evidence Outputs
+
+| Evidence Output | Source | Validation Meaning | Package Location |
+|---|---|---|---|
+| telemetry-query-evidence.md | Prometheus query result | Confirms metric availability and continuity | evidence/ |
+| dashboard-visibility-evidence.png | Grafana dashboard capture | Confirms operator visibility | evidence/ |
+| alert-timeline-evidence.md | Alertmanager event timeline | Confirms visibility escalation | evidence/ |
+| visibility-validation-summary.md | Validation workflow output | Confirms Level-1 visibility readiness | evidence/ |
+
+---
+
+# 17. Scenario Package Structure
 
     vpn-connectivity-monitoring/
     ├── README.md
@@ -187,7 +252,7 @@ The implementation intentionally avoids recovery execution, rollback automation,
 
 ---
 
-# 15. Related Scenarios
+# 18. Related Scenarios
 
 ﻿
 | Relationship Type | Reference |
@@ -207,8 +272,8 @@ The implementation intentionally avoids recovery execution, rollback automation,
 ![Relationship Overview](./diagrams/relationship-overview.png)
 ---
 
-# 16. Summary
+# 19. Summary
 
 This scenario defines a Level-1 visibility-oriented operational scenario.
 
-It prioritizes telemetry visibility, monitoring continuity, alert visibility, and operational evidence aggregation while preserving strict Level-1 Visibility lifecycle purity.
+It establishes observable VPN connectivity state, validates monitoring continuity, surfaces visibility-oriented alerts, and aggregates reviewable operational evidence while preserving strict Level-1 Visibility lifecycle purity.

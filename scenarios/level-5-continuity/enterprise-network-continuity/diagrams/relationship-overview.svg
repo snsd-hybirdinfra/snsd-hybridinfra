@@ -11,10 +11,15 @@
 <line x1="40" y1="560" x2="1800" y2="560" stroke="#334155" stroke-width="1.5" />
 <line x1="550" y1="420" x2="950" y2="420" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
 <text x="750.0" y="406.0" fill="#cbd5e1" font-size="12" text-anchor="middle">previous lifecycle</text>
+<line x1="550" y1="600" x2="950" y2="420" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow)" />
+<text x="750.0" y="496.0" fill="#cbd5e1" font-size="12" text-anchor="middle">aggregation</text>
 <rect x="830" y="380" width="240" height="80" rx="14" fill="#2563eb" stroke="#e2e8f0" stroke-width="1.5" />
 <text x="848" y="414" fill="#ffffff" font-size="15" font-weight="bold">enterprise-network-continuity</text>
 <text x="848" y="438" fill="#e2e8f0" font-size="11">scenario-node</text>
 <rect x="430" y="380" width="240" height="80" rx="14" fill="#64748b" stroke="#e2e8f0" stroke-width="1.5" />
 <text x="448" y="414" fill="#ffffff" font-size="15" font-weight="bold">previous lifecycle</text>
 <text x="448" y="438" fill="#e2e8f0" font-size="11">relationship-node</text>
+<rect x="430" y="560" width="240" height="80" rx="14" fill="#0891b2" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="448" y="594" fill="#ffffff" font-size="15" font-weight="bold">aggregation source</text>
+<text x="448" y="618" fill="#e2e8f0" font-size="11">aggregation-node</text>
 </svg>

@@ -2,7 +2,7 @@
   name: scenario-generator
   category: generator
   runtime: python
-  entrypoint: main.py
+  entrypoint: generate_all_scenarios.py
   requirements: requirements.txt
   bootstrap: true
   orchestration: true

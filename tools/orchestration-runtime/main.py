@@ -1,7 +1,40 @@
 ﻿from pathlib import Path
+import sys
+
+sys.path.append("./tools")
+
+from shared_runtime.src.runtime_encoding import (
+    configure_runtime_encoding
+)
+
+configure_runtime_encoding()
 import os
+import sys
 import subprocess
 import yaml
+
+
+def configure_stdout_encoding():
+
+    for stream in [
+        sys.stdout,
+        sys.stderr
+    ]:
+
+        reconfigure = getattr(
+            stream,
+            "reconfigure",
+            None
+        )
+
+        if reconfigure:
+
+            reconfigure(
+                encoding="utf-8"
+            )
+
+
+configure_stdout_encoding()
 
 from src.execution_planner import (
     build_execution_plan
@@ -42,7 +75,30 @@ from src.execution_report_writer import (
     write_execution_report
 )
 
-from datetime import datetime
+from shared_runtime.src.validator_findings_reader import (
+    read_validator_findings_status
+)
+
+from shared_runtime.src.governance_aggregator import (
+    aggregate_governance_summary
+)
+
+from shared_runtime.src.governance_scoring import (
+    generate_governance_score
+)
+
+from shared_runtime.src.scenario_governance_scoring import (
+    generate_scenario_governance_score
+)
+
+from datetime import (
+    datetime,
+    UTC
+)
+
+from src.runtime_cleanup import (
+    cleanup_runtime_workspace
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_ROOT = REPO_ROOT / "tools"
@@ -193,16 +249,18 @@ def execute_tool(
     try:
 
         result = subprocess.run(
-            [
-                str(python_path),
-                str(main_path)
-            ],
-            cwd=str(tool_path),
-            capture_output=True,
-            text=True,
-            env=env,
-            timeout=300
-        )
+    [
+        str(python_path),
+        str(main_path)
+    ],
+    cwd=str(tool_path),
+    capture_output=True,
+    text=True,
+    encoding="utf-8",
+    errors="replace",
+    env=env,
+    timeout=300
+)
 
     except subprocess.TimeoutExpired:
 
@@ -240,9 +298,16 @@ def execute_tool(
 
     print(result.stdout)
 
+    output = (
+        result.stdout
+        + "\n"
+        + result.stderr
+    ).lower()
+
     warning_detected = (
-        "WARNING:"
-        in result.stdout
+        "completed with warnings" in output
+        or "warnings:" in output
+        or "warning" in output
     )
 
     if result.returncode != 0:
@@ -277,9 +342,13 @@ def execute_tool(
             f"{tool['name']} execution failed."
         )
 
+    validator_status = read_validator_findings_status(
+        tool["name"]
+    )
+
     final_status = (
-        "WARNING"
-        if warning_detected
+        validator_status
+        if validator_status
         else "COMPLETED"
     )
 
@@ -365,6 +434,8 @@ def finalize_run(
 
 def main():
 
+    cleanup_runtime_workspace()
+
     execution_results = []
     execution_status = {}
 
@@ -427,7 +498,7 @@ def main():
 
             execution_status[tool_name] = "BLOCKED"
 
-            timestamp = datetime.utcnow()
+            timestamp = datetime.now(UTC)
 
             execution_results.append(
                 {
@@ -449,7 +520,7 @@ def main():
 
             continue
 
-        started_at = datetime.utcnow()
+        started_at = datetime.now(UTC)
 
         try:
 
@@ -468,7 +539,7 @@ def main():
                 run_context
             )
 
-            finished_at = datetime.utcnow()
+            finished_at = datetime.now(UTC)
 
             duration_seconds = round(
                 (
@@ -499,7 +570,7 @@ def main():
 
         except Exception as error:
 
-            finished_at = datetime.utcnow()
+            finished_at = datetime.now(UTC)
 
             duration_seconds = round(
                 (
@@ -541,6 +612,26 @@ def main():
         execution_results
     )
 
+    governance_summary_path = aggregate_governance_summary(
+        run_context["run_id"]
+    )
+
+    print(
+        f"Governance summary generated: {governance_summary_path}"
+    )
+
+    governance_score_path = generate_governance_score()
+
+    print(
+        f"Governance score generated: {governance_score_path}"
+    )
+
+    scenario_score_path = generate_scenario_governance_score()
+
+    print(
+        f"Scenario governance score generated: {scenario_score_path}"
+    )
+
     write_execution_report(
         execution_results
     )
@@ -552,3 +643,17 @@ def main():
     
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+

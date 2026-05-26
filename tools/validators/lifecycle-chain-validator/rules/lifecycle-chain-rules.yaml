@@ -1,0 +1,20 @@
+﻿allowed_transitions:
+
+  level-1-visibility:
+    next:
+      - level-2-correlation
+
+  level-2-correlation:
+    next:
+      - level-3-recovery
+
+  level-3-recovery:
+    next:
+      - level-4-resilience
+
+  level-4-resilience:
+    next:
+      - level-5-continuity
+
+  level-5-continuity:
+    next: []

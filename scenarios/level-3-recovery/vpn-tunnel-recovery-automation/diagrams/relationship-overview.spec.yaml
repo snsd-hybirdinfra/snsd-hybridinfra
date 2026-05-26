@@ -42,6 +42,25 @@ nodes:
     label: next lifecycle
 
 
+
+
+  - id: aggregation_1
+    type: aggregation-node
+    lifecycle: aggregation
+    label: aggregation source
+
+
+
+
+
+  - id: rollup_1
+    type: rollup-node
+    lifecycle: rollup
+    label: operational rollup
+
+
+
+
 edges:
 
 
@@ -56,4 +75,23 @@ edges:
     to: next_scenario
     type: lifecycle-chain
     label: next lifecycle
+
+
+
+
+  - from: aggregation_1
+    to: current_scenario
+    type: aggregation-flow
+    label: aggregation
+
+
+
+
+
+  - from: current_scenario
+    to: rollup_1
+    type: rollup-flow
+    label: rollup
+
+
 
