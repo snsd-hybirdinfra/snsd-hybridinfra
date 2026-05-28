@@ -1,0 +1,120 @@
+﻿diagram:
+  id: l3-recovery-example
+  title: VPN Tunnel Recovery Automation
+  lifecycle: level-3-recovery
+  theme: dark
+  layout_profile: recovery-workflow-layout
+
+layout:
+  direction: left-to-right
+  workflow_lanes: true
+  auto_grouping: true
+  node_gap: 120
+  section_gap: 220
+
+workflow_lanes:
+  - Detection
+  - Correlation
+  - Decision
+  - Recovery
+  - Validation
+
+sections:
+  - id: detection-layer
+    label: Detection Layer
+    type: telemetry
+
+  - id: analysis-layer
+    label: Analysis Layer
+    type: analysis
+
+  - id: orchestration-layer
+    label: Orchestration Layer
+    type: recovery
+
+  - id: validation-layer
+    label: Validation Layer
+    type: validation
+
+nodes:
+  - id: telemetry-alert
+    label: Tunnel Failure Alert
+    type: telemetry
+    section: detection-layer
+    group: observability
+    workflow_lane: Detection
+    severity: critical
+
+  - id: correlation-engine
+    label: Correlation Engine
+    type: analysis
+    section: analysis-layer
+    group: analysis
+    workflow_lane: Correlation
+
+  - id: recovery-controller
+    label: Recovery Controller
+    type: orchestration
+    section: orchestration-layer
+    group: recovery
+    workflow_lane: Decision
+
+  - id: recovery-workflow
+    label: Tunnel Recovery Workflow
+    type: automation
+    section: orchestration-layer
+    group: recovery
+    workflow_lane: Recovery
+
+  - id: post-validation
+    label: Post Recovery Validation
+    type: validation
+    section: validation-layer
+    group: validation
+    workflow_lane: Validation
+    status: validated
+
+edges:
+  - from: telemetry-alert
+    to: correlation-engine
+    type: telemetry-flow
+    label: anomaly forwarded
+
+  - from: correlation-engine
+    to: recovery-controller
+    type: dependency
+    label: recovery decision required
+
+  - from: recovery-controller
+    to: recovery-workflow
+    type: orchestration
+    label: recovery initiated
+
+  - from: recovery-workflow
+    to: post-validation
+    type: validation
+    label: recovery verification
+
+dashboards:
+  - id: recovery-status
+    title: Recovery Status
+
+    metrics:
+      - Tunnel State: Recovered
+      - Recovery Workflow: Completed
+      - Validation State: Successful
+
+annotations:
+  - text: Automated recovery initiated after tunnel degradation
+    target: recovery-controller
+    annotation_type: operational
+
+  - text: Connectivity restored and validated
+    target: post-validation
+    annotation_type: validation
+
+legends:
+  node_types: true
+  edge_types: true
+  lifecycle_labels: true
+  status_meanings: true

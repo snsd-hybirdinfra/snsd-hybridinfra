@@ -1,0 +1,121 @@
+﻿diagram:
+  id: l5-governance-example
+  title: Enterprise Service Continuity Coordination
+  lifecycle: level-5-continuity
+  theme: light
+  layout_profile: governance-continuity-layout
+
+layout:
+  direction: top-to-bottom
+  workflow_lanes: true
+  auto_grouping: true
+  node_gap: 140
+  section_gap: 260
+
+workflow_lanes:
+  - Enterprise Impact
+  - Coordination
+  - Continuity Control
+  - Validation
+  - Governance
+
+sections:
+  - id: enterprise-services
+    label: Enterprise Services
+    type: source
+
+  - id: continuity-coordination
+    label: Continuity Coordination
+    type: resilience
+
+  - id: governance-layer
+    label: Governance Layer
+    type: governance
+
+  - id: validation-layer
+    label: Validation & Evidence
+    type: validation
+
+nodes:
+  - id: customer-platform
+    label: Customer Platform
+    type: service
+    section: enterprise-services
+    group: service
+    workflow_lane: Enterprise Impact
+    criticality: critical
+
+  - id: continuity-controller
+    label: Continuity Controller
+    type: orchestration
+    section: continuity-coordination
+    group: resilience
+    workflow_lane: Coordination
+
+  - id: failover-manager
+    label: Regional Failover Manager
+    type: resilience
+    section: continuity-coordination
+    group: resilience
+    workflow_lane: Continuity Control
+
+  - id: governance-dashboard
+    label: Governance Dashboard
+    type: governance
+    section: governance-layer
+    group: governance
+    workflow_lane: Governance
+
+  - id: validation-evidence
+    label: Operational Validation Evidence
+    type: validation
+    section: validation-layer
+    group: validation
+    workflow_lane: Validation
+    status: validated
+
+edges:
+  - from: customer-platform
+    to: continuity-controller
+    type: dependency
+    label: enterprise impact detected
+
+  - from: continuity-controller
+    to: failover-manager
+    type: orchestration
+    label: continuity workflow initiated
+
+  - from: failover-manager
+    to: validation-evidence
+    type: validation
+    label: survivability verification
+
+  - from: validation-evidence
+    to: governance-dashboard
+    type: governance-reporting
+    label: governance evidence published
+
+dashboards:
+  - id: enterprise-continuity-status
+    title: Enterprise Continuity Status
+
+    metrics:
+      - Service Availability: Maintained
+      - Regional Survivability: Active
+      - Governance Reporting: Updated
+      - Validation Status: Successful
+
+annotations:
+  - text: Enterprise continuity coordination activated
+    target: continuity-controller
+    annotation_type: operational
+
+  - text: Governance evidence generated after survivability validation
+    target: governance-dashboard
+    annotation_type: governance
+
+legends:
+  node_types: true
+  edge_types: true
+  lifecycle_labels: true
+  status_meanings: true

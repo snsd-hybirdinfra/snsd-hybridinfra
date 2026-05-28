@@ -1,0 +1,96 @@
+﻿diagram:
+  id: l4-resilience-example
+  title: Multi-Cluster Failover Coordination
+  lifecycle: level-4-resilience
+  theme: dark
+  layout_profile: distributed-resilience-layout
+
+layout:
+  direction: distributed
+  workflow_lanes: true
+  auto_grouping: true
+  node_gap: 160
+  section_gap: 260
+
+workflow_lanes:
+  - Failure Domain
+  - Coordination
+  - Failover
+  - Survivability
+  - Validation
+
+sections:
+  - id: regional-failure-domain
+    label: Regional Failure Domain
+    type: source
+
+  - id: coordination-layer
+    label: Coordination Layer
+    type: resilience
+
+  - id: failover-layer
+    label: Failover Layer
+    type: resilience
+
+  - id: survivability-layer
+    label: Survivability Validation
+    type: validation
+
+nodes:
+  - id: primary-cluster
+    label: Primary Cluster
+    type: cluster
+    section: regional-failure-domain
+    group: platform
+    workflow_lane: Failure Domain
+    criticality: critical
+
+  - id: secondary-cluster
+    label: Secondary Cluster
+    type: cluster
+    section: failover-layer
+    group: platform
+    workflow_lane: Failover
+
+  - id: resilience-controller
+    label: Resilience Controller
+    type: resilience
+    section: coordination-layer
+    group: resilience
+    workflow_lane: Coordination
+
+  - id: failover-orchestrator
+    label: Failover Orchestrator
+    type: orchestration
+    section: failover-layer
+    group: recovery
+    workflow_lane: Failover
+
+  - id: survivability-validation
+    label: Survivability Validation
+    type: validation
+    section: survivability-layer
+    group: validation
+    workflow_lane: Validation
+    status: validated
+
+edges:
+  - from: primary-cluster
+    to: resilience-controller
+    type: dependency
+    label: regional degradation detected
+
+  - from: resilience-controller
+    to: failover-orchestrator
+    type: orchestration
+    label: failover coordination initiated
+
+  - from: failover-orchestrator
+    to: secondary-cluster
+    type: failover
+    label: workload migration
+
+  - from: secondary-cluster
+    to: survivability-validation
+    type: validation
+    label: survivability verification

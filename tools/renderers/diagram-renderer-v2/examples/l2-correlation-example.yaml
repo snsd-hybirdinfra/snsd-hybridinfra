@@ -1,0 +1,105 @@
+﻿diagram:
+  id: l2-correlation-example
+  title: Cross-Region Network Anomaly Correlation
+  lifecycle: level-2-correlation
+  theme: dark
+  layout_profile: correlation-layout
+
+layout:
+  direction: center-focused
+  workflow_lanes: true
+  auto_grouping: true
+  node_gap: 120
+  section_gap: 220
+
+workflow_lanes:
+  - Signal Sources
+  - Correlation
+  - Dependency Analysis
+  - Operational Insight
+
+sections:
+  - id: signal-sources
+    label: Signal Sources
+    type: source
+
+  - id: analysis-layer
+    label: Correlation Layer
+    type: analysis
+
+  - id: dependency-layer
+    label: Dependency Analysis
+    type: analysis
+
+  - id: operational-insight
+    label: Operational Insight
+    type: validation
+
+nodes:
+  - id: branch-region
+    label: Branch Region
+    type: network
+    section: signal-sources
+    group: connectivity
+    workflow_lane: Signal Sources
+
+  - id: cloud-region
+    label: Cloud Region
+    type: network
+    section: signal-sources
+    group: connectivity
+    workflow_lane: Signal Sources
+
+  - id: telemetry-stream
+    label: Telemetry Stream
+    type: telemetry
+    section: signal-sources
+    group: observability
+    workflow_lane: Signal Sources
+
+  - id: correlation-engine
+    label: Correlation Engine
+    type: analysis
+    section: analysis-layer
+    group: analysis
+    workflow_lane: Correlation
+
+  - id: dependency-map
+    label: Dependency Mapping
+    type: analysis
+    section: dependency-layer
+    group: analysis
+    workflow_lane: Dependency Analysis
+
+  - id: incident-insight
+    label: Operational Insight
+    type: dashboard
+    section: operational-insight
+    group: validation
+    workflow_lane: Operational Insight
+
+edges:
+  - from: branch-region
+    to: correlation-engine
+    type: telemetry-flow
+    label: branch anomalies
+
+  - from: cloud-region
+    to: correlation-engine
+    type: telemetry-flow
+    label: regional anomalies
+
+  - from: telemetry-stream
+    to: correlation-engine
+    type: telemetry-flow
+    label: telemetry aggregation
+
+  - from: correlation-engine
+    to: dependency-map
+    type: dependency
+    label: dependency reasoning
+
+  - from: dependency-map
+    to: incident-insight
+    type: validation
+    label: operational impact analysis
