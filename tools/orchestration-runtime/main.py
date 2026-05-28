@@ -91,6 +91,10 @@ from shared_runtime.src.scenario_governance_scoring import (
     generate_scenario_governance_score
 )
 
+from shared_runtime.src.governance_dashboard import (
+    generate_governance_dashboard
+)
+
 from datetime import (
     datetime,
     UTC
@@ -632,6 +636,12 @@ def main():
         f"Scenario governance score generated: {scenario_score_path}"
     )
 
+    dashboard_path = generate_governance_dashboard()
+
+    print(
+        f"Governance dashboard generated: {dashboard_path}"
+    )
+
     write_execution_report(
         execution_results
     )
@@ -643,6 +653,8 @@ def main():
     
 if __name__ == "__main__":
     main()
+
+
 
 
 

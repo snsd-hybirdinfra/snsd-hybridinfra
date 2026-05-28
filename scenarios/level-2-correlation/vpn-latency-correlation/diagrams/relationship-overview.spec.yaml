@@ -1,97 +1,49 @@
-﻿diagram:
+diagram:
+  type: relationship-overview
+  title: Vpn Latency Correlation - relationship-overview
+
   scenario: vpn-latency-correlation
   lifecycle: level-2-correlation
-  type: relationship-overview
-  theme: dark-operational
-
-relationship_pyramid:
-
-  level-1:
-    label: Visibility Foundation
-
-  level-2:
-    label: Correlation Aggregation
-
-  level-3:
-    label: Recovery Concentration
-
-  level-4:
-    label: Resilience Convergence
-
-  level-5:
-    label: Enterprise Continuity Rollup
+  layout: left-to-right
 
 nodes:
-
-  - id: current_scenario
-    type: scenario-node
-    lifecycle: level-2-correlation
-    label: vpn-latency-correlation
-
-
-  - id: previous_scenario
-    type: relationship-node
-    lifecycle: previous
-    label: previous lifecycle
-
-
-
-  - id: next_scenario
-    type: relationship-node
-    lifecycle: next
-    label: next lifecycle
-
-
-
-
-  - id: aggregation_1
-    type: aggregation-node
-    lifecycle: aggregation
-    label: aggregation source
-
-
-
-
-
-  - id: rollup_1
-    type: rollup-node
-    lifecycle: rollup
-    label: operational rollup
-
-
-
-
+  - id: branch-site
+    label: Branch Site
+    type: site
+    group: connectivity
+  - id: vpn-gateway
+    label: VPN Gateway
+    type: network
+    group: connectivity
+  - id: vpn-tunnel
+    label: VPN Tunnel
+    type: connectivity
+    group: connectivity
+  - id: telemetry-collector
+    label: Telemetry Collector
+    type: telemetry
+    group: observability
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
+  - id: correlation-engine
+    label: Correlation Engine
+    type: analysis
+    group: analysis
 edges:
-
-
-  - from: previous_scenario
-    to: current_scenario
-    type: lifecycle-chain
-    label: previous lifecycle
-
-
-
-  - from: current_scenario
-    to: next_scenario
-    type: lifecycle-chain
-    label: next lifecycle
-
-
-
-
-  - from: aggregation_1
-    to: current_scenario
-    type: aggregation-flow
-    label: aggregation
-
-
-
-
-
-  - from: current_scenario
-    to: rollup_1
-    type: rollup-flow
-    label: rollup
-
-
-
+  - from: branch-site
+    to: vpn-gateway
+    label: connects through
+  - from: vpn-gateway
+    to: vpn-tunnel
+    label: establishes tunnel
+  - from: vpn-tunnel
+    to: telemetry-collector
+    label: exports tunnel metrics
+  - from: telemetry-collector
+    to: operations-dashboard
+    label: publishes visibility
+  - from: operations-dashboard
+    to: correlation-engine
+    label: correlates operational signals

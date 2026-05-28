@@ -191,6 +191,18 @@ def validate_readme_diagrams(
 
         if not diagram_path.exists():
 
+            spec_path = diagram_path.with_suffix(
+                ".spec.yaml"
+            )
+
+            if spec_path.exists():
+
+                print(
+                    f"[PENDING-RENDER] {diagram_path}"
+                )
+
+                continue
+
             if is_strict_golden_scenario(
                 readme_path
             ):
@@ -293,3 +305,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

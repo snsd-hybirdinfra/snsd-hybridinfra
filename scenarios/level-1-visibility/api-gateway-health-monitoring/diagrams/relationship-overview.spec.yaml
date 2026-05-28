@@ -1,0 +1,35 @@
+diagram:
+  type: relationship-overview
+  title: Api Gateway Health Monitoring - relationship-overview
+
+  scenario: api-gateway-health-monitoring
+  lifecycle: level-1-visibility
+  layout: left-to-right
+
+nodes:
+  - id: client-traffic
+    label: Client Traffic
+    type: traffic
+    group: service
+  - id: load-balancer
+    label: Load Balancer
+    type: network
+    group: connectivity
+  - id: application-service
+    label: Application Service
+    type: service
+    group: service
+  - id: service-telemetry
+    label: Service Telemetry
+    type: telemetry
+    group: observability
+edges:
+  - from: client-traffic
+    to: load-balancer
+    label: routes through
+  - from: load-balancer
+    to: application-service
+    label: distributes requests
+  - from: application-service
+    to: service-telemetry
+    label: emits service signals

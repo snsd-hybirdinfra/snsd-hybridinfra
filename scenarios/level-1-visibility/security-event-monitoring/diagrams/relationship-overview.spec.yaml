@@ -1,0 +1,35 @@
+diagram:
+  type: relationship-overview
+  title: Security Event Monitoring - relationship-overview
+
+  scenario: security-event-monitoring
+  lifecycle: level-1-visibility
+  layout: left-to-right
+
+nodes:
+  - id: identity-provider
+    label: Identity Provider
+    type: identity
+    group: security
+  - id: access-policy
+    label: Access Policy
+    type: policy
+    group: security
+  - id: security-telemetry
+    label: Security Telemetry
+    type: telemetry
+    group: observability
+  - id: risk-analysis-engine
+    label: Risk Analysis Engine
+    type: analysis
+    group: analysis
+edges:
+  - from: identity-provider
+    to: access-policy
+    label: enforces access
+  - from: access-policy
+    to: security-telemetry
+    label: emits policy events
+  - from: security-telemetry
+    to: risk-analysis-engine
+    label: correlates risk

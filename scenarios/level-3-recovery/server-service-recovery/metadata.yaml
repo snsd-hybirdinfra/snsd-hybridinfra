@@ -1,0 +1,4 @@
+scenario_name: server-service-recovery
+lifecycle_level: level-3-recovery
+status: draft
+source: inferred-from-repository-structure

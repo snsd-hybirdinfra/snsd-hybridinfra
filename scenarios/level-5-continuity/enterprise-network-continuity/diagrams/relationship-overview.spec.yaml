@@ -1,69 +1,35 @@
-﻿diagram:
+diagram:
+  type: relationship-overview
+  title: Enterprise Network Continuity - relationship-overview
+
   scenario: enterprise-network-continuity
   lifecycle: level-5-continuity
-  type: relationship-overview
-  theme: dark-operational
-
-relationship_pyramid:
-
-  level-1:
-    label: Visibility Foundation
-
-  level-2:
-    label: Correlation Aggregation
-
-  level-3:
-    label: Recovery Concentration
-
-  level-4:
-    label: Resilience Convergence
-
-  level-5:
-    label: Enterprise Continuity Rollup
+  layout: left-to-right
 
 nodes:
-
-  - id: current_scenario
-    type: scenario-node
-    lifecycle: level-5-continuity
-    label: enterprise-network-continuity
-
-
-  - id: previous_scenario
-    type: relationship-node
-    lifecycle: previous
-    label: previous lifecycle
-
-
-
-
-
-  - id: aggregation_1
-    type: aggregation-node
-    lifecycle: aggregation
-    label: aggregation source
-
-
-
-
-
+  - id: telemetry-source
+    label: Telemetry Source
+    type: source
+    group: operational
+  - id: observability-pipeline
+    label: Observability Pipeline
+    type: pipeline
+    group: operational
+  - id: analysis-engine
+    label: Analysis Engine
+    type: analysis
+    group: analysis
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
 edges:
-
-
-  - from: previous_scenario
-    to: current_scenario
-    type: lifecycle-chain
-    label: previous lifecycle
-
-
-
-
-
-  - from: aggregation_1
-    to: current_scenario
-    type: aggregation-flow
-    label: aggregation
-
-
-
-
+  - from: telemetry-source
+    to: observability-pipeline
+    label: emit telemetry
+  - from: observability-pipeline
+    to: analysis-engine
+    label: normalize signals
+  - from: analysis-engine
+    to: operations-dashboard
+    label: publish findings

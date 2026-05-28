@@ -1,0 +1,42 @@
+diagram:
+  type: architecture-overview
+  title: Privilege Escalation Correlation - architecture-overview
+
+  scenario: privilege-escalation-correlation
+  lifecycle: level-2-correlation
+  layout: left-to-right
+
+nodes:
+  - id: identity-provider
+    label: Identity Provider
+    type: identity
+    group: security
+  - id: access-policy
+    label: Access Policy
+    type: policy
+    group: security
+  - id: security-telemetry
+    label: Security Telemetry
+    type: telemetry
+    group: observability
+  - id: risk-analysis-engine
+    label: Risk Analysis Engine
+    type: analysis
+    group: analysis
+  - id: correlation-engine
+    label: Correlation Engine
+    type: analysis
+    group: analysis
+edges:
+  - from: identity-provider
+    to: access-policy
+    label: enforces access
+  - from: access-policy
+    to: security-telemetry
+    label: emits policy events
+  - from: security-telemetry
+    to: risk-analysis-engine
+    label: correlates risk
+  - from: risk-analysis-engine
+    to: correlation-engine
+    label: correlates operational signals

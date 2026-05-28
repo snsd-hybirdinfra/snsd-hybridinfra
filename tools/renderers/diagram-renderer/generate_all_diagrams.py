@@ -47,7 +47,9 @@ def discover_specs():
     )
 
 
-def output_paths(spec_path: Path):
+def output_paths(
+    spec_path: Path
+):
 
     svg_path = (
         spec_path
@@ -62,7 +64,9 @@ def output_paths(spec_path: Path):
     return svg_path, png_path
 
 
-def should_render(spec_path: Path):
+def should_render(
+    spec_path: Path
+):
 
     svg_path, png_path = output_paths(
         spec_path
@@ -86,7 +90,9 @@ def should_render(spec_path: Path):
     )
 
 
-def render_spec(spec_path: Path):
+def render_spec(
+    spec_path: Path
+):
 
     print(
         f"[RENDER] {spec_path}"
@@ -121,11 +127,11 @@ def main():
             spec
         ):
 
+            skipped += 1
+
             print(
                 f"[SKIP] {spec}"
             )
-
-            skipped += 1
 
             continue
 

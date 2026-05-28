@@ -13,218 +13,355 @@ from shared_runtime.src.runtime_encoding import (
 )
 
 configure_runtime_encoding()
-import sys
 
-from src.loader import load_yaml
-from src.validator import validate_metadata
-from src.parser import parse_scenario_metadata
-from src.exporter import export_metadata
-
-from src.template_renderer import render_template
-from src.template_resolver import resolve_level_template
-
-from src.lifecycle_profile_loader import (
-    resolve_lifecycle_profile
-)
-
-from src.diagram_spec_generator import (
-    LIFECYCLE_SPEC_GENERATORS,
-    generate_relationship_spec
+from src.topology_inference import (
+    infer_topology
 )
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
-SCHEMA_PATH = (
-    REPO_ROOT
-    / "tools"
-    / "generators"
-    / "scenario-generator"
-    / "schemas"
-    / "scenario-schema.yaml"
-)
-
-DEFAULT_EXAMPLE_PATH = (
-    "examples/vpn-connectivity-monitoring.yaml"
-)
-
-SCENARIO_ROOT = (
+SCENARIOS_ROOT = (
     REPO_ROOT
     / "scenarios"
 )
 
 
-def resolve_input_path():
+def discover_scenario_dirs():
 
-    if len(sys.argv) > 1:
+    scenario_dirs = []
 
-        return sys.argv[1]
+    for level_dir in sorted(
+        SCENARIOS_ROOT.glob(
+            "level-*"
+        )
+    ):
 
-    return DEFAULT_EXAMPLE_PATH
+        if not level_dir.is_dir():
+
+            continue
+
+        for scenario_dir in sorted(
+            level_dir.iterdir()
+        ):
+
+            if scenario_dir.is_dir():
+
+                scenario_dirs.append(
+                    scenario_dir
+                )
+
+    return scenario_dirs
 
 
-def create_scenario_structure(
-    base_path: Path
+def infer_metadata(
+    scenario_dir: Path
 ):
 
-    directories = [
-        "architecture",
-        "implementation",
-        "evidence",
-        "artifacts",
-        "diagrams"
-    ]
+    lifecycle_level = scenario_dir.parent.name
+    scenario_name = scenario_dir.name
 
-    for directory in directories:
-
-        (
-            base_path
-            / directory
-        ).mkdir(
-            parents=True,
-            exist_ok=True
-        )
+    return {
+        "scenario_name": scenario_name,
+        "lifecycle_level": lifecycle_level,
+        "scenario_title": scenario_name.replace(
+            "-",
+            " "
+        ).title()
+    }
 
 
-def generate_diagram_specs(
-    scenario_path: Path,
-    exported: dict
+def render_yaml_list(
+    key: str,
+    items: list
 ):
 
-    lifecycle_level = exported[
-        "lifecycle_level"
+    lines = [
+        f"{key}:"
     ]
 
-    scenario_name = exported[
-        "scenario_name"
+    for item in items:
+
+        if "id" in item:
+
+            lines.append(
+                f"  - id: {item['id']}"
+            )
+
+            for field, value in item.items():
+
+                if field == "id":
+
+                    continue
+
+                lines.append(
+                    f"    {field}: {value}"
+                )
+
+            continue
+
+        first = True
+
+        for field, value in item.items():
+
+            if first:
+
+                lines.append(
+                    f"  - {field}: {value}"
+                )
+
+                first = False
+
+                continue
+
+            lines.append(
+                f"    {field}: {value}"
+            )
+
+    return lines
+
+
+def ensure_metadata(
+    scenario_dir: Path,
+    metadata: dict
+):
+
+    metadata_path = (
+        scenario_dir
+        / "metadata.yaml"
+    )
+
+    if metadata_path.exists():
+
+        return "SKIPPED"
+
+    content = [
+        f"scenario_name: {metadata['scenario_name']}",
+        f"lifecycle_level: {metadata['lifecycle_level']}",
+        "status: draft",
+        "source: inferred-from-repository-structure",
+        ""
     ]
 
-    generator = LIFECYCLE_SPEC_GENERATORS.get(
-        lifecycle_level
+    metadata_path.write_text(
+        "\n".join(
+            content
+        ),
+        encoding="utf-8"
     )
 
-    if generator is None:
+    return "GENERATED"
 
-        print(
-            f"No diagram generator registered for lifecycle: "
-            f"{lifecycle_level}"
-        )
 
-        return
+def ensure_diagram_specs(
+    scenario_dir: Path,
+    metadata: dict
+):
 
-    generator(
-        scenario_path,
-        scenario_name
+    diagrams_dir = (
+        scenario_dir
+        / "diagrams"
     )
 
-    generate_relationship_spec(
-        scenario_path,
-        scenario_name,
-        lifecycle_level,
-        exported.get(
-            "relationships",
-            {}
-        )
-    )
-
-
-def main():
-
-    input_path = resolve_input_path()
-
-    print(
-        f"Scenario input: "
-        f"{input_path}"
-    )
-
-    raw_data = load_yaml(
-        input_path
-    )
-
-    validate_metadata(
-        raw_data,
-        str(SCHEMA_PATH)
-    )
-
-    metadata = parse_scenario_metadata(
-        raw_data
-    )
-
-    exported = export_metadata(
-        metadata
-    )
-
-    lifecycle_profile = resolve_lifecycle_profile(
-        exported["lifecycle_level"]
-    )
-
-    for key, value in lifecycle_profile.items():
-
-        exported.setdefault(
-            key,
-            value
-        )
-
-    resolve_level_template(
-        exported["lifecycle_level"]
-    )
-
-    rendered = render_template(
-        "templates",
-        f"levels/{exported['lifecycle_level']}/readme.md.j2",
-        exported
-    )
-
-    scenario_path = (
-        SCENARIO_ROOT
-        / exported["lifecycle_level"]
-        / exported["scenario_name"]
-    )
-
-    scenario_path.mkdir(
+    diagrams_dir.mkdir(
         parents=True,
         exist_ok=True
     )
 
-    create_scenario_structure(
-        scenario_path
-    )
+    generated = 0
+    skipped = 0
+
+    for diagram_name in [
+        "architecture-overview",
+        "workflow-overview",
+        "relationship-overview"
+    ]:
+
+        spec_path = (
+            diagrams_dir
+            / f"{diagram_name}.spec.yaml"
+        )
+
+        if spec_path.exists():
+
+            skipped += 1
+            continue
+
+        content = [
+            "diagram:",
+            f"  type: {diagram_name}",
+            f"  title: {metadata['scenario_title']} - {diagram_name}",
+            "",
+            f"  scenario: {metadata['scenario_name']}",
+f"  lifecycle: {metadata['lifecycle_level']}",
+            "  layout: left-to-right",
+            "",
+            *render_yaml_list(
+                "nodes",
+                infer_topology(
+                    metadata["scenario_name"],
+                    metadata["lifecycle_level"]
+                )[0]
+            ),
+            *render_yaml_list(
+                "edges",
+                infer_topology(
+                    metadata["scenario_name"],
+                    metadata["lifecycle_level"]
+                )[1]
+            ),
+            ""
+        ]
+
+        spec_path.write_text(
+            "\n".join(
+                content
+            ),
+            encoding="utf-8"
+        )
+
+        generated += 1
+
+    return generated, skipped
+
+
+def ensure_readme(
+    scenario_dir: Path,
+    metadata: dict
+):
 
     readme_path = (
-        scenario_path
+        scenario_dir
         / "README.md"
     )
 
-    with open(
-        readme_path,
-        "w",
-        encoding="utf-8"
-    ) as file:
+    if readme_path.exists():
 
-        file.write(
-            rendered
+        return "SKIPPED"
+
+    content = f"""# {metadata['scenario_title']}
+
+## Scenario Metadata
+
+| Field | Value |
+|---|---|
+| Scenario Name | {metadata['scenario_name']} |
+| Lifecycle Level | {metadata['lifecycle_level']} |
+| Source | Inferred from repository structure |
+
+## Scenario Architecture
+
+![Architecture Overview](./diagrams/architecture-overview.png)
+
+## Used Modules
+
+TBD
+
+## Infrastructure Components
+
+TBD
+
+## Operational Workflow
+
+TBD
+
+## Related Scenarios
+
+### Previous Scenarios
+
+TBD
+
+### Next Scenarios
+
+TBD
+
+## Governance Notes
+
+This scenario package was initialized by the repo-aware scenario normalizer.
+"""
+
+    readme_path.write_text(
+        content,
+        encoding="utf-8"
+    )
+
+    return "GENERATED"
+
+
+def normalize_scenario(
+    scenario_dir: Path
+):
+
+    metadata = infer_metadata(
+        scenario_dir
+    )
+
+    metadata_status = ensure_metadata(
+        scenario_dir,
+        metadata
+    )
+
+    readme_status = ensure_readme(
+        scenario_dir,
+        metadata
+    )
+
+    diagram_generated, diagram_skipped = ensure_diagram_specs(
+        scenario_dir,
+        metadata
+    )
+
+    return {
+        "scenario": metadata["scenario_name"],
+        "level": metadata["lifecycle_level"],
+        "metadata": metadata_status,
+        "readme": readme_status,
+        "diagram_specs_generated": diagram_generated,
+        "diagram_specs_skipped": diagram_skipped
+    }
+
+
+def main():
+
+    scenario_dirs = discover_scenario_dirs()
+
+    print(
+        f"Discovered scenario folders: {len(scenario_dirs)}"
+    )
+
+    results = []
+
+    for scenario_dir in scenario_dirs:
+
+        result = normalize_scenario(
+            scenario_dir
+        )
+
+        results.append(
+            result
+        )
+
+        print(
+            f"[NORMALIZE] {result['level']} / {result['scenario']} "
+            f"metadata={result['metadata']} "
+            f"readme={result['readme']} "
+            f"diagram_specs_generated={result['diagram_specs_generated']} "
+            f"diagram_specs_skipped={result['diagram_specs_skipped']}"
         )
 
     print(
-        f"Scenario README generated: "
-        f"{readme_path}"
-    )
-
-    generate_diagram_specs(
-        scenario_path,
-        exported
-    )
-
-    print(
-        f"Scenario package generated: "
-        f"{scenario_path}"
-    )
-
-    print(
-        "Scenario generation completed."
+        f"Scenario normalization completed. "
+        f"Scenario folders checked: {len(results)}"
     )
 
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
 

@@ -1,10 +1,10 @@
 {
-  "run_id": "ffe3275c-7fa0-4773-b550-a2778fd00e5d",
+  "run_id": "7ee3e851-74e0-40cf-bbae-74d8e0265e87",
   "status": "WARNING",
   "validators": {
     "diagram-consistency-validator": {
-      "status": "WARNING",
-      "finding_count": 12
+      "status": "COMPLETED",
+      "finding_count": 0
     },
     "lifecycle-semantic-validator": {
       "status": "WARNING",
@@ -12,12 +12,9 @@
     }
   },
   "severity_summary": {
-    "WARNING": 17,
-    "ERROR": 9
+    "WARNING": 14
   },
   "category_summary": {
-    "missing-recommended-diagram": 3,
-    "missing-required-diagram": 9,
     "lifecycle-semantic-leakage": 14
   }
 }

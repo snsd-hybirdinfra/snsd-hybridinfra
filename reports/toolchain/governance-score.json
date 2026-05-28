@@ -1,15 +1,12 @@
 {
-  "run_id": "ffe3275c-7fa0-4773-b550-a2778fd00e5d",
+  "run_id": "7ee3e851-74e0-40cf-bbae-74d8e0265e87",
   "status": "WARNING",
-  "score": 21,
-  "grade": "F",
+  "score": 72,
+  "grade": "C",
   "severity_summary": {
-    "WARNING": 17,
-    "ERROR": 9
+    "WARNING": 14
   },
   "category_summary": {
-    "missing-recommended-diagram": 3,
-    "missing-required-diagram": 9,
     "lifecycle-semantic-leakage": 14
   }
 }

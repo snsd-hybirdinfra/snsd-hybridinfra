@@ -1,0 +1,4 @@
+scenario_name: multi-cluster-failover-coordination
+lifecycle_level: level-4-resilience
+status: draft
+source: inferred-from-repository-structure

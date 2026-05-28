@@ -1,0 +1,35 @@
+diagram:
+  type: architecture-overview
+  title: Service Dependency Correlation - architecture-overview
+
+  scenario: service-dependency-correlation
+  lifecycle: level-2-correlation
+  layout: left-to-right
+
+nodes:
+  - id: telemetry-source
+    label: Telemetry Source
+    type: source
+    group: operational
+  - id: observability-pipeline
+    label: Observability Pipeline
+    type: pipeline
+    group: operational
+  - id: analysis-engine
+    label: Analysis Engine
+    type: analysis
+    group: analysis
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
+edges:
+  - from: telemetry-source
+    to: observability-pipeline
+    label: emit telemetry
+  - from: observability-pipeline
+    to: analysis-engine
+    label: normalize signals
+  - from: analysis-engine
+    to: operations-dashboard
+    label: publish findings

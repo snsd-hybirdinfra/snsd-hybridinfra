@@ -1,0 +1,42 @@
+diagram:
+  type: workflow-overview
+  title: Enterprise Security Continuity - workflow-overview
+
+  scenario: enterprise-security-continuity
+  lifecycle: level-5-continuity
+  layout: left-to-right
+
+nodes:
+  - id: identity-provider
+    label: Identity Provider
+    type: identity
+    group: security
+  - id: access-policy
+    label: Access Policy
+    type: policy
+    group: security
+  - id: security-telemetry
+    label: Security Telemetry
+    type: telemetry
+    group: observability
+  - id: risk-analysis-engine
+    label: Risk Analysis Engine
+    type: analysis
+    group: analysis
+  - id: continuity-governance
+    label: Continuity Governance
+    type: governance
+    group: governance
+edges:
+  - from: identity-provider
+    to: access-policy
+    label: enforces access
+  - from: access-policy
+    to: security-telemetry
+    label: emits policy events
+  - from: security-telemetry
+    to: risk-analysis-engine
+    label: correlates risk
+  - from: risk-analysis-engine
+    to: continuity-governance
+    label: reports continuity posture

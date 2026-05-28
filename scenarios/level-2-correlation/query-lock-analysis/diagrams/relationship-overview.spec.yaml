@@ -1,0 +1,49 @@
+diagram:
+  type: relationship-overview
+  title: Query Lock Analysis - relationship-overview
+
+  scenario: query-lock-analysis
+  lifecycle: level-2-correlation
+  layout: left-to-right
+
+nodes:
+  - id: application-service
+    label: Application Service
+    type: service
+    group: service
+  - id: database-primary
+    label: Primary Database
+    type: database
+    group: data
+  - id: database-replica
+    label: Database Replica
+    type: database
+    group: data
+  - id: database-telemetry
+    label: Database Telemetry
+    type: telemetry
+    group: observability
+  - id: analysis-engine
+    label: Analysis Engine
+    type: analysis
+    group: analysis
+  - id: correlation-engine
+    label: Correlation Engine
+    type: analysis
+    group: analysis
+edges:
+  - from: application-service
+    to: database-primary
+    label: queries
+  - from: database-primary
+    to: database-replica
+    label: replicates
+  - from: database-primary
+    to: database-telemetry
+    label: emits metrics
+  - from: database-telemetry
+    to: analysis-engine
+    label: correlates health
+  - from: analysis-engine
+    to: correlation-engine
+    label: correlates operational signals

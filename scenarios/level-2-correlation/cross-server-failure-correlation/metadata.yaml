@@ -1,0 +1,4 @@
+scenario_name: cross-server-failure-correlation
+lifecycle_level: level-2-correlation
+status: draft
+source: inferred-from-repository-structure

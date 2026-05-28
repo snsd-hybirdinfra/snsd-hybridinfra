@@ -1,0 +1,4 @@
+scenario_name: backup-restoration-automation
+lifecycle_level: level-3-recovery
+status: draft
+source: inferred-from-repository-structure

@@ -1,0 +1,49 @@
+diagram:
+  type: architecture-overview
+  title: Pod Failure Correlation - architecture-overview
+
+  scenario: pod-failure-correlation
+  lifecycle: level-2-correlation
+  layout: left-to-right
+
+nodes:
+  - id: kubernetes-cluster
+    label: Kubernetes Cluster
+    type: cluster
+    group: platform
+  - id: worker-node
+    label: Worker Node
+    type: compute
+    group: platform
+  - id: pod-workload
+    label: Pod Workload
+    type: workload
+    group: platform
+  - id: cluster-telemetry
+    label: Cluster Telemetry
+    type: telemetry
+    group: observability
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
+  - id: correlation-engine
+    label: Correlation Engine
+    type: analysis
+    group: analysis
+edges:
+  - from: kubernetes-cluster
+    to: worker-node
+    label: schedules workloads
+  - from: worker-node
+    to: pod-workload
+    label: runs pods
+  - from: pod-workload
+    to: cluster-telemetry
+    label: emits runtime signals
+  - from: cluster-telemetry
+    to: operations-dashboard
+    label: publishes visibility
+  - from: operations-dashboard
+    to: correlation-engine
+    label: correlates operational signals

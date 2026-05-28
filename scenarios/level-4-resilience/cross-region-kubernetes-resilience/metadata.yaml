@@ -1,0 +1,4 @@
+scenario_name: cross-region-kubernetes-resilience
+lifecycle_level: level-4-resilience
+status: draft
+source: inferred-from-repository-structure

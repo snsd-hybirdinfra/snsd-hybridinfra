@@ -1,75 +1,42 @@
-﻿diagram:
+diagram:
+  type: workflow-overview
+  title: Vpn Connectivity Monitoring - workflow-overview
+
   scenario: vpn-connectivity-monitoring
   lifecycle: level-1-visibility
-  type: workflow-overview
-  theme: dark-operational
-
-layers:
-  - id: telemetry
-    label: Telemetry Stage
-
-  - id: analysis
-    label: Analysis Stage
-
-  - id: operational
-    label: Operational Stage
-
-  - id: evidence
-    label: Evidence Stage
+  layout: left-to-right
 
 nodes:
-  - id: telemetry_ingestion
-    type: telemetry-source
-    layer: telemetry
-    label: Telemetry Ingestion
-
-  - id: visibility_analysis
-    type: analysis-layer
-    layer: analysis
-    label: Visibility Analysis
-
-  - id: anomaly_detection
-    type: analysis-layer
-    layer: analysis
-    label: Anomaly Detection
-
-  - id: alert_propagation
-    type: alert-layer
-    layer: operational
-    label: Alert Propagation
-
-  - id: evidence_aggregation
-    type: evidence-layer
-    layer: evidence
-    label: Evidence Aggregation
-
-  - id: visibility_validation
-    type: evidence-layer
-    layer: evidence
-    label: Visibility Validation
-
+  - id: branch-site
+    label: Branch Site
+    type: site
+    group: connectivity
+  - id: vpn-gateway
+    label: VPN Gateway
+    type: network
+    group: connectivity
+  - id: vpn-tunnel
+    label: VPN Tunnel
+    type: connectivity
+    group: connectivity
+  - id: telemetry-collector
+    label: Telemetry Collector
+    type: telemetry
+    group: observability
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
 edges:
-  - from: telemetry_ingestion
-    to: visibility_analysis
-    type: telemetry-flow
-    label: telemetry signals
-
-  - from: visibility_analysis
-    to: anomaly_detection
-    type: validation-flow
-    label: threshold evaluation
-
-  - from: anomaly_detection
-    to: alert_propagation
-    type: alert-flow
-    label: anomaly visibility
-
-  - from: alert_propagation
-    to: evidence_aggregation
-    type: evidence-flow
-    label: alert timeline
-
-  - from: evidence_aggregation
-    to: visibility_validation
-    type: validation-flow
-    label: validation evidence
+  - from: branch-site
+    to: vpn-gateway
+    label: connects through
+  - from: vpn-gateway
+    to: vpn-tunnel
+    label: establishes tunnel
+  - from: vpn-tunnel
+    to: telemetry-collector
+    label: exports tunnel metrics
+  - from: telemetry-collector
+    to: operations-dashboard
+    label: publishes visibility

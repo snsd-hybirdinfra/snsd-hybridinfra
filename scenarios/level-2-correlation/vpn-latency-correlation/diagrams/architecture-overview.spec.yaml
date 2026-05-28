@@ -1,68 +1,49 @@
-﻿diagram:
+diagram:
+  type: architecture-overview
+  title: Vpn Latency Correlation - architecture-overview
+
   scenario: vpn-latency-correlation
   lifecycle: level-2-correlation
-  type: architecture-overview
-  theme: dark-operational
-
-layers:
-  - id: telemetry
-    label: Telemetry Layer
-
-  - id: correlation
-    label: Correlation Layer
-
-  - id: analysis
-    label: Analysis Layer
-
-  - id: operational
-    label: Operational Layer
-
-  - id: evidence
-    label: Evidence Layer
+  layout: left-to-right
 
 nodes:
-  - id: telemetry_ingestion
-    type: telemetry-source
-    layer: telemetry
-    label: Telemetry Ingestion
-
-  - id: anomaly_correlation
-    type: analysis-layer
-    layer: correlation
-    label: Anomaly Correlation
-
-  - id: impact_analysis
-    type: analysis-layer
-    layer: analysis
-    label: Impact Analysis
-
-  - id: alert_coordination
-    type: alert-layer
-    layer: operational
-    label: Alert Coordination
-
-  - id: evidence_aggregation
-    type: evidence-layer
-    layer: evidence
-    label: Correlation Evidence
-
+  - id: branch-site
+    label: Branch Site
+    type: site
+    group: connectivity
+  - id: vpn-gateway
+    label: VPN Gateway
+    type: network
+    group: connectivity
+  - id: vpn-tunnel
+    label: VPN Tunnel
+    type: connectivity
+    group: connectivity
+  - id: telemetry-collector
+    label: Telemetry Collector
+    type: telemetry
+    group: observability
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
+  - id: correlation-engine
+    label: Correlation Engine
+    type: analysis
+    group: analysis
 edges:
-  - from: telemetry_ingestion
-    to: anomaly_correlation
-    type: telemetry-flow
-    label: telemetry aggregation
-
-  - from: anomaly_correlation
-    to: impact_analysis
-    type: validation-flow
-    label: anomaly linkage
-
-  - from: impact_analysis
-    to: alert_coordination
-    type: alert-flow
-    label: operational correlation
-
-  - from: alert_coordination
-    to: evidence_aggregation
-    type: evidence-flow
-    label: correlation evidence
+  - from: branch-site
+    to: vpn-gateway
+    label: connects through
+  - from: vpn-gateway
+    to: vpn-tunnel
+    label: establishes tunnel
+  - from: vpn-tunnel
+    to: telemetry-collector
+    label: exports tunnel metrics
+  - from: telemetry-collector
+    to: operations-dashboard
+    label: publishes visibility
+  - from: operations-dashboard
+    to: correlation-engine
+    label: correlates operational signals

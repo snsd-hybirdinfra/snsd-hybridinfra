@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="820">
+<svg xmlns="http://www.w3.org/2000/svg" width="1430" height="960">
 <rect width="100%" height="100%" fill="#0f172a" />
 <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" /></marker></defs>
 <text x="40" y="55" fill="#ffffff" font-size="32" font-weight="bold">vpn-tunnel-recovery-automation</text>
@@ -9,27 +9,38 @@
 <line x1="40" y1="200" x2="1800" y2="200" stroke="#334155" stroke-width="1.5" />
 <line x1="40" y1="380" x2="1800" y2="380" stroke="#334155" stroke-width="1.5" />
 <line x1="40" y1="560" x2="1800" y2="560" stroke="#334155" stroke-width="1.5" />
-<line x1="550" y1="420" x2="950" y2="420" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
-<text x="750.0" y="406.0" fill="#cbd5e1" font-size="12" text-anchor="middle">previous lifecycle</text>
-<line x1="950" y1="420" x2="1350" y2="420" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
-<text x="1150.0" y="406.0" fill="#cbd5e1" font-size="12" text-anchor="middle">next lifecycle</text>
-<line x1="550" y1="600" x2="950" y2="420" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow)" />
-<text x="750.0" y="496.0" fill="#cbd5e1" font-size="12" text-anchor="middle">aggregation</text>
-<line x1="950" y1="420" x2="1350" y2="600" stroke="#22c55e" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrow)" />
-<text x="1150.0" y="496.0" fill="#cbd5e1" font-size="12" text-anchor="middle">rollup</text>
-<rect x="830" y="380" width="240" height="80" rx="14" fill="#2563eb" stroke="#e2e8f0" stroke-width="1.5" />
-<text x="848" y="414" fill="#ffffff" font-size="15" font-weight="bold">vpn-tunnel-recovery-automation</text>
-<text x="848" y="438" fill="#e2e8f0" font-size="11">scenario-node</text>
-<rect x="430" y="380" width="240" height="80" rx="14" fill="#64748b" stroke="#e2e8f0" stroke-width="1.5" />
-<text x="448" y="414" fill="#ffffff" font-size="15" font-weight="bold">previous lifecycle</text>
-<text x="448" y="438" fill="#e2e8f0" font-size="11">relationship-node</text>
-<rect x="1230" y="380" width="240" height="80" rx="14" fill="#64748b" stroke="#e2e8f0" stroke-width="1.5" />
-<text x="1248" y="414" fill="#ffffff" font-size="15" font-weight="bold">next lifecycle</text>
-<text x="1248" y="438" fill="#e2e8f0" font-size="11">relationship-node</text>
-<rect x="430" y="560" width="240" height="80" rx="14" fill="#0891b2" stroke="#e2e8f0" stroke-width="1.5" />
-<text x="448" y="594" fill="#ffffff" font-size="15" font-weight="bold">aggregation source</text>
-<text x="448" y="618" fill="#e2e8f0" font-size="11">aggregation-node</text>
-<rect x="1230" y="560" width="240" height="80" rx="14" fill="#16a34a" stroke="#e2e8f0" stroke-width="1.5" />
-<text x="1248" y="594" fill="#ffffff" font-size="15" font-weight="bold">operational rollup</text>
-<text x="1248" y="618" fill="#e2e8f0" font-size="11">rollup-node</text>
+<rect x="800" y="615" width="300" height="160" rx="18" fill="#1e293b" opacity="0.45" stroke="#475569" stroke-width="1.2" />
+<text x="816" y="641" fill="#94a3b8" font-size="13" font-weight="bold">CONNECTIVITY</text>
+<rect x="800" y="615" width="300" height="160" rx="18" fill="#1e293b" opacity="0.45" stroke="#475569" stroke-width="1.2" />
+<text x="816" y="641" fill="#94a3b8" font-size="13" font-weight="bold">OBSERVABILITY</text>
+<rect x="800" y="615" width="300" height="160" rx="18" fill="#1e293b" opacity="0.45" stroke="#475569" stroke-width="1.2" />
+<text x="816" y="641" fill="#94a3b8" font-size="13" font-weight="bold">RECOVERY</text>
+<line x1="950" y1="700" x2="950" y2="700" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="950.0" y="686.0" fill="#cbd5e1" font-size="12" text-anchor="middle">connects through</text>
+<line x1="950" y1="700" x2="950" y2="700" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="950.0" y="686.0" fill="#cbd5e1" font-size="12" text-anchor="middle">establishes tunnel</text>
+<line x1="950" y1="700" x2="950" y2="700" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="950.0" y="686.0" fill="#cbd5e1" font-size="12" text-anchor="middle">exports tunnel metrics</text>
+<line x1="950" y1="700" x2="950" y2="700" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="950.0" y="686.0" fill="#cbd5e1" font-size="12" text-anchor="middle">publishes visibility</text>
+<line x1="950" y1="700" x2="950" y2="700" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="950.0" y="686.0" fill="#cbd5e1" font-size="12" text-anchor="middle">triggers recovery workflow</text>
+<rect x="830" y="660" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="848" y="694" fill="#ffffff" font-size="15" font-weight="bold">Branch Site</text>
+<text x="848" y="718" fill="#e2e8f0" font-size="11">site</text>
+<rect x="830" y="660" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="848" y="694" fill="#ffffff" font-size="15" font-weight="bold">VPN Gateway</text>
+<text x="848" y="718" fill="#e2e8f0" font-size="11">network</text>
+<rect x="830" y="660" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="848" y="694" fill="#ffffff" font-size="15" font-weight="bold">VPN Tunnel</text>
+<text x="848" y="718" fill="#e2e8f0" font-size="11">connectivity</text>
+<rect x="830" y="660" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="8 4" />
+<text x="848" y="694" fill="#ffffff" font-size="15" font-weight="bold">Telemetry Collector</text>
+<text x="848" y="718" fill="#e2e8f0" font-size="11">telemetry</text>
+<rect x="830" y="660" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="848" y="694" fill="#ffffff" font-size="15" font-weight="bold">Operations Dashboard</text>
+<text x="848" y="718" fill="#e2e8f0" font-size="11">dashboard</text>
+<rect x="830" y="660" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="848" y="694" fill="#ffffff" font-size="15" font-weight="bold">Recovery Orchestrator</text>
+<text x="848" y="718" fill="#e2e8f0" font-size="11">automation</text>
 </svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2880" height="800">
+<rect width="100%" height="100%" fill="#0f172a" />
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" /></marker></defs>
+<text x="40" y="55" fill="#ffffff" font-size="32" font-weight="bold">cluster-node-recovery-orchestration</text>
+<text x="40" y="92" fill="#cbd5e1" font-size="16">level-3-recovery</text>
+<rect x="150" y="455" width="1140" height="160" rx="18" fill="#1e293b" opacity="0.45" stroke="#475569" stroke-width="1.2" />
+<text x="166" y="481" fill="#94a3b8" font-size="13" font-weight="bold">PLATFORM</text>
+<rect x="1410" y="455" width="720" height="160" rx="18" fill="#1e293b" opacity="0.45" stroke="#475569" stroke-width="1.2" />
+<text x="1426" y="481" fill="#94a3b8" font-size="13" font-weight="bold">OBSERVABILITY</text>
+<rect x="2250" y="455" width="300" height="160" rx="18" fill="#1e293b" opacity="0.45" stroke="#475569" stroke-width="1.2" />
+<text x="2266" y="481" fill="#94a3b8" font-size="13" font-weight="bold">RECOVERY</text>
+<line x1="420" y1="540" x2="600" y2="540" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="510.0" y="526.0" fill="#cbd5e1" font-size="12" text-anchor="middle">schedules workloads</text>
+<line x1="840" y1="540" x2="1020" y2="540" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="930.0" y="526.0" fill="#cbd5e1" font-size="12" text-anchor="middle">runs pods</text>
+<line x1="1260" y1="540" x2="1440" y2="540" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="1350.0" y="526.0" fill="#cbd5e1" font-size="12" text-anchor="middle">emits runtime signals</text>
+<line x1="1680" y1="540" x2="1860" y2="540" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="1770.0" y="526.0" fill="#cbd5e1" font-size="12" text-anchor="middle">publishes visibility</text>
+<line x1="2100" y1="540" x2="2280" y2="540" stroke="#94a3b8" stroke-width="2" stroke-dasharray="" marker-end="url(#arrow)" />
+<text x="2190.0" y="526.0" fill="#cbd5e1" font-size="12" text-anchor="middle">triggers recovery workflow</text>
+<rect x="180" y="500" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="198" y="534" fill="#ffffff" font-size="15" font-weight="bold">Kubernetes Cluster</text>
+<text x="198" y="558" fill="#e2e8f0" font-size="11">cluster</text>
+<rect x="600" y="500" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="618" y="534" fill="#ffffff" font-size="15" font-weight="bold">Worker Node</text>
+<text x="618" y="558" fill="#e2e8f0" font-size="11">compute</text>
+<rect x="1020" y="500" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="1038" y="534" fill="#ffffff" font-size="15" font-weight="bold">Pod Workload</text>
+<text x="1038" y="558" fill="#e2e8f0" font-size="11">workload</text>
+<rect x="1440" y="500" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="8 4" />
+<text x="1458" y="534" fill="#ffffff" font-size="15" font-weight="bold">Cluster Telemetry</text>
+<text x="1458" y="558" fill="#e2e8f0" font-size="11">telemetry</text>
+<rect x="1860" y="500" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="1878" y="534" fill="#ffffff" font-size="15" font-weight="bold">Operations Dashboard</text>
+<text x="1878" y="558" fill="#e2e8f0" font-size="11">dashboard</text>
+<rect x="2280" y="500" width="240" height="80" rx="14" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+<text x="2298" y="534" fill="#ffffff" font-size="15" font-weight="bold">Recovery Orchestrator</text>
+<text x="2298" y="558" fill="#e2e8f0" font-size="11">automation</text>
+</svg>

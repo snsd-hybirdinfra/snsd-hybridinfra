@@ -1,0 +1,4 @@
+scenario_name: wan-link-monitoring
+lifecycle_level: level-1-visibility
+status: draft
+source: inferred-from-repository-structure

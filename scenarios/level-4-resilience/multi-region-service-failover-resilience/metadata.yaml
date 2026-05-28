@@ -1,0 +1,4 @@
+scenario_name: multi-region-service-failover-resilience
+lifecycle_level: level-4-resilience
+status: draft
+source: inferred-from-repository-structure

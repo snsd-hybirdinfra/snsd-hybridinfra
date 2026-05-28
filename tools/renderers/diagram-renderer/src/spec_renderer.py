@@ -220,6 +220,12 @@ def calculate_positions(
 
         return positions
 
+    layout = (
+        spec
+        .get("diagram", {})
+        .get("layout", "left-to-right")
+    )
+
     layer_counts = {}
 
     for node in nodes:
@@ -234,13 +240,22 @@ def calculate_positions(
             0
         )
 
-        positions[node["id"]] = {
-            "x": 180 + current_index * 420,
-            "y": LAYER_Y.get(
-                layer,
-                500
-            )
-        }
+        if layout == "top-down":
+
+            positions[node["id"]] = {
+                "x": 760 + current_index * 320,
+                "y": 180 + current_index * 150
+            }
+
+        else:
+
+            positions[node["id"]] = {
+                "x": 120 + current_index * 320,
+                "y": LAYER_Y.get(
+                    layer,
+                    500
+                )
+            }
 
         layer_counts[layer] = (
             current_index + 1
@@ -331,6 +346,134 @@ def get_edge_coordinates(
         "y2": target["y"] + 40
     }
 
+def append_group_containers(
+    lines: list,
+    nodes: list,
+    positions: dict
+):
+
+    groups = {}
+
+    for node in nodes:
+
+        group = node.get(
+            "group"
+        )
+
+        if not group:
+
+            continue
+
+        groups.setdefault(
+            group,
+            []
+        ).append(
+            node["id"]
+        )
+
+    for group, node_ids in groups.items():
+
+        xs = [
+            positions[node_id]["x"]
+            for node_id in node_ids
+        ]
+
+        ys = [
+            positions[node_id]["y"]
+            for node_id in node_ids
+        ]
+
+        min_x = min(xs) - 30
+        min_y = min(ys) - 45
+        max_x = max(xs) + 270
+        max_y = max(ys) + 115
+
+        lines.append(
+            f'<rect x="{min_x}" y="{min_y}" '
+            f'width="{max_x - min_x}" '
+            f'height="{max_y - min_y}" '
+            f'rx="18" '
+            f'fill="#1e293b" '
+            f'opacity="0.45" '
+            f'stroke="#475569" '
+            f'stroke-width="1.2" />'
+        )
+
+        lines.append(
+            f'<text x="{min_x + 16}" y="{min_y + 26}" '
+            f'fill="#94a3b8" '
+            f'font-size="13" '
+            f'font-weight="bold">'
+            f'{group.upper()}'
+            f'</text>'
+        )
+
+
+def render_node_shape(
+    node_type: str,
+    pos: dict,
+    fill: str
+):
+
+    x = pos["x"]
+    y = pos["y"]
+
+    if node_type == "database":
+
+        return (
+            f'<ellipse cx="{x + 120}" cy="{y + 14}" '
+            f'rx="120" ry="14" '
+            f'fill="{fill}" stroke="#e2e8f0" stroke-width="1.5" />'
+            f'<rect x="{x}" y="{y + 14}" '
+            f'width="240" height="52" '
+            f'fill="{fill}" stroke="#e2e8f0" stroke-width="1.5" />'
+            f'<ellipse cx="{x + 120}" cy="{y + 66}" '
+            f'rx="120" ry="14" '
+            f'fill="{fill}" stroke="#e2e8f0" stroke-width="1.5" />'
+        )
+
+    if node_type == "telemetry":
+
+        return (
+            f'<rect x="{x}" y="{y}" '
+            f'width="240" height="80" '
+            f'rx="14" '
+            f'fill="{fill}" '
+            f'stroke="#e2e8f0" '
+            f'stroke-width="1.5" '
+            f'stroke-dasharray="8 4" />'
+        )
+
+    if node_type == "analysis":
+
+        points = (
+            f"{x + 30},{y} "
+            f"{x + 210},{y} "
+            f"{x + 240},{y + 40} "
+            f"{x + 210},{y + 80} "
+            f"{x + 30},{y + 80} "
+            f"{x},{y + 40}"
+        )
+
+        return (
+            f'<polygon points="{points}" '
+            f'fill="{fill}" '
+            f'stroke="#e2e8f0" '
+            f'stroke-width="1.5" />'
+        )
+
+    return (
+        f'<rect '
+        f'x="{x}" '
+        f'y="{y}" '
+        f'width="240" '
+        f'height="80" '
+        f'rx="14" '
+        f'fill="{fill}" '
+        f'stroke="#e2e8f0" '
+        f'stroke-width="1.5" />'
+    )
+
 
 def render_svg(spec: dict):
 
@@ -347,8 +490,18 @@ def render_svg(spec: dict):
         nodes
     )
 
-    width = 1900
-    height = 820
+    all_x = [
+        pos["x"]
+        for pos in positions.values()
+    ]
+
+    all_y = [
+        pos["y"]
+        for pos in positions.values()
+    ]
+
+    width = max(all_x) + 600
+    height = max(all_y) + 300
 
     lines = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}">',
@@ -377,6 +530,12 @@ def render_svg(spec: dict):
         diagram_type
     )
 
+    append_group_containers(
+        lines,
+        nodes,
+        positions
+    )
+
     for edge in edges:
 
         source = positions[
@@ -388,7 +547,10 @@ def render_svg(spec: dict):
         ]
 
         edge_style = EDGE_STYLE.get(
-            edge["type"],
+            edge.get(
+                "type",
+                "default"
+            ),
             {
                 "color": "#94a3b8",
                 "width": 2,
@@ -429,7 +591,7 @@ def render_svg(spec: dict):
             f'fill="#cbd5e1" '
             f'font-size="12" '
             f'text-anchor="middle">'
-            f'{edge.get("label", edge["type"])}'
+            f'{edge.get("label", edge.get("type", ""))}'
             f'</text>'
         )
 
@@ -445,15 +607,11 @@ def render_svg(spec: dict):
         )
 
         lines.append(
-            f'<rect '
-            f'x="{pos["x"]}" '
-            f'y="{pos["y"]}" '
-            f'width="240" '
-            f'height="80" '
-            f'rx="14" '
-            f'fill="{fill}" '
-            f'stroke="#e2e8f0" '
-            f'stroke-width="1.5" />'
+            render_node_shape(
+                node["type"],
+                pos,
+                fill
+            )
         )
 
         lines.append(
@@ -513,3 +671,19 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

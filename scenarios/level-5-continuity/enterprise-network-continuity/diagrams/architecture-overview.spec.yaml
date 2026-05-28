@@ -1,68 +1,35 @@
-﻿diagram:
+diagram:
+  type: architecture-overview
+  title: Enterprise Network Continuity - architecture-overview
+
   scenario: enterprise-network-continuity
   lifecycle: level-5-continuity
-  type: architecture-overview
-  theme: dark-operational
-
-layers:
-  - id: detection
-    label: Detection Layer
-
-  - id: continuity
-    label: Continuity Layer
-
-  - id: governance
-    label: Governance Layer
-
-  - id: coordination
-    label: Coordination Layer
-
-  - id: evidence
-    label: Evidence Layer
+  layout: left-to-right
 
 nodes:
-  - id: enterprise_degradation
-    type: telemetry-source
-    layer: detection
-    label: Enterprise Degradation
-
-  - id: continuity_coordination
-    type: alert-layer
-    layer: continuity
-    label: Continuity Coordination
-
-  - id: executive_escalation
-    type: analysis-layer
-    layer: governance
-    label: Executive Escalation
-
-  - id: cross_domain_coordination
-    type: analysis-layer
-    layer: coordination
-    label: Cross-Domain Coordination
-
-  - id: continuity_evidence
-    type: evidence-layer
-    layer: evidence
-    label: Continuity Evidence
-
+  - id: telemetry-source
+    label: Telemetry Source
+    type: source
+    group: operational
+  - id: observability-pipeline
+    label: Observability Pipeline
+    type: pipeline
+    group: operational
+  - id: analysis-engine
+    label: Analysis Engine
+    type: analysis
+    group: analysis
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
 edges:
-  - from: enterprise_degradation
-    to: continuity_coordination
-    type: alert-flow
-    label: continuity activation
-
-  - from: continuity_coordination
-    to: executive_escalation
-    type: validation-flow
-    label: governance visibility
-
-  - from: executive_escalation
-    to: cross_domain_coordination
-    type: validation-flow
-    label: coordination workflow
-
-  - from: cross_domain_coordination
-    to: continuity_evidence
-    type: evidence-flow
-    label: continuity evidence
+  - from: telemetry-source
+    to: observability-pipeline
+    label: emit telemetry
+  - from: observability-pipeline
+    to: analysis-engine
+    label: normalize signals
+  - from: analysis-engine
+    to: operations-dashboard
+    label: publish findings

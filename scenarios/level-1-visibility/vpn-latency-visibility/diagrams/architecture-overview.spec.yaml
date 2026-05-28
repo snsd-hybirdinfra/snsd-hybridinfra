@@ -1,73 +1,42 @@
-﻿diagram:
+diagram:
+  type: architecture-overview
+  title: Vpn Latency Visibility - architecture-overview
+
   scenario: vpn-latency-visibility
   lifecycle: level-1-visibility
-  type: architecture-overview
-  theme: dark-operational
-
-layers:
-  - id: infrastructure
-    label: Infrastructure Layer
-
-  - id: telemetry
-    label: Telemetry Layer
-
-  - id: analysis
-    label: Analysis Layer
-
-  - id: operational
-    label: Operational Layer
-
-  - id: evidence
-    label: Evidence Layer
+  layout: left-to-right
 
 nodes:
-  - id: vpn_infrastructure
-    type: telemetry-source
-    layer: infrastructure
-    label: VPN Infrastructure
-
-  - id: telemetry_pipeline
-    type: telemetry-pipeline
-    layer: telemetry
-    label: Telemetry Pipeline
-
-  - id: visibility_analysis
-    type: analysis-layer
-    layer: analysis
-    label: Latency Visibility Analysis
-
-  - id: alert_layer
-    type: alert-layer
-    layer: operational
-    label: Visibility Alert Layer
-
-  - id: evidence_layer
-    type: evidence-layer
-    layer: evidence
-    label: Operational Evidence
-
+  - id: branch-site
+    label: Branch Site
+    type: site
+    group: connectivity
+  - id: vpn-gateway
+    label: VPN Gateway
+    type: network
+    group: connectivity
+  - id: vpn-tunnel
+    label: VPN Tunnel
+    type: connectivity
+    group: connectivity
+  - id: telemetry-collector
+    label: Telemetry Collector
+    type: telemetry
+    group: observability
+  - id: operations-dashboard
+    label: Operations Dashboard
+    type: dashboard
+    group: observability
 edges:
-  - from: vpn_infrastructure
-    to: telemetry_pipeline
-    type: telemetry-flow
-    label: latency / packet loss / jitter
-
-  - from: telemetry_pipeline
-    to: visibility_analysis
-    type: telemetry-flow
-    label: aggregated metrics
-
-  - from: visibility_analysis
-    to: alert_layer
-    type: alert-flow
-    label: anomaly visibility
-
-  - from: alert_layer
-    to: evidence_layer
-    type: evidence-flow
-    label: alert timeline evidence
-
-  - from: visibility_analysis
-    to: evidence_layer
-    type: validation-flow
-    label: dashboard / query evidence
+  - from: branch-site
+    to: vpn-gateway
+    label: connects through
+  - from: vpn-gateway
+    to: vpn-tunnel
+    label: establishes tunnel
+  - from: vpn-tunnel
+    to: telemetry-collector
+    label: exports tunnel metrics
+  - from: telemetry-collector
+    to: operations-dashboard
+    label: publishes visibility
