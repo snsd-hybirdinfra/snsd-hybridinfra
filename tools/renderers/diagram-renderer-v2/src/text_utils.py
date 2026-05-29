@@ -6,6 +6,8 @@ def escape_xml(
 ):
 
     return html.escape(
-        str(value),
+        str(
+            value
+        ),
         quote=True
     )

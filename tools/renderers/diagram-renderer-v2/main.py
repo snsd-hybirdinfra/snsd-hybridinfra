@@ -1,70 +1,90 @@
-﻿from pathlib import Path
-import sys
+﻿import sys
+from pathlib import Path
+
 import yaml
 
-from src.schema_validator import (
-    validate_schema
-)
+CURRENT_DIR = Path(
+    __file__
+).resolve().parent
 
-from src.layout_profile import (
-    resolve_layout_profile
-)
+if str(
+    CURRENT_DIR
+) not in sys.path:
 
-from src.svg_builder import (
-    build_svg
-)
+    sys.path.insert(
+        0,
+        str(
+            CURRENT_DIR
+        )
+    )
+
+from src.poster_builder import build_poster_svg
+
+
+def load_yaml(
+    path: Path
+):
+
+    with path.open(
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        return yaml.safe_load(
+            file
+        )
 
 
 def main():
 
-    if len(sys.argv) < 2:
+    if len(
+        sys.argv
+    ) < 2:
 
-        raise ValueError(
-            "Usage: python main.py <example.yaml>"
+        print(
+            "Usage: python main.py <poster-yaml>"
         )
 
-    example = Path(
+        sys.exit(
+            1
+        )
+
+    input_path = Path(
         sys.argv[1]
     )
 
-    data = yaml.safe_load(
-        example.read_text(
-            encoding="utf-8"
+    if not input_path.exists():
+
+        print(
+            f"Input file not found: {input_path}"
         )
+
+        sys.exit(
+            1
+        )
+
+    data = load_yaml(
+        input_path
     )
 
-    validate_schema(
+    svg = build_poster_svg(
         data
     )
 
-    profile = resolve_layout_profile(
-        data["diagram"]["lifecycle"]
+    output_path = input_path.with_suffix(
+        ".svg"
     )
 
-    print(
-        f"Resolved layout profile: {profile}"
-    )
-
-    svg = build_svg(
-        data,
-        profile
-    )
-
-    output = (
-        example.parent
-        / f'{example.stem}.svg'
-    )
-
-    output.write_text(
+    output_path.write_text(
         svg,
         encoding="utf-8"
     )
 
     print(
-        f"Generated: {output}"
+        f"Generated: {output_path}"
     )
 
 
 if __name__ == "__main__":
-    main()
 
+    main()
