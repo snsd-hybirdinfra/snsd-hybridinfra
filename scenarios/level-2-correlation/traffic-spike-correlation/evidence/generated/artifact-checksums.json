@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "traffic-spike-correlation",
   "scenario_path": "scenarios/level-2-correlation/traffic-spike-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "70abc78e2098b50d42111e0d1c75a173ed46e25c196fb8cb6342e5801a606817",
+    "README.md": "62b030bf03cee25341a75198a9a1afde84bc2c78c556365b6aed49843a1f9be1",
+    "diagrams/operational-poster.svg": "bfdc8c2d93768f8b26c8b6fdcde5c5156876a3096ab68ad83cc86ebc600dbf47",
+    "diagrams/operational-poster.png": "63d414559b7ca8d0b92ce8e54f516ff4c5254fa3788e994680d53321c83b95f4",
+    "evidence/generated/summary.md": "e97f0a1145c42bb702f13615499848fe40263a6c679c30e526f3a8f8b0fe031f",
+    "evidence/generated/execution-evidence.md": "cf9654c0004affec1e9fd2021b71a230fe687654f37a7a69aa768d56d2456ec9",
+    "evidence/generated/validation-evidence.md": "d188ea042abaf41b1c9fda19c049349d0eed18cc0343c02798b4e9a77be90211",
+    "evidence/generated/artifact-manifest.json": "f06cd5eb750cbd2b2e8b51e49aa2f611853878c2f713289f404aa186032ee916"
+  }
 }

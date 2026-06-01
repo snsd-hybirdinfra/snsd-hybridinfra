@@ -1,8 +1,9 @@
-﻿{
+{
   "scenario_name": "distributed-connectivity-survivability",
   "scenario_path": "scenarios/level-4-resilience/distributed-connectivity-survivability",
   "lifecycle_level": "level-4-resilience",
-  "status": "PENDING",
+  "generated_at": "2026-06-01T07:57:37+00:00",
+  "status": "READY",
   "artifacts": [
     "metadata.yaml",
     "README.md",
@@ -14,6 +15,5 @@
     "evidence/generated/artifact-manifest.json",
     "evidence/generated/artifact-checksums.json"
   ],
-  "missing_artifacts": [],
-  "notes": "Placeholder manifest. Regenerate after scenario artifact validation."
+  "missing_artifacts": []
 }

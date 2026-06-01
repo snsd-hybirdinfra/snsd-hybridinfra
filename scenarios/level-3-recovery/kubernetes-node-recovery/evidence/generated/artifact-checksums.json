@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "kubernetes-node-recovery",
   "scenario_path": "scenarios/level-3-recovery/kubernetes-node-recovery",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:36+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "fa406c14947b7318027bacda8c6bfe0d6377ffcab088e4f4ced17500ce979839",
+    "README.md": "1884144a86ea98551c6dc602288b732b5342011cb9d9b510aa6cdacd8f8f9905",
+    "diagrams/operational-poster.svg": "261af97b40386e436f9e01591dcb1f2d8e797bc96058070e7dc294afc0dab9fd",
+    "diagrams/operational-poster.png": "f54b512a043b36349d96a95cfd4ad9860713e40ac101b0bba72294aece322603",
+    "evidence/generated/summary.md": "cb99fb396b6c42ac69555a30801c6152b8c2948bc148dc1fd40d4765fd84c44b",
+    "evidence/generated/execution-evidence.md": "36e206092c4900bf93692bac260bd793dba24d86925c21dfd2ef9d7d3db669b2",
+    "evidence/generated/validation-evidence.md": "91c0b2e361ab265ad553424a85b6cfce8bf3ef6bbe4b36d595c6f3efca5b7c3f",
+    "evidence/generated/artifact-manifest.json": "0a2d6674dcfa64255d058c6d12399dbe2c785c3abd45bc680107347cb7e7dd17"
+  }
 }

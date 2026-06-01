@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "virtual-machine-health-monitoring",
   "scenario_path": "scenarios/level-1-visibility/virtual-machine-health-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:33+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "009426759ff231e69f39ae9bc00fc4f74ba7e38f5f041cce6d56e009086de8bd",
+    "README.md": "d40e001bfd06c8e4c4f3ef724d5aa988e33684b9a152bde8b0273179cf0d9216",
+    "diagrams/operational-poster.svg": "c3b3d3956215afc2f4ef618001e53b3188707deb41bb735b92ddb663386af7dd",
+    "diagrams/operational-poster.png": "1b2e1fcc0c61970d367ad359eee9b5d25150cd26c4b2eb25c1b0b367c40740c5",
+    "evidence/generated/summary.md": "b93b82e87c30e854fe3ee4d3e35bf8c6e080f8a4dafaadcafbca7520ccdea594",
+    "evidence/generated/execution-evidence.md": "8c3ec9627bd50239c2cc9eb7e7bf6d66d42ee5daade0c431a0d0d081cf96f0a3",
+    "evidence/generated/validation-evidence.md": "7786d3b321e84b808794c6a61dab85c3eef16986228e88c11fa6dfc504ff582d",
+    "evidence/generated/artifact-manifest.json": "0a54b8f74a1f50fa55be3b7d3e29d315b960564584b9ca8999745e7149f174f9"
+  }
 }

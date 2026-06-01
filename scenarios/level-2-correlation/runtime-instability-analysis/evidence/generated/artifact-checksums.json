@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "runtime-instability-analysis",
   "scenario_path": "scenarios/level-2-correlation/runtime-instability-analysis",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "de91876f7bb2beed43b810584a86b6d271094846d13220a78dd0bff2a80859e8",
+    "README.md": "9ac7b03b838ba0c46a03f85c16d557312ffdb7f3acebbe34eae584dc635d5f54",
+    "diagrams/operational-poster.svg": "1f6dea05ec6d3424b028a1ae9bcf1266e67ad8320d5f9c7837cd34248688115b",
+    "diagrams/operational-poster.png": "3f20051c7d3fdac096eae4e6180bff6427ad5dbfd66a3e5c227b3df227015418",
+    "evidence/generated/summary.md": "d2bf5bc727c8093241aad8d542a74294bfbcabb25f6236469ad41139bb978fcb",
+    "evidence/generated/execution-evidence.md": "d21b586c9cebff59b0653ac4b2c85cc59d67eeff5786f63c99b7f4cde556b0c4",
+    "evidence/generated/validation-evidence.md": "df4fc1415d05e5cd38e53b25e0ca8abe996bef0f6ddfb7e6ab13e2f44f285fd9",
+    "evidence/generated/artifact-manifest.json": "71304baeaf28d31bf3cdb1f4fe88f0f6ca1a488dd1c6b6c54958d5ca5f9f10d7"
+  }
 }

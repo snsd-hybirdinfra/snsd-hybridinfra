@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "authentication-anomaly-analysis",
   "scenario_path": "scenarios/level-2-correlation/authentication-anomaly-analysis",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:34+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "17699804dc1e3fb4c67ef4d510cadfae0b761f8f1ce2d478b5f88b4d924c2fc1",
+    "README.md": "3995e726a87fa80ca5af281cded929d69462ab1626175df12785fbf5e1ece252",
+    "diagrams/operational-poster.svg": "2af1dd9ad0235ac6c082d03616b1ff8817d53ce26ff4565dab352af138f3a098",
+    "diagrams/operational-poster.png": "b1310281ab11b8c647e52a7ebcdd1948881e9152d8c0fe3ba05e239cdc11206d",
+    "evidence/generated/summary.md": "e32011d3cb31e45d4dc9800ac9f90f8aa6850eb242c5aad290a257353e502e97",
+    "evidence/generated/execution-evidence.md": "488137c77f43df6a7716e7baa96247786bb8afad3f75d1b127782f85e0d7d581",
+    "evidence/generated/validation-evidence.md": "7bdc93dde5cd201f86903d6d8bd33109932ad0ef0322d7b6726b7d39d98db526",
+    "evidence/generated/artifact-manifest.json": "de56613cdea32f2094548a898e8368305746df614ea804a7509b3f4391ab094a"
+  }
 }

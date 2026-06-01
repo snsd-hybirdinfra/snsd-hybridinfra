@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "virtualization-resource-correlation",
   "scenario_path": "scenarios/level-2-correlation/virtualization-resource-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "557543b4df6e48ba1dc3ab7b979e3b664e59b97d5e0ab6ed9cb558dca1dcddc5",
+    "README.md": "541c3229f022195ce2b532342c3417cc0798b8fb4bf7d6b0f58b176532545a8e",
+    "diagrams/operational-poster.svg": "ee6c4bb06151acdb3ee35b1fe1418b790e509d45763dca62cf1b1812b8a3580e",
+    "diagrams/operational-poster.png": "5c9cada2938dd0deb8c7ac818012e1335b3520c792e67a220d3afa75bdd953af",
+    "evidence/generated/summary.md": "e4fbae4700c4d70fcc9d00ca0a3c7ca4c700ce5e40846c8a6bba2dbab35c02fe",
+    "evidence/generated/execution-evidence.md": "cbf07743ebbc5709837eddda2b635fde81152d3fe21b49241aad8ea4ace206ae",
+    "evidence/generated/validation-evidence.md": "16a73c34e7610a4b4af473611bb2025b708573a1cc36e2f72ed1daece19664e2",
+    "evidence/generated/artifact-manifest.json": "241a7b812b2ad2dc68798cdae5c014cfe4fd51541d8cf0113a5b09c2cb3e86eb"
+  }
 }

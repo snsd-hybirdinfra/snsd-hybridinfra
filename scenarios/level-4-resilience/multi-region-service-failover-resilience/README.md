@@ -1,219 +1,182 @@
-﻿# 1. Repository Path
+﻿# Multi Region Service Failover Resilience
 
-    /scenarios/level-4-resilience/multi-region-service-failover-resilience
-
----
-
-# 2. Scenario Metadata
+## Scenario Metadata
 
 | Field | Value |
 |---|---|
 | Scenario Name | multi-region-service-failover-resilience |
-| Lifecycle | Level-4 Resilience |
-| Severity | Critical |
-| Environment | Hybrid Multi-Region Infrastructure |
-| Validation Scope | Distributed Failover Resilience |
+| Lifecycle Level | level-4-resilience |
+| Scenario Path | scenarios/level-4-resilience/multi-region-service-failover-resilience |
 
 ---
 
-# 3. Scenario Purpose
+## Overview
 
-This scenario establishes distributed resilience coordination workflows for multi-region service failover across hybrid infrastructure environments.
+This scenario documents an infrastructure operations situation within a scenario-driven infrastructure operations portfolio.
 
-The scenario focuses on survivability-oriented failover orchestration, regional dependency awareness, distributed recovery coordination, operational evidence generation, and resilience validation visibility.
-
----
-
-# 4. Operational Relevance
-
-Regional infrastructure degradation can impact service availability, routing consistency, application accessibility, and distributed operational survivability across dependent infrastructure domains.
-
-Operational resilience workflows require coordinated failover orchestration, survivability-aware recovery sequencing, regional dependency visibility, and distributed operational validation.
-
-This scenario introduces distributed resilience coordination while intentionally excluding executive continuity governance and enterprise escalation workflows.
+It is designed to demonstrate operational reasoning, infrastructure awareness, lifecycle-based workflow design, and evidence-backed documentation.
 
 ---
 
-# 5. Design Reasoning
+## Objectives
 
-This scenario intentionally remains within the Level-4 Resilience lifecycle boundary.
-
-Unlike Level-3 recovery scenarios, this operational design introduces distributed survivability coordination, multi-region failover visibility, regional resilience validation, and operational continuity through infrastructure redundancy.
-
-The architecture prioritizes failover orchestration visibility, distributed operational survivability, dependency-aware resilience validation, and operational evidence aggregation.
-
-Executive continuity governance, enterprise-wide escalation coordination, and organizational continuity reporting workflows are intentionally excluded to preserve Level-4 Resilience lifecycle purity.
-
----
-
-# 6. Scenario Objectives
-
-- Coordinate distributed failover orchestration workflows
-- Validate regional survivability visibility
-- Restore operational service continuity through infrastructure failover
-- Validate dependency-aware resilience coordination
-- Aggregate distributed operational resilience evidence
-- Validate survivability-oriented operational workflows
-- Preserve strict Level-4 Resilience lifecycle purity
+- Define the operational situation represented by this scenario.
+- Identify the affected infrastructure components.
+- Establish detection and visibility workflow.
+- Document correlation and analysis logic.
+- Describe incident coordination and response workflow.
+- Validate the restored or stable operational state.
+- Provide public-safe evidence artifacts for portfolio review.
 
 ---
 
-# 7. Scenario Architecture
+## Scenario Architecture
 
-![Architecture Overview](./diagrams/architecture-overview.png)
-
-The operational architecture focuses on distributed resilience coordination across multi-region hybrid infrastructure environments.
-
-Failover orchestration layers coordinate regional service survivability, dependency-aware failover sequencing, routing visibility transitions, and operational resilience validation workflows.
-
-Operational telemetry pipelines continuously validate regional infrastructure health, failover consistency, route convergence visibility, service survivability, and distributed recovery coordination evidence.
-
-The architecture intentionally excludes executive continuity governance systems, enterprise escalation coordination workflows, and organization-wide continuity reporting layers.
+![Operational Poster](diagrams/operational-poster.png)
 
 ---
 
-# 8. Used Modules
+## Used Modules
 
-| Module | Operational Responsibility |
+- Resilience Coordination Module
+- Failover Orchestration Module
+- Survivability Validation Module
+
+---
+
+## Used Adapters
+
+- Routing Telemetry Adapter
+- Prometheus Adapter
+- Grafana Adapter
+
+---
+
+## Infrastructure Components
+
+This scenario may involve infrastructure components such as network paths, compute resources, platform services, telemetry sources, security controls, storage systems, or application-facing dependencies.
+
+---
+
+## Operational Workflow
+
+The scenario follows the standard infrastructure operations lifecycle:
+
+1. Detection
+2. Correlation and Analysis
+3. Incident Coordination
+4. Recovery and Automation
+5. Recovery Validation
+6. Governance and Reporting
+
+---
+
+## Detection Workflow
+
+Telemetry, status indicators, health checks, logs, metrics, or event signals are used to identify abnormal operational conditions.
+
+---
+
+## Correlation and Analysis
+
+Related signals, dependencies, affected components, and possible impact paths are analyzed to understand the operational condition.
+
+---
+
+## Alert and Incident Workflow
+
+The detected condition may be qualified as an operational alert or incident based on severity, ownership, escalation context, and coordination requirements.
+
+---
+
+## Recovery and Automation Workflow
+
+The response workflow describes mitigation, restoration, failover, rebalancing, or operator-guided recovery activities depending on scenario maturity.
+
+---
+
+## Recovery Validation
+
+Recovery validation confirms that the affected infrastructure state has been restored or stabilized.
+
+---
+
+## Monitoring and Visibility
+
+Monitoring and visibility may include metrics, logs, traces, health checks, status indicators, synthetic checks, event streams, or dashboard signals.
+
+---
+
+## Operational Components
+
+| Component | Purpose |
 |---|---|
-| Distributed Failover Coordination Module | Coordinate survivability-oriented failover workflows |
-| Regional Resilience Visibility Module | Validate distributed infrastructure survivability visibility |
-| Dependency-Aware Failover Sequencing Module | Coordinate regional dependency-aware failover transitions |
-| Operational Resilience Evidence Module | Aggregate distributed resilience validation evidence |
+| Telemetry Source | Provides operational signals |
+| Detection Logic | Identifies abnormal conditions |
+| Correlation Logic | Connects symptoms and dependencies |
+| Incident Flow | Supports coordination and escalation |
+| Recovery Workflow | Defines mitigation or restoration path |
+| Validation Method | Confirms stable operational state |
+| Evidence Output | Records public-safe completion artifacts |
 
 ---
 
-# 9. Used Adapters
+## Evidence
 
-| Adapter | Integration Responsibility |
-|---|---|
-| Regional Infrastructure Telemetry Adapter | Collect distributed infrastructure resilience telemetry |
-| Route Convergence Visibility Adapter | Aggregate routing failover visibility evidence |
-| Prometheus Adapter | Aggregate distributed resilience telemetry |
-| Grafana Visualization Adapter | Present survivability-oriented operational dashboards |
-| Alertmanager Notification Adapter | Propagate distributed resilience alerts |
+- [Evidence Summary](evidence/generated/summary.md)
+- [Execution Evidence](evidence/generated/execution-evidence.md)
+- [Validation Evidence](evidence/generated/validation-evidence.md)
+- [Artifact Manifest](evidence/generated/artifact-manifest.json)
+- [Artifact Checksums](evidence/generated/artifact-checksums.json)
 
 ---
 
-# 10. Implementation Approach
+## Expected Outcomes
 
-The implementation approach prioritizes survivability-oriented failover coordination and distributed resilience validation across hybrid multi-region infrastructure environments.
-
-Operational workflows begin with regional degradation visibility and failover orchestration activation. Distributed resilience engines coordinate routing transition visibility, dependency-aware failover sequencing, regional survivability validation, and operational service continuity workflows.
-
-Operational telemetry continuously validates infrastructure survivability, route convergence consistency, failover propagation visibility, service accessibility continuity, and resilience recovery indicators.
-
-Operational evidence aggregation consolidates failover timelines, survivability validation evidence, resilience dashboards, route convergence visibility outputs, and distributed operational validation artifacts into centralized resilience review workflows.
-
-This implementation intentionally excludes executive continuity governance, enterprise-wide escalation coordination, and organizational continuity reporting workflows to preserve Level-4 Resilience lifecycle purity.
+- The operational condition is documented.
+- Visibility signals are identified.
+- Related infrastructure dependencies are considered.
+- Response or recovery workflow is described.
+- Validation criteria are defined.
+- Evidence artifacts are available for review.
 
 ---
 
-# 11. Telemetry & Evidence Strategy
+## Validation Checklist
 
-## Telemetry Metrics
-
-| Metric | Operational Purpose |
-|---|---|
-| regional_failover_duration_seconds | Measure distributed failover execution duration |
-| route_convergence_latency_ms | Validate routing transition consistency |
-| service_survivability_percent | Validate operational service continuity |
-| regional_dependency_failure_count | Detect distributed dependency degradation |
-| resilience_validation_success_percent | Validate survivability recovery consistency |
-
-## Alert Strategy
-
-| Alert | Operational Trigger |
-|---|---|
-| Distributed Failover Activation Alert | Regional failover orchestration activation |
-| Route Convergence Instability Alert | Routing transition inconsistency |
-| Service Survivability Risk Alert | Distributed service continuity degradation |
-| Resilience Validation Failure Alert | Survivability validation inconsistency |
-
-## Evidence Strategy
-
-| Evidence | Validation Purpose |
-|---|---|
-| Failover Timeline Evidence | Validate distributed failover sequencing |
-| Route Convergence Evidence | Validate routing transition consistency |
-| Survivability Dashboard Evidence | Validate operational resilience visibility |
-| Distributed Recovery Evidence | Validate regional recovery coordination |
-| Resilience Validation Evidence | Validate survivability restoration confirmation |
+- [ ] Scenario metadata is present.
+- [ ] Operational poster is referenced.
+- [ ] Used modules are listed.
+- [ ] Used adapters are listed.
+- [ ] Detection workflow is described.
+- [ ] Correlation and analysis workflow is described.
+- [ ] Response or recovery workflow is described.
+- [ ] Recovery validation is described.
+- [ ] Evidence links are present.
+- [ ] Deprecated diagram references are not used.
 
 ---
 
-# 12. Operational Workflow
+## Related Scenarios
 
-## Resilience Workflow
+### Upstream Scenarios
 
-    Regional Infrastructure Degradation Detection
-    → Distributed Failover Activation
-    → Dependency-Aware Failover Sequencing
-    → Route Convergence Validation
-    → Regional Survivability Validation
-    → Operational Evidence Aggregation
-    → Distributed Resilience Confirmation
+None currently defined.
 
-## Workflow Description
+### Same-Level Scenarios
 
-The workflow begins with operational visibility into regional infrastructure degradation conditions.
+None currently defined.
 
-Distributed resilience coordination engines activate failover orchestration workflows, dependency-aware routing transitions, survivability validation activities, and operational continuity preservation workflows.
+### Downstream Scenarios
 
-Operational telemetry continuously validates regional infrastructure availability, route convergence visibility, distributed service accessibility, failover consistency, and resilience restoration indicators.
+None currently defined.
 
-Operational evidence aggregation consolidates failover timelines, survivability dashboards, route convergence visibility outputs, distributed resilience validation evidence, and operational continuity confirmation artifacts into centralized resilience review workflows.
+### Cross-Domain Scenarios
 
-This workflow intentionally excludes executive continuity governance escalation and enterprise-wide organizational coordination workflows.
+None currently defined.
 
 ---
 
-# 13. Validation Workflow
+## Summary
 
-| Validation Target | Validation Purpose |
-|---|---|
-| Distributed Failover Validation | Confirm survivability-oriented failover execution |
-| Route Convergence Validation | Confirm routing transition consistency |
-| Regional Survivability Validation | Confirm distributed infrastructure continuity |
-| Resilience Telemetry Validation | Confirm survivability telemetry consistency |
-| Operational Evidence Aggregation | Confirm distributed resilience evidence consolidation |
-| Distributed Resilience Confirmation | Confirm operational continuity restoration |
-
-## Validation Flow
-
-    Resilience Telemetry Validation
-    → Distributed Failover Verification
-    → Route Convergence Validation
-    → Survivability Visibility Verification
-    → Resilience Dashboard Validation
-    → Operational Continuity Confirmation
-
----
-
-# 14. Scenario Package Structure
-
-    multi-region-service-failover-resilience/
-    ├── README.md
-    ├── diagrams/
-    ├── evidence/
-    ├── artifacts/
-    ├── architecture/
-    └── implementation/
-
----
-
-# 15. Related Scenarios
-
-| Relationship Type | Scenario |
-|---|---|
-| Previous Lifecycle Scenario | /scenarios/level-3-recovery/database-recovery-orchestration |
-| Next Lifecycle Scenario | /scenarios/level-5-continuity/enterprise-service-continuity-coordination |
-
----
-
-# 16. Summary
-
-This scenario defines the Level-4 golden reference for distributed service failover resilience.
-
-The operational design prioritizes survivability-oriented failover orchestration, distributed resilience coordination, dependency-aware failover visibility, operational continuity validation, and resilience evidence aggregation while preserving strict Level-4 Resilience lifecycle purity.
-
+This scenario contributes to the scenario-driven infrastructure operations portfolio by documenting an operational situation, lifecycle workflow, supporting modules and adapters, validation criteria, and public-safe evidence artifacts.

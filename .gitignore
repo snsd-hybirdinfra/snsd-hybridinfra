@@ -39,6 +39,7 @@ debug-notes.md
 *.pyc
 *.pyo
 *.pyd
+a.txt
 
 # ============================================================
 # Local environment files
@@ -55,3 +56,17 @@ debug-notes.md
 Thumbs.db
 .vscode/
 .idea/
+
+# Python local runtime
+**/venv/
+**/.venv/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Tool local outputs
+tools/**/outputs/
+tools/**/tmp/
+tools/**/temp/
+tools/**/debug/

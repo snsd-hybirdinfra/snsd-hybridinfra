@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "distributed-database-failover",
   "scenario_path": "scenarios/level-4-resilience/distributed-database-failover",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:37+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "01cd89ce5eb516cedcab6408f8714c48083e18ebd2d74d290b0828b1ab83dc6f",
+    "README.md": "1e2a0db72e8edd80e91522ec346c7fa1c48dbf460e4eddd9818f38894bdca21d",
+    "diagrams/operational-poster.svg": "5cd887a3de06e7036b6478188d72b7e6e32af685981e21a0254fc4dbe4cb0ddb",
+    "diagrams/operational-poster.png": "c4b9ee925ec62c814c5de404178545dc14a5741f9e5c0cf3d06e9ae0d772aa8b",
+    "evidence/generated/summary.md": "af1910fb3989a9ec2bfb84beb13877b605d34643dfec6e5eb8b337721a2052ff",
+    "evidence/generated/execution-evidence.md": "7acb07e9e696cabf56381d613396297f8c03d4c2e5a6b98a3eb96485c7ceee1d",
+    "evidence/generated/validation-evidence.md": "35ebf7bfa9818eeeabacbb2cd9a2429f00e8cae1e0d398a3a67c9c672de7f1d6",
+    "evidence/generated/artifact-manifest.json": "c4473a1480ac4a53f9aaf95a07fefcdd9ec63e6956e1735b8fa85da42b740b99"
+  }
 }

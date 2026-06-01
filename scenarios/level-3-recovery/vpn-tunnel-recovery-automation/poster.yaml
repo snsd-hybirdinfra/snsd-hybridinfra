@@ -1,0 +1,166 @@
+poster:
+  title: Vpn Tunnel Recovery Automation
+  subtitle: Recovery and Automation Board for Vpn Tunnel Recovery Automation
+  lifecycle: level-3-recovery
+  domain: Infrastructure Operations
+  width: 2600
+  height: 1900
+sections:
+- id: incident-trigger
+  title: Incident Trigger & Recovery Signal
+  summary: TRIGGER DETECTED
+  description: Operational signals that indicate recovery automation should be evaluated.
+  cards:
+  - title: Operational Degradation
+    subtitle: Scenario recovery trigger signal
+    type: incident-signal
+    status: Detected
+    icon: 🚨
+  - title: Service Risk
+    subtitle: Potential service stability impact
+    type: risk
+    status: Warning
+    icon: ⚠️
+  - title: Telemetry Signal
+    subtitle: Metrics, logs, or probe anomaly
+    type: telemetry
+    status: Observed
+    icon: 📡
+  - title: Alert Candidate
+    subtitle: Recovery evaluation trigger
+    type: alert
+    status: Ready
+    icon: 🔔
+- id: recovery-control
+  title: Recovery Decision & Orchestration
+  summary: RECOVERY CONTROL
+  description: Decision layer responsible for recovery eligibility, orchestration, and execution control.
+  cards:
+  - title: Recovery Orchestrator
+    subtitle: Recovery decision controller
+    type: orchestration
+    status: Evaluating
+    icon: ⚙️
+    emphasis: true
+    emphasis_label: CORE
+  - title: Policy Guard
+    subtitle: Recovery safety constraints
+    type: policy
+    status: Checked
+    icon: 🛡️
+  - title: Dependency Check
+    subtitle: Service dependency validation
+    type: dependency
+    status: Mapped
+    icon: 🕸️
+  - title: Execution Plan
+    subtitle: Approved recovery action plan
+    type: plan
+    status: Prepared
+    icon: 📋
+- id: automation-execution
+  title: Automation Execution
+  summary: ACTION READY
+  description: Automated operational actions used to restore infrastructure or service health.
+  cards:
+  - title: Automation Action
+    subtitle: Controlled recovery execution
+    type: automation
+    status: Ready
+    icon: 🔁
+  - title: State Refresh
+    subtitle: Refresh affected operational state
+    type: network-action
+    status: Ready
+    icon: 🛣️
+  - title: Recovery Action
+    subtitle: Apply approved recovery operation
+    type: recovery
+    status: Available
+    icon: 🔀
+    emphasis: true
+    emphasis_label: ACTION
+  - title: Operator Notice
+    subtitle: Recovery activity notification
+    type: notification
+    status: Prepared
+    icon: 📣
+- id: recovery-validation
+  title: Post-Recovery Validation
+  summary: VALIDATION READY
+  description: Validation checks confirming that automated recovery restored operational health.
+  cards:
+  - title: Health Check
+    subtitle: Recovered operational state
+    type: validation
+    status: Healthy
+    icon: ✅
+  - title: Service Stability
+    subtitle: Service behavior after recovery
+    type: validation
+    status: Normal
+    icon: 🟢
+  - title: Reachability Test
+    subtitle: Path or service verification
+    type: validation
+    status: Verified
+    icon: 🔎
+  - title: Recovery Evidence
+    subtitle: Recovery validation package
+    type: evidence
+    status: Prepared
+    icon: 📦
+    emphasis: true
+    emphasis_label: VERIFY
+workflow:
+  title: Recovery Workflow
+  steps:
+  - title: Detect
+    description: Identify degradation and recovery trigger.
+    status: Detected
+  - title: Evaluate
+    description: Check policy, dependency, and recovery eligibility.
+    status: Evaluating
+  - title: Execute
+    description: Run approved recovery automation actions.
+    status: Ready
+  - title: Validate
+    description: Confirm service restoration and stability.
+    status: Verified
+  - title: Report
+    description: Prepare recovery evidence and operational summary.
+    status: Prepared
+dashboards:
+- title: Vpn Tunnel Recovery Automation Status
+  widgets:
+  - label: State
+    value: Ready
+    status: normal
+  - label: Signal
+    value: Observed
+    status: normal
+  - label: Control
+    value: Prepared
+    status: verified
+  - label: Action
+    value: Available
+    status: normal
+  - label: Validation
+    value: Verified
+    status: healthy
+  - label: Evidence
+    value: Prepared
+    status: verified
+legend:
+- label: Incident Trigger
+  color: red
+- label: Recovery Control
+  color: purple
+- label: Automation Execution
+  color: cyan
+- label: Recovery Validation
+  color: green
+- label: Core Recovery Capability
+  color: purple
+- label: Automation Action Point
+  color: cyan

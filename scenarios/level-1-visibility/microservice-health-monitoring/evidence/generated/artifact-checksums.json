@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "microservice-health-monitoring",
   "scenario_path": "scenarios/level-1-visibility/microservice-health-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:33+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "c70d1c18c4701b2ac531db11eb63b834c1856941b2d499cecfc68f69b8053de3",
+    "README.md": "349e9e4d884a85aabba7591d8d7d9faca174f292512f87c77166457935055e17",
+    "diagrams/operational-poster.svg": "974df34c6350f7b895e9e2a7fcdc813b1c4968822be240ba580b2d77e8681219",
+    "diagrams/operational-poster.png": "52ea78060ab64e02bdcf22ca9533237da68ee73d7f0e17c5102b9546c674dcce",
+    "evidence/generated/summary.md": "a4e8a01fdb000f494461dcbdb4aec2e9fa58587affc389e1a580068d9d929f41",
+    "evidence/generated/execution-evidence.md": "d36ad6658b8025147eaf18cdfaf7d6f4f82238819c45a28d63b2cf1f68751d30",
+    "evidence/generated/validation-evidence.md": "97b68ffaefc566fdc47f1c19371f0a8e2f16133968b8eee0e7d2d1ef4c6a394b",
+    "evidence/generated/artifact-manifest.json": "e280c14f31adffc1edebc1607cd80f2650ba85cdfdde82ebbb639d2d048f41dc"
+  }
 }

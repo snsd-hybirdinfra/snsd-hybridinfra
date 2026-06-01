@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "storage-io-instability-analysis",
   "scenario_path": "scenarios/level-2-correlation/storage-io-instability-analysis",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "935bfade4dcb0b7f7a279139dbf4c50f8dce679caeca0fbc7535dea0bd86c442",
+    "README.md": "2843a440ec9daad4b6a8a4f238fca28f15debbebfccee36e6a3aadf59744c3e4",
+    "diagrams/operational-poster.svg": "578cef2ed6c6940841ba1f7a643d21e7cf1137bd1aee22951a652802378fa255",
+    "diagrams/operational-poster.png": "9511069cd9ce38cdd652ba1f58ca98c86b77f4b370c2c654bf384812104a742d",
+    "evidence/generated/summary.md": "a6280ff9b9ed022f7d1d0340a0fd93751afdd966b8f7e8550c247ba8b1ac84a4",
+    "evidence/generated/execution-evidence.md": "633cef4b5e3ebb5b2ddc5d62361e680f3e3ddcad770d5b4939ce8ce977a1d93a",
+    "evidence/generated/validation-evidence.md": "8338ebd3914ed325cf7dcd08078dda46a501fed0f0038e79e95ebdfdc4316a49",
+    "evidence/generated/artifact-manifest.json": "9da497c6a173356c385ba0b1399c35c37c9930f3862384ac2881a4ddf3a2d4e2"
+  }
 }

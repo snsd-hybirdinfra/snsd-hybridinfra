@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "application-runtime-monitoring",
   "scenario_path": "scenarios/level-1-visibility/application-runtime-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:31+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "8a157b5cff0dcdd9b4d7068104c8a2e49290c0b579ff83b1f9d9f1cf2ef60e77",
+    "README.md": "3d7f6ae19bdd0d3938f11c712b683fb4daeae098f938cb1ddc2f63c70d5eb0d1",
+    "diagrams/operational-poster.svg": "bf289cbbf45446df6077ab37ef5683b148f2c6cdd4955912ba6745b177332e6e",
+    "diagrams/operational-poster.png": "7c7f79bfe6b415d43e298bc70acd39460f161402c9cfaf7100e6d5560959fe34",
+    "evidence/generated/summary.md": "3d6eb28c5481900b2640b4ff2016992a85877b2be1cebfcbdb6f7d3327fd9cb1",
+    "evidence/generated/execution-evidence.md": "fc68a1fd00c89f7f1bbabffee309f671bd2374f48d391024a2c5d21856c47a2d",
+    "evidence/generated/validation-evidence.md": "8e56e3a96219b72a80c25a725c0d93329573c654d3f020f997748d9123ce823c",
+    "evidence/generated/artifact-manifest.json": "b43f6cb6fd60a75b67698e9a105465bbed401dcd90e11b5e175987678cc58d3d"
+  }
 }

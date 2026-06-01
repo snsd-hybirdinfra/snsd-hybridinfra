@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "cluster-resource-instability-analysis",
   "scenario_path": "scenarios/level-2-correlation/cluster-resource-instability-analysis",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:34+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "9fb85b42738f00bb26bd77fab62d3bb98a076f5fc57d5e4268abb158298e8531",
+    "README.md": "56551a1cc6ce336265989dfa55e88d586c147d0dfebefb38f93c265fc29dc85d",
+    "diagrams/operational-poster.svg": "70bcc718b635fd094bcee9373c06d8274626f9ca0d9c1e2be7fdd93899dc24ec",
+    "diagrams/operational-poster.png": "d2fdab0eb4dea3f2ef44b023213077cebd720fac799df798c039451c33d11e87",
+    "evidence/generated/summary.md": "9d72e799fec985d3f642eb471bc5dfdbfdda7a514c43040e8f9c65fb7ddcb3ac",
+    "evidence/generated/execution-evidence.md": "953985112fb8859eedbed2357b70da0c82654eaecc27d2590c39e5361cfa8c7e",
+    "evidence/generated/validation-evidence.md": "c822768b8958baff82303525995910eab80074568245ac16e886963fc9a69db6",
+    "evidence/generated/artifact-manifest.json": "9702ecbbcefc6a987ad65d3458e060679d5f396a070ee3d25cf039f3a1925420"
+  }
 }

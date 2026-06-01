@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "database-failover-automation",
   "scenario_path": "scenarios/level-3-recovery/database-failover-automation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:36+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "04e0ccf362d922e3efb76e2fd8b8a4a7750a39c75735c2c6d14a69a87971195d",
+    "README.md": "b1503ce13df0a129fe507035520d50adec38d570ff2c443a0bcf5d0ecea8ca5b",
+    "diagrams/operational-poster.svg": "848ff9a1f71ccd8c7637a7e8865dec91bbed64d504dde56df361b1d9f0453938",
+    "diagrams/operational-poster.png": "f29edb034066ba4bb32b0a567a665af799db424afb818645e56840cdf2b68dda",
+    "evidence/generated/summary.md": "aee6551873011ffff873204bbfd70d968b2169d7fbf1951905c8221f017cd41d",
+    "evidence/generated/execution-evidence.md": "62914ac59847ee8eeb7358937895b9670224eba0abfa7342e8fc017dae43ef95",
+    "evidence/generated/validation-evidence.md": "829ecd8dfc0a0f29e2c4a8c55b3f75edfc2fb42d27ef6f1c38fc0d5120c5939c",
+    "evidence/generated/artifact-manifest.json": "cbf5fb236ce1ab8eb9f9fbab073594b0e2a1b574cec367f6eb86f91db35f7534"
+  }
 }

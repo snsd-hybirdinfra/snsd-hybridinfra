@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "api-gateway-health-monitoring",
   "scenario_path": "scenarios/level-1-visibility/api-gateway-health-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:31+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "89c0c4913e8f05bb3a67cb19dcc7df93ac2dcad8cb2b743670b51fdb4c9cbeb8",
+    "README.md": "386095b7ddb5da908d687578d507ebdd44c688fcc71a81a148effd09b36dab0c",
+    "diagrams/operational-poster.svg": "e5dde036cebaae9cd2c2440e81c1b6407f1a5ceb99ba6674992d82ef26e4e0ee",
+    "diagrams/operational-poster.png": "4c17682de16216f6cefc72dc3821910c3b6d8a5c5fadb5a836566f44922b6b7d",
+    "evidence/generated/summary.md": "3e8c430aa08b639bddf737862583e117b04694c0cf07d28ba9ee76620c6d8d31",
+    "evidence/generated/execution-evidence.md": "069d83da91e2a59ced2047946a7177699b5f9c51b8aa9e7af030768cf2ae605c",
+    "evidence/generated/validation-evidence.md": "6eeac13c7cae493bd13ea015da487ac958182bf6160dc6fd9af8ba24778c9bfa",
+    "evidence/generated/artifact-manifest.json": "2045697997566347f5d41ce12e195f8827fcb08294ce5010699c1ea93be15115"
+  }
 }

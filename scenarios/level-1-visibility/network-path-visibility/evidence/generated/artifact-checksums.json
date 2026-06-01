@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "network-path-visibility",
   "scenario_path": "scenarios/level-1-visibility/network-path-visibility",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:33+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "85f18ee4d0999eb914d7a5160675243d5dc880ec98855f00886502b410436ae9",
+    "README.md": "6565807b288b35b9c13dc20069192fea57fc0f9df7d83a6ba8098d0078606901",
+    "diagrams/operational-poster.svg": "5f6b361876327bac2a3c6af4d6afb4ed14a0c730c33b4d4dbb8ab30ec2422c3c",
+    "diagrams/operational-poster.png": "df37d4ba6f6febe6425e7fbc33b37c4dec38fa2a6b5c3da18693e7f46fe26504",
+    "evidence/generated/summary.md": "11f14b3d1bc6f95f127271b235c314fd4a2e968f6e29acae9feb4e1b084f98b5",
+    "evidence/generated/execution-evidence.md": "5fdfaef7c664ab39f466f8a4a98508df136e473dba676774c2219f5a522b7345",
+    "evidence/generated/validation-evidence.md": "d75f3b9b44f48dc455e8785dd0005a5c17d03a58e891a5f300a2e7d6ad65d33d",
+    "evidence/generated/artifact-manifest.json": "546c0ab280c1512f0b92142735198de56e4bb1e069136500f37157e9c6a179e8"
+  }
 }

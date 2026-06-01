@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "database-health-monitoring",
   "scenario_path": "scenarios/level-1-visibility/database-health-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:32+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "c106c049b4eb33ba2bf1bc0ad7d2ae91041646599fc5b51396b47161cfe06624",
+    "README.md": "eeff77a6daa7ce5af6e61d5e4f4a0198b4d805c164e8a5f2d96994642c6ac070",
+    "diagrams/operational-poster.svg": "44cedf3180f778b878698bf06e9c868ce39354e89ecbd63f3ba9f4923b369ed2",
+    "diagrams/operational-poster.png": "15a013651c1ed494ddda0e9df689ab071dcdbebb14b00cbd98b9632a798cb7c3",
+    "evidence/generated/summary.md": "fcd0f03a2bf53749e6ce47d0b077ec2e52016bdd4e1e2c7a2ae60998f175dfd1",
+    "evidence/generated/execution-evidence.md": "c3b5ff878b01836463e286fcaabbed834c9f5be5df266929c7f5ee81ae345cf1",
+    "evidence/generated/validation-evidence.md": "d59c4dd69bce7743318c81b680029cad98314d48e4575072158a2c146637ddf7",
+    "evidence/generated/artifact-manifest.json": "09c26688644ebb1a3026997fb42c283cf3e1aaab8e8e4e1612306617db347dc3"
+  }
 }

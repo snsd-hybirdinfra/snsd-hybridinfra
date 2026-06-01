@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "cross-region-kubernetes-resilience",
   "scenario_path": "scenarios/level-4-resilience/cross-region-kubernetes-resilience",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:37+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "51bae658e0fe51b01f8a427ed3121aa860bf0538fa1fd31bc6152f164e679f76",
+    "README.md": "bd6d9a51a26942ecc407141f1a16725637f87888023389ff652a55b7e7135f59",
+    "diagrams/operational-poster.svg": "a5502ff5762eaa1168cb140a56f0ad3a4bf5b01d2a3c1acb533556321d2ba9d0",
+    "diagrams/operational-poster.png": "516dc6f68995a2e81d44baaa7d69436e7cb16012160824f4030fc08979cf4c72",
+    "evidence/generated/summary.md": "3aae46e00f98cdce5da119dbd18a03eb740970fdd5e042f07eb651d35e6745dd",
+    "evidence/generated/execution-evidence.md": "5ed3e99b2c132724d254e7b775d6262c93c8210469228ad943b9541e5aa36f63",
+    "evidence/generated/validation-evidence.md": "d484fe9f1dac3c7e1e551e48f80ed24f5860c712e7ebd1222c4696d23cfa594c",
+    "evidence/generated/artifact-manifest.json": "e7d51e2301119d130b12fcfb552025ce4eee70c43eef09b71d22aacea32f596c"
+  }
 }

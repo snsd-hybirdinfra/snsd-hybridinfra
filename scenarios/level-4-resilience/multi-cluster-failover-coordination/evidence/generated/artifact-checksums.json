@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "multi-cluster-failover-coordination",
   "scenario_path": "scenarios/level-4-resilience/multi-cluster-failover-coordination",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:37+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "7925de9b7443b4b1838f9edbd71846459af2fc91a0d595ddce8cb1800cb18e78",
+    "README.md": "1fb193859eecf0cfc02c482efc6f562591e28af3d36a57111c9ffd9d0e5fd864",
+    "diagrams/operational-poster.svg": "0484733ecf67b28d89d972b1369a35af09dd3291da84dc0faec5414e2ebe5913",
+    "diagrams/operational-poster.png": "963f227b9146bee83e8c9d747013b4bd7b4d8134eef41483d9a3372bd6d8f8d6",
+    "evidence/generated/summary.md": "c29c17976b831789105c41472c9ddb4b6c6ed8702099a4ee477657bd7c95f4f9",
+    "evidence/generated/execution-evidence.md": "d7709e850fb09a3c3a6f67ca7bff9c54a52a22f483b605292773f0ab0832bd07",
+    "evidence/generated/validation-evidence.md": "595ce731de3bf8e43fe2c96aa986436b37adbfea6c7ae7aeecc42c79095c3857",
+    "evidence/generated/artifact-manifest.json": "142cecf17beead076525c442378805eae8d7b638512b7967d9625e0ebe0c2a1d"
+  }
 }

@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "multi-region-service-failover",
   "scenario_path": "scenarios/level-4-resilience/multi-region-service-failover",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:37+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "87665c8a8b4044e26712beb0652cc6cb12a5657b3f4a11dc097fc5d616a35256",
+    "README.md": "8ceac380dd347478904208d022b9fa8621ef0de9f08e908ae0ed0e4f658d374c",
+    "diagrams/operational-poster.svg": "d12b83241f283d96b1ec9ed56e5a041787bff105953f136b6957b5d0e6ab72b5",
+    "diagrams/operational-poster.png": "3e593ea61e2a39df2a2f917783806f850809539a5ce67a30c24887ad778d29ba",
+    "evidence/generated/summary.md": "3f7f1a8578723db1d9658abfda17eb312b555272965aed4907a5b56d2b9a21f5",
+    "evidence/generated/execution-evidence.md": "78aa9b2b3fa8fea2c9032ea55400ca5c371305773cca7b92953a7ff04967cc7a",
+    "evidence/generated/validation-evidence.md": "8cb63aa8a3662aae52ffbaa9fa77592543b2d64611a5586495615d1522537356",
+    "evidence/generated/artifact-manifest.json": "90da7dd17d585ba88fc0209821c789322f8ed022920f3e20ff1fc6de9604b8b9"
+  }
 }

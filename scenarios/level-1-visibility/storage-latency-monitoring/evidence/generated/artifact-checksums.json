@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "storage-latency-monitoring",
   "scenario_path": "scenarios/level-1-visibility/storage-latency-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:33+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "c938e1ac2b2a8f2122e23c6b4a41075438134075c6b37ee7e86cc7e1a4fe22d6",
+    "README.md": "048e491f6d64dfe5266c575c6e498d2ad26800934d26af53ce4641861c8f724c",
+    "diagrams/operational-poster.svg": "4c142f8ca3b42ce069b8da80f73f63de64d236012375d5ae7cc79953f3ff7ac9",
+    "diagrams/operational-poster.png": "0861d0cc4b5530030a3d98c7ba9a959e9f5ecd60af33c0dba98264ea03e0b9bb",
+    "evidence/generated/summary.md": "9dbc30f66552f7e89af98b9dfefe7dc6a59671478d62ca4091685fb34cdd4fd1",
+    "evidence/generated/execution-evidence.md": "a159268f1b2bfb290c9fa354bb8b6404d7aa3042b25fd4be897c7b71e7bd316b",
+    "evidence/generated/validation-evidence.md": "6b2a935092c4113e45b5aab96a12d05af1cf68143229003ad7b375f9169ced27",
+    "evidence/generated/artifact-manifest.json": "2ec5b234f85924006334023671bc590f1f9f1e02219e9b13fd0284c24c552f1e"
+  }
 }

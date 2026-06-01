@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "compute-resource-correlation",
   "scenario_path": "scenarios/level-2-correlation/compute-resource-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:34+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "2d4e07d63c02ff5b031a106686e0f2a99cb81168c9edcffd81d020496666a982",
+    "README.md": "385df72eb4d3bdc6c26df3e98cddb3eab8ab6e569eaef2db44f8dc8616663320",
+    "diagrams/operational-poster.svg": "148d8c2d348646dab20cd30027144cf640e9b1cdbed369085bf5cd8daa561ef7",
+    "diagrams/operational-poster.png": "c03f6ebd3c955ddf22382fb9491833223bb3a72925ea0ca6fece1b242961486f",
+    "evidence/generated/summary.md": "ea869dc97068e2a166c45ec47a6148eaa447cb4652b7a886ea1795e0e7f98b8c",
+    "evidence/generated/execution-evidence.md": "76ce0d1a26172954b6a95e063310639ba04e00bf1e0a4a95bb7f0d76f7820cc3",
+    "evidence/generated/validation-evidence.md": "05a4e99b15cf164e2e8846b71910fe8ced32945a2fcf9bdf4e43a692a2f2dc04",
+    "evidence/generated/artifact-manifest.json": "14cd30808a5027a295e80b1cfa4fcfeec4c074f1e372a5de2c53b7f27a7c9a26"
+  }
 }

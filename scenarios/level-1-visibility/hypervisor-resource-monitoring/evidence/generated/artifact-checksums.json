@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "hypervisor-resource-monitoring",
   "scenario_path": "scenarios/level-1-visibility/hypervisor-resource-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:32+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "a608add5086a1e104e61f7ea5b14bea5f014780fe1a061728345162aa3eddde9",
+    "README.md": "725b99526ccb4e09eef5b3ccc2961d51d204f27d5bb72045f5692bb14153e085",
+    "diagrams/operational-poster.svg": "1ee4a816fce48cd8543ddfc8ecb364f39758f3c1c31143099ae34e785ba4a3bc",
+    "diagrams/operational-poster.png": "ccef2d87a3e132be48df776d512e269bdc733e9687a8545abc33c4977770e58f",
+    "evidence/generated/summary.md": "9f3c4caef97288c2bf036c99ba085e968ff0c62e2d5f627f3c9acb58fd316bd7",
+    "evidence/generated/execution-evidence.md": "d0303aca5295957a1852de2b9d4a8c299e12d8f72d6fec0426730ec6f2f4ccb8",
+    "evidence/generated/validation-evidence.md": "55d337ba1ff59a8b05e75b73d43506111e7cb6ae58dc4e5707aa010ef158c4b7",
+    "evidence/generated/artifact-manifest.json": "3ce68fd1011ca8b548e080bf022a38579b0d219f1851271c4b216d2c1a9c110b"
+  }
 }

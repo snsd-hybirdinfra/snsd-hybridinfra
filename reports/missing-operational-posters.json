@@ -1,0 +1,734 @@
+﻿[
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "api-gateway-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\api-gateway-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "application-runtime-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\application-runtime-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "audit-log-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\audit-log-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "backup-job-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\backup-job-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "bgp-neighbor-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\bgp-neighbor-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "certificate-expiration-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\certificate-expiration-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "cloud-instance-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\cloud-instance-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "compute-resource-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\compute-resource-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "container-runtime-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\container-runtime-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "database-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\database-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "database-replication-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\database-replication-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "database-runtime-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\database-runtime-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "dns-resolution-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\dns-resolution-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "endpoint-reachability-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\endpoint-reachability-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "endpoint-security-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\endpoint-security-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "filesystem-health-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\filesystem-health-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "hardware-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\hardware-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "hypervisor-resource-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\hypervisor-resource-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "identity-access-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\identity-access-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "kubernetes-cluster-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\kubernetes-cluster-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "kubernetes-cluster-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\kubernetes-cluster-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "load-balancer-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\load-balancer-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "message-queue-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\message-queue-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "microservice-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\microservice-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "network-path-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\network-path-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "network-traffic-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\network-traffic-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "object-storage-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\object-storage-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "privileged-session-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\privileged-session-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "process-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\process-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "security-event-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\security-event-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "security-policy-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\security-policy-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "security-telemetry-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\security-telemetry-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "service-health-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\service-health-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "service-mesh-traffic-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\service-mesh-traffic-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "storage-capacity-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\storage-capacity-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "storage-latency-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\storage-latency-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "system-event-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\system-event-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "virtual-machine-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\virtual-machine-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "vpn-latency-visibility",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\vpn-latency-visibility",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "vpn-tunnel-health-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\vpn-tunnel-health-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-1-visibility",
+        "Scenario":  "wan-link-monitoring",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-1-visibility\\wan-link-monitoring",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "api-latency-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\api-latency-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "authentication-anomaly-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\authentication-anomaly-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "backup-failure-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\backup-failure-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "cluster-resource-instability-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\cluster-resource-instability-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "compute-resource-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\compute-resource-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "container-dependency-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\container-dependency-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "cross-domain-security-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\cross-domain-security-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "cross-region-network-anomaly-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\cross-region-network-anomaly-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "cross-server-failure-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\cross-server-failure-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "cross-service-anomaly-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\cross-service-anomaly-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "cross-service-database-dependency-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\cross-service-database-dependency-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "cross-site-network-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\cross-site-network-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "database-latency-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\database-latency-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "filesystem-failure-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\filesystem-failure-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "identity-risk-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\identity-risk-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "infrastructure-anomaly-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\infrastructure-anomaly-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "multi-region-latency-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\multi-region-latency-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "network-packet-loss-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\network-packet-loss-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "network-path-dependency-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\network-path-dependency-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "platform-dependency-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\platform-dependency-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "pod-failure-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\pod-failure-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "privilege-escalation-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\privilege-escalation-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "query-lock-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\query-lock-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "replication-failure-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\replication-failure-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "resource-contention-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\resource-contention-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "routing-instability-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\routing-instability-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "runtime-instability-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\runtime-instability-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "security-anomaly-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\security-anomaly-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "security-policy-violation-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\security-policy-violation-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "service-dependency-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\service-dependency-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "service-mesh-latency-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\service-mesh-latency-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "storage-io-instability-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\storage-io-instability-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "threat-propagation-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\threat-propagation-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "traffic-spike-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\traffic-spike-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "virtualization-resource-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\virtualization-resource-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "vpn-latency-correlation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\vpn-latency-correlation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-2-correlation",
+        "Scenario":  "vpn-tunnel-instability-analysis",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-2-correlation\\vpn-tunnel-instability-analysis",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "api-service-recovery",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\api-service-recovery",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "backup-restoration-automation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\backup-restoration-automation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "cloud-instance-recovery-automation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\cloud-instance-recovery-automation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "cluster-node-recovery-orchestration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\cluster-node-recovery-orchestration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "compute-failover-orchestration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\compute-failover-orchestration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "container-failover-automation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\container-failover-automation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "database-failover-automation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\database-failover-automation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "database-recovery-orchestration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\database-recovery-orchestration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "database-service-restoration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\database-service-restoration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "data-recovery-orchestration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\data-recovery-orchestration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "dns-service-restoration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\dns-service-restoration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "infrastructure-recovery-orchestration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\infrastructure-recovery-orchestration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "kubernetes-node-recovery",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\kubernetes-node-recovery",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "kubernetes-service-recovery",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\kubernetes-service-recovery",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "load-balancer-recovery",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\load-balancer-recovery",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "network-failover-automation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\network-failover-automation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "network-route-recovery-orchestration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\network-route-recovery-orchestration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "platform-runtime-restoration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\platform-runtime-restoration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "replication-recovery-orchestration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\replication-recovery-orchestration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "resource-rebalancing-automation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\resource-rebalancing-automation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "server-service-recovery",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\server-service-recovery",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "service-mesh-traffic-restoration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\service-mesh-traffic-restoration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "traffic-restoration-workflow",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\traffic-restoration-workflow",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "virtual-machine-restoration",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\virtual-machine-restoration",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-3-recovery",
+        "Scenario":  "vpn-tunnel-recovery-automation",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-3-recovery\\vpn-tunnel-recovery-automation",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "cross-region-data-survivability",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\cross-region-data-survivability",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "cross-region-kubernetes-resilience",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\cross-region-kubernetes-resilience",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "cross-region-network-resilience",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\cross-region-network-resilience",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "distributed-connectivity-survivability",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\distributed-connectivity-survivability",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "distributed-database-failover",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\distributed-database-failover",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "distributed-platform-survivability",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\distributed-platform-survivability",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "distributed-security-resilience",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\distributed-security-resilience",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "identity-resilience-coordination",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\identity-resilience-coordination",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "multi-cluster-failover",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\multi-cluster-failover",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "multi-cluster-failover-coordination",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\multi-cluster-failover-coordination",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "multi-region-service-failover",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\multi-region-service-failover",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "multi-region-service-failover-resilience",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\multi-region-service-failover-resilience",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-4-resilience",
+        "Scenario":  "multi-site-routing-failover",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-4-resilience\\multi-site-routing-failover",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-5-continuity",
+        "Scenario":  "enterprise-cloud-continuity",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-5-continuity\\enterprise-cloud-continuity",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-5-continuity",
+        "Scenario":  "enterprise-network-continuity",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-5-continuity\\enterprise-network-continuity",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-5-continuity",
+        "Scenario":  "enterprise-operational-continuity",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-5-continuity\\enterprise-operational-continuity",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-5-continuity",
+        "Scenario":  "enterprise-platform-continuity",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-5-continuity\\enterprise-platform-continuity",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-5-continuity",
+        "Scenario":  "enterprise-security-continuity",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-5-continuity\\enterprise-security-continuity",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    },
+    {
+        "Level":  "level-5-continuity",
+        "Scenario":  "enterprise-service-continuity-coordination",
+        "Path":  "C:\\Users\\swfco\\OneDrive\\바탕 화면\\github\\snsd-hybridinfra\\scenarios\\level-5-continuity\\enterprise-service-continuity-coordination",
+        "Missing":  "operational-poster.svg, operational-poster.png"
+    }
+]

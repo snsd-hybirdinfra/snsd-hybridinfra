@@ -1,0 +1,153 @@
+poster:
+  title: Service Health Visibility
+  subtitle: Visibility and Detection Board for Service Health Visibility
+  lifecycle: level-1-visibility
+  domain: Infrastructure Operations
+  width: 2600
+  height: 1900
+sections:
+- id: observed-domain
+  title: Observed Infrastructure Domain
+  summary: OBSERVED DOMAIN
+  description: Infrastructure and service components monitored by the visibility workflow.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Health Visibility signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Health Visibility operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Health Visibility validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Health Visibility reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+- id: telemetry-platform
+  title: Telemetry Collection & Visibility Platform
+  summary: SIGNALS ACTIVE
+  description: Signal collection path used to expose operational infrastructure state.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Health Visibility signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Health Visibility operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Health Visibility validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Health Visibility reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+- id: visibility-output
+  title: Operational Visibility Outputs
+  summary: VISIBILITY READY
+  description: Reviewer-facing monitoring outputs for infrastructure operations.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Health Visibility signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Health Visibility operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Health Visibility validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Health Visibility reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+- id: validation-status
+  title: Validation & Current Status
+  summary: STATUS VERIFIED
+  description: Operational validation results confirming visibility readiness.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Health Visibility signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Health Visibility operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Health Visibility validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Health Visibility reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+workflow:
+  title: Visibility Workflow
+  steps:
+  - title: Detect
+    description: Observe infrastructure health and service state.
+    status: Ready
+  - title: Collect
+    description: Collect telemetry, logs, and probe signals.
+    status: Active
+  - title: Visualize
+    description: Expose status through monitoring dashboards.
+    status: Visible
+  - title: Validate
+    description: Confirm operational visibility and health state.
+    status: Verified
+dashboards:
+- title: Service Health Visibility Status
+  widgets:
+  - label: State
+    value: Ready
+    status: normal
+  - label: Signal
+    value: Observed
+    status: normal
+  - label: Control
+    value: Prepared
+    status: verified
+  - label: Action
+    value: Available
+    status: normal
+  - label: Validation
+    value: Verified
+    status: healthy
+  - label: Evidence
+    value: Prepared
+    status: verified
+legend:
+- label: Observed Infrastructure
+  color: blue
+- label: Telemetry Collection
+  color: cyan
+- label: Visibility Output
+  color: green
+- label: Validation Status
+  color: yellow

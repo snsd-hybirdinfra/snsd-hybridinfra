@@ -1,213 +1,181 @@
-﻿# 1. Repository Path
+﻿# Vpn Latency Visibility
 
-    /scenarios/level-1-visibility/vpn-latency-visibility
-
----
-
-# 2. Scenario Metadata
+## Scenario Metadata
 
 | Field | Value |
 |---|---|
 | Scenario Name | vpn-latency-visibility |
-| Lifecycle | Level-1 Visibility |
-| Severity | High |
-| Environment | Hybrid WAN Infrastructure |
-| Validation Scope | VPN Telemetry Visibility |
+| Lifecycle Level | level-1-visibility |
+| Scenario Path | scenarios/level-1-visibility/vpn-latency-visibility |
 
 ---
 
-# 3. Scenario Purpose
+## Overview
 
-This scenario establishes operational visibility for sustained VPN latency degradation across hybrid WAN connectivity environments.
+This scenario documents an infrastructure operations situation within a scenario-driven infrastructure operations portfolio.
 
-The scenario focuses on telemetry-driven latency visibility, packet loss observability, jitter visibility, interface saturation awareness, and operational evidence generation for early anomaly detection.
-
----
-
-# 4. Operational Relevance
-
-Sustained VPN latency degradation can reduce cross-region application responsiveness, increase transaction latency, and create operational ambiguity before a service-impacting incident is fully understood.
-
-This scenario provides visibility-first operational awareness by exposing latency, packet loss, jitter, and interface utilization signals through centralized observability workflows.
-
-The scenario does not perform recovery, rollback, failover, or continuity escalation. Its purpose is to make the degradation visible, measurable, and reviewable.
+It is designed to demonstrate operational reasoning, infrastructure awareness, lifecycle-based workflow design, and evidence-backed documentation.
 
 ---
 
-# 5. Design Reasoning
+## Objectives
 
-This scenario intentionally remains within the Level-1 Visibility lifecycle boundary.
-
-The design focuses on telemetry ingestion, visibility analysis, alert propagation, and operational evidence validation. Recovery orchestration, failover coordination, rollback execution, and continuity escalation are intentionally excluded to preserve lifecycle purity.
-
-The architecture prioritizes operational observability over implementation mechanics. The scenario is designed to help operators identify whether VPN latency degradation is occurring, whether packet loss or jitter is contributing to the issue, and whether sufficient evidence exists for later correlation or recovery workflows.
-
----
-
-# 6. Scenario Objectives
-
-- Improve VPN latency visibility across hybrid WAN connectivity
-- Detect packet loss anomalies through operational telemetry
-- Identify jitter instability across VPN transport paths
-- Detect VPN interface saturation indicators
-- Establish visibility-oriented operational evidence collection
-- Validate alert propagation for VPN latency degradation
-- Preserve strict Level-1 Visibility lifecycle purity
+- Define the operational situation represented by this scenario.
+- Identify the affected infrastructure components.
+- Establish detection and visibility workflow.
+- Document correlation and analysis logic.
+- Describe incident coordination and response workflow.
+- Validate the restored or stable operational state.
+- Provide public-safe evidence artifacts for portfolio review.
 
 ---
 
-# 7. Scenario Architecture
+## Scenario Architecture
 
-![Architecture Overview](./diagrams/architecture-overview.png)
-
-The operational architecture focuses on telemetry visibility across VPN infrastructure components.
-
-VPN telemetry sources provide latency, packet loss, jitter, and interface utilization signals into centralized observability pipelines. The visibility layer aggregates these signals into dashboards, alerts, and evidence outputs for operational validation.
-
-The architecture does not include recovery engines, failover automation, rollback controllers, or continuity governance components.
+![Operational Poster](diagrams/operational-poster.png)
 
 ---
 
-# 8. Used Modules
+## Used Modules
 
-| Module | Operational Responsibility |
+- Telemetry Aggregation Module
+- Health Signal Collection Module
+- Visibility Reporting Module
+
+---
+
+## Used Adapters
+
+- Prometheus Adapter
+- Grafana Adapter
+
+---
+
+## Infrastructure Components
+
+This scenario may involve infrastructure components such as network paths, compute resources, platform services, telemetry sources, security controls, storage systems, or application-facing dependencies.
+
+---
+
+## Operational Workflow
+
+The scenario follows the standard infrastructure operations lifecycle:
+
+1. Detection
+2. Correlation and Analysis
+3. Incident Coordination
+4. Recovery and Automation
+5. Recovery Validation
+6. Governance and Reporting
+
+---
+
+## Detection Workflow
+
+Telemetry, status indicators, health checks, logs, metrics, or event signals are used to identify abnormal operational conditions.
+
+---
+
+## Correlation and Analysis
+
+Related signals, dependencies, affected components, and possible impact paths are analyzed to understand the operational condition.
+
+---
+
+## Alert and Incident Workflow
+
+The detected condition may be qualified as an operational alert or incident based on severity, ownership, escalation context, and coordination requirements.
+
+---
+
+## Recovery and Automation Workflow
+
+The response workflow describes mitigation, restoration, failover, rebalancing, or operator-guided recovery activities depending on scenario maturity.
+
+---
+
+## Recovery Validation
+
+Recovery validation confirms that the affected infrastructure state has been restored or stabilized.
+
+---
+
+## Monitoring and Visibility
+
+Monitoring and visibility may include metrics, logs, traces, health checks, status indicators, synthetic checks, event streams, or dashboard signals.
+
+---
+
+## Operational Components
+
+| Component | Purpose |
 |---|---|
-| VPN Telemetry Collection Module | Collect VPN latency, packet loss, jitter, and interface utilization telemetry |
-| Latency Visibility Analysis Module | Identify latency degradation visibility patterns across VPN paths |
-| Operational Alert Visibility Module | Surface visibility-oriented VPN anomaly alerts |
-| Evidence Aggregation Module | Consolidate telemetry, alert, and dashboard evidence for validation |
+| Telemetry Source | Provides operational signals |
+| Detection Logic | Identifies abnormal conditions |
+| Correlation Logic | Connects symptoms and dependencies |
+| Incident Flow | Supports coordination and escalation |
+| Recovery Workflow | Defines mitigation or restoration path |
+| Validation Method | Confirms stable operational state |
+| Evidence Output | Records public-safe completion artifacts |
 
 ---
 
-# 9. Used Adapters
+## Evidence
 
-| Adapter | Integration Responsibility |
-|---|---|
-| SNMP Telemetry Adapter | Collect VPN interface and tunnel telemetry |
-| Prometheus Adapter | Aggregate operational telemetry metrics |
-| Grafana Visualization Adapter | Present VPN visibility dashboards |
-| Alertmanager Notification Adapter | Propagate visibility-oriented anomaly alerts |
-
----
-
-# 10. Implementation Approach
-
-The implementation approach follows a visibility-first operational flow.
-
-VPN telemetry is collected from tunnel, interface, and path-level monitoring sources. The telemetry pipeline aggregates latency, packet loss, jitter, and utilization indicators into the observability layer.
-
-The visibility analysis layer evaluates whether VPN degradation is observable through measurable telemetry signals. Alert propagation surfaces sustained latency and packet loss anomalies to operational monitoring workflows.
-
-Evidence aggregation consolidates metric snapshots, dashboard views, alert timelines, and visibility validation outputs.
-
-This approach intentionally avoids implementation tutorial content such as exporter installation, dashboard configuration walkthroughs, or automation script details.
+- [Evidence Summary](evidence/generated/summary.md)
+- [Execution Evidence](evidence/generated/execution-evidence.md)
+- [Validation Evidence](evidence/generated/validation-evidence.md)
+- [Artifact Manifest](evidence/generated/artifact-manifest.json)
+- [Artifact Checksums](evidence/generated/artifact-checksums.json)
 
 ---
 
-# 11. Telemetry & Evidence Strategy
+## Expected Outcomes
 
-## Telemetry Metrics
-
-| Metric | Operational Purpose |
-|---|---|
-| vpn_tunnel_latency_ms | Detect sustained VPN latency degradation |
-| vpn_packet_loss_percent | Detect packet loss and retransmission risk |
-| vpn_jitter_ms | Detect instability across VPN transport paths |
-| vpn_interface_utilization_percent | Detect interface saturation visibility |
-
-## Alert Strategy
-
-| Alert | Operational Trigger |
-|---|---|
-| High VPN Tunnel Latency | Sustained latency threshold breach |
-| Packet Loss Threshold Breach | Packet loss anomaly visibility |
-| Tunnel Saturation Warning | Interface utilization saturation visibility |
-
-## Evidence Strategy
-
-| Evidence | Validation Purpose |
-|---|---|
-| Prometheus Query Evidence | Validate telemetry aggregation consistency |
-| Grafana Dashboard Evidence | Validate operational visibility dashboards |
-| Alert Timeline Evidence | Validate alert propagation visibility |
-| Operational Visibility Evidence | Validate that VPN degradation is observable |
+- The operational condition is documented.
+- Visibility signals are identified.
+- Related infrastructure dependencies are considered.
+- Response or recovery workflow is described.
+- Validation criteria are defined.
+- Evidence artifacts are available for review.
 
 ---
 
-# 12. Operational Workflow
+## Validation Checklist
 
-![Workflow Overview](./diagrams/workflow-overview.png)
-
-## Visibility Flow
-
-    VPN Telemetry Ingestion
-    → Latency Visibility Analysis
-    → Packet Loss and Jitter Anomaly Detection
-    → Operational Alert Propagation
-    → Evidence Aggregation
-    → Operational Visibility Validation
-
-## Workflow Description
-
-The workflow begins with VPN telemetry ingestion across hybrid WAN infrastructure.
-
-Telemetry signals are evaluated for sustained latency degradation, packet loss increase, jitter instability, and interface saturation visibility. Alert propagation surfaces visibility-oriented anomalies to operational monitoring workflows.
-
-Evidence aggregation collects metric evidence, dashboard evidence, alert evidence, and validation evidence for operational review.
-
-This workflow does not include recovery orchestration, rollback execution, failover coordination, or continuity escalation.
+- [ ] Scenario metadata is present.
+- [ ] Operational poster is referenced.
+- [ ] Used modules are listed.
+- [ ] Used adapters are listed.
+- [ ] Detection workflow is described.
+- [ ] Correlation and analysis workflow is described.
+- [ ] Response or recovery workflow is described.
+- [ ] Recovery validation is described.
+- [ ] Evidence links are present.
+- [ ] Deprecated diagram references are not used.
 
 ---
 
-# 13. Validation Workflow
+## Related Scenarios
 
-| Validation Target | Validation Purpose |
-|---|---|
-| VPN Latency Visibility | Confirm sustained latency degradation is observable |
-| Packet Loss Detection | Confirm packet loss anomaly visibility |
-| Jitter Visibility | Confirm transport instability visibility |
-| Interface Saturation Visibility | Confirm utilization saturation visibility |
-| Alert Propagation | Confirm visibility alerts are generated |
-| Evidence Aggregation | Confirm operational evidence is collected |
+### Upstream Scenarios
 
-## Validation Flow
+None currently defined.
 
-    Telemetry Validation
-    → Latency Threshold Verification
-    → Packet Loss and Jitter Verification
-    → Alert Visibility Verification
-    → Dashboard Visibility Validation
-    → Evidence Aggregation Verification
+### Same-Level Scenarios
+
+None currently defined.
+
+### Downstream Scenarios
+
+None currently defined.
+
+### Cross-Domain Scenarios
+
+None currently defined.
 
 ---
 
-# 14. Scenario Package Structure
+## Summary
 
-    vpn-latency-visibility/
-    ├── README.md
-    ├── diagrams/
-    ├── evidence/
-    ├── artifacts/
-    ├── architecture/
-    └── implementation/
-
----
-
-# 15. Related Scenarios
-
-| Relationship Type | Scenario |
-|---|---|
-| Next Lifecycle Scenario | /scenarios/level-2-correlation/cross-region-network-anomaly-correlation |
-| Recovery Reference | /scenarios/level-3-recovery/database-recovery-orchestration |
-| Resilience Reference | /scenarios/level-4-resilience/multi-region-service-failover-resilience |
-| Continuity Reference | /scenarios/level-5-continuity/enterprise-service-continuity-coordination |
-
----
-
-# 16. Summary
-
-This scenario defines the Level-1 golden reference for VPN latency visibility.
-
-It establishes a visibility-only operational scenario focused on telemetry realism, alert visibility, evidence aggregation, and operational observability without introducing recovery, failover, rollback, or continuity logic.
-
-
+This scenario contributes to the scenario-driven infrastructure operations portfolio by documenting an operational situation, lifecycle workflow, supporting modules and adapters, validation criteria, and public-safe evidence artifacts.

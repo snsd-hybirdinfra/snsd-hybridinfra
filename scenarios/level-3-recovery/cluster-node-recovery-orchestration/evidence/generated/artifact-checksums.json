@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "cluster-node-recovery-orchestration",
   "scenario_path": "scenarios/level-3-recovery/cluster-node-recovery-orchestration",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:36+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "6d332fbe0a889ff94ee9f868406879ed094127a8a113ffa2a2c40f388c1bdc8a",
+    "README.md": "d0174de44debe749a239f2e247ddeff2e477c6e2193b9259eb21513d1538103d",
+    "diagrams/operational-poster.svg": "75d766fd72ba6d7ddbc64437fc088ea9d160c0a7b3b36a8547697d89a7063529",
+    "diagrams/operational-poster.png": "922b22b09a8ef610c284032fb4d2f8de0db605ab0c9a23ed79f842fbea0906a6",
+    "evidence/generated/summary.md": "08f339a417ae2e166bbe38137d5d72133d2c62f54fcc071b6fa132727bef75c6",
+    "evidence/generated/execution-evidence.md": "af3b3d8ab23be71ba553afc057751740e6bc070359e013a74d0c3f361a765767",
+    "evidence/generated/validation-evidence.md": "43d2e8711ec72625e38441dec7489342d46c8ebfa83a2cf0867d78e779952511",
+    "evidence/generated/artifact-manifest.json": "5889880197ec4d4b3741a014c3bdd79e6f0044845aa314e9da8acbd004acc994"
+  }
 }

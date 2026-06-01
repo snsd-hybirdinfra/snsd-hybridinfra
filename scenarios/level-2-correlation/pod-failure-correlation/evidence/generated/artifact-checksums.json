@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "pod-failure-correlation",
   "scenario_path": "scenarios/level-2-correlation/pod-failure-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "6f0e67d3e34f6ce5ee4648396077855dbec4411818ea3614e62ef1a9583e645d",
+    "README.md": "42b8b838f244f483af3c0fb83892a709cf3350026c284662782d0f4c0f4720f9",
+    "diagrams/operational-poster.svg": "c642144cf2a2576a6e64779e39d97f1effe13f5a6c78c55bf525fde1106d05c3",
+    "diagrams/operational-poster.png": "dd451f05439de2376fb1dfa42f979a3227c7df05996130badcd043ecbcad46a2",
+    "evidence/generated/summary.md": "81300517d3bf81e8f6a8cddf4354a632ceb48c7584bcb43f7d4475557833d16a",
+    "evidence/generated/execution-evidence.md": "51d0beb4f9506eb70568083ebd74131adffc4a832e9758db74296bac91085f5b",
+    "evidence/generated/validation-evidence.md": "8304f1b04fd518cbfc92026ca4212da995b85efdd38f6037def325efc8899950",
+    "evidence/generated/artifact-manifest.json": "82b23b638ae667ffb54b76e48d0eabc18e79589e067963b44ab5d488d14b83ea"
+  }
 }

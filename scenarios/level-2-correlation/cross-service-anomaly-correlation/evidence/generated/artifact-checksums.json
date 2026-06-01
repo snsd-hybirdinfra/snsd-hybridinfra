@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "cross-service-anomaly-correlation",
   "scenario_path": "scenarios/level-2-correlation/cross-service-anomaly-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:34+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "7400974fb1cb41be64736e91e9a99300b4fb1c56b95073a4228ca2d00c78c320",
+    "README.md": "17b3460bc37fed68656845170b06dae09319fac77b20959b3c47463ab94294e4",
+    "diagrams/operational-poster.svg": "a99f06c7c6c054f7914c6fdb3a9cadeb28cc285157bcaedeba8977fe64e939e7",
+    "diagrams/operational-poster.png": "219fad75ed5358e841bfe1d66469b6f1a8d6a57255bcedbbf2c3dd1bbee37c9d",
+    "evidence/generated/summary.md": "5240eb40ed44cbc23a49ac0501b8f01d552a36bff420ae923ee3dd4b2bb084cd",
+    "evidence/generated/execution-evidence.md": "e334031519f6669b9f99ff00b67b7f906dc5df22e460bd1532dd86c2ecc7f783",
+    "evidence/generated/validation-evidence.md": "e928a883b0fb1b381f15a2af4281fba49072c71620580f3503b412ed83386d52",
+    "evidence/generated/artifact-manifest.json": "50075fd0472334166d82bcb1af6637294c4df862e816f77ec0c547472351a18f"
+  }
 }

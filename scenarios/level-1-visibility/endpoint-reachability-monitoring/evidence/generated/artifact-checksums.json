@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "endpoint-reachability-monitoring",
   "scenario_path": "scenarios/level-1-visibility/endpoint-reachability-monitoring",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:32+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "63a5e9a4e76dacae54583a92eb54924557799ed9b9a1ed336bb939f9fabca991",
+    "README.md": "3cf759ac69f75c4c5f8027515f50784f1cb50689c494628e8660268436a913cf",
+    "diagrams/operational-poster.svg": "2d56c5598ed48d2e41c8e19545544d11dfe1481b50ccdf360ee27f4a4a8b32de",
+    "diagrams/operational-poster.png": "6296c5762c6d5069bba72e8cff1d8897f9b0058408634187c23dd2c34f422a6a",
+    "evidence/generated/summary.md": "97821ff38125e5384596235c14d3f96cb5a3dafee3e82b50b1398b3c7a55adbc",
+    "evidence/generated/execution-evidence.md": "5ae5d91f16bb9142e6155d711c3bb2b9fe3074ea174a88a9c8f0c28c0d0b6b6b",
+    "evidence/generated/validation-evidence.md": "777d4248758bc99a467091967d0326144bbc3688357c47e3ef136f06a93b91b7",
+    "evidence/generated/artifact-manifest.json": "28f979411e3b55bf6fe11e3a7c6ca8c33db627275c32b6ed2ce70ca5a9705502"
+  }
 }

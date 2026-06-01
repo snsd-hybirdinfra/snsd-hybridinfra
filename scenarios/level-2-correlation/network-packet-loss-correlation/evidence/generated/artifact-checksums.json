@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "network-packet-loss-correlation",
   "scenario_path": "scenarios/level-2-correlation/network-packet-loss-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:34+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "c0ac0f5b0b93e22cb17e4f59ff82be1a01e03e29f8859170b8a7022be2164291",
+    "README.md": "b45486ef2ee96df5e4b3bf4715bd75632cf8ae15ad924c07a2980954b5e59356",
+    "diagrams/operational-poster.svg": "3894a6080c5216458ea121cff58071090d40aad587b2b79ed0933e717bbeaeea",
+    "diagrams/operational-poster.png": "5ea805effa2433e3b23f4e98d2d9a335038ccedc90f9b015b43c3df0e8904af2",
+    "evidence/generated/summary.md": "fdedabc023377ff1608d911f6c2b39e611e2bad600bcc1daced2f144b97e6039",
+    "evidence/generated/execution-evidence.md": "265cbe6d36a05b33c650dfccf35f570ab731894d1a2c116b607daed4c66362f0",
+    "evidence/generated/validation-evidence.md": "1cba0ec1a08a93cc2eb60721d4e12491f0e9d638d7ebdf8089be999a6238ec03",
+    "evidence/generated/artifact-manifest.json": "aa605e6ebc9243e73215d6236ec90d7546b13c920ebe0e4b3de83278910100d6"
+  }
 }

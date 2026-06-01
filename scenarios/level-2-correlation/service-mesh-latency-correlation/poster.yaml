@@ -1,0 +1,158 @@
+poster:
+  title: Service Mesh Latency Correlation
+  subtitle: Correlation and Analysis Board for Service Mesh Latency Correlation
+  lifecycle: level-2-correlation
+  domain: Infrastructure Operations
+  width: 2600
+  height: 1900
+sections:
+- id: signal-domain
+  title: Signal & Service Domains
+  summary: SIGNAL DOMAINS
+  description: Infrastructure, application, and service signals used for operational correlation.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Mesh Latency Correlation signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Mesh Latency Correlation operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Mesh Latency Correlation validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Mesh Latency Correlation reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+- id: correlation-platform
+  title: Monitoring & Correlation Platform
+  summary: CORRELATION ACTIVE
+  description: Telemetry normalization and cross-signal correlation for impact analysis.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Mesh Latency Correlation signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Mesh Latency Correlation operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Mesh Latency Correlation validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Mesh Latency Correlation reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+- id: impact-analysis
+  title: Dependency & Impact Analysis
+  summary: IMPACT MAPPED
+  description: Operational analysis components used to determine service and dependency impact.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Mesh Latency Correlation signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Mesh Latency Correlation operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Mesh Latency Correlation validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Mesh Latency Correlation reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+- id: operational-insight
+  title: Operational Insight & Decision Support
+  summary: INSIGHT READY
+  description: Reviewer-facing outputs used by operations teams during correlation review.
+  cards:
+  - title: Operational Signal
+    subtitle: Service Mesh Latency Correlation signal source
+    type: signal
+    status: Observed
+    icon: 📡
+  - title: Control Point
+    subtitle: Service Mesh Latency Correlation operational control
+    type: control
+    status: Ready
+    icon: ⚙️
+  - title: Validation Output
+    subtitle: Service Mesh Latency Correlation validation output
+    type: validation
+    status: Verified
+    icon: ✅
+  - title: Evidence Artifact
+    subtitle: Service Mesh Latency Correlation reviewer evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+workflow:
+  title: Correlation Workflow
+  steps:
+  - title: Detect
+    description: Capture symptoms and abnormal operational signals.
+    status: Ready
+  - title: Correlate
+    description: Join infrastructure, service, and dependency signals.
+    status: Analyzing
+  - title: Map Impact
+    description: Identify affected services and dependent paths.
+    status: Mapped
+  - title: Prioritize
+    description: Assign operational severity and response priority.
+    status: Calculated
+  - title: Escalate
+    description: Prepare incident context and reviewer evidence.
+    status: Ready
+dashboards:
+- title: Service Mesh Latency Correlation Status
+  widgets:
+  - label: State
+    value: Ready
+    status: normal
+  - label: Signal
+    value: Observed
+    status: normal
+  - label: Control
+    value: Prepared
+    status: verified
+  - label: Action
+    value: Available
+    status: normal
+  - label: Validation
+    value: Verified
+    status: healthy
+  - label: Evidence
+    value: Prepared
+    status: verified
+legend:
+- label: Signal Domain
+  color: blue
+- label: Correlation Platform
+  color: purple
+- label: Impact Analysis
+  color: red
+- label: Operational Insight
+  color: green
+- label: Operational Decision Point
+  color: yellow

@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "infrastructure-anomaly-analysis",
   "scenario_path": "scenarios/level-2-correlation/infrastructure-anomaly-analysis",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:34+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "2ac2f192b22ded83649199be48ea1ca39bb547eb9d1edcecf20f6b4ec20a4eec",
+    "README.md": "af18282e097163a133378c0ee2f644d13655887b87494832d7b1c0b88b91f24f",
+    "diagrams/operational-poster.svg": "93b2808abef3d1f78d1acecb22a83cd2ec130ac2dd724b12d20f4ff6710bdf31",
+    "diagrams/operational-poster.png": "71ab8b126d8bea729588430bfbc45480f07429b9e2706836e6ec06833f30a277",
+    "evidence/generated/summary.md": "6ab4df5bc795966fe48a878b7876ff593cf8203eca9bbebfadb29795412d3153",
+    "evidence/generated/execution-evidence.md": "0c85a12d3dc380ecda3e5925685f367d358fa7b5027ebe195871999c993c3033",
+    "evidence/generated/validation-evidence.md": "e6b33aba3a89c18648cd21326cf47b88ee3a4120fbc900725a7d1ab14aac2a5e",
+    "evidence/generated/artifact-manifest.json": "ad7cee231ae843011ca5c358fcb968a00a6b07566ddab4b06d062360b761b481"
+  }
 }

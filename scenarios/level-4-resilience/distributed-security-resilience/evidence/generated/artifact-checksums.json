@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "distributed-security-resilience",
   "scenario_path": "scenarios/level-4-resilience/distributed-security-resilience",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:37+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "5b44f25f7e76da6c360c4435f9cae8ec76546f65b0c134d8b73d685e5d0dc8ee",
+    "README.md": "a33e9c1b8e49ce27d7cccbda7e588c9676130c43aa43d88f4bb1fd7adbf46143",
+    "diagrams/operational-poster.svg": "1a7d38af9dcfb62f7c8d0ddf71ccfb64d9bff6d2862057ff84b9fbc887db53ce",
+    "diagrams/operational-poster.png": "22a41aa0a03ac77248cad813c99ba2e5ad3f47b252ac1896a032a6cbc2d5bf1a",
+    "evidence/generated/summary.md": "d0e4c9d21633f02ba1ea80c46e6f5e56dee0de9367322c9a4b0e25cf70a49822",
+    "evidence/generated/execution-evidence.md": "8f4b62e83415ec7c2b8dc182e0693b2b497ac1f78679e8e8cf340b54c7faa221",
+    "evidence/generated/validation-evidence.md": "59edc654298f2789d7199381bd9f3f62a393c579acbb30b89673dd4367adfd2f",
+    "evidence/generated/artifact-manifest.json": "1dad13901f83a9aa5ce2620764198040d9b095832a2374674bbd8f9d682961cb"
+  }
 }

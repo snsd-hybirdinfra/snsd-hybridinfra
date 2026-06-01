@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "database-runtime-visibility",
   "scenario_path": "scenarios/level-1-visibility/database-runtime-visibility",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:32+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "4edc5e3a8d32df212c86dcfd6ae4b86000e3421a8d361907f1542cc9d5305a46",
+    "README.md": "3a8a78a1054537b15c4a7a08f7a85b059c343370adc57be160f1969ed1f86937",
+    "diagrams/operational-poster.svg": "65ce370eec03ac73778e1ffc74021d3dd9c8b11624258e66c505716c44908ba3",
+    "diagrams/operational-poster.png": "4dde1a24f7c3de80d83270fce5b1f1f5a8d1f3c03ae93a9fdbc26710a9ae1e50",
+    "evidence/generated/summary.md": "b739311341b056f254f99f8e6babe09b2590f299e71da245efda26ac7c6cf748",
+    "evidence/generated/execution-evidence.md": "d1cac48e1f5b2e46e4234ef9df0ca8b240e656e302802debc892a346eabfc3a7",
+    "evidence/generated/validation-evidence.md": "4abbe0a8d12ff932c9eb60da99b952dcb2595025f707156d0ef9b946d1a5782e",
+    "evidence/generated/artifact-manifest.json": "fade740af329ff2e63a94ecf66009d27770cd006b2b21d614f92b8f4f76efd28"
+  }
 }

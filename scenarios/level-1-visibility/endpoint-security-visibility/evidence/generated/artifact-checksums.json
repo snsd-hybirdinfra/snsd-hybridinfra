@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "endpoint-security-visibility",
   "scenario_path": "scenarios/level-1-visibility/endpoint-security-visibility",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:32+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "5f42318d721fe027ac9d322c1d6db39dfb56bad17a7dd9d14773850833632da0",
+    "README.md": "48c7d06c8ec44be93edfa37abc9a4904723d4d23020a9f3f2a8f52713c29ab1d",
+    "diagrams/operational-poster.svg": "a64480c773f710e3660c607fe65ca4a489f17eda844289e0a89cda91de7c43bd",
+    "diagrams/operational-poster.png": "ae3988a9b5ffabc1dfa4373b90b8fa69447ea753298a0ae26d126a38a186190d",
+    "evidence/generated/summary.md": "780f95d773c3fcee58aca1766f187460cc8b025c1ded1043e3348978ba9f1460",
+    "evidence/generated/execution-evidence.md": "4be0844de86d4c6e51e6110e9f60e0e86fbb603408b07b65dd8389b7b7041c86",
+    "evidence/generated/validation-evidence.md": "3feba1b9cac2a5377edc7c0671a68e1850eed389029106e1b1e15fe404601a69",
+    "evidence/generated/artifact-manifest.json": "b81f573db962bd7e359a7c52f88b5bf8a5ed5c7533303f648f57ce45cdca767c"
+  }
 }

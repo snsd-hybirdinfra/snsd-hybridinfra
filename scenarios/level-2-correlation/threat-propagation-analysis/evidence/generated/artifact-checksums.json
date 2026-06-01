@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "threat-propagation-analysis",
   "scenario_path": "scenarios/level-2-correlation/threat-propagation-analysis",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "5cee4b51354cafe86a8c054eef04f300089582245adb088fc41631b9f4fb4c80",
+    "README.md": "4170f5b14089242c1e25a43896a4f825b60feb157320364ff75154110f4e171b",
+    "diagrams/operational-poster.svg": "d086d1c185b6437a1cbe628e3d9fd319d0e472b9d7f750bac530ff05237d8ce2",
+    "diagrams/operational-poster.png": "b0e89aa3e5bfe285a5e004596ecbc8327ecfe3d3f39cf534dc9a0b12f897ed86",
+    "evidence/generated/summary.md": "07f4f82d009dda39a6e89e709d13b9da6d85b516453c4320737303725f1e3cc1",
+    "evidence/generated/execution-evidence.md": "f04958a0694c242753099b47bf7566cb854fd643cb0d38cddd43dcda3503d969",
+    "evidence/generated/validation-evidence.md": "07941a535f46e3bfdf875cb5bb9a4206ef0be711ce2c653f669ef57bb381c7d0",
+    "evidence/generated/artifact-manifest.json": "638ac36b0563b7652c80b36bffde227c57d721878e0e55a965a62b8bf94f9000"
+  }
 }

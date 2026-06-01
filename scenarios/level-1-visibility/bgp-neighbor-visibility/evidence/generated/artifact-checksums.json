@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "bgp-neighbor-visibility",
   "scenario_path": "scenarios/level-1-visibility/bgp-neighbor-visibility",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:32+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "23ba56857f9ff157e8c9202dec7acd72f2bdda91c355362ef6a943f0995c7289",
+    "README.md": "7c7cea52e6280a591d93bd63b794dae9d0d475004dad8e9a5fff8b86128ae82d",
+    "diagrams/operational-poster.svg": "908434ead321ed27dd6076af85b8a93398bf4b9d784e42a1125f5f246208e0d9",
+    "diagrams/operational-poster.png": "ce6d337183f923d739b11b6cd5ffc5b1757c2f0fdee1db5da0e6fcc00af79169",
+    "evidence/generated/summary.md": "56e1b1baed893ecd5b78e4df129fe5ecd440c278c76ea874d9a1ea50d15c27b2",
+    "evidence/generated/execution-evidence.md": "19ee025acc90dda0ce728fffd46656f70280ef9519d5619fffc4ca85a99e831a",
+    "evidence/generated/validation-evidence.md": "822d99c80dc52878c001551b8b5e670c516f03e64285ccdc2efc0d3b6d1e072a",
+    "evidence/generated/artifact-manifest.json": "83e2ee43e53a8eb5b158ebe7dafbd298c62a80d489648c6440943d11c7971ed3"
+  }
 }

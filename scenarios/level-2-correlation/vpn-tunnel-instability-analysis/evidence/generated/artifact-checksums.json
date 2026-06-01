@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "vpn-tunnel-instability-analysis",
   "scenario_path": "scenarios/level-2-correlation/vpn-tunnel-instability-analysis",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "67ec75ed5260c83cde69edc3a15958c4e28dfd2cd7f114468b27d4fcad1bce12",
+    "README.md": "82e55926f445eda2b5ec29ef18f588ed3a8da9ff744f8408e098e2432b1415cb",
+    "diagrams/operational-poster.svg": "8723409a2ca4cbc0e1a597b4a834242745e16c8f1a759e8d99d21faa6733c707",
+    "diagrams/operational-poster.png": "80dd551733c7c746e9ab3b51733f17959a4df690ef7b6bfaf2cc89013359a611",
+    "evidence/generated/summary.md": "0f8357dfd5b43319ad644c3d97d160f6213a2b3eb75c05ffb57a1a193667a296",
+    "evidence/generated/execution-evidence.md": "5da1cc4f6bbcbd08a2f695570bcf9984d8617f815a03b6a4da4a03d1839b578b",
+    "evidence/generated/validation-evidence.md": "8e570f6da17694bfaf0934089937a939c2a81798c9c76ecfd24c1f989257c295",
+    "evidence/generated/artifact-manifest.json": "a14ac244935de979c9706a25c83a1fec501b86571c02ebffdf73711dac68f6ca"
+  }
 }

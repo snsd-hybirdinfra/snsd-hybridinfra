@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "privilege-escalation-correlation",
   "scenario_path": "scenarios/level-2-correlation/privilege-escalation-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "23a10999a2107e96a95838020c94012168024c699b30906444f579e2611a29d6",
+    "README.md": "3be84529d75b00c8a5f9118dd05b153e501e5bb4d5e05e065860e6b098f3ad8c",
+    "diagrams/operational-poster.svg": "b7d32afb1469d06eb9f553140d7fe08f33d44a5dbb22e22a69cd72edab8aba6e",
+    "diagrams/operational-poster.png": "4519d26518dd3cf5e18d71850a58a14e7522d6938de2a45278d7936dbe117cff",
+    "evidence/generated/summary.md": "1b3afa6d132e9935413af4a2218f985f38d0f0ca5e0c2c17ab1cff1ffc112675",
+    "evidence/generated/execution-evidence.md": "a61d1976a01988aa292f270be496d9a06a584adbbe3e42b4f88b2a947df02b0e",
+    "evidence/generated/validation-evidence.md": "776f3035b243432df56c5de1fef67b4dad644147a7043b19ecf95420fd6abc16",
+    "evidence/generated/artifact-manifest.json": "8ba8f5a35939e60bed38afb624868c29da8b2473e8c4b26b82c31000f714ff0f"
+  }
 }

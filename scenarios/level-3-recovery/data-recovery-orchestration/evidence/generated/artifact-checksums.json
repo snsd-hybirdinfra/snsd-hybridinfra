@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "data-recovery-orchestration",
   "scenario_path": "scenarios/level-3-recovery/data-recovery-orchestration",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:36+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "6ba66324ca95b970188db17e7f91aaa4adfc8afb2ae464ae38b323d71ca2419c",
+    "README.md": "cd91f6b0a53b724c19df7036541ba8808de961f966e247254e6d0a956bc603c6",
+    "diagrams/operational-poster.svg": "250fad63bfb521af7322bbfc46755b40d4bd65bb51e59f8163887df97112397c",
+    "diagrams/operational-poster.png": "1be61a6f40c34628a225fe3fd1f2ad641e3664de397a5f9e4cfa051ee9301b05",
+    "evidence/generated/summary.md": "3dfa0faf1a5c1a2a24edca5c149680927ffc905cb8eb23ebfc3c8c267a1a748e",
+    "evidence/generated/execution-evidence.md": "917fa588a4bcbb5d748d1d744607e9e6377d974ac1b6ab89c05698d6f5f02515",
+    "evidence/generated/validation-evidence.md": "ba8d925c2ec4d4d24fcd08cfacb11ff613c941c473f6777a47f6d98991c56640",
+    "evidence/generated/artifact-manifest.json": "6ed65dfc72ecd2ed8f4297896a807a0fe2c29cc2f37895c8990cf507fde94a0a"
+  }
 }

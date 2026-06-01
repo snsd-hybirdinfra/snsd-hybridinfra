@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "vpn-latency-correlation",
   "scenario_path": "scenarios/level-2-correlation/vpn-latency-correlation",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:35+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "ba2e82a49fd95accdebe61ad5fd489bcc9bdd17184d8354e38594ec204a01f16",
+    "README.md": "a33d455d3b9490b0863435bc69e3c77dc466dc04f94ccc3a28b04aa9530035b7",
+    "diagrams/operational-poster.svg": "da0637aa8da7fe07c689b0b1d6b4834dad0c98893430c35f6da435a28f8d549f",
+    "diagrams/operational-poster.png": "4eebe92b352b96d4389817b81a19cc64f7de444a7156a3757c4803ab71a47152",
+    "evidence/generated/summary.md": "0a537462db0a57fa26ade87a38363592ff0ed6b6feac7f20a279e8b3588e5322",
+    "evidence/generated/execution-evidence.md": "57f3d8c55d6d3e4e02069518142bead3e2efc7356af4f18041ecd23b10f965b1",
+    "evidence/generated/validation-evidence.md": "bb733107eca2ab2fd7666d5bfde8fc150e7398b5cfe8ef1b520994629f5403cb",
+    "evidence/generated/artifact-manifest.json": "feace4a81209c40262592139c76c1c993f1d8d0ab9c6710b3ee050ee85db284c"
+  }
 }

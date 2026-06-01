@@ -1,4 +1,4 @@
-﻿# Execution Evidence
+# Execution Evidence
 
 ## Scenario
 
@@ -10,20 +10,25 @@ scenarios/level-2-correlation/compute-resource-correlation
 
 ## Execution Status
 
-PENDING
+COMPLETED
 
 ## Generated Artifacts
 
 - README.md
-- metadata.yaml
-- diagrams/operational-poster.svg
-- diagrams/operational-poster.png
 - evidence/generated/summary.md
 - evidence/generated/execution-evidence.md
 - evidence/generated/validation-evidence.md
 - evidence/generated/artifact-manifest.json
 - evidence/generated/artifact-checksums.json
 
+## Legacy Cleanup
+
+Deprecated diagram artifacts were removed when present.
+
+## Generated At
+
+2026-06-01T07:57:34+00:00
+
 ## Notes
 
-This file is a public-safe execution evidence placeholder. Raw execution logs must remain internal-only.
+This file is a public-safe execution evidence summary. Raw execution logs remain internal-only.

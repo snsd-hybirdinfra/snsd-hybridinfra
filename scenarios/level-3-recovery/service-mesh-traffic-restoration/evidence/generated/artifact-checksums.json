@@ -1,8 +1,17 @@
-﻿{
+{
   "scenario_name": "service-mesh-traffic-restoration",
   "scenario_path": "scenarios/level-3-recovery/service-mesh-traffic-restoration",
   "algorithm": "SHA-256",
-  "status": "PENDING",
-  "checksums": {},
-  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+  "generated_at": "2026-06-01T07:57:36+00:00",
+  "status": "READY",
+  "checksums": {
+    "metadata.yaml": "081eb4d306ef7c69b0b70fd39605c99a0e06ee0a494aa88b2467c10c01d82c03",
+    "README.md": "c6ef3277f998de5ab1cc20ae7d5c46fdd13de9ecc91cf319fc5800c948c780ad",
+    "diagrams/operational-poster.svg": "a7240d9cb5148376b4a8b94f51aacf48d3e33a64884f950a8f9609d9853bb40d",
+    "diagrams/operational-poster.png": "a5c9745b4d0f5284ae453543c4cacc4a566a41c41d3b6096437cb69cc05719e5",
+    "evidence/generated/summary.md": "86c4c851a060f08006f14025a289b4ff88ce0187a05e58aef2d1260f56356fe7",
+    "evidence/generated/execution-evidence.md": "f078eab03d018a9d67558db9c9b8443c5a1e7c29e4a6d5d0d2a255c605ac49aa",
+    "evidence/generated/validation-evidence.md": "c93fa687b48bfa85d5c7168ceb864ff715a35f3e3e0ef3b7a09ce6b5dda88e0b",
+    "evidence/generated/artifact-manifest.json": "b7c20b9910ccff00d5e3a176a0a960839c01a877e46aba0473c908f270ceb9e6"
+  }
 }

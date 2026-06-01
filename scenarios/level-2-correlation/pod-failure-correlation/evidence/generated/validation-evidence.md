@@ -1,4 +1,4 @@
-﻿# Validation Evidence
+# Validation Evidence
 
 ## Scenario
 
@@ -6,22 +6,21 @@ pod-failure-correlation
 
 ## Validation Status
 
-PENDING
+READY
 
 ## Required Checks
 
-- metadata.yaml exists: PENDING
-- README.md exists: PENDING
-- diagrams/operational-poster.svg exists: PENDING
-- diagrams/operational-poster.png exists: PENDING
-- README references diagrams/operational-poster.png: PENDING
-- README does not reference deprecated diagrams: PENDING
-- evidence/generated/summary.md exists: PENDING
-- evidence/generated/execution-evidence.md exists: PENDING
-- evidence/generated/validation-evidence.md exists: PENDING
-- evidence/generated/artifact-manifest.json exists: PENDING
-- evidence/generated/artifact-checksums.json exists: PENDING
+- metadata.yaml exists: PASS
+- README.md exists: PASS
+- diagrams/operational-poster.svg exists: PASS
+- diagrams/operational-poster.png exists: PASS
+- README references diagrams/operational-poster.png: PASS
+- README does not reference deprecated diagrams: PASS
+
+## Generated At
+
+2026-06-01T07:57:35+00:00
 
 ## Notes
 
-This file should be regenerated after validator execution.
+This file is a public-safe validation evidence summary.
