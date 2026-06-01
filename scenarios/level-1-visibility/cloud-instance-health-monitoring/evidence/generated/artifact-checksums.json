@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "cloud-instance-health-monitoring",
+  "scenario_path": "scenarios/level-1-visibility/cloud-instance-health-monitoring",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

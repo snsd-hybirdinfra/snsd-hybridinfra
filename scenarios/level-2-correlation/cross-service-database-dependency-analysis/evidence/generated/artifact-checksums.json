@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "cross-service-database-dependency-analysis",
+  "scenario_path": "scenarios/level-2-correlation/cross-service-database-dependency-analysis",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

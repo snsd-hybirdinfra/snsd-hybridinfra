@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "vpn-tunnel-recovery-automation",
+  "scenario_path": "scenarios/level-3-recovery/vpn-tunnel-recovery-automation",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

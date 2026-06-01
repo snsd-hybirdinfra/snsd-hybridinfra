@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "backup-restoration-automation",
+  "scenario_path": "scenarios/level-3-recovery/backup-restoration-automation",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "traffic-restoration-workflow",
+  "scenario_path": "scenarios/level-3-recovery/traffic-restoration-workflow",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

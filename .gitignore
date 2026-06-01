@@ -1,61 +1,57 @@
-﻿# Python
+﻿
+# ============================================================
+# Internal-only planning documents
+# ============================================================
+internal/
+../internal/
 
-__pycache__/
+# ============================================================
+# Internal production tools
+# ============================================================
+tools/
+
+# ============================================================
+# Runtime and temporary workspaces
+# ============================================================
+runtime-workspace/
+**/runtime-workspace/
+**/tmp/
+**/temp/
+**/debug/
+**/outputs/
+
+# ============================================================
+# Raw reports and debug artifacts
+# ============================================================
+reports/raw/
+reports/validators/findings/
+*.log
+raw-execution-log.txt
+validator-raw-result.json
+debug-notes.md
+
+# ============================================================
+# Python environments and cache
+# ============================================================
+**/venv/
+**/.venv/
+**/__pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Virtual Environments
+# ============================================================
+# Local environment files
+# ============================================================
+.env
+.env.*
+*.local
 
-venv/
-.venv/
 
-# Runtime Workspace
-
-tools/runtime-workspace/
-
-# Playwright
-
-playwright-report/
-test-results/
-
-# VSCode
-
-.vscode/
-
-# OS
-
+# ============================================================
+# OS / editor noise
+# ============================================================
 .DS_Store
 Thumbs.db
-
-# Logs
-
-*.log
-
-# Build
-
-dist/
-build/
-
-# Coverage
-
-.coverage
-htmlcov/
-
-# Cache
-
-.pytest_cache/
-
-# Generated Runtime Artifacts
-
-*.tmp
-*.cache
-
-# Node
-
-node_modules/
-
-# SVG exports generated during runtime
-
-tools/**/outputs/
-
+.vscode/
+.idea/

@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "service-mesh-traffic-restoration",
+  "scenario_path": "scenarios/level-3-recovery/service-mesh-traffic-restoration",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

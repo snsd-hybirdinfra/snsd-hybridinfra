@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "enterprise-platform-continuity",
+  "scenario_path": "scenarios/level-5-continuity/enterprise-platform-continuity",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

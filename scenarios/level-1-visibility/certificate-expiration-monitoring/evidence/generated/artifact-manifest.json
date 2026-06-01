@@ -1,0 +1,19 @@
+﻿{
+  "scenario_name": "certificate-expiration-monitoring",
+  "scenario_path": "scenarios/level-1-visibility/certificate-expiration-monitoring",
+  "lifecycle_level": "level-1-visibility",
+  "status": "PENDING",
+  "artifacts": [
+    "metadata.yaml",
+    "README.md",
+    "diagrams/operational-poster.svg",
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "missing_artifacts": [],
+  "notes": "Placeholder manifest. Regenerate after scenario artifact validation."
+}

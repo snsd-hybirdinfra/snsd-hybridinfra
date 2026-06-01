@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "cloud-instance-recovery-automation",
+  "scenario_path": "scenarios/level-3-recovery/cloud-instance-recovery-automation",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

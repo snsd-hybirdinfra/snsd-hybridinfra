@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "multi-cluster-failover-coordination",
+  "scenario_path": "scenarios/level-4-resilience/multi-cluster-failover-coordination",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "api-service-recovery",
+  "scenario_path": "scenarios/level-3-recovery/api-service-recovery",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "security-event-monitoring",
+  "scenario_path": "scenarios/level-1-visibility/security-event-monitoring",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

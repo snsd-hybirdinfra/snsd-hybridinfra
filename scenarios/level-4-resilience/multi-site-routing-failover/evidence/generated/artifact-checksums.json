@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "multi-site-routing-failover",
+  "scenario_path": "scenarios/level-4-resilience/multi-site-routing-failover",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}

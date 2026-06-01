@@ -1,0 +1,8 @@
+﻿{
+  "scenario_name": "traffic-spike-correlation",
+  "scenario_path": "scenarios/level-2-correlation/traffic-spike-correlation",
+  "algorithm": "SHA-256",
+  "status": "PENDING",
+  "checksums": {},
+  "notes": "Placeholder checksum file. Regenerate after public artifacts are finalized."
+}
