@@ -6,33 +6,42 @@
 |---|---|
 | Scenario Name | virtualization-resource-correlation |
 | Lifecycle Level | level-2-correlation |
+| Lifecycle Name | Correlation and Analysis |
+| Operational Scope | Infrastructure Operations |
+| Environment | Hybrid Infrastructure |
+| Status | draft |
 | Scenario Path | scenarios/level-2-correlation/virtualization-resource-correlation |
 
 ---
 
 ## Overview
 
-This scenario documents an infrastructure operations situation within a scenario-driven infrastructure operations portfolio.
+This scenario documents virtualization resource correlation within the Correlation and Analysis lifecycle. It focuses on multi-signal correlation, dependency analysis, and service impact reasoning.
 
-It is designed to demonstrate operational reasoning, infrastructure awareness, lifecycle-based workflow design, and evidence-backed documentation.
+This scenario belongs to the **Correlation and Analysis** lifecycle area and focuses on **Infrastructure Operations** within a **Hybrid Infrastructure** environment.
+
+The operational poster is the visual companion to this README. It summarizes the same architecture, module usage, workflow, validation path, and evidence model described below.
 
 ---
 
-## Objectives
+## Operational Objectives
 
-- Define the operational situation represented by this scenario.
-- Identify the affected infrastructure components.
-- Establish detection and visibility workflow.
-- Document correlation and analysis logic.
-- Describe incident coordination and response workflow.
-- Validate the restored or stable operational state.
-- Provide public-safe evidence artifacts for portfolio review.
+- Define the operational condition represented by **Virtualization Resource Correlation**.
+- Identify the infrastructure components, telemetry signals, and operational dependencies involved.
+- Describe how the scenario moves from detection to analysis, incident coordination, recovery, validation, and evidence reporting.
+- Keep the README and operational poster aligned as a single reviewer-readable scenario package.
 
 ---
 
 ## Scenario Architecture
 
 ![Operational Poster](diagrams/operational-poster.png)
+
+The diagram summarizes the same scenario flow described in this README:
+
+**Detection → Correlation and Analysis → Incident Coordination → Recovery and Automation → Recovery Validation → Governance and Reporting**
+
+The poster should be read as a visual summary of this scenario, not as a separate design artifact.
 
 ---
 
@@ -54,56 +63,70 @@ It is designed to demonstrate operational reasoning, infrastructure awareness, l
 
 ## Infrastructure Components
 
-This scenario may involve infrastructure components such as network paths, compute resources, platform services, telemetry sources, security controls, storage systems, or application-facing dependencies.
+This scenario may involve infrastructure components such as network paths, compute resources, platform services, telemetry sources, storage systems, automation targets, or application-facing dependencies.
+
+The exact component set should remain consistent with the operational poster sections and the scenario metadata.
 
 ---
 
 ## Operational Workflow
 
-The scenario follows the standard infrastructure operations lifecycle:
+The scenario follows this operational lifecycle:
 
-1. Detection
-2. Correlation and Analysis
-3. Incident Coordination
-4. Recovery and Automation
-5. Recovery Validation
-6. Governance and Reporting
+1. **Detection** — identify degraded, abnormal, unavailable, risky, or unstable operational state.
+2. **Correlation and Analysis** — connect telemetry signals, dependencies, and possible impact paths.
+3. **Incident Coordination** — qualify the condition for alerting, ownership, escalation, or response.
+4. **Recovery and Automation** — execute mitigation, restoration, failover, rebalancing, or operator-guided recovery.
+5. **Recovery Validation** — confirm that infrastructure or service state is restored, stable, visible, or governed.
+6. **Governance and Reporting** — publish public-safe evidence and reviewer-facing operational summary.
 
 ---
 
 ## Detection Workflow
 
-Telemetry, status indicators, health checks, logs, metrics, or event signals are used to identify abnormal operational conditions.
+Detection uses telemetry, health checks, metrics, logs, events, status indicators, probes, or dashboard signals to identify the operational condition represented by this scenario.
+
+The detection view in the poster should match the trigger or signal domain described here.
 
 ---
 
 ## Correlation and Analysis
 
-Related signals, dependencies, affected components, and possible impact paths are analyzed to understand the operational condition.
+Correlation connects related symptoms, affected components, service dependencies, and operational impact paths.
+
+This section explains why the detected condition matters and how the scenario avoids being a simple isolated alert.
 
 ---
 
 ## Alert and Incident Workflow
 
-The detected condition may be qualified as an operational alert or incident based on severity, ownership, escalation context, and coordination requirements.
+The detected condition may become an operational alert or incident depending on severity, ownership, escalation context, response urgency, and service impact.
+
+Incident coordination should remain consistent with the workflow and evidence model used by the poster.
 
 ---
 
 ## Recovery and Automation Workflow
 
-The response workflow describes mitigation, restoration, failover, rebalancing, or operator-guided recovery activities depending on scenario maturity.
+The response workflow describes mitigation, restoration, failover, rebalancing, or operator-guided recovery activities depending on lifecycle maturity.
+
+For recovery-level scenarios, this section is the main operational body of the README and should correspond directly to the poster's automation or recovery execution section.
 
 ---
 
 ## Recovery Validation
 
-Recovery validation confirms that the affected infrastructure state has been restored or stabilized.
+Recovery validation confirms that the affected infrastructure state has been restored, stabilized, or verified.
+
+Validation evidence should support the claim that the scenario reached an operationally acceptable state.
 
 ---
 
 ## Monitoring and Visibility
 
-Monitoring and visibility may include metrics, logs, traces, health checks, status indicators, synthetic checks, event streams, or dashboard signals.
+Monitoring and visibility may include metrics, logs, traces, health checks, status indicators, synthetic checks, event streams, dashboards, or generated evidence artifacts.
+
+The poster dashboard should summarize the same visibility and validation state described here.
 
 ---
 
@@ -112,16 +135,16 @@ Monitoring and visibility may include metrics, logs, traces, health checks, stat
 | Component | Purpose |
 |---|---|
 | Telemetry Source | Provides operational signals |
-| Detection Logic | Identifies abnormal conditions |
-| Correlation Logic | Connects symptoms and dependencies |
+| Detection Logic | Identifies abnormal or risky conditions |
+| Correlation Logic | Connects symptoms, dependencies, and impact |
 | Incident Flow | Supports coordination and escalation |
-| Recovery Workflow | Defines mitigation or restoration path |
+| Recovery Workflow | Defines mitigation, restoration, or automation path |
 | Validation Method | Confirms stable operational state |
 | Evidence Output | Records public-safe completion artifacts |
 
 ---
 
-## Evidence
+## Evidence Artifacts
 
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)
@@ -133,12 +156,11 @@ Monitoring and visibility may include metrics, logs, traces, health checks, stat
 
 ## Expected Outcomes
 
-- The operational condition is documented.
-- Visibility signals are identified.
-- Related infrastructure dependencies are considered.
-- Response or recovery workflow is described.
-- Validation criteria are defined.
-- Evidence artifacts are available for review.
+- The operational condition is clearly documented.
+- The scenario lifecycle is readable from README and poster together.
+- Used modules and adapters are visible.
+- Recovery, validation, or governance flow is described at the correct lifecycle level.
+- Evidence artifacts are available for portfolio review.
 
 ---
 
@@ -146,11 +168,13 @@ Monitoring and visibility may include metrics, logs, traces, health checks, stat
 
 - [ ] Scenario metadata is present.
 - [ ] Operational poster is referenced.
+- [ ] README and poster describe the same operational flow.
 - [ ] Used modules are listed.
 - [ ] Used adapters are listed.
 - [ ] Detection workflow is described.
 - [ ] Correlation and analysis workflow is described.
-- [ ] Response or recovery workflow is described.
+- [ ] Alert or incident workflow is described.
+- [ ] Recovery or response workflow is described.
 - [ ] Recovery validation is described.
 - [ ] Evidence links are present.
 - [ ] Deprecated diagram references are not used.
@@ -161,22 +185,24 @@ Monitoring and visibility may include metrics, logs, traces, health checks, stat
 
 ### Upstream Scenarios
 
-None currently defined.
+- [compute-resource-monitoring](/scenarios/level-1-visibility/compute-resource-monitoring)
+- [hypervisor-resource-monitoring](/scenarios/level-1-visibility/hypervisor-resource-monitoring)
 
 ### Same-Level Scenarios
 
-None currently defined.
+- [cluster-resource-instability-analysis](/scenarios/level-2-correlation/cluster-resource-instability-analysis)
+- [compute-resource-correlation](/scenarios/level-2-correlation/compute-resource-correlation)
+- [resource-contention-correlation](/scenarios/level-2-correlation/resource-contention-correlation)
 
 ### Downstream Scenarios
 
-None currently defined.
+- [resource-rebalancing-automation](/scenarios/level-3-recovery/resource-rebalancing-automation)
 
 ### Cross-Domain Scenarios
 
-None currently defined.
+- None currently defined.
 
 ---
-
 ## Summary
 
-This scenario contributes to the scenario-driven infrastructure operations portfolio by documenting an operational situation, lifecycle workflow, supporting modules and adapters, validation criteria, and public-safe evidence artifacts.
+**Virtualization Resource Correlation** contributes to the scenario-driven infrastructure operations portfolio by documenting an operational condition, lifecycle workflow, supporting modules and adapters, validation criteria, diagram artifact, and public-safe evidence package.

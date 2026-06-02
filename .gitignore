@@ -70,3 +70,25 @@ tools/**/outputs/
 tools/**/tmp/
 tools/**/temp/
 tools/**/debug/
+
+# Generated browser profiles
+**/.browser-profile/
+
+# Python cache
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Tool runtime outputs
+tools/**/outputs/
+tools/**/tmp/
+tools/**/temp/
+tools/**/debug/
+runtime-workspace/
+reports/raw/
+**/.browser-profile/
+runtime-workspace/
+tools/**/outputs/
+tools/**/__pycache__/
+*.pyc
