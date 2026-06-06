@@ -1,176 +1,211 @@
-﻿# SNSD Hybrid Infrastructure Portfolio
+﻿# SNSD Hybrid Infrastructure
 
-This repository is a scenario-driven infrastructure operations portfolio.
+## Enterprise Operational Capability Platform
 
-It demonstrates how infrastructure is built, monitored, analyzed, recovered, validated, and prepared for continuity review through structured build scenarios, operational scenarios, reusable capability modules, and diagram rendering tools.
+SNSD Hybrid Infrastructure is a scenario-driven infrastructure operations portfolio designed to demonstrate reusable enterprise operational capabilities across hybrid infrastructure environments.
 
----
+This repository is not a simple scenario collection.
 
-## Repository Structure
-
-| Path | Purpose |
-|---|---|
-| `builds/` | Infrastructure build scenarios |
-| `modules/` | Reusable infrastructure and operational capability modules |
-| `scenarios/` | Lifecycle-based operational scenarios |
-| `tools/diagram-renderer/` | Operational poster rendering tool |
-| `reports/` | Generated scenario data maps and review outputs |
+It is structured as an operational capability platform where reusable modules, adapters, evidence artifacts, dashboards, and scenario workflows are organized around production-oriented infrastructure operations.
 
 ---
 
-## Portfolio Model
+## Platform Positioning
 
-The portfolio is organized around four layers:
+This repository represents the following engineering capability areas:
 
-Build Scenarios  
-→ Capability Modules  
-→ Operational Scenarios  
-→ Evidence and Diagrams
+- Cloud Infrastructure Engineering
+- Hybrid Infrastructure Operations
+- Platform Engineering
+- Observability Engineering
+- Recovery Automation
+- Resilience Engineering
+- Operational Governance
+- AIOps-oriented Operations
 
-Build scenarios show how infrastructure foundations are created.
-
-Capability modules define reusable operational and infrastructure capabilities.
-
-Operational scenarios demonstrate lifecycle-based infrastructure operations workflows.
-
-Diagram and evidence artifacts support reviewer-readable portfolio validation.
+The repository demonstrates how infrastructure operations can be modeled, validated, and documented through reusable operational capabilities and scenario-based validation workflows.
 
 ---
 
 ## Operational Lifecycle
 
-Operational scenarios are organized by lifecycle level.
+The repository follows a consistent operational lifecycle:
 
-| Level | Directory | Purpose |
+    Detection
+    -> Correlation & Analysis
+    -> Incident Coordination
+    -> Recovery & Automation
+    -> Recovery Validation
+    -> Governance & Reporting
+
+Each scenario is mapped to a lifecycle maturity level and validates one or more operational capabilities.
+
+---
+
+## Repository Structure
+
+    snsd-hybridinfra/
+    ├── scenarios/
+    │   ├── level-1-visibility/
+    │   ├── level-2-correlation/
+    │   ├── level-3-recovery/
+    │   ├── level-4-resilience/
+    │   └── level-5-continuity/
+    ├── modules/
+    ├── adapters/
+    ├── shared-runtime/
+    ├── tools/
+    ├── reports/
+    ├── builds/
+    └── docs/
+
+---
+
+## Scenario Maturity Model
+
+| Level | Lifecycle Area | Operational Meaning |
 |---|---|---|
-| Level 1 | `scenarios/level-1-visibility/` | Visibility, monitoring, and telemetry detection |
-| Level 2 | `scenarios/level-2-correlation/` | Correlation, dependency analysis, and impact reasoning |
-| Level 3 | `scenarios/level-3-recovery/` | Recovery, automation, restoration, and validation |
-| Level 4 | `scenarios/level-4-resilience/` | Resilience, failover, distributed survivability |
-| Level 5 | `scenarios/level-5-continuity/` | Enterprise continuity, governance, and executive reporting |
+| Level 1 | Visibility | Detect and expose infrastructure health, telemetry, and operational signals. |
+| Level 2 | Correlation | Analyze dependencies, symptoms, and operational impact across infrastructure components. |
+| Level 3 | Recovery | Execute controlled recovery workflows and validate restored state. |
+| Level 4 | Resilience | Coordinate distributed resilience across regions, sites, clusters, or failure domains. |
+| Level 5 | Continuity | Govern enterprise continuity, operational readiness, and cross-domain recovery posture. |
 
 ---
 
-## Build Scenarios
+## Scenario Inventory
 
-Build scenarios document infrastructure creation and readiness preparation.
+The repository currently contains:
 
-Examples include:
+    Total scenarios: 123
+    Level 1 Visibility scenarios: 42
+    Level 2 Correlation scenarios: 37
+    Level 3 Recovery scenarios: 25
+    Level 4 Resilience scenarios: 13
+    Level 5 Continuity scenarios: 6
 
-- Hybrid VPC foundation
-- Private web tier with bastion access
-- NAT gateway egress architecture
-- ALB-based web service routing
-- Security boundary baseline
-- Observability stack deployment
-- Ansible server bootstrap
-- Log pipeline foundation
-- Backup automation foundation
-- Recovery validation lab
+Scenario index:
 
-See `builds/`.
+- [Scenario Inventory](./scenarios/README.md)
 
 ---
 
-## Capability Modules
+## Flagship Operational Chain
 
-Modules represent reusable infrastructure and operational capability boundaries.
+The flagship scenario chain demonstrates lifecycle progression from visibility to enterprise continuity:
 
-Examples include:
+    vpn-connectivity-monitoring
+    -> vpn-latency-correlation
+    -> vpn-tunnel-recovery-automation
+    -> multi-site-routing-failover
+    -> enterprise-operational-continuity
 
-- Infrastructure Provisioning Module
-- Network Foundation Module
-- Compute Foundation Module
-- Security Baseline Module
-- Observability Foundation Module
-- Telemetry Aggregation Module
-- Dependency Correlation Module
-- Recovery Orchestration Module
-- Validation Reporting Module
-- Continuity Governance Module
-
-See `modules/`.
-
----
-
-## Operational Scenarios
-
-Operational scenarios are lifecycle-based workflows that demonstrate how infrastructure conditions are detected, analyzed, coordinated, recovered, validated, and reviewed.
-
-Each scenario README includes:
-
-- Scenario metadata
-- Overview
-- Objectives
-- Used modules
-- Used adapters
-- Infrastructure components
-- Detection workflow
-- Correlation and analysis
-- Incident or response workflow
-- Recovery and validation workflow
-- Evidence links
-- Related scenarios
-
-See `scenarios/`.
+| Level | Scenario | Purpose |
+|---|---|---|
+| L1 | [VPN Connectivity Monitoring](./scenarios/level-1-visibility/vpn-connectivity-monitoring/README.md) | VPN health visibility and signal collection |
+| L2 | [VPN Latency Correlation](./scenarios/level-2-correlation/vpn-latency-correlation/README.md) | VPN latency and dependency correlation |
+| L3 | [VPN Tunnel Recovery Automation](./scenarios/level-3-recovery/vpn-tunnel-recovery-automation/README.md) | Controlled tunnel recovery workflow |
+| L4 | [Multi Site Routing Failover](./scenarios/level-4-resilience/multi-site-routing-failover/README.md) | Distributed routing resilience coordination |
+| L5 | [Enterprise Operational Continuity](./scenarios/level-5-continuity/enterprise-operational-continuity/README.md) | Enterprise continuity governance and reporting |
 
 ---
 
-## Diagram Renderer
+## Operational Capabilities
 
-The diagram renderer generates operational poster artifacts for selected scenarios.
+The repository uses reusable capability modules and operational adapters to support scenario workflows.
 
-Renderer location:
+Representative capability areas include:
 
-`tools/diagram-renderer/`
-
-The renderer is kept separate from scenario content generation so that visual artifacts can evolve independently from README and metadata content.
-
----
-
-## Current Content Model
-
-Scenario content is generated from a scenario data map.
-
-reports/scenario-required-data-map.csv  
-→ scenarios/*/*/metadata.yaml  
-→ scenarios/*/*/README.md
-
-This prevents scenario READMEs from becoming generic copies of each other.
-
-Each scenario is classified by:
-
-- Lifecycle level
-- Primary operational domain
-- Target resource
-- Telemetry signals
-- Infrastructure components
-- Detection inputs
-- Correlation context
-- Response or recovery workflow
-- Validation actions
-- Used modules
-- Used adapters
-
----
-
-## Portfolio Purpose
-
-This repository is designed to show practical infrastructure engineering capability across:
-
-- Infrastructure build design
-- Hybrid infrastructure operations
-- Monitoring and visibility
+- Telemetry aggregation
+- Health signal collection
 - Dependency correlation
-- Recovery automation
-- Resilience coordination
-- Continuity governance
-- Evidence-backed technical documentation
+- Incident coordination
+- Recovery orchestration
+- Automation execution
+- Recovery validation
+- Visibility reporting
+- Governance reporting
+
+Module index:
+
+- [Operational Modules](./modules/README.md)
+
+---
+
+## Generated Artifacts
+
+Each scenario is designed to include:
+
+    metadata.yaml
+    README.md
+    diagrams/operational-poster.svg
+    diagrams/operational-poster.png
+    evidence/generated/summary.md
+    evidence/generated/execution-evidence.md
+    evidence/generated/validation-evidence.md
+    evidence/generated/artifact-manifest.json
+    evidence/generated/artifact-checksums.json
+
+These artifacts provide reviewer-readable operational documentation, visual architecture summaries, and validation evidence.
+
+---
+
+## Quality Status
+
+Repository quality validation has been executed across all scenarios.
+
+Current validation status:
+
+    scenario_directories: 123
+    metadata_files: 123
+    poster_svg_files: 123
+    poster_png_files: 123
+    missing_required_artifacts: 0
+    small_png_files: 0
+    bad_phrase_hits: 0
+    readmes_with_empty_related_notice: 0
+
+Quality report:
+
+- [Repository Quality Check](./reports/repository-quality-check.md)
+- [Related Scenarios Generation Report](./reports/related-scenarios-generation-report.md)
+
+---
+
+## Tooling
+
+Repository automation is handled through internal tooling under `tools/`.
+
+Current tooling includes:
+
+- metadata generation
+- README generation
+- operational poster rendering
+- related scenario generation
+- repository quality checking
+
+Relevant tools:
+
+    tools/content-generator/
+    tools/diagram-renderer/
+
+---
+
+## Portfolio Value
+
+This repository demonstrates the ability to:
+
+- structure infrastructure operations as reusable platform capabilities
+- design lifecycle-based operational scenarios
+- generate consistent documentation and visual artifacts
+- validate infrastructure operations through evidence-driven workflows
+- model recovery, resilience, and continuity in a production-oriented way
+- maintain repository-wide governance, consistency, and quality checks
 
 ---
 
 ## Summary
 
-SNSD Hybrid Infrastructure Portfolio demonstrates how infrastructure foundations and operational workflows can be organized into a reviewer-readable engineering portfolio.
+SNSD Hybrid Infrastructure is an enterprise infrastructure operations portfolio focused on operational capability design, scenario-based validation, and production-oriented documentation.
 
-The repository connects build scenarios, reusable capability modules, lifecycle-based operational scenarios, and diagram artifacts into a coherent infrastructure operations model.
+It presents infrastructure operations as a reusable, governed, and evidence-backed platform rather than isolated troubleshooting examples.
