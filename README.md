@@ -165,6 +165,7 @@ Current validation status:
 
 Quality report:
 
+- [Portfolio Health Summary](./reports/portfolio-health-summary.md)
 - [Repository Quality Check](./reports/repository-quality-check.md)
 - [Related Scenarios Generation Report](./reports/related-scenarios-generation-report.md)
 
@@ -207,4 +208,5 @@ This repository demonstrates the ability to:
 SNSD Hybrid Infrastructure is an enterprise infrastructure operations portfolio focused on operational capability design, scenario-based validation, and production-oriented documentation.
 
 It presents infrastructure operations as a reusable, governed, and evidence-backed platform rather than isolated troubleshooting examples.
+
 
