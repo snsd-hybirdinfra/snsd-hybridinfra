@@ -1,0 +1,15 @@
+{
+  "scenario_name": "cluster-node-recovery-orchestration",
+  "scenario_title": "Cluster Node Recovery Orchestration",
+  "lifecycle_level": "level-3-recovery",
+  "primary_domain": "Cluster / Platform",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}

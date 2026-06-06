@@ -1,0 +1,10 @@
+﻿tool:
+  name: diagram-renderer
+  description: README-grade operational poster renderer for L1-L5 scenarios
+  state: active
+  orchestration: true
+  entrypoint: orchestration_entrypoint.py
+  execution_policy:
+    enabled: true
+    critical: false
+

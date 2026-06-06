@@ -1,0 +1,543 @@
+﻿from src.text_utils import escape_xml, escape_truncated, escape_truncated
+from src.poster_theme import PANEL_ALT, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, section_color
+from src.poster_card import render_card
+
+
+def render_section(
+    section: dict,
+    layout: dict
+):
+
+    x = layout["x"]
+    y = layout["y"]
+    width = layout["width"]
+    height = layout["height"]
+
+    section_id = section.get(
+        "id",
+        "default"
+    )
+
+    title = escape_xml(
+        section.get(
+            "title",
+            ""
+        )
+    )
+
+    description = escape_xml(
+        section.get(
+            "description",
+            ""
+        )
+    )
+
+    summary = escape_xml(
+        section.get(
+            "summary",
+            ""
+        )
+    )
+
+    color = section_color(
+        section_id
+    )
+
+    elements = [
+        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" '
+        f'rx="28" fill="{PANEL_ALT}" stroke="{color}" stroke-width="3" />',
+
+        f'<rect x="{x}" y="{y}" width="14" height="{height}" '
+        f'rx="7" fill="{color}" />',
+
+        f'<text x="{x + 34}" y="{y + 42}" '
+        f'fill="{TEXT_PRIMARY}" font-size="24" font-weight="bold">'
+        f'{title}</text>',
+
+        f'<text x="{x + 34}" y="{y + 70}" '
+        f'fill="{TEXT_SECONDARY}" font-size="15">'
+        f'{description}</text>'
+    ]
+
+    if summary:
+
+        elements.extend(
+            [
+                f'<rect x="{x + width - 270}" y="{y + 26}" '
+                f'width="220" height="38" rx="19" '
+                f'fill="#020617" stroke="{color}" stroke-width="2" />',
+
+                f'<text x="{x + width - 160}" y="{y + 51}" '
+                f'fill="{color}" font-size="13" text-anchor="middle" font-weight="bold">'
+                f'{summary}</text>'
+            ]
+        )
+
+    if section_id == "correlation-platform":
+
+        elements.extend(
+            render_correlation_processing_strip(
+                x,
+                y,
+                width
+            )
+        )
+
+    if section_id == "recovery-control":
+
+        elements.extend(
+            render_recovery_control_strip(
+                x,
+                y,
+                width
+            )
+        )
+
+    if section_id == "automation-execution":
+
+        elements.extend(
+            render_automation_runbook_strip(
+                x,
+                y,
+                width
+            )
+        )
+
+    if section_id == "resilience-coordination":
+
+        elements.extend(
+            render_resilience_coordination_strip(
+                x,
+                y,
+                width
+            )
+        )
+
+    if section_id == "failover-execution":
+
+        elements.extend(
+            render_failover_execution_strip(
+                x,
+                y,
+                width
+            )
+        )
+
+    if section_id == "governance-control":
+
+        elements.extend(
+            render_governance_control_strip(
+                x,
+                y,
+                width
+            )
+        )
+
+    if section_id == "executive-coordination":
+
+        elements.extend(
+            render_executive_decision_strip(
+                x,
+                y,
+                width
+            )
+        )
+
+    cards = section.get(
+        "cards",
+        []
+    )
+
+    card_gap = 24
+    card_x = x + 34
+
+    available_width = width - 68
+
+    card_count = max(
+        len(
+            cards
+        ),
+        1
+    )
+
+    if card_count >= 4:
+
+        card_width = int(
+            (
+                available_width - card_gap * (
+                    card_count - 1
+                )
+            ) / card_count
+        )
+
+    else:
+
+        card_width = 540
+
+    card_height = 112
+    card_y = y + 92
+
+    if section_id == "correlation-platform":
+
+        card_height = 108
+        card_y = y + 142
+
+    if section_id == "recovery-control":
+
+        card_height = 108
+        card_y = y + 142
+
+    if section_id == "automation-execution":
+
+        card_height = 108
+        card_y = y + 138
+
+    if section_id == "resilience-coordination":
+
+        card_height = 108
+        card_y = y + 138
+
+    if section_id == "failover-execution":
+
+        card_height = 108
+        card_y = y + 138
+
+    if section_id == "governance-control":
+
+        card_height = 108
+        card_y = y + 138
+
+    if section_id == "executive-coordination":
+
+        card_height = 108
+        card_y = y + 138
+
+    for index, card in enumerate(
+        cards
+    ):
+
+        current_x = card_x + index * (
+            card_width + card_gap
+        )
+
+        elements.append(
+            render_card(
+                card,
+                current_x,
+                card_y,
+                card_width,
+                card_height
+            )
+        )
+
+    return elements
+
+
+def render_correlation_processing_strip(
+    x: int,
+    y: int,
+    width: int
+):
+
+    return render_processing_strip(
+        x=x,
+        y=y,
+        width=width,
+        title="CORE PROCESSING",
+        stages=[
+            "Input Signals",
+            "Correlation",
+            "Dependency Mapping",
+            "Incident Context"
+        ],
+        stroke="#7c3aed",
+        title_fill="#2e1065",
+        title_stroke="#a78bfa",
+        title_text="#ddd6fe",
+        arrow="#a78bfa"
+    )
+
+
+def render_recovery_control_strip(
+    x: int,
+    y: int,
+    width: int
+):
+
+    return render_processing_strip(
+        x=x,
+        y=y,
+        width=width,
+        title="RECOVERY CONTROL",
+        stages=[
+            "Trigger Review",
+            "Policy Check",
+            "Execution Plan",
+            "Approval"
+        ],
+        stroke="#7c3aed",
+        title_fill="#2e1065",
+        title_stroke="#a78bfa",
+        title_text="#ddd6fe",
+        arrow="#a78bfa"
+    )
+
+
+def render_automation_runbook_strip(
+    x: int,
+    y: int,
+    width: int
+):
+
+    return render_processing_strip(
+        x=x,
+        y=y,
+        width=width,
+        title="AUTOMATION RUNBOOK",
+        stages=[
+            "Tunnel Reset",
+            "Route Refresh",
+            "Failover",
+            "Notify"
+        ],
+        stroke="#0891b2",
+        title_fill="#164e63",
+        title_stroke="#67e8f9",
+        title_text="#cffafe",
+        arrow="#67e8f9"
+    )
+
+
+def render_processing_strip(
+    x: int,
+    y: int,
+    width: int,
+    title: str,
+    stages: list,
+    stroke: str,
+    title_fill: str,
+    title_stroke: str,
+    title_text: str,
+    arrow: str
+):
+
+    panel_x = x + 34
+    panel_y = y + 82
+    panel_width = width - 68
+    panel_height = 40
+
+    title_width = 190
+
+    elements = [
+        f'<rect x="{panel_x}" y="{panel_y}" '
+        f'width="{panel_width}" height="{panel_height}" '
+        f'rx="18" fill="#020617" stroke="{stroke}" stroke-width="2" opacity="0.98" />',
+
+        f'<rect x="{panel_x + 14}" y="{panel_y + 7}" '
+        f'width="{title_width}" height="26" '
+        f'rx="13" fill="{title_fill}" stroke="{title_stroke}" stroke-width="1" />',
+
+        f'<text x="{panel_x + 14 + title_width / 2}" y="{panel_y + 25}" '
+        f'fill="{title_text}" font-size="10" text-anchor="middle" font-weight="bold">'
+        f'{escape_xml(title)}</text>'
+    ]
+
+    flow_x = panel_x + title_width + 42
+    flow_width = panel_width - title_width - 70
+
+    stage_gap = flow_width / len(
+        stages
+    )
+
+    for index, stage in enumerate(
+        stages
+    ):
+
+        stage_x = flow_x + stage_gap * index + stage_gap / 2
+
+        safe_stage = escape_truncated(
+            stage,
+            14
+        )
+
+        elements.append(
+            f'<text x="{stage_x}" y="{panel_y + 25}" '
+            f'fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">'
+            f'{safe_stage}</text>'
+        )
+
+        if index < len(
+            stages
+        ) - 1:
+
+            arrow_x = flow_x + stage_gap * (
+                index + 1
+            )
+
+            elements.append(
+                f'<text x="{arrow_x}" y="{panel_y + 26}" '
+                f'fill="{arrow}" font-size="16" text-anchor="middle" font-weight="bold">'
+                f'→</text>'
+            )
+
+    return elements
+
+
+def render_section_flow_connector(
+    from_layout: dict,
+    to_layout: dict,
+    label: str
+):
+
+    x = from_layout["x"] + from_layout["width"] / 2
+
+    y1 = from_layout["y"] + from_layout["height"] + 10
+    y2 = to_layout["y"] - 28
+
+    arrow_tip_y = to_layout["y"] - 10
+    arrow_base_y = to_layout["y"] - 26
+
+    elements = [
+        f'<line x1="{x}" y1="{y1}" x2="{x}" y2="{y2}" '
+        f'stroke="#475569" stroke-width="2" stroke-linecap="round" '
+        f'stroke-dasharray="8 8" opacity="0.55" />',
+
+        f'<polygon points="{x - 8},{arrow_base_y} {x + 8},{arrow_base_y} {x},{arrow_tip_y}" '
+        f'fill="#64748b" opacity="0.75" />'
+    ]
+
+    if label:
+
+        label_y = int(
+            (y1 + y2) / 2
+        )
+
+        safe_label = escape_xml(
+            label
+        )
+
+        elements.extend(
+            [
+                f'<rect x="{x - 48}" y="{label_y - 13}" '
+                f'width="96" height="24" rx="12" '
+                f'fill="#020617" stroke="#334155" stroke-width="1" opacity="0.92" />',
+
+                f'<text x="{x}" y="{label_y + 3}" '
+                f'fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">'
+                f'{safe_label}</text>'
+            ]
+        )
+
+    return elements
+
+
+
+def render_resilience_coordination_strip(
+    x: int,
+    y: int,
+    width: int
+):
+
+    return render_processing_strip(
+        x=x,
+        y=y,
+        width=width,
+        title="RESILIENCE CONTROL",
+        stages=[
+            "Failure Review",
+            "Topology Check",
+            "Policy Decision",
+            "Continuity Target"
+        ],
+        stroke="#7c3aed",
+        title_fill="#2e1065",
+        title_stroke="#a78bfa",
+        title_text="#ddd6fe",
+        arrow="#a78bfa"
+    )
+
+
+def render_failover_execution_strip(
+    x: int,
+    y: int,
+    width: int
+):
+
+    return render_processing_strip(
+        x=x,
+        y=y,
+        width=width,
+        title="FAILOVER EXECUTION",
+        stages=[
+            "Route Shift",
+            "Traffic Drain",
+            "Secondary Site",
+            "Stabilize"
+        ],
+        stroke="#0891b2",
+        title_fill="#164e63",
+        title_stroke="#67e8f9",
+        title_text="#cffafe",
+        arrow="#67e8f9"
+    )
+
+
+
+def render_governance_control_strip(
+    x: int,
+    y: int,
+    width: int
+):
+
+    return render_processing_strip(
+        x=x,
+        y=y,
+        width=width,
+        title="GOVERNANCE CONTROL",
+        stages=[
+            "Scope Review",
+            "Risk Check",
+            "Policy Approval",
+            "Escalation"
+        ],
+        stroke="#7c3aed",
+        title_fill="#2e1065",
+        title_stroke="#a78bfa",
+        title_text="#ddd6fe",
+        arrow="#a78bfa"
+    )
+
+
+def render_executive_decision_strip(
+    x: int,
+    y: int,
+    width: int
+):
+
+    return render_processing_strip(
+        x=x,
+        y=y,
+        width=width,
+        title="EXECUTIVE DECISION",
+        stages=[
+            "Impact Review",
+            "Decision",
+            "Approval",
+            "Stakeholder Notice"
+        ],
+        stroke="#0891b2",
+        title_fill="#164e63",
+        title_stroke="#67e8f9",
+        title_text="#cffafe",
+        arrow="#67e8f9"
+    )
+
+
+
+
+
+
+
+
+
+

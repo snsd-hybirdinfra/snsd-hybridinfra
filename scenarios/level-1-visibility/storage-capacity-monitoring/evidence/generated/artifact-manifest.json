@@ -1,0 +1,15 @@
+{
+  "scenario_name": "storage-capacity-monitoring",
+  "scenario_title": "Storage Capacity Monitoring",
+  "lifecycle_level": "level-1-visibility",
+  "primary_domain": "Storage",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}
