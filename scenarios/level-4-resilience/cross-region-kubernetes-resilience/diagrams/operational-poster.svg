@@ -36,14 +36,14 @@ plane signal
 <rect x="1100" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#818cf8" stroke-width="1" />
 <text x="1148" y="404" fill="#818cf8" font-size="10" text-anchor="middle" font-weight="bold">Mapped</text>
 <rect x="1242" y="312" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1280" cy="352" r="22" fill="#020617" stroke="#94a3b8" stroke-width="2" />
-<circle cx="1280" cy="352" r="7" fill="#94a3b8" />
-<circle cx="1280" cy="352" r="14" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.35" />
+<circle cx="1280" cy="352" r="22" fill="#020617" stroke="#a78bfa" stroke-width="2" />
+<circle cx="1280" cy="352" r="7" fill="#a78bfa" />
+<circle cx="1280" cy="352" r="14" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.35" />
 <text x="1314" y="344" fill="#ffffff" font-size="16" font-weight="bold">Survivability Risk</text>
 <text x="1314" y="370" fill="#cbd5e1" font-size="10">Service survivability risk r</text>
 <text x="1314" y="396" fill="#94a3b8" font-size="10">risk</text>
-<rect x="1664" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#94a3b8" stroke-width="1" />
-<text x="1712" y="404" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">Reviewed</text>
+<rect x="1664" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#a78bfa" stroke-width="1" />
+<text x="1712" y="404" fill="#a78bfa" font-size="10" text-anchor="middle" font-weight="bold">Reviewed</text>
 <rect x="80" y="470" width="1840" height="280" rx="28" fill="#1e293b" stroke="#7c3aed" stroke-width="3" />
 <rect x="80" y="470" width="14" height="280" rx="7" fill="#7c3aed" />
 <text x="114" y="512" fill="#ffffff" font-size="24" font-weight="bold">Resilience Coordination</text>
@@ -104,14 +104,14 @@ plane signal
 <text x="1480.0" y="888" fill="#67e8f9" font-size="16" text-anchor="middle" font-weight="bold">→</text>
 <text x="1669.0" y="887" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Stabilize</text>
 <rect x="114" y="918" width="540" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="958" r="22" fill="#020617" stroke="#94a3b8" stroke-width="2" />
-<circle cx="152" cy="958" r="7" fill="#94a3b8" />
-<circle cx="152" cy="958" r="14" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.35" />
+<circle cx="152" cy="958" r="22" fill="#020617" stroke="#06b6d4" stroke-width="2" />
+<circle cx="152" cy="958" r="7" fill="#06b6d4" />
+<circle cx="152" cy="958" r="14" fill="none" stroke="#06b6d4" stroke-width="2" opacity="0.35" />
 <text x="186" y="950" fill="#ffffff" font-size="16" font-weight="bold">Routing Shift</text>
 <text x="186" y="976" fill="#cbd5e1" font-size="10">Traffic or service path chan</text>
 <text x="186" y="1002" fill="#94a3b8" font-size="10">failover</text>
-<rect x="536" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#94a3b8" stroke-width="1" />
-<text x="584" y="1006" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">Executed</text>
+<rect x="536" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#06b6d4" stroke-width="1" />
+<text x="584" y="1006" fill="#06b6d4" font-size="10" text-anchor="middle" font-weight="bold">Executed</text>
 <rect x="678" y="918" width="540" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
 <circle cx="716" cy="958" r="22" fill="#020617" stroke="#94a3b8" stroke-width="2" />
 <circle cx="716" cy="958" r="7" fill="#94a3b8" />
@@ -139,14 +139,14 @@ response, or recovery.
 <rect x="1650" y="1106" width="220" height="38" rx="19" fill="#020617" stroke="#16a34a" stroke-width="2" />
 <text x="1760" y="1131" fill="#16a34a" font-size="13" text-anchor="middle" font-weight="bold">SURVIVABLE</text>
 <rect x="114" y="1172" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="1212" r="22" fill="#020617" stroke="#94a3b8" stroke-width="2" />
-<rect x="140" y="1200" width="24" height="24" rx="5" fill="none" stroke="#94a3b8" stroke-width="2" />
-<polyline points="145,1212 151,1218 161,1205" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="152" cy="1212" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<rect x="140" y="1200" width="24" height="24" rx="5" fill="none" stroke="#22c55e" stroke-width="2" />
+<polyline points="145,1212 151,1218 161,1205" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 <text x="186" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Availability Check</text>
 <text x="186" y="1230" fill="#cbd5e1" font-size="10">Service availability confirm</text>
 <text x="186" y="1256" fill="#94a3b8" font-size="10">validation</text>
-<rect x="536" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#94a3b8" stroke-width="1" />
-<text x="584" y="1264" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">Passed</text>
+<rect x="536" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="584" y="1264" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Passed</text>
 <rect x="678" y="1172" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
 <circle cx="716" cy="1212" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
 <circle cx="716" cy="1212" r="7" fill="#facc15" />
@@ -175,33 +175,33 @@ response, or recovery.
 <rect x="1990" y="200" width="550" height="760" rx="28" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="2020" y="244" fill="#ffffff" font-size="24" font-weight="bold">Operational Workflow</text>
 <text x="2020" y="274" fill="#cbd5e1" font-size="13">Lifecycle execution sequence</text>
-<circle cx="2044" cy="320" r="18" fill="#020617" stroke="#84cc16" stroke-width="3" />
-<text x="2044" y="326" fill="#ffffff" font-size="13" text-anchor="middle" font-weight="bold">1</text>
+<circle cx="2044" cy="320" r="18" fill="#60a5fa" stroke="#60a5fa" stroke-width="3" opacity="0.95" />
+<text x="2044" y="326" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">1</text>
 <text x="2078" y="316" fill="#ffffff" font-size="17" font-weight="bold">Scope</text>
 <text x="2078" y="340" fill="#94a3b8" font-size="12">Identify failure domain and risk boundary.</text>
-<rect x="2412" y="302" width="96" height="26" rx="13" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="2460" y="320" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="2412" y="302" width="96" height="26" rx="13" fill="#020617" stroke="#60a5fa" stroke-width="1" />
+<text x="2460" y="320" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Scoped</text>
 <line x1="2044" y1="342" x2="2044" y2="412" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
-<circle cx="2044" cy="436" r="18" fill="#020617" stroke="#84cc16" stroke-width="3" />
-<text x="2044" y="442" fill="#ffffff" font-size="13" text-anchor="middle" font-weight="bold">2</text>
+<circle cx="2044" cy="436" r="18" fill="#facc15" stroke="#facc15" stroke-width="3" opacity="0.95" />
+<text x="2044" y="442" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">2</text>
 <text x="2078" y="432" fill="#ffffff" font-size="17" font-weight="bold">Decide</text>
 <text x="2078" y="456" fill="#94a3b8" font-size="12">Select alternate path or failover action.</text>
-<rect x="2412" y="418" width="96" height="26" rx="13" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="2460" y="436" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="2412" y="418" width="96" height="26" rx="13" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="2460" y="436" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Decided</text>
 <line x1="2044" y1="458" x2="2044" y2="528" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
-<circle cx="2044" cy="552" r="18" fill="#020617" stroke="#84cc16" stroke-width="3" />
-<text x="2044" y="558" fill="#ffffff" font-size="13" text-anchor="middle" font-weight="bold">3</text>
+<circle cx="2044" cy="552" r="18" fill="#14b8a6" stroke="#14b8a6" stroke-width="3" opacity="0.95" />
+<text x="2044" y="558" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">3</text>
 <text x="2078" y="548" fill="#ffffff" font-size="17" font-weight="bold">Failover</text>
 <text x="2078" y="572" fill="#94a3b8" font-size="12">Coordinate distributed resilience execution.</text>
-<rect x="2412" y="534" width="96" height="26" rx="13" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="2460" y="552" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="2412" y="534" width="96" height="26" rx="13" fill="#020617" stroke="#14b8a6" stroke-width="1" />
+<text x="2460" y="552" fill="#14b8a6" font-size="10" text-anchor="middle" font-weight="bold">Active</text>
 <line x1="2044" y1="574" x2="2044" y2="644" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
-<circle cx="2044" cy="668" r="18" fill="#020617" stroke="#84cc16" stroke-width="3" />
-<text x="2044" y="674" fill="#ffffff" font-size="13" text-anchor="middle" font-weight="bold">4</text>
+<circle cx="2044" cy="668" r="18" fill="#84cc16" stroke="#84cc16" stroke-width="3" opacity="0.95" />
+<text x="2044" y="674" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">4</text>
 <text x="2078" y="664" fill="#ffffff" font-size="17" font-weight="bold">Validate</text>
 <text x="2078" y="688" fill="#94a3b8" font-size="12">Confirm survivability and continuity state.</text>
 <rect x="2412" y="650" width="96" height="26" rx="13" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="2460" y="668" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<text x="2460" y="668" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Validated</text>
 <rect x="1990" y="990" width="550" height="300" rx="26" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="2018" y="1032" fill="#ffffff" font-size="22" font-weight="bold">Resilience Summary</text>
 <text x="2018" y="1060" fill="#cbd5e1" font-size="13">Failure, coordination, failover, and survivabili</text>
@@ -226,24 +226,24 @@ response, or recovery.
 <text x="122" y="1555" fill="#ffffff" font-size="30" font-weight="bold">FAILOVER READY</text>
 <rect x="122" y="1583" width="320" height="32" rx="16" fill="#020617" stroke="#16a34a" stroke-width="1" />
 <text x="138" y="1604" fill="#cbd5e1" font-size="12" font-weight="bold">Continuity path available</text>
-<rect x="560" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#94a3b8" stroke-width="2" opacity="0.98" />
-<rect x="574" y="1475" width="10" height="68" rx="5" fill="#94a3b8" opacity="0.85" />
+<rect x="560" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
+<rect x="574" y="1475" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
 <text x="600" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Modules</text>
 <text x="600" y="1521" fill="#ffffff" font-size="16" font-weight="bold">3</text>
-<rect x="787" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#94a3b8" stroke-width="2" opacity="0.98" />
-<rect x="801" y="1475" width="10" height="68" rx="5" fill="#94a3b8" opacity="0.85" />
+<rect x="787" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
+<rect x="801" y="1475" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
 <text x="827" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Adapters</text>
 <text x="827" y="1521" fill="#ffffff" font-size="16" font-weight="bold">3</text>
-<rect x="1014" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#94a3b8" stroke-width="2" opacity="0.98" />
-<rect x="1028" y="1475" width="10" height="68" rx="5" fill="#94a3b8" opacity="0.85" />
+<rect x="1014" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
+<rect x="1028" y="1475" width="10" height="68" rx="5" fill="#facc15" opacity="0.85" />
 <text x="1054" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">README</text>
 <text x="1054" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Generated</text>
-<rect x="560" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#94a3b8" stroke-width="2" opacity="0.98" />
-<rect x="574" y="1597" width="10" height="68" rx="5" fill="#94a3b8" opacity="0.85" />
+<rect x="560" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
+<rect x="574" y="1597" width="10" height="68" rx="5" fill="#facc15" opacity="0.85" />
 <text x="600" y="1615" fill="#94a3b8" font-size="11" font-weight="bold">Poster</text>
 <text x="600" y="1643" fill="#ffffff" font-size="16" font-weight="bold">Generated</text>
-<rect x="787" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#94a3b8" stroke-width="2" opacity="0.98" />
-<rect x="801" y="1597" width="10" height="68" rx="5" fill="#94a3b8" opacity="0.85" />
+<rect x="787" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#22c55e" stroke-width="2" opacity="0.98" />
+<rect x="801" y="1597" width="10" height="68" rx="5" fill="#22c55e" opacity="0.85" />
 <text x="827" y="1615" fill="#94a3b8" font-size="11" font-weight="bold">Evidence</text>
 <text x="827" y="1643" fill="#ffffff" font-size="16" font-weight="bold">Ready</text>
 <rect x="1440" y="1463" width="455" height="215" rx="26" fill="#020617" stroke="#16a34a" stroke-width="3" opacity="0.98" />
