@@ -1,11 +1,11 @@
-# Strict Related Scenarios Generation Report
+﻿# Strict Related Scenarios Generation Report
 
 ## Summary
 
 ```text
 total_scenarios: 123
 empty_related_scenarios: 24
-rule: exact primary_domain only; no fallback; no forced flagship chain
+rule: exact primary_domain only; no fallback; no forced representative chain
 ```
 
 ## Empty Related Scenarios
@@ -266,3 +266,4 @@ related_scenarios:
   downstream: ['/snsd-hybridinfra/scenarios/level-2-correlation/network-path-dependency-analysis']
   cross_domain: []
 ```
+
