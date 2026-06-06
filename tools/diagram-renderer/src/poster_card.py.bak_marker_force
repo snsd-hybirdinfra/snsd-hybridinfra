@@ -1,0 +1,124 @@
+﻿from src.text_utils import escape_truncated
+from src.poster_theme import PANEL, BORDER, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, status_color
+
+
+def render_card(
+    card: dict,
+    x: int,
+    y: int,
+    width: int,
+    height: int
+):
+
+    title = escape_truncated(
+        card.get(
+            "title",
+            ""
+        ), 21)
+
+    subtitle = escape_truncated(
+        card.get(
+            "subtitle",
+            ""
+        ), 28)
+
+    card_type = escape_truncated(
+        card.get(
+            "type",
+            ""
+        ), 21)
+
+    status = escape_truncated(
+        card.get(
+            "status",
+            ""
+        ), 10)
+
+    icon = escape_truncated(
+        card.get(
+            "icon",
+            "■"
+        ),
+        3
+    )
+
+    color = status_color(
+        card.get(
+            "status",
+            ""
+        )
+    )
+
+    emphasis = bool(
+        card.get(
+            "emphasis",
+            False
+        )
+    )
+
+    emphasis_label = escape_truncated(
+        card.get(
+            "emphasis_label",
+            "CORE"
+        ), 6)
+
+    fill = "#172554" if emphasis else PANEL
+    stroke = color if emphasis else BORDER
+    stroke_width = 4 if emphasis else 2
+
+    elements = [
+        f'<rect x="{x}" y="{y}" width="{width}" height="{height}" '
+        f'rx="22" fill="{fill}" stroke="{stroke}" stroke-width="{stroke_width}" />',
+
+        f'<circle cx="{x + 38}" cy="{y + 40}" r="22" '
+        f'fill="#020617" stroke="{color}" stroke-width="2" />',
+
+        f'<text x="{x + 38}" y="{y + 48}" '
+        f'fill="#E5F0FF" font-size="18" font-weight="800" '
+        f'text-anchor="middle" font-family="Arial, sans-serif">'
+        f'{icon}</text>',
+
+        f'<text x="{x + 72}" y="{y + 32}" '
+        f'fill="{TEXT_PRIMARY}" font-size="16" font-weight="bold">'
+        f'{title}</text>',
+
+        f'<text x="{x + 72}" y="{y + 58}" '
+        f'fill="{TEXT_SECONDARY}" font-size="10">'
+        f'{subtitle}</text>',
+
+        f'<text x="{x + 72}" y="{y + 84}" '
+        f'fill="{TEXT_MUTED}" font-size="10">'
+        f'{card_type}</text>',
+
+        f'<rect x="{x + width - 118}" y="{y + height - 36}" '
+        f'width="96" height="24" rx="12" '
+        f'fill="#020617" stroke="{color}" stroke-width="1" />',
+
+        f'<text x="{x + width - 70}" y="{y + height - 20}" '
+        f'fill="{color}" font-size="10" text-anchor="middle" font-weight="bold">'
+        f'{status}</text>'
+    ]
+
+    if emphasis:
+
+        elements.extend(
+            [
+                f'<rect x="{x + width - 118}" y="{y + 12}" '
+                f'width="86" height="24" rx="12" '
+                f'fill="#020617" stroke="{color}" stroke-width="1" />',
+
+                f'<text x="{x + width - 75}" y="{y + 28}" '
+                f'fill="{color}" font-size="10" text-anchor="middle" font-weight="bold">'
+                f'{emphasis_label}</text>'
+            ]
+        )
+
+    return elements
+
+
+
+
+
+
+
+
