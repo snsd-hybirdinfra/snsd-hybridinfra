@@ -127,6 +127,12 @@ Representative capability areas include:
 Module index:
 
 - [Operational Modules](./modules/README.md)
+- [Operational Adapters](./adapters/README.md)
+- [Shared Runtime](./shared-runtime/README.md)
+- [Build Foundations](./builds/README.md)
+- [Reports](./reports/README.md)
+- [Tools](./tools/README.md)
+- [Documentation](./docs/README.md)
 
 ---
 
@@ -166,7 +172,10 @@ Current validation status:
 Quality report:
 
 - [Portfolio Health Summary](./reports/portfolio-health-summary.md)
+- [Portfolio Health Summary](./reports/portfolio-health-summary.md)
 - [Repository Quality Check](./reports/repository-quality-check.md)
+- [Markdown Link Check](./reports/markdown-link-check.md)
+- [Top-Level Structure Check](./reports/top-level-structure-check.md)
 - [Related Scenarios Generation Report](./reports/related-scenarios-generation-report.md)
 
 ---
@@ -182,6 +191,11 @@ Current tooling includes:
 - operational poster rendering
 - related scenario generation
 - repository quality checking
+- markdown link validation
+- top-level structure validation
+- portfolio health summary generation
+- temporary file cleanup
+- repository validation workflow execution
 
 Relevant tools:
 
@@ -208,5 +222,6 @@ This repository demonstrates the ability to:
 SNSD Hybrid Infrastructure is an enterprise infrastructure operations portfolio focused on operational capability design, scenario-based validation, and production-oriented documentation.
 
 It presents infrastructure operations as a reusable, governed, and evidence-backed platform rather than isolated troubleshooting examples.
+
 
 
