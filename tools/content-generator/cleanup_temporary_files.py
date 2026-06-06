@@ -6,7 +6,6 @@ DELETE_NAME_PATTERNS = [
     "a.txt",
     "README.backup.md",
     "update_root_readme.ps1",
-    "remove_forced_flagship_concept.ps1",
     "update_scenarios_readme.ps1",
 ]
 
@@ -60,3 +59,4 @@ if deleted:
     print("[DELETED]")
     for item in deleted:
         print(f"- {item}")
+
