@@ -1,5 +1,0 @@
-﻿scenarios/level-1-visibility/vpn-connectivity-monitoring
-scenarios/level-2-correlation/vpn-latency-correlation
-scenarios/level-3-recovery/vpn-tunnel-recovery-automation
-scenarios/level-4-resilience/multi-site-routing-failover
-scenarios/level-5-continuity/enterprise-operational-continuity
