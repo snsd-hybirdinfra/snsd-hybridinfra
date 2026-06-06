@@ -177,7 +177,7 @@ interface utilization; traffic volume.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+- /snsd-hybridinfra/scenarios/level-3-recovery/network-failover-automation
 
 ### Same-Level Scenarios
 
@@ -185,7 +185,7 @@ interface utilization; traffic volume.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-operational-continuity
+- /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-network-continuity
 
 ### Cross-Domain Scenarios
 

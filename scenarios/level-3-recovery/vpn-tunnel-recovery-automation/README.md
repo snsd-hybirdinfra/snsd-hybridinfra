@@ -177,7 +177,7 @@ uptime; endpoint response.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/vpn-latency-correlation
+- /snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis
 
 ### Same-Level Scenarios
 
@@ -185,7 +185,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-4-resilience/multi-site-routing-failover
+None currently defined.
 
 ### Cross-Domain Scenarios
 

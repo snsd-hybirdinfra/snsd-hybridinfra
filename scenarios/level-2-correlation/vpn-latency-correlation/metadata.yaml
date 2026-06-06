@@ -120,7 +120,7 @@ validation_checklist:
 - Deprecated diagram references are not used.
 related_scenarios:
   upstream:
-  - /snsd-hybridinfra/scenarios/level-1-visibility/vpn-connectivity-monitoring
+  - /snsd-hybridinfra/scenarios/level-1-visibility/vpn-latency-visibility
   same_level:
   - /snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis
   downstream:

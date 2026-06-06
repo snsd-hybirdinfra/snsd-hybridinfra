@@ -173,7 +173,7 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-4-resilience/multi-site-routing-failover
+- /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-data-survivability
 
 ### Same-Level Scenarios
 

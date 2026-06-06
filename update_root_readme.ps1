@@ -1,4 +1,13 @@
-﻿# SNSD Hybrid Infrastructure
+﻿$ErrorActionPreference = "Stop"
+
+Set-Location "C:\Users\swfco\OneDrive\바탕 화면\github\snsd-hybridinfra"
+
+if (Test-Path ".\README.md") {
+    Copy-Item ".\README.md" ".\README.backup.md" -Force
+}
+
+$readme = @'
+# SNSD Hybrid Infrastructure
 
 ## Enterprise Operational Capability Platform
 
@@ -88,23 +97,25 @@ Scenario index:
 
 - [Scenario Inventory](./scenarios/README.md)
 
-Detailed scenario relationships are maintained inside each scenario README through strict `related_scenarios` metadata.
-
 ---
 
-## Lifecycle Coverage
+## Flagship Operational Chain
 
-The scenario set is organized to demonstrate operational maturity across the full infrastructure operations lifecycle.
+The flagship scenario chain demonstrates lifecycle progression from visibility to enterprise continuity:
 
-| Lifecycle Level | Focus | Example Capability Areas |
+    vpn-connectivity-monitoring
+    -> vpn-latency-correlation
+    -> vpn-tunnel-recovery-automation
+    -> multi-site-routing-failover
+    -> enterprise-operational-continuity
+
+| Level | Scenario | Purpose |
 |---|---|---|
-| Level 1 Visibility | Signal collection and health visibility | VPN, network path, compute, database, storage, Kubernetes, security telemetry |
-| Level 2 Correlation | Dependency and impact analysis | latency correlation, packet loss analysis, database dependency analysis, security anomaly correlation |
-| Level 3 Recovery | Controlled recovery execution | service recovery, failover automation, restoration workflows, recovery validation |
-| Level 4 Resilience | Distributed failure-domain coordination | multi-region failover, cluster resilience, routing resilience, distributed platform survivability |
-| Level 5 Continuity | Enterprise continuity governance | cloud continuity, platform continuity, network continuity, security continuity, service continuity |
-
-The repository is intended to show operational breadth across infrastructure domains rather than a single linear incident chain.
+| L1 | [VPN Connectivity Monitoring](./scenarios/level-1-visibility/vpn-connectivity-monitoring/README.md) | VPN health visibility and signal collection |
+| L2 | [VPN Latency Correlation](./scenarios/level-2-correlation/vpn-latency-correlation/README.md) | VPN latency and dependency correlation |
+| L3 | [VPN Tunnel Recovery Automation](./scenarios/level-3-recovery/vpn-tunnel-recovery-automation/README.md) | Controlled tunnel recovery workflow |
+| L4 | [Multi Site Routing Failover](./scenarios/level-4-resilience/multi-site-routing-failover/README.md) | Distributed routing resilience coordination |
+| L5 | [Enterprise Operational Continuity](./scenarios/level-5-continuity/enterprise-operational-continuity/README.md) | Enterprise continuity governance and reporting |
 
 ---
 
@@ -207,4 +218,11 @@ This repository demonstrates the ability to:
 SNSD Hybrid Infrastructure is an enterprise infrastructure operations portfolio focused on operational capability design, scenario-based validation, and production-oriented documentation.
 
 It presents infrastructure operations as a reusable, governed, and evidence-backed platform rather than isolated troubleshooting examples.
+'@
 
+Set-Content -Path ".\README.md" -Value $readme -Encoding UTF8
+
+Write-Host "[OK] README.md updated"
+Write-Host "[NEXT] Check changes:"
+Write-Host "git status --short"
+Write-Host "git diff --stat"

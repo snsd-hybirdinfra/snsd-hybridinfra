@@ -176,7 +176,7 @@ uptime; endpoint response.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/vpn-connectivity-monitoring
+- /snsd-hybridinfra/scenarios/level-1-visibility/vpn-latency-visibility
 
 ### Same-Level Scenarios
 

@@ -116,7 +116,7 @@ validation_checklist:
 - Deprecated diagram references are not used.
 related_scenarios:
   upstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/multi-site-routing-failover
+  - /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-data-survivability
   same_level:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-cloud-continuity
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-platform-continuity

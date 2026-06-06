@@ -122,8 +122,7 @@ validation_checklist:
 - Deprecated diagram references are not used.
 related_scenarios:
   upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/vpn-latency-correlation
+  - /snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis
   same_level: []
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/multi-site-routing-failover
+  downstream: []
   cross_domain: []

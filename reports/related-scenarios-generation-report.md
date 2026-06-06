@@ -5,7 +5,7 @@
 ```text
 total_scenarios: 123
 empty_related_scenarios: 24
-rule: exact primary_domain only; no fallback; flagship chain override only
+rule: exact primary_domain only; no fallback; no forced flagship chain
 ```
 
 ## Empty Related Scenarios
@@ -143,7 +143,7 @@ level-3-recovery | server-service-recovery | up=1 same=3 down=1 cross=0
 level-3-recovery | service-mesh-traffic-restoration | up=1 same=0 down=0 cross=0
 level-3-recovery | traffic-restoration-workflow | up=1 same=0 down=0 cross=0
 level-3-recovery | virtual-machine-restoration | up=0 same=0 down=0 cross=0
-level-3-recovery | vpn-tunnel-recovery-automation | up=1 same=0 down=1 cross=0
+level-3-recovery | vpn-tunnel-recovery-automation | up=1 same=0 down=0 cross=0
 level-4-resilience | cross-region-data-survivability | up=1 same=3 down=1 cross=0
 level-4-resilience | cross-region-kubernetes-resilience | up=1 same=0 down=0 cross=0
 level-4-resilience | cross-region-network-resilience | up=1 same=1 down=1 cross=0
@@ -201,7 +201,7 @@ related_scenarios:
 ```yaml
 domain: Network / VPN
 related_scenarios:
-  upstream: ['/snsd-hybridinfra/scenarios/level-1-visibility/vpn-connectivity-monitoring']
+  upstream: ['/snsd-hybridinfra/scenarios/level-1-visibility/vpn-latency-visibility']
   same_level: ['/snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis']
   downstream: ['/snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation']
   cross_domain: []
@@ -211,9 +211,9 @@ related_scenarios:
 ```yaml
 domain: Network / VPN
 related_scenarios:
-  upstream: ['/snsd-hybridinfra/scenarios/level-2-correlation/vpn-latency-correlation']
+  upstream: ['/snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis']
   same_level: []
-  downstream: ['/snsd-hybridinfra/scenarios/level-4-resilience/multi-site-routing-failover']
+  downstream: []
   cross_domain: []
 ```
 
@@ -221,9 +221,9 @@ related_scenarios:
 ```yaml
 domain: Network / Routing
 related_scenarios:
-  upstream: ['/snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation']
+  upstream: ['/snsd-hybridinfra/scenarios/level-3-recovery/network-failover-automation']
   same_level: ['/snsd-hybridinfra/scenarios/level-4-resilience/cross-region-network-resilience']
-  downstream: ['/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-operational-continuity']
+  downstream: ['/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-network-continuity']
   cross_domain: []
 ```
 
@@ -231,7 +231,7 @@ related_scenarios:
 ```yaml
 domain: General Infrastructure
 related_scenarios:
-  upstream: ['/snsd-hybridinfra/scenarios/level-4-resilience/multi-site-routing-failover']
+  upstream: ['/snsd-hybridinfra/scenarios/level-4-resilience/cross-region-data-survivability']
   same_level: ['/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-cloud-continuity', '/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-platform-continuity', '/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-service-continuity-coordination']
   downstream: []
   cross_domain: []

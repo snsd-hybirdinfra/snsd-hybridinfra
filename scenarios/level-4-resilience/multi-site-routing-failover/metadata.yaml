@@ -123,9 +123,9 @@ validation_checklist:
 - Deprecated diagram references are not used.
 related_scenarios:
   upstream:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+  - /snsd-hybridinfra/scenarios/level-3-recovery/network-failover-automation
   same_level:
   - /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-network-resilience
   downstream:
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-operational-continuity
+  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-network-continuity
   cross_domain: []
