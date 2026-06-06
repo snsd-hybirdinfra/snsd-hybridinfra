@@ -184,7 +184,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/identity-risk-analysis
 
 ### Cross-Domain Scenarios
 

@@ -177,7 +177,7 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/replication-failure-correlation
 
 ### Same-Level Scenarios
 

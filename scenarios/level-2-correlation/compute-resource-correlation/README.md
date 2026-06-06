@@ -181,7 +181,7 @@ health; reboot event; availability state.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/compute-resource-monitoring
 
 ### Same-Level Scenarios
 
@@ -189,7 +189,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/compute-failover-orchestration
 
 ### Cross-Domain Scenarios
 

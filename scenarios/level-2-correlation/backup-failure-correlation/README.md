@@ -180,7 +180,7 @@ duration; failure reason; repository availability; recovery point age.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/backup-job-monitoring
 
 ### Same-Level Scenarios
 
@@ -188,7 +188,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/backup-restoration-automation
 
 ### Cross-Domain Scenarios
 

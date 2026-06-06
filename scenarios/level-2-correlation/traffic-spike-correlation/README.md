@@ -184,7 +184,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/traffic-restoration-workflow
 
 ### Cross-Domain Scenarios
 

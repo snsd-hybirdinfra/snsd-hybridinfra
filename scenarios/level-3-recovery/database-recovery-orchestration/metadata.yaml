@@ -5,128 +5,130 @@ scenario_path: scenarios/level-3-recovery/database-recovery-orchestration
 scenario_type: Recovery / Automation
 primary_domain: Database
 status: draft
+overview: 'This scenario documents database recovery orchestration within the database operational domain. It
 
-overview: |
-  This scenario documents database recovery orchestration within the database operational domain. It
   focuses on database instance, query workload, replication channel, storage backend and demonstrates
+
   how infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design,
+
   and evidence-backed validation to support execute controlled recovery, restoration, failover, or
+
   mitigation workflow.
 
+  '
 objectives:
-  - Define the scenario-specific database signal represented by database-recovery-orchestration.
-  - Identify the affected database components and dependencies.
-  - Collect and interpret telemetry from database instance, query workload, replication channel, storage backend.
-  - Use query latency as an operational signal for detection or validation.
-  - Use connection count as an operational signal for detection or validation.
-  - Use lock wait as an operational signal for detection or validation.
-  - Document the lifecycle workflow from detection through validation.
-  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+- Define the scenario-specific database signal represented by database-recovery-orchestration.
+- Identify the affected database components and dependencies.
+- Collect and interpret telemetry from database instance, query workload, replication channel, storage backend.
+- Use query latency as an operational signal for detection or validation.
+- Use connection count as an operational signal for detection or validation.
+- Use lock wait as an operational signal for detection or validation.
+- Document the lifecycle workflow from detection through validation.
+- Produce reviewer-readable evidence artifacts for portfolio assessment.
+operational_focus: 'Execute controlled recovery, restoration, failover, or mitigation workflow
 
-operational_focus: |
-  Execute controlled recovery, restoration, failover, or mitigation workflow
+  '
+target_resource: 'database instance, query workload, replication channel, storage backend
 
-target_resource: |
-  database instance, query workload, replication channel, storage backend
-
+  '
 telemetry_signals:
-  - query latency
-  - connection count
-  - lock wait
-  - replication lag
-  - transaction error
-  - database availability
-  - storage I/O
-
+- query latency
+- connection count
+- lock wait
+- replication lag
+- transaction error
+- database availability
+- storage I/O
 infrastructure_components:
-  - Database Instance
-  - Query Workload
-  - Replication Channel
-  - Storage Backend
-  - Telemetry Source
-  - Detection Logic
-  - Evidence Output
+- Database Instance
+- Query Workload
+- Replication Channel
+- Storage Backend
+- Telemetry Source
+- Detection Logic
+- Evidence Output
+detection_workflow: 'query latency; connection count; lock wait; replication lag; transaction error; database
 
-detection_workflow: |
-  query latency; connection count; lock wait; replication lag; transaction error; database
   availability; storage I/O
 
-correlation_and_analysis: |
-  Correlate database signals with related infrastructure state, dependencies, recent events, and
+  '
+correlation_and_analysis: 'Correlate database signals with related infrastructure state, dependencies, recent events, and
+
   service impact.
 
-alert_and_incident_workflow: |
-  Execute controlled recovery, restoration, failover, or mitigation workflow
+  '
+alert_and_incident_workflow: 'Execute controlled recovery, restoration, failover, or mitigation workflow
 
-recovery_and_automation_workflow: |
-  Execute controlled recovery, restoration, failover, or mitigation workflow
+  '
+recovery_and_automation_workflow: 'Execute controlled recovery, restoration, failover, or mitigation workflow
 
-recovery_validation: |
-  Validate stable state, evidence completeness, and operational readiness after detection, analysis,
+  '
+recovery_validation: 'Validate stable state, evidence completeness, and operational readiness after detection, analysis,
+
   response, or recovery.
 
-monitoring_and_visibility: |
-  Monitoring and visibility include query latency; connection count; lock wait; replication lag;
+  '
+monitoring_and_visibility: 'Monitoring and visibility include query latency; connection count; lock wait; replication lag;
+
   transaction error; database availability; storage I/O.
 
+  '
 used_modules:
-  - Recovery Orchestration Module
-  - Automation Execution Module
-  - Recovery Validation Module
-
+- Recovery Orchestration Module
+- Automation Execution Module
+- Recovery Validation Module
 used_adapters:
-  - Ansible Adapter
-  - Prometheus Adapter
-  - Grafana Adapter
-
+- Ansible Adapter
+- Prometheus Adapter
+- Grafana Adapter
 operational_components:
-  - name: Database Instance
-    purpose: Provides context or signal source for Database operations
-  - name: Query Workload
-    purpose: Provides context or signal source for Database operations
-  - name: Replication Channel
-    purpose: Provides context or signal source for Database operations
-  - name: Storage Backend
-    purpose: Provides context or signal source for Database operations
-  - name: Telemetry Source
-    purpose: Provides context or signal source for Database operations
-  - name: Detection Logic
-    purpose: Provides context or signal source for Database operations
-  - name: Evidence Output
-    purpose: Provides context or signal source for Database operations
-  - name: Correlation Logic
-    purpose: Connects related signals, dependencies, and impact context
-  - name: Validation Method
-    purpose: Confirms stable state, restored condition, or visibility completeness
-
+- name: Database Instance
+  purpose: Provides context or signal source for Database operations
+- name: Query Workload
+  purpose: Provides context or signal source for Database operations
+- name: Replication Channel
+  purpose: Provides context or signal source for Database operations
+- name: Storage Backend
+  purpose: Provides context or signal source for Database operations
+- name: Telemetry Source
+  purpose: Provides context or signal source for Database operations
+- name: Detection Logic
+  purpose: Provides context or signal source for Database operations
+- name: Evidence Output
+  purpose: Provides context or signal source for Database operations
+- name: Correlation Logic
+  purpose: Connects related signals, dependencies, and impact context
+- name: Validation Method
+  purpose: Confirms stable state, restored condition, or visibility completeness
 evidence_outputs:
-  - summary.md
-  - execution-evidence.md
-  - validation-evidence.md
-  - artifact-manifest.json
-  - artifact-checksums.json
-
+- summary.md
+- execution-evidence.md
+- validation-evidence.md
+- artifact-manifest.json
+- artifact-checksums.json
 expected_outcomes:
-  - The scenario has domain-specific operational context.
-  - Telemetry signals are identified and mapped to the scenario purpose.
-  - Infrastructure components and dependencies are documented.
-  - Lifecycle workflow sections are populated with scenario-specific content.
-  - Validation and evidence outputs are defined for portfolio review.
-
+- The scenario has domain-specific operational context.
+- Telemetry signals are identified and mapped to the scenario purpose.
+- Infrastructure components and dependencies are documented.
+- Lifecycle workflow sections are populated with scenario-specific content.
+- Validation and evidence outputs are defined for portfolio review.
 validation_checklist:
-  - Scenario metadata is present.
-  - Operational poster reference is preserved.
-  - Used modules are listed.
-  - Used adapters are listed.
-  - Detection workflow is scenario-specific.
-  - Correlation and analysis workflow is scenario-specific.
-  - Response or recovery workflow is described.
-  - Recovery validation is described.
-  - Evidence links are present.
-  - Deprecated diagram references are not used.
-
+- Scenario metadata is present.
+- Operational poster reference is preserved.
+- Used modules are listed.
+- Used adapters are listed.
+- Detection workflow is scenario-specific.
+- Correlation and analysis workflow is scenario-specific.
+- Response or recovery workflow is described.
+- Recovery validation is described.
+- Evidence links are present.
+- Deprecated diagram references are not used.
 related_scenarios:
-  upstream: []
-  same_level: []
-  downstream: []
+  upstream:
+  - /snsd-hybridinfra/scenarios/level-2-correlation/cross-service-database-dependency-analysis
+  same_level:
+  - /snsd-hybridinfra/scenarios/level-3-recovery/database-failover-automation
+  - /snsd-hybridinfra/scenarios/level-3-recovery/database-service-restoration
+  downstream:
+  - /snsd-hybridinfra/scenarios/level-4-resilience/distributed-database-failover
   cross_domain: []

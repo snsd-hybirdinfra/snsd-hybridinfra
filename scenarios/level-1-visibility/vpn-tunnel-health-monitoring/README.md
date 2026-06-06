@@ -180,11 +180,12 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/vpn-connectivity-monitoring
+- /snsd-hybridinfra/scenarios/level-1-visibility/vpn-latency-visibility
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis
 
 ### Cross-Domain Scenarios
 

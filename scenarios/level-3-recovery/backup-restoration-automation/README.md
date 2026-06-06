@@ -180,7 +180,7 @@ duration; failure reason; repository availability; recovery point age.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/backup-failure-correlation
 
 ### Same-Level Scenarios
 

@@ -179,7 +179,7 @@ liveness status; CPU usage; memory pressure.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/container-runtime-visibility
 
 ### Same-Level Scenarios
 
@@ -187,7 +187,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/container-failover-automation
 
 ### Cross-Domain Scenarios
 

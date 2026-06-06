@@ -180,7 +180,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/cross-server-failure-correlation
 
 ### Cross-Domain Scenarios
 

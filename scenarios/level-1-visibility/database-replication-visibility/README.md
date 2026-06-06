@@ -181,11 +181,12 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/database-health-monitoring
+- /snsd-hybridinfra/scenarios/level-1-visibility/database-runtime-visibility
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/cross-service-database-dependency-analysis
 
 ### Cross-Domain Scenarios
 

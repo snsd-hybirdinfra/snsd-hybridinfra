@@ -177,15 +177,15 @@ interface utilization; traffic volume.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-network-resilience
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-operational-continuity
 
 ### Cross-Domain Scenarios
 

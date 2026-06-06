@@ -173,15 +173,17 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/service-health-visibility
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/virtualization-resource-correlation
+- /snsd-hybridinfra/scenarios/level-2-correlation/cross-server-failure-correlation
+- /snsd-hybridinfra/scenarios/level-2-correlation/cross-service-anomaly-correlation
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/resource-rebalancing-automation
 
 ### Cross-Domain Scenarios
 

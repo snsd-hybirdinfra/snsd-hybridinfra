@@ -177,7 +177,7 @@ interface utilization; traffic volume.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-network-resilience
 
 ### Same-Level Scenarios
 

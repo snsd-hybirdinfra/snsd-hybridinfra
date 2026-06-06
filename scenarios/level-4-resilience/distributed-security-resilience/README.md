@@ -186,7 +186,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-security-continuity
 
 ### Cross-Domain Scenarios
 

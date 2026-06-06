@@ -5,125 +5,124 @@ scenario_path: scenarios/level-2-correlation/vpn-latency-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Network / VPN
 status: draft
+overview: 'This scenario documents vpn latency correlation within the network / vpn operational domain. It
 
-overview: |
-  This scenario documents vpn latency correlation within the network / vpn operational domain. It
   focuses on VPN tunnel, VPN gateway, remote endpoint, routing path and demonstrates how
+
   infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+
   evidence-backed validation to support correlate related symptoms, dependencies, and impact paths.
 
+  '
 objectives:
-  - Define the scenario-specific network / vpn signal represented by vpn-latency-correlation.
-  - Identify the affected network / vpn components and dependencies.
-  - Collect and interpret telemetry from VPN tunnel, VPN gateway, remote endpoint, routing path.
-  - Use tunnel status as an operational signal for detection or validation.
-  - Use gateway reachability as an operational signal for detection or validation.
-  - Use packet loss as an operational signal for detection or validation.
-  - Document the lifecycle workflow from detection through validation.
-  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+- Define the scenario-specific network / vpn signal represented by vpn-latency-correlation.
+- Identify the affected network / vpn components and dependencies.
+- Collect and interpret telemetry from VPN tunnel, VPN gateway, remote endpoint, routing path.
+- Use tunnel status as an operational signal for detection or validation.
+- Use gateway reachability as an operational signal for detection or validation.
+- Use packet loss as an operational signal for detection or validation.
+- Document the lifecycle workflow from detection through validation.
+- Produce reviewer-readable evidence artifacts for portfolio assessment.
+operational_focus: 'Correlate related symptoms, dependencies, and impact paths
 
-operational_focus: |
-  Correlate related symptoms, dependencies, and impact paths
+  '
+target_resource: 'VPN tunnel, VPN gateway, remote endpoint, routing path
 
-target_resource: |
-  VPN tunnel, VPN gateway, remote endpoint, routing path
-
+  '
 telemetry_signals:
-  - tunnel status
-  - gateway reachability
-  - packet loss
-  - latency
-  - tunnel uptime
-  - endpoint response
-
+- tunnel status
+- gateway reachability
+- packet loss
+- latency
+- tunnel uptime
+- endpoint response
 infrastructure_components:
-  - Vpn Tunnel
-  - Vpn Gateway
-  - Remote Endpoint
-  - Routing Path
-  - Telemetry Source
-  - Detection Logic
-  - Evidence Output
+- Vpn Tunnel
+- Vpn Gateway
+- Remote Endpoint
+- Routing Path
+- Telemetry Source
+- Detection Logic
+- Evidence Output
+detection_workflow: 'tunnel status; gateway reachability; packet loss; latency; tunnel uptime; endpoint response
 
-detection_workflow: |
-  tunnel status; gateway reachability; packet loss; latency; tunnel uptime; endpoint response
+  '
+correlation_and_analysis: 'Correlate network / vpn signals with related infrastructure state, dependencies, recent events, and
 
-correlation_and_analysis: |
-  Correlate network / vpn signals with related infrastructure state, dependencies, recent events, and
   service impact.
 
-alert_and_incident_workflow: |
-  Correlate related symptoms, dependencies, and impact paths
+  '
+alert_and_incident_workflow: 'Correlate related symptoms, dependencies, and impact paths
 
-recovery_and_automation_workflow: |
-  Correlate related symptoms, dependencies, and impact paths
+  '
+recovery_and_automation_workflow: 'Correlate related symptoms, dependencies, and impact paths
 
-recovery_validation: |
-  Validate stable state, evidence completeness, and operational readiness after detection, analysis,
+  '
+recovery_validation: 'Validate stable state, evidence completeness, and operational readiness after detection, analysis,
+
   response, or recovery.
 
-monitoring_and_visibility: |
-  Monitoring and visibility include tunnel status; gateway reachability; packet loss; latency; tunnel
+  '
+monitoring_and_visibility: 'Monitoring and visibility include tunnel status; gateway reachability; packet loss; latency; tunnel
+
   uptime; endpoint response.
 
+  '
 used_modules:
-  - Telemetry Aggregation Module
-  - Dependency Correlation Module
-  - Impact Analysis Module
-
+- Telemetry Aggregation Module
+- Dependency Correlation Module
+- Impact Analysis Module
 used_adapters:
-  - Prometheus Adapter
-  - Grafana Adapter
-  - OpenSearch Adapter
-
+- Prometheus Adapter
+- Grafana Adapter
+- OpenSearch Adapter
 operational_components:
-  - name: Vpn Tunnel
-    purpose: Provides context or signal source for Network / VPN operations
-  - name: Vpn Gateway
-    purpose: Provides context or signal source for Network / VPN operations
-  - name: Remote Endpoint
-    purpose: Provides context or signal source for Network / VPN operations
-  - name: Routing Path
-    purpose: Provides context or signal source for Network / VPN operations
-  - name: Telemetry Source
-    purpose: Provides context or signal source for Network / VPN operations
-  - name: Detection Logic
-    purpose: Provides context or signal source for Network / VPN operations
-  - name: Evidence Output
-    purpose: Provides context or signal source for Network / VPN operations
-  - name: Correlation Logic
-    purpose: Connects related signals, dependencies, and impact context
-  - name: Validation Method
-    purpose: Confirms stable state, restored condition, or visibility completeness
-
+- name: Vpn Tunnel
+  purpose: Provides context or signal source for Network / VPN operations
+- name: Vpn Gateway
+  purpose: Provides context or signal source for Network / VPN operations
+- name: Remote Endpoint
+  purpose: Provides context or signal source for Network / VPN operations
+- name: Routing Path
+  purpose: Provides context or signal source for Network / VPN operations
+- name: Telemetry Source
+  purpose: Provides context or signal source for Network / VPN operations
+- name: Detection Logic
+  purpose: Provides context or signal source for Network / VPN operations
+- name: Evidence Output
+  purpose: Provides context or signal source for Network / VPN operations
+- name: Correlation Logic
+  purpose: Connects related signals, dependencies, and impact context
+- name: Validation Method
+  purpose: Confirms stable state, restored condition, or visibility completeness
 evidence_outputs:
-  - summary.md
-  - execution-evidence.md
-  - validation-evidence.md
-  - artifact-manifest.json
-  - artifact-checksums.json
-
+- summary.md
+- execution-evidence.md
+- validation-evidence.md
+- artifact-manifest.json
+- artifact-checksums.json
 expected_outcomes:
-  - The scenario has domain-specific operational context.
-  - Telemetry signals are identified and mapped to the scenario purpose.
-  - Infrastructure components and dependencies are documented.
-  - Lifecycle workflow sections are populated with scenario-specific content.
-  - Validation and evidence outputs are defined for portfolio review.
-
+- The scenario has domain-specific operational context.
+- Telemetry signals are identified and mapped to the scenario purpose.
+- Infrastructure components and dependencies are documented.
+- Lifecycle workflow sections are populated with scenario-specific content.
+- Validation and evidence outputs are defined for portfolio review.
 validation_checklist:
-  - Scenario metadata is present.
-  - Operational poster reference is preserved.
-  - Used modules are listed.
-  - Used adapters are listed.
-  - Detection workflow is scenario-specific.
-  - Correlation and analysis workflow is scenario-specific.
-  - Response or recovery workflow is described.
-  - Recovery validation is described.
-  - Evidence links are present.
-  - Deprecated diagram references are not used.
-
+- Scenario metadata is present.
+- Operational poster reference is preserved.
+- Used modules are listed.
+- Used adapters are listed.
+- Detection workflow is scenario-specific.
+- Correlation and analysis workflow is scenario-specific.
+- Response or recovery workflow is described.
+- Recovery validation is described.
+- Evidence links are present.
+- Deprecated diagram references are not used.
 related_scenarios:
-  upstream: []
-  same_level: []
-  downstream: []
+  upstream:
+  - /snsd-hybridinfra/scenarios/level-1-visibility/vpn-connectivity-monitoring
+  same_level:
+  - /snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis
+  downstream:
+  - /snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation
   cross_domain: []

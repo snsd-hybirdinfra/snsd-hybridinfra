@@ -176,15 +176,17 @@ interface utilization; traffic volume.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/bgp-neighbor-visibility
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/cross-region-network-anomaly-correlation
+- /snsd-hybridinfra/scenarios/level-2-correlation/cross-site-network-correlation
+- /snsd-hybridinfra/scenarios/level-2-correlation/network-packet-loss-correlation
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/network-failover-automation
 
 ### Cross-Domain Scenarios
 

@@ -181,11 +181,12 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/storage-capacity-monitoring
+- /snsd-hybridinfra/scenarios/level-1-visibility/storage-latency-monitoring
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/storage-io-instability-analysis
 
 ### Cross-Domain Scenarios
 

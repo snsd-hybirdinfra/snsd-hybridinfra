@@ -177,7 +177,7 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/privileged-session-monitoring
 
 ### Same-Level Scenarios
 

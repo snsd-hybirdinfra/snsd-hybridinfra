@@ -177,11 +177,11 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/cluster-node-recovery-orchestration
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-4-resilience/multi-cluster-failover-coordination
 
 ### Downstream Scenarios
 

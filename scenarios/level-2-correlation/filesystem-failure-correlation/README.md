@@ -178,7 +178,7 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-1-visibility/filesystem-health-visibility
 
 ### Same-Level Scenarios
 

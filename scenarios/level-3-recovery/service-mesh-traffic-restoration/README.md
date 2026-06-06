@@ -178,7 +178,7 @@ failure; mesh traffic; endpoint availability.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/service-mesh-latency-correlation
 
 ### Same-Level Scenarios
 

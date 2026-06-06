@@ -178,15 +178,16 @@ transaction error; database availability; storage I/O.
 
 ### Upstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-2-correlation/cross-service-database-dependency-analysis
 
 ### Same-Level Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-3-recovery/database-failover-automation
+- /snsd-hybridinfra/scenarios/level-3-recovery/database-recovery-orchestration
 
 ### Downstream Scenarios
 
-None currently defined.
+- /snsd-hybridinfra/scenarios/level-4-resilience/distributed-database-failover
 
 ### Cross-Domain Scenarios
 
