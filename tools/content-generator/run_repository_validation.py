@@ -7,6 +7,7 @@ ROOT = Path(".").resolve()
 commands = [
     ["python", "tools/content-generator/check_markdown_links.py"],
     ["python", "tools/content-generator/check_top_level_structure.py"],
+    ["python", "tools/content-generator/check_root_readme_alignment.py"],
     ["python", "tools/content-generator/check_repository_quality.py"],
     ["python", "tools/content-generator/generate_portfolio_health_summary.py"],
     ["python", "tools/content-generator/cleanup_temporary_files.py"],
