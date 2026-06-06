@@ -1,4 +1,4 @@
-﻿# Kubernetes Cluster Health Monitoring
+# Kubernetes Cluster Health Monitoring
 
 ## Scenario Metadata
 
@@ -7,26 +7,32 @@
 | Scenario Name | kubernetes-cluster-health-monitoring |
 | Lifecycle Level | level-1-visibility |
 | Scenario Path | scenarios/level-1-visibility/kubernetes-cluster-health-monitoring |
+| Scenario Type | Visibility / Monitoring |
+| Primary Domain | Kubernetes / Cluster |
+| Status | draft |
 
 ---
 
 ## Overview
 
-This scenario documents an infrastructure operations situation within a scenario-driven infrastructure operations portfolio.
-
-It is designed to demonstrate operational reasoning, infrastructure awareness, lifecycle-based workflow design, and evidence-backed documentation.
+This scenario documents kubernetes cluster health monitoring within the kubernetes / cluster
+operational domain. It focuses on Kubernetes cluster, node, pod, control plane, service object and
+demonstrates how infrastructure operations teams can use domain-specific telemetry, lifecycle
+workflow design, and evidence-backed validation to support detect and expose operational health
+signals before incident escalation.
 
 ---
 
 ## Objectives
 
-- Define the operational situation represented by this scenario.
-- Identify the affected infrastructure components.
-- Establish detection and visibility workflow.
-- Document correlation and analysis logic.
-- Describe incident coordination and response workflow.
-- Validate the restored or stable operational state.
-- Provide public-safe evidence artifacts for portfolio review.
+- Define the scenario-specific kubernetes / cluster signal represented by kubernetes-cluster-health-monitoring.
+- Identify the affected kubernetes / cluster components and dependencies.
+- Collect and interpret telemetry from Kubernetes cluster, node, pod, control plane, service object.
+- Use node readiness as an operational signal for detection or validation.
+- Use pod health as an operational signal for detection or validation.
+- Use API server availability as an operational signal for detection or validation.
+- Document the lifecycle workflow from detection through validation.
+- Produce reviewer-readable evidence artifacts for portfolio assessment.
 
 ---
 
@@ -53,13 +59,20 @@ It is designed to demonstrate operational reasoning, infrastructure awareness, l
 
 ## Infrastructure Components
 
-This scenario may involve infrastructure components such as network paths, compute resources, platform services, telemetry sources, security controls, storage systems, or application-facing dependencies.
+- Kubernetes Cluster
+- Node
+- Pod
+- Control Plane
+- Service Object
+- Telemetry Source
+- Detection Logic
+- Evidence Output
 
 ---
 
 ## Operational Workflow
 
-The scenario follows the standard infrastructure operations lifecycle:
+The scenario follows the infrastructure operations lifecycle:
 
 1. Detection
 2. Correlation and Analysis
@@ -72,37 +85,41 @@ The scenario follows the standard infrastructure operations lifecycle:
 
 ## Detection Workflow
 
-Telemetry, status indicators, health checks, logs, metrics, or event signals are used to identify abnormal operational conditions.
+node readiness; pod health; API server availability; scheduling status; resource pressure; control
+plane signal
 
 ---
 
 ## Correlation and Analysis
 
-Related signals, dependencies, affected components, and possible impact paths are analyzed to understand the operational condition.
+Correlate kubernetes / cluster signals with related infrastructure state, dependencies, recent
+events, and service impact.
 
 ---
 
 ## Alert and Incident Workflow
 
-The detected condition may be qualified as an operational alert or incident based on severity, ownership, escalation context, and coordination requirements.
+Detect and expose operational health signals before incident escalation
 
 ---
 
 ## Recovery and Automation Workflow
 
-The response workflow describes mitigation, restoration, failover, rebalancing, or operator-guided recovery activities depending on scenario maturity.
+Detect and expose operational health signals before incident escalation
 
 ---
 
 ## Recovery Validation
 
-Recovery validation confirms that the affected infrastructure state has been restored or stabilized.
+Validate stable state, evidence completeness, and operational readiness after detection, analysis,
+response, or recovery.
 
 ---
 
 ## Monitoring and Visibility
 
-Monitoring and visibility may include metrics, logs, traces, health checks, status indicators, synthetic checks, event streams, or dashboard signals.
+Monitoring and visibility include node readiness; pod health; API server availability; scheduling
+status; resource pressure; control plane signal.
 
 ---
 
@@ -110,13 +127,16 @@ Monitoring and visibility may include metrics, logs, traces, health checks, stat
 
 | Component | Purpose |
 |---|---|
-| Telemetry Source | Provides operational signals |
-| Detection Logic | Identifies abnormal conditions |
-| Correlation Logic | Connects symptoms and dependencies |
-| Incident Flow | Supports coordination and escalation |
-| Recovery Workflow | Defines mitigation or restoration path |
-| Validation Method | Confirms stable operational state |
-| Evidence Output | Records public-safe completion artifacts |
+| Kubernetes Cluster | Provides context or signal source for Kubernetes / Cluster operations |
+| Node | Provides context or signal source for Kubernetes / Cluster operations |
+| Pod | Provides context or signal source for Kubernetes / Cluster operations |
+| Control Plane | Provides context or signal source for Kubernetes / Cluster operations |
+| Service Object | Provides context or signal source for Kubernetes / Cluster operations |
+| Telemetry Source | Provides context or signal source for Kubernetes / Cluster operations |
+| Detection Logic | Provides context or signal source for Kubernetes / Cluster operations |
+| Evidence Output | Provides context or signal source for Kubernetes / Cluster operations |
+| Correlation Logic | Connects related signals, dependencies, and impact context |
+| Validation Method | Confirms stable state, restored condition, or visibility completeness |
 
 ---
 
@@ -132,23 +152,22 @@ Monitoring and visibility may include metrics, logs, traces, health checks, stat
 
 ## Expected Outcomes
 
-- The operational condition is documented.
-- Visibility signals are identified.
-- Related infrastructure dependencies are considered.
-- Response or recovery workflow is described.
-- Validation criteria are defined.
-- Evidence artifacts are available for review.
+- The scenario has domain-specific operational context.
+- Telemetry signals are identified and mapped to the scenario purpose.
+- Infrastructure components and dependencies are documented.
+- Lifecycle workflow sections are populated with scenario-specific content.
+- Validation and evidence outputs are defined for portfolio review.
 
 ---
 
 ## Validation Checklist
 
 - [ ] Scenario metadata is present.
-- [ ] Operational poster is referenced.
+- [ ] Operational poster reference is preserved.
 - [ ] Used modules are listed.
 - [ ] Used adapters are listed.
-- [ ] Detection workflow is described.
-- [ ] Correlation and analysis workflow is described.
+- [ ] Detection workflow is scenario-specific.
+- [ ] Correlation and analysis workflow is scenario-specific.
 - [ ] Response or recovery workflow is described.
 - [ ] Recovery validation is described.
 - [ ] Evidence links are present.
@@ -178,4 +197,4 @@ None currently defined.
 
 ## Summary
 
-This scenario contributes to the scenario-driven infrastructure operations portfolio by documenting an operational situation, lifecycle workflow, supporting modules and adapters, validation criteria, and public-safe evidence artifacts.
+This scenario contributes to the infrastructure operations portfolio by documenting kubernetes / cluster workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
