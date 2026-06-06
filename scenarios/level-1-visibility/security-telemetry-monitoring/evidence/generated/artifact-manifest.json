@@ -1,0 +1,15 @@
+{
+  "scenario_name": "security-telemetry-monitoring",
+  "scenario_title": "Security Telemetry Monitoring",
+  "lifecycle_level": "level-1-visibility",
+  "primary_domain": "Security / Telemetry",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}

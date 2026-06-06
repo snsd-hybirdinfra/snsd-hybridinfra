@@ -1,0 +1,15 @@
+{
+  "scenario_name": "api-latency-correlation",
+  "scenario_title": "Api Latency Correlation",
+  "lifecycle_level": "level-2-correlation",
+  "primary_domain": "API / Service",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}

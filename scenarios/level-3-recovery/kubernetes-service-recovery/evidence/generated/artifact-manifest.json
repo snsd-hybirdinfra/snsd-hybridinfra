@@ -1,0 +1,15 @@
+{
+  "scenario_name": "kubernetes-service-recovery",
+  "scenario_title": "Kubernetes Service Recovery",
+  "lifecycle_level": "level-3-recovery",
+  "primary_domain": "Kubernetes / Cluster",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}

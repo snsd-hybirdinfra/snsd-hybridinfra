@@ -1,0 +1,15 @@
+{
+  "scenario_name": "server-service-recovery",
+  "scenario_title": "Server Service Recovery",
+  "lifecycle_level": "level-3-recovery",
+  "primary_domain": "General Infrastructure",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}

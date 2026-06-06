@@ -1,0 +1,15 @@
+{
+  "scenario_name": "distributed-platform-survivability",
+  "scenario_title": "Distributed Platform Survivability",
+  "lifecycle_level": "level-4-resilience",
+  "primary_domain": "General Infrastructure",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}

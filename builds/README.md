@@ -1,10 +1,27 @@
-﻿# Infrastructure Build Scenarios
+# Infrastructure Build Scenarios
 
 This directory contains build-oriented infrastructure scenarios.
 
-Build scenarios demonstrate how infrastructure foundations are designed, provisioned, configured, secured, instrumented, and prepared for operational use.
+Build scenarios document how infrastructure foundations are designed, provisioned, configured, secured, instrumented, and prepared for operational use.
 
-They complement the operational scenarios under `/scenarios`.
+---
+
+## Build Scenario Catalog
+
+| Build Scenario | Purpose |
+|---|---|
+| [ALB Based Web Service Routing](alb-based-web-service-routing/) | Application load balancing, listener routing, and target health structure |
+| [Ansible Server Bootstrap](ansible-server-bootstrap/) | Server bootstrap automation for packages, users, services, and configuration |
+| [Backup Automation Foundation](backup-automation-foundation/) | Backup job automation, repository target, retention, and validation boundary |
+| [Hybrid VPC Foundation](hybrid-vpc-foundation/) | Baseline hybrid VPC, subnet, routing, gateway, and connectivity foundation |
+| [Log Pipeline Foundation](log-pipeline-foundation/) | Log collection, forwarding, indexing, retention, and review pipeline |
+| [NAT Gateway Egress Architecture](nat-gateway-egress-architecture/) | Private subnet outbound access through NAT gateway routing |
+| [Observability Stack Deployment](observability-stack-deployment/) | Metrics, exporters, dashboards, and operational visibility foundation |
+| [Private Web Tier With Bastion](private-web-tier-with-bastion/) | Private web tier with bastion-controlled administrative access |
+| [Recovery Validation Lab](recovery-validation-lab/) | Controlled recovery validation environment and evidence workflow |
+| [Security Boundary Baseline](security-boundary-baseline/) | Security groups, access boundaries, and baseline network controls |
+
+---
 
 ## Build Flow
 
@@ -15,27 +32,10 @@ Infrastructure Build
 → Automation Readiness  
 → Operational Scenario Integration
 
-## Build Scenarios
-
-| Build Scenario | Purpose |
-|---|---|
-| hybrid-vpc-foundation | Defines baseline hybrid VPC, subnet, routing, and gateway foundation |
-| private-web-tier-with-bastion | Builds private server access using bastion-controlled administration |
-| nat-gateway-egress-architecture | Configures private outbound access through NAT gateway design |
-| alb-based-web-service-routing | Builds application load balancing and web service routing structure |
-| security-boundary-baseline | Defines security groups, access rules, and network boundary controls |
-| observability-stack-deployment | Deploys metrics, dashboards, exporters, and visibility foundation |
-| ansible-server-bootstrap | Automates baseline server package, user, service, and configuration setup |
-| log-pipeline-foundation | Builds log collection, forwarding, storage, and review pipeline foundation |
-| backup-automation-foundation | Establishes backup job automation, repository target, and validation boundary |
-| recovery-validation-lab | Builds controlled recovery test environment and validation evidence workflow |
+---
 
 ## Relationship to Operational Scenarios
 
-Build scenarios answer:
+Build scenarios answer how the infrastructure foundation is created.
 
-> How is the infrastructure foundation created?
-
-Operational scenarios answer:
-
-> How is that foundation monitored, analyzed, recovered, validated, and governed?
+Operational scenarios answer how that foundation is monitored, analyzed, recovered, validated, and governed.
