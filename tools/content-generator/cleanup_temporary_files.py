@@ -25,17 +25,13 @@ PROTECTED_PARTS = [
 ]
 
 deleted = []
-skipped = []
+protected_skipped = 0
 
 for path in ROOT.rglob("*"):
     if not path.is_file():
         continue
 
     rel = path.relative_to(ROOT).as_posix()
-
-    if any(protected in rel for protected in PROTECTED_PARTS):
-        skipped.append(rel)
-        continue
 
     should_delete = False
 
@@ -45,18 +41,22 @@ for path in ROOT.rglob("*"):
     if any(path.name.endswith(suffix) for suffix in DELETE_SUFFIXES):
         should_delete = True
 
-    if should_delete:
-        path.unlink()
-        deleted.append(rel)
+    if not should_delete:
+        continue
+
+    if any(protected in rel for protected in PROTECTED_PARTS):
+        protected_skipped += 1
+        continue
+
+    path.unlink()
+    deleted.append(rel)
 
 print("[OK] cleanup completed")
 print(f"deleted_files: {len(deleted)}")
+print(f"protected_files_skipped: {protected_skipped}")
 
-for item in deleted:
-    print(f"- {item}")
-
-if skipped:
+if deleted:
     print("")
-    print("[INFO] protected paths skipped:")
-    for item in skipped:
+    print("[DELETED]")
+    for item in deleted:
         print(f"- {item}")
