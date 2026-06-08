@@ -1,4 +1,4 @@
-﻿# Compute Resource Correlation
+# Compute Resource Correlation
 
 ## Scenario Metadata
 
@@ -200,4 +200,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting compute / resource workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

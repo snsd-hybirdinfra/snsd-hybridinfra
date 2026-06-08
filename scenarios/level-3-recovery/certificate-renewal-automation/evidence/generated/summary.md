@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | certificate-renewal-automation |
-| Scenario Title | certificate-renewal-automation |
+| Scenario Title | Certificate Renewal Automation |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Security Operations |
 
 ## Summary
 

@@ -2,7 +2,7 @@
 
 ## Scenario
 
-kubernetes-platform-resilience
+Kubernetes Platform Resilience
 
 ## Validation Status
 

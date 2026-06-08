@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | change-resilience-coordination |
-| Scenario Title | change-resilience-coordination |
+| Scenario Title | Change Resilience Coordination |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Change Operations |
 
 ## Summary
 

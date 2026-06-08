@@ -1,40 +1,121 @@
-﻿scenario_name: inter-region-connectivity-monitoring
+scenario_name: inter-region-connectivity-monitoring
 scenario_title: Inter Region Connectivity Monitoring
 lifecycle_level: level-1-visibility
-lifecycle_name: Visibility
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
+scenario_path: scenarios/level-1-visibility/inter-region-connectivity-monitoring
+scenario_type: visibility
+primary_domain: Network Operations
 status: draft
-summary: This scenario documents infrastructure visibility operations using telemetry
-  collection, signal exposure, and operational health reporting.
+
+overview: |
+  This scenario documents inter region connectivity monitoring within the network operations
+  operational domain. It focuses on inter region network path and routing endpoint and demonstrates
+  how infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design,
+  and evidence-backed validation to support monitor connectivity between regions and detect early
+  degradation.
+
 objectives:
-- Document the operational workflow for inter region connectivity monitoring.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+  - Define the scenario-specific network operations signal represented by inter-region-connectivity-monitoring.
+  - Identify the affected network operations components and dependencies.
+  - Collect and interpret telemetry from inter region network path and routing endpoint.
+  - Use path reachability as an operational signal for detection or validation.
+  - Use latency as an operational signal for detection or validation.
+  - Use packet loss as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Monitor connectivity between regions and detect early degradation
+
+target_resource: |
+  inter region network path and routing endpoint
+
+telemetry_signals:
+  - path reachability
+  - latency
+  - packet loss
+  - route availability
+
 infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+  - regional gateway
+  - routing domain
+  - network path
+  - telemetry probe
+  - dashboard
+
+detection_workflow: |
+  Collect reachability and latency signals across regional network paths
+
+correlation_and_analysis: |
+  Compare path degradation with routing status and regional gateway health
+
+alert_and_incident_workflow: |
+  Notify network operations when inter region connectivity becomes unstable
+
+recovery_and_automation_workflow: |
+  Notify network operations when inter region connectivity becomes unstable
+
+recovery_validation: |
+  Validate that regional paths remain reachable within accepted latency boundaries
+
+monitoring_and_visibility: |
+  Monitoring and visibility include path reachability; latency; packet loss; route availability.
+
 used_modules:
-- Telemetry Aggregation Module
-- Health Signal Collection Module
-- Visibility Reporting Module
+  - Health Signal Collection Module
+  - Telemetry Aggregation Module
+  - Visibility Reporting Module
+
 used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
+  - Prometheus Adapter
+  - Python Exporter Adapter
+  - Grafana Adapter
+
+operational_components:
+  - name: regional gateway
+    purpose: Provides context or signal source for Network Operations operations
+  - name: routing domain
+    purpose: Provides context or signal source for Network Operations operations
+  - name: network path
+    purpose: Provides context or signal source for Network Operations operations
+  - name: telemetry probe
+    purpose: Provides context or signal source for Network Operations operations
+  - name: dashboard
+    purpose: Provides context or signal source for Network Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - inter region connectivity summary
+  - route visibility evidence
+  - latency validation report
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
 related_scenarios:
   upstream: []
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-1-visibility/configuration-drift-monitoring
-  - /snsd-hybridinfra/scenarios/level-1-visibility/control-plane-health-monitoring
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/inter-region-dependency-correlation
+  same_level: []
+  downstream: []
   cross_domain: []
-primary_domain: Network / Routing
-

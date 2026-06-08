@@ -1,42 +1,122 @@
-﻿scenario_name: storage-replication-resilience
+scenario_name: storage-replication-resilience
 scenario_title: Storage Replication Resilience
 lifecycle_level: level-4-resilience
-lifecycle_name: Distributed Resilience
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
+scenario_path: scenarios/level-4-resilience/storage-replication-resilience
+scenario_type: resilience
+primary_domain: Storage Operations
 status: draft
-summary: This scenario documents distributed resilience operations across failure
-  domains, regions, clusters, or service boundaries.
-objectives:
-- Document the operational workflow for storage replication resilience.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Resilience Coordination Module
-- Failover Control Module
-- Survivability Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/storage-volume-recovery-automation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/backup-resilience-validation
-  - /snsd-hybridinfra/scenarios/level-4-resilience/change-resilience-coordination
-  - /snsd-hybridinfra/scenarios/level-4-resilience/configuration-resilience-validation
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-change-continuity
-  cross_domain: []
-primary_domain: Database / Replication
 
+overview: |
+  This scenario documents storage replication resilience within the storage operations operational
+  domain. It focuses on replicated storage volume and dependent workload and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support validate storage replication resilience during degraded
+  storage conditions.
+
+objectives:
+  - Define the scenario-specific storage operations signal represented by storage-replication-resilience.
+  - Identify the affected storage operations components and dependencies.
+  - Collect and interpret telemetry from replicated storage volume and dependent workload.
+  - Use replication lag as an operational signal for detection or validation.
+  - Use volume health as an operational signal for detection or validation.
+  - Use write error as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Validate storage replication resilience during degraded storage conditions
+
+target_resource: |
+  replicated storage volume and dependent workload
+
+telemetry_signals:
+  - replication lag
+  - volume health
+  - write error
+  - resilience validation
+
+infrastructure_components:
+  - primary volume
+  - replica volume
+  - workload node
+  - resilience workflow
+  - validation output
+
+detection_workflow: |
+  Collect replication lag and storage health signals
+
+correlation_and_analysis: |
+  Analyze whether replicated storage can support workload continuity
+
+alert_and_incident_workflow: |
+  Coordinate replication validation and failover readiness
+
+recovery_and_automation_workflow: |
+  Coordinate replication validation and failover readiness
+
+recovery_validation: |
+  Validate replica readiness and workload access path
+
+monitoring_and_visibility: |
+  Monitoring and visibility include replication lag; volume health; write error; resilience
+  validation.
+
+used_modules:
+  - Resilience Coordination Module
+  - Recovery Orchestration Module
+  - Recovery Validation Module
+
+used_adapters:
+  - Prometheus Adapter
+  - Ansible Adapter
+  - Grafana Adapter
+
+operational_components:
+  - name: primary volume
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: replica volume
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: workload node
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: resilience workflow
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - storage replication evidence
+  - replica readiness report
+  - resilience summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

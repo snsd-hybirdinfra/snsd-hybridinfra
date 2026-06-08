@@ -2,7 +2,7 @@
 
 ## Scenario
 
-change-resilience-coordination
+Change Resilience Coordination
 
 ## Validation Status
 

@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | storage-replication-resilience |
-| Scenario Title | storage-replication-resilience |
+| Scenario Title | Storage Replication Resilience |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Storage Operations |
 
 ## Summary
 

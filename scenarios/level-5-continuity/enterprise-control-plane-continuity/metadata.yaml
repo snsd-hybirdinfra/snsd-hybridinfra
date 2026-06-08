@@ -1,41 +1,122 @@
-﻿scenario_name: enterprise-control-plane-continuity
+scenario_name: enterprise-control-plane-continuity
 scenario_title: Enterprise Control Plane Continuity
 lifecycle_level: level-5-continuity
-lifecycle_name: Enterprise Continuity
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
+scenario_path: scenarios/level-5-continuity/enterprise-control-plane-continuity
+scenario_type: continuity
+primary_domain: Continuity Operations
 status: draft
-summary: This scenario documents enterprise continuity operations using readiness
-  validation, governance reporting, and cross-domain recovery posture review.
+
+overview: |
+  This scenario documents enterprise control plane continuity within the continuity operations
+  operational domain. It focuses on enterprise control plane and management service dependency and
+  demonstrates how infrastructure operations teams can use domain-specific telemetry, lifecycle
+  workflow design, and evidence-backed validation to support coordinate enterprise continuity when
+  platform control plane capability is degraded.
+
 objectives:
-- Document the operational workflow for enterprise control plane continuity.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+  - Define the scenario-specific continuity operations signal represented by enterprise-control-plane-continuity.
+  - Identify the affected continuity operations components and dependencies.
+  - Collect and interpret telemetry from enterprise control plane and management service dependency.
+  - Use management api availability as an operational signal for detection or validation.
+  - Use controller health as an operational signal for detection or validation.
+  - Use platform readiness as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Coordinate enterprise continuity when platform control plane capability is degraded
+
+target_resource: |
+  enterprise control plane and management service dependency
+
+telemetry_signals:
+  - management api availability
+  - controller health
+  - platform readiness
+  - continuity status
+
 infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+  - control plane API
+  - management workflow
+  - platform dependency
+  - continuity workflow
+  - governance report
+
+detection_workflow: |
+  Collect control plane readiness and management operation signals
+
+correlation_and_analysis: |
+  Analyze whether enterprise operations can continue during control plane degradation
+
+alert_and_incident_workflow: |
+  Coordinate enterprise continuity workflow for control plane failure scenarios
+
+recovery_and_automation_workflow: |
+  Coordinate enterprise continuity workflow for control plane failure scenarios
+
+recovery_validation: |
+  Validate management continuity and operational acceptance criteria
+
+monitoring_and_visibility: |
+  Monitoring and visibility include management api availability; controller health; platform
+  readiness; continuity status.
+
 used_modules:
-- Continuity Governance Module
-- Readiness Assessment Module
-- Governance Reporting Module
+  - Continuity Coordination Module
+  - Recovery Validation Module
+  - Governance Reporting Module
+
 used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
+  - Kubernetes Adapter
+  - Prometheus Adapter
+  - Grafana Adapter
+
+operational_components:
+  - name: control plane API
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: management workflow
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: platform dependency
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: continuity workflow
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: governance report
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - control plane continuity report
+  - management readiness evidence
+  - governance validation summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
 related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/control-plane-resilience
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-change-continuity
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-data-protection-continuity
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-identity-continuity
+  upstream: []
+  same_level: []
   downstream: []
   cross_domain: []
-primary_domain: Control Plane
-

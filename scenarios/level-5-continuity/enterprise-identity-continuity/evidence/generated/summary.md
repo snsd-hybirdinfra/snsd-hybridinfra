@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | enterprise-identity-continuity |
-| Scenario Title | enterprise-identity-continuity |
+| Scenario Title | Enterprise Identity Continuity |
 | Lifecycle Level | level-5-continuity |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Continuity Operations |
 
 ## Summary
 

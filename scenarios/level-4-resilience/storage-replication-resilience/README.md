@@ -1,114 +1,120 @@
-﻿# Storage Replication Resilience
+# Storage Replication Resilience
 
 ## Scenario Metadata
 
 | Field | Value |
 |---|---|
-| Scenario Name | `storage-replication-resilience` |
-| Lifecycle Level | `level-4-resilience` |
-| Lifecycle Name | Distributed Resilience |
-| Operational Scope | Infrastructure Operations |
-| Environment | Hybrid Infrastructure |
+| Scenario Name | storage-replication-resilience |
+| Lifecycle Level | level-4-resilience |
+| Scenario Path | scenarios/level-4-resilience/storage-replication-resilience |
+| Scenario Type | resilience |
+| Primary Domain | Storage Operations |
 | Status | draft |
 
 ---
 
 ## Overview
 
-This scenario documents distributed resilience operations across failure domains, regions, clusters, or service boundaries.
+This scenario documents storage replication resilience within the storage operations operational
+domain. It focuses on replicated storage volume and dependent workload and demonstrates how
+infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+evidence-backed validation to support validate storage replication resilience during degraded
+storage conditions.
 
 ---
 
 ## Objectives
 
-- Document the operational workflow for storage replication resilience.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+- Define the scenario-specific storage operations signal represented by storage-replication-resilience.
+- Identify the affected storage operations components and dependencies.
+- Collect and interpret telemetry from replicated storage volume and dependent workload.
+- Use replication lag as an operational signal for detection or validation.
+- Use volume health as an operational signal for detection or validation.
+- Use write error as an operational signal for detection or validation.
+- Document the lifecycle workflow from detection through validation.
+- Produce reviewer-readable evidence artifacts for portfolio assessment.
 
 ---
 
 ## Scenario Architecture
 
-This scenario follows the repository operational lifecycle:
-
-Detection -> Correlation & Analysis -> Incident Coordination -> Recovery & Automation -> Recovery Validation -> Governance & Reporting
-
-![Operational Poster](./diagrams/operational-poster.png)
+![Operational Poster](diagrams/operational-poster.png)
 
 ---
 
 ## Used Modules
 
 - Resilience Coordination Module
-- Failover Control Module
-- Survivability Validation Module
+- Recovery Orchestration Module
+- Recovery Validation Module
 
 ---
 
 ## Used Adapters
 
 - Prometheus Adapter
-- Grafana Adapter
 - Ansible Adapter
-- Python Exporter Adapter
+- Grafana Adapter
 
 ---
 
 ## Infrastructure Components
 
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+- primary volume
+- replica volume
+- workload node
+- resilience workflow
+- validation output
 
 ---
 
 ## Operational Workflow
 
-1. Collect telemetry and infrastructure health signals.
-2. Analyze operational symptoms and dependency context.
-3. Coordinate incident response or operational review.
-4. Execute the appropriate recovery, validation, or governance workflow.
-5. Produce evidence for reviewer-readable validation.
+The scenario follows the infrastructure operations lifecycle:
+
+1. Detection
+2. Correlation and Analysis
+3. Incident Coordination
+4. Recovery and Automation
+5. Recovery Validation
+6. Governance and Reporting
 
 ---
 
-## Detection
+## Detection Workflow
 
-The scenario begins by collecting operational signals from infrastructure targets and telemetry sources.
-
----
-
-## Correlation & Analysis
-
-Collected signals are correlated with dependency context, infrastructure state, and operational impact.
+Collect replication lag and storage health signals
 
 ---
 
-## Alert & Incident Workflow
+## Correlation and Analysis
 
-The workflow defines how the operational condition is reviewed, escalated, and coordinated.
+Analyze whether replicated storage can support workload continuity
 
 ---
 
-## Recovery & Automation
+## Alert and Incident Workflow
 
-Automation or recovery actions are executed according to the lifecycle level and operational scope.
+Coordinate replication validation and failover readiness
+
+---
+
+## Recovery and Automation Workflow
+
+Coordinate replication validation and failover readiness
 
 ---
 
 ## Recovery Validation
 
-The scenario validates that the expected operational state has been restored or confirmed.
+Validate replica readiness and workload access path
 
 ---
 
-## Monitoring & Visibility
+## Monitoring and Visibility
 
-Operational visibility is maintained through dashboards, telemetry views, and generated evidence.
+Monitoring and visibility include replication lag; volume health; write error; resilience
+validation.
 
 ---
 
@@ -116,42 +122,73 @@ Operational visibility is maintained through dashboards, telemetry views, and ge
 
 | Component | Purpose |
 |---|---|
-| Infrastructure target | Represents the operational asset or service under review. |
-| Telemetry source | Provides health, performance, or event signals. |
-| Analysis workflow | Supports correlation and operational reasoning. |
-| Response workflow | Supports recovery, coordination, or governance action. |
-| Evidence artifact | Records reviewer-readable validation output. |
+| primary volume | Provides context or signal source for Storage Operations operations |
+| replica volume | Provides context or signal source for Storage Operations operations |
+| workload node | Provides context or signal source for Storage Operations operations |
+| resilience workflow | Provides context or signal source for Storage Operations operations |
+| validation output | Provides context or signal source for Storage Operations operations |
+| Detection Logic | Identifies abnormal or degraded operational conditions |
+| Correlation Logic | Connects related signals, dependencies, and impact context |
+| Validation Method | Confirms stable state, restored condition, or visibility completeness |
+| Evidence Output | Records public-safe completion and review artifacts |
 
 ---
 
 ## Evidence
 
-- [Summary](./evidence/generated/summary.md)
-- [Execution Evidence](./evidence/generated/execution-evidence.md)
-- [Validation Evidence](./evidence/generated/validation-evidence.md)
-- [Artifact Manifest](./evidence/generated/artifact-manifest.json)
-- [Artifact Checksums](./evidence/generated/artifact-checksums.json)
+- [Evidence Summary](evidence/generated/summary.md)
+- [Execution Evidence](evidence/generated/execution-evidence.md)
+- [Validation Evidence](evidence/generated/validation-evidence.md)
+- [Artifact Manifest](evidence/generated/artifact-manifest.json)
+- [Artifact Checksums](evidence/generated/artifact-checksums.json)
+
+---
+
+## Expected Outcomes
+
+- The scenario has domain-specific operational context.
+- Telemetry signals are identified and mapped to the scenario purpose.
+- Infrastructure components and dependencies are documented.
+- Lifecycle workflow sections are populated with scenario-specific content.
+- Validation and evidence outputs are defined for portfolio review.
 
 ---
 
 ## Validation Checklist
 
-- [ ] Metadata file exists.
-- [ ] README file exists.
-- [ ] Operational poster exists.
-- [ ] Evidence files exist.
-- [ ] Scenario is included in repository inventory.
-- [ ] Scenario passes repository validation workflow.
+- [ ] Scenario metadata is present.
+- [ ] Operational poster reference is preserved.
+- [ ] Used modules are listed.
+- [ ] Used adapters are listed.
+- [ ] Detection workflow is scenario-specific.
+- [ ] Correlation and analysis workflow is scenario-specific.
+- [ ] Response or recovery workflow is described.
+- [ ] Recovery validation is described.
+- [ ] Evidence links are present.
+- [ ] Deprecated diagram references are not used.
 
 ---
 
 ## Related Scenarios
 
-No directly related scenarios are currently defined for this scenario.
+### Upstream Scenarios
+
+None currently defined.
+
+### Same-Level Scenarios
+
+None currently defined.
+
+### Downstream Scenarios
+
+None currently defined.
+
+### Cross-Domain Scenarios
+
+None currently defined.
 
 ---
 
 ## Summary
 
-Storage Replication Resilience documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
-
+This scenario contributes to the infrastructure operations portfolio by documenting storage operations workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.

@@ -2,7 +2,7 @@
 
 ## Scenario
 
-configuration-rollback-automation
+Configuration Rollback Automation
 
 ## Validation Status
 

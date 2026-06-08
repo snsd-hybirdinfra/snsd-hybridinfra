@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | identity-access-remediation |
-| Scenario Title | identity-access-remediation |
+| Scenario Title | Identity Access Remediation |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Identity Operations |
 
 ## Summary
 

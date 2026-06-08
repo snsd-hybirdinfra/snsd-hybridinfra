@@ -2,7 +2,7 @@
 
 ## Scenario
 
-backup-resilience-validation
+Backup Resilience Validation
 
 ## Validation Status
 

@@ -1,42 +1,122 @@
-﻿scenario_name: configuration-rollback-automation
+scenario_name: configuration-rollback-automation
 scenario_title: Configuration Rollback Automation
 lifecycle_level: level-3-recovery
-lifecycle_name: Recovery and Automation
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
+scenario_path: scenarios/level-3-recovery/configuration-rollback-automation
+scenario_type: recovery
+primary_domain: Configuration Operations
 status: draft
-summary: This scenario documents controlled recovery operations using automation execution,
-  restoration workflow control, and recovery validation.
-objectives:
-- Document the operational workflow for configuration rollback automation.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Recovery Orchestration Module
-- Automation Execution Module
-- Recovery Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/configuration-drift-correlation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback
-  - /snsd-hybridinfra/scenarios/level-3-recovery/certificate-renewal-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/control-plane-recovery-orchestration
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/configuration-resilience-validation
-  cross_domain: []
-primary_domain: Configuration / Change
 
+overview: |
+  This scenario documents configuration rollback automation within the configuration operations
+  operational domain. It focuses on managed configuration baseline and affected infrastructure
+  component and demonstrates how infrastructure operations teams can use domain-specific telemetry,
+  lifecycle workflow design, and evidence-backed validation to support execute controlled rollback
+  when configuration drift or failed change causes degradation.
+
+objectives:
+  - Define the scenario-specific configuration operations signal represented by configuration-rollback-automation.
+  - Identify the affected configuration operations components and dependencies.
+  - Collect and interpret telemetry from managed configuration baseline and affected infrastructure component.
+  - Use rollback trigger as an operational signal for detection or validation.
+  - Use baseline mismatch as an operational signal for detection or validation.
+  - Use service recovery signal as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Execute controlled rollback when configuration drift or failed change causes degradation
+
+target_resource: |
+  managed configuration baseline and affected infrastructure component
+
+telemetry_signals:
+  - rollback trigger
+  - baseline mismatch
+  - service recovery signal
+  - validation result
+
+infrastructure_components:
+  - configuration baseline
+  - managed node
+  - automation runner
+  - recovery workflow
+  - validation output
+
+detection_workflow: |
+  Use confirmed drift or failed change signals as rollback triggers
+
+correlation_and_analysis: |
+  Confirm that the degraded component is linked to a known configuration change
+
+alert_and_incident_workflow: |
+  Execute rollback workflow and record recovery progress
+
+recovery_and_automation_workflow: |
+  Execute rollback workflow and record recovery progress
+
+recovery_validation: |
+  Restore approved configuration and validate service stability
+
+monitoring_and_visibility: |
+  Monitoring and visibility include rollback trigger; baseline mismatch; service recovery signal;
+  validation result.
+
+used_modules:
+  - Recovery Orchestration Module
+  - Automation Execution Module
+  - Recovery Validation Module
+
+used_adapters:
+  - Ansible Adapter
+  - Python Exporter Adapter
+  - Prometheus Adapter
+
+operational_components:
+  - name: configuration baseline
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: managed node
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: automation runner
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: recovery workflow
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - rollback execution evidence
+  - configuration validation report
+  - recovery summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

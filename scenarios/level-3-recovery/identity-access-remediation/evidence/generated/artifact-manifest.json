@@ -1,8 +1,8 @@
 {
   "scenario_name": "identity-access-remediation",
-  "scenario_title": "identity-access-remediation",
+  "scenario_title": "Identity Access Remediation",
   "lifecycle_level": "level-3-recovery",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Identity Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

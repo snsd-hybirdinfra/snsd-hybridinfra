@@ -1,4 +1,4 @@
-﻿# Kubernetes Node Recovery
+# Kubernetes Node Recovery
 
 ## Scenario Metadata
 
@@ -199,4 +199,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting kubernetes / cluster workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

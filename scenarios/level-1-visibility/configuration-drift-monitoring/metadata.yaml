@@ -1,40 +1,122 @@
-﻿scenario_name: configuration-drift-monitoring
+scenario_name: configuration-drift-monitoring
 scenario_title: Configuration Drift Monitoring
 lifecycle_level: level-1-visibility
-lifecycle_name: Visibility
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
+scenario_path: scenarios/level-1-visibility/configuration-drift-monitoring
+scenario_type: visibility
+primary_domain: Configuration Operations
 status: draft
-summary: This scenario documents infrastructure visibility operations using telemetry
-  collection, signal exposure, and operational health reporting.
+
+overview: |
+  This scenario documents configuration drift monitoring within the configuration operations
+  operational domain. It focuses on server configuration baseline and cloud resource configuration
+  state and demonstrates how infrastructure operations teams can use domain-specific telemetry,
+  lifecycle workflow design, and evidence-backed validation to support detect unauthorized or
+  unexpected configuration drift before it causes infrastructure instability.
+
 objectives:
-- Document the operational workflow for configuration drift monitoring.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+  - Define the scenario-specific configuration operations signal represented by configuration-drift-monitoring.
+  - Identify the affected configuration operations components and dependencies.
+  - Collect and interpret telemetry from server configuration baseline and cloud resource configuration state.
+  - Use configuration checksum as an operational signal for detection or validation.
+  - Use baseline mismatch as an operational signal for detection or validation.
+  - Use policy deviation as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Detect unauthorized or unexpected configuration drift before it causes infrastructure instability
+
+target_resource: |
+  server configuration baseline and cloud resource configuration state
+
+telemetry_signals:
+  - configuration checksum
+  - baseline mismatch
+  - policy deviation
+  - change timestamp
+
 infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+  - configuration baseline
+  - managed node
+  - cloud resource
+  - telemetry collector
+  - visibility dashboard
+
+detection_workflow: |
+  Collect configuration state and compare it against the approved operational baseline
+
+correlation_and_analysis: |
+  Correlate drift signals with recent change activity and affected infrastructure components
+
+alert_and_incident_workflow: |
+  Notify operations when configuration drift exceeds the accepted visibility threshold
+
+recovery_and_automation_workflow: |
+  Notify operations when configuration drift exceeds the accepted visibility threshold
+
+recovery_validation: |
+  Validate whether the observed configuration state matches the approved baseline
+
+monitoring_and_visibility: |
+  Monitoring and visibility include configuration checksum; baseline mismatch; policy deviation;
+  change timestamp.
+
 used_modules:
-- Telemetry Aggregation Module
-- Health Signal Collection Module
-- Visibility Reporting Module
+  - Health Signal Collection Module
+  - Telemetry Aggregation Module
+  - Visibility Reporting Module
+
 used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
+  - Python Exporter Adapter
+  - Ansible Adapter
+  - Prometheus Adapter
+
+operational_components:
+  - name: configuration baseline
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: managed node
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: cloud resource
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: telemetry collector
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: visibility dashboard
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - configuration drift summary
+  - baseline comparison evidence
+  - visibility validation report
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
 related_scenarios:
   upstream: []
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-1-visibility/control-plane-health-monitoring
-  - /snsd-hybridinfra/scenarios/level-1-visibility/inter-region-connectivity-monitoring
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/configuration-drift-correlation
+  same_level: []
+  downstream: []
   cross_domain: []
-primary_domain: Configuration / Change
-

@@ -1,114 +1,120 @@
-﻿# Identity Failover Resilience
+# Identity Failover Resilience
 
 ## Scenario Metadata
 
 | Field | Value |
 |---|---|
-| Scenario Name | `identity-failover-resilience` |
-| Lifecycle Level | `level-4-resilience` |
-| Lifecycle Name | Distributed Resilience |
-| Operational Scope | Infrastructure Operations |
-| Environment | Hybrid Infrastructure |
+| Scenario Name | identity-failover-resilience |
+| Lifecycle Level | level-4-resilience |
+| Scenario Path | scenarios/level-4-resilience/identity-failover-resilience |
+| Scenario Type | resilience |
+| Primary Domain | Identity Operations |
 | Status | draft |
 
 ---
 
 ## Overview
 
-This scenario documents distributed resilience operations across failure domains, regions, clusters, or service boundaries.
+This scenario documents identity failover resilience within the identity operations operational
+domain. It focuses on identity provider and access controlled service and demonstrates how
+infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+evidence-backed validation to support validate resilience of identity and access paths during
+authentication degradation.
 
 ---
 
 ## Objectives
 
-- Document the operational workflow for identity failover resilience.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+- Define the scenario-specific identity operations signal represented by identity-failover-resilience.
+- Identify the affected identity operations components and dependencies.
+- Collect and interpret telemetry from identity provider and access controlled service.
+- Use authentication failure as an operational signal for detection or validation.
+- Use token validation error as an operational signal for detection or validation.
+- Use failover status as an operational signal for detection or validation.
+- Document the lifecycle workflow from detection through validation.
+- Produce reviewer-readable evidence artifacts for portfolio assessment.
 
 ---
 
 ## Scenario Architecture
 
-This scenario follows the repository operational lifecycle:
-
-Detection -> Correlation & Analysis -> Incident Coordination -> Recovery & Automation -> Recovery Validation -> Governance & Reporting
-
-![Operational Poster](./diagrams/operational-poster.png)
+![Operational Poster](diagrams/operational-poster.png)
 
 ---
 
 ## Used Modules
 
 - Resilience Coordination Module
-- Failover Control Module
-- Survivability Validation Module
+- Dependency Correlation Module
+- Recovery Validation Module
 
 ---
 
 ## Used Adapters
 
+- OpenSearch Adapter
 - Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
 - Python Exporter Adapter
 
 ---
 
 ## Infrastructure Components
 
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+- identity provider
+- access policy
+- protected service
+- resilience workflow
+- validation output
 
 ---
 
 ## Operational Workflow
 
-1. Collect telemetry and infrastructure health signals.
-2. Analyze operational symptoms and dependency context.
-3. Coordinate incident response or operational review.
-4. Execute the appropriate recovery, validation, or governance workflow.
-5. Produce evidence for reviewer-readable validation.
+The scenario follows the infrastructure operations lifecycle:
+
+1. Detection
+2. Correlation and Analysis
+3. Incident Coordination
+4. Recovery and Automation
+5. Recovery Validation
+6. Governance and Reporting
 
 ---
 
-## Detection
+## Detection Workflow
 
-The scenario begins by collecting operational signals from infrastructure targets and telemetry sources.
-
----
-
-## Correlation & Analysis
-
-Collected signals are correlated with dependency context, infrastructure state, and operational impact.
+Collect authentication degradation and access failure signals
 
 ---
 
-## Alert & Incident Workflow
+## Correlation and Analysis
 
-The workflow defines how the operational condition is reviewed, escalated, and coordinated.
+Analyze whether identity failover preserves critical operational access
 
 ---
 
-## Recovery & Automation
+## Alert and Incident Workflow
 
-Automation or recovery actions are executed according to the lifecycle level and operational scope.
+Coordinate identity failover validation and access continuity
+
+---
+
+## Recovery and Automation Workflow
+
+Coordinate identity failover validation and access continuity
 
 ---
 
 ## Recovery Validation
 
-The scenario validates that the expected operational state has been restored or confirmed.
+Validate authorized access through resilient identity path
 
 ---
 
-## Monitoring & Visibility
+## Monitoring and Visibility
 
-Operational visibility is maintained through dashboards, telemetry views, and generated evidence.
+Monitoring and visibility include authentication failure; token validation error; failover status;
+access validation.
 
 ---
 
@@ -116,42 +122,73 @@ Operational visibility is maintained through dashboards, telemetry views, and ge
 
 | Component | Purpose |
 |---|---|
-| Infrastructure target | Represents the operational asset or service under review. |
-| Telemetry source | Provides health, performance, or event signals. |
-| Analysis workflow | Supports correlation and operational reasoning. |
-| Response workflow | Supports recovery, coordination, or governance action. |
-| Evidence artifact | Records reviewer-readable validation output. |
+| identity provider | Provides context or signal source for Identity Operations operations |
+| access policy | Provides context or signal source for Identity Operations operations |
+| protected service | Provides context or signal source for Identity Operations operations |
+| resilience workflow | Provides context or signal source for Identity Operations operations |
+| validation output | Provides context or signal source for Identity Operations operations |
+| Detection Logic | Identifies abnormal or degraded operational conditions |
+| Correlation Logic | Connects related signals, dependencies, and impact context |
+| Validation Method | Confirms stable state, restored condition, or visibility completeness |
+| Evidence Output | Records public-safe completion and review artifacts |
 
 ---
 
 ## Evidence
 
-- [Summary](./evidence/generated/summary.md)
-- [Execution Evidence](./evidence/generated/execution-evidence.md)
-- [Validation Evidence](./evidence/generated/validation-evidence.md)
-- [Artifact Manifest](./evidence/generated/artifact-manifest.json)
-- [Artifact Checksums](./evidence/generated/artifact-checksums.json)
+- [Evidence Summary](evidence/generated/summary.md)
+- [Execution Evidence](evidence/generated/execution-evidence.md)
+- [Validation Evidence](evidence/generated/validation-evidence.md)
+- [Artifact Manifest](evidence/generated/artifact-manifest.json)
+- [Artifact Checksums](evidence/generated/artifact-checksums.json)
+
+---
+
+## Expected Outcomes
+
+- The scenario has domain-specific operational context.
+- Telemetry signals are identified and mapped to the scenario purpose.
+- Infrastructure components and dependencies are documented.
+- Lifecycle workflow sections are populated with scenario-specific content.
+- Validation and evidence outputs are defined for portfolio review.
 
 ---
 
 ## Validation Checklist
 
-- [ ] Metadata file exists.
-- [ ] README file exists.
-- [ ] Operational poster exists.
-- [ ] Evidence files exist.
-- [ ] Scenario is included in repository inventory.
-- [ ] Scenario passes repository validation workflow.
+- [ ] Scenario metadata is present.
+- [ ] Operational poster reference is preserved.
+- [ ] Used modules are listed.
+- [ ] Used adapters are listed.
+- [ ] Detection workflow is scenario-specific.
+- [ ] Correlation and analysis workflow is scenario-specific.
+- [ ] Response or recovery workflow is described.
+- [ ] Recovery validation is described.
+- [ ] Evidence links are present.
+- [ ] Deprecated diagram references are not used.
 
 ---
 
 ## Related Scenarios
 
-No directly related scenarios are currently defined for this scenario.
+### Upstream Scenarios
+
+None currently defined.
+
+### Same-Level Scenarios
+
+None currently defined.
+
+### Downstream Scenarios
+
+None currently defined.
+
+### Cross-Domain Scenarios
+
+None currently defined.
 
 ---
 
 ## Summary
 
-Identity Failover Resilience documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
-
+This scenario contributes to the infrastructure operations portfolio by documenting identity operations workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.

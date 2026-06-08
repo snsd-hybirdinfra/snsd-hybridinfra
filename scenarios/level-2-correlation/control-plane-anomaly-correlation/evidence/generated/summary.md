@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | control-plane-anomaly-correlation |
-| Scenario Title | control-plane-anomaly-correlation |
+| Scenario Title | Control Plane Anomaly Correlation |
 | Lifecycle Level | level-2-correlation |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Platform Operations |
 
 ## Summary
 

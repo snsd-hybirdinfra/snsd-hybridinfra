@@ -1,4 +1,4 @@
-﻿# Hardware Health Monitoring
+# Hardware Health Monitoring
 
 ## Scenario Metadata
 
@@ -199,4 +199,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting hardware workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

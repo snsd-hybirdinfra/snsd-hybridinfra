@@ -1,4 +1,4 @@
-﻿# Api Service Recovery
+# Api Service Recovery
 
 ## Scenario Metadata
 
@@ -196,4 +196,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting api / service workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

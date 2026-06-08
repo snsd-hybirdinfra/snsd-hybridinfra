@@ -2,7 +2,7 @@
 
 ## Scenario
 
-identity-failover-resilience
+Identity Failover Resilience
 
 ## Execution Status
 

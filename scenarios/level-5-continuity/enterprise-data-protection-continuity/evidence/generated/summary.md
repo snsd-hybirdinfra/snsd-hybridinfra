@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | enterprise-data-protection-continuity |
-| Scenario Title | enterprise-data-protection-continuity |
+| Scenario Title | Enterprise Data Protection Continuity |
 | Lifecycle Level | level-5-continuity |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Continuity Operations |
 
 ## Summary
 

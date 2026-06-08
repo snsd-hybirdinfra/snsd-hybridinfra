@@ -1,8 +1,8 @@
 {
   "scenario_name": "change-failure-rollback",
-  "scenario_title": "change-failure-rollback",
+  "scenario_title": "Change Failure Rollback",
   "lifecycle_level": "level-3-recovery",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Change Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

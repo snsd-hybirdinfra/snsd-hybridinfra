@@ -1,7 +1,7 @@
 {
-  "diagrams/operational-poster.png": "4b5c5c92cec3b23e6a294fc0eea43234ef5126c5a64f4c6c531ac8430ab0b844",
-  "evidence/generated/summary.md": "e5ea67e47aef7f566208be759c4957a81e00bb2d20a11ad7fd263629c1ca8abf",
-  "evidence/generated/execution-evidence.md": "a02ce6611231786625adc2ab8657a811c5276210f164aed73be104b65a9ec3fa",
-  "evidence/generated/validation-evidence.md": "3eb6afb92954ac6981e1108601de7187083a9dde0559466da5412d00adf51a5c",
-  "evidence/generated/artifact-manifest.json": "20fc0379085bd5229cae3d6f8092e5cfdbf5e56d29354e28f09f1368b9d67e3f"
+  "diagrams/operational-poster.png": "a98dd664c64a76ccf48293b2cc0876ee17eeccc3774727f144f14191c0baf415",
+  "evidence/generated/summary.md": "04f4d6dbbe98fdccdaa219cb4599cd9143d1b9f3aaed46074e6193f18eb278da",
+  "evidence/generated/execution-evidence.md": "afcc4bf7b1b2ac57f657b5ade61a2036f7c27f7256e23221bfbe1bdad0acfadf",
+  "evidence/generated/validation-evidence.md": "b534f5dcb86563686d3b8539a65b9eb3134cfad4fd1628c985e06e2c6c9154ff",
+  "evidence/generated/artifact-manifest.json": "406d5646ae69b0bae13b407fc8261d5a8c11006ed4a165583cff2c42a06be512"
 }

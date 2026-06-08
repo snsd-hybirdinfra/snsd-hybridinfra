@@ -2,7 +2,7 @@
 
 ## Scenario
 
-inter-region-routing-recovery
+Inter Region Routing Recovery
 
 ## Validation Status
 

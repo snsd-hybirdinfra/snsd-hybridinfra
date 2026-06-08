@@ -2,7 +2,7 @@
 
 ## Scenario
 
-enterprise-change-continuity
+Enterprise Change Continuity
 
 ## Execution Status
 

@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | kubernetes-platform-resilience |
-| Scenario Title | kubernetes-platform-resilience |
+| Scenario Title | Kubernetes Platform Resilience |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Kubernetes Operations |
 
 ## Summary
 

@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | storage-volume-recovery-automation |
-| Scenario Title | storage-volume-recovery-automation |
+| Scenario Title | Storage Volume Recovery Automation |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Storage Operations |
 
 ## Summary
 

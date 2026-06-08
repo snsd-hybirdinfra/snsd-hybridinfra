@@ -1,4 +1,4 @@
-﻿# System Event Visibility
+# System Event Visibility
 
 ## Scenario Metadata
 
@@ -195,4 +195,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting system event workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

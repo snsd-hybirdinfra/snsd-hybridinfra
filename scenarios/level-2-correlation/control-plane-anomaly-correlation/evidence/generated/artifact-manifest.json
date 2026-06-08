@@ -1,8 +1,8 @@
 {
   "scenario_name": "control-plane-anomaly-correlation",
-  "scenario_title": "control-plane-anomaly-correlation",
+  "scenario_title": "Control Plane Anomaly Correlation",
   "lifecycle_level": "level-2-correlation",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Platform Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

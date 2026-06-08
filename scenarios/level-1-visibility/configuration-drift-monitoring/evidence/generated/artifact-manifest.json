@@ -1,8 +1,8 @@
 {
   "scenario_name": "configuration-drift-monitoring",
-  "scenario_title": "configuration-drift-monitoring",
+  "scenario_title": "Configuration Drift Monitoring",
   "lifecycle_level": "level-1-visibility",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Configuration Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

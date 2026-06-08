@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | kubernetes-control-plane-recovery |
-| Scenario Title | kubernetes-control-plane-recovery |
+| Scenario Title | Kubernetes Control Plane Recovery |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Kubernetes Operations |
 
 ## Summary
 

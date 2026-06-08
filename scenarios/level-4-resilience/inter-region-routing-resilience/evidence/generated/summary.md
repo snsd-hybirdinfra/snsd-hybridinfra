@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | inter-region-routing-resilience |
-| Scenario Title | inter-region-routing-resilience |
+| Scenario Title | Inter Region Routing Resilience |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Network Operations |
 
 ## Summary
 

@@ -2,7 +2,7 @@
 
 ## Scenario
 
-control-plane-anomaly-correlation
+Control Plane Anomaly Correlation
 
 ## Execution Status
 

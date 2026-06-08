@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | configuration-drift-monitoring |
-| Scenario Title | configuration-drift-monitoring |
+| Scenario Title | Configuration Drift Monitoring |
 | Lifecycle Level | level-1-visibility |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Configuration Operations |
 
 ## Summary
 

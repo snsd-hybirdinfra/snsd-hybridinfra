@@ -2,7 +2,7 @@
 
 ## Scenario
 
-kubernetes-control-plane-recovery
+Kubernetes Control Plane Recovery
 
 ## Validation Status
 

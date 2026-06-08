@@ -1,4 +1,4 @@
-﻿# Virtual Machine Health Monitoring
+# Virtual Machine Health Monitoring
 
 ## Scenario Metadata
 
@@ -195,4 +195,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting virtual machine workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

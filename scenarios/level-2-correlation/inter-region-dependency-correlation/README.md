@@ -1,114 +1,119 @@
-﻿# Inter Region Dependency Correlation
+# Inter Region Dependency Correlation
 
 ## Scenario Metadata
 
 | Field | Value |
 |---|---|
-| Scenario Name | `inter-region-dependency-correlation` |
-| Lifecycle Level | `level-2-correlation` |
-| Lifecycle Name | Correlation and Analysis |
-| Operational Scope | Infrastructure Operations |
-| Environment | Hybrid Infrastructure |
+| Scenario Name | inter-region-dependency-correlation |
+| Lifecycle Level | level-2-correlation |
+| Scenario Path | scenarios/level-2-correlation/inter-region-dependency-correlation |
+| Scenario Type | correlation |
+| Primary Domain | Network Operations |
 | Status | draft |
 
 ---
 
 ## Overview
 
-This scenario documents infrastructure correlation operations using telemetry comparison, dependency analysis, and impact reasoning.
+This scenario documents inter region dependency correlation within the network operations
+operational domain. It focuses on regional service dependency and inter region network path and
+demonstrates how infrastructure operations teams can use domain-specific telemetry, lifecycle
+workflow design, and evidence-backed validation to support correlate inter region dependency
+failures with service degradation.
 
 ---
 
 ## Objectives
 
-- Document the operational workflow for inter region dependency correlation.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+- Define the scenario-specific network operations signal represented by inter-region-dependency-correlation.
+- Identify the affected network operations components and dependencies.
+- Collect and interpret telemetry from regional service dependency and inter region network path.
+- Use regional latency as an operational signal for detection or validation.
+- Use dependency timeout as an operational signal for detection or validation.
+- Use route change as an operational signal for detection or validation.
+- Document the lifecycle workflow from detection through validation.
+- Produce reviewer-readable evidence artifacts for portfolio assessment.
 
 ---
 
 ## Scenario Architecture
 
-This scenario follows the repository operational lifecycle:
-
-Detection -> Correlation & Analysis -> Incident Coordination -> Recovery & Automation -> Recovery Validation -> Governance & Reporting
-
-![Operational Poster](./diagrams/operational-poster.png)
+![Operational Poster](diagrams/operational-poster.png)
 
 ---
 
 ## Used Modules
 
-- Telemetry Aggregation Module
 - Dependency Correlation Module
-- Impact Analysis Module
+- Incident Coordination Module
+- Visibility Reporting Module
 
 ---
 
 ## Used Adapters
 
 - Prometheus Adapter
+- OpenSearch Adapter
 - Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
 
 ---
 
 ## Infrastructure Components
 
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+- regional gateway
+- service dependency
+- routing domain
+- correlation engine
+- incident queue
 
 ---
 
 ## Operational Workflow
 
-1. Collect telemetry and infrastructure health signals.
-2. Analyze operational symptoms and dependency context.
-3. Coordinate incident response or operational review.
-4. Execute the appropriate recovery, validation, or governance workflow.
-5. Produce evidence for reviewer-readable validation.
+The scenario follows the infrastructure operations lifecycle:
+
+1. Detection
+2. Correlation and Analysis
+3. Incident Coordination
+4. Recovery and Automation
+5. Recovery Validation
+6. Governance and Reporting
 
 ---
 
-## Detection
+## Detection Workflow
 
-The scenario begins by collecting operational signals from infrastructure targets and telemetry sources.
-
----
-
-## Correlation & Analysis
-
-Collected signals are correlated with dependency context, infrastructure state, and operational impact.
+Collect regional path signals and dependency level service errors
 
 ---
 
-## Alert & Incident Workflow
+## Correlation and Analysis
 
-The workflow defines how the operational condition is reviewed, escalated, and coordinated.
+Analyze whether inter region network degradation explains service dependency failures
 
 ---
 
-## Recovery & Automation
+## Alert and Incident Workflow
 
-Automation or recovery actions are executed according to the lifecycle level and operational scope.
+Escalate confirmed regional dependency impact to operations coordination
+
+---
+
+## Recovery and Automation Workflow
+
+Escalate confirmed regional dependency impact to operations coordination
 
 ---
 
 ## Recovery Validation
 
-The scenario validates that the expected operational state has been restored or confirmed.
+Validate affected dependency scope and recovery readiness
 
 ---
 
-## Monitoring & Visibility
+## Monitoring and Visibility
 
-Operational visibility is maintained through dashboards, telemetry views, and generated evidence.
+Monitoring and visibility include regional latency; dependency timeout; route change; service error.
 
 ---
 
@@ -116,42 +121,73 @@ Operational visibility is maintained through dashboards, telemetry views, and ge
 
 | Component | Purpose |
 |---|---|
-| Infrastructure target | Represents the operational asset or service under review. |
-| Telemetry source | Provides health, performance, or event signals. |
-| Analysis workflow | Supports correlation and operational reasoning. |
-| Response workflow | Supports recovery, coordination, or governance action. |
-| Evidence artifact | Records reviewer-readable validation output. |
+| regional gateway | Provides context or signal source for Network Operations operations |
+| service dependency | Provides context or signal source for Network Operations operations |
+| routing domain | Provides context or signal source for Network Operations operations |
+| correlation engine | Provides context or signal source for Network Operations operations |
+| incident queue | Provides context or signal source for Network Operations operations |
+| Detection Logic | Identifies abnormal or degraded operational conditions |
+| Correlation Logic | Connects related signals, dependencies, and impact context |
+| Validation Method | Confirms stable state, restored condition, or visibility completeness |
+| Evidence Output | Records public-safe completion and review artifacts |
 
 ---
 
 ## Evidence
 
-- [Summary](./evidence/generated/summary.md)
-- [Execution Evidence](./evidence/generated/execution-evidence.md)
-- [Validation Evidence](./evidence/generated/validation-evidence.md)
-- [Artifact Manifest](./evidence/generated/artifact-manifest.json)
-- [Artifact Checksums](./evidence/generated/artifact-checksums.json)
+- [Evidence Summary](evidence/generated/summary.md)
+- [Execution Evidence](evidence/generated/execution-evidence.md)
+- [Validation Evidence](evidence/generated/validation-evidence.md)
+- [Artifact Manifest](evidence/generated/artifact-manifest.json)
+- [Artifact Checksums](evidence/generated/artifact-checksums.json)
+
+---
+
+## Expected Outcomes
+
+- The scenario has domain-specific operational context.
+- Telemetry signals are identified and mapped to the scenario purpose.
+- Infrastructure components and dependencies are documented.
+- Lifecycle workflow sections are populated with scenario-specific content.
+- Validation and evidence outputs are defined for portfolio review.
 
 ---
 
 ## Validation Checklist
 
-- [ ] Metadata file exists.
-- [ ] README file exists.
-- [ ] Operational poster exists.
-- [ ] Evidence files exist.
-- [ ] Scenario is included in repository inventory.
-- [ ] Scenario passes repository validation workflow.
+- [ ] Scenario metadata is present.
+- [ ] Operational poster reference is preserved.
+- [ ] Used modules are listed.
+- [ ] Used adapters are listed.
+- [ ] Detection workflow is scenario-specific.
+- [ ] Correlation and analysis workflow is scenario-specific.
+- [ ] Response or recovery workflow is described.
+- [ ] Recovery validation is described.
+- [ ] Evidence links are present.
+- [ ] Deprecated diagram references are not used.
 
 ---
 
 ## Related Scenarios
 
-No directly related scenarios are currently defined for this scenario.
+### Upstream Scenarios
+
+None currently defined.
+
+### Same-Level Scenarios
+
+None currently defined.
+
+### Downstream Scenarios
+
+None currently defined.
+
+### Cross-Domain Scenarios
+
+None currently defined.
 
 ---
 
 ## Summary
 
-Inter Region Dependency Correlation documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
-
+This scenario contributes to the infrastructure operations portfolio by documenting network operations workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.

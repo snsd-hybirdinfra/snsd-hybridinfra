@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | change-failure-rollback |
-| Scenario Title | change-failure-rollback |
+| Scenario Title | Change Failure Rollback |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Change Operations |
 
 ## Summary
 

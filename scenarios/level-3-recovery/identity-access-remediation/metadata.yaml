@@ -1,42 +1,122 @@
-﻿scenario_name: identity-access-remediation
+scenario_name: identity-access-remediation
 scenario_title: Identity Access Remediation
 lifecycle_level: level-3-recovery
-lifecycle_name: Recovery and Automation
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
+scenario_path: scenarios/level-3-recovery/identity-access-remediation
+scenario_type: recovery
+primary_domain: Identity Operations
 status: draft
-summary: This scenario documents controlled recovery operations using automation execution,
-  restoration workflow control, and recovery validation.
-objectives:
-- Document the operational workflow for identity access remediation.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Recovery Orchestration Module
-- Automation Execution Module
-- Recovery Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/change-impact-correlation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/certificate-renewal-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback
-  - /snsd-hybridinfra/scenarios/level-3-recovery/configuration-rollback-automation
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/identity-failover-resilience
-  cross_domain: []
-primary_domain: Identity / Access
 
+overview: |
+  This scenario documents identity access remediation within the identity operations operational
+  domain. It focuses on identity policy and access controlled infrastructure component and
+  demonstrates how infrastructure operations teams can use domain-specific telemetry, lifecycle
+  workflow design, and evidence-backed validation to support remediate incorrect access policy or
+  identity configuration that affects operations.
+
+objectives:
+  - Define the scenario-specific identity operations signal represented by identity-access-remediation.
+  - Identify the affected identity operations components and dependencies.
+  - Collect and interpret telemetry from identity policy and access controlled infrastructure component.
+  - Use access denied event as an operational signal for detection or validation.
+  - Use policy mismatch as an operational signal for detection or validation.
+  - Use permission error as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Remediate incorrect access policy or identity configuration that affects operations
+
+target_resource: |
+  identity policy and access controlled infrastructure component
+
+telemetry_signals:
+  - access denied event
+  - policy mismatch
+  - permission error
+  - remediation status
+
+infrastructure_components:
+  - identity policy
+  - access target
+  - audit log
+  - automation runner
+  - validation output
+
+detection_workflow: |
+  Use access denial and policy mismatch signals as remediation triggers
+
+correlation_and_analysis: |
+  Correlate permission failures with affected operational workflows
+
+alert_and_incident_workflow: |
+  Execute access remediation workflow under incident coordination
+
+recovery_and_automation_workflow: |
+  Execute access remediation workflow under incident coordination
+
+recovery_validation: |
+  Restore approved access policy and validate authorized access
+
+monitoring_and_visibility: |
+  Monitoring and visibility include access denied event; policy mismatch; permission error;
+  remediation status.
+
+used_modules:
+  - Recovery Orchestration Module
+  - Automation Execution Module
+  - Recovery Validation Module
+
+used_adapters:
+  - OpenSearch Adapter
+  - Ansible Adapter
+  - Python Exporter Adapter
+
+operational_components:
+  - name: identity policy
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: access target
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: audit log
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: automation runner
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - access remediation evidence
+  - policy validation report
+  - recovery summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

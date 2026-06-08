@@ -2,7 +2,7 @@
 
 ## Scenario
 
-configuration-resilience-validation
+Configuration Resilience Validation
 
 ## Execution Status
 

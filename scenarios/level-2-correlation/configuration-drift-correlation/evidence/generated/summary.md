@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | configuration-drift-correlation |
-| Scenario Title | configuration-drift-correlation |
+| Scenario Title | Configuration Drift Correlation |
 | Lifecycle Level | level-2-correlation |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Configuration Operations |
 
 ## Summary
 

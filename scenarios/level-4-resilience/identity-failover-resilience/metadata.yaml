@@ -1,42 +1,122 @@
-﻿scenario_name: identity-failover-resilience
+scenario_name: identity-failover-resilience
 scenario_title: Identity Failover Resilience
 lifecycle_level: level-4-resilience
-lifecycle_name: Distributed Resilience
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
+scenario_path: scenarios/level-4-resilience/identity-failover-resilience
+scenario_type: resilience
+primary_domain: Identity Operations
 status: draft
-summary: This scenario documents distributed resilience operations across failure
-  domains, regions, clusters, or service boundaries.
-objectives:
-- Document the operational workflow for identity failover resilience.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Resilience Coordination Module
-- Failover Control Module
-- Survivability Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/identity-access-remediation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/backup-resilience-validation
-  - /snsd-hybridinfra/scenarios/level-4-resilience/change-resilience-coordination
-  - /snsd-hybridinfra/scenarios/level-4-resilience/configuration-resilience-validation
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-identity-continuity
-  cross_domain: []
-primary_domain: Identity / Access
 
+overview: |
+  This scenario documents identity failover resilience within the identity operations operational
+  domain. It focuses on identity provider and access controlled service and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support validate resilience of identity and access paths during
+  authentication degradation.
+
+objectives:
+  - Define the scenario-specific identity operations signal represented by identity-failover-resilience.
+  - Identify the affected identity operations components and dependencies.
+  - Collect and interpret telemetry from identity provider and access controlled service.
+  - Use authentication failure as an operational signal for detection or validation.
+  - Use token validation error as an operational signal for detection or validation.
+  - Use failover status as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Validate resilience of identity and access paths during authentication degradation
+
+target_resource: |
+  identity provider and access controlled service
+
+telemetry_signals:
+  - authentication failure
+  - token validation error
+  - failover status
+  - access validation
+
+infrastructure_components:
+  - identity provider
+  - access policy
+  - protected service
+  - resilience workflow
+  - validation output
+
+detection_workflow: |
+  Collect authentication degradation and access failure signals
+
+correlation_and_analysis: |
+  Analyze whether identity failover preserves critical operational access
+
+alert_and_incident_workflow: |
+  Coordinate identity failover validation and access continuity
+
+recovery_and_automation_workflow: |
+  Coordinate identity failover validation and access continuity
+
+recovery_validation: |
+  Validate authorized access through resilient identity path
+
+monitoring_and_visibility: |
+  Monitoring and visibility include authentication failure; token validation error; failover status;
+  access validation.
+
+used_modules:
+  - Resilience Coordination Module
+  - Dependency Correlation Module
+  - Recovery Validation Module
+
+used_adapters:
+  - OpenSearch Adapter
+  - Prometheus Adapter
+  - Python Exporter Adapter
+
+operational_components:
+  - name: identity provider
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: access policy
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: protected service
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: resilience workflow
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Identity Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - identity failover evidence
+  - access continuity report
+  - resilience summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

@@ -1,4 +1,4 @@
-﻿# Dns Service Restoration
+# Dns Service Restoration
 
 ## Scenario Metadata
 
@@ -197,4 +197,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting dns / name resolution workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

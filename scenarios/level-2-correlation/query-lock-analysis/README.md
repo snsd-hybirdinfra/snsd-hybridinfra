@@ -1,4 +1,4 @@
-﻿# Query Lock Analysis
+# Query Lock Analysis
 
 ## Scenario Metadata
 
@@ -195,4 +195,3 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting database / query workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

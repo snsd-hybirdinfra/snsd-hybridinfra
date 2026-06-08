@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | identity-failover-resilience |
-| Scenario Title | identity-failover-resilience |
+| Scenario Title | Identity Failover Resilience |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Identity Operations |
 
 ## Summary
 

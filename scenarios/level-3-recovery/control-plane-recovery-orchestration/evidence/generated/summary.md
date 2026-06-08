@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | control-plane-recovery-orchestration |
-| Scenario Title | control-plane-recovery-orchestration |
+| Scenario Title | Control Plane Recovery Orchestration |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Platform Operations |
 
 ## Summary
 

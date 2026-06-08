@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | inter-region-connectivity-monitoring |
-| Scenario Title | inter-region-connectivity-monitoring |
+| Scenario Title | Inter Region Connectivity Monitoring |
 | Lifecycle Level | level-1-visibility |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Network Operations |
 
 ## Summary
 
