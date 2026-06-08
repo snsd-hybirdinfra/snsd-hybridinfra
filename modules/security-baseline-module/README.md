@@ -1,29 +1,39 @@
 # Security Baseline Module
 
-## Purpose
+## Capability Purpose
 
-Supports security groups, network access rules, identity boundaries, policy controls, and secure baseline configuration.
+Defines security posture, policy visibility, and baseline control context for operational scenarios.
 
-## Capability Type
+## Operational Boundary
 
-Reusable infrastructure and operational capability module.
+This module provides security baseline context and policy evidence. It does not perform threat hunting or incident containment by itself.
 
-## Used By
+## Inputs
 
-- Build scenarios
-- Visibility scenarios
-- Correlation scenarios
-- Recovery scenarios
-- Resilience scenarios
-- Continuity scenarios
+- security policy state
+- access or identity signal
+- control status
+- security event context
 
-## Expected Outputs
+## Outputs
 
-- Scenario-ready capability reference
-- Reusable implementation boundary
-- Operational evidence support
-- Validation and reporting support
+- security baseline evidence
+- policy visibility context
+- control deviation signal
+- scenario-ready security posture
 
-## Notes
+## Failure Handling Role
 
-This module describes a reusable capability boundary, not a single tool or vendor-specific implementation.
+Security baseline gaps are escalated when policy drift, access deviation, or missing control evidence affects operational risk.
+
+## Validation Evidence
+
+Validation confirms policy state, control evidence, access context, and security boundary clarity.
+
+## Scenario Usage
+
+This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
+
+## Implementation Note
+
+This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

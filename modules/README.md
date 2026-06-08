@@ -22,17 +22,17 @@ Total modules: 11
 
 | Module | Purpose |
 |---|---|
-| [Automation Execution Module](./automation-execution-module/README.md) | Supports controlled execution of scripts, runbooks, configuration tasks, and automation workflows. |
-| [Compute Foundation Module](./compute-foundation-module/README.md) | Supports virtual machines, cloud instances, nodes, runtime hosts, and compute baseline configuration. |
-| [Continuity Governance Module](./continuity-governance-module/README.md) | Supports enterprise continuity decisions, governance reporting, ownership tracking, and executive evidence. |
-| [Dependency Correlation Module](./dependency-correlation-module/README.md) | Correlates related signals, dependencies, symptoms, and operational impact paths. |
-| [Infrastructure Provisioning Module](./infrastructure-provisioning-module/README.md) | Supports baseline infrastructure creation, provisioning workflow design, and deployment readiness. |
-| [Network Foundation Module](./network-foundation-module/README.md) | Supports VPC, subnet, routing, gateway, VPN, WAN, and network path foundation design. |
-| [Observability Foundation Module](./observability-foundation-module/README.md) | Supports metrics, logs, exporters, dashboards, health checks, and visibility foundation setup. |
-| [Recovery Orchestration Module](./recovery-orchestration-module/README.md) | Coordinates recovery, failover, restoration, restart, rebalancing, and mitigation workflows. |
-| [Security Baseline Module](./security-baseline-module/README.md) | Supports security groups, network access rules, identity boundaries, policy controls, and secure baseline configuration. |
-| [Telemetry Aggregation Module](./telemetry-aggregation-module/README.md) | Collects, normalizes, and prepares operational telemetry for visibility and analysis scenarios. |
-| [Validation Reporting Module](./validation-reporting-module/README.md) | Produces recovery validation summaries, artifact manifests, evidence outputs, and reviewer-readable reports. |
+| [Automation Execution Module](./automation-execution-module/README.md) | Executes controlled automation actions after operational conditions, approvals, or validation gates are satisfied. |
+| [Compute Foundation Module](./compute-foundation-module/README.md) | Defines compute resource context used by visibility, correlation, recovery, and resilience scenarios. |
+| [Continuity Governance Module](./continuity-governance-module/README.md) | Supports enterprise continuity decisions, ownership tracking, governance reporting, and executive-level recovery assurance. |
+| [Dependency Correlation Module](./dependency-correlation-module/README.md) | Correlates signals across services, infrastructure components, and platform dependencies to distinguish root conditions from symptoms. |
+| [Infrastructure Provisioning Module](./infrastructure-provisioning-module/README.md) | Defines infrastructure build and provisioning context used to support operational scenarios and validation environments. |
+| [Network Foundation Module](./network-foundation-module/README.md) | Provides network topology, routing, connectivity, and path context for operational scenarios. |
+| [Observability Foundation Module](./observability-foundation-module/README.md) | Provides the monitoring and visibility foundation used by scenarios to collect, structure, and expose operational signals. |
+| [Recovery Orchestration Module](./recovery-orchestration-module/README.md) | Coordinates recovery workflows after incident qualification and before final recovery validation. |
+| [Security Baseline Module](./security-baseline-module/README.md) | Defines security posture, policy visibility, and baseline control context for operational scenarios. |
+| [Telemetry Aggregation Module](./telemetry-aggregation-module/README.md) | Collects, normalizes, and prepares operational telemetry for visibility, correlation, and validation workflows. |
+| [Validation Reporting Module](./validation-reporting-module/README.md) | Produces validation summaries, artifact manifests, evidence outputs, and reviewer-readable operational reports. |
 
 ---
 

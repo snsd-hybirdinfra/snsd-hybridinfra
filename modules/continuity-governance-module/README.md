@@ -1,29 +1,39 @@
 # Continuity Governance Module
 
-## Purpose
+## Capability Purpose
 
-Supports enterprise continuity decisions, governance reporting, ownership tracking, and executive evidence.
+Supports enterprise continuity decisions, ownership tracking, governance reporting, and executive-level recovery assurance.
 
-## Capability Type
+## Operational Boundary
 
-Reusable infrastructure and operational capability module.
+This module governs continuity posture and decision evidence. It does not execute technical failover or collect low-level telemetry directly.
 
-## Used By
+## Inputs
 
-- Build scenarios
-- Visibility scenarios
-- Correlation scenarios
-- Recovery scenarios
-- Resilience scenarios
-- Continuity scenarios
+- continuity impact assessment
+- recovery status
+- business or service ownership context
+- cross-domain validation evidence
 
-## Expected Outputs
+## Outputs
 
-- Scenario-ready capability reference
-- Reusable implementation boundary
-- Operational evidence support
-- Validation and reporting support
+- continuity decision record
+- governance summary
+- executive visibility evidence
+- continuity validation status
 
-## Notes
+## Failure Handling Role
 
-This module describes a reusable capability boundary, not a single tool or vendor-specific implementation.
+If continuity evidence is incomplete, the module marks the recovery posture as unresolved and requires escalation or additional validation.
+
+## Validation Evidence
+
+Validation is based on documented decision criteria, recovery assurance evidence, owner visibility, and continuity status reporting.
+
+## Scenario Usage
+
+This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
+
+## Implementation Note
+
+This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

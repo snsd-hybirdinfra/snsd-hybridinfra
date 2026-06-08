@@ -1,29 +1,39 @@
 # Automation Execution Module
 
-## Purpose
+## Capability Purpose
 
-Supports controlled execution of scripts, runbooks, configuration tasks, and automation workflows.
+Executes controlled automation actions after operational conditions, approvals, or validation gates are satisfied.
 
-## Capability Type
+## Operational Boundary
 
-Reusable infrastructure and operational capability module.
+This module handles execution control, task invocation, run result capture, and rollback handoff. It does not decide incident severity or define telemetry thresholds.
 
-## Used By
+## Inputs
 
-- Build scenarios
-- Visibility scenarios
-- Correlation scenarios
-- Recovery scenarios
-- Resilience scenarios
-- Continuity scenarios
+- approved recovery or remediation action
+- automation execution parameters
+- target infrastructure scope
+- operator or workflow trigger context
 
-## Expected Outputs
+## Outputs
 
-- Scenario-ready capability reference
-- Reusable implementation boundary
-- Operational evidence support
-- Validation and reporting support
+- automation execution result
+- task status and failure reason
+- execution evidence
+- rollback or escalation signal
 
-## Notes
+## Failure Handling Role
 
-This module describes a reusable capability boundary, not a single tool or vendor-specific implementation.
+If automation execution fails, the module preserves execution evidence, blocks unsafe repeated execution, and hands off to recovery orchestration or operator escalation.
+
+## Validation Evidence
+
+Validation is based on task result, exit status, target state confirmation, and generated execution evidence.
+
+## Scenario Usage
+
+This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
+
+## Implementation Note
+
+This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

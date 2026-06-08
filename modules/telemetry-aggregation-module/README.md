@@ -1,29 +1,40 @@
 # Telemetry Aggregation Module
 
-## Purpose
+## Capability Purpose
 
-Collects, normalizes, and prepares operational telemetry for visibility and analysis scenarios.
+Collects, normalizes, and prepares operational telemetry for visibility, correlation, and validation workflows.
 
-## Capability Type
+## Operational Boundary
 
-Reusable infrastructure and operational capability module.
+This module prepares telemetry signals. It does not determine root cause, execute remediation, or make governance decisions.
 
-## Used By
+## Inputs
 
-- Build scenarios
-- Visibility scenarios
-- Correlation scenarios
-- Recovery scenarios
-- Resilience scenarios
-- Continuity scenarios
+- metrics
+- logs
+- events
+- health signals
+- adapter-provided telemetry
 
-## Expected Outputs
+## Outputs
 
-- Scenario-ready capability reference
-- Reusable implementation boundary
-- Operational evidence support
-- Validation and reporting support
+- normalized telemetry context
+- scenario-ready signal set
+- visibility evidence
+- correlation input data
 
-## Notes
+## Failure Handling Role
 
-This module describes a reusable capability boundary, not a single tool or vendor-specific implementation.
+If telemetry is incomplete or inconsistent, the module exposes the gap and prevents unsupported downstream conclusions.
+
+## Validation Evidence
+
+Validation checks source availability, signal normalization, timestamp consistency, and scenario evidence readiness.
+
+## Scenario Usage
+
+This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
+
+## Implementation Note
+
+This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

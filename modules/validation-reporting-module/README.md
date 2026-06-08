@@ -1,29 +1,39 @@
 # Validation Reporting Module
 
-## Purpose
+## Capability Purpose
 
-Produces recovery validation summaries, artifact manifests, evidence outputs, and reviewer-readable reports.
+Produces validation summaries, artifact manifests, evidence outputs, and reviewer-readable operational reports.
 
-## Capability Type
+## Operational Boundary
 
-Reusable infrastructure and operational capability module.
+This module reports validation results. It does not execute recovery actions or alter infrastructure state.
 
-## Used By
+## Inputs
 
-- Build scenarios
-- Visibility scenarios
-- Correlation scenarios
-- Recovery scenarios
-- Resilience scenarios
-- Continuity scenarios
+- workflow execution result
+- post-action state
+- artifact references
+- validation criteria
 
-## Expected Outputs
+## Outputs
 
-- Scenario-ready capability reference
-- Reusable implementation boundary
-- Operational evidence support
-- Validation and reporting support
+- validation summary
+- artifact manifest
+- evidence report
+- reviewer-facing result interpretation
 
-## Notes
+## Failure Handling Role
 
-This module describes a reusable capability boundary, not a single tool or vendor-specific implementation.
+If validation evidence is missing, the module marks the workflow as not fully validated instead of reporting a false success.
+
+## Validation Evidence
+
+Validation is based on artifact completeness, result consistency, evidence traceability, and reviewer readability.
+
+## Scenario Usage
+
+This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
+
+## Implementation Note
+
+This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

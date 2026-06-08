@@ -1,29 +1,39 @@
 # Network Foundation Module
 
-## Purpose
+## Capability Purpose
 
-Supports VPC, subnet, routing, gateway, VPN, WAN, and network path foundation design.
+Provides network topology, routing, connectivity, and path context for operational scenarios.
 
-## Capability Type
+## Operational Boundary
 
-Reusable infrastructure and operational capability module.
+This module represents network foundation context. It does not independently execute failover unless invoked by a recovery or resilience workflow.
 
-## Used By
+## Inputs
 
-- Build scenarios
-- Visibility scenarios
-- Correlation scenarios
-- Recovery scenarios
-- Resilience scenarios
-- Continuity scenarios
+- network path state
+- routing or tunnel status
+- connectivity signals
+- gateway or link health
 
-## Expected Outputs
+## Outputs
 
-- Scenario-ready capability reference
-- Reusable implementation boundary
-- Operational evidence support
-- Validation and reporting support
+- network dependency context
+- connectivity evidence
+- routing or path visibility
+- scenario-ready network state
 
-## Notes
+## Failure Handling Role
 
-This module describes a reusable capability boundary, not a single tool or vendor-specific implementation.
+Network foundation degradation is escalated when reachability, routing, or path health affects dependent services.
+
+## Validation Evidence
+
+Validation confirms path reachability, routing state, link health, and dependency impact evidence.
+
+## Scenario Usage
+
+This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
+
+## Implementation Note
+
+This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

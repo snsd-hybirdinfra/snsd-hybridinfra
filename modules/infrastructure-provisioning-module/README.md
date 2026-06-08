@@ -1,29 +1,39 @@
 # Infrastructure Provisioning Module
 
-## Purpose
+## Capability Purpose
 
-Supports baseline infrastructure creation, provisioning workflow design, and deployment readiness.
+Defines infrastructure build and provisioning context used to support operational scenarios and validation environments.
 
-## Capability Type
+## Operational Boundary
 
-Reusable infrastructure and operational capability module.
+This module describes provisioning boundaries and infrastructure readiness. It does not replace scenario-specific operational workflows.
 
-## Used By
+## Inputs
 
-- Build scenarios
-- Visibility scenarios
-- Correlation scenarios
-- Recovery scenarios
-- Resilience scenarios
-- Continuity scenarios
+- infrastructure specification
+- network or compute target scope
+- baseline configuration
+- deployment prerequisites
 
-## Expected Outputs
+## Outputs
 
-- Scenario-ready capability reference
-- Reusable implementation boundary
-- Operational evidence support
-- Validation and reporting support
+- provisioned infrastructure context
+- build readiness evidence
+- baseline configuration record
+- scenario support environment
 
-## Notes
+## Failure Handling Role
 
-This module describes a reusable capability boundary, not a single tool or vendor-specific implementation.
+Provisioning failure blocks dependent scenarios until baseline infrastructure state is restored or corrected.
+
+## Validation Evidence
+
+Validation confirms resource existence, baseline configuration, connectivity, and readiness evidence.
+
+## Scenario Usage
+
+This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
+
+## Implementation Note
+
+This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.
