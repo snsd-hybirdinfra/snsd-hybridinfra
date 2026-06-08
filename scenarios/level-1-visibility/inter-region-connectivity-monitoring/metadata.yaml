@@ -1,0 +1,37 @@
+scenario_name: inter-region-connectivity-monitoring
+scenario_title: Inter Region Connectivity Monitoring
+lifecycle_level: level-1-visibility
+lifecycle_name: Visibility
+operational_scope: Infrastructure Operations
+environment: Hybrid Infrastructure
+status: draft
+summary: This scenario documents infrastructure visibility operations using telemetry collection, signal exposure, and operational health reporting.
+objectives:
+- Document the operational condition represented by inter region connectivity monitoring.
+- Identify relevant infrastructure components and telemetry signals.
+- Describe the lifecycle workflow from detection to validation.
+- Produce reviewer-readable evidence and diagram artifacts.
+infrastructure_components:
+- Infrastructure target
+- Telemetry source
+- Operational signal
+- Analysis or response workflow
+- Validation output
+- Evidence artifact
+used_modules:
+- Telemetry Aggregation Module
+- Health Signal Collection Module
+- Visibility Reporting Module
+used_adapters:
+- Prometheus Adapter
+- Grafana Adapter
+- Ansible Adapter
+- Python Exporter Adapter
+related_scenarios:
+  upstream: []
+  same_level:
+  - /snsd-hybridinfra/scenarios/level-1-visibility/configuration-drift-monitoring
+  - /snsd-hybridinfra/scenarios/level-1-visibility/control-plane-health-monitoring
+  downstream:
+  - /snsd-hybridinfra/scenarios/level-2-correlation/inter-region-dependency-correlation
+  cross_domain: []

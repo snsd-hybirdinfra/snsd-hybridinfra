@@ -3,7 +3,6 @@
 ROOT = Path(".").resolve()
 
 DELETE_NAME_PATTERNS = [
-    "a.txt",
     "README.backup.md",
     "update_root_readme.ps1",
     "update_scenarios_readme.ps1",
@@ -74,3 +73,4 @@ if deleted:
     print("[DELETED]")
     for item in deleted:
         print(f"- {item}")
+

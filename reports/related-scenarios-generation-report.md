@@ -3,7 +3,7 @@
 ## Summary
 
 ```text
-total_scenarios: 123
+total_scenarios: 150
 empty_related_scenarios: 24
 rule: exact primary_domain only; no fallback; no forced representative chain
 ```
@@ -48,7 +48,9 @@ level-1-visibility | bgp-neighbor-visibility | up=0 same=2 down=1 cross=0
 level-1-visibility | certificate-expiration-monitoring | up=0 same=0 down=0 cross=0
 level-1-visibility | cloud-instance-health-monitoring | up=0 same=0 down=0 cross=0
 level-1-visibility | compute-resource-monitoring | up=0 same=0 down=1 cross=0
+level-1-visibility | configuration-drift-monitoring | up=0 same=2 down=1 cross=0
 level-1-visibility | container-runtime-visibility | up=0 same=0 down=1 cross=0
+level-1-visibility | control-plane-health-monitoring | up=0 same=2 down=1 cross=0
 level-1-visibility | database-health-monitoring | up=0 same=2 down=1 cross=0
 level-1-visibility | database-replication-visibility | up=0 same=2 down=1 cross=0
 level-1-visibility | database-runtime-visibility | up=0 same=2 down=1 cross=0
@@ -59,6 +61,7 @@ level-1-visibility | filesystem-health-visibility | up=0 same=0 down=1 cross=0
 level-1-visibility | hardware-health-monitoring | up=0 same=0 down=0 cross=0
 level-1-visibility | hypervisor-resource-monitoring | up=0 same=0 down=0 cross=0
 level-1-visibility | identity-access-visibility | up=0 same=0 down=1 cross=0
+level-1-visibility | inter-region-connectivity-monitoring | up=0 same=2 down=1 cross=0
 level-1-visibility | kubernetes-cluster-health-monitoring | up=0 same=1 down=0 cross=0
 level-1-visibility | kubernetes-cluster-visibility | up=0 same=1 down=0 cross=0
 level-1-visibility | load-balancer-health-monitoring | up=0 same=0 down=0 cross=0
@@ -85,9 +88,12 @@ level-1-visibility | wan-link-monitoring | up=0 same=0 down=0 cross=0
 level-2-correlation | api-latency-correlation | up=0 same=0 down=1 cross=0
 level-2-correlation | authentication-anomaly-analysis | up=0 same=0 down=0 cross=0
 level-2-correlation | backup-failure-correlation | up=1 same=0 down=1 cross=0
+level-2-correlation | change-impact-correlation | up=1 same=3 down=1 cross=0
 level-2-correlation | cluster-resource-instability-analysis | up=0 same=0 down=1 cross=0
 level-2-correlation | compute-resource-correlation | up=1 same=0 down=1 cross=0
+level-2-correlation | configuration-drift-correlation | up=1 same=3 down=1 cross=0
 level-2-correlation | container-dependency-analysis | up=1 same=0 down=1 cross=0
+level-2-correlation | control-plane-anomaly-correlation | up=1 same=3 down=1 cross=0
 level-2-correlation | cross-domain-security-correlation | up=1 same=2 down=0 cross=0
 level-2-correlation | cross-region-network-anomaly-correlation | up=1 same=3 down=1 cross=0
 level-2-correlation | cross-server-failure-correlation | up=1 same=3 down=1 cross=0
@@ -98,6 +104,7 @@ level-2-correlation | database-latency-correlation | up=1 same=1 down=1 cross=0
 level-2-correlation | filesystem-failure-correlation | up=1 same=0 down=0 cross=0
 level-2-correlation | identity-risk-analysis | up=1 same=0 down=0 cross=0
 level-2-correlation | infrastructure-anomaly-analysis | up=1 same=3 down=1 cross=0
+level-2-correlation | inter-region-dependency-correlation | up=1 same=3 down=1 cross=0
 level-2-correlation | multi-region-latency-correlation | up=1 same=3 down=1 cross=0
 level-2-correlation | network-packet-loss-correlation | up=1 same=3 down=1 cross=0
 level-2-correlation | network-path-dependency-analysis | up=1 same=3 down=1 cross=0
@@ -121,16 +128,23 @@ level-2-correlation | vpn-latency-correlation | up=1 same=1 down=1 cross=0
 level-2-correlation | vpn-tunnel-instability-analysis | up=1 same=1 down=1 cross=0
 level-3-recovery | api-service-recovery | up=1 same=0 down=0 cross=0
 level-3-recovery | backup-restoration-automation | up=1 same=0 down=0 cross=0
+level-3-recovery | certificate-renewal-automation | up=1 same=3 down=1 cross=0
+level-3-recovery | change-failure-rollback | up=1 same=3 down=1 cross=0
 level-3-recovery | cloud-instance-recovery-automation | up=0 same=0 down=0 cross=0
 level-3-recovery | cluster-node-recovery-orchestration | up=1 same=0 down=1 cross=0
 level-3-recovery | compute-failover-orchestration | up=1 same=0 down=0 cross=0
+level-3-recovery | configuration-rollback-automation | up=1 same=3 down=1 cross=0
 level-3-recovery | container-failover-automation | up=1 same=0 down=0 cross=0
+level-3-recovery | control-plane-recovery-orchestration | up=1 same=3 down=1 cross=0
 level-3-recovery | data-recovery-orchestration | up=1 same=3 down=1 cross=0
 level-3-recovery | database-failover-automation | up=1 same=2 down=1 cross=0
 level-3-recovery | database-recovery-orchestration | up=1 same=2 down=1 cross=0
 level-3-recovery | database-service-restoration | up=1 same=2 down=1 cross=0
 level-3-recovery | dns-service-restoration | up=0 same=0 down=0 cross=0
+level-3-recovery | identity-access-remediation | up=1 same=3 down=1 cross=0
 level-3-recovery | infrastructure-recovery-orchestration | up=1 same=3 down=1 cross=0
+level-3-recovery | inter-region-routing-recovery | up=1 same=3 down=1 cross=0
+level-3-recovery | kubernetes-control-plane-recovery | up=1 same=3 down=1 cross=0
 level-3-recovery | kubernetes-node-recovery | up=0 same=1 down=1 cross=0
 level-3-recovery | kubernetes-service-recovery | up=0 same=1 down=1 cross=0
 level-3-recovery | load-balancer-recovery | up=0 same=0 down=0 cross=0
@@ -141,9 +155,14 @@ level-3-recovery | replication-recovery-orchestration | up=1 same=0 down=0 cross
 level-3-recovery | resource-rebalancing-automation | up=1 same=3 down=1 cross=0
 level-3-recovery | server-service-recovery | up=1 same=3 down=1 cross=0
 level-3-recovery | service-mesh-traffic-restoration | up=1 same=0 down=0 cross=0
+level-3-recovery | storage-volume-recovery-automation | up=1 same=3 down=1 cross=0
 level-3-recovery | traffic-restoration-workflow | up=1 same=0 down=0 cross=0
 level-3-recovery | virtual-machine-restoration | up=0 same=0 down=0 cross=0
 level-3-recovery | vpn-tunnel-recovery-automation | up=1 same=0 down=0 cross=0
+level-4-resilience | backup-resilience-validation | up=1 same=3 down=1 cross=0
+level-4-resilience | change-resilience-coordination | up=1 same=3 down=1 cross=0
+level-4-resilience | configuration-resilience-validation | up=1 same=3 down=1 cross=0
+level-4-resilience | control-plane-resilience | up=1 same=3 down=1 cross=0
 level-4-resilience | cross-region-data-survivability | up=1 same=3 down=1 cross=0
 level-4-resilience | cross-region-kubernetes-resilience | up=1 same=0 down=0 cross=0
 level-4-resilience | cross-region-network-resilience | up=1 same=1 down=1 cross=0
@@ -151,13 +170,21 @@ level-4-resilience | distributed-connectivity-survivability | up=1 same=3 down=1
 level-4-resilience | distributed-database-failover | up=1 same=0 down=0 cross=0
 level-4-resilience | distributed-platform-survivability | up=1 same=3 down=1 cross=0
 level-4-resilience | distributed-security-resilience | up=0 same=0 down=1 cross=0
+level-4-resilience | identity-failover-resilience | up=1 same=3 down=1 cross=0
 level-4-resilience | identity-resilience-coordination | up=0 same=0 down=0 cross=0
+level-4-resilience | inter-region-routing-resilience | up=1 same=3 down=1 cross=0
+level-4-resilience | kubernetes-platform-resilience | up=1 same=3 down=1 cross=0
 level-4-resilience | multi-cluster-failover | up=1 same=1 down=0 cross=0
 level-4-resilience | multi-cluster-failover-coordination | up=1 same=1 down=0 cross=0
 level-4-resilience | multi-region-service-failover | up=1 same=3 down=1 cross=0
 level-4-resilience | multi-region-service-failover-resilience | up=1 same=3 down=1 cross=0
 level-4-resilience | multi-site-routing-failover | up=1 same=1 down=1 cross=0
+level-4-resilience | storage-replication-resilience | up=1 same=3 down=1 cross=0
+level-5-continuity | enterprise-change-continuity | up=1 same=3 down=0 cross=0
 level-5-continuity | enterprise-cloud-continuity | up=1 same=3 down=0 cross=0
+level-5-continuity | enterprise-control-plane-continuity | up=1 same=3 down=0 cross=0
+level-5-continuity | enterprise-data-protection-continuity | up=1 same=3 down=0 cross=0
+level-5-continuity | enterprise-identity-continuity | up=1 same=3 down=0 cross=0
 level-5-continuity | enterprise-network-continuity | up=1 same=0 down=0 cross=0
 level-5-continuity | enterprise-operational-continuity | up=1 same=3 down=0 cross=0
 level-5-continuity | enterprise-platform-continuity | up=1 same=3 down=0 cross=0

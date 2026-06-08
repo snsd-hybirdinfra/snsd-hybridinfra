@@ -1,4 +1,4 @@
-﻿# SNSD Hybrid Infrastructure
+# SNSD Hybrid Infrastructure
 
 ## Enterprise Operational Capability Platform
 
@@ -77,12 +77,12 @@ Each scenario is mapped to a lifecycle maturity level and validates one or more 
 
 The repository currently contains:
 
-    Total scenarios: 123
-    Level 1 Visibility scenarios: 42
-    Level 2 Correlation scenarios: 37
-    Level 3 Recovery scenarios: 25
-    Level 4 Resilience scenarios: 13
-    Level 5 Continuity scenarios: 6
+    Total scenarios: 150
+    Level 1 Visibility scenarios: 45
+    Level 2 Correlation scenarios: 41
+    Level 3 Recovery scenarios: 33
+    Level 4 Resilience scenarios: 21
+    Level 5 Continuity scenarios: 10
 
 Scenario index:
 
@@ -160,13 +160,13 @@ Repository quality validation has been executed across all scenarios.
 
 Current validation status:
 
-    scenario_directories: 123
-    metadata_files: 123
-    poster_svg_files: 123
-    poster_png_files: 123
+    scenario_directories: 150
+    metadata_files: 150
+    poster_svg_files: 150
+    poster_png_files: 150
     missing_required_artifacts: 0
     small_png_files: 0
-    bad_phrase_hits: 0
+    bad_phrase_hits: 54
     readmes_with_empty_related_notice: 0
 
 Quality report:

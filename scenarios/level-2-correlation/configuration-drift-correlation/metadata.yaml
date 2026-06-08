@@ -1,0 +1,39 @@
+scenario_name: configuration-drift-correlation
+scenario_title: Configuration Drift Correlation
+lifecycle_level: level-2-correlation
+lifecycle_name: Correlation and Analysis
+operational_scope: Infrastructure Operations
+environment: Hybrid Infrastructure
+status: draft
+summary: This scenario documents infrastructure correlation operations using telemetry comparison, dependency analysis, and impact reasoning.
+objectives:
+- Document the operational condition represented by configuration drift correlation.
+- Identify relevant infrastructure components and telemetry signals.
+- Describe the lifecycle workflow from detection to validation.
+- Produce reviewer-readable evidence and diagram artifacts.
+infrastructure_components:
+- Infrastructure target
+- Telemetry source
+- Operational signal
+- Analysis or response workflow
+- Validation output
+- Evidence artifact
+used_modules:
+- Telemetry Aggregation Module
+- Dependency Correlation Module
+- Impact Analysis Module
+used_adapters:
+- Prometheus Adapter
+- Grafana Adapter
+- Ansible Adapter
+- Python Exporter Adapter
+related_scenarios:
+  upstream:
+  - /snsd-hybridinfra/scenarios/level-1-visibility/configuration-drift-monitoring
+  same_level:
+  - /snsd-hybridinfra/scenarios/level-2-correlation/change-impact-correlation
+  - /snsd-hybridinfra/scenarios/level-2-correlation/control-plane-anomaly-correlation
+  - /snsd-hybridinfra/scenarios/level-2-correlation/inter-region-dependency-correlation
+  downstream:
+  - /snsd-hybridinfra/scenarios/level-3-recovery/configuration-rollback-automation
+  cross_domain: []
