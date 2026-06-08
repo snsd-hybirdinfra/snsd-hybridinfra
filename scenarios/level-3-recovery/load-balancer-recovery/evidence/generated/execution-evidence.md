@@ -1,13 +1,21 @@
-# Execution Evidence
+# Execution Evidence - Load Balancer Recovery
 
-## Scenario
+## Execution Context
 
-Load Balancer Recovery
+This scenario models an operational workflow for **hybrid infrastructure operations** in the **Recovery** lifecycle.
 
-## Execution Status
+## Workflow Interpretation
 
-Placeholder evidence generated for repository link integrity.
+The expected workflow action is to **coordinate recovery workflow and capture validation evidence**.
 
-## Notes
+## Operator Decision Point
 
-This file should be replaced or extended with command output, workflow execution logs, screenshots, or generated artifacts when the scenario is executed.
+The primary operator decision is **whether recovery automation should execute, pause, roll back, or escalate**.
+
+## Execution Boundary
+
+This evidence does not assert that live remediation was executed. It documents the expected execution boundary, control point, and validation handoff for the scenario.
+
+## Handoff
+
+Execution evidence should be handed off to validation reporting, recovery validation, resilience review, or continuity governance depending on lifecycle level.

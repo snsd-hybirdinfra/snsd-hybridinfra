@@ -1,13 +1,21 @@
-# Execution Evidence
+# Execution Evidence - Storage Capacity Monitoring
 
-## Scenario
+## Execution Context
 
-Storage Capacity Monitoring
+This scenario models an operational workflow for **storage platform** in the **Visibility** lifecycle.
 
-## Execution Status
+## Workflow Interpretation
 
-Placeholder evidence generated for repository link integrity.
+The expected workflow action is to **collect and expose operational visibility evidence**.
 
-## Notes
+## Operator Decision Point
 
-This file should be replaced or extended with command output, workflow execution logs, screenshots, or generated artifacts when the scenario is executed.
+The primary operator decision is **whether the observed state is within baseline or requires investigation**.
+
+## Execution Boundary
+
+This evidence does not assert that live remediation was executed. It documents the expected execution boundary, control point, and validation handoff for the scenario.
+
+## Handoff
+
+Execution evidence should be handed off to validation reporting, recovery validation, resilience review, or continuity governance depending on lifecycle level.

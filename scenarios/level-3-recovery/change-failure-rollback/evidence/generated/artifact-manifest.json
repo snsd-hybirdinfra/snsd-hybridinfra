@@ -2,14 +2,16 @@
   "scenario_name": "change-failure-rollback",
   "scenario_title": "Change Failure Rollback",
   "lifecycle_level": "level-3-recovery",
-  "primary_domain": "Change Operations",
+  "lifecycle_name": "Recovery",
+  "operational_domain": "change operations",
+  "artifact_type": "generated_operational_evidence",
+  "generated_at": "2026-06-08T13:42:55Z",
   "artifacts": [
-    "diagrams/operational-poster.png",
-    "evidence/generated/summary.md",
-    "evidence/generated/execution-evidence.md",
-    "evidence/generated/validation-evidence.md",
-    "evidence/generated/artifact-manifest.json",
-    "evidence/generated/artifact-checksums.json"
+    "summary.md",
+    "validation-evidence.md",
+    "execution-evidence.md",
+    "artifact-manifest.json",
+    "artifact-checksums.json"
   ],
-  "status": "placeholder-generated"
+  "evidence_policy": "portfolio documentation evidence; not live production execution proof"
 }

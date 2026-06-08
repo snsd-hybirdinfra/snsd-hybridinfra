@@ -2,14 +2,16 @@
   "scenario_name": "container-dependency-analysis",
   "scenario_title": "Container Dependency Analysis",
   "lifecycle_level": "level-2-correlation",
-  "primary_domain": "Container / Runtime",
+  "lifecycle_name": "Correlation",
+  "operational_domain": "container runtime",
+  "artifact_type": "generated_operational_evidence",
+  "generated_at": "2026-06-08T13:42:55Z",
   "artifacts": [
-    "diagrams/operational-poster.png",
-    "evidence/generated/summary.md",
-    "evidence/generated/execution-evidence.md",
-    "evidence/generated/validation-evidence.md",
-    "evidence/generated/artifact-manifest.json",
-    "evidence/generated/artifact-checksums.json"
+    "summary.md",
+    "validation-evidence.md",
+    "execution-evidence.md",
+    "artifact-manifest.json",
+    "artifact-checksums.json"
   ],
-  "status": "placeholder-generated"
+  "evidence_policy": "portfolio documentation evidence; not live production execution proof"
 }

@@ -1,7 +1,6 @@
 {
-  "diagrams/operational-poster.png": "3f2a59c385d8576af84fb443f9a4511ed1e6e555820c1ee30002aeae65827a29",
-  "evidence/generated/summary.md": "54ee0aa977c83e64b67917d632ad1b46665918eef20aac2d13962307edb8098a",
-  "evidence/generated/execution-evidence.md": "3dd44b4636f7885f51922d610248f499d07ee68cf1bc9125131c4bec26de2fc1",
-  "evidence/generated/validation-evidence.md": "8b94d9fead0827813ec202ed6ecd03f7b340b91d070e9bcf14ed4377446d19d5",
-  "evidence/generated/artifact-manifest.json": "bc31be0dacba60b54d435ce8d01474e1e288dbab68482f09603db96b4092bb97"
+  "summary.md": "86a7bc52c3250250ba630e0ff034da7b0992649b103146f3553ecaa59ec1c28f",
+  "validation-evidence.md": "b244458b7026da09593eecaf01afe77b75b6d374cdb2da3f061551f36b6f1827",
+  "execution-evidence.md": "6f04b12c9ce893d8befac4465a76ee762d1a739198cc9f2b95d440f855f9ac37",
+  "artifact-manifest.json": "d1ba9180f148a495af26deeecfb72c4c3ce01093e9e3451d8352f9d215de6eed"
 }
