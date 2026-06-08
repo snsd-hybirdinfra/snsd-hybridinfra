@@ -5,7 +5,8 @@ lifecycle_name: Correlation and Analysis
 operational_scope: Infrastructure Operations
 environment: Hybrid Infrastructure
 status: draft
-summary: This scenario documents infrastructure correlation operations using telemetry comparison, dependency analysis, and impact reasoning.
+summary: This scenario documents infrastructure correlation operations using telemetry
+  comparison, dependency analysis, and impact reasoning.
 objectives:
 - Document the operational condition represented by change impact correlation.
 - Identify relevant infrastructure components and telemetry signals.
@@ -37,3 +38,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback
   cross_domain: []
+primary_domain: Configuration / Change

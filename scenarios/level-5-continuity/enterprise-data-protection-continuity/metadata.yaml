@@ -5,7 +5,8 @@ lifecycle_name: Enterprise Continuity
 operational_scope: Infrastructure Operations
 environment: Hybrid Infrastructure
 status: draft
-summary: This scenario documents enterprise continuity operations using readiness validation, governance reporting, and cross-domain recovery posture review.
+summary: This scenario documents enterprise continuity operations using readiness
+  validation, governance reporting, and cross-domain recovery posture review.
 objectives:
 - Document the operational condition represented by enterprise data protection continuity.
 - Identify relevant infrastructure components and telemetry signals.
@@ -36,3 +37,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-identity-continuity
   downstream: []
   cross_domain: []
+primary_domain: Data Protection
