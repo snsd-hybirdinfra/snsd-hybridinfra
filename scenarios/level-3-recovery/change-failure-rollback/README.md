@@ -263,6 +263,26 @@ This scenario demonstrates recovery automation boundaries, validation gates, and
 
 <!-- OPERATIONAL_INTERPRETATION_END -->
 
+<!-- OPERATIONAL_DECISION_MATRIX_START -->
+
+## Operational Decision Matrix
+
+### Recovery Decision Matrix
+
+| State | Operational Condition | Operator Decision |
+|---|---|---|
+| Normal | Target service or infrastructure state is stable. | No recovery action required; retain readiness evidence. |
+| Warning | Recovery condition is suspected but not fully qualified. | Pause automation and validate incident context. |
+| Critical | Recovery condition is confirmed and action boundary is defined. | Execute approved recovery workflow or escalate if unsafe. |
+| Validation | Post-recovery state and evidence are available. | Mark recovery workflow as validated or incomplete. |
+
+### Decision Principle
+
+The decision matrix defines how the scenario should be interpreted during review. It does not claim live production execution. It describes operational decision boundaries, escalation conditions, and validation expectations for the scenario lifecycle.
+
+<!-- OPERATIONAL_DECISION_MATRIX_END -->
+
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)

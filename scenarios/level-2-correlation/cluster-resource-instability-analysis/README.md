@@ -275,6 +275,26 @@ This scenario demonstrates operational reasoning across telemetry sources, depen
 
 <!-- OPERATIONAL_INTERPRETATION_END -->
 
+<!-- OPERATIONAL_DECISION_MATRIX_START -->
+
+## Operational Decision Matrix
+
+### Correlation Decision Matrix
+
+| State | Operational Condition | Operator Decision |
+|---|---|---|
+| Normal | Signals do not indicate shared dependency degradation. | Continue observation and preserve correlation baseline. |
+| Warning | Multiple symptoms appear related but confidence is incomplete. | Collect additional dependency, telemetry, and event context. |
+| Critical | Correlated signals indicate probable shared dependency impact. | Prepare incident handoff with correlation evidence. |
+| Validation | Correlation path, dependency context, and evidence are traceable. | Mark correlation workflow as reviewable. |
+
+### Decision Principle
+
+The decision matrix defines how the scenario should be interpreted during review. It does not claim live production execution. It describes operational decision boundaries, escalation conditions, and validation expectations for the scenario lifecycle.
+
+<!-- OPERATIONAL_DECISION_MATRIX_END -->
+
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)

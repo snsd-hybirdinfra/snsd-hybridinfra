@@ -263,6 +263,26 @@ This scenario demonstrates enterprise-scale operational governance, continuity r
 
 <!-- OPERATIONAL_INTERPRETATION_END -->
 
+<!-- OPERATIONAL_DECISION_MATRIX_START -->
+
+## Operational Decision Matrix
+
+### Continuity Decision Matrix
+
+| State | Operational Condition | Operator Decision |
+|---|---|---|
+| Normal | Enterprise service continuity posture is acceptable. | Continue governance monitoring and evidence retention. |
+| Warning | Continuity assurance is incomplete or cross-domain status is unclear. | Request ownership, recovery, and validation updates. |
+| Critical | Continuity risk affects enterprise service availability or recovery confidence. | Escalate to continuity coordination and governance reporting. |
+| Validation | Cross-domain status, ownership, evidence, and reporting context are available. | Mark continuity workflow as governance-reviewable. |
+
+### Decision Principle
+
+The decision matrix defines how the scenario should be interpreted during review. It does not claim live production execution. It describes operational decision boundaries, escalation conditions, and validation expectations for the scenario lifecycle.
+
+<!-- OPERATIONAL_DECISION_MATRIX_END -->
+
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)

@@ -277,6 +277,26 @@ This scenario demonstrates monitoring discipline, telemetry boundary definition,
 
 <!-- OPERATIONAL_INTERPRETATION_END -->
 
+<!-- OPERATIONAL_DECISION_MATRIX_START -->
+
+## Operational Decision Matrix
+
+### Visibility Decision Matrix
+
+| State | Operational Condition | Operator Decision |
+|---|---|---|
+| Normal | Expected health and telemetry signals are present. | Continue monitoring and retain baseline evidence. |
+| Warning | Signal is missing, delayed, incomplete, or outside expected range. | Review telemetry source, dashboard visibility, and collection path. |
+| Critical | Visibility is lost for a monitored infrastructure component. | Escalate as monitoring coverage gap or incident candidate. |
+| Validation | Signal source, dashboard reference, and evidence artifact are available. | Mark visibility workflow as reviewable. |
+
+### Decision Principle
+
+The decision matrix defines how the scenario should be interpreted during review. It does not claim live production execution. It describes operational decision boundaries, escalation conditions, and validation expectations for the scenario lifecycle.
+
+<!-- OPERATIONAL_DECISION_MATRIX_END -->
+
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)

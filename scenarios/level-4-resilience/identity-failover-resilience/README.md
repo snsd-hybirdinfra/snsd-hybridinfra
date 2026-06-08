@@ -248,6 +248,26 @@ This scenario demonstrates distributed operational thinking, blast-radius awaren
 
 <!-- OPERATIONAL_INTERPRETATION_END -->
 
+<!-- OPERATIONAL_DECISION_MATRIX_START -->
+
+## Operational Decision Matrix
+
+### Resilience Decision Matrix
+
+| State | Operational Condition | Operator Decision |
+|---|---|---|
+| Normal | Distributed service path and dependency state are stable. | Continue monitoring resilience posture. |
+| Warning | Degradation appears in one component, path, region, or dependency. | Assess blast radius and degraded-state operating boundary. |
+| Critical | Distributed impact threatens service survivability. | Coordinate failover, isolation, traffic shift, or resilience workflow. |
+| Validation | Survivability, failover consistency, and impact containment evidence are available. | Mark resilience workflow as reviewable. |
+
+### Decision Principle
+
+The decision matrix defines how the scenario should be interpreted during review. It does not claim live production execution. It describes operational decision boundaries, escalation conditions, and validation expectations for the scenario lifecycle.
+
+<!-- OPERATIONAL_DECISION_MATRIX_END -->
+
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)
