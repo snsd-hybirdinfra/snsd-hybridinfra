@@ -25,6 +25,8 @@ This repository represents the following engineering capability areas:
 
 The repository demonstrates how infrastructure operations can be modeled, validated, and documented through reusable operational capabilities and scenario-based validation workflows.
 
+Each scenario includes an operational interpretation section that explains the risk context, operator decision points, and reviewer-facing operational value of the workflow.
+
 ---
 
 ## Operational Lifecycle
