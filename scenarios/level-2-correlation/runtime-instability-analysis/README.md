@@ -251,6 +251,26 @@ This scenario is considered complete when:
 
 <!-- L2_CORRELATION_CONTENT_END -->
 
+<!-- OPERATIONAL_INTERPRETATION_START -->
+
+## Operational Interpretation
+
+This scenario should be interpreted as an operational workflow for **hybrid infrastructure operations** within the **cross-signal correlation and dependency analysis** lifecycle. The goal is not to document a single tool action, but to show how operational signals, platform capabilities, and validation evidence are organized into a repeatable infrastructure operations pattern.
+
+## Failure / Risk Context
+
+The primary operational risk is **misdiagnosis, isolated symptom handling, and delayed incident qualification**. In the context of **Runtime Instability Analysis**, this means the workflow must clearly separate observable symptoms, dependency context, response boundaries, and validation evidence.
+
+## Operator Decision Points
+
+Operators reviewing this scenario should be able to determine **whether multiple signals indicate a shared dependency, cascading condition, or localized anomaly**. The scenario therefore emphasizes decision quality, evidence readiness, and operational traceability rather than isolated implementation steps.
+
+## Reviewer Notes
+
+This scenario demonstrates operational reasoning across telemetry sources, dependencies, and incident handoff criteria.
+
+<!-- OPERATIONAL_INTERPRETATION_END -->
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)

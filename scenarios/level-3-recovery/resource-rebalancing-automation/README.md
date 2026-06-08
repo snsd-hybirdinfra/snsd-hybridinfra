@@ -246,6 +246,26 @@ This scenario is considered complete when:
 
 <!-- L3_RECOVERY_CONTENT_END -->
 
+<!-- OPERATIONAL_INTERPRETATION_START -->
+
+## Operational Interpretation
+
+This scenario should be interpreted as an operational workflow for **hybrid infrastructure operations** within the **controlled recovery orchestration and validation** lifecycle. The goal is not to document a single tool action, but to show how operational signals, platform capabilities, and validation evidence are organized into a repeatable infrastructure operations pattern.
+
+## Failure / Risk Context
+
+The primary operational risk is **unvalidated automation, unsafe remediation, and incomplete service restoration**. In the context of **Resource Rebalancing Automation**, this means the workflow must clearly separate observable symptoms, dependency context, response boundaries, and validation evidence.
+
+## Operator Decision Points
+
+Operators reviewing this scenario should be able to determine **whether recovery automation should execute, pause, roll back, or escalate based on validation evidence**. The scenario therefore emphasizes decision quality, evidence readiness, and operational traceability rather than isolated implementation steps.
+
+## Reviewer Notes
+
+This scenario demonstrates recovery automation boundaries, validation gates, and operational control.
+
+<!-- OPERATIONAL_INTERPRETATION_END -->
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)

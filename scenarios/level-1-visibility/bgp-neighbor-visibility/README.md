@@ -251,6 +251,26 @@ This scenario is considered complete when:
 
 <!-- L1_VISIBILITY_CONTENT_END -->
 
+<!-- OPERATIONAL_INTERPRETATION_START -->
+
+## Operational Interpretation
+
+This scenario should be interpreted as an operational workflow for **hybrid infrastructure operations** within the **visibility and signal collection** lifecycle. The goal is not to document a single tool action, but to show how operational signals, platform capabilities, and validation evidence are organized into a repeatable infrastructure operations pattern.
+
+## Failure / Risk Context
+
+The primary operational risk is **undetected degradation, missing telemetry, and delayed operational awareness**. In the context of **Bgp Neighbor Visibility**, this means the workflow must clearly separate observable symptoms, dependency context, response boundaries, and validation evidence.
+
+## Operator Decision Points
+
+Operators reviewing this scenario should be able to determine **whether the observed signal is normal baseline drift or an early indicator requiring investigation**. The scenario therefore emphasizes decision quality, evidence readiness, and operational traceability rather than isolated implementation steps.
+
+## Reviewer Notes
+
+This scenario demonstrates monitoring discipline, telemetry boundary definition, and alert readiness.
+
+<!-- OPERATIONAL_INTERPRETATION_END -->
+
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)
