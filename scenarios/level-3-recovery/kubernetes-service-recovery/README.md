@@ -141,8 +141,119 @@ status; resource pressure; control plane signal.
 
 ---
 
-## Evidence
+<!-- L3_RECOVERY_CONTENT_START -->
 
+## Recovery Scope
+
+This scenario defines the recovery scope for **Kubernetes Service Recovery**. It focuses on restoring the affected capability through controlled orchestration, automation execution, and validation.
+
+- **Primary recovery target:** Kubernetes cluster, node, pod, control plane, service object
+- **Operational focus:** Execute controlled recovery, restoration, failover, or mitigation workflow
+
+The recovery boundary includes confirmed failure detection, incident context, recovery trigger evaluation, automation execution, rollback handling, and post-recovery validation.
+
+## Recovery Trigger Conditions
+
+Recovery execution is required when one or more of the following conditions are observed:
+
+- The affected capability is unavailable, unstable, or unable to serve its expected operational role.
+- Correlation confirms that the issue is not limited to transient telemetry noise.
+- Manual observation or automated analysis identifies a recoverable failure condition.
+- The incident requires a repeatable recovery workflow rather than ad-hoc operator action.
+- Validation evidence is required before the incident can be closed.
+
+## Failure Signals
+
+The following telemetry signals are used to determine recovery eligibility and execution priority:
+
+- node readiness
+- pod health
+- API server availability
+- scheduling status
+- resource pressure
+- control plane signal
+
+## Recovery Decision Criteria
+
+The recovery workflow should only proceed when the affected resource, dependency context, and expected recovery action are clear.
+
+Recovery should be executed when:
+
+- The affected target matches the defined recovery scope.
+- The failure condition is confirmed by telemetry or incident analysis.
+- The recovery action has a known validation method.
+- The automation path is available and safe to execute.
+- Rollback or escalation is available if the recovery action fails.
+
+## Recovery Orchestration Workflow
+
+1. Confirm the affected resource and failure condition.
+2. Correlate telemetry signals with the current incident context.
+3. Select the recovery workflow that matches the failure scope.
+4. Execute the recovery action through the assigned automation path.
+5. Monitor execution status and collect recovery evidence.
+6. Validate that the affected capability has returned to an acceptable operational state.
+7. Escalate to resilience or continuity coordination if direct recovery fails.
+
+## Operational Modules
+
+- Recovery Orchestration Module
+- Automation Execution Module
+- Recovery Validation Module
+
+## Integration Adapters
+
+- Ansible Adapter
+- Prometheus Adapter
+- Grafana Adapter
+
+## Automation Execution Boundary
+
+This scenario assumes that recovery automation is controlled, observable, and reversible where possible. It does not assume blind execution of remediation commands.
+
+Automation should be blocked or escalated when:
+
+- The target resource cannot be confidently identified.
+- Telemetry signals are contradictory or incomplete.
+- The recovery action may increase blast radius.
+- Required credentials, control plane access, or execution path is unavailable.
+- Validation cannot confirm the recovery result.
+
+## Recovery Validation
+
+Recovery validation must prove that the affected capability has returned to a stable state. Validation includes:
+
+- Resource health or reachability check
+- Service or dependency availability check
+- Error, latency, or failure signal reduction
+- Automation execution status
+- Evidence artifact generation
+
+## Rollback and Escalation
+
+If the recovery action fails or produces unstable results, the workflow must either roll back to the last known safe state or escalate to higher-level resilience coordination.
+
+Escalation is required when:
+
+- Recovery execution fails.
+- The same failure repeats after recovery.
+- Dependent services remain degraded.
+- The affected capability requires failover, rerouting, or cross-domain coordination.
+- Operator approval is required for further action.
+
+## Acceptance Criteria
+
+This scenario is considered complete when:
+
+- The affected capability is restored or safely contained.
+- Recovery execution evidence is available.
+- Validation confirms operational stability.
+- Any residual risk is documented.
+- Incident status can be closed or escalated with clear evidence.
+
+<!-- L3_RECOVERY_CONTENT_END -->
+
+## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)
 - [Validation Evidence](evidence/generated/validation-evidence.md)
