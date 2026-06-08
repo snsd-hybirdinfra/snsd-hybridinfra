@@ -1,40 +1,28 @@
-﻿# Reports
+# Repository Reports
 
-This directory contains repository-level validation, generation, and governance reports for the SNSD Hybrid Infrastructure portfolio.
+This directory contains generated validation and portfolio health reports for the SNSD Hybrid Infrastructure repository.
 
-Reports are used to verify repository consistency, scenario artifact completeness, relationship metadata quality, and generated documentation status.
+## Primary Reports
 
----
+- [Portfolio Health Summary](./portfolio-health-summary.md)
+- [Repository Quality Check](./repository-quality-check.md)
+- [Markdown Link Check](./markdown-link-check.md)
+- [Root README Alignment Check](./root-readme-alignment-check.md)
+- [Top-Level Structure Check](./top-level-structure-check.md)
 
-## Report Inventory
+## Purpose
 
-| Report | Purpose |
-|---|---|
-| [Repository Quality Check](./repository-quality-check.md) | Validates required scenario artifacts, poster outputs, missing files, and known bad phrase patterns. |
-| [Related Scenarios Generation Report](./related-scenarios-generation-report.md) | Summarizes strict related scenario generation based on exact `primary_domain` matching. |
+These reports provide reviewer-facing evidence that the repository structure, scenario artifacts, documentation links, root README alignment, and portfolio baseline are continuously validated.
 
----
+## Validation Scope
 
-## Current Validation Scope
+The validation workflow covers:
 
-Repository validation currently covers:
-
-- scenario directory count
-- metadata file count
-- operational poster SVG/PNG count
-- required evidence artifact presence
-- small or broken poster PNG detection
-- deprecated generic workflow phrase detection
-- README related scenario notice validation
-
----
-
-## Governance Role
-
-Reports support repository-level governance by providing reviewer-readable evidence that generated artifacts and scenario relationships remain consistent across the portfolio.
-
----
-
-## Summary
-
-The reports layer provides repository-wide operational quality visibility and supports repeatable validation of the portfolio structure.
+- scenario inventory
+- required scenario artifacts
+- generated operational posters
+- markdown links
+- top-level repository structure
+- root README alignment
+- repository language consistency
+- conservative related scenario mapping status
