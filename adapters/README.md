@@ -22,12 +22,12 @@ Total adapters: 6
 
 | Adapter | Integration Role |
 |---|---|
-| [Ansible Adapter](./ansible-adapter/README.md) | Provides automation execution integration for recovery, remediation, and operational workflow execution. |
-| [Grafana Adapter](./grafana-adapter/README.md) | Provides dashboard visualization and operational reporting integration for scenario evidence and infrastructure visibility. |
-| [Kubernetes Adapter](./kubernetes-adapter/README.md) | Provides Kubernetes cluster integration for container platform telemetry, service state, and recovery workflow coordination. |
-| [Opensearch Adapter](./opensearch-adapter/README.md) | Provides log, event, and operational evidence indexing integration for analysis, correlation, and reporting workflows. |
-| [Prometheus Adapter](./prometheus-adapter/README.md) | Provides metric collection and telemetry integration for infrastructure visibility, alerting, and operational signal workflows. |
-| [Python Exporter Adapter](./python-exporter-adapter/README.md) | Provides custom telemetry export and integration logic for scenario-specific infrastructure signals. |
+| [Ansible Adapter](./ansible-adapter/README.md) | Ansible automation execution boundary |
+| [Grafana Adapter](./grafana-adapter/README.md) | Grafana dashboards and visualization references |
+| [Kubernetes Adapter](./kubernetes-adapter/README.md) | Kubernetes cluster API and workload state |
+| [Opensearch Adapter](./opensearch-adapter/README.md) | OpenSearch log and event query interface |
+| [Prometheus Adapter](./prometheus-adapter/README.md) | Prometheus-compatible metric collection and query interface |
+| [Python Exporter Adapter](./python-exporter-adapter/README.md) | Python-based custom telemetry exporters |
 
 ---
 
