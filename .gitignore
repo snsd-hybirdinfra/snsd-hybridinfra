@@ -64,3 +64,5 @@ tools/**/debug/
 *.backup
 *.tmp
 *.broken
+*.bak_*
+.pytest_cache/
