@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/load-balancer-recovery
 scenario_type: Recovery / Automation
 primary_domain: Load Balancing
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents load balancer recovery within the load balancing operational domain. It
   focuses on load balancer, listener, target group, backend service and demonstrates how

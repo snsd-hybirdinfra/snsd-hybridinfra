@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/kubernetes-platform-resilience
 scenario_type: resilience
 primary_domain: Kubernetes Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents kubernetes platform resilience within the kubernetes operations operational
   domain. It focuses on Kubernetes cluster and platform workload group and demonstrates how

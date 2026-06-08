@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/service-mesh-traffic-visibility
 scenario_type: Visibility / Monitoring
 primary_domain: Service Mesh
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents service mesh traffic visibility within the service mesh operational domain.
   It focuses on service mesh route, sidecar proxy, service dependency, traffic policy and demonstrates

@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/audit-log-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Audit / Logging
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents audit log monitoring within the audit / logging operational domain. It
   focuses on audit log source, event stream, policy record, evidence trail and demonstrates how

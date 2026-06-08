@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/compute-resource-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Compute / Resource
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents compute resource correlation within the compute / resource operational
   domain. It focuses on compute node, instance, CPU, memory, disk, runtime host and demonstrates how

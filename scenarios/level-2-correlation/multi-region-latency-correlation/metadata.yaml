@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/multi-region-latency-correlation
 scenario_type: Correlation / Analysis
 primary_domain: General Infrastructure
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents multi region latency correlation within the general infrastructure
   operational domain. It focuses on infrastructure component, telemetry source, operational dependency

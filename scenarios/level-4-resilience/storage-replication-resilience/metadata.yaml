@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/storage-replication-resilience
 scenario_type: resilience
 primary_domain: Storage Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents storage replication resilience within the storage operations operational
   domain. It focuses on replicated storage volume and dependent workload and demonstrates how

@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/inter-region-dependency-correlation
 scenario_type: correlation
 primary_domain: Network Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents inter region dependency correlation within the network operations
   operational domain. It focuses on regional service dependency and inter region network path and

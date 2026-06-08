@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/dns-service-restoration
 scenario_type: Recovery / Automation
 primary_domain: DNS / Name Resolution
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents dns service restoration within the dns / name resolution operational domain.
   It focuses on DNS resolver, DNS record, query path, client resolution flow and demonstrates how

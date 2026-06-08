@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/privileged-session-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Privileged Access
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents privileged session monitoring within the privileged access operational
   domain. It focuses on privileged session, admin account, access control, audit source and

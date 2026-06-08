@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/service-health-visibility
 scenario_type: Visibility / Monitoring
 primary_domain: General Infrastructure
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents service health visibility within the general infrastructure operational
   domain. It focuses on infrastructure component, telemetry source, operational dependency and

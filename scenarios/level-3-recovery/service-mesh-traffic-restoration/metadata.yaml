@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/service-mesh-traffic-restoration
 scenario_type: Recovery / Automation
 primary_domain: Service Mesh
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents service mesh traffic restoration within the service mesh operational domain.
   It focuses on service mesh route, sidecar proxy, service dependency, traffic policy and demonstrates

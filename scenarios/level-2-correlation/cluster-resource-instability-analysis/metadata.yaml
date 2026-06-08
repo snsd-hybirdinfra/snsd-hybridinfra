@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/cluster-resource-instability-analysis
 scenario_type: Correlation / Analysis
 primary_domain: Cluster / Platform
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents cluster resource instability analysis within the cluster / platform
   operational domain. It focuses on cluster node, workload, control plane, resource pool and

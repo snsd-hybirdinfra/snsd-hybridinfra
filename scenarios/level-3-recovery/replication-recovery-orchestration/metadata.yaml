@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/replication-recovery-orchestration
 scenario_type: Recovery / Automation
 primary_domain: Database / Replication
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents replication recovery orchestration within the database / replication
   operational domain. It focuses on replication channel, source database, replica database, lag signal

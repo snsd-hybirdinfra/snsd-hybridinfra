@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/replication-failure-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Database / Replication
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents replication failure correlation within the database / replication
   operational domain. It focuses on replication channel, source database, replica database, lag signal

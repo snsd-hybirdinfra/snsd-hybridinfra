@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/compute-failover-orchestration
 scenario_type: Recovery / Automation
 primary_domain: Compute / Resource
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents compute failover orchestration within the compute / resource operational
   domain. It focuses on compute node, instance, CPU, memory, disk, runtime host and demonstrates how

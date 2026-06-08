@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/api-gateway-health-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: API / Gateway
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents api gateway health monitoring within the api / gateway operational domain.
   It focuses on API gateway, route, upstream service, client request path and demonstrates how

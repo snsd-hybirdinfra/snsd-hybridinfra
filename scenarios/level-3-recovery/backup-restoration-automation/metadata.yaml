@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/backup-restoration-automation
 scenario_type: Recovery / Automation
 primary_domain: Backup / Recovery
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents backup restoration automation within the backup / recovery operational
   domain. It focuses on backup job, backup scheduler, protected workload, backup repository, recovery

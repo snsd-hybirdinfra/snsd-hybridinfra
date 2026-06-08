@@ -4,8 +4,7 @@ lifecycle_level: level-5-continuity
 scenario_path: scenarios/level-5-continuity/enterprise-data-protection-continuity
 scenario_type: continuity
 primary_domain: Continuity Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents enterprise data protection continuity within the continuity operations
   operational domain. It focuses on enterprise backup and recovery capability and demonstrates how

@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/backup-job-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Backup / Recovery
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents backup job monitoring within the backup / recovery operational domain. It
   focuses on backup job, backup scheduler, protected workload, backup repository, recovery point and

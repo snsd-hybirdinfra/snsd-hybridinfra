@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/certificate-renewal-automation
 scenario_type: recovery
 primary_domain: Security Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents certificate renewal automation within the security operations operational
   domain. It focuses on service certificate and TLS enabled endpoint and demonstrates how

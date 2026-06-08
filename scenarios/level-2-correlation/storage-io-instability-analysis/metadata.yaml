@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/storage-io-instability-analysis
 scenario_type: Correlation / Analysis
 primary_domain: Storage
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents storage io instability analysis within the storage operational domain. It
   focuses on storage volume, storage backend, object store, I/O path and demonstrates how

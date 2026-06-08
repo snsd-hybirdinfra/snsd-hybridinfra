@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/configuration-drift-monitoring
 scenario_type: visibility
 primary_domain: Configuration Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents configuration drift monitoring within the configuration operations
   operational domain. It focuses on server configuration baseline and cloud resource configuration

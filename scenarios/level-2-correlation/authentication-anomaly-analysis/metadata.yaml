@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/authentication-anomaly-analysis
 scenario_type: Correlation / Analysis
 primary_domain: Identity / Authentication
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents authentication anomaly analysis within the identity / authentication
   operational domain. It focuses on authentication flow, identity provider, login event, risk signal

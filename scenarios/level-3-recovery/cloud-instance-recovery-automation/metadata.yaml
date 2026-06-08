@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/cloud-instance-recovery-automation
 scenario_type: Recovery / Automation
 primary_domain: Cloud Instance
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents cloud instance recovery automation within the cloud instance operational
   domain. It focuses on cloud instance, VM, host resource, instance status check and demonstrates how

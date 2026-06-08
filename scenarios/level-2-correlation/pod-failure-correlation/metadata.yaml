@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/pod-failure-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Container / Pod
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents pod failure correlation within the container / pod operational domain. It
   focuses on pod, container, node, workload, service endpoint and demonstrates how infrastructure

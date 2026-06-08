@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/database-latency-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Database
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents database latency correlation within the database operational domain. It
   focuses on database instance, query workload, replication channel, storage backend and demonstrates

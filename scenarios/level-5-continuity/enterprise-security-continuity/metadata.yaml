@@ -4,8 +4,7 @@ lifecycle_level: level-5-continuity
 scenario_path: scenarios/level-5-continuity/enterprise-security-continuity
 scenario_type: Continuity / Governance
 primary_domain: Security / Telemetry
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents enterprise security continuity within the security / telemetry operational
   domain. It focuses on security event, policy control, endpoint signal, audit source and demonstrates

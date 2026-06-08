@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/routing-instability-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Network / Routing
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents routing instability correlation within the network / routing operational
   domain. It focuses on route table, routing path, router, service path and demonstrates how

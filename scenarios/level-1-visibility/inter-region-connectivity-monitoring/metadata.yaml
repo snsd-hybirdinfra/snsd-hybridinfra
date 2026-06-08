@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/inter-region-connectivity-monitoring
 scenario_type: visibility
 primary_domain: Network Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents inter region connectivity monitoring within the network operations
   operational domain. It focuses on inter region network path and routing endpoint and demonstrates

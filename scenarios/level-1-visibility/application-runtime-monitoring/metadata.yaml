@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/application-runtime-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Application Runtime
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents application runtime monitoring within the application runtime operational
   domain. It focuses on application process, runtime endpoint, container or VM-hosted service and

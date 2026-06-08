@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/message-queue-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Message Queue
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents message queue monitoring within the message queue operational domain. It
   focuses on message broker, queue depth, consumer group, producer flow and demonstrates how

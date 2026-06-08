@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/configuration-rollback-automation
 scenario_type: recovery
 primary_domain: Configuration Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents configuration rollback automation within the configuration operations
   operational domain. It focuses on managed configuration baseline and affected infrastructure

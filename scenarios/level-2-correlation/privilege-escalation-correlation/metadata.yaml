@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/privilege-escalation-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Privileged Access
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents privilege escalation correlation within the privileged access operational
   domain. It focuses on privileged session, admin account, access control, audit source and

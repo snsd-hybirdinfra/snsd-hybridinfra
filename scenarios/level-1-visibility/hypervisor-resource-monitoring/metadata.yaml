@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/hypervisor-resource-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Virtualization
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents hypervisor resource monitoring within the virtualization operational domain.
   It focuses on hypervisor, VM host, resource pool, guest workload and demonstrates how infrastructure

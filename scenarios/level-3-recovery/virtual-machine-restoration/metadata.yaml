@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/virtual-machine-restoration
 scenario_type: Recovery / Automation
 primary_domain: Virtual Machine
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents virtual machine restoration within the virtual machine operational domain.
   It focuses on virtual machine, hypervisor, guest OS, compute host and demonstrates how

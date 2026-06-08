@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/configuration-resilience-validation
 scenario_type: resilience
 primary_domain: Configuration Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents configuration resilience validation within the configuration operations
   operational domain. It focuses on configuration baseline and dependent service group and

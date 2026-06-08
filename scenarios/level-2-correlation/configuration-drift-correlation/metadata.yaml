@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/configuration-drift-correlation
 scenario_type: correlation
 primary_domain: Configuration Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents configuration drift correlation within the configuration operations
   operational domain. It focuses on configuration baseline and affected infrastructure component and

@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/change-failure-rollback
 scenario_type: recovery
 primary_domain: Change Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents change failure rollback within the change operations operational domain. It
   focuses on failed change target and impacted service component and demonstrates how infrastructure

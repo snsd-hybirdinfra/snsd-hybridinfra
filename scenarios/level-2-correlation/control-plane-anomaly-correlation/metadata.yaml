@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/control-plane-anomaly-correlation
 scenario_type: correlation
 primary_domain: Platform Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents control plane anomaly correlation within the platform operations operational
   domain. It focuses on control plane API and platform management workflow and demonstrates how

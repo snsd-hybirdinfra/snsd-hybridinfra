@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/control-plane-recovery-orchestration
 scenario_type: recovery
 primary_domain: Platform Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents control plane recovery orchestration within the platform operations
   operational domain. It focuses on control plane endpoint and controller service and demonstrates how

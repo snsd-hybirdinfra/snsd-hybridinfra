@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/vpn-tunnel-instability-analysis
 scenario_type: Correlation / Analysis
 primary_domain: Network / VPN
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents vpn tunnel instability analysis within the network / vpn operational domain.
   It focuses on VPN tunnel, VPN gateway, remote endpoint, routing path and demonstrates how

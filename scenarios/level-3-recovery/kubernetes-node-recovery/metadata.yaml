@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/kubernetes-node-recovery
 scenario_type: Recovery / Automation
 primary_domain: Kubernetes / Cluster
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents kubernetes node recovery within the kubernetes / cluster operational domain.
   It focuses on Kubernetes cluster, node, pod, control plane, service object and demonstrates how

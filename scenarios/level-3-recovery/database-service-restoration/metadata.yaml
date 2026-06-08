@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/database-service-restoration
 scenario_type: Recovery / Automation
 primary_domain: Database
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents database service restoration within the database operational domain. It
   focuses on database instance, query workload, replication channel, storage backend and demonstrates

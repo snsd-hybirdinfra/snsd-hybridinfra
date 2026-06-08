@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/cross-region-network-anomaly-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Network / Routing
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents cross region network anomaly correlation within the network / routing
   operational domain. It focuses on network path, route, interface, traffic flow and demonstrates how

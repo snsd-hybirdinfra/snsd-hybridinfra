@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/identity-access-remediation
 scenario_type: recovery
 primary_domain: Identity Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents identity access remediation within the identity operations operational
   domain. It focuses on identity policy and access controlled infrastructure component and

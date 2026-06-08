@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/endpoint-security-visibility
 scenario_type: Visibility / Monitoring
 primary_domain: Security / Telemetry
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents endpoint security visibility within the security / telemetry operational
   domain. It focuses on security event, policy control, endpoint signal, audit source and demonstrates

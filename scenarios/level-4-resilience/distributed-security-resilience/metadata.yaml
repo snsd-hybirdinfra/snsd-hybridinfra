@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/distributed-security-resilience
 scenario_type: Resilience / Failover
 primary_domain: Security / Telemetry
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents distributed security resilience within the security / telemetry operational
   domain. It focuses on security event, policy control, endpoint signal, audit source and demonstrates

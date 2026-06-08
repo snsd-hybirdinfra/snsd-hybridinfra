@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/cross-region-network-resilience
 scenario_type: Resilience / Failover
 primary_domain: Network / Routing
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents cross region network resilience within the network / routing operational
   domain. It focuses on network path, route, interface, traffic flow and demonstrates how

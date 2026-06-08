@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/api-latency-correlation
 scenario_type: Correlation / Analysis
 primary_domain: API / Service
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents api latency correlation within the api / service operational domain. It
   focuses on API endpoint, upstream service, request path, runtime dependency and demonstrates how

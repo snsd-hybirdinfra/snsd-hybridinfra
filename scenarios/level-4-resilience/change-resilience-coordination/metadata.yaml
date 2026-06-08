@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/change-resilience-coordination
 scenario_type: resilience
 primary_domain: Change Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents change resilience coordination within the change operations operational
   domain. It focuses on change affected service and dependent infrastructure domain and demonstrates

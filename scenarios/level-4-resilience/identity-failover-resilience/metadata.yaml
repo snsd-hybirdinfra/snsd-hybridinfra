@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/identity-failover-resilience
 scenario_type: resilience
 primary_domain: Identity Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents identity failover resilience within the identity operations operational
   domain. It focuses on identity provider and access controlled service and demonstrates how

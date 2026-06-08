@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/multi-site-routing-failover
 scenario_type: Resilience / Failover
 primary_domain: Network / Routing
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents multi site routing failover within the network / routing operational domain.
   It focuses on route table, routing path, router, service path and demonstrates how infrastructure

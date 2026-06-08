@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/cloud-instance-health-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Cloud Instance
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents cloud instance health monitoring within the cloud instance operational
   domain. It focuses on cloud instance, VM, host resource, instance status check and demonstrates how

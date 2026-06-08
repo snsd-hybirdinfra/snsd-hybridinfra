@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/process-health-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Process / Service
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents process health monitoring within the process / service operational domain.
   It focuses on process, service runtime, OS host, health signal and demonstrates how infrastructure

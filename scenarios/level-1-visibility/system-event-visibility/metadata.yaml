@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/system-event-visibility
 scenario_type: Visibility / Monitoring
 primary_domain: System Event
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents system event visibility within the system event operational domain. It
   focuses on system event log, OS runtime, service state, host signal and demonstrates how

@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/storage-volume-recovery-automation
 scenario_type: recovery
 primary_domain: Storage Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents storage volume recovery automation within the storage operations operational
   domain. It focuses on storage volume and attached workload and demonstrates how infrastructure

@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/filesystem-failure-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Filesystem
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents filesystem failure correlation within the filesystem operational domain. It
   focuses on filesystem, mount point, volume, inode, disk path and demonstrates how infrastructure

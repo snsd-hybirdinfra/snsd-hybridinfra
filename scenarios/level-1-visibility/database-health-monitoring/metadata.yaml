@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/database-health-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Database
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents database health monitoring within the database operational domain. It
   focuses on database instance, query workload, replication channel, storage backend and demonstrates

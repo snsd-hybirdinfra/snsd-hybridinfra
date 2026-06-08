@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/object-storage-health-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Storage
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents object storage health monitoring within the storage operational domain. It
   focuses on storage volume, storage backend, object store, I/O path and demonstrates how

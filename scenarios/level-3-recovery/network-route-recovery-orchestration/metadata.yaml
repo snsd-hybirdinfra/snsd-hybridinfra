@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/network-route-recovery-orchestration
 scenario_type: Recovery / Automation
 primary_domain: Network / Routing
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents network route recovery orchestration within the network / routing
   operational domain. It focuses on network path, route, interface, traffic flow and demonstrates how

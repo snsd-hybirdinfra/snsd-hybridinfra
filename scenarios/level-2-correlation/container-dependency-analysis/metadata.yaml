@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/container-dependency-analysis
 scenario_type: Correlation / Analysis
 primary_domain: Container / Runtime
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents container dependency analysis within the container / runtime operational
   domain. It focuses on container runtime, pod, workload, node, image runtime and demonstrates how

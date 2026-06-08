@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/query-lock-analysis
 scenario_type: Correlation / Analysis
 primary_domain: Database / Query
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents query lock analysis within the database / query operational domain. It
   focuses on query workload, lock state, connection pool, database runtime and demonstrates how

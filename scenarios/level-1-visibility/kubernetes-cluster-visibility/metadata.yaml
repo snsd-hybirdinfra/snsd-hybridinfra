@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/kubernetes-cluster-visibility
 scenario_type: Visibility / Monitoring
 primary_domain: Kubernetes / Cluster
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents kubernetes cluster visibility within the kubernetes / cluster operational
   domain. It focuses on Kubernetes cluster, node, pod, control plane, service object and demonstrates

@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/backup-failure-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Backup / Recovery
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents backup failure correlation within the backup / recovery operational domain.
   It focuses on backup job, backup scheduler, protected workload, backup repository, recovery point

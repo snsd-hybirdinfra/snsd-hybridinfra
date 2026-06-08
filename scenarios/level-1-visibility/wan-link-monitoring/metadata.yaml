@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/wan-link-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: Network / WAN
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents wan link monitoring within the network / wan operational domain. It focuses
   on WAN link, edge router, remote site, network path and demonstrates how infrastructure operations

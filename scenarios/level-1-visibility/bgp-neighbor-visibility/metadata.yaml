@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/bgp-neighbor-visibility
 scenario_type: Visibility / Monitoring
 primary_domain: Network / Routing
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents bgp neighbor visibility within the network / routing operational domain. It
   focuses on BGP neighbor, router, route table, WAN path and demonstrates how infrastructure

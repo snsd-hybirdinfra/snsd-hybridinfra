@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/kubernetes-control-plane-recovery
 scenario_type: recovery
 primary_domain: Kubernetes Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents kubernetes control plane recovery within the kubernetes operations
   operational domain. It focuses on Kubernetes API server and controller manager and demonstrates how

@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/dns-resolution-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: DNS / Name Resolution
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents dns resolution monitoring within the dns / name resolution operational
   domain. It focuses on DNS resolver, DNS record, query path, client resolution flow and demonstrates

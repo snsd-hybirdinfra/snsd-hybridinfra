@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/container-failover-automation
 scenario_type: Recovery / Automation
 primary_domain: Container / Runtime
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents container failover automation within the container / runtime operational
   domain. It focuses on container runtime, pod, workload, node, image runtime and demonstrates how

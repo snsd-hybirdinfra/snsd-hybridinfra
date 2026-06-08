@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/identity-resilience-coordination
 scenario_type: Resilience / Failover
 primary_domain: Identity / Access
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents identity resilience coordination within the identity / access operational
   domain. It focuses on identity provider, access policy, authentication flow, account state and

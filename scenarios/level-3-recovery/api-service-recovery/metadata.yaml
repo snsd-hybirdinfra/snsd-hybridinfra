@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/api-service-recovery
 scenario_type: Recovery / Automation
 primary_domain: API / Service
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents api service recovery within the api / service operational domain. It focuses
   on API endpoint, upstream service, request path, runtime dependency and demonstrates how

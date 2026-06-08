@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/inter-region-routing-resilience
 scenario_type: resilience
 primary_domain: Network Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents inter region routing resilience within the network operations operational
   domain. It focuses on inter region routing path and regional gateway pair and demonstrates how

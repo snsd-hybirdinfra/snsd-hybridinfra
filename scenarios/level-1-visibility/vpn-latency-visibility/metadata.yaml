@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/vpn-latency-visibility
 scenario_type: Visibility / Monitoring
 primary_domain: Network / VPN
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents vpn latency visibility within the network / vpn operational domain. It
   focuses on VPN tunnel, VPN gateway, remote endpoint, routing path and demonstrates how

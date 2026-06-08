@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/inter-region-routing-recovery
 scenario_type: recovery
 primary_domain: Network Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents inter region routing recovery within the network operations operational
   domain. It focuses on inter region route and regional gateway and demonstrates how infrastructure

@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/cross-region-kubernetes-resilience
 scenario_type: Resilience / Failover
 primary_domain: Kubernetes / Cluster
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents cross region kubernetes resilience within the kubernetes / cluster
   operational domain. It focuses on Kubernetes cluster, node, pod, control plane, service object and

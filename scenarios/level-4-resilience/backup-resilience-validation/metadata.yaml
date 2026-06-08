@@ -4,8 +4,7 @@ lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/backup-resilience-validation
 scenario_type: resilience
 primary_domain: Backup Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents backup resilience validation within the backup operations operational
   domain. It focuses on backup artifact and restore validation target and demonstrates how

@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/security-policy-violation-analysis
 scenario_type: Correlation / Analysis
 primary_domain: Security / Telemetry
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents security policy violation analysis within the security / telemetry
   operational domain. It focuses on security event, policy control, endpoint signal, audit source and

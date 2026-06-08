@@ -4,8 +4,7 @@ lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/traffic-restoration-workflow
 scenario_type: Recovery / Automation
 primary_domain: Traffic / Flow
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents traffic restoration workflow within the traffic / flow operational domain.
   It focuses on traffic flow, interface, request volume, network path and demonstrates how

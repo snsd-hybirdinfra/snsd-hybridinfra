@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/certificate-expiration-monitoring
 scenario_type: Visibility / Monitoring
 primary_domain: TLS / Certificate
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents certificate expiration monitoring within the tls / certificate operational
   domain. It focuses on TLS certificate, domain endpoint, certificate chain, renewal process and

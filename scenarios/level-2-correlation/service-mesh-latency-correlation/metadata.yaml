@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/service-mesh-latency-correlation
 scenario_type: Correlation / Analysis
 primary_domain: Service Mesh
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents service mesh latency correlation within the service mesh operational domain.
   It focuses on service mesh route, sidecar proxy, service dependency, traffic policy and demonstrates

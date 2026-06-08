@@ -4,8 +4,7 @@ lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/control-plane-health-monitoring
 scenario_type: visibility
 primary_domain: Platform Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents control plane health monitoring within the platform operations operational
   domain. It focuses on infrastructure control plane and management API endpoint and demonstrates how

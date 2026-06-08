@@ -4,8 +4,7 @@ lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/change-impact-correlation
 scenario_type: correlation
 primary_domain: Change Operations
-status: draft
-
+status: content-filled
 overview: |
   This scenario documents change impact correlation within the change operations operational domain.
   It focuses on recent infrastructure change and affected service dependency and demonstrates how
