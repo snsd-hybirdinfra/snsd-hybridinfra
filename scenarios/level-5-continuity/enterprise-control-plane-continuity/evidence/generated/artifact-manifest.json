@@ -1,0 +1,15 @@
+{
+  "scenario_name": "enterprise-control-plane-continuity",
+  "scenario_title": "enterprise-control-plane-continuity",
+  "lifecycle_level": "level-5-continuity",
+  "primary_domain": "Infrastructure Operations",
+  "artifacts": [
+    "diagrams/operational-poster.png",
+    "evidence/generated/summary.md",
+    "evidence/generated/execution-evidence.md",
+    "evidence/generated/validation-evidence.md",
+    "evidence/generated/artifact-manifest.json",
+    "evidence/generated/artifact-checksums.json"
+  ],
+  "status": "placeholder-generated"
+}

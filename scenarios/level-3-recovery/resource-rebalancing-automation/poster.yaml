@@ -1,0 +1,166 @@
+poster:
+  title: Resource Rebalancing Automation
+  subtitle: Recovery Automation Board for Resource Rebalancing and Stabilization
+  lifecycle: level-3-recovery
+  domain: Infrastructure Operations
+  width: 2600
+  height: 1900
+sections:
+- id: incident-trigger
+  title: Resource Pressure & Recovery Trigger
+  summary: PRESSURE DETECTED
+  description: Operational resource signals that indicate imbalance, saturation, or recovery automation eligibility.
+  cards:
+  - title: CPU Pressure
+    subtitle: Compute utilization threshold
+    type: metric
+    status: Warning
+    icon: 📈
+  - title: Memory Saturation
+    subtitle: Workload memory pressure signal
+    type: metric
+    status: Observed
+    icon: 🧠
+  - title: Storage Hotspot
+    subtitle: Capacity or I/O imbalance
+    type: storage
+    status: Detected
+    icon: 💾
+  - title: Alert Candidate
+    subtitle: Recovery evaluation trigger
+    type: alert
+    status: Ready
+    icon: 🚨
+- id: recovery-control
+  title: Capacity Analysis & Rebalancing Decision
+  summary: ANALYSIS ACTIVE
+  description: Analysis layer responsible for workload placement, utilization correlation, and recovery decision support.
+  cards:
+  - title: Capacity Analyzer
+    subtitle: Resource imbalance analysis
+    type: analysis
+    status: Analyzing
+    icon: 🧠
+    emphasis: true
+    emphasis_label: CORE
+  - title: Workload Mapping
+    subtitle: Service-to-resource dependency
+    type: dependency
+    status: Mapped
+    icon: 🕸️
+  - title: Policy Guard
+    subtitle: Automation safety constraint
+    type: policy
+    status: Checked
+    icon: 🛡️
+  - title: Rebalancing Plan
+    subtitle: Approved resource movement plan
+    type: plan
+    status: Prepared
+    icon: 📋
+- id: automation-execution
+  title: Automation Execution
+  summary: ACTION READY
+  description: Controlled automation actions used to redistribute resource pressure and restore operational stability.
+  cards:
+  - title: Scale Action
+    subtitle: Increase available resource capacity
+    type: automation
+    status: Ready
+    icon: ⚙️
+  - title: Workload Shift
+    subtitle: Move workload away from constrained node
+    type: rebalance
+    status: Available
+    icon: 🔀
+    emphasis: true
+    emphasis_label: ACTION
+  - title: Resource Throttle
+    subtitle: Limit noisy or unstable workload
+    type: control
+    status: Ready
+    icon: 🚦
+  - title: Operator Notice
+    subtitle: Automation activity notification
+    type: notification
+    status: Prepared
+    icon: 📣
+- id: recovery-validation
+  title: Post-Rebalancing Validation
+  summary: VALIDATION READY
+  description: Validation checks confirming resource distribution and service stability after automation.
+  cards:
+  - title: Resource Normalization
+    subtitle: Utilization returned to expected range
+    type: validation
+    status: Normal
+    icon: ✅
+  - title: Service Stability
+    subtitle: Application health remains stable
+    type: validation
+    status: Verified
+    icon: 🟢
+  - title: Telemetry Continuity
+    subtitle: Signals remain available after recovery
+    type: validation
+    status: Healthy
+    icon: 📡
+  - title: Recovery Evidence
+    subtitle: Recovery validation package
+    type: evidence
+    status: Prepared
+    icon: 📦
+    emphasis: true
+    emphasis_label: VERIFY
+workflow:
+  title: Recovery Workflow
+  steps:
+  - title: Detect
+    description: Identify degradation and recovery trigger.
+    status: Detected
+  - title: Evaluate
+    description: Check policy, dependency, and recovery eligibility.
+    status: Evaluating
+  - title: Execute
+    description: Run approved recovery automation actions.
+    status: Ready
+  - title: Validate
+    description: Confirm service restoration and stability.
+    status: Verified
+  - title: Report
+    description: Prepare recovery evidence and operational summary.
+    status: Prepared
+dashboards:
+- title: Resource Rebalancing Automation Status
+  widgets:
+  - label: Recovery State
+    value: Ready
+    status: normal
+  - label: CPU Pressure
+    value: Warning
+    status: warning
+  - label: Memory
+    value: Observed
+    status: normal
+  - label: Plan
+    value: Prepared
+    status: verified
+  - label: Automation
+    value: Available
+    status: normal
+  - label: Validation
+    value: Verified
+    status: healthy
+legend:
+- label: Incident Trigger
+  color: red
+- label: Recovery Control
+  color: purple
+- label: Automation Execution
+  color: cyan
+- label: Recovery Validation
+  color: green
+- label: Core Recovery Capability
+  color: purple
+- label: Automation Action Point
+  color: cyan

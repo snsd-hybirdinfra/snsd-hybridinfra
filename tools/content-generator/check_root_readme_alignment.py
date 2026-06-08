@@ -30,7 +30,7 @@ required_terms = [
     "Recovery & Automation",
     "Recovery Validation",
     "Governance & Reporting",
-    "Total scenarios: 123",
+    "Total scenarios:",
     "tools/content-generator/",
     "tools/diagram-renderer/",
 ]

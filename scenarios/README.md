@@ -8,12 +8,12 @@ The scenario set is designed to demonstrate operational breadth across visibilit
 
 ## Inventory Summary
 
-- Total scenarios: 123
-- Level 1 - Visibility: 42
-- Level 2 - Correlation: 37
-- Level 3 - Recovery: 25
-- Level 4 - Resilience: 13
-- Level 5 - Continuity: 6
+- Total scenarios: 150
+- Level 1 - Visibility: 45
+- Level 2 - Correlation: 41
+- Level 3 - Recovery: 33
+- Level 4 - Resilience: 21
+- Level 5 - Continuity: 10
 
 ---
 
@@ -21,11 +21,11 @@ The scenario set is designed to demonstrate operational breadth across visibilit
 
 | Level | Scenario Count | Operational Focus |
 |---|---:|---|
-| Level 1 - Visibility | 42 | Signal collection, health visibility, and operational state exposure. |
-| Level 2 - Correlation | 37 | Dependency analysis, symptom correlation, and impact reasoning. |
-| Level 3 - Recovery | 25 | Controlled recovery execution, automation workflow, and restoration validation. |
-| Level 4 - Resilience | 13 | Distributed failure-domain coordination and survivability validation. |
-| Level 5 - Continuity | 6 | Enterprise continuity governance, readiness validation, and operational reporting. |
+| Level 1 - Visibility | 45 | Signal collection, health visibility, and operational state exposure. |
+| Level 2 - Correlation | 41 | Dependency analysis, symptom correlation, and impact reasoning. |
+| Level 3 - Recovery | 33 | Controlled recovery execution, automation workflow, and restoration validation. |
+| Level 4 - Resilience | 21 | Distributed failure-domain coordination and survivability validation. |
+| Level 5 - Continuity | 10 | Enterprise continuity governance, readiness validation, and operational reporting. |
 
 ---
 
@@ -33,6 +33,7 @@ The scenario set is designed to demonstrate operational breadth across visibilit
 
 | Domain | Scenario Count |
 |---|---:|
+| Unknown | 27 |
 | General Infrastructure | 25 |
 | Network / Routing | 13 |
 | Database | 9 |
@@ -89,7 +90,9 @@ Signal collection, health visibility, and operational state exposure.
 | [Certificate Expiration Monitoring](./level-1-visibility/certificate-expiration-monitoring/README.md) | TLS / Certificate | draft | 0 |
 | [Cloud Instance Health Monitoring](./level-1-visibility/cloud-instance-health-monitoring/README.md) | Cloud Instance | draft | 0 |
 | [Compute Resource Monitoring](./level-1-visibility/compute-resource-monitoring/README.md) | Compute / Resource | draft | 1 |
+| [Configuration Drift Monitoring](./level-1-visibility/configuration-drift-monitoring/README.md) | Unknown | draft | 3 |
 | [Container Runtime Visibility](./level-1-visibility/container-runtime-visibility/README.md) | Container / Runtime | draft | 1 |
+| [Control Plane Health Monitoring](./level-1-visibility/control-plane-health-monitoring/README.md) | Unknown | draft | 3 |
 | [Database Health Monitoring](./level-1-visibility/database-health-monitoring/README.md) | Database | draft | 3 |
 | [Database Replication Visibility](./level-1-visibility/database-replication-visibility/README.md) | Database | draft | 3 |
 | [Database Runtime Visibility](./level-1-visibility/database-runtime-visibility/README.md) | Database | draft | 3 |
@@ -100,6 +103,7 @@ Signal collection, health visibility, and operational state exposure.
 | [Hardware Health Monitoring](./level-1-visibility/hardware-health-monitoring/README.md) | Hardware | draft | 0 |
 | [Hypervisor Resource Monitoring](./level-1-visibility/hypervisor-resource-monitoring/README.md) | Virtualization | draft | 0 |
 | [Identity Access Visibility](./level-1-visibility/identity-access-visibility/README.md) | Identity / Access | draft | 1 |
+| [Inter Region Connectivity Monitoring](./level-1-visibility/inter-region-connectivity-monitoring/README.md) | Unknown | draft | 3 |
 | [Kubernetes Cluster Health Monitoring](./level-1-visibility/kubernetes-cluster-health-monitoring/README.md) | Kubernetes / Cluster | draft | 1 |
 | [Kubernetes Cluster Visibility](./level-1-visibility/kubernetes-cluster-visibility/README.md) | Kubernetes / Cluster | draft | 1 |
 | [Load Balancer Health Monitoring](./level-1-visibility/load-balancer-health-monitoring/README.md) | Load Balancing | draft | 0 |
@@ -133,9 +137,12 @@ Dependency analysis, symptom correlation, and impact reasoning.
 | [Api Latency Correlation](./level-2-correlation/api-latency-correlation/README.md) | API / Service | draft | 1 |
 | [Authentication Anomaly Analysis](./level-2-correlation/authentication-anomaly-analysis/README.md) | Identity / Authentication | draft | 0 |
 | [Backup Failure Correlation](./level-2-correlation/backup-failure-correlation/README.md) | Backup / Recovery | draft | 2 |
+| [Change Impact Correlation](./level-2-correlation/change-impact-correlation/README.md) | Unknown | draft | 5 |
 | [Cluster Resource Instability Analysis](./level-2-correlation/cluster-resource-instability-analysis/README.md) | Cluster / Platform | draft | 1 |
 | [Compute Resource Correlation](./level-2-correlation/compute-resource-correlation/README.md) | Compute / Resource | draft | 2 |
+| [Configuration Drift Correlation](./level-2-correlation/configuration-drift-correlation/README.md) | Unknown | draft | 5 |
 | [Container Dependency Analysis](./level-2-correlation/container-dependency-analysis/README.md) | Container / Runtime | draft | 2 |
+| [Control Plane Anomaly Correlation](./level-2-correlation/control-plane-anomaly-correlation/README.md) | Unknown | draft | 5 |
 | [Cross Domain Security Correlation](./level-2-correlation/cross-domain-security-correlation/README.md) | Security / Telemetry | draft | 3 |
 | [Cross Region Network Anomaly Correlation](./level-2-correlation/cross-region-network-anomaly-correlation/README.md) | Network / Routing | draft | 5 |
 | [Cross Server Failure Correlation](./level-2-correlation/cross-server-failure-correlation/README.md) | General Infrastructure | draft | 5 |
@@ -146,6 +153,7 @@ Dependency analysis, symptom correlation, and impact reasoning.
 | [Filesystem Failure Correlation](./level-2-correlation/filesystem-failure-correlation/README.md) | Filesystem | draft | 1 |
 | [Identity Risk Analysis](./level-2-correlation/identity-risk-analysis/README.md) | Identity / Access | draft | 1 |
 | [Infrastructure Anomaly Analysis](./level-2-correlation/infrastructure-anomaly-analysis/README.md) | General Infrastructure | draft | 5 |
+| [Inter Region Dependency Correlation](./level-2-correlation/inter-region-dependency-correlation/README.md) | Unknown | draft | 5 |
 | [Multi Region Latency Correlation](./level-2-correlation/multi-region-latency-correlation/README.md) | General Infrastructure | draft | 5 |
 | [Network Packet Loss Correlation](./level-2-correlation/network-packet-loss-correlation/README.md) | Network / Routing | draft | 5 |
 | [Network Path Dependency Analysis](./level-2-correlation/network-path-dependency-analysis/README.md) | Network / Routing | draft | 5 |
@@ -176,16 +184,23 @@ Controlled recovery execution, automation workflow, and restoration validation.
 |---|---|---|---:|
 | [Api Service Recovery](./level-3-recovery/api-service-recovery/README.md) | API / Service | draft | 1 |
 | [Backup Restoration Automation](./level-3-recovery/backup-restoration-automation/README.md) | Backup / Recovery | draft | 1 |
+| [Certificate Renewal Automation](./level-3-recovery/certificate-renewal-automation/README.md) | Unknown | draft | 5 |
+| [Change Failure Rollback](./level-3-recovery/change-failure-rollback/README.md) | Unknown | draft | 5 |
 | [Cloud Instance Recovery Automation](./level-3-recovery/cloud-instance-recovery-automation/README.md) | Cloud Instance | draft | 0 |
 | [Cluster Node Recovery Orchestration](./level-3-recovery/cluster-node-recovery-orchestration/README.md) | Cluster / Platform | draft | 2 |
 | [Compute Failover Orchestration](./level-3-recovery/compute-failover-orchestration/README.md) | Compute / Resource | draft | 1 |
+| [Configuration Rollback Automation](./level-3-recovery/configuration-rollback-automation/README.md) | Unknown | draft | 5 |
 | [Container Failover Automation](./level-3-recovery/container-failover-automation/README.md) | Container / Runtime | draft | 1 |
+| [Control Plane Recovery Orchestration](./level-3-recovery/control-plane-recovery-orchestration/README.md) | Unknown | draft | 5 |
 | [Data Recovery Orchestration](./level-3-recovery/data-recovery-orchestration/README.md) | General Infrastructure | draft | 5 |
 | [Database Failover Automation](./level-3-recovery/database-failover-automation/README.md) | Database | draft | 4 |
 | [Database Recovery Orchestration](./level-3-recovery/database-recovery-orchestration/README.md) | Database | draft | 4 |
 | [Database Service Restoration](./level-3-recovery/database-service-restoration/README.md) | Database | draft | 4 |
 | [Dns Service Restoration](./level-3-recovery/dns-service-restoration/README.md) | DNS / Name Resolution | draft | 0 |
+| [Identity Access Remediation](./level-3-recovery/identity-access-remediation/README.md) | Unknown | draft | 5 |
 | [Infrastructure Recovery Orchestration](./level-3-recovery/infrastructure-recovery-orchestration/README.md) | General Infrastructure | draft | 5 |
+| [Inter Region Routing Recovery](./level-3-recovery/inter-region-routing-recovery/README.md) | Unknown | draft | 5 |
+| [Kubernetes Control Plane Recovery](./level-3-recovery/kubernetes-control-plane-recovery/README.md) | Unknown | draft | 5 |
 | [Kubernetes Node Recovery](./level-3-recovery/kubernetes-node-recovery/README.md) | Kubernetes / Cluster | draft | 2 |
 | [Kubernetes Service Recovery](./level-3-recovery/kubernetes-service-recovery/README.md) | Kubernetes / Cluster | draft | 2 |
 | [Load Balancer Recovery](./level-3-recovery/load-balancer-recovery/README.md) | Load Balancing | draft | 0 |
@@ -196,6 +211,7 @@ Controlled recovery execution, automation workflow, and restoration validation.
 | [Resource Rebalancing Automation](./level-3-recovery/resource-rebalancing-automation/README.md) | General Infrastructure | draft | 5 |
 | [Server Service Recovery](./level-3-recovery/server-service-recovery/README.md) | General Infrastructure | draft | 5 |
 | [Service Mesh Traffic Restoration](./level-3-recovery/service-mesh-traffic-restoration/README.md) | Service Mesh | draft | 1 |
+| [Storage Volume Recovery Automation](./level-3-recovery/storage-volume-recovery-automation/README.md) | Unknown | draft | 5 |
 | [Traffic Restoration Workflow](./level-3-recovery/traffic-restoration-workflow/README.md) | Traffic / Flow | draft | 1 |
 | [Virtual Machine Restoration](./level-3-recovery/virtual-machine-restoration/README.md) | Virtual Machine | draft | 0 |
 | [Vpn Tunnel Recovery Automation](./level-3-recovery/vpn-tunnel-recovery-automation/README.md) | Network / VPN | draft | 1 |
@@ -206,6 +222,10 @@ Distributed failure-domain coordination and survivability validation.
 
 | Scenario | Domain | Status | Related Links |
 |---|---|---|---:|
+| [Backup Resilience Validation](./level-4-resilience/backup-resilience-validation/README.md) | Unknown | draft | 5 |
+| [Change Resilience Coordination](./level-4-resilience/change-resilience-coordination/README.md) | Unknown | draft | 5 |
+| [Configuration Resilience Validation](./level-4-resilience/configuration-resilience-validation/README.md) | Unknown | draft | 5 |
+| [Control Plane Resilience](./level-4-resilience/control-plane-resilience/README.md) | Unknown | draft | 5 |
 | [Cross Region Data Survivability](./level-4-resilience/cross-region-data-survivability/README.md) | General Infrastructure | draft | 5 |
 | [Cross Region Kubernetes Resilience](./level-4-resilience/cross-region-kubernetes-resilience/README.md) | Kubernetes / Cluster | draft | 1 |
 | [Cross Region Network Resilience](./level-4-resilience/cross-region-network-resilience/README.md) | Network / Routing | draft | 3 |
@@ -213,12 +233,16 @@ Distributed failure-domain coordination and survivability validation.
 | [Distributed Database Failover](./level-4-resilience/distributed-database-failover/README.md) | Database | draft | 1 |
 | [Distributed Platform Survivability](./level-4-resilience/distributed-platform-survivability/README.md) | General Infrastructure | draft | 5 |
 | [Distributed Security Resilience](./level-4-resilience/distributed-security-resilience/README.md) | Security / Telemetry | draft | 1 |
+| [Identity Failover Resilience](./level-4-resilience/identity-failover-resilience/README.md) | Unknown | draft | 5 |
 | [Identity Resilience Coordination](./level-4-resilience/identity-resilience-coordination/README.md) | Identity / Access | draft | 0 |
+| [Inter Region Routing Resilience](./level-4-resilience/inter-region-routing-resilience/README.md) | Unknown | draft | 5 |
+| [Kubernetes Platform Resilience](./level-4-resilience/kubernetes-platform-resilience/README.md) | Unknown | draft | 5 |
 | [Multi Cluster Failover](./level-4-resilience/multi-cluster-failover/README.md) | Cluster / Platform | draft | 2 |
 | [Multi Cluster Failover Coordination](./level-4-resilience/multi-cluster-failover-coordination/README.md) | Cluster / Platform | draft | 2 |
 | [Multi Region Service Failover](./level-4-resilience/multi-region-service-failover/README.md) | General Infrastructure | draft | 5 |
 | [Multi Region Service Failover Resilience](./level-4-resilience/multi-region-service-failover-resilience/README.md) | General Infrastructure | draft | 5 |
 | [Multi Site Routing Failover](./level-4-resilience/multi-site-routing-failover/README.md) | Network / Routing | draft | 3 |
+| [Storage Replication Resilience](./level-4-resilience/storage-replication-resilience/README.md) | Unknown | draft | 5 |
 
 ### Level 5 - Continuity
 
@@ -226,7 +250,11 @@ Enterprise continuity governance, readiness validation, and operational reportin
 
 | Scenario | Domain | Status | Related Links |
 |---|---|---|---:|
+| [Enterprise Change Continuity](./level-5-continuity/enterprise-change-continuity/README.md) | Unknown | draft | 4 |
 | [Enterprise Cloud Continuity](./level-5-continuity/enterprise-cloud-continuity/README.md) | General Infrastructure | draft | 4 |
+| [Enterprise Control Plane Continuity](./level-5-continuity/enterprise-control-plane-continuity/README.md) | Unknown | draft | 4 |
+| [Enterprise Data Protection Continuity](./level-5-continuity/enterprise-data-protection-continuity/README.md) | Unknown | draft | 4 |
+| [Enterprise Identity Continuity](./level-5-continuity/enterprise-identity-continuity/README.md) | Unknown | draft | 4 |
 | [Enterprise Network Continuity](./level-5-continuity/enterprise-network-continuity/README.md) | Network / Routing | draft | 1 |
 | [Enterprise Operational Continuity](./level-5-continuity/enterprise-operational-continuity/README.md) | General Infrastructure | draft | 4 |
 | [Enterprise Platform Continuity](./level-5-continuity/enterprise-platform-continuity/README.md) | General Infrastructure | draft | 4 |

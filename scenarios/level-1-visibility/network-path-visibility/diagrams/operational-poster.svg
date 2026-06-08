@@ -4,146 +4,183 @@
 <rect width="2600" height="1900" fill="#020617" />
 <rect x="60" y="40" width="2480" height="130" rx="30" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="98" y="92" fill="#ffffff" font-size="34" font-weight="bold">Network Path Visibility</text>
-<text x="100" y="128" fill="#cbd5e1" font-size="17">Scenario-driven Infrastructure Operations Portfolio</text>
+<text x="100" y="128" fill="#cbd5e1" font-size="17">level-1-visibility Board for Network Path Visibility</text>
 <rect x="1900" y="72" width="270" height="38" rx="19" fill="#020617" stroke="#334155" stroke-width="1" />
 <text x="2035" y="97" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="bold">level-1-visibility</text>
 <rect x="2200" y="72" width="280" height="38" rx="19" fill="#020617" stroke="#334155" stroke-width="1" />
-<text x="2340" y="97" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="bold"></text>
+<text x="2340" y="97" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="bold">Infrastructure Operations</text>
 <rect x="80" y="220" width="1840" height="230" rx="28" fill="#1e293b" stroke="#2563eb" stroke-width="3" />
 <rect x="80" y="220" width="14" height="230" rx="7" fill="#2563eb" />
-<text x="114" y="262" fill="#ffffff" font-size="24" font-weight="bold">Observed Domain</text>
-<text x="114" y="290" fill="#cbd5e1" font-size="15">Network Path</text>
+<text x="114" y="262" fill="#ffffff" font-size="24" font-weight="bold">Observed Infrastructure Domain</text>
+<text x="114" y="290" fill="#cbd5e1" font-size="15">Observed Infrastructure Domain for Network Path Visibility.</text>
 <rect x="1650" y="246" width="220" height="38" rx="19" fill="#020617" stroke="#2563eb" stroke-width="2" />
-<text x="1760" y="271" fill="#2563eb" font-size="13" text-anchor="middle" font-weight="bold">SIGNAL SOURCE</text>
-<rect x="114" y="312" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<text x="1760" y="271" fill="#2563eb" font-size="13" text-anchor="middle" font-weight="bold">OBSERVED DOMAIN</text>
+<rect x="114" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
 <circle cx="152" cy="352" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
 <circle cx="152" cy="352" r="7" fill="#60a5fa" />
 <circle cx="152" cy="352" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
-<text x="186" y="344" fill="#ffffff" font-size="16" font-weight="bold">Infrastructure Target</text>
-<text x="186" y="370" fill="#cbd5e1" font-size="10">Network Path</text>
-<text x="186" y="396" fill="#94a3b8" font-size="10">target</text>
-<rect x="536" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
-<text x="584" y="404" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
-<rect x="678" y="312" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="716" cy="352" r="22" fill="#020617" stroke="#22d3ee" stroke-width="2" />
-<circle cx="716" cy="352" r="7" fill="#22d3ee" />
-<circle cx="716" cy="352" r="14" fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.35" />
-<text x="750" y="344" fill="#ffffff" font-size="16" font-weight="bold">Health Signal</text>
-<text x="750" y="370" fill="#cbd5e1" font-size="10">link status; route change; B</text>
-<text x="750" y="396" fill="#94a3b8" font-size="10">signal</text>
-<rect x="1100" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#22d3ee" stroke-width="1" />
-<text x="1148" y="404" fill="#22d3ee" font-size="10" text-anchor="middle" font-weight="bold">Collecting</text>
-<rect x="1242" y="312" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1280" cy="352" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
-<circle cx="1280" cy="352" r="7" fill="#22c55e" />
-<circle cx="1280" cy="352" r="14" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.35" />
-<text x="1314" y="344" fill="#ffffff" font-size="16" font-weight="bold">Operational State</text>
-<text x="1314" y="370" fill="#cbd5e1" font-size="10">Visibility condition is clas</text>
-<text x="1314" y="396" fill="#94a3b8" font-size="10">state</text>
-<rect x="1664" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
-<text x="1712" y="404" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Visible</text>
+<text x="186" y="344" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
+<text x="186" y="370" fill="#cbd5e1" font-size="10">Network Path Visibility sign</text>
+<text x="186" y="396" fill="#94a3b8" font-size="10">signal</text>
+<rect x="421" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
+<text x="469" y="404" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<rect x="563" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="352" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="601" cy="352" r="7" fill="#84cc16" />
+<circle cx="601" cy="352" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="635" y="344" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
+<text x="635" y="370" fill="#cbd5e1" font-size="10">Network Path Visibility oper</text>
+<text x="635" y="396" fill="#94a3b8" font-size="10">control</text>
+<rect x="870" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="918" y="404" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="1012" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="352" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<rect x="1038" y="340" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
+<polyline points="1043,352 1049,358 1059,345" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1084" y="344" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
+<text x="1084" y="370" fill="#cbd5e1" font-size="10">Network Path Visibility vali</text>
+<text x="1084" y="396" fill="#94a3b8" font-size="10">validation</text>
+<rect x="1319" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="1367" y="404" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<rect x="1461" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="352" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<polygon points="1490,339 1504,339 1510,345 1510,365 1490,365" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
+<line x1="1495" y1="352" x2="1504" y2="352" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<line x1="1495" y1="358" x2="1504" y2="358" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<text x="1533" y="344" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
+<text x="1533" y="370" fill="#cbd5e1" font-size="10">Network Path Visibility revi</text>
+<text x="1533" y="396" fill="#94a3b8" font-size="10">evidence</text>
+<rect x="1768" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="1816" y="404" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
 <rect x="80" y="490" width="1840" height="230" rx="28" fill="#1e293b" stroke="#0891b2" stroke-width="3" />
 <rect x="80" y="490" width="14" height="230" rx="7" fill="#0891b2" />
-<text x="114" y="532" fill="#ffffff" font-size="24" font-weight="bold">Telemetry Platform</text>
-<text x="114" y="560" fill="#cbd5e1" font-size="15">Signals are collected, normalized, and prepared for operational visibility.</text>
+<text x="114" y="532" fill="#ffffff" font-size="24" font-weight="bold">Telemetry Collection &amp; Visibility Platform</text>
+<text x="114" y="560" fill="#cbd5e1" font-size="15">Telemetry Collection &amp; Visibility Platform for Network Path Visibility.</text>
 <rect x="1650" y="516" width="220" height="38" rx="19" fill="#020617" stroke="#0891b2" stroke-width="2" />
-<text x="1760" y="541" fill="#0891b2" font-size="13" text-anchor="middle" font-weight="bold">TELEMETRY READY</text>
-<rect x="114" y="582" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="622" r="22" fill="#020617" stroke="#06b6d4" stroke-width="2" />
-<line x1="140" y1="631" x2="140" y2="621" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
-<line x1="148" y1="631" x2="148" y2="612" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
-<line x1="156" y1="631" x2="156" y2="618" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
-<line x1="164" y1="631" x2="164" y2="609" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
-<text x="186" y="614" fill="#ffffff" font-size="16" font-weight="bold">Metric Collection</text>
-<text x="186" y="640" fill="#cbd5e1" font-size="10">Metrics and health indicator</text>
-<text x="186" y="666" fill="#94a3b8" font-size="10">telemetry</text>
-<rect x="536" y="658" width="96" height="22" rx="11" fill="#020617" stroke="#06b6d4" stroke-width="1" />
-<text x="584" y="674" fill="#06b6d4" font-size="10" text-anchor="middle" font-weight="bold">Streaming</text>
-<rect x="678" y="582" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="716" cy="622" r="22" fill="#020617" stroke="#14b8a6" stroke-width="2" />
-<circle cx="716" cy="622" r="7" fill="#14b8a6" />
-<circle cx="716" cy="622" r="14" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.35" />
-<text x="750" y="614" fill="#ffffff" font-size="16" font-weight="bold">Event Collection</text>
-<text x="750" y="640" fill="#cbd5e1" font-size="10">Logs and event signals</text>
-<text x="750" y="666" fill="#94a3b8" font-size="10">logging</text>
-<rect x="1100" y="658" width="96" height="22" rx="11" fill="#020617" stroke="#14b8a6" stroke-width="1" />
-<text x="1148" y="674" fill="#14b8a6" font-size="10" text-anchor="middle" font-weight="bold">Active</text>
-<rect x="1242" y="582" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1280" cy="622" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
-<rect x="1267" y="612" width="26" height="20" rx="3" fill="none" stroke="#84cc16" stroke-width="2" />
-<polyline points="1272,626 1278,620 1283,624 1289,616" fill="none" stroke="#84cc16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-<text x="1314" y="614" fill="#ffffff" font-size="16" font-weight="bold">Status View</text>
-<text x="1314" y="640" fill="#cbd5e1" font-size="10">Dashboard-ready visibility o</text>
-<text x="1314" y="666" fill="#94a3b8" font-size="10">dashboard</text>
-<rect x="1664" y="658" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="1712" y="674" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<text x="1760" y="541" fill="#0891b2" font-size="13" text-anchor="middle" font-weight="bold">SIGNALS ACTIVE</text>
+<rect x="114" y="582" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="152" cy="622" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
+<circle cx="152" cy="622" r="7" fill="#60a5fa" />
+<circle cx="152" cy="622" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
+<text x="186" y="614" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
+<text x="186" y="640" fill="#cbd5e1" font-size="10">Network Path Visibility sign</text>
+<text x="186" y="666" fill="#94a3b8" font-size="10">signal</text>
+<rect x="421" y="658" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
+<text x="469" y="674" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<rect x="563" y="582" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="622" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="601" cy="622" r="7" fill="#84cc16" />
+<circle cx="601" cy="622" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="635" y="614" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
+<text x="635" y="640" fill="#cbd5e1" font-size="10">Network Path Visibility oper</text>
+<text x="635" y="666" fill="#94a3b8" font-size="10">control</text>
+<rect x="870" y="658" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="918" y="674" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="1012" y="582" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="622" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<rect x="1038" y="610" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
+<polyline points="1043,622 1049,628 1059,615" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1084" y="614" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
+<text x="1084" y="640" fill="#cbd5e1" font-size="10">Network Path Visibility vali</text>
+<text x="1084" y="666" fill="#94a3b8" font-size="10">validation</text>
+<rect x="1319" y="658" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="1367" y="674" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<rect x="1461" y="582" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="622" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<polygon points="1490,609 1504,609 1510,615 1510,635 1490,635" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
+<line x1="1495" y1="622" x2="1504" y2="622" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<line x1="1495" y1="628" x2="1504" y2="628" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<text x="1533" y="614" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
+<text x="1533" y="640" fill="#cbd5e1" font-size="10">Network Path Visibility revi</text>
+<text x="1533" y="666" fill="#94a3b8" font-size="10">evidence</text>
+<rect x="1768" y="658" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="1816" y="674" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
 <rect x="80" y="760" width="1840" height="230" rx="28" fill="#1e293b" stroke="#16a34a" stroke-width="3" />
 <rect x="80" y="760" width="14" height="230" rx="7" fill="#16a34a" />
-<text x="114" y="802" fill="#ffffff" font-size="24" font-weight="bold">Visibility Output</text>
-<text x="114" y="830" fill="#cbd5e1" font-size="15">Operational status becomes reviewer-readable through generated artifacts.</text>
+<text x="114" y="802" fill="#ffffff" font-size="24" font-weight="bold">Operational Visibility Outputs</text>
+<text x="114" y="830" fill="#cbd5e1" font-size="15">Operational Visibility Outputs for Network Path Visibility.</text>
 <rect x="1650" y="786" width="220" height="38" rx="19" fill="#020617" stroke="#16a34a" stroke-width="2" />
-<text x="1760" y="811" fill="#16a34a" font-size="13" text-anchor="middle" font-weight="bold">VISIBLE</text>
-<rect x="114" y="852" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="892" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
-<circle cx="152" cy="892" r="7" fill="#84cc16" />
-<circle cx="152" cy="892" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
-<text x="186" y="884" fill="#ffffff" font-size="16" font-weight="bold">Detection Output</text>
-<text x="186" y="910" fill="#cbd5e1" font-size="10">link status; route change; B</text>
-<text x="186" y="936" fill="#94a3b8" font-size="10">output</text>
-<rect x="536" y="928" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="584" y="944" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
-<rect x="678" y="852" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="716" cy="892" r="22" fill="#020617" stroke="#94a3b8" stroke-width="2" />
-<polygon points="707,879 721,879 727,885 727,905 707,905" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" />
-<line x1="712" y1="892" x2="721" y2="892" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" />
-<line x1="712" y1="898" x2="721" y2="898" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" />
-<text x="750" y="884" fill="#ffffff" font-size="16" font-weight="bold">README Evidence</text>
-<text x="750" y="910" fill="#cbd5e1" font-size="10">Scenario documentation gener</text>
-<text x="750" y="936" fill="#94a3b8" font-size="10">evidence</text>
-<rect x="1100" y="928" width="96" height="22" rx="11" fill="#020617" stroke="#94a3b8" stroke-width="1" />
-<text x="1148" y="944" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">Generated</text>
-<rect x="1242" y="852" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1280" cy="892" r="22" fill="#020617" stroke="#94a3b8" stroke-width="2" />
-<circle cx="1280" cy="892" r="7" fill="#94a3b8" />
-<circle cx="1280" cy="892" r="14" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.35" />
-<text x="1314" y="884" fill="#ffffff" font-size="16" font-weight="bold">Poster Artifact</text>
-<text x="1314" y="910" fill="#cbd5e1" font-size="10">Operational poster rendered</text>
-<text x="1314" y="936" fill="#94a3b8" font-size="10">diagram</text>
-<rect x="1664" y="928" width="96" height="22" rx="11" fill="#020617" stroke="#94a3b8" stroke-width="1" />
-<text x="1712" y="944" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">Generated</text>
+<text x="1760" y="811" fill="#16a34a" font-size="13" text-anchor="middle" font-weight="bold">VISIBILITY READY</text>
+<rect x="114" y="852" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="152" cy="892" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
+<circle cx="152" cy="892" r="7" fill="#60a5fa" />
+<circle cx="152" cy="892" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
+<text x="186" y="884" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
+<text x="186" y="910" fill="#cbd5e1" font-size="10">Network Path Visibility sign</text>
+<text x="186" y="936" fill="#94a3b8" font-size="10">signal</text>
+<rect x="421" y="928" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
+<text x="469" y="944" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<rect x="563" y="852" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="892" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="601" cy="892" r="7" fill="#84cc16" />
+<circle cx="601" cy="892" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="635" y="884" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
+<text x="635" y="910" fill="#cbd5e1" font-size="10">Network Path Visibility oper</text>
+<text x="635" y="936" fill="#94a3b8" font-size="10">control</text>
+<rect x="870" y="928" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="918" y="944" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="1012" y="852" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="892" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<rect x="1038" y="880" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
+<polyline points="1043,892 1049,898 1059,885" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1084" y="884" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
+<text x="1084" y="910" fill="#cbd5e1" font-size="10">Network Path Visibility vali</text>
+<text x="1084" y="936" fill="#94a3b8" font-size="10">validation</text>
+<rect x="1319" y="928" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="1367" y="944" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<rect x="1461" y="852" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="892" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<polygon points="1490,879 1504,879 1510,885 1510,905 1490,905" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
+<line x1="1495" y1="892" x2="1504" y2="892" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<line x1="1495" y1="898" x2="1504" y2="898" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<text x="1533" y="884" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
+<text x="1533" y="910" fill="#cbd5e1" font-size="10">Network Path Visibility revi</text>
+<text x="1533" y="936" fill="#94a3b8" font-size="10">evidence</text>
+<rect x="1768" y="928" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="1816" y="944" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
 <rect x="80" y="1030" width="1840" height="230" rx="28" fill="#1e293b" stroke="#ca8a04" stroke-width="3" />
 <rect x="80" y="1030" width="14" height="230" rx="7" fill="#ca8a04" />
-<text x="114" y="1072" fill="#ffffff" font-size="24" font-weight="bold">Validation Status</text>
-<text x="114" y="1100" fill="#cbd5e1" font-size="15">Generated artifacts are checked for portfolio readiness.</text>
+<text x="114" y="1072" fill="#ffffff" font-size="24" font-weight="bold">Validation &amp; Current Status</text>
+<text x="114" y="1100" fill="#cbd5e1" font-size="15">Validation &amp; Current Status for Network Path Visibility.</text>
 <rect x="1650" y="1056" width="220" height="38" rx="19" fill="#020617" stroke="#ca8a04" stroke-width="2" />
-<text x="1760" y="1081" fill="#ca8a04" font-size="13" text-anchor="middle" font-weight="bold">VALIDATED</text>
-<rect x="114" y="1122" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="1162" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
-<rect x="140" y="1150" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
-<polyline points="145,1162 151,1168 161,1155" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-<text x="186" y="1154" fill="#ffffff" font-size="16" font-weight="bold">Artifact Check</text>
-<text x="186" y="1180" fill="#cbd5e1" font-size="10">README and poster references</text>
-<text x="186" y="1206" fill="#94a3b8" font-size="10">validation</text>
-<rect x="536" y="1198" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
-<text x="584" y="1214" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Checked</text>
-<rect x="678" y="1122" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="716" cy="1162" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
-<rect x="704" y="1150" width="24" height="24" rx="5" fill="none" stroke="#84cc16" stroke-width="2" />
-<polyline points="709,1162 715,1168 725,1155" fill="none" stroke="#84cc16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-<text x="750" y="1154" fill="#ffffff" font-size="16" font-weight="bold">Evidence Check</text>
-<text x="750" y="1180" fill="#cbd5e1" font-size="10">Generated evidence files pre</text>
-<text x="750" y="1206" fill="#94a3b8" font-size="10">validation</text>
-<rect x="1100" y="1198" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="1148" y="1214" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
-<rect x="1242" y="1122" width="540" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1280" cy="1162" r="22" fill="#020617" stroke="#94a3b8" stroke-width="2" />
-<circle cx="1280" cy="1162" r="7" fill="#94a3b8" />
-<circle cx="1280" cy="1162" r="14" fill="none" stroke="#94a3b8" stroke-width="2" opacity="0.35" />
-<text x="1314" y="1154" fill="#ffffff" font-size="16" font-weight="bold">Review State</text>
-<text x="1314" y="1180" fill="#cbd5e1" font-size="10">Portfolio-facing scenario ou</text>
-<text x="1314" y="1206" fill="#94a3b8" font-size="10">review</text>
-<rect x="1664" y="1198" width="96" height="22" rx="11" fill="#020617" stroke="#94a3b8" stroke-width="1" />
-<text x="1712" y="1214" fill="#94a3b8" font-size="10" text-anchor="middle" font-weight="bold">Reviewable</text>
+<text x="1760" y="1081" fill="#ca8a04" font-size="13" text-anchor="middle" font-weight="bold">STATUS VERIFIED</text>
+<rect x="114" y="1122" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="152" cy="1162" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
+<circle cx="152" cy="1162" r="7" fill="#60a5fa" />
+<circle cx="152" cy="1162" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
+<text x="186" y="1154" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
+<text x="186" y="1180" fill="#cbd5e1" font-size="10">Network Path Visibility sign</text>
+<text x="186" y="1206" fill="#94a3b8" font-size="10">signal</text>
+<rect x="421" y="1198" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
+<text x="469" y="1214" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<rect x="563" y="1122" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="1162" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="601" cy="1162" r="7" fill="#84cc16" />
+<circle cx="601" cy="1162" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="635" y="1154" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
+<text x="635" y="1180" fill="#cbd5e1" font-size="10">Network Path Visibility oper</text>
+<text x="635" y="1206" fill="#94a3b8" font-size="10">control</text>
+<rect x="870" y="1198" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="918" y="1214" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="1012" y="1122" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="1162" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<rect x="1038" y="1150" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
+<polyline points="1043,1162 1049,1168 1059,1155" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="1084" y="1154" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
+<text x="1084" y="1180" fill="#cbd5e1" font-size="10">Network Path Visibility vali</text>
+<text x="1084" y="1206" fill="#94a3b8" font-size="10">validation</text>
+<rect x="1319" y="1198" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="1367" y="1214" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<rect x="1461" y="1122" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="1162" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<polygon points="1490,1149 1504,1149 1510,1155 1510,1175 1490,1175" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
+<line x1="1495" y1="1162" x2="1504" y2="1162" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<line x1="1495" y1="1168" x2="1504" y2="1168" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<text x="1533" y="1154" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
+<text x="1533" y="1180" fill="#cbd5e1" font-size="10">Network Path Visibility revi</text>
+<text x="1533" y="1206" fill="#94a3b8" font-size="10">evidence</text>
+<rect x="1768" y="1198" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="1816" y="1214" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
 <line x1="1000.0" y1="460" x2="1000.0" y2="462" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 8" opacity="0.55" />
 <polygon points="992.0,464 1008.0,464 1000.0,480" fill="#64748b" opacity="0.75" />
 <line x1="1000.0" y1="730" x2="1000.0" y2="732" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 8" opacity="0.55" />
@@ -151,53 +188,53 @@
 <line x1="1000.0" y1="1000" x2="1000.0" y2="1002" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 8" opacity="0.55" />
 <polygon points="992.0,1004 1008.0,1004 1000.0,1020" fill="#64748b" opacity="0.75" />
 <rect x="1990" y="200" width="550" height="760" rx="28" fill="#111827" stroke="#334155" stroke-width="2" />
-<text x="2020" y="244" fill="#ffffff" font-size="24" font-weight="bold">Operational Workflow</text>
+<text x="2020" y="244" fill="#ffffff" font-size="24" font-weight="bold">Visibility Workflow</text>
 <text x="2020" y="274" fill="#cbd5e1" font-size="13">Lifecycle execution sequence</text>
-<circle cx="2044" cy="320" r="18" fill="#22d3ee" stroke="#22d3ee" stroke-width="3" opacity="0.95" />
+<circle cx="2044" cy="320" r="18" fill="#84cc16" stroke="#84cc16" stroke-width="3" opacity="0.95" />
 <text x="2044" y="326" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">1</text>
-<text x="2078" y="316" fill="#ffffff" font-size="17" font-weight="bold">Collect</text>
-<text x="2078" y="340" fill="#94a3b8" font-size="12">Collect telemetry and health signals.</text>
-<rect x="2412" y="302" width="96" height="26" rx="13" fill="#020617" stroke="#22d3ee" stroke-width="1" />
-<text x="2460" y="320" fill="#22d3ee" font-size="10" text-anchor="middle" font-weight="bold">Collecting</text>
+<text x="2078" y="316" fill="#ffffff" font-size="17" font-weight="bold">Detect</text>
+<text x="2078" y="340" fill="#94a3b8" font-size="12">Observe infrastructure health and service stat</text>
+<rect x="2412" y="302" width="96" height="26" rx="13" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="2460" y="320" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
 <line x1="2044" y1="342" x2="2044" y2="412" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
-<circle cx="2044" cy="436" r="18" fill="#fb923c" stroke="#fb923c" stroke-width="3" opacity="0.95" />
+<circle cx="2044" cy="436" r="18" fill="#14b8a6" stroke="#14b8a6" stroke-width="3" opacity="0.95" />
 <text x="2044" y="442" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">2</text>
-<text x="2078" y="432" fill="#ffffff" font-size="17" font-weight="bold">Detect</text>
-<text x="2078" y="456" fill="#94a3b8" font-size="12">Identify visibility gaps or degraded state.</text>
-<rect x="2412" y="418" width="96" height="26" rx="13" fill="#020617" stroke="#fb923c" stroke-width="1" />
-<text x="2460" y="436" fill="#fb923c" font-size="10" text-anchor="middle" font-weight="bold">Detected</text>
+<text x="2078" y="432" fill="#ffffff" font-size="17" font-weight="bold">Collect</text>
+<text x="2078" y="456" fill="#94a3b8" font-size="12">Collect telemetry, logs, and probe signals.</text>
+<rect x="2412" y="418" width="96" height="26" rx="13" fill="#020617" stroke="#14b8a6" stroke-width="1" />
+<text x="2460" y="436" fill="#14b8a6" font-size="10" text-anchor="middle" font-weight="bold">Active</text>
 <line x1="2044" y1="458" x2="2044" y2="528" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
 <circle cx="2044" cy="552" r="18" fill="#22c55e" stroke="#22c55e" stroke-width="3" opacity="0.95" />
 <text x="2044" y="558" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">3</text>
-<text x="2078" y="548" fill="#ffffff" font-size="17" font-weight="bold">Publish</text>
-<text x="2078" y="572" fill="#94a3b8" font-size="12">Expose dashboard and evidence output.</text>
+<text x="2078" y="548" fill="#ffffff" font-size="17" font-weight="bold">Visualize</text>
+<text x="2078" y="572" fill="#94a3b8" font-size="12">Expose status through monitoring dashboards.</text>
 <rect x="2412" y="534" width="96" height="26" rx="13" fill="#020617" stroke="#22c55e" stroke-width="1" />
-<text x="2460" y="552" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Published</text>
+<text x="2460" y="552" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Visible</text>
 <line x1="2044" y1="574" x2="2044" y2="644" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
-<circle cx="2044" cy="668" r="18" fill="#84cc16" stroke="#84cc16" stroke-width="3" opacity="0.95" />
+<circle cx="2044" cy="668" r="18" fill="#facc15" stroke="#facc15" stroke-width="3" opacity="0.95" />
 <text x="2044" y="674" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">4</text>
 <text x="2078" y="664" fill="#ffffff" font-size="17" font-weight="bold">Validate</text>
-<text x="2078" y="688" fill="#94a3b8" font-size="12">Confirm signal freshness and coverage.</text>
-<rect x="2412" y="650" width="96" height="26" rx="13" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="2460" y="668" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Validated</text>
+<text x="2078" y="688" fill="#94a3b8" font-size="12">Confirm operational visibility and health stat</text>
+<rect x="2412" y="650" width="96" height="26" rx="13" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="2460" y="668" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
 <rect x="1990" y="990" width="550" height="300" rx="26" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="2018" y="1032" fill="#ffffff" font-size="22" font-weight="bold">Visibility Summary</text>
 <text x="2018" y="1060" fill="#cbd5e1" font-size="13">Telemetry, detection, and validation coverage</text>
 <rect x="2018" y="1076" width="494" height="32" rx="16" fill="#020617" stroke="#334155" stroke-width="1" />
 <text x="2040" y="1098" fill="#94a3b8" font-size="13" font-weight="bold">Domains</text>
-<text x="2486" y="1098" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">3</text>
+<text x="2486" y="1098" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">4</text>
 <rect x="2018" y="1118" width="494" height="32" rx="16" fill="#020617" stroke="#334155" stroke-width="1" />
 <text x="2040" y="1140" fill="#94a3b8" font-size="13" font-weight="bold">Telemetry</text>
-<text x="2486" y="1140" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">3</text>
+<text x="2486" y="1140" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">4</text>
 <rect x="2018" y="1160" width="494" height="32" rx="16" fill="#020617" stroke="#334155" stroke-width="1" />
 <text x="2040" y="1182" fill="#94a3b8" font-size="13" font-weight="bold">Outputs</text>
-<text x="2486" y="1182" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">3</text>
+<text x="2486" y="1182" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">4</text>
 <rect x="2018" y="1202" width="494" height="32" rx="16" fill="#020617" stroke="#334155" stroke-width="1" />
 <text x="2040" y="1224" fill="#94a3b8" font-size="13" font-weight="bold">Validation</text>
-<text x="2486" y="1224" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">3</text>
+<text x="2486" y="1224" fill="#ffffff" font-size="16" text-anchor="end" font-weight="bold">4</text>
 <rect x="60" y="1345" width="1880" height="320" rx="30" fill="#111827" stroke="#334155" stroke-width="2" />
 <rect x="84" y="1367" width="1832" height="70" rx="22" fill="#020617" stroke="#2563eb" stroke-width="2" opacity="0.96" />
-<text x="108" y="1397" fill="#ffffff" font-size="24" font-weight="bold">Scenario Readiness</text>
+<text x="108" y="1397" fill="#ffffff" font-size="24" font-weight="bold">Network Path Visibility Status</text>
 <text x="108" y="1423" fill="#cbd5e1" font-size="13">Operational status and validation metrics</text>
 <rect x="94" y="1463" width="430" height="150" rx="26" fill="#0b1f4d" stroke="#2563eb" stroke-width="4" opacity="0.98" />
 <text x="122" y="1505" fill="#94a3b8" font-size="13" font-weight="bold">Visibility State</text>
@@ -206,24 +243,28 @@
 <text x="138" y="1604" fill="#cbd5e1" font-size="12" font-weight="bold">Telemetry and checks available</text>
 <rect x="560" y="1463" width="205" height="68" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
 <rect x="574" y="1475" width="10" height="44" rx="5" fill="#10b981" opacity="0.85" />
-<text x="600" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Modules</text>
-<text x="600" y="1521" fill="#ffffff" font-size="16" font-weight="bold">3</text>
+<text x="600" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">State</text>
+<text x="600" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Ready</text>
 <rect x="787" y="1463" width="205" height="68" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
 <rect x="801" y="1475" width="10" height="44" rx="5" fill="#10b981" opacity="0.85" />
-<text x="827" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Adapters</text>
-<text x="827" y="1521" fill="#ffffff" font-size="16" font-weight="bold">2</text>
+<text x="827" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Signal</text>
+<text x="827" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Observed</text>
 <rect x="1014" y="1463" width="205" height="68" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
 <rect x="1028" y="1475" width="10" height="44" rx="5" fill="#facc15" opacity="0.85" />
-<text x="1054" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">README</text>
-<text x="1054" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Generated</text>
-<rect x="560" y="1551" width="205" height="68" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
-<rect x="574" y="1563" width="10" height="44" rx="5" fill="#facc15" opacity="0.85" />
-<text x="600" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Poster</text>
-<text x="600" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Generated</text>
+<text x="1054" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Control</text>
+<text x="1054" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Prepared</text>
+<rect x="560" y="1551" width="205" height="68" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
+<rect x="574" y="1563" width="10" height="44" rx="5" fill="#10b981" opacity="0.85" />
+<text x="600" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Action</text>
+<text x="600" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Available</text>
 <rect x="787" y="1551" width="205" height="68" rx="20" fill="#0f172a" stroke="#22c55e" stroke-width="2" opacity="0.98" />
 <rect x="801" y="1563" width="10" height="44" rx="5" fill="#22c55e" opacity="0.85" />
-<text x="827" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Evidence</text>
-<text x="827" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Ready</text>
+<text x="827" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Validation</text>
+<text x="827" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Verified</text>
+<rect x="1014" y="1551" width="205" height="68" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
+<rect x="1028" y="1563" width="10" height="44" rx="5" fill="#facc15" opacity="0.85" />
+<text x="1054" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Evidence</text>
+<text x="1054" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Prepared</text>
 <rect x="1440" y="1463" width="455" height="150" rx="26" fill="#020617" stroke="#2563eb" stroke-width="3" opacity="0.98" />
 <text x="1468" y="1505" fill="#ffffff" font-size="19" font-weight="bold">Visibility Result</text>
 <rect x="1468" y="1527" width="220" height="30" rx="15" fill="#0f172a" stroke="#2563eb" stroke-width="1" />
@@ -233,9 +274,9 @@
 <text x="2018" y="1362" fill="#ffffff" font-size="22" font-weight="bold">Legend</text>
 <text x="2018" y="1390" fill="#94a3b8" font-size="13">Operational role and visual mapping</text>
 <circle cx="2032" cy="1427" r="8" fill="#2563eb" />
-<text x="2054" y="1432" fill="#94a3b8" font-size="13" font-weight="bold">Observed Domain</text>
+<text x="2054" y="1432" fill="#94a3b8" font-size="13" font-weight="bold">Observed Infrastructure</text>
 <circle cx="2032" cy="1461" r="8" fill="#0891b2" />
-<text x="2054" y="1466" fill="#94a3b8" font-size="13" font-weight="bold">Telemetry Platform</text>
+<text x="2054" y="1466" fill="#94a3b8" font-size="13" font-weight="bold">Telemetry Collection</text>
 <circle cx="2032" cy="1495" r="8" fill="#16a34a" />
 <text x="2054" y="1500" fill="#94a3b8" font-size="13" font-weight="bold">Visibility Output</text>
 <circle cx="2032" cy="1529" r="8" fill="#eab308" />

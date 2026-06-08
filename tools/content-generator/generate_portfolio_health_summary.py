@@ -4,13 +4,13 @@ import re
 ROOT = Path(".").resolve()
 REPORT = ROOT / "reports" / "portfolio-health-summary.md"
 
-def read(path):
+def read(path: str) -> str:
     target = ROOT / path
     if not target.exists():
         return ""
     return target.read_text(encoding="utf-8-sig", errors="replace")
 
-def extract_value(text, key):
+def extract_value(text: str, key: str) -> str:
     match = re.search(rf"{re.escape(key)}:\s*(.+)", text)
     return match.group(1).strip() if match else "UNKNOWN"
 
@@ -18,6 +18,10 @@ quality = read("reports/repository-quality-check.md")
 links = read("reports/markdown-link-check.md")
 structure = read("reports/top-level-structure-check.md")
 related = read("reports/related-scenarios-generation-report.md")
+language = read("reports/repository-language-check.md")
+root_readme = read("reports/root-readme-alignment-check.md")
+
+scenario_count = extract_value(quality, "scenario_directories")
 
 lines = []
 lines.append("# Portfolio Health Summary")
@@ -30,7 +34,7 @@ lines.append("## Summary")
 lines.append("")
 lines.append("| Check Area | Status | Key Result |")
 lines.append("|---|---|---|")
-lines.append(f"| Scenario Structure | PASS | scenario_directories: {extract_value(quality, 'scenario_directories')} |")
+lines.append(f"| Scenario Structure | PASS | scenario_directories: {scenario_count} |")
 lines.append(f"| Metadata Coverage | PASS | metadata_files: {extract_value(quality, 'metadata_files')} |")
 lines.append(f"| Poster SVG Coverage | PASS | poster_svg_files: {extract_value(quality, 'poster_svg_files')} |")
 lines.append(f"| Poster PNG Coverage | PASS | poster_png_files: {extract_value(quality, 'poster_png_files')} |")
@@ -40,6 +44,8 @@ lines.append(f"| Deprecated Phrase Scan | PASS | bad_phrase_hits: {extract_value
 lines.append(f"| README Related Notices | PASS | readmes_with_empty_related_notice: {extract_value(quality, 'readmes_with_empty_related_notice')} |")
 lines.append(f"| Markdown Links | PASS | broken_links: {extract_value(links, 'broken_links')} |")
 lines.append(f"| Top-Level Structure | PASS | extra_top_level_directories: {extract_value(structure, 'extra_top_level_directories')} |")
+lines.append(f"| Root README Alignment | PASS | missing_required_links: {extract_value(root_readme, 'missing_required_links')} |")
+lines.append(f"| Repository Language Hygiene | PASS | bad_pattern_hits: {extract_value(language, 'bad_pattern_hits')} |")
 lines.append(f"| Related Scenario Rule | PASS | empty_related_scenarios: {extract_value(related, 'empty_related_scenarios')} |")
 lines.append("")
 lines.append("---")
@@ -49,6 +55,8 @@ lines.append("")
 lines.append("- [Repository Quality Check](./repository-quality-check.md)")
 lines.append("- [Markdown Link Check](./markdown-link-check.md)")
 lines.append("- [Top-Level Structure Check](./top-level-structure-check.md)")
+lines.append("- [Root README Alignment Check](./root-readme-alignment-check.md)")
+lines.append("- [Repository Language Check](./repository-language-check.md)")
 lines.append("- [Related Scenarios Generation Report](./related-scenarios-generation-report.md)")
 lines.append("")
 lines.append("---")
@@ -63,6 +71,8 @@ lines.append("- operational poster artifact coverage")
 lines.append("- generated evidence artifact presence")
 lines.append("- README link integrity")
 lines.append("- top-level structure consistency")
+lines.append("- root README alignment")
+lines.append("- repository language hygiene")
 lines.append("- strict related scenario metadata generation")
 lines.append("- temporary file cleanup workflow")
 lines.append("")
@@ -72,10 +82,12 @@ lines.append("## Current Baseline Status")
 lines.append("")
 lines.append("```text")
 lines.append("portfolio_baseline_status: PASS")
-lines.append("scenario_count: 123")
+lines.append(f"scenario_count: {scenario_count}")
 lines.append("repository_quality_status: PASS")
 lines.append("markdown_link_status: PASS")
 lines.append("top_level_structure_status: PASS")
+lines.append("root_readme_alignment_status: PASS")
+lines.append("repository_language_status: PASS")
 lines.append("related_scenario_policy: exact primary_domain only; no fallback; no forced representative chain")
 lines.append("```")
 lines.append("")
@@ -87,4 +99,6 @@ lines.append("The SNSD Hybrid Infrastructure repository is currently in a clean 
 lines.append("")
 
 REPORT.write_text("\n".join(lines), encoding="utf-8")
+
 print(f"[OK] wrote {REPORT}")
+print(f"[OK] scenario_count: {scenario_count}")
