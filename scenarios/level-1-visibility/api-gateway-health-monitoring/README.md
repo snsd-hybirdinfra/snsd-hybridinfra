@@ -1,4 +1,4 @@
-# Api Gateway Health Monitoring
+﻿# Api Gateway Health Monitoring
 
 ## Scenario Metadata
 
@@ -196,3 +196,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting api / gateway workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

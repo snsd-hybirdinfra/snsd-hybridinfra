@@ -1,4 +1,4 @@
-scenario_name: platform-runtime-restoration
+﻿scenario_name: platform-runtime-restoration
 scenario_title: Platform Runtime Restoration
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/platform-runtime-restoration
@@ -124,3 +124,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-4-resilience/distributed-platform-survivability
   cross_domain: []
+

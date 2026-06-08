@@ -1,4 +1,4 @@
-scenario_name: query-lock-analysis
+﻿scenario_name: query-lock-analysis
 scenario_title: Query Lock Analysis
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/query-lock-analysis
@@ -123,3 +123,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

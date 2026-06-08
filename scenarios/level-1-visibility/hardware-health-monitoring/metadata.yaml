@@ -1,4 +1,4 @@
-scenario_name: hardware-health-monitoring
+﻿scenario_name: hardware-health-monitoring
 scenario_title: Hardware Health Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/hardware-health-monitoring
@@ -130,3 +130,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

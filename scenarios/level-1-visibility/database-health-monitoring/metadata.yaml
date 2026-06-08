@@ -1,4 +1,4 @@
-scenario_name: database-health-monitoring
+﻿scenario_name: database-health-monitoring
 scenario_title: Database Health Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/database-health-monitoring
@@ -130,3 +130,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/cross-service-database-dependency-analysis
   cross_domain: []
+

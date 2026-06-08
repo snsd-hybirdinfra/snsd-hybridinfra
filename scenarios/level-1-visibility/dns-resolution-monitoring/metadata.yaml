@@ -1,4 +1,4 @@
-scenario_name: dns-resolution-monitoring
+﻿scenario_name: dns-resolution-monitoring
 scenario_title: Dns Resolution Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/dns-resolution-monitoring
@@ -126,3 +126,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

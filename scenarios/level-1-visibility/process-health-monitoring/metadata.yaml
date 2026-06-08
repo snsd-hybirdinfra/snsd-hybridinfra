@@ -1,4 +1,4 @@
-scenario_name: process-health-monitoring
+﻿scenario_name: process-health-monitoring
 scenario_title: Process Health Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/process-health-monitoring
@@ -122,3 +122,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

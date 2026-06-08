@@ -1,4 +1,4 @@
-scenario_name: database-failover-automation
+﻿scenario_name: database-failover-automation
 scenario_title: Database Failover Automation
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/database-failover-automation
@@ -132,3 +132,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-4-resilience/distributed-database-failover
   cross_domain: []
+

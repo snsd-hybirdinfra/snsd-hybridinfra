@@ -1,4 +1,4 @@
-scenario_name: identity-access-visibility
+﻿scenario_name: identity-access-visibility
 scenario_title: Identity Access Visibility
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/identity-access-visibility
@@ -125,3 +125,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/identity-risk-analysis
   cross_domain: []
+

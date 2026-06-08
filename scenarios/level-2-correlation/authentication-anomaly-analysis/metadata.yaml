@@ -1,4 +1,4 @@
-scenario_name: authentication-anomaly-analysis
+﻿scenario_name: authentication-anomaly-analysis
 scenario_title: Authentication Anomaly Analysis
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/authentication-anomaly-analysis
@@ -125,3 +125,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

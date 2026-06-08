@@ -1,4 +1,4 @@
-# Certificate Renewal Automation
+﻿# Certificate Renewal Automation
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents controlled recovery operations using automation executio
 
 ## Objectives
 
-- Document the operational condition represented by certificate renewal automation.
+- Document the operational workflow for certificate renewal automation.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Certificate Renewal Automation documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

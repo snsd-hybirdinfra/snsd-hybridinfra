@@ -1,4 +1,4 @@
-scenario_name: resource-contention-correlation
+﻿scenario_name: resource-contention-correlation
 scenario_title: Resource Contention Correlation
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/resource-contention-correlation
@@ -124,3 +124,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-3-recovery/resource-rebalancing-automation
   cross_domain: []
+

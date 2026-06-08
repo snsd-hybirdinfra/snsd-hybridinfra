@@ -1,4 +1,4 @@
-scenario_name: cluster-node-recovery-orchestration
+﻿scenario_name: cluster-node-recovery-orchestration
 scenario_title: Cluster Node Recovery Orchestration
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/cluster-node-recovery-orchestration
@@ -127,3 +127,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-4-resilience/multi-cluster-failover
   cross_domain: []
+

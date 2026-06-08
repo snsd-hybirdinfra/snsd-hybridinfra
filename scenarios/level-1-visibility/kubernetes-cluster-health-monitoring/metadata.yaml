@@ -1,4 +1,4 @@
-scenario_name: kubernetes-cluster-health-monitoring
+﻿scenario_name: kubernetes-cluster-health-monitoring
 scenario_title: Kubernetes Cluster Health Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/kubernetes-cluster-health-monitoring
@@ -130,3 +130,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-1-visibility/kubernetes-cluster-visibility
   downstream: []
   cross_domain: []
+

@@ -1,4 +1,4 @@
-scenario_name: network-traffic-visibility
+﻿scenario_name: network-traffic-visibility
 scenario_title: Network Traffic Visibility
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/network-traffic-visibility
@@ -126,3 +126,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/cross-region-network-anomaly-correlation
   cross_domain: []
+

@@ -1,4 +1,4 @@
-scenario_name: control-plane-anomaly-correlation
+﻿scenario_name: control-plane-anomaly-correlation
 scenario_title: Control Plane Anomaly Correlation
 lifecycle_level: level-2-correlation
 lifecycle_name: Correlation and Analysis
@@ -8,7 +8,7 @@ status: draft
 summary: This scenario documents infrastructure correlation operations using telemetry
   comparison, dependency analysis, and impact reasoning.
 objectives:
-- Document the operational condition represented by control plane anomaly correlation.
+- Document the operational workflow for control plane anomaly correlation.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -39,3 +39,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-3-recovery/control-plane-recovery-orchestration
   cross_domain: []
 primary_domain: Control Plane
+

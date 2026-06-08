@@ -1,4 +1,4 @@
-scenario_name: storage-latency-monitoring
+﻿scenario_name: storage-latency-monitoring
 scenario_title: Storage Latency Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/storage-latency-monitoring
@@ -128,3 +128,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/storage-io-instability-analysis
   cross_domain: []
+

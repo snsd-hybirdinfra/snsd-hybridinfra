@@ -1,4 +1,4 @@
-# Security Policy Visibility
+﻿# Security Policy Visibility
 
 ## Scenario Metadata
 
@@ -196,3 +196,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting security / telemetry workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

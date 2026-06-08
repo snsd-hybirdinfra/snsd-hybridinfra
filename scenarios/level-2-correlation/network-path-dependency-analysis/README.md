@@ -1,4 +1,4 @@
-# Network Path Dependency Analysis
+﻿# Network Path Dependency Analysis
 
 ## Scenario Metadata
 
@@ -195,3 +195,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting network / routing workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

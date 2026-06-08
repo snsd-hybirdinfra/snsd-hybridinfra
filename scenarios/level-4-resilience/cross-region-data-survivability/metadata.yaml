@@ -1,4 +1,4 @@
-scenario_name: cross-region-data-survivability
+﻿scenario_name: cross-region-data-survivability
 scenario_title: Cross Region Data Survivability
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/cross-region-data-survivability
@@ -124,3 +124,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-cloud-continuity
   cross_domain: []
+

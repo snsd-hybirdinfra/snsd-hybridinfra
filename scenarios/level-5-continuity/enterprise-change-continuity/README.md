@@ -1,4 +1,4 @@
-# Enterprise Change Continuity
+﻿# Enterprise Change Continuity
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents enterprise continuity operations using readiness validat
 
 ## Objectives
 
-- Document the operational condition represented by enterprise change continuity.
+- Document the operational workflow for enterprise change continuity.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Enterprise Change Continuity documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

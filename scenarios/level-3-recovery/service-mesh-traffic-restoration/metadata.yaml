@@ -1,4 +1,4 @@
-scenario_name: service-mesh-traffic-restoration
+﻿scenario_name: service-mesh-traffic-restoration
 scenario_title: Service Mesh Traffic Restoration
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/service-mesh-traffic-restoration
@@ -128,3 +128,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

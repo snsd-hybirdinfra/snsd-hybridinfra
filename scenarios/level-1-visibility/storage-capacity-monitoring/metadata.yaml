@@ -1,4 +1,4 @@
-scenario_name: storage-capacity-monitoring
+﻿scenario_name: storage-capacity-monitoring
 scenario_title: Storage Capacity Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/storage-capacity-monitoring
@@ -130,3 +130,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/storage-io-instability-analysis
   cross_domain: []
+

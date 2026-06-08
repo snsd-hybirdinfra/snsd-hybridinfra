@@ -14,7 +14,7 @@ This report summarizes the current repository health status for the SNSD Hybrid 
 | Poster PNG Coverage | PASS | poster_png_files: 150 |
 | Required Artifacts | PASS | missing_required_artifacts: 0 |
 | Poster Integrity | PASS | small_png_files: 0 |
-| Deprecated Phrase Scan | PASS | bad_phrase_hits: 54 |
+| Deprecated Phrase Scan | PASS | bad_phrase_hits: 0 |
 | README Related Notices | PASS | readmes_with_empty_related_notice: 0 |
 | Markdown Links | PASS | broken_links: 0 |
 | Top-Level Structure | PASS | extra_top_level_directories: 0 |

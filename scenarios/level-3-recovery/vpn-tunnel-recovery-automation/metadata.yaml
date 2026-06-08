@@ -1,4 +1,4 @@
-scenario_name: vpn-tunnel-recovery-automation
+﻿scenario_name: vpn-tunnel-recovery-automation
 scenario_title: Vpn Tunnel Recovery Automation
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/vpn-tunnel-recovery-automation
@@ -126,3 +126,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

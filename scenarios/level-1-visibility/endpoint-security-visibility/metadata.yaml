@@ -1,4 +1,4 @@
-scenario_name: endpoint-security-visibility
+﻿scenario_name: endpoint-security-visibility
 scenario_title: Endpoint Security Visibility
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/endpoint-security-visibility
@@ -130,3 +130,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/cross-domain-security-correlation
   cross_domain: []
+

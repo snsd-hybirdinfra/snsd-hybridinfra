@@ -1,4 +1,4 @@
-scenario_name: vpn-latency-correlation
+﻿scenario_name: vpn-latency-correlation
 scenario_title: Vpn Latency Correlation
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/vpn-latency-correlation
@@ -126,3 +126,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation
   cross_domain: []
+

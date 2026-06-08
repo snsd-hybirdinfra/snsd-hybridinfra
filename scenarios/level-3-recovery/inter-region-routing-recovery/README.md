@@ -1,4 +1,4 @@
-# Inter Region Routing Recovery
+﻿# Inter Region Routing Recovery
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents controlled recovery operations using automation executio
 
 ## Objectives
 
-- Document the operational condition represented by inter region routing recovery.
+- Document the operational workflow for inter region routing recovery.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Inter Region Routing Recovery documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

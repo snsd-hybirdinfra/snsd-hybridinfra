@@ -1,4 +1,4 @@
-# Service Mesh Traffic Restoration
+﻿# Service Mesh Traffic Restoration
 
 ## Scenario Metadata
 
@@ -197,3 +197,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting service mesh workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

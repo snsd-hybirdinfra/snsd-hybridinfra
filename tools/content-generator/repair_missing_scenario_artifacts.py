@@ -62,7 +62,7 @@ status: draft
 summary: "{info["summary"]}"
 
 objectives:
-  - Document the operational condition represented by {title.lower()}.
+  - Document the operational workflow for {title.lower()}.
   - Identify relevant infrastructure components and telemetry signals.
   - Describe the lifecycle workflow from detection to validation.
   - Produce reviewer-readable evidence and diagram artifacts.
@@ -116,7 +116,7 @@ def write_readme(scenario_dir: Path, level_name: str):
 
 ## Objectives
 
-- Document the operational condition represented by {title.lower()}.
+- Document the operational workflow for {title.lower()}.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -356,3 +356,4 @@ for level_dir in sorted(SCENARIOS.iterdir()):
 print(f"[OK] repaired scenarios: {len(repaired)}")
 for item in repaired:
     print(f"- {item}")
+

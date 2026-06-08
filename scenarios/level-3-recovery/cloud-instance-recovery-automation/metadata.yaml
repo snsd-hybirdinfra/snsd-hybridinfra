@@ -1,4 +1,4 @@
-scenario_name: cloud-instance-recovery-automation
+﻿scenario_name: cloud-instance-recovery-automation
 scenario_title: Cloud Instance Recovery Automation
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/cloud-instance-recovery-automation
@@ -125,3 +125,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

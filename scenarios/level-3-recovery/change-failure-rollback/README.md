@@ -1,4 +1,4 @@
-# Change Failure Rollback
+﻿# Change Failure Rollback
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents controlled recovery operations using automation executio
 
 ## Objectives
 
-- Document the operational condition represented by change failure rollback.
+- Document the operational workflow for change failure rollback.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Change Failure Rollback documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

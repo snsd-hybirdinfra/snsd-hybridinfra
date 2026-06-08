@@ -1,4 +1,4 @@
-# Control Plane Health Monitoring
+﻿# Control Plane Health Monitoring
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents infrastructure visibility operations using telemetry col
 
 ## Objectives
 
-- Document the operational condition represented by control plane health monitoring.
+- Document the operational workflow for control plane health monitoring.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Control Plane Health Monitoring documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

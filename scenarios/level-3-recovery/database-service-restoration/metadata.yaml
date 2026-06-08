@@ -1,4 +1,4 @@
-scenario_name: database-service-restoration
+﻿scenario_name: database-service-restoration
 scenario_title: Database Service Restoration
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/database-service-restoration
@@ -132,3 +132,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-4-resilience/distributed-database-failover
   cross_domain: []
+

@@ -1,4 +1,4 @@
-# Cross Region Network Resilience
+﻿# Cross Region Network Resilience
 
 ## Scenario Metadata
 
@@ -196,3 +196,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting network / routing workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

@@ -1,4 +1,4 @@
-scenario_name: api-gateway-health-monitoring
+﻿scenario_name: api-gateway-health-monitoring
 scenario_title: Api Gateway Health Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/api-gateway-health-monitoring
@@ -126,3 +126,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

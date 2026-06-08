@@ -1,4 +1,4 @@
-# Storage Volume Recovery Automation
+﻿# Storage Volume Recovery Automation
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents controlled recovery operations using automation executio
 
 ## Objectives
 
-- Document the operational condition represented by storage volume recovery automation.
+- Document the operational workflow for storage volume recovery automation.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Storage Volume Recovery Automation documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

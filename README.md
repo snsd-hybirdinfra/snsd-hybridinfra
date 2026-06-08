@@ -166,7 +166,7 @@ Current validation status:
     poster_png_files: 150
     missing_required_artifacts: 0
     small_png_files: 0
-    bad_phrase_hits: 54
+    bad_phrase_hits: 0
     readmes_with_empty_related_notice: 0
 
 Quality reports:

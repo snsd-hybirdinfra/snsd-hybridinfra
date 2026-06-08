@@ -1,4 +1,4 @@
-scenario_name: control-plane-recovery-orchestration
+﻿scenario_name: control-plane-recovery-orchestration
 scenario_title: Control Plane Recovery Orchestration
 lifecycle_level: level-3-recovery
 lifecycle_name: Recovery and Automation
@@ -8,7 +8,7 @@ status: draft
 summary: This scenario documents controlled recovery operations using automation execution,
   restoration workflow control, and recovery validation.
 objectives:
-- Document the operational condition represented by control plane recovery orchestration.
+- Document the operational workflow for control plane recovery orchestration.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -39,3 +39,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-4-resilience/control-plane-resilience
   cross_domain: []
 primary_domain: Control Plane
+

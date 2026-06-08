@@ -1,4 +1,4 @@
-scenario_name: network-path-visibility
+﻿scenario_name: network-path-visibility
 scenario_title: Network Path Visibility
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/network-path-visibility
@@ -126,3 +126,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/network-path-dependency-analysis
   cross_domain: []
+

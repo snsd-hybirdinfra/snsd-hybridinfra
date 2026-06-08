@@ -1,4 +1,4 @@
-scenario_name: multi-cluster-failover
+﻿scenario_name: multi-cluster-failover
 scenario_title: Multi Cluster Failover
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/multi-cluster-failover
@@ -127,3 +127,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-4-resilience/multi-cluster-failover-coordination
   downstream: []
   cross_domain: []
+

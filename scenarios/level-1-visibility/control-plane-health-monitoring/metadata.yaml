@@ -1,4 +1,4 @@
-scenario_name: control-plane-health-monitoring
+﻿scenario_name: control-plane-health-monitoring
 scenario_title: Control Plane Health Monitoring
 lifecycle_level: level-1-visibility
 lifecycle_name: Visibility
@@ -8,7 +8,7 @@ status: draft
 summary: This scenario documents infrastructure visibility operations using telemetry
   collection, signal exposure, and operational health reporting.
 objectives:
-- Document the operational condition represented by control plane health monitoring.
+- Document the operational workflow for control plane health monitoring.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -37,3 +37,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-2-correlation/control-plane-anomaly-correlation
   cross_domain: []
 primary_domain: Control Plane
+

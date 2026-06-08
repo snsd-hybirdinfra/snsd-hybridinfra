@@ -1,4 +1,4 @@
-scenario_name: privileged-session-monitoring
+﻿scenario_name: privileged-session-monitoring
 scenario_title: Privileged Session Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/privileged-session-monitoring
@@ -125,3 +125,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/privilege-escalation-correlation
   cross_domain: []
+

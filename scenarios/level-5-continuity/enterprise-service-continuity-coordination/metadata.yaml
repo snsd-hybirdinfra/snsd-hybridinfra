@@ -1,4 +1,4 @@
-scenario_name: enterprise-service-continuity-coordination
+﻿scenario_name: enterprise-service-continuity-coordination
 scenario_title: Enterprise Service Continuity Coordination
 lifecycle_level: level-5-continuity
 scenario_path: scenarios/level-5-continuity/enterprise-service-continuity-coordination
@@ -123,3 +123,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-platform-continuity
   downstream: []
   cross_domain: []
+

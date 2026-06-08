@@ -1,4 +1,4 @@
-# Control Plane Resilience
+﻿# Control Plane Resilience
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents distributed resilience operations across failure domains
 
 ## Objectives
 
-- Document the operational condition represented by control plane resilience.
+- Document the operational workflow for control plane resilience.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Control Plane Resilience documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

@@ -1,4 +1,4 @@
-scenario_name: multi-region-service-failover-resilience
+﻿scenario_name: multi-region-service-failover-resilience
 scenario_title: Multi Region Service Failover Resilience
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/multi-region-service-failover-resilience
@@ -124,3 +124,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-cloud-continuity
   cross_domain: []
+

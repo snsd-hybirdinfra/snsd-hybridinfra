@@ -1,4 +1,4 @@
-# Configuration Drift Monitoring
+﻿# Configuration Drift Monitoring
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents infrastructure visibility operations using telemetry col
 
 ## Objectives
 
-- Document the operational condition represented by configuration drift monitoring.
+- Document the operational workflow for configuration drift monitoring.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Configuration Drift Monitoring documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

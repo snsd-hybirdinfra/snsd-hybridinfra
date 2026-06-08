@@ -1,4 +1,4 @@
-scenario_name: enterprise-network-continuity
+﻿scenario_name: enterprise-network-continuity
 scenario_title: Enterprise Network Continuity
 lifecycle_level: level-5-continuity
 scenario_path: scenarios/level-5-continuity/enterprise-network-continuity
@@ -127,3 +127,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

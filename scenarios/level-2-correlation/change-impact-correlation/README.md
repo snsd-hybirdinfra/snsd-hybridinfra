@@ -1,4 +1,4 @@
-# Change Impact Correlation
+﻿# Change Impact Correlation
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents infrastructure correlation operations using telemetry co
 
 ## Objectives
 
-- Document the operational condition represented by change impact correlation.
+- Document the operational workflow for change impact correlation.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Change Impact Correlation documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

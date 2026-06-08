@@ -1,4 +1,4 @@
-scenario_name: inter-region-connectivity-monitoring
+﻿scenario_name: inter-region-connectivity-monitoring
 scenario_title: Inter Region Connectivity Monitoring
 lifecycle_level: level-1-visibility
 lifecycle_name: Visibility
@@ -8,7 +8,7 @@ status: draft
 summary: This scenario documents infrastructure visibility operations using telemetry
   collection, signal exposure, and operational health reporting.
 objectives:
-- Document the operational condition represented by inter region connectivity monitoring.
+- Document the operational workflow for inter region connectivity monitoring.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -37,3 +37,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-2-correlation/inter-region-dependency-correlation
   cross_domain: []
 primary_domain: Network / Routing
+

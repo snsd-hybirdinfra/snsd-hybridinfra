@@ -1,4 +1,4 @@
-# Identity Resilience Coordination
+﻿# Identity Resilience Coordination
 
 ## Scenario Metadata
 
@@ -196,3 +196,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting identity / access workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

@@ -1,4 +1,4 @@
-scenario_name: service-health-visibility
+﻿scenario_name: service-health-visibility
 scenario_title: Service Health Visibility
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/service-health-visibility
@@ -119,3 +119,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/cross-server-failure-correlation
   cross_domain: []
+

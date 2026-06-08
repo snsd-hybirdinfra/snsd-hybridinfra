@@ -1,4 +1,4 @@
-scenario_name: distributed-database-failover
+﻿scenario_name: distributed-database-failover
 scenario_title: Distributed Database Failover
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/distributed-database-failover
@@ -129,3 +129,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

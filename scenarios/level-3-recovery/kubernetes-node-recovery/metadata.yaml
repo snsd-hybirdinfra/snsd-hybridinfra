@@ -1,4 +1,4 @@
-scenario_name: kubernetes-node-recovery
+﻿scenario_name: kubernetes-node-recovery
 scenario_title: Kubernetes Node Recovery
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/kubernetes-node-recovery
@@ -132,3 +132,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-kubernetes-resilience
   cross_domain: []
+

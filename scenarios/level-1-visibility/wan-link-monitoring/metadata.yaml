@@ -1,4 +1,4 @@
-scenario_name: wan-link-monitoring
+﻿scenario_name: wan-link-monitoring
 scenario_title: Wan Link Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/wan-link-monitoring
@@ -122,3 +122,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

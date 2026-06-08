@@ -1,4 +1,4 @@
-# Kubernetes Cluster Health Monitoring
+﻿# Kubernetes Cluster Health Monitoring
 
 ## Scenario Metadata
 
@@ -198,3 +198,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting kubernetes / cluster workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

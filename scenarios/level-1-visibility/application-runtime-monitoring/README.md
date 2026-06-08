@@ -1,4 +1,4 @@
-# Application Runtime Monitoring
+﻿# Application Runtime Monitoring
 
 ## Scenario Metadata
 
@@ -194,3 +194,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting application runtime workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

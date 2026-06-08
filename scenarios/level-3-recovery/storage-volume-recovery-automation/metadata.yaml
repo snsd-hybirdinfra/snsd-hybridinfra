@@ -1,4 +1,4 @@
-scenario_name: storage-volume-recovery-automation
+﻿scenario_name: storage-volume-recovery-automation
 scenario_title: Storage Volume Recovery Automation
 lifecycle_level: level-3-recovery
 lifecycle_name: Recovery and Automation
@@ -8,7 +8,7 @@ status: draft
 summary: This scenario documents controlled recovery operations using automation execution,
   restoration workflow control, and recovery validation.
 objectives:
-- Document the operational condition represented by storage volume recovery automation.
+- Document the operational workflow for storage volume recovery automation.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -39,3 +39,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-4-resilience/storage-replication-resilience
   cross_domain: []
 primary_domain: Storage
+

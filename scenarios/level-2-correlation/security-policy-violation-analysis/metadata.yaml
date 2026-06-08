@@ -1,4 +1,4 @@
-scenario_name: security-policy-violation-analysis
+﻿scenario_name: security-policy-violation-analysis
 scenario_title: Security Policy Violation Analysis
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/security-policy-violation-analysis
@@ -130,3 +130,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-2-correlation/security-anomaly-correlation
   downstream: []
   cross_domain: []
+

@@ -1,4 +1,4 @@
-scenario_name: database-latency-correlation
+﻿scenario_name: database-latency-correlation
 scenario_title: Database Latency Correlation
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/database-latency-correlation
@@ -131,3 +131,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-3-recovery/database-failover-automation
   cross_domain: []
+

@@ -1,4 +1,4 @@
-scenario_name: pod-failure-correlation
+﻿scenario_name: pod-failure-correlation
 scenario_title: Pod Failure Correlation
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/pod-failure-correlation
@@ -126,3 +126,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

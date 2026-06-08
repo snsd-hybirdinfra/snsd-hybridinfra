@@ -1,4 +1,4 @@
-scenario_name: inter-region-routing-resilience
+﻿scenario_name: inter-region-routing-resilience
 scenario_title: Inter Region Routing Resilience
 lifecycle_level: level-4-resilience
 lifecycle_name: Distributed Resilience
@@ -8,7 +8,7 @@ status: draft
 summary: This scenario documents distributed resilience operations across failure
   domains, regions, clusters, or service boundaries.
 objectives:
-- Document the operational condition represented by inter region routing resilience.
+- Document the operational workflow for inter region routing resilience.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -39,3 +39,4 @@ related_scenarios:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-change-continuity
   cross_domain: []
 primary_domain: Network / Routing
+

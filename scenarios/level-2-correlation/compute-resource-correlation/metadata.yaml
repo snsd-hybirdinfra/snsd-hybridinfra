@@ -1,4 +1,4 @@
-scenario_name: compute-resource-correlation
+﻿scenario_name: compute-resource-correlation
 scenario_title: Compute Resource Correlation
 lifecycle_level: level-2-correlation
 scenario_path: scenarios/level-2-correlation/compute-resource-correlation
@@ -134,3 +134,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-3-recovery/compute-failover-orchestration
   cross_domain: []
+

@@ -1,4 +1,4 @@
-# Distributed Database Failover
+﻿# Distributed Database Failover
 
 ## Scenario Metadata
 
@@ -197,3 +197,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting database workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

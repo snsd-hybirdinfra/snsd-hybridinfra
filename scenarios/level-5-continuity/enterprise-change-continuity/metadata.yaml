@@ -1,4 +1,4 @@
-scenario_name: enterprise-change-continuity
+﻿scenario_name: enterprise-change-continuity
 scenario_title: Enterprise Change Continuity
 lifecycle_level: level-5-continuity
 lifecycle_name: Enterprise Continuity
@@ -8,7 +8,7 @@ status: draft
 summary: This scenario documents enterprise continuity operations using readiness
   validation, governance reporting, and cross-domain recovery posture review.
 objectives:
-- Document the operational condition represented by enterprise change continuity.
+- Document the operational workflow for enterprise change continuity.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -38,3 +38,4 @@ related_scenarios:
   downstream: []
   cross_domain: []
 primary_domain: Configuration / Change
+

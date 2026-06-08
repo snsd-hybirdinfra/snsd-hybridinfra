@@ -1,4 +1,4 @@
-# Identity Access Remediation
+﻿# Identity Access Remediation
 
 ## Scenario Metadata
 
@@ -21,7 +21,7 @@ This scenario documents controlled recovery operations using automation executio
 
 ## Objectives
 
-- Document the operational condition represented by identity access remediation.
+- Document the operational workflow for identity access remediation.
 - Identify relevant infrastructure components and telemetry signals.
 - Describe the lifecycle workflow from detection to validation.
 - Produce reviewer-readable evidence and diagram artifacts.
@@ -154,3 +154,4 @@ No directly related scenarios are currently defined for this scenario.
 ## Summary
 
 Identity Access Remediation documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
+

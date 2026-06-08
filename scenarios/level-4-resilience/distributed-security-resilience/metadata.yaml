@@ -1,4 +1,4 @@
-scenario_name: distributed-security-resilience
+﻿scenario_name: distributed-security-resilience
 scenario_title: Distributed Security Resilience
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/distributed-security-resilience
@@ -128,3 +128,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-security-continuity
   cross_domain: []
+

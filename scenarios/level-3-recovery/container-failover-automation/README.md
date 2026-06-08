@@ -1,4 +1,4 @@
-# Container Failover Automation
+﻿# Container Failover Automation
 
 ## Scenario Metadata
 
@@ -199,3 +199,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting container / runtime workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

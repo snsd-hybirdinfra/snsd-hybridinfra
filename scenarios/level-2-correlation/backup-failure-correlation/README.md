@@ -1,4 +1,4 @@
-# Backup Failure Correlation
+﻿# Backup Failure Correlation
 
 ## Scenario Metadata
 
@@ -199,3 +199,4 @@ None currently defined.
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting backup / recovery workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
+

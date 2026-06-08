@@ -1,4 +1,4 @@
-scenario_name: compute-resource-monitoring
+﻿scenario_name: compute-resource-monitoring
 scenario_title: Compute Resource Monitoring
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/compute-resource-monitoring
@@ -134,3 +134,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/compute-resource-correlation
   cross_domain: []
+

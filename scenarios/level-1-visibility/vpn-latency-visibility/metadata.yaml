@@ -1,4 +1,4 @@
-scenario_name: vpn-latency-visibility
+﻿scenario_name: vpn-latency-visibility
 scenario_title: Vpn Latency Visibility
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/vpn-latency-visibility
@@ -127,3 +127,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/vpn-latency-correlation
   cross_domain: []
+

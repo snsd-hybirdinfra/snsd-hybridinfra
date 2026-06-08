@@ -1,4 +1,4 @@
-scenario_name: bgp-neighbor-visibility
+﻿scenario_name: bgp-neighbor-visibility
 scenario_title: Bgp Neighbor Visibility
 lifecycle_level: level-1-visibility
 scenario_path: scenarios/level-1-visibility/bgp-neighbor-visibility
@@ -126,3 +126,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/cross-region-network-anomaly-correlation
   cross_domain: []
+

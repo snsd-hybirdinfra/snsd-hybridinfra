@@ -1,4 +1,4 @@
-scenario_name: distributed-platform-survivability
+﻿scenario_name: distributed-platform-survivability
 scenario_title: Distributed Platform Survivability
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/distributed-platform-survivability
@@ -124,3 +124,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-platform-continuity
   cross_domain: []
+

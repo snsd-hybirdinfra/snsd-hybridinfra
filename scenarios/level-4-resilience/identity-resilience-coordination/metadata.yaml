@@ -1,4 +1,4 @@
-scenario_name: identity-resilience-coordination
+﻿scenario_name: identity-resilience-coordination
 scenario_title: Identity Resilience Coordination
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/identity-resilience-coordination
@@ -125,3 +125,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+

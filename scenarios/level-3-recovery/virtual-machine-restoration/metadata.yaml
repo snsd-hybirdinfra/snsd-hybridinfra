@@ -1,4 +1,4 @@
-scenario_name: virtual-machine-restoration
+﻿scenario_name: virtual-machine-restoration
 scenario_title: Virtual Machine Restoration
 lifecycle_level: level-3-recovery
 scenario_path: scenarios/level-3-recovery/virtual-machine-restoration
@@ -125,3 +125,4 @@ related_scenarios:
   same_level: []
   downstream: []
   cross_domain: []
+
