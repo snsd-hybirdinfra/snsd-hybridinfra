@@ -19,3 +19,11 @@ The documentation explains the repository vision, operational architecture, scen
 ## Purpose
 
 These documents support reviewer understanding of how the repository is structured as an Enterprise Operational Capability Platform rather than a collection of isolated infrastructure examples.
+
+## Core Standards
+
+- [Scenario README Standard](./scenario-readme-standard.md)
+- [Scenario Quality Checklist](./scenario-quality-checklist.md)
+- [Poster YAML Standard](./poster-yaml-standard.md)
+- [Evidence Standard](./evidence-standard.md)
+- [Scenario Relationship Map](./scenario-relationship-map.md)
