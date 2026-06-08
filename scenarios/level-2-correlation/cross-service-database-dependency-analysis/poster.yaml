@@ -1,6 +1,6 @@
 poster:
   title: Cross Service Database Dependency Analysis
-  subtitle: level-2-correlation Board for Cross Service Database Dependency Analysis
+  subtitle: Correlation & Impact Analysis Board for Cross Service Database Dependency Analysis
   lifecycle: level-2-correlation
   domain: Infrastructure Operations
   width: 2600
@@ -8,101 +8,104 @@ poster:
 sections:
 - id: signal-domain
   title: Signal & Service Domains
-  summary: SIGNAL DOMAINS
-  description: Signal & Service Domains for Cross Service Database Dependency Analysis.
+  summary: 4 SIGNAL DOMAINS
+  description: Infrastructure, application, and service signals used for DNS failure correlation.
   cards:
-  - title: Operational Signal
-    subtitle: Cross Service Database Dependency Analysis signal source
-    type: signal
+  - title: Client Requests
+    subtitle: DNS query traffic
+    type: client-signal
     status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Cross Service Database Dependency Analysis operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Cross Service Database Dependency Analysis validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Cross Service Database Dependency Analysis reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+    icon: 👥
+  - title: DNS Resolver
+    subtitle: Resolver response state
+    type: dns
+    status: Monitored
+    icon: 🌐
+  - title: Service Endpoint
+    subtitle: Application dependency
+    type: service
+    status: Reachable
+    icon: 🖥️
+  - title: Network Path
+    subtitle: Resolver network path
+    type: network
+    status: Observed
+    icon: 🔀
 - id: correlation-platform
   title: Monitoring & Correlation Platform
   summary: CORRELATION ACTIVE
-  description: Monitoring & Correlation Platform for Cross Service Database Dependency Analysis.
+  description: Telemetry normalization and cross-signal correlation for DNS impact analysis.
   cards:
-  - title: Operational Signal
-    subtitle: Cross Service Database Dependency Analysis signal source
-    type: signal
-    status: Observed
+  - title: Telemetry Collector
+    subtitle: DNS logs and metrics
+    type: telemetry
+    status: Streaming
     icon: 📡
-  - title: Control Point
-    subtitle: Cross Service Database Dependency Analysis operational control
-    type: control
+  - title: Correlation Engine
+    emphasis: true
+    subtitle: Cross-signal symptom matching
+    type: correlation
+    status: Analyzing
+    icon: 🧠
+  - title: Dependency Mapper
+    subtitle: DNS dependency mapping
+    type: dependency
+    status: Mapped
+    icon: 🕸️
+  - title: Incident Signal
+    subtitle: Correlated incident candidate
+    type: incident
     status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Cross Service Database Dependency Analysis validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Cross Service Database Dependency Analysis reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+    icon: 🚨
 - id: impact-analysis
   title: Dependency & Impact Analysis
   summary: IMPACT MAPPED
-  description: Dependency & Impact Analysis for Cross Service Database Dependency Analysis.
+  description: Operational analysis components used to determine service and business impact.
   cards:
-  - title: Operational Signal
-    subtitle: Cross Service Database Dependency Analysis signal source
-    type: signal
-    status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Cross Service Database Dependency Analysis operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Cross Service Database Dependency Analysis validation output
-    type: validation
-    status: Verified
+  - title: Resolver Health
+    subtitle: Availability and latency analysis
+    type: analysis
+    status: Normal
     icon: ✅
-  - title: Evidence Artifact
-    subtitle: Cross Service Database Dependency Analysis reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+  - title: Query Failure Pattern
+    subtitle: Failure trend detection
+    type: analysis
+    status: Detected
+    icon: 📉
+  - title: Service Impact
+    subtitle: Service dependency risk
+    type: impact
+    status: Assessed
+    icon: ⚠️
+  - title: Risk Score
+    emphasis: true
+    emphasis_label: DECISION
+    subtitle: Severity and priority estimate
+    type: risk
+    status: Calculated
+    icon: 📌
 - id: operational-insight
   title: Operational Insight & Decision Support
   summary: INSIGHT READY
-  description: Operational Insight & Decision Support for Cross Service Database Dependency Analysis.
+  description: Reviewer-facing outputs used by operations teams during correlation review.
   cards:
-  - title: Operational Signal
-    subtitle: Cross Service Database Dependency Analysis signal source
-    type: signal
-    status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Cross Service Database Dependency Analysis operational control
-    type: control
+  - title: Impact Dashboard
+    subtitle: DNS impact visibility
+    type: dashboard
+    status: Visible
+    icon: 📊
+  - title: Incident Context
+    subtitle: Symptoms and suspected cause
+    type: context
+    status: Available
+    icon: 🧾
+  - title: Operator Guidance
+    subtitle: Investigation guidance
+    type: guidance
     status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Cross Service Database Dependency Analysis validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Cross Service Database Dependency Analysis reviewer evidence
+    icon: 🧭
+  - title: Validation Evidence
+    subtitle: Incident review evidence
     type: evidence
     status: Prepared
     icon: 📦
@@ -110,13 +113,13 @@ workflow:
   title: Correlation Workflow
   steps:
   - title: Detect
-    description: Capture symptoms and abnormal operational signals.
+    description: Capture DNS query failures and resolver symptoms.
     status: Ready
   - title: Correlate
-    description: Join infrastructure, service, and dependency signals.
+    description: Join resolver, network, client, and service signals.
     status: Analyzing
   - title: Map Impact
-    description: Identify affected services and dependent paths.
+    description: Identify dependent services and affected paths.
     status: Mapped
   - title: Prioritize
     description: Assign operational severity and response priority.
@@ -127,21 +130,21 @@ workflow:
 dashboards:
 - title: Cross Service Database Dependency Analysis Status
   widgets:
-  - label: State
-    value: Ready
-    status: normal
-  - label: Signal
-    value: Observed
-    status: normal
-  - label: Control
-    value: Prepared
-    status: verified
-  - label: Action
-    value: Available
-    status: normal
-  - label: Validation
-    value: Verified
+  - label: Overall Impact
+    value: Moderate
+    status: warning
+  - label: Resolver Health
+    value: Normal
     status: healthy
+  - label: Failure Pattern
+    value: Detected
+    status: warning
+  - label: Affected Services
+    value: '3'
+    status: warning
+  - label: Risk Score
+    value: P2
+    status: warning
   - label: Evidence
     value: Prepared
     status: verified
@@ -154,5 +157,7 @@ legend:
   color: red
 - label: Operational Insight
   color: green
+- label: Core Correlation Capability
+  color: purple
 - label: Operational Decision Point
   color: yellow

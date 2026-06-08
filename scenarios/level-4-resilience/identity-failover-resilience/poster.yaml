@@ -9,100 +9,106 @@ sections:
 - id: failure-domain
   title: Failure Domain & Resilience Signal
   summary: FAILURE DOMAIN
-  description: Failure Domain & Resilience Signal for Identity Failover Resilience.
+  description: Distributed infrastructure signals that indicate regional routing or site-level failure risk.
   cards:
-  - title: Operational Signal
-    subtitle: Identity Failover Resilience signal source
-    type: signal
-    status: Observed
+  - title: Primary Site
+    subtitle: Active service location
+    type: site
+    status: Degraded
+    icon: 🏢
+  - title: WAN Path
+    subtitle: Inter-site routing path
+    type: network
+    status: Warning
+    icon: 🔀
+  - title: Routing Signal
+    subtitle: Path state telemetry
+    type: routing
+    status: Detected
     icon: 📡
-  - title: Control Point
-    subtitle: Identity Failover Resilience operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Identity Failover Resilience validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Identity Failover Resilience reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+  - title: Service Impact
+    subtitle: Affected service reachability
+    type: impact
+    status: Assessed
+    icon: ⚠️
 - id: resilience-coordination
   title: Resilience Coordination
   summary: COORDINATION ACTIVE
-  description: Resilience Coordination for Identity Failover Resilience.
+  description: Coordination layer responsible for distributed failover decision and resilience control.
   cards:
-  - title: Operational Signal
-    subtitle: Identity Failover Resilience signal source
-    type: signal
-    status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Identity Failover Resilience operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Identity Failover Resilience validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Identity Failover Resilience reviewer evidence
-    type: evidence
+  - title: Resilience Coordinator
+    emphasis: true
+    emphasis_label: CORE
+    subtitle: Distributed failover controller
+    type: coordination
+    status: Evaluating
+    icon: 🧠
+  - title: Topology State
+    subtitle: Multi-site dependency state
+    type: topology
+    status: Mapped
+    icon: 🕸️
+  - title: Routing Policy
+    subtitle: Failover eligibility rules
+    type: policy
+    status: Checked
+    icon: 🛡️
+  - title: Continuity Target
+    subtitle: Service continuity objective
+    type: target
     status: Prepared
-    icon: 📦
+    icon: 🎯
 - id: failover-execution
   title: Failover Execution
   summary: FAILOVER READY
-  description: Failover Execution for Identity Failover Resilience.
+  description: Distributed routing and traffic movement actions used to preserve service availability.
   cards:
-  - title: Operational Signal
-    subtitle: Identity Failover Resilience signal source
-    type: signal
-    status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Identity Failover Resilience operational control
-    type: control
+  - title: Failover Orchestrator
+    emphasis: true
+    emphasis_label: ROUTE
+    subtitle: Traffic movement controller
+    type: orchestration
     status: Ready
     icon: ⚙️
-  - title: Validation Output
-    subtitle: Identity Failover Resilience validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Identity Failover Resilience reviewer evidence
-    type: evidence
+  - title: Route Shift
+    subtitle: Move traffic to healthy path
+    type: routing-action
+    status: Available
+    icon: 🛣️
+  - title: Secondary Site
+    subtitle: Standby service location
+    type: site
+    status: Ready
+    icon: 🏬
+  - title: Traffic Drain
+    subtitle: Controlled primary path drain
+    type: traffic
     status: Prepared
-    icon: 📦
+    icon: 🚦
 - id: survivability-validation
   title: Survivability Validation
   summary: SURVIVABILITY VERIFIED
-  description: Survivability Validation for Identity Failover Resilience.
+  description: Validation checks confirming service continuity after distributed failover coordination.
   cards:
-  - title: Operational Signal
-    subtitle: Identity Failover Resilience signal source
-    type: signal
-    status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Identity Failover Resilience operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Identity Failover Resilience validation output
+  - title: Service Availability
+    subtitle: Application remains reachable
     type: validation
     status: Verified
     icon: ✅
-  - title: Evidence Artifact
-    subtitle: Identity Failover Resilience reviewer evidence
+  - title: Traffic Continuity
+    subtitle: Traffic served through healthy path
+    type: validation
+    status: Normal
+    icon: 🟢
+  - title: Routing Stability
+    subtitle: No route oscillation detected
+    type: validation
+    status: Healthy
+    icon: 📈
+  - title: Survivability Evidence
+    emphasis: true
+    emphasis_label: VERIFY
+    subtitle: Failover validation package
     type: evidence
     status: Prepared
     icon: 📦
@@ -110,7 +116,7 @@ workflow:
   title: Resilience Workflow
   steps:
   - title: Detect
-    description: Identify site, path, or service degradation.
+    description: Identify site, path, or routing degradation.
     status: Detected
   - title: Coordinate
     description: Evaluate topology, policy, and continuity targets.
@@ -127,21 +133,21 @@ workflow:
 dashboards:
 - title: Identity Failover Resilience Status
   widgets:
-  - label: State
+  - label: Resilience State
     value: Ready
     status: normal
-  - label: Signal
-    value: Observed
-    status: normal
-  - label: Control
-    value: Prepared
-    status: verified
-  - label: Action
+  - label: Primary Site
+    value: Degraded
+    status: warning
+  - label: Secondary Site
+    value: Ready
+    status: healthy
+  - label: Failover
     value: Available
     status: normal
-  - label: Validation
+  - label: Continuity
     value: Verified
-    status: healthy
+    status: verified
   - label: Evidence
     value: Prepared
     status: verified

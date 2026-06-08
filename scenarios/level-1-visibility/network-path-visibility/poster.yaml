@@ -1,6 +1,6 @@
 poster:
   title: Network Path Visibility
-  subtitle: level-1-visibility Board for Network Path Visibility
+  subtitle: Operational Visibility Board for Network Path Visibility
   lifecycle: level-1-visibility
   domain: Infrastructure Operations
   width: 2600
@@ -8,112 +8,92 @@ poster:
 sections:
 - id: observed-domain
   title: Observed Infrastructure Domain
-  summary: OBSERVED DOMAIN
-  description: Observed Infrastructure Domain for Network Path Visibility.
+  summary: 3 COMPONENTS
+  description: Infrastructure and connectivity components monitored by the visibility workflow.
   cards:
-  - title: Operational Signal
-    subtitle: Network Path Visibility signal source
-    type: signal
+  - title: Branch Site
+    subtitle: Remote business location
+    type: site
     status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Network Path Visibility operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Network Path Visibility validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Network Path Visibility reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+    icon: 🏢
+  - title: VPN Gateway
+    subtitle: Hybrid connectivity endpoint
+    type: network
+    status: Monitored
+    icon: 🌐
+  - title: Cloud Network
+    subtitle: Connected cloud segment
+    type: cloud
+    status: Reachable
+    icon: ☁️
 - id: telemetry-platform
   title: Telemetry Collection & Visibility Platform
   summary: SIGNALS ACTIVE
-  description: Telemetry Collection & Visibility Platform for Network Path Visibility.
+  description: Signal collection path used to expose operational connectivity state.
   cards:
-  - title: Operational Signal
-    subtitle: Network Path Visibility signal source
-    type: signal
-    status: Observed
+  - title: Network Probe
+    subtitle: Connectivity signal source
+    type: probe
+    status: Collecting
     icon: 📡
-  - title: Control Point
-    subtitle: Network Path Visibility operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Network Path Visibility validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Network Path Visibility reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+  - title: Metrics Collector
+    subtitle: Latency and packet loss metrics
+    type: telemetry
+    status: Streaming
+    icon: 📈
+  - title: Log Pipeline
+    subtitle: VPN tunnel event forwarding
+    type: logging
+    status: Active
+    icon: 🧾
 - id: visibility-output
   title: Operational Visibility Outputs
   summary: VISIBILITY READY
-  description: Operational Visibility Outputs for Network Path Visibility.
+  description: Reviewer-facing monitoring outputs for infrastructure operations.
   cards:
-  - title: Operational Signal
-    subtitle: Network Path Visibility signal source
-    type: signal
-    status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Network Path Visibility operational control
-    type: control
+  - title: Connectivity Dashboard
+    subtitle: VPN status and tunnel health
+    type: dashboard
+    status: Visible
+    icon: 📊
+  - title: Alert View
+    subtitle: Connectivity degradation alerts
+    type: alert
     status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Network Path Visibility validation output
-    type: validation
-    status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Network Path Visibility reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+    icon: 🚨
+  - title: Operations Console
+    subtitle: Infrastructure monitoring view
+    type: console
+    status: Available
+    icon: 🖥️
 - id: validation-status
   title: Validation & Current Status
   summary: STATUS VERIFIED
-  description: Validation & Current Status for Network Path Visibility.
+  description: Operational validation results confirming visibility readiness.
   cards:
-  - title: Operational Signal
-    subtitle: Network Path Visibility signal source
-    type: signal
-    status: Observed
-    icon: 📡
-  - title: Control Point
-    subtitle: Network Path Visibility operational control
-    type: control
-    status: Ready
-    icon: ⚙️
-  - title: Validation Output
-    subtitle: Network Path Visibility validation output
+  - title: Tunnel Health
+    subtitle: VPN tunnel state validated
+    type: validation
+    status: Healthy
+    icon: ✅
+  - title: Telemetry Continuity
+    subtitle: Signals arriving continuously
+    type: validation
+    status: Normal
+    icon: 🟢
+  - title: Visibility Coverage
+    subtitle: Dashboard reflects monitored state
     type: validation
     status: Verified
-    icon: ✅
-  - title: Evidence Artifact
-    subtitle: Network Path Visibility reviewer evidence
-    type: evidence
-    status: Prepared
-    icon: 📦
+    icon: 🔎
 workflow:
-  title: Visibility Workflow
+  title: Operational Workflow
   steps:
   - title: Detect
-    description: Observe infrastructure health and service state.
+    description: Observe VPN gateway and connectivity state.
     status: Ready
   - title: Collect
-    description: Collect telemetry, logs, and probe signals.
+    description: Collect metrics, logs, and probe signals.
     status: Active
   - title: Visualize
     description: Expose status through monitoring dashboards.
@@ -124,24 +104,24 @@ workflow:
 dashboards:
 - title: Network Path Visibility Status
   widgets:
-  - label: State
-    value: Ready
-    status: normal
-  - label: Signal
-    value: Observed
-    status: normal
-  - label: Control
-    value: Prepared
-    status: verified
-  - label: Action
-    value: Available
-    status: normal
-  - label: Validation
-    value: Verified
+  - label: Connectivity
+    value: Healthy
     status: healthy
-  - label: Evidence
-    value: Prepared
+  - label: Telemetry
+    value: Streaming
+    status: normal
+  - label: Loss
+    value: 0.2%
+    status: normal
+  - label: Latency
+    value: 18 ms
+    status: normal
+  - label: Dashboard
+    value: Verified
     status: verified
+  - label: Alerts
+    value: No Active Incident
+    status: healthy
 legend:
 - label: Observed Infrastructure
   color: blue

@@ -1,122 +1,122 @@
 poster:
   title: Resource Rebalancing Automation
-  subtitle: Recovery Automation Board for Resource Rebalancing and Stabilization
+  subtitle: Recovery Automation Board for Resource Rebalancing Automation
   lifecycle: level-3-recovery
   domain: Infrastructure Operations
   width: 2600
   height: 1900
 sections:
 - id: incident-trigger
-  title: Resource Pressure & Recovery Trigger
-  summary: PRESSURE DETECTED
-  description: Operational resource signals that indicate imbalance, saturation, or recovery automation eligibility.
+  title: Incident Trigger & Recovery Signal
+  summary: TRIGGER DETECTED
+  description: Operational signals that indicate recovery automation should be evaluated.
   cards:
-  - title: CPU Pressure
-    subtitle: Compute utilization threshold
+  - title: Tunnel Degradation
+    subtitle: VPN tunnel health anomaly
+    type: incident-signal
+    status: Detected
+    icon: 🚨
+  - title: Packet Loss
+    subtitle: Connectivity quality breach
     type: metric
     status: Warning
-    icon: 📈
-  - title: Memory Saturation
-    subtitle: Workload memory pressure signal
+    icon: 📉
+  - title: Latency Spike
+    subtitle: Path performance degradation
     type: metric
-    status: Observed
-    icon: 🧠
-  - title: Storage Hotspot
-    subtitle: Capacity or I/O imbalance
-    type: storage
-    status: Detected
-    icon: 💾
+    status: Warning
+    icon: ⏱️
   - title: Alert Candidate
     subtitle: Recovery evaluation trigger
     type: alert
     status: Ready
-    icon: 🚨
+    icon: 🔔
 - id: recovery-control
-  title: Capacity Analysis & Rebalancing Decision
-  summary: ANALYSIS ACTIVE
-  description: Analysis layer responsible for workload placement, utilization correlation, and recovery decision support.
+  title: Recovery Decision & Orchestration
+  summary: RECOVERY CONTROL
+  description: Decision layer responsible for recovery eligibility, orchestration, and execution control.
   cards:
-  - title: Capacity Analyzer
-    subtitle: Resource imbalance analysis
-    type: analysis
-    status: Analyzing
-    icon: 🧠
+  - title: Recovery Orchestrator
     emphasis: true
     emphasis_label: CORE
-  - title: Workload Mapping
-    subtitle: Service-to-resource dependency
-    type: dependency
-    status: Mapped
-    icon: 🕸️
+    subtitle: Recovery decision controller
+    type: orchestration
+    status: Evaluating
+    icon: ⚙️
   - title: Policy Guard
-    subtitle: Automation safety constraint
+    subtitle: Recovery safety constraints
     type: policy
     status: Checked
     icon: 🛡️
-  - title: Rebalancing Plan
-    subtitle: Approved resource movement plan
+  - title: Dependency Check
+    subtitle: Service dependency validation
+    type: dependency
+    status: Mapped
+    icon: 🕸️
+  - title: Execution Plan
+    subtitle: Approved recovery action plan
     type: plan
     status: Prepared
     icon: 📋
 - id: automation-execution
   title: Automation Execution
   summary: ACTION READY
-  description: Controlled automation actions used to redistribute resource pressure and restore operational stability.
+  description: Automated operational actions used to restore tunnel connectivity.
   cards:
-  - title: Scale Action
-    subtitle: Increase available resource capacity
+  - title: Tunnel Reset
+    subtitle: Controlled tunnel restart
     type: automation
     status: Ready
-    icon: ⚙️
-  - title: Workload Shift
-    subtitle: Move workload away from constrained node
-    type: rebalance
-    status: Available
-    icon: 🔀
+    icon: 🔁
+  - title: Route Refresh
+    subtitle: Routing path refresh
+    type: network-action
+    status: Ready
+    icon: 🛣️
+  - title: Failover Action
     emphasis: true
     emphasis_label: ACTION
-  - title: Resource Throttle
-    subtitle: Limit noisy or unstable workload
-    type: control
-    status: Ready
-    icon: 🚦
+    subtitle: Move traffic to healthy path
+    type: failover
+    status: Available
+    icon: 🔀
   - title: Operator Notice
-    subtitle: Automation activity notification
+    subtitle: Recovery activity notification
     type: notification
     status: Prepared
     icon: 📣
 - id: recovery-validation
-  title: Post-Rebalancing Validation
+  title: Post-Recovery Validation
   summary: VALIDATION READY
-  description: Validation checks confirming resource distribution and service stability after automation.
+  description: Validation checks confirming that automated recovery restored operational health.
   cards:
-  - title: Resource Normalization
-    subtitle: Utilization returned to expected range
-    type: validation
-    status: Normal
-    icon: ✅
-  - title: Service Stability
-    subtitle: Application health remains stable
-    type: validation
-    status: Verified
-    icon: 🟢
-  - title: Telemetry Continuity
-    subtitle: Signals remain available after recovery
+  - title: Tunnel Health
+    subtitle: Recovered tunnel state
     type: validation
     status: Healthy
-    icon: 📡
+    icon: ✅
+  - title: Traffic Continuity
+    subtitle: Connectivity after recovery
+    type: validation
+    status: Normal
+    icon: 🟢
+  - title: Service Reachability
+    subtitle: Application path verification
+    type: validation
+    status: Verified
+    icon: 🔎
   - title: Recovery Evidence
+    emphasis: true
+    emphasis_label: VERIFY
     subtitle: Recovery validation package
     type: evidence
     status: Prepared
     icon: 📦
-    emphasis: true
-    emphasis_label: VERIFY
 workflow:
   title: Recovery Workflow
   steps:
   - title: Detect
-    description: Identify degradation and recovery trigger.
+    description: Identify tunnel degradation and recovery trigger.
     status: Detected
   - title: Evaluate
     description: Check policy, dependency, and recovery eligibility.
@@ -125,7 +125,7 @@ workflow:
     description: Run approved recovery automation actions.
     status: Ready
   - title: Validate
-    description: Confirm service restoration and stability.
+    description: Confirm connectivity and service restoration.
     status: Verified
   - title: Report
     description: Prepare recovery evidence and operational summary.
@@ -136,21 +136,21 @@ dashboards:
   - label: Recovery State
     value: Ready
     status: normal
-  - label: CPU Pressure
-    value: Warning
+  - label: Trigger
+    value: Detected
     status: warning
-  - label: Memory
-    value: Observed
-    status: normal
-  - label: Plan
-    value: Prepared
+  - label: Policy
+    value: Checked
     status: verified
-  - label: Automation
+  - label: Action
     value: Available
     status: normal
   - label: Validation
     value: Verified
     status: healthy
+  - label: Evidence
+    value: Prepared
+    status: verified
 legend:
 - label: Incident Trigger
   color: red
