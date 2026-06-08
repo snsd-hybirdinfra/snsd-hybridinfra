@@ -34,6 +34,27 @@ Start with the root README, then review the scenario catalog, reusable modules, 
 
 <!-- QUICK_REVIEW_END -->
 
+<!-- REPOSITORY_LAYER_MAP_START -->
+
+## Repository Layer Map
+
+| Layer | Role | Review Purpose |
+|---|---|---|
+| [scenarios/](./scenarios/README.md) | Lifecycle-based operational scenario catalog | Review operational workflows across visibility, correlation, recovery, resilience, and continuity |
+| [modules/](./modules/README.md) | Reusable operational capability modules | Review reusable capability boundaries and capability contracts |
+| [adapters/](./adapters/README.md) | Tool and platform integration adapters | Review integration boundaries and adapter contracts |
+| [shared-runtime/](./shared-runtime/README.md) | Shared orchestration, telemetry, evidence, and integration runtime | Review common runtime assumptions and runtime contracts |
+| [tools/](./tools/README.md) | Generation, validation, indexing, and rendering tooling | Review repeatable repository automation and validation workflow |
+| [reports/](./reports/README.md) | Generated validation and portfolio health reports | Review repository quality baseline and generated report outputs |
+| [docs/](./docs/README.md) | Repository standards and documentation policy | Review scenario, evidence, poster, and relationship standards |
+| [builds/](./builds/README.md) | Infrastructure build foundation documentation | Review infrastructure assumptions supporting scenario validation |
+
+## Layering Principle
+
+The repository separates operational meaning from tooling mechanics. Scenarios describe operational workflows, modules define reusable capabilities, adapters define integration boundaries, shared runtime documents common execution concepts, tools maintain consistency, and reports expose validation status.
+
+<!-- REPOSITORY_LAYER_MAP_END -->
+
 ## Enterprise Operational Capability Platform
 
 SNSD Hybrid Infrastructure is a scenario-driven infrastructure operations portfolio designed to demonstrate reusable enterprise operational capabilities across hybrid infrastructure environments.
