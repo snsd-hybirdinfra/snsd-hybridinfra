@@ -182,6 +182,7 @@ Its purpose is to provide an open-source infrastructure operations testbed for v
 
 ## Implementation Documents
 
+- [Kolla-Ansible Deployment Plan](./kolla-ansible-plan.md)
 - [Deployment Options](./deployment-options.md)
 - [Network Plan](./network-plan.md)
 - [Host Requirements](./host-requirements.md)
