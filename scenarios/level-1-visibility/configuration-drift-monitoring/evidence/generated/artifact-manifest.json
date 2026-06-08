@@ -2,10 +2,8 @@
   "scenario_name": "configuration-drift-monitoring",
   "scenario_title": "Configuration Drift Monitoring",
   "lifecycle_level": "level-1-visibility",
-  "lifecycle_name": "Visibility",
-  "operational_domain": "configuration governance",
   "artifact_type": "generated_operational_evidence",
-  "generated_at": "2026-06-08T13:42:54Z",
+  "generated_at": "2026-06-08T14:34:33Z",
   "artifacts": [
     "summary.md",
     "validation-evidence.md",
@@ -13,5 +11,6 @@
     "artifact-manifest.json",
     "artifact-checksums.json"
   ],
-  "evidence_policy": "portfolio documentation evidence; not live production execution proof"
+  "evidence_policy": "portfolio documentation evidence; not live production execution proof",
+  "consistency_note": "Manifest and checksums were regenerated from files currently present in evidence/generated."
 }
