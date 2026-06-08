@@ -180,6 +180,10 @@ Its purpose is to provide an open-source infrastructure operations testbed for v
 - map lab workflows to existing lifecycle levels
 - update reports and validation documentation
 
+## Implementation Documents
+
+- [Implementation Plan](./implementation-plan.md)
+
 ## Related Repository Layers
 
 - scenarios/: lifecycle-based operational workflows
