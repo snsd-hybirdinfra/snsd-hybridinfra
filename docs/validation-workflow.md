@@ -6,11 +6,11 @@ This document defines the repository validation workflow for the SNSD Hybrid Inf
 
 The validation workflow ensures that repository structure, generated artifacts, documentation links, root README alignment, language policy, reports, and portfolio health remain consistent.
 
-## Primary Execution Entrypoint
+## Primary Validation Interface
 
-The executable validation workflow is maintained at:
+The validation workflow is described as a repository-level quality process. Its implementation is maintained under the repository tooling layer.
 
-- ../tools/content-generator/run_repository_validation.py
+- Repository tooling layer
 
 This script coordinates the main repository validation sequence.
 

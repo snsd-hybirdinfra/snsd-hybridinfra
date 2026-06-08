@@ -22,6 +22,7 @@ These documents support reviewer understanding of how the repository is structur
 
 ## Core Standards
 
+- [Scenario Review Entry Points](./scenario-review-entry-points.md)
 - [Repository Validation Workflow](./validation-workflow.md)
 - [Scenario README Standard](./scenario-readme-standard.md)
 - [Scenario Quality Checklist](./scenario-quality-checklist.md)

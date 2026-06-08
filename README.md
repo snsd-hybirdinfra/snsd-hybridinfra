@@ -75,10 +75,6 @@ Primary validation documentation:
 
 - [Repository Validation Workflow](./docs/validation-workflow.md)
 
-Executable workflow entrypoint:
-
-- [tools/content-generator/run_repository_validation.py](./tools/content-generator/run_repository_validation.py)
-
 ## Validation Coverage
 
 | Validation Area | Purpose |
@@ -205,15 +201,11 @@ Each scenario is mapped to a lifecycle maturity level and validates one or more 
 
 ## Scenario Review Entry Points
 
-The repository contains 150 operational scenarios. The following entries provide a practical starting point for reviewing the lifecycle model across visibility, correlation, recovery, resilience, and continuity.
+Practical lifecycle review entry points are maintained in:
 
-- [VPN Connectivity Monitoring](./scenarios/level-1-visibility/vpn-connectivity-monitoring/README.md)
-- [VPN Latency Correlation](./scenarios/level-2-correlation/vpn-latency-correlation/README.md)
-- [VPN Tunnel Recovery Automation](./scenarios/level-3-recovery/vpn-tunnel-recovery-automation/README.md)
-- [Multi Site Routing Failover](./scenarios/level-4-resilience/multi-site-routing-failover/README.md)
-- [Enterprise Network Continuity](./scenarios/level-5-continuity/enterprise-network-continuity/README.md)
+- [Scenario Review Entry Points](./docs/scenario-review-entry-points.md)
 
-These entries are review starting points, not a separate golden path. The full catalog remains organized under the lifecycle-based scenario inventory.
+These entries provide a reviewer-friendly starting point without defining a separate golden path.
 
 ## Scenario Inventory
 
@@ -345,9 +337,9 @@ Relevant tools:
     tools/content-generator/
     tools/diagram-renderer/
 
-Primary validation command:
+Validation workflow documentation:
 
-    python tools/content-generator/run_repository_validation.py
+- [Repository Validation Workflow](./docs/validation-workflow.md)
 
 ---
 
