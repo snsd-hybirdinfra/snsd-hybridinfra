@@ -1,5 +1,39 @@
 # SNSD Hybrid Infrastructure
 
+<!-- QUICK_REVIEW_START -->
+
+## Quick Review
+
+**SNSD Hybrid Infrastructure** is an Enterprise Operational Capability Platform for hybrid infrastructure operations.
+
+It organizes infrastructure operations into reusable capability modules, integration adapters, shared runtime components, lifecycle-based operational scenarios, generated evidence, visual posters, and repeatable validation reports.
+
+## What This Repository Demonstrates
+
+- Lifecycle-based infrastructure operations modeling
+- 150 operational scenarios across visibility, correlation, recovery, resilience, and continuity
+- Reusable operational capability modules
+- Tool and platform integration adapters
+- Shared orchestration, telemetry, evidence, and integration runtime concepts
+- Generated evidence and operational poster artifacts
+- Repeatable repository validation workflow
+
+## Current Validation Baseline
+
+- Total Scenarios: 150
+- Required Scenario Artifacts: Present
+- Poster SVG/PNG Artifacts: Present
+- Markdown Broken Links: 0
+- Top-Level Structure Issues: 0
+- Repository Language Policy Hits: 0
+- Portfolio Baseline Status: PASS
+
+## Recommended Review Path
+
+Start with the root README, then review the scenario catalog, reusable modules, adapters, shared runtime layer, generated reports, and representative scenario entry points.
+
+<!-- QUICK_REVIEW_END -->
+
 ## Enterprise Operational Capability Platform
 
 SNSD Hybrid Infrastructure is a scenario-driven infrastructure operations portfolio designed to demonstrate reusable enterprise operational capabilities across hybrid infrastructure environments.
