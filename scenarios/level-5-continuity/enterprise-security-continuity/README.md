@@ -282,6 +282,32 @@ The decision matrix defines how the scenario should be interpreted during review
 
 <!-- OPERATIONAL_DECISION_MATRIX_END -->
 
+<!-- OPERATIONAL_REVIEW_NOTES_START -->
+
+## Operational Review Notes
+
+### Review Focus
+
+This scenario should be reviewed for **enterprise continuity posture, governance visibility, cross-domain recovery assurance, and reporting readiness**.
+
+### Reviewer Questions
+
+- Can the reviewer understand the enterprise-level continuity concern?
+- Are ownership, recovery status, and evidence expectations clear?
+- Does the scenario aggregate lower-level validation without pretending to execute every technical step?
+- Is governance-facing interpretation available?
+
+### Review Boundary
+
+The scenario should not be written as a low-level troubleshooting runbook.
+
+### Acceptance Perspective
+
+The scenario is acceptable when its operational intent, lifecycle boundary, decision points, evidence outputs, and reviewer-facing interpretation are clear without requiring direct access to a live production environment.
+
+<!-- OPERATIONAL_REVIEW_NOTES_END -->
+
+
 
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)

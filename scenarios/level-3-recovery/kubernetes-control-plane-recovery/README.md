@@ -283,6 +283,32 @@ The decision matrix defines how the scenario should be interpreted during review
 
 <!-- OPERATIONAL_DECISION_MATRIX_END -->
 
+<!-- OPERATIONAL_REVIEW_NOTES_START -->
+
+## Operational Review Notes
+
+### Review Focus
+
+This scenario should be reviewed for **controlled recovery workflow, automation boundary, rollback decision, and post-action validation**.
+
+### Reviewer Questions
+
+- Can the reviewer understand what condition triggers recovery?
+- Is the automation boundary clearly defined?
+- Does the workflow include validation after recovery?
+- Are failure, pause, rollback, or escalation paths understandable?
+
+### Review Boundary
+
+The scenario should not present automation as safe without qualification, validation, or operator decision points.
+
+### Acceptance Perspective
+
+The scenario is acceptable when its operational intent, lifecycle boundary, decision points, evidence outputs, and reviewer-facing interpretation are clear without requiring direct access to a live production environment.
+
+<!-- OPERATIONAL_REVIEW_NOTES_END -->
+
+
 
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)

@@ -292,6 +292,32 @@ The decision matrix defines how the scenario should be interpreted during review
 
 <!-- OPERATIONAL_DECISION_MATRIX_END -->
 
+<!-- OPERATIONAL_REVIEW_NOTES_START -->
+
+## Operational Review Notes
+
+### Review Focus
+
+This scenario should be reviewed for **visibility coverage, telemetry readiness, signal availability, and monitoring boundary clarity**.
+
+### Reviewer Questions
+
+- Can the reviewer understand what is being observed?
+- Are telemetry sources and expected signals clear?
+- Does the scenario define when visibility is normal, degraded, or unavailable?
+- Is generated evidence available for review?
+
+### Review Boundary
+
+The scenario should not claim correlation, recovery, or resilience behavior when it only establishes visibility.
+
+### Acceptance Perspective
+
+The scenario is acceptable when its operational intent, lifecycle boundary, decision points, evidence outputs, and reviewer-facing interpretation are clear without requiring direct access to a live production environment.
+
+<!-- OPERATIONAL_REVIEW_NOTES_END -->
+
+
 
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)

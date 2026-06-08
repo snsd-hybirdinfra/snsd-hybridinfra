@@ -269,6 +269,32 @@ The decision matrix defines how the scenario should be interpreted during review
 
 <!-- OPERATIONAL_DECISION_MATRIX_END -->
 
+<!-- OPERATIONAL_REVIEW_NOTES_START -->
+
+## Operational Review Notes
+
+### Review Focus
+
+This scenario should be reviewed for **distributed impact handling, degraded-state operation, failover coordination, and survivability validation**.
+
+### Reviewer Questions
+
+- Can the reviewer understand the distributed dependency or blast radius?
+- Is degraded-state behavior described clearly?
+- Does the scenario explain failover, isolation, or resilience coordination?
+- Is survivability or containment evidence available?
+
+### Review Boundary
+
+The scenario should not reduce resilience to a single-node recovery action.
+
+### Acceptance Perspective
+
+The scenario is acceptable when its operational intent, lifecycle boundary, decision points, evidence outputs, and reviewer-facing interpretation are clear without requiring direct access to a live production environment.
+
+<!-- OPERATIONAL_REVIEW_NOTES_END -->
+
+
 
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)

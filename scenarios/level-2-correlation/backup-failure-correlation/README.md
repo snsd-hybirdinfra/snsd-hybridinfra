@@ -297,6 +297,32 @@ The decision matrix defines how the scenario should be interpreted during review
 
 <!-- OPERATIONAL_DECISION_MATRIX_END -->
 
+<!-- OPERATIONAL_REVIEW_NOTES_START -->
+
+## Operational Review Notes
+
+### Review Focus
+
+This scenario should be reviewed for **cross-signal interpretation, dependency context, incident qualification, and handoff readiness**.
+
+### Reviewer Questions
+
+- Can the reviewer understand which signals are being correlated?
+- Is the dependency or impact relationship clear?
+- Does the scenario avoid unsupported root-cause claims?
+- Is the incident handoff context reviewable?
+
+### Review Boundary
+
+The scenario should not execute recovery actions or overstate correlation as confirmed root cause.
+
+### Acceptance Perspective
+
+The scenario is acceptable when its operational intent, lifecycle boundary, decision points, evidence outputs, and reviewer-facing interpretation are clear without requiring direct access to a live production environment.
+
+<!-- OPERATIONAL_REVIEW_NOTES_END -->
+
+
 
 ## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
