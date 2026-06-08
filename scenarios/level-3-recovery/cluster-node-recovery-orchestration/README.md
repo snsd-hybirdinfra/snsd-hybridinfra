@@ -177,7 +177,7 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/cluster-resource-instability-analysis
+None currently defined.
 
 ### Same-Level Scenarios
 
@@ -185,7 +185,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-4-resilience/multi-cluster-failover
+None currently defined.
 
 ### Cross-Domain Scenarios
 

@@ -176,7 +176,7 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/identity-access-visibility
+None currently defined.
 
 ### Same-Level Scenarios
 

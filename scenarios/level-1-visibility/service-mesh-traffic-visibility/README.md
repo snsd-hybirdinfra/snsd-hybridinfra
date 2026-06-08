@@ -185,7 +185,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/service-mesh-latency-correlation
+None currently defined.
 
 ### Cross-Domain Scenarios
 

@@ -184,11 +184,11 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/kubernetes-service-recovery
+None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-kubernetes-resilience
+None currently defined.
 
 ### Cross-Domain Scenarios
 

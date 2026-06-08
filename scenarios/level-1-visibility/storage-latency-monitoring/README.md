@@ -180,12 +180,11 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/object-storage-health-monitoring
-- /snsd-hybridinfra/scenarios/level-1-visibility/storage-capacity-monitoring
+None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/storage-io-instability-analysis
+None currently defined.
 
 ### Cross-Domain Scenarios
 

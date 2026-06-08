@@ -16,6 +16,10 @@ DELETE_SUFFIXES = [
     ".broken",
 ]
 
+DELETE_DIRECTORIES = [
+    "runtime-workspace",
+]
+
 PROTECTED_PARTS = [
     "backup-automation-foundation",
     "backup-job-monitoring",
@@ -25,6 +29,17 @@ PROTECTED_PARTS = [
 
 deleted = []
 protected_skipped = 0
+
+for dirname in DELETE_DIRECTORIES:
+    target = ROOT / dirname
+    if target.exists() and target.is_dir():
+        for child in sorted(target.rglob("*"), reverse=True):
+            if child.is_file():
+                child.unlink()
+            elif child.is_dir():
+                child.rmdir()
+        target.rmdir()
+        deleted.append(dirname + "/")
 
 for path in ROOT.rglob("*"):
     if not path.is_file():
@@ -59,4 +74,3 @@ if deleted:
     print("[DELETED]")
     for item in deleted:
         print(f"- {item}")
-

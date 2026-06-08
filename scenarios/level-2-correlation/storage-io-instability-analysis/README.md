@@ -177,7 +177,7 @@ availability; capacity trend; storage error.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/object-storage-health-monitoring
+None currently defined.
 
 ### Same-Level Scenarios
 

@@ -178,7 +178,7 @@ failure; mesh traffic; endpoint availability.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/service-mesh-traffic-visibility
+None currently defined.
 
 ### Same-Level Scenarios
 
@@ -186,7 +186,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/service-mesh-traffic-restoration
+None currently defined.
 
 ### Cross-Domain Scenarios
 

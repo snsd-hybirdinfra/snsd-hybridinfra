@@ -180,7 +180,7 @@ liveness status; CPU usage; memory pressure.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/container-dependency-analysis
+None currently defined.
 
 ### Same-Level Scenarios
 

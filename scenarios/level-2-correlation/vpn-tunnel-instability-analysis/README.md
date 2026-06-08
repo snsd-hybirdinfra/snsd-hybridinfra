@@ -176,15 +176,15 @@ uptime; endpoint response.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/vpn-tunnel-health-monitoring
+None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/vpn-latency-correlation
+None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation
+None currently defined.
 
 ### Cross-Domain Scenarios
 
