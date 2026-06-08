@@ -287,23 +287,9 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Certificate Expiration Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/certificate-expiration-monitoring/README.md)
+- [Compute Resource Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/compute-resource-monitoring/README.md)
+- [Configuration Drift Correlation](/snsd-hybridinfra/scenarios/level-2-correlation/configuration-drift-correlation/README.md)
 
 ## Summary
 

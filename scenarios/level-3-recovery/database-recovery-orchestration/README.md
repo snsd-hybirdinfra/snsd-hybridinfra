@@ -288,23 +288,10 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Database Failover Automation](/snsd-hybridinfra/scenarios/level-3-recovery/database-failover-automation/README.md)
+- [Database Service Restoration](/snsd-hybridinfra/scenarios/level-3-recovery/database-service-restoration/README.md)
+- [Cross Service Anomaly Correlation](/snsd-hybridinfra/scenarios/level-2-correlation/cross-service-anomaly-correlation/README.md)
+- [Identity Resilience Coordination](/snsd-hybridinfra/scenarios/level-4-resilience/identity-resilience-coordination/README.md)
 
 ## Summary
 

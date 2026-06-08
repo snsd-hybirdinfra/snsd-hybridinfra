@@ -264,23 +264,10 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Change Resilience Coordination](/snsd-hybridinfra/scenarios/level-4-resilience/change-resilience-coordination/README.md)
+- [Control Plane Resilience](/snsd-hybridinfra/scenarios/level-4-resilience/control-plane-resilience/README.md)
+- [Certificate Renewal Automation](/snsd-hybridinfra/scenarios/level-3-recovery/certificate-renewal-automation/README.md)
+- [Enterprise Control Plane Continuity](/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-control-plane-continuity/README.md)
 
 ## Summary
 

@@ -286,23 +286,8 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Vpn Tunnel Health Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/vpn-tunnel-health-monitoring/README.md)
+- [Vpn Tunnel Instability Analysis](/snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis/README.md)
 
 ## Summary
 

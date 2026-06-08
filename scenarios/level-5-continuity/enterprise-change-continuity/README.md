@@ -272,23 +272,8 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Enterprise Cloud Continuity](/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-cloud-continuity/README.md)
+- [Backup Resilience Validation](/snsd-hybridinfra/scenarios/level-4-resilience/backup-resilience-validation/README.md)
 
 ## Summary
 

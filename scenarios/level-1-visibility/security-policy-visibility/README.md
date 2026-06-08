@@ -288,23 +288,9 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Security Event Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/security-event-monitoring/README.md)
+- [Security Telemetry Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/security-telemetry-monitoring/README.md)
+- [Service Dependency Correlation](/snsd-hybridinfra/scenarios/level-2-correlation/service-dependency-correlation/README.md)
 
 ## Summary
 

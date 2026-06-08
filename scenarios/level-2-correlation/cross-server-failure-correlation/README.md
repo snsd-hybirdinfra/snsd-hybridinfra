@@ -287,23 +287,10 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Cross Region Network Anomaly Correlation](/snsd-hybridinfra/scenarios/level-2-correlation/cross-region-network-anomaly-correlation/README.md)
+- [Cross Service Anomaly Correlation](/snsd-hybridinfra/scenarios/level-2-correlation/cross-service-anomaly-correlation/README.md)
+- [Database Health Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/database-health-monitoring/README.md)
+- [Database Failover Automation](/snsd-hybridinfra/scenarios/level-3-recovery/database-failover-automation/README.md)
 
 ## Summary
 

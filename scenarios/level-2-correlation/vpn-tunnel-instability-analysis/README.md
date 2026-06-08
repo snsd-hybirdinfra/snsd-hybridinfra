@@ -290,23 +290,9 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Vpn Latency Correlation](/snsd-hybridinfra/scenarios/level-2-correlation/vpn-latency-correlation/README.md)
+- [Virtual Machine Health Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/virtual-machine-health-monitoring/README.md)
+- [Vpn Tunnel Recovery Automation](/snsd-hybridinfra/scenarios/level-3-recovery/vpn-tunnel-recovery-automation/README.md)
 
 ## Summary
 

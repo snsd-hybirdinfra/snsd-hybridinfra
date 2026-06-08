@@ -274,23 +274,9 @@ This scenario is considered complete when:
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Enterprise Change Continuity](/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-change-continuity/README.md)
+- [Enterprise Control Plane Continuity](/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-control-plane-continuity/README.md)
+- [Change Resilience Coordination](/snsd-hybridinfra/scenarios/level-4-resilience/change-resilience-coordination/README.md)
 
 ## Summary
 
