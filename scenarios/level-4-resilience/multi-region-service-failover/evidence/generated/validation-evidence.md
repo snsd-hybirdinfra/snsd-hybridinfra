@@ -18,6 +18,23 @@
 
 The scenario provides a structured validation record for **blast-radius containment, degraded-state handling, failover consistency, and survivability evidence**.
 
+<!-- VALIDATION_TRACEABILITY_START -->
+
+## Validation Traceability
+
+| Traceability Area | Validation Reference |
+|---|---|
+| Source Context | distributed dependency state, degraded path, failover signal, and blast-radius context |
+| Operator Decision | continue degraded operation, isolate impact, shift traffic, or coordinate resilience workflow |
+| Validation Evidence | survivability evidence, containment result, failover consistency, degraded-state acceptance |
+| Handoff Target | continuity coordination or resilience assurance report |
+
+## Traceability Principle
+
+Validation evidence must connect the observed condition, operator decision, validation result, and downstream handoff. The scenario is reviewable when a reviewer can understand how the evidence supports the lifecycle-specific operational conclusion.
+
+<!-- VALIDATION_TRACEABILITY_END -->
+
 ## Operational Assurance
 
 This validation evidence supports operational assurance by documenting how the scenario would be reviewed, interpreted, and accepted within a lifecycle-based infrastructure operations workflow.

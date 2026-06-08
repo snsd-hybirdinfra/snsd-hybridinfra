@@ -18,6 +18,23 @@
 
 The scenario provides a structured validation record for **recovery state, automation result, rollback boundary, and restoration confidence**.
 
+<!-- VALIDATION_TRACEABILITY_START -->
+
+## Validation Traceability
+
+| Traceability Area | Validation Reference |
+|---|---|
+| Source Context | qualified incident context, recovery trigger, automation boundary, and post-action state |
+| Operator Decision | pause, execute approved recovery, roll back, or escalate |
+| Validation Evidence | recovery result, service restoration signal, rollback boundary, post-recovery evidence |
+| Handoff Target | recovery validation report or resilience review |
+
+## Traceability Principle
+
+Validation evidence must connect the observed condition, operator decision, validation result, and downstream handoff. The scenario is reviewable when a reviewer can understand how the evidence supports the lifecycle-specific operational conclusion.
+
+<!-- VALIDATION_TRACEABILITY_END -->
+
 ## Operational Assurance
 
 This validation evidence supports operational assurance by documenting how the scenario would be reviewed, interpreted, and accepted within a lifecycle-based infrastructure operations workflow.
