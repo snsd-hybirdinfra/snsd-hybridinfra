@@ -34,15 +34,15 @@ Start with the root README, then review the scenario catalog, reusable modules, 
 
 <!-- QUICK_REVIEW_END -->
 
-<!-- REPRESENTATIVE_POSTER_START -->
+<!-- PLATFORM_ARCHITECTURE_IMAGE_START -->
 
-## Representative Platform Overview
+## Platform Architecture Overview
 
-![SNSD Hybrid Infrastructure Overview](./docs/assets/snsd-hybridinfra-overview.svg)
+![SNSD Hybrid Infrastructure Platform Architecture](./docs/assets/platform-operational-architecture.png)
 
-This overview image summarizes the repository as an Enterprise Operational Capability Platform: lifecycle-based scenarios, reusable modules, adapters, shared runtime concepts, generated evidence, visual artifacts, reports, and repeatable validation tooling.
+This architecture image shows the stable platform model. Current scenario counts, artifact coverage, and validation status are maintained in the generated reports.
 
-<!-- REPRESENTATIVE_POSTER_END -->
+<!-- PLATFORM_ARCHITECTURE_IMAGE_END -->
 
 <!-- REPOSITORY_LAYER_MAP_START -->
 

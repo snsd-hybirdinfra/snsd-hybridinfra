@@ -1,0 +1,121 @@
+<svg width="1800" height="1050" viewBox="0 0 1800 1050" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="55%" stop-color="#07111f"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L11,4 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1800" height="1050" fill="url(#bg)"/>
+
+  <rect x="52" y="48" width="1696" height="954" rx="36" fill="none" stroke="#1e3a8a" stroke-width="2"/>
+  <rect x="72" y="68" width="1656" height="914" rx="30" fill="rgba(15,23,42,0.72)" stroke="#334155" stroke-width="2"/>
+
+  <text x="120" y="135" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700">
+    SNSD Hybrid Infrastructure
+  </text>
+  <text x="120" y="178" fill="#93c5fd" font-family="Arial, Helvetica, sans-serif" font-size="26">
+    Enterprise Operational Capability Platform Architecture
+  </text>
+  <text x="120" y="218" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="20">
+    Stable platform model for lifecycle-based infrastructure operations, reusable capabilities, integration boundaries, shared runtime, generated evidence, and validation tooling.
+  </text>
+
+  <rect x="120" y="270" width="1560" height="145" rx="24" fill="#020617" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="150" y="315" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">
+    Operational Lifecycle Flow
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif" filter="url(#glow)">
+    <rect x="150" y="345" width="250" height="50" rx="14" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+    <text x="205" y="378" fill="#ffffff" font-size="21" font-weight="700">Detection</text>
+
+    <rect x="450" y="345" width="250" height="50" rx="14" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <text x="505" y="378" fill="#ffffff" font-size="21" font-weight="700">Correlation</text>
+
+    <rect x="750" y="345" width="250" height="50" rx="14" fill="#312e81" stroke="#a78bfa" stroke-width="2"/>
+    <text x="820" y="378" fill="#ffffff" font-size="21" font-weight="700">Recovery</text>
+
+    <rect x="1050" y="345" width="250" height="50" rx="14" fill="#164e63" stroke="#22d3ee" stroke-width="2"/>
+    <text x="1112" y="378" fill="#ffffff" font-size="21" font-weight="700">Resilience</text>
+
+    <rect x="1350" y="345" width="250" height="50" rx="14" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+    <text x="1412" y="378" fill="#ffffff" font-size="21" font-weight="700">Continuity</text>
+  </g>
+
+  <g stroke="#38bdf8" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M405 370 L445 370"/>
+    <path d="M705 370 L745 370"/>
+    <path d="M1005 370 L1045 370"/>
+    <path d="M1305 370 L1345 370"/>
+  </g>
+
+  <rect x="365" y="485" width="1070" height="180" rx="28" fill="url(#panel)" stroke="#38bdf8" stroke-width="3"/>
+  <text x="455" y="548" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">
+    Scenario Orchestration Layer
+  </text>
+  <text x="455" y="590" fill="#bfdbfe" font-family="Arial, Helvetica, sans-serif" font-size="22">
+    Operational workflows compose reusable capabilities, integration adapters, runtime contracts,
+  </text>
+  <text x="455" y="624" fill="#bfdbfe" font-family="Arial, Helvetica, sans-serif" font-size="22">
+    generated evidence, visual artifacts, reports, and governance-facing validation.
+  </text>
+
+  <g stroke="#38bdf8" stroke-width="3" fill="none">
+    <path d="M900 415 L900 485"/>
+    <path d="M900 665 L900 720"/>
+  </g>
+
+  <rect x="120" y="720" width="1560" height="210" rx="28" fill="#020617" stroke="#334155" stroke-width="2"/>
+  <text x="150" y="765" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700">
+    Platform Support Layers
+  </text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="150" y="805" width="240" height="78" rx="16" fill="#0f172a" stroke="#60a5fa" stroke-width="2"/>
+    <text x="178" y="840" fill="#ffffff" font-size="20" font-weight="700">Operational Modules</text>
+    <text x="178" y="865" fill="#bfdbfe" font-size="15">Capability contracts</text>
+
+    <rect x="420" y="805" width="240" height="78" rx="16" fill="#0f172a" stroke="#818cf8" stroke-width="2"/>
+    <text x="448" y="840" fill="#ffffff" font-size="20" font-weight="700">Integration Adapters</text>
+    <text x="448" y="865" fill="#c7d2fe" font-size="15">Tool boundaries</text>
+
+    <rect x="690" y="805" width="240" height="78" rx="16" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+    <text x="718" y="840" fill="#ffffff" font-size="20" font-weight="700">Shared Runtime</text>
+    <text x="718" y="865" fill="#cffafe" font-size="15">Workflow contracts</text>
+
+    <rect x="960" y="805" width="240" height="78" rx="16" fill="#0f172a" stroke="#34d399" stroke-width="2"/>
+    <text x="988" y="840" fill="#ffffff" font-size="20" font-weight="700">Generated Evidence</text>
+    <text x="988" y="865" fill="#bbf7d0" font-size="15">Review artifacts</text>
+
+    <rect x="1230" y="805" width="240" height="78" rx="16" fill="#0f172a" stroke="#facc15" stroke-width="2"/>
+    <text x="1258" y="840" fill="#ffffff" font-size="20" font-weight="700">Validation Tooling</text>
+    <text x="1258" y="865" fill="#fef3c7" font-size="15">Repeatable checks</text>
+
+    <rect x="1500" y="805" width="150" height="78" rx="16" fill="#0f172a" stroke="#fb7185" stroke-width="2"/>
+    <text x="1530" y="840" fill="#ffffff" font-size="20" font-weight="700">Reports</text>
+    <text x="1530" y="865" fill="#ffe4e6" font-size="15">Baseline</text>
+  </g>
+
+  <text x="120" y="970" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="18">
+    Current scenario counts, artifact coverage, and validation status are maintained in generated reports rather than hard-coded in this image.
+  </text>
+</svg>
