@@ -90,7 +90,7 @@ Scenario index:
 
 - [Scenario Inventory](./scenarios/README.md)
 
-Detailed scenario relationships are maintained inside each scenario README through strict `related_scenarios` metadata.
+Scenario relationships are maintained conservatively through lifecycle-aware mapping. Only clearly related operational workflows are linked, while uncertain relationships remain pending by design.
 
 ---
 
