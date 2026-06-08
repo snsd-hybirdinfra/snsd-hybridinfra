@@ -182,6 +182,7 @@ Its purpose is to provide an open-source infrastructure operations testbed for v
 
 ## Implementation Documents
 
+- [Network Plan](./network-plan.md)
 - [Host Requirements](./host-requirements.md)
 - [Implementation Plan](./implementation-plan.md)
 
