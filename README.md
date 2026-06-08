@@ -45,19 +45,19 @@ Each scenario is mapped to a lifecycle maturity level and validates one or more 
 ## Repository Structure
 
     snsd-hybridinfra/
-    ├── scenarios/
-    │   ├── level-1-visibility/
-    │   ├── level-2-correlation/
-    │   ├── level-3-recovery/
-    │   ├── level-4-resilience/
-    │   └── level-5-continuity/
-    ├── modules/
-    ├── adapters/
-    ├── shared-runtime/
-    ├── tools/
-    ├── reports/
-    ├── builds/
-    └── docs/
+    ?쒋?? scenarios/
+    ??  ?쒋?? level-1-visibility/
+    ??  ?쒋?? level-2-correlation/
+    ??  ?쒋?? level-3-recovery/
+    ??  ?쒋?? level-4-resilience/
+    ??  ?붴?? level-5-continuity/
+    ?쒋?? modules/
+    ?쒋?? adapters/
+    ?쒋?? shared-runtime/
+    ?쒋?? tools/
+    ?쒋?? reports/
+    ?쒋?? builds/
+    ?붴?? docs/
 
 ---
 
@@ -172,7 +172,6 @@ Current validation status:
 Quality report:
 
 - [Portfolio Health Summary](./reports/portfolio-health-summary.md)
-- [Portfolio Health Summary](./reports/portfolio-health-summary.md)
 - [Repository Quality Check](./reports/repository-quality-check.md)
 - [Markdown Link Check](./reports/markdown-link-check.md)
 - [Top-Level Structure Check](./reports/top-level-structure-check.md)
@@ -222,6 +221,7 @@ This repository demonstrates the ability to:
 SNSD Hybrid Infrastructure is an enterprise infrastructure operations portfolio focused on operational capability design, scenario-based validation, and production-oriented documentation.
 
 It presents infrastructure operations as a reusable, governed, and evidence-backed platform rather than isolated troubleshooting examples.
+
 
 
 
