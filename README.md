@@ -71,7 +71,11 @@ The repository separates operational meaning from tooling mechanics. Scenarios d
 
 The repository includes a repeatable validation workflow for checking structure, generated artifacts, documentation alignment, language policy, and portfolio health.
 
-Primary validation entrypoint:
+Primary validation documentation:
+
+- [Repository Validation Workflow](./docs/validation-workflow.md)
+
+Executable workflow entrypoint:
 
 - [tools/content-generator/run_repository_validation.py](./tools/content-generator/run_repository_validation.py)
 
