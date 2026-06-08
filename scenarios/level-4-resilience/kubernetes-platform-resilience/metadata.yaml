@@ -5,7 +5,8 @@ lifecycle_name: Distributed Resilience
 operational_scope: Infrastructure Operations
 environment: Hybrid Infrastructure
 status: draft
-summary: This scenario documents distributed resilience operations across failure domains, regions, clusters, or service boundaries.
+summary: This scenario documents distributed resilience operations across failure
+  domains, regions, clusters, or service boundaries.
 objectives:
 - Document the operational condition represented by kubernetes platform resilience.
 - Identify relevant infrastructure components and telemetry signals.
@@ -37,3 +38,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-change-continuity
   cross_domain: []
+primary_domain: Kubernetes / Cluster

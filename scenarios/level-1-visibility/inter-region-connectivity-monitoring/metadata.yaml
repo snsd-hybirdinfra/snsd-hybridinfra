@@ -5,7 +5,8 @@ lifecycle_name: Visibility
 operational_scope: Infrastructure Operations
 environment: Hybrid Infrastructure
 status: draft
-summary: This scenario documents infrastructure visibility operations using telemetry collection, signal exposure, and operational health reporting.
+summary: This scenario documents infrastructure visibility operations using telemetry
+  collection, signal exposure, and operational health reporting.
 objectives:
 - Document the operational condition represented by inter region connectivity monitoring.
 - Identify relevant infrastructure components and telemetry signals.
@@ -35,3 +36,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-2-correlation/inter-region-dependency-correlation
   cross_domain: []
+primary_domain: Network / Routing

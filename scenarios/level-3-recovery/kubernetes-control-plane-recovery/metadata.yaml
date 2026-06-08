@@ -5,7 +5,8 @@ lifecycle_name: Recovery and Automation
 operational_scope: Infrastructure Operations
 environment: Hybrid Infrastructure
 status: draft
-summary: This scenario documents controlled recovery operations using automation execution, restoration workflow control, and recovery validation.
+summary: This scenario documents controlled recovery operations using automation execution,
+  restoration workflow control, and recovery validation.
 objectives:
 - Document the operational condition represented by kubernetes control plane recovery.
 - Identify relevant infrastructure components and telemetry signals.
@@ -37,3 +38,4 @@ related_scenarios:
   downstream:
   - /snsd-hybridinfra/scenarios/level-4-resilience/control-plane-resilience
   cross_domain: []
+primary_domain: Kubernetes / Cluster
