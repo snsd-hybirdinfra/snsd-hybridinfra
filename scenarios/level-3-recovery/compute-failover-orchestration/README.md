@@ -182,7 +182,7 @@ health; reboot event; availability state.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/compute-resource-correlation
+None currently defined.
 
 ### Same-Level Scenarios
 

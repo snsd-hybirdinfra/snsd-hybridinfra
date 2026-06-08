@@ -181,13 +181,11 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/security-event-monitoring
-- /snsd-hybridinfra/scenarios/level-1-visibility/security-policy-visibility
-- /snsd-hybridinfra/scenarios/level-1-visibility/security-telemetry-monitoring
+None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/cross-domain-security-correlation
+None currently defined.
 
 ### Cross-Domain Scenarios
 

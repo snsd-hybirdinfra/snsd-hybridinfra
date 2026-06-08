@@ -189,7 +189,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/compute-resource-correlation
+None currently defined.
 
 ### Cross-Domain Scenarios
 

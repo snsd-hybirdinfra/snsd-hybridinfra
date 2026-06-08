@@ -180,7 +180,7 @@ status; resource pressure; control plane signal.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/kubernetes-node-recovery
+None currently defined.
 
 ### Same-Level Scenarios
 

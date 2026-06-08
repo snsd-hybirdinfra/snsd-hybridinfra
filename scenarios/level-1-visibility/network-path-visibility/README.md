@@ -179,12 +179,11 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/network-traffic-visibility
-- /snsd-hybridinfra/scenarios/level-1-visibility/bgp-neighbor-visibility
+None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/network-path-dependency-analysis
+None currently defined.
 
 ### Cross-Domain Scenarios
 

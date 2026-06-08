@@ -183,7 +183,7 @@ None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/kubernetes-cluster-visibility
+None currently defined.
 
 ### Downstream Scenarios
 

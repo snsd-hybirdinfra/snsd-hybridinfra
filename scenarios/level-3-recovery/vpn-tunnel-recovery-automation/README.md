@@ -177,7 +177,7 @@ uptime; endpoint response.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/vpn-tunnel-instability-analysis
+None currently defined.
 
 ### Same-Level Scenarios
 

@@ -178,7 +178,7 @@ transaction error; database availability; storage I/O.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/database-failover-automation
+None currently defined.
 
 ### Same-Level Scenarios
 

@@ -184,7 +184,7 @@ None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/api-service-recovery
+None currently defined.
 
 ### Cross-Domain Scenarios
 

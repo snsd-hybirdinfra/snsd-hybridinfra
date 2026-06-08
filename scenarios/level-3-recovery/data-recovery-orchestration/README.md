@@ -173,17 +173,15 @@ event log; metric threshold.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/cross-server-failure-correlation
+None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-3-recovery/infrastructure-recovery-orchestration
-- /snsd-hybridinfra/scenarios/level-3-recovery/platform-runtime-restoration
-- /snsd-hybridinfra/scenarios/level-3-recovery/resource-rebalancing-automation
+None currently defined.
 
 ### Downstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-4-resilience/cross-region-data-survivability
+None currently defined.
 
 ### Cross-Domain Scenarios
 

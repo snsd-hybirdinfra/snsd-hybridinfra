@@ -178,7 +178,7 @@ violation; privilege change; endpoint alert.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-4-resilience/distributed-security-resilience
+None currently defined.
 
 ### Same-Level Scenarios
 

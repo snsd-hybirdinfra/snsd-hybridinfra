@@ -1,4 +1,4 @@
-﻿# Strict Related Scenarios Generation Report
+# Strict Related Scenarios Generation Report
 
 ## Summary
 
@@ -266,4 +266,3 @@ related_scenarios:
   downstream: ['/snsd-hybridinfra/scenarios/level-2-correlation/network-path-dependency-analysis']
   cross_domain: []
 ```
-

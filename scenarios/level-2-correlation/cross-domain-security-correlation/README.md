@@ -178,12 +178,11 @@ violation; privilege change; endpoint alert.
 
 ### Upstream Scenarios
 
-- /snsd-hybridinfra/scenarios/level-1-visibility/endpoint-security-visibility
+None currently defined.
 
 ### Same-Level Scenarios
 
-- /snsd-hybridinfra/scenarios/level-2-correlation/security-anomaly-correlation
-- /snsd-hybridinfra/scenarios/level-2-correlation/security-policy-violation-analysis
+None currently defined.
 
 ### Downstream Scenarios
 

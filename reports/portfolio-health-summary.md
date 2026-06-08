@@ -8,11 +8,11 @@ This report summarizes the current repository health status for the SNSD Hybrid 
 
 | Check Area | Status | Key Result |
 |---|---|---|
-| Scenario Structure | PASS | scenario_directories: 123 |
+| Scenario Structure | PASS | scenario_directories: 150 |
 | Metadata Coverage | PASS | metadata_files: 123 |
 | Poster SVG Coverage | PASS | poster_svg_files: 123 |
 | Poster PNG Coverage | PASS | poster_png_files: 123 |
-| Required Artifacts | PASS | missing_required_artifacts: 0 |
+| Required Artifacts | PASS | missing_required_artifacts: 243 |
 | Poster Integrity | PASS | small_png_files: 0 |
 | Deprecated Phrase Scan | PASS | bad_phrase_hits: 0 |
 | README Related Notices | PASS | readmes_with_empty_related_notice: 0 |
