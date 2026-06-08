@@ -21,16 +21,16 @@ Total build foundations: 10
 
 | Build Foundation | Purpose |
 |---|---|
-| [Alb Based Web Service Routing](./alb-based-web-service-routing/README.md) | Builds application load balancing, listener routing, target health checks, and web service traffic distribution. |
-| [Ansible Server Bootstrap](./ansible-server-bootstrap/README.md) | Automates baseline server initialization including users, packages, services, configuration, and validation checks. |
-| [Backup Automation Foundation](./backup-automation-foundation/README.md) | Establishes backup job automation, repository target, retention boundary, and restore-readiness validation. |
-| [Hybrid Vpc Foundation](./hybrid-vpc-foundation/README.md) | Designs and provisions baseline VPC, subnet, routing, gateway, and hybrid connectivity foundation. |
-| [Log Pipeline Foundation](./log-pipeline-foundation/README.md) | Builds log collection, forwarding, indexing, retention, and review pipeline foundation for operational analysis. |
-| [Nat Gateway Egress Architecture](./nat-gateway-egress-architecture/README.md) | Configures private subnet outbound access using NAT gateway routing and controlled internet egress. |
-| [Observability Stack Deployment](./observability-stack-deployment/README.md) | Deploys monitoring exporters, metrics collection, dashboard visibility, and operational health signal foundation. |
-| [Private Web Tier With Bastion](./private-web-tier-with-bastion/README.md) | Builds a private web tier that is administratively reachable only through a bastion-controlled access path. |
-| [Recovery Validation Lab](./recovery-validation-lab/README.md) | Builds a controlled recovery validation environment for testing restoration, failover, evidence, and operational readiness. |
-| [Security Boundary Baseline](./security-boundary-baseline/README.md) | Defines baseline security groups, access control boundaries, administrative access paths, and policy controls. |
+| [Alb Based Web Service Routing](./alb-based-web-service-routing/README.md) | Defines application load balancing and service entry routing for web-facing workloads. |
+| [Ansible Server Bootstrap](./ansible-server-bootstrap/README.md) | Defines automation control node preparation for infrastructure operations workflows. |
+| [Backup Automation Foundation](./backup-automation-foundation/README.md) | Defines backup automation patterns used to support recovery and continuity scenarios. |
+| [Hybrid Vpc Foundation](./hybrid-vpc-foundation/README.md) | Defines baseline network segmentation and cloud connectivity structure for scenario support environments. |
+| [Log Pipeline Foundation](./log-pipeline-foundation/README.md) | Defines log collection and search pipeline foundations for operational investigation and evidence generation. |
+| [Nat Gateway Egress Architecture](./nat-gateway-egress-architecture/README.md) | Defines controlled outbound access for private infrastructure components. |
+| [Observability Stack Deployment](./observability-stack-deployment/README.md) | Defines baseline observability stack deployment for telemetry, dashboarding, and operational visibility. |
+| [Private Web Tier With Bastion](./private-web-tier-with-bastion/README.md) | Defines a private application tier access model where administrative access is mediated through a bastion host. |
+| [Recovery Validation Lab](./recovery-validation-lab/README.md) | Defines a controlled lab structure for validating recovery workflows and post-recovery evidence. |
+| [Security Boundary Baseline](./security-boundary-baseline/README.md) | Defines baseline security segmentation and access control context for operational scenarios. |
 
 ---
 

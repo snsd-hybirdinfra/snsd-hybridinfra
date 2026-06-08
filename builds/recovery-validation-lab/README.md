@@ -1,52 +1,21 @@
 # Recovery Validation Lab
 
-## Overview
+## Build Purpose
 
-Builds a controlled recovery validation environment for testing restoration, failover, evidence, and operational readiness.
+Defines a controlled lab structure for validating recovery workflows and post-recovery evidence.
 
-This build scenario documents infrastructure creation and baseline configuration work that supports downstream operational scenarios.
+## Infrastructure Scope
 
-## Build Objectives
+Recovery execution, validation checkpoints, artifact capture, and service restoration review.
 
-- Define the infrastructure foundation represented by this build.
-- Identify required components, access paths, and configuration boundaries.
-- Establish the baseline build workflow.
-- Connect the build output to monitoring, recovery, and validation scenarios.
-- Produce reviewer-readable implementation and validation evidence.
+## Role in the Platform
 
-## Build Scope
+This build foundation supports the SNSD Hybrid Infrastructure operational scenario catalog by providing infrastructure context for visibility, correlation, recovery, resilience, or continuity workflows.
 
-This scenario focuses on infrastructure build, configuration, and readiness preparation.
+## Validation Role
 
-## Used Modules
+The build foundation is not the primary portfolio artifact. It supports scenario validation by defining the infrastructure assumptions, access paths, control boundaries, and evidence context required by operational workflows.
 
-- Recovery Orchestration Module
-- Validation Reporting Module
-- Continuity Governance Module
+## Scenario Relationship
 
-## Build Workflow
-
-1. Define target architecture.
-2. Provision or configure required infrastructure components.
-3. Apply baseline access, routing, security, or runtime configuration.
-4. Validate the created infrastructure state.
-5. Connect the build output to operational monitoring or recovery scenarios.
-6. Document implementation evidence.
-
-## Expected Outputs
-
-- Build architecture summary
-- Configuration boundary
-- Validation checklist
-- Operational handoff notes
-- Related operational scenario references
-
-## Related Operational Scenarios
-
-- `/scenarios/**/resource-rebalancing-automation`
-- `/scenarios/**/multi-site-routing-failover`
-- `/scenarios/**/enterprise-operational-continuity`
-
-## Summary
-
-This build scenario supports the portfolio by showing how infrastructure foundations are created before they are monitored, analyzed, recovered, and governed through operational scenarios.
+Scenarios may reference this build foundation when the workflow requires a realistic infrastructure baseline. The build documentation should remain supportive and should not replace lifecycle-based scenario documentation.
