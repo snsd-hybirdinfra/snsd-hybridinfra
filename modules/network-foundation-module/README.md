@@ -34,6 +34,46 @@ Validation confirms path reachability, routing state, link health, and dependenc
 
 This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
 
+<!-- MODULE_CONTRACT_START -->
+
+## Capability Contract
+
+### Responsibility
+
+Provides network topology, routing, connectivity, and path health context.
+
+### Non-Responsibility
+
+Does not independently perform failover unless invoked by a recovery or resilience workflow.
+
+### Input Contract
+
+- path reachability state
+- routing status
+- gateway or tunnel health
+- link availability indicators
+
+### Output Contract
+
+- network health context
+- connectivity evidence
+- routing dependency signal
+- network impact context
+
+### Lifecycle Contribution
+
+Supports visibility, correlation, recovery, and resilience workflows involving network operations.
+
+### Failure Mode
+
+If network reachability cannot be confirmed, dependent workflows must treat path state as unresolved.
+
+### Example Scenario Usage
+
+Used by vpn-connectivity-monitoring, network-path-visibility, and multi-site-routing-failover scenarios.
+
+<!-- MODULE_CONTRACT_END -->
+
 ## Implementation Note
 
 This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

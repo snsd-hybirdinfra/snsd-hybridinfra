@@ -34,6 +34,46 @@ Validation is based on documented decision criteria, recovery assurance evidence
 
 This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
 
+<!-- MODULE_CONTRACT_START -->
+
+## Capability Contract
+
+### Responsibility
+
+Supports enterprise continuity decisions, ownership visibility, governance summaries, and recovery assurance reporting.
+
+### Non-Responsibility
+
+Does not execute technical recovery or collect low-level telemetry directly.
+
+### Input Contract
+
+- continuity impact context
+- cross-domain recovery status
+- ownership or service responsibility data
+- validation evidence from lower lifecycle levels
+
+### Output Contract
+
+- continuity posture summary
+- governance decision context
+- executive-readable evidence
+- continuity validation status
+
+### Lifecycle Contribution
+
+Primarily contributes to Level 5 continuity workflows.
+
+### Failure Mode
+
+If continuity evidence is incomplete, the continuity posture must remain pending rather than being marked as assured.
+
+### Example Scenario Usage
+
+Used by enterprise-network-continuity and enterprise-operational-continuity scenarios.
+
+<!-- MODULE_CONTRACT_END -->
+
 ## Implementation Note
 
 This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

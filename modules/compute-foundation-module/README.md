@@ -34,6 +34,46 @@ Validation checks whether compute state, resource metrics, and recovery evidence
 
 This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
 
+<!-- MODULE_CONTRACT_START -->
+
+## Capability Contract
+
+### Responsibility
+
+Provides compute health, capacity, placement, and resource context for operational scenarios.
+
+### Non-Responsibility
+
+Does not execute recovery or modify compute resources directly.
+
+### Input Contract
+
+- instance or node status
+- CPU and memory metrics
+- runtime health indicators
+- availability or placement context
+
+### Output Contract
+
+- compute health context
+- resource pressure signal
+- capacity risk indicator
+- scenario-ready compute dependency evidence
+
+### Lifecycle Contribution
+
+Supports Level 1 visibility, Level 2 correlation, Level 3 recovery, and Level 4 resilience workflows involving compute resources.
+
+### Failure Mode
+
+If compute state cannot be confirmed, downstream workflows should mark compute context as unresolved.
+
+### Example Scenario Usage
+
+Used by compute-resource-monitoring and compute-failover-orchestration style scenarios.
+
+<!-- MODULE_CONTRACT_END -->
+
 ## Implementation Note
 
 This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

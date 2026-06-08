@@ -34,6 +34,46 @@ Validation checks whether correlated signals, dependency context, and incident h
 
 This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
 
+<!-- MODULE_CONTRACT_START -->
+
+## Capability Contract
+
+### Responsibility
+
+Correlates operational signals across dependencies to distinguish symptoms from likely shared causes.
+
+### Non-Responsibility
+
+Does not execute remediation or claim definitive root cause without supporting evidence.
+
+### Input Contract
+
+- telemetry signals
+- dependency context
+- service relationship data
+- incident candidate indicators
+
+### Output Contract
+
+- correlated dependency view
+- probable impact context
+- incident handoff evidence
+- blast-radius estimate
+
+### Lifecycle Contribution
+
+Primarily contributes to Level 2 correlation and supports Level 3 recovery qualification.
+
+### Failure Mode
+
+Low-confidence correlation must preserve ambiguity and avoid artificial conclusions.
+
+### Example Scenario Usage
+
+Used by vpn-latency-correlation and service-dependency-correlation scenarios.
+
+<!-- MODULE_CONTRACT_END -->
+
 ## Implementation Note
 
 This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.

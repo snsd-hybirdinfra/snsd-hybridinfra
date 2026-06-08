@@ -34,6 +34,46 @@ Validation confirms signal availability, dashboard reference, alert readiness, a
 
 This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
 
+<!-- MODULE_CONTRACT_START -->
+
+## Capability Contract
+
+### Responsibility
+
+Defines monitoring readiness, signal availability, dashboard visibility, and alert preparation.
+
+### Non-Responsibility
+
+Does not determine final incident cause or perform recovery actions.
+
+### Input Contract
+
+- metric sources
+- log or event sources
+- dashboard references
+- alert readiness criteria
+
+### Output Contract
+
+- observable signal set
+- monitoring coverage context
+- dashboard visibility reference
+- alert readiness evidence
+
+### Lifecycle Contribution
+
+Primarily contributes to Level 1 visibility and supports all downstream lifecycle levels.
+
+### Failure Mode
+
+Visibility gaps must be exposed before correlation or recovery decisions are trusted.
+
+### Example Scenario Usage
+
+Used by health monitoring, runtime visibility, and dashboard-oriented scenarios.
+
+<!-- MODULE_CONTRACT_END -->
+
 ## Implementation Note
 
 This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.
