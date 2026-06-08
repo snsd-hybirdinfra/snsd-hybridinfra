@@ -1,0 +1,82 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#020617"/>
+
+  <rect x="60" y="50" width="1480" height="800" rx="34" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+
+  <text x="100" y="120" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700">
+    SNSD Hybrid Infrastructure
+  </text>
+  <text x="100" y="166" fill="#93c5fd" font-family="Arial, Helvetica, sans-serif" font-size="25">
+    Enterprise Operational Capability Platform
+  </text>
+
+  <text x="100" y="222" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="22">
+    Lifecycle-based infrastructure operations portfolio with reusable modules, adapters, shared runtime, generated evidence, posters, and validation reports.
+  </text>
+
+  <rect x="100" y="275" width="1400" height="95" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+
+  <text x="140" y="315" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">150 Operational Scenarios</text>
+  <text x="140" y="350" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="20">Visibility ? Correlation ? Recovery ? Resilience ? Continuity</text>
+
+  <text x="650" y="315" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">PASS Validation Baseline</text>
+  <text x="650" y="350" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="20">0 broken links ? 0 structure issues ? 150 posters ? 150 metadata files</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="100" y="430" width="240" height="130" rx="18" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+    <text x="130" y="475" fill="#ffffff" font-size="25" font-weight="700">Detection</text>
+    <text x="130" y="510" fill="#bfdbfe" font-size="18">Signal readiness</text>
+    <text x="130" y="538" fill="#bfdbfe" font-size="18">Monitoring visibility</text>
+
+    <rect x="370" y="430" width="240" height="130" rx="18" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <text x="400" y="475" fill="#ffffff" font-size="25" font-weight="700">Correlation</text>
+    <text x="400" y="510" fill="#c7d2fe" font-size="18">Dependency analysis</text>
+    <text x="400" y="538" fill="#c7d2fe" font-size="18">Incident context</text>
+
+    <rect x="640" y="430" width="240" height="130" rx="18" fill="#312e81" stroke="#a78bfa" stroke-width="2"/>
+    <text x="670" y="475" fill="#ffffff" font-size="25" font-weight="700">Recovery</text>
+    <text x="670" y="510" fill="#ddd6fe" font-size="18">Automation boundary</text>
+    <text x="670" y="538" fill="#ddd6fe" font-size="18">Validation handoff</text>
+
+    <rect x="910" y="430" width="240" height="130" rx="18" fill="#164e63" stroke="#22d3ee" stroke-width="2"/>
+    <text x="940" y="475" fill="#ffffff" font-size="25" font-weight="700">Resilience</text>
+    <text x="940" y="510" fill="#cffafe" font-size="18">Failover coordination</text>
+    <text x="940" y="538" fill="#cffafe" font-size="18">Survivability</text>
+
+    <rect x="1180" y="430" width="240" height="130" rx="18" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+    <text x="1210" y="475" fill="#ffffff" font-size="25" font-weight="700">Continuity</text>
+    <text x="1210" y="510" fill="#bbf7d0" font-size="18">Governance review</text>
+    <text x="1210" y="538" fill="#bbf7d0" font-size="18">Recovery assurance</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <path d="M340 495 L370 495"/>
+    <path d="M610 495 L640 495"/>
+    <path d="M880 495 L910 495"/>
+    <path d="M1150 495 L1180 495"/>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="100" y="625" width="1400" height="150" rx="20" fill="#020617" stroke="#334155" stroke-width="2"/>
+
+  <text x="140" y="670" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">
+    Platform Layers
+  </text>
+
+  <text x="140" y="715" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="21">
+    scenarios/ ? modules/ ? adapters/ ? shared-runtime/ ? tools/ ? reports/ ? docs/ ? builds/
+  </text>
+
+  <text x="140" y="755" fill="#93c5fd" font-family="Arial, Helvetica, sans-serif" font-size="20">
+    Operational workflows are separated from capability contracts, integration boundaries, runtime assumptions, validation tooling, and generated evidence.
+  </text>
+
+  <text x="100" y="825" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="18">
+    Repository validation workflow: tools/content-generator/run_repository_validation.py
+  </text>
+</svg>
