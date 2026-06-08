@@ -1,8 +1,8 @@
 {
   "scenario_name": "kubernetes-control-plane-recovery",
-  "scenario_title": "kubernetes-control-plane-recovery",
+  "scenario_title": "Kubernetes Control Plane Recovery",
   "lifecycle_level": "level-3-recovery",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Kubernetes Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

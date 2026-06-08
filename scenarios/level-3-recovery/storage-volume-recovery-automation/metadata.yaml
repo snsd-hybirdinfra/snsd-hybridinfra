@@ -1,42 +1,119 @@
-﻿scenario_name: storage-volume-recovery-automation
+scenario_name: storage-volume-recovery-automation
 scenario_title: Storage Volume Recovery Automation
 lifecycle_level: level-3-recovery
-lifecycle_name: Recovery and Automation
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents controlled recovery operations using automation execution,
-  restoration workflow control, and recovery validation.
-objectives:
-- Document the operational workflow for storage volume recovery automation.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Recovery Orchestration Module
-- Automation Execution Module
-- Recovery Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/change-impact-correlation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/certificate-renewal-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback
-  - /snsd-hybridinfra/scenarios/level-3-recovery/configuration-rollback-automation
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/storage-replication-resilience
-  cross_domain: []
-primary_domain: Storage
+scenario_path: scenarios/level-3-recovery/storage-volume-recovery-automation
+scenario_type: recovery
+primary_domain: Storage Operations
+status: content-filled
+overview: |
+  This scenario documents storage volume recovery automation within the storage operations operational
+  domain. It focuses on storage volume and attached workload and demonstrates how infrastructure
+  operations teams can use domain-specific telemetry, lifecycle workflow design, and evidence-backed
+  validation to support automate recovery workflow for degraded or unavailable storage volumes.
 
+objectives:
+  - Define the scenario-specific storage operations signal represented by storage-volume-recovery-automation.
+  - Identify the affected storage operations components and dependencies.
+  - Collect and interpret telemetry from storage volume and attached workload.
+  - Use volume availability as an operational signal for detection or validation.
+  - Use io error as an operational signal for detection or validation.
+  - Use mount status as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Automate recovery workflow for degraded or unavailable storage volumes
+
+target_resource: |
+  storage volume and attached workload
+
+telemetry_signals:
+  - volume availability
+  - io error
+  - mount status
+  - recovery validation
+
+infrastructure_components:
+  - storage volume
+  - workload node
+  - automation runner
+  - recovery workflow
+  - validation output
+
+detection_workflow: |
+  Use volume availability and IO error signals as recovery triggers
+
+correlation_and_analysis: |
+  Confirm affected workloads and storage dependency before recovery
+
+alert_and_incident_workflow: |
+  Execute volume recovery workflow and record operational status
+
+recovery_and_automation_workflow: |
+  Execute volume recovery workflow and record operational status
+
+recovery_validation: |
+  Restore volume availability and validate workload access
+
+monitoring_and_visibility: |
+  Monitoring and visibility include volume availability; io error; mount status; recovery validation.
+
+used_modules:
+  - Recovery Orchestration Module
+  - Automation Execution Module
+  - Recovery Validation Module
+
+used_adapters:
+  - Ansible Adapter
+  - Prometheus Adapter
+  - Python Exporter Adapter
+
+operational_components:
+  - name: storage volume
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: workload node
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: automation runner
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: recovery workflow
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Storage Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - volume recovery evidence
+  - workload access validation
+  - recovery summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

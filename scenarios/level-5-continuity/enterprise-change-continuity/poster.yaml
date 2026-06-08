@@ -1,0 +1,166 @@
+poster:
+  title: Enterprise Change Continuity
+  subtitle: Enterprise Continuity Governance Board for Enterprise Change Continuity
+  lifecycle: level-5-continuity
+  domain: Enterprise Continuity Operations
+  width: 2600
+  height: 1900
+sections:
+- id: continuity-scope
+  title: Continuity Scope
+  summary: ENTERPRISE SCOPE
+  description: Enterprise services, regions, dependencies, and continuity objectives under governance.
+  cards:
+  - title: Critical Services
+    subtitle: Business-critical service group
+    type: business-service
+    status: Assessed
+    icon: 🏢
+  - title: Recovery Region
+    subtitle: Target recovery geography
+    type: region
+    status: Mapped
+    icon: 🌐
+  - title: Dependency Scope
+    subtitle: Cross-domain dependency view
+    type: dependency
+    status: Mapped
+    icon: 🕸️
+  - title: Continuity Objective
+    subtitle: RTO / RPO target state
+    type: objective
+    status: Prepared
+    icon: 🎯
+- id: governance-control
+  title: Governance Control
+  summary: GOVERNANCE ACTIVE
+  description: Governance authority for recovery approval, risk acceptance, escalation, and continuity decision control.
+  cards:
+  - title: Governance Controller
+    emphasis: true
+    emphasis_label: CORE
+    subtitle: Continuity governance authority
+    type: governance
+    status: Evaluating
+    icon: 🏛️
+  - title: Risk Acceptance
+    subtitle: Executive-level risk decision
+    type: risk
+    status: Checked
+    icon: ⚖️
+  - title: Recovery Policy
+    subtitle: Enterprise recovery policy control
+    type: policy
+    status: Verified
+    icon: 🛡️
+  - title: Escalation Path
+    subtitle: Decision escalation route
+    type: escalation
+    status: Ready
+    icon: 📣
+- id: executive-coordination
+  title: Executive Coordination
+  summary: DECISION READY
+  description: Executive coordination for continuity decision, approval, and stakeholder alignment.
+  cards:
+  - title: Continuity Decision
+    emphasis: true
+    emphasis_label: DECISION
+    subtitle: Executive recovery decision point
+    type: decision
+    status: Ready
+    icon: 🧭
+  - title: Stakeholder Notice
+    subtitle: Business and technical notification
+    type: communication
+    status: Prepared
+    icon: 📨
+  - title: Recovery Approval
+    subtitle: Authorized continuity action
+    type: approval
+    status: Available
+    icon: ✅
+  - title: Business Impact
+    subtitle: Continuity impact statement
+    type: impact
+    status: Assessed
+    icon: 📊
+- id: evidence-reporting
+  title: Evidence Reporting
+  summary: REPORTING READY
+  description: Evidence package used for governance review, auditability, and post-recovery continuity reporting.
+  cards:
+  - title: Evidence Package
+    emphasis: true
+    emphasis_label: AUDIT
+    subtitle: Continuity validation evidence
+    type: evidence
+    status: Prepared
+    icon: 📦
+  - title: Audit Trail
+    subtitle: Decision and action history
+    type: audit
+    status: Verified
+    icon: 🧾
+  - title: Recovery Report
+    subtitle: Executive recovery summary
+    type: report
+    status: Prepared
+    icon: 📄
+  - title: Governance Review
+    subtitle: Post-recovery review input
+    type: review
+    status: Ready
+    icon: 🔍
+workflow:
+  title: Continuity Governance Workflow
+  steps:
+  - title: Assess
+    description: Define enterprise continuity scope and affected services.
+    status: Assessed
+  - title: Govern
+    description: Evaluate risk, policy, and escalation authority.
+    status: Evaluating
+  - title: Decide
+    description: Authorize continuity recovery decision.
+    status: Ready
+  - title: Report
+    description: Prepare evidence and executive recovery report.
+    status: Prepared
+  - title: Review
+    description: Complete governance review and audit trail.
+    status: Verified
+dashboards:
+- title: Enterprise Change Continuity Status
+  widgets:
+  - label: Governance State
+    value: Ready
+    status: normal
+  - label: Risk Review
+    value: Checked
+    status: verified
+  - label: Decision
+    value: Ready
+    status: normal
+  - label: Approval
+    value: Available
+    status: normal
+  - label: Evidence
+    value: Prepared
+    status: verified
+  - label: Audit
+    value: Verified
+    status: verified
+legend:
+- label: Continuity Scope
+  color: blue
+- label: Governance Control
+  color: purple
+- label: Executive Coordination
+  color: cyan
+- label: Evidence Reporting
+  color: green
+- label: Core Governance Capability
+  color: purple
+- label: Executive Decision Point
+  color: cyan

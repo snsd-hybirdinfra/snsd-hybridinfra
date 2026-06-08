@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | inter-region-routing-recovery |
-| Scenario Title | inter-region-routing-recovery |
+| Scenario Title | Inter Region Routing Recovery |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Network Operations |
 
 ## Summary
 

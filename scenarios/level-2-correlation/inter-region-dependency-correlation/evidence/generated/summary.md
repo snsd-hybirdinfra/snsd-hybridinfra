@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | inter-region-dependency-correlation |
-| Scenario Title | inter-region-dependency-correlation |
+| Scenario Title | Inter Region Dependency Correlation |
 | Lifecycle Level | level-2-correlation |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Network Operations |
 
 ## Summary
 

@@ -1,41 +1,121 @@
-﻿scenario_name: enterprise-identity-continuity
+scenario_name: enterprise-identity-continuity
 scenario_title: Enterprise Identity Continuity
 lifecycle_level: level-5-continuity
-lifecycle_name: Enterprise Continuity
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents enterprise continuity operations using readiness
-  validation, governance reporting, and cross-domain recovery posture review.
+scenario_path: scenarios/level-5-continuity/enterprise-identity-continuity
+scenario_type: continuity
+primary_domain: Continuity Operations
+status: content-filled
+overview: |
+  This scenario documents enterprise identity continuity within the continuity operations operational
+  domain. It focuses on enterprise identity service and access control dependency and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support coordinate enterprise identity continuity when authentication
+  or authorization paths degrade.
+
 objectives:
-- Document the operational workflow for enterprise identity continuity.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+  - Define the scenario-specific continuity operations signal represented by enterprise-identity-continuity.
+  - Identify the affected continuity operations components and dependencies.
+  - Collect and interpret telemetry from enterprise identity service and access control dependency.
+  - Use authentication availability as an operational signal for detection or validation.
+  - Use authorization error as an operational signal for detection or validation.
+  - Use failover readiness as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Coordinate enterprise identity continuity when authentication or authorization paths degrade
+
+target_resource: |
+  enterprise identity service and access control dependency
+
+telemetry_signals:
+  - authentication availability
+  - authorization error
+  - failover readiness
+  - continuity status
+
 infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+  - identity provider
+  - access policy
+  - protected service
+  - continuity workflow
+  - governance report
+
+detection_workflow: |
+  Collect identity availability and access control degradation signals
+
+correlation_and_analysis: |
+  Analyze enterprise service dependency on identity and access paths
+
+alert_and_incident_workflow: |
+  Coordinate identity continuity workflow across affected service domains
+
+recovery_and_automation_workflow: |
+  Coordinate identity continuity workflow across affected service domains
+
+recovery_validation: |
+  Validate critical access continuity and governance acceptance criteria
+
+monitoring_and_visibility: |
+  Monitoring and visibility include authentication availability; authorization error; failover
+  readiness; continuity status.
+
 used_modules:
-- Continuity Governance Module
-- Readiness Assessment Module
-- Governance Reporting Module
+  - Continuity Coordination Module
+  - Dependency Correlation Module
+  - Governance Reporting Module
+
 used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
+  - OpenSearch Adapter
+  - Prometheus Adapter
+  - Grafana Adapter
+
+operational_components:
+  - name: identity provider
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: access policy
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: protected service
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: continuity workflow
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: governance report
+    purpose: Provides context or signal source for Continuity Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - identity continuity report
+  - access readiness evidence
+  - governance validation summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
 related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/identity-failover-resilience
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-change-continuity
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-control-plane-continuity
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-data-protection-continuity
+  upstream: []
+  same_level: []
   downstream: []
   cross_domain: []
-primary_domain: Identity / Access
-

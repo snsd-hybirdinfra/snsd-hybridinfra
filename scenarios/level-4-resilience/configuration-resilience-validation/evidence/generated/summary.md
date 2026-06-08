@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | configuration-resilience-validation |
-| Scenario Title | configuration-resilience-validation |
+| Scenario Title | Configuration Resilience Validation |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Configuration Operations |
 
 ## Summary
 

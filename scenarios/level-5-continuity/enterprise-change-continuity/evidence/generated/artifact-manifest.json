@@ -1,8 +1,8 @@
 {
   "scenario_name": "enterprise-change-continuity",
-  "scenario_title": "enterprise-change-continuity",
+  "scenario_title": "Enterprise Change Continuity",
   "lifecycle_level": "level-5-continuity",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Continuity Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

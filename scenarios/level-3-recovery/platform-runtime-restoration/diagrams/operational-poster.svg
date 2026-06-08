@@ -4,7 +4,7 @@
 <rect width="2600" height="1900" fill="#020617" />
 <rect x="60" y="40" width="2480" height="130" rx="30" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="98" y="92" fill="#ffffff" font-size="34" font-weight="bold">Platform Runtime Restoration</text>
-<text x="100" y="128" fill="#cbd5e1" font-size="17">level-3-recovery Board for Platform Runtime Restoration</text>
+<text x="100" y="128" fill="#cbd5e1" font-size="17">Recovery Automation Board for Platform Runtime Restoration</text>
 <rect x="1900" y="72" width="270" height="38" rx="19" fill="#020617" stroke="#334155" stroke-width="1" />
 <text x="2035" y="97" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="bold">level-3-recovery</text>
 <rect x="2200" y="72" width="280" height="38" rx="19" fill="#020617" stroke="#334155" stroke-width="1" />
@@ -12,50 +12,54 @@
 <rect x="80" y="220" width="1840" height="220" rx="28" fill="#1e293b" stroke="#dc2626" stroke-width="3" />
 <rect x="80" y="220" width="14" height="220" rx="7" fill="#dc2626" />
 <text x="114" y="262" fill="#ffffff" font-size="24" font-weight="bold">Incident Trigger &amp; Recovery Signal</text>
-<text x="114" y="290" fill="#cbd5e1" font-size="15">Incident Trigger &amp; Recovery Signal for Platform Runtime Restoration.</text>
+<text x="114" y="290" fill="#cbd5e1" font-size="15">Operational signals that indicate recovery automation should be evaluated.</text>
 <rect x="1650" y="246" width="220" height="38" rx="19" fill="#020617" stroke="#dc2626" stroke-width="2" />
 <text x="1760" y="271" fill="#dc2626" font-size="13" text-anchor="middle" font-weight="bold">TRIGGER DETECTED</text>
 <rect x="114" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="352" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
-<circle cx="152" cy="352" r="7" fill="#60a5fa" />
-<circle cx="152" cy="352" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
-<text x="186" y="344" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
-<text x="186" y="370" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="186" y="396" fill="#94a3b8" font-size="10">signal</text>
-<rect x="421" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
-<text x="469" y="404" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<circle cx="152" cy="352" r="22" fill="#020617" stroke="#fb923c" stroke-width="2" />
+<circle cx="152" cy="352" r="7" fill="#fb923c" />
+<circle cx="152" cy="352" r="14" fill="none" stroke="#fb923c" stroke-width="2" opacity="0.35" />
+<text x="186" y="344" fill="#ffffff" font-size="16" font-weight="bold">Tunnel Degradation</text>
+<text x="186" y="370" fill="#cbd5e1" font-size="10">VPN tunnel health anomaly</text>
+<text x="186" y="396" fill="#94a3b8" font-size="10">incident-signal</text>
+<rect x="421" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#fb923c" stroke-width="1" />
+<text x="469" y="404" fill="#fb923c" font-size="10" text-anchor="middle" font-weight="bold">Detected</text>
 <rect x="563" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="601" cy="352" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
-<circle cx="601" cy="352" r="7" fill="#84cc16" />
-<circle cx="601" cy="352" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
-<text x="635" y="344" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
-<text x="635" y="370" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="635" y="396" fill="#94a3b8" font-size="10">control</text>
-<rect x="870" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="918" y="404" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<circle cx="601" cy="352" r="22" fill="#020617" stroke="#fb923c" stroke-width="2" />
+<line x1="589" y1="361" x2="589" y2="351" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<line x1="597" y1="361" x2="597" y2="342" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<line x1="605" y1="361" x2="605" y2="348" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<line x1="613" y1="361" x2="613" y2="339" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<text x="635" y="344" fill="#ffffff" font-size="16" font-weight="bold">Packet Loss</text>
+<text x="635" y="370" fill="#cbd5e1" font-size="10">Connectivity quality breach</text>
+<text x="635" y="396" fill="#94a3b8" font-size="10">metric</text>
+<rect x="870" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#fb923c" stroke-width="1" />
+<text x="918" y="404" fill="#fb923c" font-size="10" text-anchor="middle" font-weight="bold">Warning</text>
 <rect x="1012" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1050" cy="352" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
-<rect x="1038" y="340" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
-<polyline points="1043,352 1049,358 1059,345" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-<text x="1084" y="344" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
-<text x="1084" y="370" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="1084" y="396" fill="#94a3b8" font-size="10">validation</text>
-<rect x="1319" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
-<text x="1367" y="404" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<circle cx="1050" cy="352" r="22" fill="#020617" stroke="#fb923c" stroke-width="2" />
+<line x1="1038" y1="361" x2="1038" y2="351" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<line x1="1046" y1="361" x2="1046" y2="342" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<line x1="1054" y1="361" x2="1054" y2="348" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<line x1="1062" y1="361" x2="1062" y2="339" stroke="#fb923c" stroke-width="3" stroke-linecap="round" />
+<text x="1084" y="344" fill="#ffffff" font-size="16" font-weight="bold">Latency Spike</text>
+<text x="1084" y="370" fill="#cbd5e1" font-size="10">Path performance degradation</text>
+<text x="1084" y="396" fill="#94a3b8" font-size="10">metric</text>
+<rect x="1319" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#fb923c" stroke-width="1" />
+<text x="1367" y="404" fill="#fb923c" font-size="10" text-anchor="middle" font-weight="bold">Warning</text>
 <rect x="1461" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1499" cy="352" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
-<polygon points="1490,339 1504,339 1510,345 1510,365 1490,365" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
-<line x1="1495" y1="352" x2="1504" y2="352" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-<line x1="1495" y1="358" x2="1504" y2="358" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-<text x="1533" y="344" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
-<text x="1533" y="370" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="1533" y="396" fill="#94a3b8" font-size="10">evidence</text>
-<rect x="1768" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
-<text x="1816" y="404" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
+<circle cx="1499" cy="352" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<polygon points="1499,338 1513,364 1485,364" fill="none" stroke="#84cc16" stroke-width="2" stroke-linejoin="round" />
+<line x1="1499" y1="348" x2="1499" y2="356" stroke="#84cc16" stroke-width="2" stroke-linecap="round" />
+<circle cx="1499" cy="361" r="2" fill="#84cc16" />
+<text x="1533" y="344" fill="#ffffff" font-size="16" font-weight="bold">Alert Candidate</text>
+<text x="1533" y="370" fill="#cbd5e1" font-size="10">Recovery evaluation trigger</text>
+<text x="1533" y="396" fill="#94a3b8" font-size="10">alert</text>
+<rect x="1768" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="1816" y="404" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
 <rect x="80" y="470" width="1840" height="280" rx="28" fill="#1e293b" stroke="#7c3aed" stroke-width="3" />
 <rect x="80" y="470" width="14" height="280" rx="7" fill="#7c3aed" />
 <text x="114" y="512" fill="#ffffff" font-size="24" font-weight="bold">Recovery Decision &amp; Orchestration</text>
-<text x="114" y="540" fill="#cbd5e1" font-size="15">Recovery Decision &amp; Orchestration for Platform Runtime Restoration.</text>
+<text x="114" y="540" fill="#cbd5e1" font-size="15">Decision layer responsible for recovery eligibility, orchestration, and execution control.</text>
 <rect x="1650" y="496" width="220" height="38" rx="19" fill="#020617" stroke="#7c3aed" stroke-width="2" />
 <text x="1760" y="521" fill="#7c3aed" font-size="13" text-anchor="middle" font-weight="bold">RECOVERY CONTROL</text>
 <rect x="114" y="552" width="1772" height="40" rx="18" fill="#020617" stroke="#7c3aed" stroke-width="2" opacity="0.98" />
@@ -68,47 +72,48 @@
 <text x="1291.0" y="577" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Execution Plan</text>
 <text x="1480.0" y="578" fill="#a78bfa" font-size="16" text-anchor="middle" font-weight="bold">→</text>
 <text x="1669.0" y="577" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Approval</text>
-<rect x="114" y="612" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="652" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
-<circle cx="152" cy="652" r="7" fill="#60a5fa" />
-<circle cx="152" cy="652" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
-<text x="186" y="644" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
-<text x="186" y="670" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="186" y="696" fill="#94a3b8" font-size="10">signal</text>
-<rect x="421" y="684" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
-<text x="469" y="700" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<rect x="114" y="612" width="425" height="108" rx="22" fill="#172554" stroke="#a78bfa" stroke-width="3" />
+<circle cx="152" cy="652" r="22" fill="#020617" stroke="#a78bfa" stroke-width="2" />
+<circle cx="152" cy="652" r="7" fill="#a78bfa" />
+<circle cx="152" cy="652" r="14" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.35" />
+<text x="186" y="644" fill="#ffffff" font-size="16" font-weight="bold">Recovery Orchestrator</text>
+<text x="186" y="670" fill="#cbd5e1" font-size="10">Recovery decision controller</text>
+<text x="186" y="696" fill="#94a3b8" font-size="10">orchestration</text>
+<rect x="421" y="684" width="96" height="22" rx="11" fill="#020617" stroke="#a78bfa" stroke-width="1" />
+<text x="469" y="700" fill="#a78bfa" font-size="10" text-anchor="middle" font-weight="bold">Evaluating</text>
+<rect x="407" y="628" width="92" height="22" rx="11" fill="#020617" stroke="#a78bfa" stroke-width="1" />
+<text x="453" y="643" fill="#a78bfa" font-size="10" text-anchor="middle" font-weight="bold">CORE</text>
 <rect x="563" y="612" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="601" cy="652" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
-<circle cx="601" cy="652" r="7" fill="#84cc16" />
-<circle cx="601" cy="652" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
-<text x="635" y="644" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
-<text x="635" y="670" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="635" y="696" fill="#94a3b8" font-size="10">control</text>
-<rect x="870" y="684" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="918" y="700" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<circle cx="601" cy="652" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<circle cx="601" cy="652" r="7" fill="#facc15" />
+<circle cx="601" cy="652" r="14" fill="none" stroke="#facc15" stroke-width="2" opacity="0.35" />
+<text x="635" y="644" fill="#ffffff" font-size="16" font-weight="bold">Policy Guard</text>
+<text x="635" y="670" fill="#cbd5e1" font-size="10">Recovery safety constraints</text>
+<text x="635" y="696" fill="#94a3b8" font-size="10">policy</text>
+<rect x="870" y="684" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="918" y="700" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Checked</text>
 <rect x="1012" y="612" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1050" cy="652" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
-<rect x="1038" y="640" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
-<polyline points="1043,652 1049,658 1059,645" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-<text x="1084" y="644" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
-<text x="1084" y="670" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="1084" y="696" fill="#94a3b8" font-size="10">validation</text>
-<rect x="1319" y="684" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
-<text x="1367" y="700" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<circle cx="1050" cy="652" r="22" fill="#020617" stroke="#818cf8" stroke-width="2" />
+<circle cx="1050" cy="652" r="7" fill="#818cf8" />
+<circle cx="1050" cy="652" r="14" fill="none" stroke="#818cf8" stroke-width="2" opacity="0.35" />
+<text x="1084" y="644" fill="#ffffff" font-size="16" font-weight="bold">Dependency Check</text>
+<text x="1084" y="670" fill="#cbd5e1" font-size="10">Service dependency validatio</text>
+<text x="1084" y="696" fill="#94a3b8" font-size="10">dependency</text>
+<rect x="1319" y="684" width="96" height="22" rx="11" fill="#020617" stroke="#818cf8" stroke-width="1" />
+<text x="1367" y="700" fill="#818cf8" font-size="10" text-anchor="middle" font-weight="bold">Mapped</text>
 <rect x="1461" y="612" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
 <circle cx="1499" cy="652" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
-<polygon points="1490,639 1504,639 1510,645 1510,665 1490,665" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
-<line x1="1495" y1="652" x2="1504" y2="652" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-<line x1="1495" y1="658" x2="1504" y2="658" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-<text x="1533" y="644" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
-<text x="1533" y="670" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="1533" y="696" fill="#94a3b8" font-size="10">evidence</text>
+<circle cx="1499" cy="652" r="7" fill="#22c55e" />
+<circle cx="1499" cy="652" r="14" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.35" />
+<text x="1533" y="644" fill="#ffffff" font-size="16" font-weight="bold">Execution Plan</text>
+<text x="1533" y="670" fill="#cbd5e1" font-size="10">Approved recovery action pla</text>
+<text x="1533" y="696" fill="#94a3b8" font-size="10">plan</text>
 <rect x="1768" y="684" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
 <text x="1816" y="700" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
 <rect x="80" y="780" width="1840" height="270" rx="28" fill="#1e293b" stroke="#0891b2" stroke-width="3" />
 <rect x="80" y="780" width="14" height="270" rx="7" fill="#0891b2" />
 <text x="114" y="822" fill="#ffffff" font-size="24" font-weight="bold">Automation Execution</text>
-<text x="114" y="850" fill="#cbd5e1" font-size="15">Automation Execution for Platform Runtime Restoration.</text>
+<text x="114" y="850" fill="#cbd5e1" font-size="15">Automated operational actions used to restore tunnel connectivity.</text>
 <rect x="1650" y="806" width="220" height="38" rx="19" fill="#020617" stroke="#0891b2" stroke-width="2" />
 <text x="1760" y="831" fill="#0891b2" font-size="13" text-anchor="middle" font-weight="bold">ACTION READY</text>
 <rect x="114" y="862" width="1772" height="40" rx="18" fill="#020617" stroke="#0891b2" stroke-width="2" opacity="0.98" />
@@ -122,85 +127,88 @@
 <text x="1480.0" y="888" fill="#67e8f9" font-size="16" text-anchor="middle" font-weight="bold">→</text>
 <text x="1669.0" y="887" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Notify</text>
 <rect x="114" y="918" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="958" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
-<circle cx="152" cy="958" r="7" fill="#60a5fa" />
-<circle cx="152" cy="958" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
-<text x="186" y="950" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
-<text x="186" y="976" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="186" y="1002" fill="#94a3b8" font-size="10">signal</text>
-<rect x="421" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
-<text x="469" y="1006" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<circle cx="152" cy="958" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="152" cy="958" r="7" fill="#84cc16" />
+<circle cx="152" cy="958" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="186" y="950" fill="#ffffff" font-size="16" font-weight="bold">Tunnel Reset</text>
+<text x="186" y="976" fill="#cbd5e1" font-size="10">Controlled tunnel restart</text>
+<text x="186" y="1002" fill="#94a3b8" font-size="10">automation</text>
+<rect x="421" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="469" y="1006" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
 <rect x="563" y="918" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
 <circle cx="601" cy="958" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
 <circle cx="601" cy="958" r="7" fill="#84cc16" />
 <circle cx="601" cy="958" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
-<text x="635" y="950" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
-<text x="635" y="976" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="635" y="1002" fill="#94a3b8" font-size="10">control</text>
+<text x="635" y="950" fill="#ffffff" font-size="16" font-weight="bold">Route Refresh</text>
+<text x="635" y="976" fill="#cbd5e1" font-size="10">Routing path refresh</text>
+<text x="635" y="1002" fill="#94a3b8" font-size="10">network-action</text>
 <rect x="870" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
 <text x="918" y="1006" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
-<rect x="1012" y="918" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="1050" cy="958" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
-<rect x="1038" y="946" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
-<polyline points="1043,958 1049,964 1059,951" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-<text x="1084" y="950" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
-<text x="1084" y="976" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="1084" y="1002" fill="#94a3b8" font-size="10">validation</text>
-<rect x="1319" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
-<text x="1367" y="1006" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<rect x="1012" y="918" width="425" height="108" rx="22" fill="#172554" stroke="#4ade80" stroke-width="3" />
+<circle cx="1050" cy="958" r="22" fill="#020617" stroke="#4ade80" stroke-width="2" />
+<circle cx="1050" cy="958" r="7" fill="#4ade80" />
+<circle cx="1050" cy="958" r="14" fill="none" stroke="#4ade80" stroke-width="2" opacity="0.35" />
+<text x="1084" y="950" fill="#ffffff" font-size="16" font-weight="bold">Failover Action</text>
+<text x="1084" y="976" fill="#cbd5e1" font-size="10">Move traffic to healthy path</text>
+<text x="1084" y="1002" fill="#94a3b8" font-size="10">failover</text>
+<rect x="1319" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#4ade80" stroke-width="1" />
+<text x="1367" y="1006" fill="#4ade80" font-size="10" text-anchor="middle" font-weight="bold">Available</text>
+<rect x="1305" y="934" width="92" height="22" rx="11" fill="#020617" stroke="#4ade80" stroke-width="1" />
+<text x="1351" y="949" fill="#4ade80" font-size="10" text-anchor="middle" font-weight="bold">ACTION</text>
 <rect x="1461" y="918" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
 <circle cx="1499" cy="958" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
-<polygon points="1490,945 1504,945 1510,951 1510,971 1490,971" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
-<line x1="1495" y1="958" x2="1504" y2="958" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-<line x1="1495" y1="964" x2="1504" y2="964" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-<text x="1533" y="950" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
-<text x="1533" y="976" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="1533" y="1002" fill="#94a3b8" font-size="10">evidence</text>
+<circle cx="1499" cy="958" r="7" fill="#22c55e" />
+<circle cx="1499" cy="958" r="14" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.35" />
+<text x="1533" y="950" fill="#ffffff" font-size="16" font-weight="bold">Operator Notice</text>
+<text x="1533" y="976" fill="#cbd5e1" font-size="10">Recovery activity notificati</text>
+<text x="1533" y="1002" fill="#94a3b8" font-size="10">notification</text>
 <rect x="1768" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
 <text x="1816" y="1006" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
 <rect x="80" y="1080" width="1840" height="220" rx="28" fill="#1e293b" stroke="#16a34a" stroke-width="3" />
 <rect x="80" y="1080" width="14" height="220" rx="7" fill="#16a34a" />
 <text x="114" y="1122" fill="#ffffff" font-size="24" font-weight="bold">Post-Recovery Validation</text>
-<text x="114" y="1150" fill="#cbd5e1" font-size="15">Post-Recovery Validation for Platform Runtime Restoration.</text>
+<text x="114" y="1150" fill="#cbd5e1" font-size="15">Validation checks confirming that automated recovery restored operational health.</text>
 <rect x="1650" y="1106" width="220" height="38" rx="19" fill="#020617" stroke="#16a34a" stroke-width="2" />
 <text x="1760" y="1131" fill="#16a34a" font-size="13" text-anchor="middle" font-weight="bold">VALIDATION READY</text>
 <rect x="114" y="1172" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="152" cy="1212" r="22" fill="#020617" stroke="#60a5fa" stroke-width="2" />
-<circle cx="152" cy="1212" r="7" fill="#60a5fa" />
-<circle cx="152" cy="1212" r="14" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.35" />
-<text x="186" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Operational Signal</text>
-<text x="186" y="1230" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="186" y="1256" fill="#94a3b8" font-size="10">signal</text>
-<rect x="421" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#60a5fa" stroke-width="1" />
-<text x="469" y="1264" fill="#60a5fa" font-size="10" text-anchor="middle" font-weight="bold">Observed</text>
+<circle cx="152" cy="1212" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<rect x="140" y="1200" width="24" height="24" rx="5" fill="none" stroke="#22c55e" stroke-width="2" />
+<polyline points="145,1212 151,1218 161,1205" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="186" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Tunnel Health</text>
+<text x="186" y="1230" fill="#cbd5e1" font-size="10">Recovered tunnel state</text>
+<text x="186" y="1256" fill="#94a3b8" font-size="10">validation</text>
+<rect x="421" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="469" y="1264" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Healthy</text>
 <rect x="563" y="1172" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
-<circle cx="601" cy="1212" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
-<circle cx="601" cy="1212" r="7" fill="#84cc16" />
-<circle cx="601" cy="1212" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
-<text x="635" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Control Point</text>
-<text x="635" y="1230" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
-<text x="635" y="1256" fill="#94a3b8" font-size="10">control</text>
-<rect x="870" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
-<text x="918" y="1264" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<circle cx="601" cy="1212" r="22" fill="#020617" stroke="#10b981" stroke-width="2" />
+<rect x="589" y="1200" width="24" height="24" rx="5" fill="none" stroke="#10b981" stroke-width="2" />
+<polyline points="594,1212 600,1218 610,1205" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<text x="635" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Traffic Continuity</text>
+<text x="635" y="1230" fill="#cbd5e1" font-size="10">Connectivity after recovery</text>
+<text x="635" y="1256" fill="#94a3b8" font-size="10">validation</text>
+<rect x="870" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#10b981" stroke-width="1" />
+<text x="918" y="1264" fill="#10b981" font-size="10" text-anchor="middle" font-weight="bold">Normal</text>
 <rect x="1012" y="1172" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
 <circle cx="1050" cy="1212" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
 <rect x="1038" y="1200" width="24" height="24" rx="5" fill="none" stroke="#facc15" stroke-width="2" />
 <polyline points="1043,1212 1049,1218 1059,1205" fill="none" stroke="#facc15" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-<text x="1084" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Validation Output</text>
-<text x="1084" y="1230" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
+<text x="1084" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Service Reachability</text>
+<text x="1084" y="1230" fill="#cbd5e1" font-size="10">Application path verificatio</text>
 <text x="1084" y="1256" fill="#94a3b8" font-size="10">validation</text>
 <rect x="1319" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
 <text x="1367" y="1264" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
-<rect x="1461" y="1172" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<rect x="1461" y="1172" width="425" height="112" rx="22" fill="#172554" stroke="#22c55e" stroke-width="3" />
 <circle cx="1499" cy="1212" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
 <polygon points="1490,1199 1504,1199 1510,1205 1510,1225 1490,1225" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
 <line x1="1495" y1="1212" x2="1504" y2="1212" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
 <line x1="1495" y1="1218" x2="1504" y2="1218" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
-<text x="1533" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Evidence Artifact</text>
-<text x="1533" y="1230" fill="#cbd5e1" font-size="10">Platform Runtime Restoration</text>
+<text x="1533" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Recovery Evidence</text>
+<text x="1533" y="1230" fill="#cbd5e1" font-size="10">Recovery validation package</text>
 <text x="1533" y="1256" fill="#94a3b8" font-size="10">evidence</text>
 <rect x="1768" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
 <text x="1816" y="1264" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
+<rect x="1754" y="1188" width="92" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="1800" y="1203" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">VERIFY</text>
 <line x1="1000.0" y1="450" x2="1000.0" y2="442" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 8" opacity="0.55" />
 <polygon points="992.0,444 1008.0,444 1000.0,460" fill="#64748b" opacity="0.75" />
 <line x1="1000.0" y1="760" x2="1000.0" y2="752" stroke="#475569" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 8" opacity="0.55" />
@@ -213,7 +221,7 @@
 <circle cx="2044" cy="320" r="18" fill="#fb923c" stroke="#fb923c" stroke-width="3" opacity="0.95" />
 <text x="2044" y="326" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">1</text>
 <text x="2078" y="316" fill="#ffffff" font-size="17" font-weight="bold">Detect</text>
-<text x="2078" y="340" fill="#94a3b8" font-size="12">Identify degradation and recovery trigger.</text>
+<text x="2078" y="340" fill="#94a3b8" font-size="12">Identify tunnel degradation and recovery trigg</text>
 <rect x="2412" y="302" width="96" height="26" rx="13" fill="#020617" stroke="#fb923c" stroke-width="1" />
 <text x="2460" y="320" fill="#fb923c" font-size="10" text-anchor="middle" font-weight="bold">Detected</text>
 <line x1="2044" y1="342" x2="2044" y2="412" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
@@ -234,7 +242,7 @@
 <circle cx="2044" cy="668" r="18" fill="#facc15" stroke="#facc15" stroke-width="3" opacity="0.95" />
 <text x="2044" y="674" fill="#020617" font-size="13" text-anchor="middle" font-weight="bold">4</text>
 <text x="2078" y="664" fill="#ffffff" font-size="17" font-weight="bold">Validate</text>
-<text x="2078" y="688" fill="#94a3b8" font-size="12">Confirm service restoration and stability.</text>
+<text x="2078" y="688" fill="#94a3b8" font-size="12">Confirm connectivity and service restoration.</text>
 <rect x="2412" y="650" width="96" height="26" rx="13" fill="#020617" stroke="#facc15" stroke-width="1" />
 <text x="2460" y="668" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
 <line x1="2044" y1="690" x2="2044" y2="760" stroke="#475569" stroke-width="2" stroke-dasharray="6 6" opacity="0.7" />
@@ -270,16 +278,16 @@
 <text x="138" y="1604" fill="#cbd5e1" font-size="12" font-weight="bold">Policy checked and action available</text>
 <rect x="560" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
 <rect x="574" y="1475" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
-<text x="600" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">State</text>
+<text x="600" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Recovery State</text>
 <text x="600" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Ready</text>
-<rect x="787" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
-<rect x="801" y="1475" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
-<text x="827" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Signal</text>
-<text x="827" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Observed</text>
+<rect x="787" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#fb923c" stroke-width="2" opacity="0.98" />
+<rect x="801" y="1475" width="10" height="68" rx="5" fill="#fb923c" opacity="0.85" />
+<text x="827" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Trigger</text>
+<text x="827" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Detected</text>
 <rect x="1014" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
 <rect x="1028" y="1475" width="10" height="68" rx="5" fill="#facc15" opacity="0.85" />
-<text x="1054" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Control</text>
-<text x="1054" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Prepared</text>
+<text x="1054" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Policy</text>
+<text x="1054" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Checked</text>
 <rect x="560" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
 <rect x="574" y="1597" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
 <text x="600" y="1615" fill="#94a3b8" font-size="11" font-weight="bold">Action</text>

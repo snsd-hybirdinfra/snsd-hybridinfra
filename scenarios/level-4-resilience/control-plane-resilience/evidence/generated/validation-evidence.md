@@ -2,7 +2,7 @@
 
 ## Scenario
 
-control-plane-resilience
+Control Plane Resilience
 
 ## Validation Status
 

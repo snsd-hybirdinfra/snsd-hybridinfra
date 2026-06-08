@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | control-plane-health-monitoring |
-| Scenario Title | control-plane-health-monitoring |
+| Scenario Title | Control Plane Health Monitoring |
 | Lifecycle Level | level-1-visibility |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Platform Operations |
 
 ## Summary
 

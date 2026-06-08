@@ -2,7 +2,7 @@
 
 ## Scenario
 
-enterprise-control-plane-continuity
+Enterprise Control Plane Continuity
 
 ## Validation Status
 

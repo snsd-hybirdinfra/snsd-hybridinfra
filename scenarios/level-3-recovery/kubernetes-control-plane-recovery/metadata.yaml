@@ -1,42 +1,121 @@
-﻿scenario_name: kubernetes-control-plane-recovery
+scenario_name: kubernetes-control-plane-recovery
 scenario_title: Kubernetes Control Plane Recovery
 lifecycle_level: level-3-recovery
-lifecycle_name: Recovery and Automation
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents controlled recovery operations using automation execution,
-  restoration workflow control, and recovery validation.
-objectives:
-- Document the operational workflow for kubernetes control plane recovery.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Recovery Orchestration Module
-- Automation Execution Module
-- Recovery Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/control-plane-anomaly-correlation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/control-plane-recovery-orchestration
-  - /snsd-hybridinfra/scenarios/level-3-recovery/certificate-renewal-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/control-plane-resilience
-  cross_domain: []
-primary_domain: Kubernetes / Cluster
+scenario_path: scenarios/level-3-recovery/kubernetes-control-plane-recovery
+scenario_type: recovery
+primary_domain: Kubernetes Operations
+status: content-filled
+overview: |
+  This scenario documents kubernetes control plane recovery within the kubernetes operations
+  operational domain. It focuses on Kubernetes API server and controller manager and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support recover kubernetes control plane degradation and validate
+  cluster management readiness.
 
+objectives:
+  - Define the scenario-specific kubernetes operations signal represented by kubernetes-control-plane-recovery.
+  - Identify the affected kubernetes operations components and dependencies.
+  - Collect and interpret telemetry from Kubernetes API server and controller manager.
+  - Use api server availability as an operational signal for detection or validation.
+  - Use controller status as an operational signal for detection or validation.
+  - Use etcd health as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Recover Kubernetes control plane degradation and validate cluster management readiness
+
+target_resource: |
+  Kubernetes API server and controller manager
+
+telemetry_signals:
+  - api server availability
+  - controller status
+  - etcd health
+  - node readiness
+
+infrastructure_components:
+  - api server
+  - controller manager
+  - etcd
+  - automation runner
+  - validation output
+
+detection_workflow: |
+  Use API server and controller health signals as recovery triggers
+
+correlation_and_analysis: |
+  Correlate control plane degradation with node readiness and workload scheduling impact
+
+alert_and_incident_workflow: |
+  Execute Kubernetes control plane recovery workflow
+
+recovery_and_automation_workflow: |
+  Execute Kubernetes control plane recovery workflow
+
+recovery_validation: |
+  Restore control plane services and validate cluster API readiness
+
+monitoring_and_visibility: |
+  Monitoring and visibility include api server availability; controller status; etcd health; node
+  readiness.
+
+used_modules:
+  - Recovery Orchestration Module
+  - Automation Execution Module
+  - Recovery Validation Module
+
+used_adapters:
+  - Kubernetes Adapter
+  - Prometheus Adapter
+  - Ansible Adapter
+
+operational_components:
+  - name: api server
+    purpose: Provides context or signal source for Kubernetes Operations operations
+  - name: controller manager
+    purpose: Provides context or signal source for Kubernetes Operations operations
+  - name: etcd
+    purpose: Provides context or signal source for Kubernetes Operations operations
+  - name: automation runner
+    purpose: Provides context or signal source for Kubernetes Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Kubernetes Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - kubernetes recovery evidence
+  - control plane validation report
+  - cluster readiness summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

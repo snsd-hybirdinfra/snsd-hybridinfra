@@ -2,7 +2,7 @@
 
 ## Scenario
 
-inter-region-connectivity-monitoring
+Inter Region Connectivity Monitoring
 
 ## Execution Status
 

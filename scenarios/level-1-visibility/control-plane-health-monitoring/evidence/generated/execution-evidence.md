@@ -2,7 +2,7 @@
 
 ## Scenario
 
-control-plane-health-monitoring
+Control Plane Health Monitoring
 
 ## Execution Status
 

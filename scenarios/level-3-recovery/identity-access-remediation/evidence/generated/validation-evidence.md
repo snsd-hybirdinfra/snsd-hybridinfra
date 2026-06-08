@@ -2,7 +2,7 @@
 
 ## Scenario
 
-identity-access-remediation
+Identity Access Remediation
 
 ## Validation Status
 

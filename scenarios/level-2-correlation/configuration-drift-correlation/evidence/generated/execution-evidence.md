@@ -2,7 +2,7 @@
 
 ## Scenario
 
-configuration-drift-correlation
+Configuration Drift Correlation
 
 ## Execution Status
 

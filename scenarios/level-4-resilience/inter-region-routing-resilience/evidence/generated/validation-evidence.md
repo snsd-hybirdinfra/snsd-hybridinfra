@@ -2,7 +2,7 @@
 
 ## Scenario
 
-inter-region-routing-resilience
+Inter Region Routing Resilience
 
 ## Validation Status
 

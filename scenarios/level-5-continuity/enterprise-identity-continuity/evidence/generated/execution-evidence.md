@@ -2,7 +2,7 @@
 
 ## Scenario
 
-enterprise-identity-continuity
+Enterprise Identity Continuity
 
 ## Execution Status
 

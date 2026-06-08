@@ -1,42 +1,121 @@
-﻿scenario_name: control-plane-recovery-orchestration
+scenario_name: control-plane-recovery-orchestration
 scenario_title: Control Plane Recovery Orchestration
 lifecycle_level: level-3-recovery
-lifecycle_name: Recovery and Automation
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents controlled recovery operations using automation execution,
-  restoration workflow control, and recovery validation.
-objectives:
-- Document the operational workflow for control plane recovery orchestration.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Recovery Orchestration Module
-- Automation Execution Module
-- Recovery Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/control-plane-anomaly-correlation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/kubernetes-control-plane-recovery
-  - /snsd-hybridinfra/scenarios/level-3-recovery/certificate-renewal-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/control-plane-resilience
-  cross_domain: []
-primary_domain: Control Plane
+scenario_path: scenarios/level-3-recovery/control-plane-recovery-orchestration
+scenario_type: recovery
+primary_domain: Platform Operations
+status: content-filled
+overview: |
+  This scenario documents control plane recovery orchestration within the platform operations
+  operational domain. It focuses on control plane endpoint and controller service and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support orchestrate recovery actions for degraded infrastructure
+  control plane services.
 
+objectives:
+  - Define the scenario-specific platform operations signal represented by control-plane-recovery-orchestration.
+  - Identify the affected platform operations components and dependencies.
+  - Collect and interpret telemetry from control plane endpoint and controller service.
+  - Use api failure as an operational signal for detection or validation.
+  - Use controller heartbeat loss as an operational signal for detection or validation.
+  - Use reconcile delay as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Orchestrate recovery actions for degraded infrastructure control plane services
+
+target_resource: |
+  control plane endpoint and controller service
+
+telemetry_signals:
+  - api failure
+  - controller heartbeat loss
+  - reconcile delay
+  - recovery status
+
+infrastructure_components:
+  - control plane API
+  - controller service
+  - automation runner
+  - recovery workflow
+  - validation output
+
+detection_workflow: |
+  Use control plane health failures and controller heartbeat loss as recovery triggers
+
+correlation_and_analysis: |
+  Confirm that management failures are caused by control plane degradation
+
+alert_and_incident_workflow: |
+  Coordinate recovery workflow for affected control plane services
+
+recovery_and_automation_workflow: |
+  Coordinate recovery workflow for affected control plane services
+
+recovery_validation: |
+  Restart or restore control plane services and validate management API responsiveness
+
+monitoring_and_visibility: |
+  Monitoring and visibility include api failure; controller heartbeat loss; reconcile delay; recovery
+  status.
+
+used_modules:
+  - Recovery Orchestration Module
+  - Automation Execution Module
+  - Recovery Validation Module
+
+used_adapters:
+  - Kubernetes Adapter
+  - Ansible Adapter
+  - Prometheus Adapter
+
+operational_components:
+  - name: control plane API
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: controller service
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: automation runner
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: recovery workflow
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - control plane recovery evidence
+  - api validation report
+  - recovery summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

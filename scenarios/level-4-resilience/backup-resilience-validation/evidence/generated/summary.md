@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | backup-resilience-validation |
-| Scenario Title | backup-resilience-validation |
+| Scenario Title | Backup Resilience Validation |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Backup Operations |
 
 ## Summary
 

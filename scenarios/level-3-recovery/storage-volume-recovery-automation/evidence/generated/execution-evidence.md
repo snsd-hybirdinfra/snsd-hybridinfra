@@ -2,7 +2,7 @@
 
 ## Scenario
 
-storage-volume-recovery-automation
+Storage Volume Recovery Automation
 
 ## Execution Status
 

@@ -139,7 +139,7 @@ def build_layout(
     if lifecycle == "level-4-resilience":
         return build_l4_resilience_layout(poster)
 
-    if lifecycle == "level-5-governance":
+    if lifecycle in ("level-5-continuity", "level-5-governance"):
         return build_l5_governance_layout(poster)
 
     return build_l1_visibility_layout(poster)

@@ -1,4 +1,4 @@
-﻿# Privileged Session Monitoring
+# Privileged Session Monitoring
 
 ## Scenario Metadata
 
@@ -137,8 +137,121 @@ event log; metric threshold.
 
 ---
 
-## Evidence
+<!-- L1_VISIBILITY_CONTENT_START -->
 
+## Visibility Scope
+
+This scenario defines the visibility scope for **Privileged Session Monitoring**. It focuses on collecting, organizing, and presenting operational signals so that infrastructure state can be understood before deeper correlation or recovery decisions are required.
+
+- **Primary visibility target:** privileged session, admin account, access control, audit source
+- **Operational focus:** Detect and expose operational health signals before incident escalation
+
+The visibility boundary includes telemetry collection, health signal normalization, dashboard presentation, alert readiness, and evidence generation.
+
+## Visibility Trigger Conditions
+
+Visibility monitoring is required when the operational team needs a reliable view of infrastructure state, service health, resource behavior, or platform availability.
+
+This scenario should collect and expose signals when:
+
+- The target resource must be monitored continuously.
+- Operators need early indication of degradation or abnormal behavior.
+- A baseline is required for later correlation or recovery workflows.
+- Dashboard or evidence output is needed for operational review.
+- The signal can support incident detection, trend analysis, or validation.
+
+## Observed Signals
+
+The following telemetry signals are collected for visibility:
+
+- health status
+- availability signal
+- latency
+- error indicator
+- event log
+- metric threshold
+
+## Monitoring Boundary
+
+This scenario does not perform direct recovery or deep root-cause analysis. Its purpose is to expose trustworthy operational state and provide clean signal input for later lifecycle stages.
+
+The monitoring boundary includes:
+
+- Resource health or availability observation
+- Runtime, capacity, latency, reachability, or event visibility
+- Signal collection from infrastructure, platform, service, or security sources
+- Dashboard-ready status reporting
+- Evidence output for operational traceability
+
+## Visibility Workflow
+
+1. Collect telemetry from the defined infrastructure or service target.
+2. Normalize signal format, timestamp, severity, and resource identity.
+3. Compare observed state against expected operational baseline.
+4. Present visibility output through dashboard, report, or evidence artifact.
+5. Raise alert-ready signals when thresholds or abnormal states are observed.
+6. Preserve visibility evidence for correlation, recovery, or governance workflows.
+
+## Operational Modules
+
+- Telemetry Aggregation Module
+- Health Signal Collection Module
+- Visibility Reporting Module
+
+## Integration Adapters
+
+- Prometheus Adapter
+- Grafana Adapter
+
+## Baseline and Threshold Criteria
+
+Visibility output should be evaluated against a clear operational baseline. The baseline may include expected availability, latency, capacity, error rate, runtime state, policy state, or event frequency.
+
+Baseline review is required when:
+
+- The observed signal exceeds expected threshold.
+- The signal disappears or becomes stale.
+- Multiple visibility sources report inconsistent state.
+- The target resource changes role, location, or dependency.
+- The visibility output no longer supports operational decision-making.
+
+## Alert Readiness
+
+L1 visibility does not decide final incident impact by itself. It prepares alert-ready signals for L2 correlation and later lifecycle workflows.
+
+Alert readiness is established when:
+
+- The affected target is clearly identified.
+- The abnormal signal is measurable.
+- The signal can be repeated or verified.
+- The visibility output includes enough context for correlation.
+- Evidence is available to support operational review.
+
+## Visibility Evidence
+
+Evidence should prove that the target resource was monitored and that the observed state was captured in a reusable form.
+
+Required evidence includes:
+
+- Collected telemetry snapshot
+- Health or status summary
+- Dashboard or report output
+- Baseline comparison result
+- Alert-readiness or validation note
+
+## Acceptance Criteria
+
+This scenario is considered complete when:
+
+- The target resource is visible through telemetry or status output.
+- Required signals are collected and normalized.
+- Dashboard or evidence output is generated.
+- Alert-ready conditions are documented.
+- The scenario can provide input to correlation, recovery, or validation workflows.
+
+<!-- L1_VISIBILITY_CONTENT_END -->
+
+## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)
 - [Validation Evidence](evidence/generated/validation-evidence.md)
@@ -174,25 +287,10 @@ event log; metric threshold.
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Object Storage Health Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/object-storage-health-monitoring/README.md)
+- [Process Health Monitoring](/snsd-hybridinfra/scenarios/level-1-visibility/process-health-monitoring/README.md)
+- [Runtime Instability Analysis](/snsd-hybridinfra/scenarios/level-2-correlation/runtime-instability-analysis/README.md)
 
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting privileged access workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

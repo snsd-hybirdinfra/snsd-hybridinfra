@@ -2,7 +2,7 @@
 
 ## Scenario
 
-control-plane-recovery-orchestration
+Control Plane Recovery Orchestration
 
 ## Validation Status
 

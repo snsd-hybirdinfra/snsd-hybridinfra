@@ -1,4 +1,4 @@
-﻿# Enterprise Network Continuity
+# Enterprise Network Continuity
 
 ## Scenario Metadata
 
@@ -138,8 +138,112 @@ interface utilization; traffic volume.
 
 ---
 
-## Evidence
+<!-- L5_CONTINUITY_CONTENT_START -->
 
+## Continuity Scope
+
+This scenario defines the enterprise continuity scope for **Enterprise Network Continuity**. It focuses on sustaining operational capability when the following resource or capability becomes degraded, unavailable, or dependent on coordinated recovery decisions:
+
+- **Primary continuity target:** network path, route, interface, traffic flow
+- **Operational focus:** Coordinate enterprise continuity, governance decision, and executive reporting
+
+The continuity boundary includes telemetry collection, dependency analysis, coordinated recovery decisions, validation evidence, and governance-ready reporting.
+
+## Enterprise Impact
+
+A continuity event in this scenario can affect service availability, recovery sequencing, operator access, infrastructure control, and reporting confidence. The purpose of this scenario is to prevent a localized technical failure from becoming an unmanaged enterprise-level disruption.
+
+The enterprise impact is evaluated across the following dimensions:
+
+- Service or platform availability
+- Cross-domain operational dependency
+- Recovery coordination requirement
+- Evidence readiness for operational governance
+- Risk of repeated or cascading disruption
+
+## Critical Dependencies
+
+The scenario depends on the following telemetry, platform, and operational capabilities.
+
+### Telemetry Signals
+
+- link status
+- route change
+- BGP state
+- packet loss
+- latency
+- interface utilization
+- traffic volume
+
+### Operational Modules
+
+- Continuity Governance Module
+- Risk Reporting Module
+- Executive Evidence Module
+
+### Integration Adapters
+
+- Governance Reporting Adapter
+- Incident Management Adapter
+- Evidence Archive Adapter
+
+These dependencies determine whether the continuity workflow can move from detection to coordinated recovery and final acceptance.
+
+## Continuity Decision Criteria
+
+Continuity coordination is required when one or more of the following conditions are observed:
+
+- The affected capability is unavailable or degraded beyond normal recovery tolerance.
+- Multiple operational domains depend on the affected capability.
+- Local recovery is insufficient without cross-domain coordination.
+- Recovery decisions require evidence before continuity can be declared restored.
+- The incident has potential to affect enterprise-level service, platform, security, or data protection posture.
+
+## Coordination Workflow
+
+1. Collect continuity-impacting telemetry signals from the affected capability.
+2. Correlate dependency impact across infrastructure, platform, service, and governance boundaries.
+3. Determine whether local recovery is sufficient or enterprise continuity coordination is required.
+4. Execute the continuity workflow through the assigned operational modules.
+5. Validate restored capability using telemetry, evidence artifacts, and operational acceptance criteria.
+6. Record continuity status for governance reporting and future operational review.
+
+## Recovery Governance
+
+Recovery actions in this scenario must be traceable, validated, and aligned with operational acceptance criteria. The continuity workflow records the recovery decision, the affected dependency scope, validation outputs, and final continuity status.
+
+Governance review should confirm:
+
+- The recovery action matched the affected continuity scope.
+- The recovery result was validated using measurable evidence.
+- The final status is suitable for operational reporting.
+- Any unresolved dependency or residual risk is documented.
+
+## Validation Evidence
+
+Validation evidence should confirm that the affected capability has returned to an acceptable operational state. Evidence must include telemetry status, recovery validation output, and governance-ready summary artifacts.
+
+Required evidence includes:
+
+- Telemetry validation result
+- Dependency impact summary
+- Recovery or continuity execution record
+- Acceptance validation output
+- Governance reporting summary
+
+## Acceptance Criteria
+
+This scenario is considered complete when:
+
+- The affected capability is operationally restored or confirmed stable.
+- Dependent services or workflows are validated.
+- Recovery evidence has been generated and reviewed.
+- Governance reporting confirms continuity acceptance.
+- No unresolved critical dependency remains outside the accepted operational boundary.
+
+<!-- L5_CONTINUITY_CONTENT_END -->
+
+## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)
 - [Validation Evidence](evidence/generated/validation-evidence.md)
@@ -175,25 +279,10 @@ interface utilization; traffic volume.
 
 ## Related Scenarios
 
-### Upstream Scenarios
-
-None currently defined.
-
-### Same-Level Scenarios
-
-None currently defined.
-
-### Downstream Scenarios
-
-None currently defined.
-
-### Cross-Domain Scenarios
-
-None currently defined.
-
----
+- [Enterprise Identity Continuity](/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-identity-continuity/README.md)
+- [Enterprise Operational Continuity](/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-operational-continuity/README.md)
+- [Cross Region Kubernetes Resilience](/snsd-hybridinfra/scenarios/level-4-resilience/cross-region-kubernetes-resilience/README.md)
 
 ## Summary
 
 This scenario contributes to the infrastructure operations portfolio by documenting network / routing workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.
-

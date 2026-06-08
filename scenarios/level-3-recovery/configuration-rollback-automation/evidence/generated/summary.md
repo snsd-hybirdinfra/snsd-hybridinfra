@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | configuration-rollback-automation |
-| Scenario Title | configuration-rollback-automation |
+| Scenario Title | Configuration Rollback Automation |
 | Lifecycle Level | level-3-recovery |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Configuration Operations |
 
 ## Summary
 

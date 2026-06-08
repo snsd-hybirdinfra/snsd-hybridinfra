@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | enterprise-change-continuity |
-| Scenario Title | enterprise-change-continuity |
+| Scenario Title | Enterprise Change Continuity |
 | Lifecycle Level | level-5-continuity |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Continuity Operations |
 
 ## Summary
 

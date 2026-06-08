@@ -1,8 +1,8 @@
 {
   "scenario_name": "certificate-renewal-automation",
-  "scenario_title": "certificate-renewal-automation",
+  "scenario_title": "Certificate Renewal Automation",
   "lifecycle_level": "level-3-recovery",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Security Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

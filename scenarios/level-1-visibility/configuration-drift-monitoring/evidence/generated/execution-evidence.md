@@ -2,7 +2,7 @@
 
 ## Scenario
 
-configuration-drift-monitoring
+Configuration Drift Monitoring
 
 ## Execution Status
 

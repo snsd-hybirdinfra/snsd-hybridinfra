@@ -1,42 +1,120 @@
-﻿scenario_name: change-failure-rollback
+scenario_name: change-failure-rollback
 scenario_title: Change Failure Rollback
 lifecycle_level: level-3-recovery
-lifecycle_name: Recovery and Automation
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents controlled recovery operations using automation execution,
-  restoration workflow control, and recovery validation.
-objectives:
-- Document the operational workflow for change failure rollback.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Recovery Orchestration Module
-- Automation Execution Module
-- Recovery Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/change-impact-correlation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/configuration-rollback-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/certificate-renewal-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/control-plane-recovery-orchestration
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/change-resilience-coordination
-  cross_domain: []
-primary_domain: Configuration / Change
+scenario_path: scenarios/level-3-recovery/change-failure-rollback
+scenario_type: recovery
+primary_domain: Change Operations
+status: content-filled
+overview: |
+  This scenario documents change failure rollback within the change operations operational domain. It
+  focuses on failed change target and impacted service component and demonstrates how infrastructure
+  operations teams can use domain-specific telemetry, lifecycle workflow design, and evidence-backed
+  validation to support rollback failed infrastructure changes using controlled recovery workflow.
 
+objectives:
+  - Define the scenario-specific change operations signal represented by change-failure-rollback.
+  - Identify the affected change operations components and dependencies.
+  - Collect and interpret telemetry from failed change target and impacted service component.
+  - Use change failure as an operational signal for detection or validation.
+  - Use health degradation as an operational signal for detection or validation.
+  - Use rollback status as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Rollback failed infrastructure changes using controlled recovery workflow
+
+target_resource: |
+  failed change target and impacted service component
+
+telemetry_signals:
+  - change failure
+  - health degradation
+  - rollback status
+  - validation result
+
+infrastructure_components:
+  - change record
+  - affected service
+  - automation runner
+  - recovery workflow
+  - validation output
+
+detection_workflow: |
+  Use failed change events and degraded health signals as rollback criteria
+
+correlation_and_analysis: |
+  Confirm whether the failed change is the primary source of service impact
+
+alert_and_incident_workflow: |
+  Coordinate rollback execution and incident status updates
+
+recovery_and_automation_workflow: |
+  Coordinate rollback execution and incident status updates
+
+recovery_validation: |
+  Rollback the failed change and validate restored operational state
+
+monitoring_and_visibility: |
+  Monitoring and visibility include change failure; health degradation; rollback status; validation
+  result.
+
+used_modules:
+  - Recovery Orchestration Module
+  - Automation Execution Module
+  - Recovery Validation Module
+
+used_adapters:
+  - Ansible Adapter
+  - OpenSearch Adapter
+  - Prometheus Adapter
+
+operational_components:
+  - name: change record
+    purpose: Provides context or signal source for Change Operations operations
+  - name: affected service
+    purpose: Provides context or signal source for Change Operations operations
+  - name: automation runner
+    purpose: Provides context or signal source for Change Operations operations
+  - name: recovery workflow
+    purpose: Provides context or signal source for Change Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Change Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - change rollback evidence
+  - recovery validation report
+  - incident closure summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

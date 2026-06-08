@@ -1,114 +1,119 @@
-﻿# Control Plane Resilience
+# Control Plane Resilience
 
 ## Scenario Metadata
 
 | Field | Value |
 |---|---|
-| Scenario Name | `control-plane-resilience` |
-| Lifecycle Level | `level-4-resilience` |
-| Lifecycle Name | Distributed Resilience |
-| Operational Scope | Infrastructure Operations |
-| Environment | Hybrid Infrastructure |
+| Scenario Name | control-plane-resilience |
+| Lifecycle Level | level-4-resilience |
+| Scenario Path | scenarios/level-4-resilience/control-plane-resilience |
+| Scenario Type | resilience |
+| Primary Domain | Platform Operations |
 | Status | draft |
 
 ---
 
 ## Overview
 
-This scenario documents distributed resilience operations across failure domains, regions, clusters, or service boundaries.
+This scenario documents control plane resilience within the platform operations operational domain.
+It focuses on distributed control plane and management service and demonstrates how infrastructure
+operations teams can use domain-specific telemetry, lifecycle workflow design, and evidence-backed
+validation to support validate control plane resilience under degraded management conditions.
 
 ---
 
 ## Objectives
 
-- Document the operational workflow for control plane resilience.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+- Define the scenario-specific platform operations signal represented by control-plane-resilience.
+- Identify the affected platform operations components and dependencies.
+- Collect and interpret telemetry from distributed control plane and management service.
+- Use api availability as an operational signal for detection or validation.
+- Use controller failover as an operational signal for detection or validation.
+- Use management latency as an operational signal for detection or validation.
+- Document the lifecycle workflow from detection through validation.
+- Produce reviewer-readable evidence artifacts for portfolio assessment.
 
 ---
 
 ## Scenario Architecture
 
-This scenario follows the repository operational lifecycle:
-
-Detection -> Correlation & Analysis -> Incident Coordination -> Recovery & Automation -> Recovery Validation -> Governance & Reporting
-
-![Operational Poster](./diagrams/operational-poster.png)
+![Operational Poster](diagrams/operational-poster.png)
 
 ---
 
 ## Used Modules
 
 - Resilience Coordination Module
-- Failover Control Module
-- Survivability Validation Module
+- Recovery Orchestration Module
+- Recovery Validation Module
 
 ---
 
 ## Used Adapters
 
+- Kubernetes Adapter
 - Prometheus Adapter
 - Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
 
 ---
 
 ## Infrastructure Components
 
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+- control plane API
+- controller service
+- failover target
+- resilience workflow
+- validation output
 
 ---
 
 ## Operational Workflow
 
-1. Collect telemetry and infrastructure health signals.
-2. Analyze operational symptoms and dependency context.
-3. Coordinate incident response or operational review.
-4. Execute the appropriate recovery, validation, or governance workflow.
-5. Produce evidence for reviewer-readable validation.
+The scenario follows the infrastructure operations lifecycle:
+
+1. Detection
+2. Correlation and Analysis
+3. Incident Coordination
+4. Recovery and Automation
+5. Recovery Validation
+6. Governance and Reporting
 
 ---
 
-## Detection
+## Detection Workflow
 
-The scenario begins by collecting operational signals from infrastructure targets and telemetry sources.
-
----
-
-## Correlation & Analysis
-
-Collected signals are correlated with dependency context, infrastructure state, and operational impact.
+Collect control plane degradation and management availability signals
 
 ---
 
-## Alert & Incident Workflow
+## Correlation and Analysis
 
-The workflow defines how the operational condition is reviewed, escalated, and coordinated.
+Analyze whether platform management remains available during partial control plane failure
 
 ---
 
-## Recovery & Automation
+## Alert and Incident Workflow
 
-Automation or recovery actions are executed according to the lifecycle level and operational scope.
+Coordinate resilience workflow across control plane components
+
+---
+
+## Recovery and Automation Workflow
+
+Coordinate resilience workflow across control plane components
 
 ---
 
 ## Recovery Validation
 
-The scenario validates that the expected operational state has been restored or confirmed.
+Validate continued management capability and failover readiness
 
 ---
 
-## Monitoring & Visibility
+## Monitoring and Visibility
 
-Operational visibility is maintained through dashboards, telemetry views, and generated evidence.
+Monitoring and visibility include api availability; controller failover; management latency;
+resilience result.
 
 ---
 
@@ -116,42 +121,153 @@ Operational visibility is maintained through dashboards, telemetry views, and ge
 
 | Component | Purpose |
 |---|---|
-| Infrastructure target | Represents the operational asset or service under review. |
-| Telemetry source | Provides health, performance, or event signals. |
-| Analysis workflow | Supports correlation and operational reasoning. |
-| Response workflow | Supports recovery, coordination, or governance action. |
-| Evidence artifact | Records reviewer-readable validation output. |
+| control plane API | Provides context or signal source for Platform Operations operations |
+| controller service | Provides context or signal source for Platform Operations operations |
+| failover target | Provides context or signal source for Platform Operations operations |
+| resilience workflow | Provides context or signal source for Platform Operations operations |
+| validation output | Provides context or signal source for Platform Operations operations |
+| Detection Logic | Identifies abnormal or degraded operational conditions |
+| Correlation Logic | Connects related signals, dependencies, and impact context |
+| Validation Method | Confirms stable state, restored condition, or visibility completeness |
+| Evidence Output | Records public-safe completion and review artifacts |
 
 ---
 
-## Evidence
+<!-- L4_RESILIENCE_CONTENT_START -->
 
-- [Summary](./evidence/generated/summary.md)
-- [Execution Evidence](./evidence/generated/execution-evidence.md)
-- [Validation Evidence](./evidence/generated/validation-evidence.md)
-- [Artifact Manifest](./evidence/generated/artifact-manifest.json)
-- [Artifact Checksums](./evidence/generated/artifact-checksums.json)
+## Resilience Scope
+
+This scenario defines the resilience scope for **Control Plane Resilience**. It focuses on maintaining operational survivability when the following capability becomes degraded, unstable, or dependent on coordinated failover behavior:
+
+- **Primary resilience target:** distributed control plane and management service
+- **Operational focus:** Validate control plane resilience under degraded management conditions
+
+The resilience boundary includes degraded-state detection, dependency correlation, failover coordination, recovery validation, and evidence capture.
+
+## Resilience Trigger Conditions
+
+This scenario should enter resilience coordination when one or more of the following conditions are observed:
+
+- The affected capability is degraded but not fully unavailable.
+- A local recovery action may not be sufficient to protect dependent services.
+- Failover, rerouting, replica usage, or coordinated mitigation is required.
+- Multiple infrastructure or platform components show related instability.
+- Validation evidence is required before normal operating state can be declared.
+
+## Degraded-State Signals
+
+The following telemetry signals are used to determine whether resilience coordination is required:
+
+- api availability
+- controller failover
+- management latency
+- resilience result
+
+## Dependency and Blast Radius Analysis
+
+Resilience handling requires understanding the operational blast radius before action is taken. This scenario evaluates:
+
+- Directly affected infrastructure or platform resources
+- Dependent services, workloads, routes, storage paths, or access flows
+- Secondary failure risk caused by delayed failover or unstable recovery
+- Whether the issue is isolated, cascading, or cross-domain
+- Whether the service can remain available while degraded
+
+## Resilience Coordination Workflow
+
+1. Collect degraded-state telemetry from the affected resource.
+2. Correlate dependency impact and identify the operational blast radius.
+3. Determine whether failover, rerouting, replica use, or coordinated mitigation is required.
+4. Execute resilience coordination through the assigned operational modules.
+5. Validate that dependent services remain available or are restored to an acceptable state.
+6. Record resilience evidence for operational review and follow-up improvement.
+
+## Operational Modules
+
+- Resilience Coordination Module
+- Recovery Orchestration Module
+- Recovery Validation Module
+
+## Integration Adapters
+
+- Kubernetes Adapter
+- Prometheus Adapter
+- Grafana Adapter
+
+## Failover and Mitigation Boundary
+
+The scenario does not assume that every degraded condition requires full recovery execution. It defines the boundary between monitoring, incident coordination, resilience action, and recovery escalation.
+
+Escalation to recovery is required when:
+
+- Resilience action does not stabilize the affected capability.
+- Dependent services continue to degrade after mitigation.
+- Failover target or alternate path validation fails.
+- Operator intervention is required to prevent wider service impact.
+
+## Resilience Validation
+
+Validation must prove that the system remains operationally acceptable after resilience action. Validation includes:
+
+- Availability or reachability of the affected capability
+- Health of dependent services or workloads
+- Stability of failover, replica, routing, or alternate execution path
+- Absence of unresolved critical dependency failures
+- Evidence that the degraded condition is contained
+
+## Acceptance Criteria
+
+This scenario is considered complete when:
+
+- The degraded capability is stabilized, failed over, or contained.
+- Dependent services remain available or are restored.
+- Resilience evidence has been generated.
+- No unresolved critical blast-radius risk remains.
+- Recovery escalation is either completed or explicitly not required.
+
+<!-- L4_RESILIENCE_CONTENT_END -->
+
+## Evidence
+- [Evidence Summary](evidence/generated/summary.md)
+- [Execution Evidence](evidence/generated/execution-evidence.md)
+- [Validation Evidence](evidence/generated/validation-evidence.md)
+- [Artifact Manifest](evidence/generated/artifact-manifest.json)
+- [Artifact Checksums](evidence/generated/artifact-checksums.json)
+
+---
+
+## Expected Outcomes
+
+- The scenario has domain-specific operational context.
+- Telemetry signals are identified and mapped to the scenario purpose.
+- Infrastructure components and dependencies are documented.
+- Lifecycle workflow sections are populated with scenario-specific content.
+- Validation and evidence outputs are defined for portfolio review.
 
 ---
 
 ## Validation Checklist
 
-- [ ] Metadata file exists.
-- [ ] README file exists.
-- [ ] Operational poster exists.
-- [ ] Evidence files exist.
-- [ ] Scenario is included in repository inventory.
-- [ ] Scenario passes repository validation workflow.
+- [ ] Scenario metadata is present.
+- [ ] Operational poster reference is preserved.
+- [ ] Used modules are listed.
+- [ ] Used adapters are listed.
+- [ ] Detection workflow is scenario-specific.
+- [ ] Correlation and analysis workflow is scenario-specific.
+- [ ] Response or recovery workflow is described.
+- [ ] Recovery validation is described.
+- [ ] Evidence links are present.
+- [ ] Deprecated diagram references are not used.
 
 ---
 
 ## Related Scenarios
 
-No directly related scenarios are currently defined for this scenario.
-
----
+- [Configuration Resilience Validation](/snsd-hybridinfra/scenarios/level-4-resilience/configuration-resilience-validation/README.md)
+- [Cross Region Data Survivability](/snsd-hybridinfra/scenarios/level-4-resilience/cross-region-data-survivability/README.md)
+- [Change Failure Rollback](/snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback/README.md)
+- [Enterprise Data Protection Continuity](/snsd-hybridinfra/scenarios/level-5-continuity/enterprise-data-protection-continuity/README.md)
 
 ## Summary
 
-Control Plane Resilience documents a lifecycle-aligned operational scenario for hybrid infrastructure operations.
-
+This scenario contributes to the infrastructure operations portfolio by documenting platform operations workflow design, telemetry interpretation, lifecycle execution, validation criteria, and reviewable operational evidence.

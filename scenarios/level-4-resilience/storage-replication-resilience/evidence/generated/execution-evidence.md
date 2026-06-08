@@ -2,7 +2,7 @@
 
 ## Scenario
 
-storage-replication-resilience
+Storage Replication Resilience
 
 ## Execution Status
 

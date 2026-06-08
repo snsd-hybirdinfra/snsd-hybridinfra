@@ -1,0 +1,133 @@
+poster:
+  title: Configuration Drift Monitoring
+  subtitle: Operational Visibility Board for Configuration Drift Monitoring
+  lifecycle: level-1-visibility
+  domain: Infrastructure Operations
+  width: 2600
+  height: 1900
+sections:
+- id: observed-domain
+  title: Observed Infrastructure Domain
+  summary: 3 COMPONENTS
+  description: Infrastructure and connectivity components monitored by the visibility workflow.
+  cards:
+  - title: Branch Site
+    subtitle: Remote business location
+    type: site
+    status: Observed
+    icon: 🏢
+  - title: VPN Gateway
+    subtitle: Hybrid connectivity endpoint
+    type: network
+    status: Monitored
+    icon: 🌐
+  - title: Cloud Network
+    subtitle: Connected cloud segment
+    type: cloud
+    status: Reachable
+    icon: ☁️
+- id: telemetry-platform
+  title: Telemetry Collection & Visibility Platform
+  summary: SIGNALS ACTIVE
+  description: Signal collection path used to expose operational connectivity state.
+  cards:
+  - title: Network Probe
+    subtitle: Connectivity signal source
+    type: probe
+    status: Collecting
+    icon: 📡
+  - title: Metrics Collector
+    subtitle: Latency and packet loss metrics
+    type: telemetry
+    status: Streaming
+    icon: 📈
+  - title: Log Pipeline
+    subtitle: VPN tunnel event forwarding
+    type: logging
+    status: Active
+    icon: 🧾
+- id: visibility-output
+  title: Operational Visibility Outputs
+  summary: VISIBILITY READY
+  description: Reviewer-facing monitoring outputs for infrastructure operations.
+  cards:
+  - title: Connectivity Dashboard
+    subtitle: VPN status and tunnel health
+    type: dashboard
+    status: Visible
+    icon: 📊
+  - title: Alert View
+    subtitle: Connectivity degradation alerts
+    type: alert
+    status: Ready
+    icon: 🚨
+  - title: Operations Console
+    subtitle: Infrastructure monitoring view
+    type: console
+    status: Available
+    icon: 🖥️
+- id: validation-status
+  title: Validation & Current Status
+  summary: STATUS VERIFIED
+  description: Operational validation results confirming visibility readiness.
+  cards:
+  - title: Tunnel Health
+    subtitle: VPN tunnel state validated
+    type: validation
+    status: Healthy
+    icon: ✅
+  - title: Telemetry Continuity
+    subtitle: Signals arriving continuously
+    type: validation
+    status: Normal
+    icon: 🟢
+  - title: Visibility Coverage
+    subtitle: Dashboard reflects monitored state
+    type: validation
+    status: Verified
+    icon: 🔎
+workflow:
+  title: Operational Workflow
+  steps:
+  - title: Detect
+    description: Observe VPN gateway and connectivity state.
+    status: Ready
+  - title: Collect
+    description: Collect metrics, logs, and probe signals.
+    status: Active
+  - title: Visualize
+    description: Expose status through monitoring dashboards.
+    status: Visible
+  - title: Validate
+    description: Confirm operational visibility and health state.
+    status: Verified
+dashboards:
+- title: Configuration Drift Monitoring Status
+  widgets:
+  - label: Connectivity
+    value: Healthy
+    status: healthy
+  - label: Telemetry
+    value: Streaming
+    status: normal
+  - label: Loss
+    value: 0.2%
+    status: normal
+  - label: Latency
+    value: 18 ms
+    status: normal
+  - label: Dashboard
+    value: Verified
+    status: verified
+  - label: Alerts
+    value: No Active Incident
+    status: healthy
+legend:
+- label: Observed Infrastructure
+  color: blue
+- label: Telemetry Collection
+  color: cyan
+- label: Visibility Output
+  color: green
+- label: Validation Status
+  color: yellow

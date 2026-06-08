@@ -2,7 +2,7 @@
 
 ## Scenario
 
-inter-region-dependency-correlation
+Inter Region Dependency Correlation
 
 ## Validation Status
 

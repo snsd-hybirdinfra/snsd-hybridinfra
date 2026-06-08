@@ -1,42 +1,121 @@
-﻿scenario_name: configuration-drift-correlation
+scenario_name: configuration-drift-correlation
 scenario_title: Configuration Drift Correlation
 lifecycle_level: level-2-correlation
-lifecycle_name: Correlation and Analysis
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents infrastructure correlation operations using telemetry
-  comparison, dependency analysis, and impact reasoning.
-objectives:
-- Document the operational workflow for configuration drift correlation.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Telemetry Aggregation Module
-- Dependency Correlation Module
-- Impact Analysis Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-1-visibility/configuration-drift-monitoring
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/change-impact-correlation
-  - /snsd-hybridinfra/scenarios/level-2-correlation/control-plane-anomaly-correlation
-  - /snsd-hybridinfra/scenarios/level-2-correlation/inter-region-dependency-correlation
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/configuration-rollback-automation
-  cross_domain: []
-primary_domain: Configuration / Change
+scenario_path: scenarios/level-2-correlation/configuration-drift-correlation
+scenario_type: correlation
+primary_domain: Configuration Operations
+status: content-filled
+overview: |
+  This scenario documents configuration drift correlation within the configuration operations
+  operational domain. It focuses on configuration baseline and affected infrastructure component and
+  demonstrates how infrastructure operations teams can use domain-specific telemetry, lifecycle
+  workflow design, and evidence-backed validation to support correlate configuration drift with
+  degraded infrastructure behavior.
 
+objectives:
+  - Define the scenario-specific configuration operations signal represented by configuration-drift-correlation.
+  - Identify the affected configuration operations components and dependencies.
+  - Collect and interpret telemetry from configuration baseline and affected infrastructure component.
+  - Use baseline mismatch as an operational signal for detection or validation.
+  - Use service error as an operational signal for detection or validation.
+  - Use resource instability as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Correlate configuration drift with degraded infrastructure behavior
+
+target_resource: |
+  configuration baseline and affected infrastructure component
+
+telemetry_signals:
+  - baseline mismatch
+  - service error
+  - resource instability
+  - change timestamp
+
+infrastructure_components:
+  - configuration baseline
+  - managed node
+  - telemetry source
+  - correlation engine
+  - incident queue
+
+detection_workflow: |
+  Collect drift signals and affected component telemetry
+
+correlation_and_analysis: |
+  Analyze whether configuration drift explains the observed operational degradation
+
+alert_and_incident_workflow: |
+  Escalate confirmed drift impact to incident coordination
+
+recovery_and_automation_workflow: |
+  Escalate confirmed drift impact to incident coordination
+
+recovery_validation: |
+  Validate drift scope and identify rollback candidates
+
+monitoring_and_visibility: |
+  Monitoring and visibility include baseline mismatch; service error; resource instability; change
+  timestamp.
+
+used_modules:
+  - Dependency Correlation Module
+  - Incident Coordination Module
+  - Visibility Reporting Module
+
+used_adapters:
+  - Ansible Adapter
+  - OpenSearch Adapter
+  - Prometheus Adapter
+
+operational_components:
+  - name: configuration baseline
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: managed node
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: telemetry source
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: correlation engine
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: incident queue
+    purpose: Provides context or signal source for Configuration Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - configuration drift correlation report
+  - baseline impact evidence
+  - validation summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

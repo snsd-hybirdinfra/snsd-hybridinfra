@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | change-impact-correlation |
-| Scenario Title | change-impact-correlation |
+| Scenario Title | Change Impact Correlation |
 | Lifecycle Level | level-2-correlation |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Change Operations |
 
 ## Summary
 

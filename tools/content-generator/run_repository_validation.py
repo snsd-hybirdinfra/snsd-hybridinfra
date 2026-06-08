@@ -14,6 +14,7 @@ commands = [
     ["python", "tools/content-generator/generate_adapters_index.py"],
     ["python", "tools/content-generator/generate_builds_index.py"],
 
+    ["python", "tools/content-generator/check_poster_template_integrity.py"],
     ["python", "tools/content-generator/check_repository_quality.py"],
     ["python", "tools/content-generator/update_root_readme_inventory.py"],
 

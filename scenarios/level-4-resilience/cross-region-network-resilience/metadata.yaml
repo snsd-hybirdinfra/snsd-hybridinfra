@@ -1,132 +1,130 @@
-﻿scenario_name: cross-region-network-resilience
+scenario_name: cross-region-network-resilience
 scenario_title: Cross Region Network Resilience
 lifecycle_level: level-4-resilience
 scenario_path: scenarios/level-4-resilience/cross-region-network-resilience
 scenario_type: Resilience / Failover
 primary_domain: Network / Routing
-status: draft
-overview: 'This scenario documents cross region network resilience within the network / routing operational
-
+status: content-filled
+overview: |
+  This scenario documents cross region network resilience within the network / routing operational
   domain. It focuses on network path, route, interface, traffic flow and demonstrates how
-
   infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
-
   evidence-backed validation to support coordinate distributed resilience, multi-site failover, and
-
   survivability validation.
 
-  '
 objectives:
-- Define the scenario-specific network / routing signal represented by cross-region-network-resilience.
-- Identify the affected network / routing components and dependencies.
-- Collect and interpret telemetry from network path, route, interface, traffic flow.
-- Use link status as an operational signal for detection or validation.
-- Use route change as an operational signal for detection or validation.
-- Use BGP state as an operational signal for detection or validation.
-- Document the lifecycle workflow from detection through validation.
-- Produce reviewer-readable evidence artifacts for portfolio assessment.
-operational_focus: 'Coordinate distributed resilience, multi-site failover, and survivability validation
+  - Define the scenario-specific network / routing signal represented by cross-region-network-resilience.
+  - Identify the affected network / routing components and dependencies.
+  - Collect and interpret telemetry from network path, route, interface, traffic flow.
+  - Use link status as an operational signal for detection or validation.
+  - Use route change as an operational signal for detection or validation.
+  - Use BGP state as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
 
-  '
-target_resource: 'network path, route, interface, traffic flow
+operational_focus: |
+  Coordinate distributed resilience, multi-site failover, and survivability validation
 
-  '
+target_resource: |
+  network path, route, interface, traffic flow
+
 telemetry_signals:
-- link status
-- route change
-- BGP state
-- packet loss
-- latency
-- interface utilization
-- traffic volume
+  - link status
+  - route change
+  - BGP state
+  - packet loss
+  - latency
+  - interface utilization
+  - traffic volume
+
 infrastructure_components:
-- Network Path
-- Route
-- Interface
-- Traffic Flow
-- Telemetry Source
-- Detection Logic
-- Evidence Output
-detection_workflow: 'link status; route change; BGP state; packet loss; latency; interface utilization; traffic volume
+  - Network Path
+  - Route
+  - Interface
+  - Traffic Flow
+  - Telemetry Source
+  - Detection Logic
+  - Evidence Output
 
-  '
-correlation_and_analysis: 'Correlate network / routing signals with related infrastructure state, dependencies, recent events,
+detection_workflow: |
+  link status; route change; BGP state; packet loss; latency; interface utilization; traffic volume
 
+correlation_and_analysis: |
+  Correlate network / routing signals with related infrastructure state, dependencies, recent events,
   and service impact.
 
-  '
-alert_and_incident_workflow: 'Coordinate distributed resilience, multi-site failover, and survivability validation
+alert_and_incident_workflow: |
+  Coordinate distributed resilience, multi-site failover, and survivability validation
 
-  '
-recovery_and_automation_workflow: 'Coordinate distributed resilience, multi-site failover, and survivability validation
+recovery_and_automation_workflow: |
+  Coordinate distributed resilience, multi-site failover, and survivability validation
 
-  '
-recovery_validation: 'Validate stable state, evidence completeness, and operational readiness after detection, analysis,
-
+recovery_validation: |
+  Validate stable state, evidence completeness, and operational readiness after detection, analysis,
   response, or recovery.
 
-  '
-monitoring_and_visibility: 'Monitoring and visibility include link status; route change; BGP state; packet loss; latency;
-
+monitoring_and_visibility: |
+  Monitoring and visibility include link status; route change; BGP state; packet loss; latency;
   interface utilization; traffic volume.
 
-  '
 used_modules:
-- Resilience Coordination Module
-- Failover Decision Module
-- Validation Reporting Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Kubernetes Adapter
-operational_components:
-- name: Network Path
-  purpose: Provides context or signal source for Network / Routing operations
-- name: Route
-  purpose: Provides context or signal source for Network / Routing operations
-- name: Interface
-  purpose: Provides context or signal source for Network / Routing operations
-- name: Traffic Flow
-  purpose: Provides context or signal source for Network / Routing operations
-- name: Telemetry Source
-  purpose: Provides context or signal source for Network / Routing operations
-- name: Detection Logic
-  purpose: Provides context or signal source for Network / Routing operations
-- name: Evidence Output
-  purpose: Provides context or signal source for Network / Routing operations
-- name: Correlation Logic
-  purpose: Connects related signals, dependencies, and impact context
-- name: Validation Method
-  purpose: Confirms stable state, restored condition, or visibility completeness
-evidence_outputs:
-- summary.md
-- execution-evidence.md
-- validation-evidence.md
-- artifact-manifest.json
-- artifact-checksums.json
-expected_outcomes:
-- The scenario has domain-specific operational context.
-- Telemetry signals are identified and mapped to the scenario purpose.
-- Infrastructure components and dependencies are documented.
-- Lifecycle workflow sections are populated with scenario-specific content.
-- Validation and evidence outputs are defined for portfolio review.
-validation_checklist:
-- Scenario metadata is present.
-- Operational poster reference is preserved.
-- Used modules are listed.
-- Used adapters are listed.
-- Detection workflow is scenario-specific.
-- Correlation and analysis workflow is scenario-specific.
-- Response or recovery workflow is described.
-- Recovery validation is described.
-- Evidence links are present.
-- Deprecated diagram references are not used.
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/network-failover-automation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/multi-site-routing-failover
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-5-continuity/enterprise-network-continuity
-  cross_domain: []
+  - Resilience Coordination Module
+  - Failover Decision Module
+  - Validation Reporting Module
 
+used_adapters:
+  - Prometheus Adapter
+  - Grafana Adapter
+  - Kubernetes Adapter
+
+operational_components:
+  - name: Network Path
+    purpose: Provides context or signal source for Network / Routing operations
+  - name: Route
+    purpose: Provides context or signal source for Network / Routing operations
+  - name: Interface
+    purpose: Provides context or signal source for Network / Routing operations
+  - name: Traffic Flow
+    purpose: Provides context or signal source for Network / Routing operations
+  - name: Telemetry Source
+    purpose: Provides context or signal source for Network / Routing operations
+  - name: Detection Logic
+    purpose: Provides context or signal source for Network / Routing operations
+  - name: Evidence Output
+    purpose: Provides context or signal source for Network / Routing operations
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+
+evidence_outputs:
+  - summary.md
+  - execution-evidence.md
+  - validation-evidence.md
+  - artifact-manifest.json
+  - artifact-checksums.json
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

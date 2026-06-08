@@ -1,8 +1,8 @@
 {
   "scenario_name": "kubernetes-platform-resilience",
-  "scenario_title": "kubernetes-platform-resilience",
+  "scenario_title": "Kubernetes Platform Resilience",
   "lifecycle_level": "level-4-resilience",
-  "primary_domain": "Infrastructure Operations",
+  "primary_domain": "Kubernetes Operations",
   "artifacts": [
     "diagrams/operational-poster.png",
     "evidence/generated/summary.md",

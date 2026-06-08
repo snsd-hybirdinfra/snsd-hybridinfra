@@ -1,40 +1,121 @@
-﻿scenario_name: control-plane-health-monitoring
+scenario_name: control-plane-health-monitoring
 scenario_title: Control Plane Health Monitoring
 lifecycle_level: level-1-visibility
-lifecycle_name: Visibility
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents infrastructure visibility operations using telemetry
-  collection, signal exposure, and operational health reporting.
+scenario_path: scenarios/level-1-visibility/control-plane-health-monitoring
+scenario_type: visibility
+primary_domain: Platform Operations
+status: content-filled
+overview: |
+  This scenario documents control plane health monitoring within the platform operations operational
+  domain. It focuses on infrastructure control plane and management API endpoint and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support monitor control plane availability and management api
+  responsiveness.
+
 objectives:
-- Document the operational workflow for control plane health monitoring.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
+  - Define the scenario-specific platform operations signal represented by control-plane-health-monitoring.
+  - Identify the affected platform operations components and dependencies.
+  - Collect and interpret telemetry from infrastructure control plane and management API endpoint.
+  - Use api availability as an operational signal for detection or validation.
+  - Use request latency as an operational signal for detection or validation.
+  - Use error rate as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Monitor control plane availability and management API responsiveness
+
+target_resource: |
+  infrastructure control plane and management API endpoint
+
+telemetry_signals:
+  - api availability
+  - request latency
+  - error rate
+  - controller heartbeat
+
 infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
+  - control plane endpoint
+  - management API
+  - controller service
+  - telemetry collector
+  - dashboard
+
+detection_workflow: |
+  Collect API availability and controller heartbeat signals from the control plane
+
+correlation_and_analysis: |
+  Compare control plane health with node status and platform management activity
+
+alert_and_incident_workflow: |
+  Raise visibility alerts when management operations become degraded
+
+recovery_and_automation_workflow: |
+  Raise visibility alerts when management operations become degraded
+
+recovery_validation: |
+  Confirm that control plane endpoints remain reachable and responsive
+
+monitoring_and_visibility: |
+  Monitoring and visibility include api availability; request latency; error rate; controller
+  heartbeat.
+
 used_modules:
-- Telemetry Aggregation Module
-- Health Signal Collection Module
-- Visibility Reporting Module
+  - Health Signal Collection Module
+  - Telemetry Aggregation Module
+  - Visibility Reporting Module
+
 used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
+  - Prometheus Adapter
+  - Kubernetes Adapter
+  - Python Exporter Adapter
+
+operational_components:
+  - name: control plane endpoint
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: management API
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: controller service
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: telemetry collector
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: dashboard
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - control plane health summary
+  - api response evidence
+  - visibility validation report
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
 related_scenarios:
   upstream: []
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-1-visibility/configuration-drift-monitoring
-  - /snsd-hybridinfra/scenarios/level-1-visibility/inter-region-connectivity-monitoring
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/control-plane-anomaly-correlation
+  same_level: []
+  downstream: []
   cross_domain: []
-primary_domain: Control Plane
-

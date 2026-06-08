@@ -2,7 +2,7 @@
 
 ## Scenario
 
-enterprise-data-protection-continuity
+Enterprise Data Protection Continuity
 
 ## Execution Status
 

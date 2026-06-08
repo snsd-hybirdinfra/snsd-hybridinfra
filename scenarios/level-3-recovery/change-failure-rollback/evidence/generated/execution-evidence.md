@@ -2,7 +2,7 @@
 
 ## Scenario
 
-change-failure-rollback
+Change Failure Rollback
 
 ## Execution Status
 

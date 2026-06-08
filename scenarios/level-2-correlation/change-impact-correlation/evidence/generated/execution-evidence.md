@@ -2,7 +2,7 @@
 
 ## Scenario
 
-change-impact-correlation
+Change Impact Correlation
 
 ## Execution Status
 

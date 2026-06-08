@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Scenario Name | control-plane-resilience |
-| Scenario Title | control-plane-resilience |
+| Scenario Title | Control Plane Resilience |
 | Lifecycle Level | level-4-resilience |
-| Primary Domain | Infrastructure Operations |
+| Primary Domain | Platform Operations |
 
 ## Summary
 

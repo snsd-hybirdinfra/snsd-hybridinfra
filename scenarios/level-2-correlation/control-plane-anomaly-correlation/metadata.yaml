@@ -1,42 +1,121 @@
-﻿scenario_name: control-plane-anomaly-correlation
+scenario_name: control-plane-anomaly-correlation
 scenario_title: Control Plane Anomaly Correlation
 lifecycle_level: level-2-correlation
-lifecycle_name: Correlation and Analysis
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents infrastructure correlation operations using telemetry
-  comparison, dependency analysis, and impact reasoning.
-objectives:
-- Document the operational workflow for control plane anomaly correlation.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Telemetry Aggregation Module
-- Dependency Correlation Module
-- Impact Analysis Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-1-visibility/control-plane-health-monitoring
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/change-impact-correlation
-  - /snsd-hybridinfra/scenarios/level-2-correlation/configuration-drift-correlation
-  - /snsd-hybridinfra/scenarios/level-2-correlation/inter-region-dependency-correlation
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/control-plane-recovery-orchestration
-  cross_domain: []
-primary_domain: Control Plane
+scenario_path: scenarios/level-2-correlation/control-plane-anomaly-correlation
+scenario_type: correlation
+primary_domain: Platform Operations
+status: content-filled
+overview: |
+  This scenario documents control plane anomaly correlation within the platform operations operational
+  domain. It focuses on control plane API and platform management workflow and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support correlate control plane anomalies with service management
+  impact.
 
+objectives:
+  - Define the scenario-specific platform operations signal represented by control-plane-anomaly-correlation.
+  - Identify the affected platform operations components and dependencies.
+  - Collect and interpret telemetry from control plane API and platform management workflow.
+  - Use api error rate as an operational signal for detection or validation.
+  - Use controller delay as an operational signal for detection or validation.
+  - Use reconcile failure as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Correlate control plane anomalies with service management impact
+
+target_resource: |
+  control plane API and platform management workflow
+
+telemetry_signals:
+  - api error rate
+  - controller delay
+  - reconcile failure
+  - management timeout
+
+infrastructure_components:
+  - control plane API
+  - controller service
+  - platform node
+  - correlation engine
+  - incident queue
+
+detection_workflow: |
+  Collect API error signals and controller health events
+
+correlation_and_analysis: |
+  Correlate control plane symptoms with delayed or failed platform operations
+
+alert_and_incident_workflow: |
+  Escalate control plane impact when management operations are affected
+
+recovery_and_automation_workflow: |
+  Escalate control plane impact when management operations are affected
+
+recovery_validation: |
+  Validate whether the anomaly is isolated to visibility or affects operational control
+
+monitoring_and_visibility: |
+  Monitoring and visibility include api error rate; controller delay; reconcile failure; management
+  timeout.
+
+used_modules:
+  - Dependency Correlation Module
+  - Incident Coordination Module
+  - Visibility Reporting Module
+
+used_adapters:
+  - Kubernetes Adapter
+  - Prometheus Adapter
+  - OpenSearch Adapter
+
+operational_components:
+  - name: control plane API
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: controller service
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: platform node
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: correlation engine
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: incident queue
+    purpose: Provides context or signal source for Platform Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - control plane anomaly report
+  - management impact evidence
+  - correlation summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

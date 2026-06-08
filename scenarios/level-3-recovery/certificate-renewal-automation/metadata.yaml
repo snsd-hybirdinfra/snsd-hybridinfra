@@ -1,42 +1,121 @@
-﻿scenario_name: certificate-renewal-automation
+scenario_name: certificate-renewal-automation
 scenario_title: Certificate Renewal Automation
 lifecycle_level: level-3-recovery
-lifecycle_name: Recovery and Automation
-operational_scope: Infrastructure Operations
-environment: Hybrid Infrastructure
-status: draft
-summary: This scenario documents controlled recovery operations using automation execution,
-  restoration workflow control, and recovery validation.
-objectives:
-- Document the operational workflow for certificate renewal automation.
-- Identify relevant infrastructure components and telemetry signals.
-- Describe the lifecycle workflow from detection to validation.
-- Produce reviewer-readable evidence and diagram artifacts.
-infrastructure_components:
-- Infrastructure target
-- Telemetry source
-- Operational signal
-- Analysis or response workflow
-- Validation output
-- Evidence artifact
-used_modules:
-- Recovery Orchestration Module
-- Automation Execution Module
-- Recovery Validation Module
-used_adapters:
-- Prometheus Adapter
-- Grafana Adapter
-- Ansible Adapter
-- Python Exporter Adapter
-related_scenarios:
-  upstream:
-  - /snsd-hybridinfra/scenarios/level-2-correlation/change-impact-correlation
-  same_level:
-  - /snsd-hybridinfra/scenarios/level-3-recovery/change-failure-rollback
-  - /snsd-hybridinfra/scenarios/level-3-recovery/configuration-rollback-automation
-  - /snsd-hybridinfra/scenarios/level-3-recovery/control-plane-recovery-orchestration
-  downstream:
-  - /snsd-hybridinfra/scenarios/level-4-resilience/backup-resilience-validation
-  cross_domain: []
-primary_domain: TLS / Certificate
+scenario_path: scenarios/level-3-recovery/certificate-renewal-automation
+scenario_type: recovery
+primary_domain: Security Operations
+status: content-filled
+overview: |
+  This scenario documents certificate renewal automation within the security operations operational
+  domain. It focuses on service certificate and TLS enabled endpoint and demonstrates how
+  infrastructure operations teams can use domain-specific telemetry, lifecycle workflow design, and
+  evidence-backed validation to support automate certificate renewal to prevent service interruption
+  from expired trust material.
 
+objectives:
+  - Define the scenario-specific security operations signal represented by certificate-renewal-automation.
+  - Identify the affected security operations components and dependencies.
+  - Collect and interpret telemetry from service certificate and TLS enabled endpoint.
+  - Use certificate expiry as an operational signal for detection or validation.
+  - Use tls error as an operational signal for detection or validation.
+  - Use renewal status as an operational signal for detection or validation.
+  - Document the lifecycle workflow from detection through validation.
+  - Produce reviewer-readable evidence artifacts for portfolio assessment.
+
+operational_focus: |
+  Automate certificate renewal to prevent service interruption from expired trust material
+
+target_resource: |
+  service certificate and TLS enabled endpoint
+
+telemetry_signals:
+  - certificate expiry
+  - tls error
+  - renewal status
+  - endpoint validation
+
+infrastructure_components:
+  - certificate store
+  - tls endpoint
+  - automation runner
+  - recovery workflow
+  - validation output
+
+detection_workflow: |
+  Use certificate expiry and TLS error signals as renewal triggers
+
+correlation_and_analysis: |
+  Confirm affected endpoints and dependent services before renewal
+
+alert_and_incident_workflow: |
+  Execute certificate renewal workflow and update incident status
+
+recovery_and_automation_workflow: |
+  Execute certificate renewal workflow and update incident status
+
+recovery_validation: |
+  Renew certificate and validate TLS endpoint availability
+
+monitoring_and_visibility: |
+  Monitoring and visibility include certificate expiry; tls error; renewal status; endpoint
+  validation.
+
+used_modules:
+  - Recovery Orchestration Module
+  - Automation Execution Module
+  - Recovery Validation Module
+
+used_adapters:
+  - Ansible Adapter
+  - Prometheus Adapter
+  - Python Exporter Adapter
+
+operational_components:
+  - name: certificate store
+    purpose: Provides context or signal source for Security Operations operations
+  - name: tls endpoint
+    purpose: Provides context or signal source for Security Operations operations
+  - name: automation runner
+    purpose: Provides context or signal source for Security Operations operations
+  - name: recovery workflow
+    purpose: Provides context or signal source for Security Operations operations
+  - name: validation output
+    purpose: Provides context or signal source for Security Operations operations
+  - name: Detection Logic
+    purpose: Identifies abnormal or degraded operational conditions
+  - name: Correlation Logic
+    purpose: Connects related signals, dependencies, and impact context
+  - name: Validation Method
+    purpose: Confirms stable state, restored condition, or visibility completeness
+  - name: Evidence Output
+    purpose: Records public-safe completion and review artifacts
+
+evidence_outputs:
+  - certificate renewal evidence
+  - tls validation report
+  - recovery summary
+
+expected_outcomes:
+  - The scenario has domain-specific operational context.
+  - Telemetry signals are identified and mapped to the scenario purpose.
+  - Infrastructure components and dependencies are documented.
+  - Lifecycle workflow sections are populated with scenario-specific content.
+  - Validation and evidence outputs are defined for portfolio review.
+
+validation_checklist:
+  - Scenario metadata is present.
+  - Operational poster reference is preserved.
+  - Used modules are listed.
+  - Used adapters are listed.
+  - Detection workflow is scenario-specific.
+  - Correlation and analysis workflow is scenario-specific.
+  - Response or recovery workflow is described.
+  - Recovery validation is described.
+  - Evidence links are present.
+  - Deprecated diagram references are not used.
+
+related_scenarios:
+  upstream: []
+  same_level: []
+  downstream: []
+  cross_domain: []

@@ -2,7 +2,7 @@
 
 ## Scenario
 
-certificate-renewal-automation
+Certificate Renewal Automation
 
 ## Execution Status
 
