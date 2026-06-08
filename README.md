@@ -55,6 +55,37 @@ The repository separates operational meaning from tooling mechanics. Scenarios d
 
 <!-- REPOSITORY_LAYER_MAP_END -->
 
+<!-- VALIDATION_WORKFLOW_SUMMARY_START -->
+
+## Validation Workflow Summary
+
+The repository includes a repeatable validation workflow for checking structure, generated artifacts, documentation alignment, language policy, and portfolio health.
+
+Primary validation entrypoint:
+
+- [tools/content-generator/run_repository_validation.py](./tools/content-generator/run_repository_validation.py)
+
+## Validation Coverage
+
+| Validation Area | Purpose |
+|---|---|
+| Scenario artifact coverage | Confirms that scenario metadata, evidence, and poster artifacts are present |
+| Markdown link validation | Confirms that repository links resolve correctly |
+| Top-level structure validation | Confirms that only approved platform directories exist |
+| Root README alignment | Confirms that the root README reflects repository inventory and required terms |
+| Repository language validation | Confirms that wording remains aligned with operational platform positioning |
+| Poster template integrity | Confirms that visual poster generation remains structurally consistent |
+| Portfolio health summary | Produces reviewer-readable quality status |
+| Repository summary report | Produces the final baseline report used for review |
+
+## Current Baseline Interpretation
+
+A passing validation baseline means the repository structure, documentation links, generated artifacts, reports, and platform positioning are consistent.
+
+It does not mean every scenario represents live production execution. The repository is a portfolio-grade operational capability platform with generated documentation evidence, operational posters, and repeatable validation tooling.
+
+<!-- VALIDATION_WORKFLOW_SUMMARY_END -->
+
 ## Enterprise Operational Capability Platform
 
 SNSD Hybrid Infrastructure is a scenario-driven infrastructure operations portfolio designed to demonstrate reusable enterprise operational capabilities across hybrid infrastructure environments.
