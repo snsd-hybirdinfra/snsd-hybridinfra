@@ -17,7 +17,7 @@ Build foundations represent reusable setup, automation, or enablement layers tha
 
 ## Build Inventory
 
-Total build foundations: 10
+Total build foundations: 11
 
 | Build Foundation | Purpose |
 |---|---|
@@ -28,6 +28,7 @@ Total build foundations: 10
 | [Log Pipeline Foundation](./log-pipeline-foundation/README.md) | Defines log collection and search pipeline foundations for operational investigation and evidence generation. |
 | [Nat Gateway Egress Architecture](./nat-gateway-egress-architecture/README.md) | Defines controlled outbound access for private infrastructure components. |
 | [Observability Stack Deployment](./observability-stack-deployment/README.md) | Defines baseline observability stack deployment for telemetry, dashboarding, and operational visibility. |
+| [Openstack Private Cloud Lab](./openstack-private-cloud-lab/README.md) | This build defines an open-source private cloud lab foundation for validating infrastructure operations scenarios in the SNSD Hybrid Infrastructure repository. |
 | [Private Web Tier With Bastion](./private-web-tier-with-bastion/README.md) | Defines a private application tier access model where administrative access is mediated through a bastion host. |
 | [Recovery Validation Lab](./recovery-validation-lab/README.md) | Defines a controlled lab structure for validating recovery workflows and post-recovery evidence. |
 | [Security Boundary Baseline](./security-boundary-baseline/README.md) | Defines baseline security segmentation and access control context for operational scenarios. |
