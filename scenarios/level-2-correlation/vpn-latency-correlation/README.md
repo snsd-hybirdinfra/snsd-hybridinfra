@@ -137,8 +137,124 @@ uptime; endpoint response.
 
 ---
 
-## Evidence
+<!-- L2_CORRELATION_CONTENT_START -->
 
+## Correlation Scope
+
+This scenario defines the correlation scope for **Vpn Latency Correlation**. It focuses on connecting telemetry symptoms, dependency context, and operational impact before recovery or escalation decisions are made.
+
+- **Primary correlation target:** VPN tunnel, VPN gateway, remote endpoint, routing path
+- **Operational focus:** Correlate related symptoms, dependencies, and impact paths
+
+The correlation boundary includes telemetry normalization, dependency mapping, anomaly grouping, impact analysis, and incident handoff preparation.
+
+## Correlation Trigger Conditions
+
+Correlation is required when one or more observed signals are insufficient to explain the operational condition by themselves.
+
+This scenario should enter correlation workflow when:
+
+- Multiple telemetry signals appear related.
+- A service symptom may be caused by an upstream infrastructure, platform, network, security, or data dependency.
+- The affected component is unclear from a single alert.
+- The issue may require recovery action but needs evidence before execution.
+- Incident coordination requires a concise impact summary.
+
+## Correlated Signals
+
+The following telemetry signals are used as correlation input:
+
+- tunnel status
+- gateway reachability
+- packet loss
+- latency
+- tunnel uptime
+- endpoint response
+
+## Dependency Context
+
+Correlation analysis evaluates how the affected target relates to upstream and downstream operational dependencies. This includes:
+
+- Infrastructure dependency
+- Platform or runtime dependency
+- Network or routing dependency
+- Service or application dependency
+- Security, identity, or policy dependency
+- Storage, database, or data path dependency
+
+The objective is to determine whether the observed symptom is local, dependent, cascading, or cross-domain.
+
+## Analysis Workflow
+
+1. Collect telemetry from the affected resource and related dependencies.
+2. Normalize signal timestamps, severity, and source context.
+3. Group symptoms that occur within the same operational window.
+4. Compare correlated signals against known dependency relationships.
+5. Identify the most likely affected domain and impact boundary.
+6. Produce an incident-ready correlation summary.
+7. Recommend whether the next step is monitoring, incident coordination, recovery, or resilience escalation.
+
+## Operational Modules
+
+- Telemetry Aggregation Module
+- Dependency Correlation Module
+- Impact Analysis Module
+
+## Integration Adapters
+
+- Prometheus Adapter
+- Grafana Adapter
+- OpenSearch Adapter
+
+## Incident Handoff Criteria
+
+The scenario should hand off to incident coordination when correlation identifies a credible operational impact.
+
+Handoff is required when:
+
+- Affected service or infrastructure scope is identified.
+- The issue is persistent or recurring.
+- The correlated signals indicate user-facing, service-facing, or control-plane impact.
+- Recovery action requires operator approval or automation execution.
+- Evidence is sufficient to support an incident record.
+
+## Recovery Readiness
+
+L2 correlation does not execute recovery directly. It prepares the operational context needed for L3 recovery workflows.
+
+Recovery readiness is established when:
+
+- The affected target is identified.
+- The likely failure domain is known.
+- Related dependencies are documented.
+- Recovery candidates are clear.
+- Validation signals are available for post-recovery confirmation.
+
+## Correlation Evidence
+
+Evidence should demonstrate why the signals are considered related and how the impact boundary was determined.
+
+Required evidence includes:
+
+- Correlated telemetry summary
+- Dependency impact notes
+- Timeline of related signals
+- Candidate root-cause or failure-domain statement
+- Recommended next action
+
+## Acceptance Criteria
+
+This scenario is considered complete when:
+
+- Related signals are grouped and explained.
+- Affected dependency scope is identified.
+- Incident handoff context is ready.
+- Recovery readiness is either confirmed or explicitly not required.
+- Evidence is available for operational review.
+
+<!-- L2_CORRELATION_CONTENT_END -->
+
+## Evidence
 - [Evidence Summary](evidence/generated/summary.md)
 - [Execution Evidence](evidence/generated/execution-evidence.md)
 - [Validation Evidence](evidence/generated/validation-evidence.md)
