@@ -34,6 +34,46 @@ If custom collection fails, the adapter reports exporter failure separately from
 
 Scenarios reference this adapter when the workflow requires integration with the target system. The adapter supports telemetry collection, execution context, visualization, evidence generation, or validation depending on the scenario lifecycle level.
 
+<!-- ADAPTER_CONTRACT_START -->
+
+## Integration Contract
+
+### Responsibility
+
+Provides custom telemetry collection for scenario-specific signals not covered by standard monitoring sources.
+
+### Non-Responsibility
+
+Does not replace centralized telemetry, correlation logic, or recovery orchestration.
+
+### Integration Target
+
+Python-based exporters, custom probes, endpoint checks, and scenario-specific signal collectors.
+
+### Input Contract
+
+- custom collection script
+- target endpoint or resource
+- exporter configuration
+- signal definition
+
+### Output Contract
+
+- custom metric or signal
+- exporter execution evidence
+- scenario-specific visibility data
+- telemetry enrichment context
+
+### Failure Mode
+
+Exporter failure must be reported separately from the infrastructure condition being observed.
+
+### Scenario Usage
+
+Used when scenarios require custom operational signals or lightweight synthetic checks.
+
+<!-- ADAPTER_CONTRACT_END -->
+
 ## Implementation Note
 
 This adapter describes an integration boundary. It is intentionally separated from operational modules so that tool integration remains distinct from reusable operational capability logic.
