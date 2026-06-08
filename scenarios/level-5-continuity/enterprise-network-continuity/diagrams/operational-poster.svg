@@ -9,6 +9,201 @@
 <text x="2035" y="97" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="bold">level-5-continuity</text>
 <rect x="2200" y="72" width="280" height="38" rx="19" fill="#020617" stroke="#334155" stroke-width="1" />
 <text x="2340" y="97" fill="#94a3b8" font-size="13" text-anchor="middle" font-weight="bold">Enterprise Continuity Operatio</text>
+<rect x="80" y="220" width="1840" height="220" rx="28" fill="#1e293b" stroke="#2563eb" stroke-width="3" />
+<rect x="80" y="220" width="14" height="220" rx="7" fill="#2563eb" />
+<text x="114" y="262" fill="#ffffff" font-size="24" font-weight="bold">Continuity Scope</text>
+<text x="114" y="290" fill="#cbd5e1" font-size="15">Enterprise services, regions, dependencies, and continuity objectives under governance.</text>
+<rect x="1650" y="246" width="220" height="38" rx="19" fill="#020617" stroke="#2563eb" stroke-width="2" />
+<text x="1760" y="271" fill="#2563eb" font-size="13" text-anchor="middle" font-weight="bold">ENTERPRISE SCOPE</text>
+<rect x="114" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="152" cy="352" r="22" fill="#020617" stroke="#f97316" stroke-width="2" />
+<circle cx="152" cy="352" r="7" fill="#f97316" />
+<circle cx="152" cy="352" r="14" fill="none" stroke="#f97316" stroke-width="2" opacity="0.35" />
+<text x="186" y="344" fill="#ffffff" font-size="16" font-weight="bold">Critical Services</text>
+<text x="186" y="370" fill="#cbd5e1" font-size="10">Business-critical service gr</text>
+<text x="186" y="396" fill="#94a3b8" font-size="10">business-service</text>
+<rect x="421" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#f97316" stroke-width="1" />
+<text x="469" y="404" fill="#f97316" font-size="10" text-anchor="middle" font-weight="bold">Assessed</text>
+<rect x="563" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="352" r="22" fill="#020617" stroke="#818cf8" stroke-width="2" />
+<circle cx="601" cy="352" r="7" fill="#818cf8" />
+<circle cx="601" cy="352" r="14" fill="none" stroke="#818cf8" stroke-width="2" opacity="0.35" />
+<text x="635" y="344" fill="#ffffff" font-size="16" font-weight="bold">Recovery Region</text>
+<text x="635" y="370" fill="#cbd5e1" font-size="10">Target recovery geography</text>
+<text x="635" y="396" fill="#94a3b8" font-size="10">region</text>
+<rect x="870" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#818cf8" stroke-width="1" />
+<text x="918" y="404" fill="#818cf8" font-size="10" text-anchor="middle" font-weight="bold">Mapped</text>
+<rect x="1012" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="352" r="22" fill="#020617" stroke="#818cf8" stroke-width="2" />
+<circle cx="1050" cy="352" r="7" fill="#818cf8" />
+<circle cx="1050" cy="352" r="14" fill="none" stroke="#818cf8" stroke-width="2" opacity="0.35" />
+<text x="1084" y="344" fill="#ffffff" font-size="16" font-weight="bold">Dependency Scope</text>
+<text x="1084" y="370" fill="#cbd5e1" font-size="10">Cross-domain dependency view</text>
+<text x="1084" y="396" fill="#94a3b8" font-size="10">dependency</text>
+<rect x="1319" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#818cf8" stroke-width="1" />
+<text x="1367" y="404" fill="#818cf8" font-size="10" text-anchor="middle" font-weight="bold">Mapped</text>
+<rect x="1461" y="312" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="352" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<circle cx="1499" cy="352" r="7" fill="#22c55e" />
+<circle cx="1499" cy="352" r="14" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.35" />
+<text x="1533" y="344" fill="#ffffff" font-size="16" font-weight="bold">Continuity Objective</text>
+<text x="1533" y="370" fill="#cbd5e1" font-size="10">RTO / RPO target state</text>
+<text x="1533" y="396" fill="#94a3b8" font-size="10">objective</text>
+<rect x="1768" y="388" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="1816" y="404" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
+<rect x="80" y="470" width="1840" height="280" rx="28" fill="#1e293b" stroke="#7c3aed" stroke-width="3" />
+<rect x="80" y="470" width="14" height="280" rx="7" fill="#7c3aed" />
+<text x="114" y="512" fill="#ffffff" font-size="24" font-weight="bold">Governance Control</text>
+<text x="114" y="540" fill="#cbd5e1" font-size="15">Governance authority for recovery approval, risk acceptance, escalation, and continuity decision control.</text>
+<rect x="1650" y="496" width="220" height="38" rx="19" fill="#020617" stroke="#7c3aed" stroke-width="2" />
+<text x="1760" y="521" fill="#7c3aed" font-size="13" text-anchor="middle" font-weight="bold">GOVERNANCE ACTIVE</text>
+<rect x="114" y="552" width="1772" height="40" rx="18" fill="#020617" stroke="#7c3aed" stroke-width="2" opacity="0.98" />
+<rect x="128" y="559" width="190" height="26" rx="13" fill="#2e1065" stroke="#a78bfa" stroke-width="1" />
+<text x="223.0" y="577" fill="#ddd6fe" font-size="10" text-anchor="middle" font-weight="bold">GOVERNANCE CONTROL</text>
+<text x="535.0" y="577" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Scope Review</text>
+<text x="724.0" y="578" fill="#a78bfa" font-size="16" text-anchor="middle" font-weight="bold">→</text>
+<text x="913.0" y="577" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Risk Check</text>
+<text x="1102.0" y="578" fill="#a78bfa" font-size="16" text-anchor="middle" font-weight="bold">→</text>
+<text x="1291.0" y="577" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Policy Approva</text>
+<text x="1480.0" y="578" fill="#a78bfa" font-size="16" text-anchor="middle" font-weight="bold">→</text>
+<text x="1669.0" y="577" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Escalation</text>
+<rect x="114" y="608" width="425" height="108" rx="22" fill="#172554" stroke="#a78bfa" stroke-width="3" />
+<circle cx="152" cy="648" r="22" fill="#020617" stroke="#a78bfa" stroke-width="2" />
+<circle cx="152" cy="648" r="7" fill="#a78bfa" />
+<circle cx="152" cy="648" r="14" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.35" />
+<text x="186" y="640" fill="#ffffff" font-size="16" font-weight="bold">Governance Controller</text>
+<text x="186" y="666" fill="#cbd5e1" font-size="10">Continuity governance author</text>
+<text x="186" y="692" fill="#94a3b8" font-size="10">governance</text>
+<rect x="421" y="680" width="96" height="22" rx="11" fill="#020617" stroke="#a78bfa" stroke-width="1" />
+<text x="469" y="696" fill="#a78bfa" font-size="10" text-anchor="middle" font-weight="bold">Evaluating</text>
+<rect x="407" y="624" width="92" height="22" rx="11" fill="#020617" stroke="#a78bfa" stroke-width="1" />
+<text x="453" y="639" fill="#a78bfa" font-size="10" text-anchor="middle" font-weight="bold">CORE</text>
+<rect x="563" y="608" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="648" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<circle cx="601" cy="648" r="7" fill="#facc15" />
+<circle cx="601" cy="648" r="14" fill="none" stroke="#facc15" stroke-width="2" opacity="0.35" />
+<text x="635" y="640" fill="#ffffff" font-size="16" font-weight="bold">Risk Acceptance</text>
+<text x="635" y="666" fill="#cbd5e1" font-size="10">Executive-level risk decisio</text>
+<text x="635" y="692" fill="#94a3b8" font-size="10">risk</text>
+<rect x="870" y="680" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="918" y="696" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Checked</text>
+<rect x="1012" y="608" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="648" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<circle cx="1050" cy="648" r="7" fill="#facc15" />
+<circle cx="1050" cy="648" r="14" fill="none" stroke="#facc15" stroke-width="2" opacity="0.35" />
+<text x="1084" y="640" fill="#ffffff" font-size="16" font-weight="bold">Recovery Policy</text>
+<text x="1084" y="666" fill="#cbd5e1" font-size="10">Enterprise recovery policy c</text>
+<text x="1084" y="692" fill="#94a3b8" font-size="10">policy</text>
+<rect x="1319" y="680" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="1367" y="696" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<rect x="1461" y="608" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="648" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="1499" cy="648" r="7" fill="#84cc16" />
+<circle cx="1499" cy="648" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="1533" y="640" fill="#ffffff" font-size="16" font-weight="bold">Escalation Path</text>
+<text x="1533" y="666" fill="#cbd5e1" font-size="10">Decision escalation route</text>
+<text x="1533" y="692" fill="#94a3b8" font-size="10">escalation</text>
+<rect x="1768" y="680" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="1816" y="696" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="80" y="780" width="1840" height="270" rx="28" fill="#1e293b" stroke="#0891b2" stroke-width="3" />
+<rect x="80" y="780" width="14" height="270" rx="7" fill="#0891b2" />
+<text x="114" y="822" fill="#ffffff" font-size="24" font-weight="bold">Executive Coordination</text>
+<text x="114" y="850" fill="#cbd5e1" font-size="15">Executive coordination for continuity decision, approval, and stakeholder alignment.</text>
+<rect x="1650" y="806" width="220" height="38" rx="19" fill="#020617" stroke="#0891b2" stroke-width="2" />
+<text x="1760" y="831" fill="#0891b2" font-size="13" text-anchor="middle" font-weight="bold">DECISION READY</text>
+<rect x="114" y="862" width="1772" height="40" rx="18" fill="#020617" stroke="#0891b2" stroke-width="2" opacity="0.98" />
+<rect x="128" y="869" width="190" height="26" rx="13" fill="#164e63" stroke="#67e8f9" stroke-width="1" />
+<text x="223.0" y="887" fill="#cffafe" font-size="10" text-anchor="middle" font-weight="bold">EXECUTIVE DECISION</text>
+<text x="535.0" y="887" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Impact Review</text>
+<text x="724.0" y="888" fill="#67e8f9" font-size="16" text-anchor="middle" font-weight="bold">→</text>
+<text x="913.0" y="887" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Decision</text>
+<text x="1102.0" y="888" fill="#67e8f9" font-size="16" text-anchor="middle" font-weight="bold">→</text>
+<text x="1291.0" y="887" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Approval</text>
+<text x="1480.0" y="888" fill="#67e8f9" font-size="16" text-anchor="middle" font-weight="bold">→</text>
+<text x="1669.0" y="887" fill="#cbd5e1" font-size="10" text-anchor="middle" font-weight="bold">Stakeholder No</text>
+<rect x="114" y="918" width="425" height="108" rx="22" fill="#172554" stroke="#84cc16" stroke-width="3" />
+<circle cx="152" cy="958" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="152" cy="958" r="7" fill="#84cc16" />
+<circle cx="152" cy="958" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="186" y="950" fill="#ffffff" font-size="16" font-weight="bold">Continuity Decision</text>
+<text x="186" y="976" fill="#cbd5e1" font-size="10">Executive recovery decision </text>
+<text x="186" y="1002" fill="#94a3b8" font-size="10">decision</text>
+<rect x="421" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="469" y="1006" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
+<rect x="407" y="934" width="92" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="453" y="949" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">DECISI</text>
+<rect x="563" y="918" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="958" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<circle cx="601" cy="958" r="7" fill="#22c55e" />
+<circle cx="601" cy="958" r="14" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.35" />
+<text x="635" y="950" fill="#ffffff" font-size="16" font-weight="bold">Stakeholder Notice</text>
+<text x="635" y="976" fill="#cbd5e1" font-size="10">Business and technical notif</text>
+<text x="635" y="1002" fill="#94a3b8" font-size="10">communication</text>
+<rect x="870" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="918" y="1006" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
+<rect x="1012" y="918" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="958" r="22" fill="#020617" stroke="#4ade80" stroke-width="2" />
+<circle cx="1050" cy="958" r="7" fill="#4ade80" />
+<circle cx="1050" cy="958" r="14" fill="none" stroke="#4ade80" stroke-width="2" opacity="0.35" />
+<text x="1084" y="950" fill="#ffffff" font-size="16" font-weight="bold">Recovery Approval</text>
+<text x="1084" y="976" fill="#cbd5e1" font-size="10">Authorized continuity action</text>
+<text x="1084" y="1002" fill="#94a3b8" font-size="10">approval</text>
+<rect x="1319" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#4ade80" stroke-width="1" />
+<text x="1367" y="1006" fill="#4ade80" font-size="10" text-anchor="middle" font-weight="bold">Available</text>
+<rect x="1461" y="918" width="425" height="108" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="958" r="22" fill="#020617" stroke="#f97316" stroke-width="2" />
+<circle cx="1499" cy="958" r="7" fill="#f97316" />
+<circle cx="1499" cy="958" r="14" fill="none" stroke="#f97316" stroke-width="2" opacity="0.35" />
+<text x="1533" y="950" fill="#ffffff" font-size="16" font-weight="bold">Business Impact</text>
+<text x="1533" y="976" fill="#cbd5e1" font-size="10">Continuity impact statement</text>
+<text x="1533" y="1002" fill="#94a3b8" font-size="10">impact</text>
+<rect x="1768" y="990" width="96" height="22" rx="11" fill="#020617" stroke="#f97316" stroke-width="1" />
+<text x="1816" y="1006" fill="#f97316" font-size="10" text-anchor="middle" font-weight="bold">Assessed</text>
+<rect x="80" y="1080" width="1840" height="220" rx="28" fill="#1e293b" stroke="#16a34a" stroke-width="3" />
+<rect x="80" y="1080" width="14" height="220" rx="7" fill="#16a34a" />
+<text x="114" y="1122" fill="#ffffff" font-size="24" font-weight="bold">Evidence Reporting</text>
+<text x="114" y="1150" fill="#cbd5e1" font-size="15">Evidence package used for governance review, auditability, and post-recovery continuity reporting.</text>
+<rect x="1650" y="1106" width="220" height="38" rx="19" fill="#020617" stroke="#16a34a" stroke-width="2" />
+<text x="1760" y="1131" fill="#16a34a" font-size="13" text-anchor="middle" font-weight="bold">REPORTING READY</text>
+<rect x="114" y="1172" width="425" height="112" rx="22" fill="#172554" stroke="#22c55e" stroke-width="3" />
+<circle cx="152" cy="1212" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<polygon points="143,1199 157,1199 163,1205 163,1225 143,1225" fill="none" stroke="#22c55e" stroke-width="2" stroke-linejoin="round" />
+<line x1="148" y1="1212" x2="157" y2="1212" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<line x1="148" y1="1218" x2="157" y2="1218" stroke="#22c55e" stroke-width="2" stroke-linecap="round" />
+<text x="186" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Evidence Package</text>
+<text x="186" y="1230" fill="#cbd5e1" font-size="10">Continuity validation eviden</text>
+<text x="186" y="1256" fill="#94a3b8" font-size="10">evidence</text>
+<rect x="421" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="469" y="1264" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
+<rect x="407" y="1188" width="92" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="453" y="1203" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">AUDIT</text>
+<rect x="563" y="1172" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="601" cy="1212" r="22" fill="#020617" stroke="#facc15" stroke-width="2" />
+<circle cx="601" cy="1212" r="7" fill="#facc15" />
+<circle cx="601" cy="1212" r="14" fill="none" stroke="#facc15" stroke-width="2" opacity="0.35" />
+<text x="635" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Audit Trail</text>
+<text x="635" y="1230" fill="#cbd5e1" font-size="10">Decision and action history</text>
+<text x="635" y="1256" fill="#94a3b8" font-size="10">audit</text>
+<rect x="870" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#facc15" stroke-width="1" />
+<text x="918" y="1264" fill="#facc15" font-size="10" text-anchor="middle" font-weight="bold">Verified</text>
+<rect x="1012" y="1172" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1050" cy="1212" r="22" fill="#020617" stroke="#22c55e" stroke-width="2" />
+<circle cx="1050" cy="1212" r="7" fill="#22c55e" />
+<circle cx="1050" cy="1212" r="14" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.35" />
+<text x="1084" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Recovery Report</text>
+<text x="1084" y="1230" fill="#cbd5e1" font-size="10">Executive recovery summary</text>
+<text x="1084" y="1256" fill="#94a3b8" font-size="10">report</text>
+<rect x="1319" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#22c55e" stroke-width="1" />
+<text x="1367" y="1264" fill="#22c55e" font-size="10" text-anchor="middle" font-weight="bold">Prepared</text>
+<rect x="1461" y="1172" width="425" height="112" rx="22" fill="#111827" stroke="#334155" stroke-width="2" />
+<circle cx="1499" cy="1212" r="22" fill="#020617" stroke="#84cc16" stroke-width="2" />
+<circle cx="1499" cy="1212" r="7" fill="#84cc16" />
+<circle cx="1499" cy="1212" r="14" fill="none" stroke="#84cc16" stroke-width="2" opacity="0.35" />
+<text x="1533" y="1204" fill="#ffffff" font-size="16" font-weight="bold">Governance Review</text>
+<text x="1533" y="1230" fill="#cbd5e1" font-size="10">Post-recovery review input</text>
+<text x="1533" y="1256" fill="#94a3b8" font-size="10">review</text>
+<rect x="1768" y="1248" width="96" height="22" rx="11" fill="#020617" stroke="#84cc16" stroke-width="1" />
+<text x="1816" y="1264" fill="#84cc16" font-size="10" text-anchor="middle" font-weight="bold">Ready</text>
 <rect x="1990" y="200" width="550" height="760" rx="28" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="2020" y="244" fill="#ffffff" font-size="24" font-weight="bold">Continuity Governance Workflow</text>
 <text x="2020" y="274" fill="#cbd5e1" font-size="13">Lifecycle execution sequence</text>
@@ -49,45 +244,45 @@
 <rect x="1990" y="990" width="550" height="300" rx="26" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="2018" y="1032" fill="#ffffff" font-size="22" font-weight="bold">Operational Summary</text>
 <text x="2018" y="1060" fill="#cbd5e1" font-size="13">Scenario coverage overview</text>
-<rect x="60" y="1345" width="1880" height="320" rx="30" fill="#111827" stroke="#334155" stroke-width="2" />
+<rect x="60" y="1345" width="1880" height="420" rx="30" fill="#111827" stroke="#334155" stroke-width="2" />
 <rect x="84" y="1367" width="1832" height="70" rx="22" fill="#020617" stroke="#38bdf8" stroke-width="2" opacity="0.96" />
 <text x="108" y="1397" fill="#ffffff" font-size="24" font-weight="bold">Enterprise Network Continuity Status</text>
 <text x="108" y="1423" fill="#cbd5e1" font-size="13">Operational status and validation metrics</text>
-<rect x="94" y="1463" width="430" height="150" rx="26" fill="#082f49" stroke="#38bdf8" stroke-width="4" opacity="0.98" />
+<rect x="94" y="1463" width="430" height="215" rx="26" fill="#082f49" stroke="#38bdf8" stroke-width="4" opacity="0.98" />
 <text x="122" y="1505" fill="#94a3b8" font-size="13" font-weight="bold">Operational State</text>
 <text x="122" y="1555" fill="#ffffff" font-size="30" font-weight="bold">NORMAL</text>
 <rect x="122" y="1583" width="320" height="32" rx="16" fill="#020617" stroke="#38bdf8" stroke-width="1" />
 <text x="138" y="1604" fill="#cbd5e1" font-size="12" font-weight="bold">Operational state available</text>
-<rect x="560" y="1463" width="205" height="68" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
-<rect x="574" y="1475" width="10" height="44" rx="5" fill="#10b981" opacity="0.85" />
+<rect x="560" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
+<rect x="574" y="1475" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
 <text x="600" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Governance State</text>
 <text x="600" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Ready</text>
-<rect x="787" y="1463" width="205" height="68" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
-<rect x="801" y="1475" width="10" height="44" rx="5" fill="#facc15" opacity="0.85" />
+<rect x="787" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
+<rect x="801" y="1475" width="10" height="68" rx="5" fill="#facc15" opacity="0.85" />
 <text x="827" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Risk Review</text>
 <text x="827" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Checked</text>
-<rect x="1014" y="1463" width="205" height="68" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
-<rect x="1028" y="1475" width="10" height="44" rx="5" fill="#10b981" opacity="0.85" />
+<rect x="1014" y="1463" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
+<rect x="1028" y="1475" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
 <text x="1054" y="1493" fill="#94a3b8" font-size="11" font-weight="bold">Decision</text>
 <text x="1054" y="1521" fill="#ffffff" font-size="16" font-weight="bold">Ready</text>
-<rect x="560" y="1551" width="205" height="68" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
-<rect x="574" y="1563" width="10" height="44" rx="5" fill="#10b981" opacity="0.85" />
-<text x="600" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Approval</text>
-<text x="600" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Available</text>
-<rect x="787" y="1551" width="205" height="68" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
-<rect x="801" y="1563" width="10" height="44" rx="5" fill="#facc15" opacity="0.85" />
-<text x="827" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Evidence</text>
-<text x="827" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Prepared</text>
-<rect x="1014" y="1551" width="205" height="68" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
-<rect x="1028" y="1563" width="10" height="44" rx="5" fill="#facc15" opacity="0.85" />
-<text x="1054" y="1581" fill="#94a3b8" font-size="11" font-weight="bold">Audit</text>
-<text x="1054" y="1609" fill="#ffffff" font-size="16" font-weight="bold">Verified</text>
-<rect x="1440" y="1463" width="455" height="150" rx="26" fill="#020617" stroke="#38bdf8" stroke-width="3" opacity="0.98" />
+<rect x="560" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#10b981" stroke-width="2" opacity="0.98" />
+<rect x="574" y="1597" width="10" height="68" rx="5" fill="#10b981" opacity="0.85" />
+<text x="600" y="1615" fill="#94a3b8" font-size="11" font-weight="bold">Approval</text>
+<text x="600" y="1643" fill="#ffffff" font-size="16" font-weight="bold">Available</text>
+<rect x="787" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
+<rect x="801" y="1597" width="10" height="68" rx="5" fill="#facc15" opacity="0.85" />
+<text x="827" y="1615" fill="#94a3b8" font-size="11" font-weight="bold">Evidence</text>
+<text x="827" y="1643" fill="#ffffff" font-size="16" font-weight="bold">Prepared</text>
+<rect x="1014" y="1585" width="205" height="92" rx="20" fill="#0f172a" stroke="#facc15" stroke-width="2" opacity="0.98" />
+<rect x="1028" y="1597" width="10" height="68" rx="5" fill="#facc15" opacity="0.85" />
+<text x="1054" y="1615" fill="#94a3b8" font-size="11" font-weight="bold">Audit</text>
+<text x="1054" y="1643" fill="#ffffff" font-size="16" font-weight="bold">Verified</text>
+<rect x="1440" y="1463" width="455" height="215" rx="26" fill="#020617" stroke="#38bdf8" stroke-width="3" opacity="0.98" />
 <text x="1468" y="1505" fill="#ffffff" font-size="19" font-weight="bold">Operational Result</text>
 <rect x="1468" y="1527" width="220" height="30" rx="15" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
 <text x="1578" y="1547" fill="#cbd5e1" font-size="11" text-anchor="middle" font-weight="bold">DASHBOARD RESULT</text>
 <text x="1468" y="1587" fill="#94a3b8" font-size="13">Operational state is available.</text>
-<rect x="1990" y="1320" width="550" height="330" rx="26" fill="#111827" stroke="#334155" stroke-width="2" />
+<rect x="1990" y="1320" width="550" height="420" rx="26" fill="#111827" stroke="#334155" stroke-width="2" />
 <text x="2018" y="1362" fill="#ffffff" font-size="22" font-weight="bold">Legend</text>
 <text x="2018" y="1390" fill="#94a3b8" font-size="13">Operational role and visual mapping</text>
 <circle cx="2032" cy="1427" r="8" fill="#2563eb" />
