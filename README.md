@@ -86,6 +86,34 @@ It does not mean every scenario represents live production execution. The reposi
 
 <!-- VALIDATION_WORKFLOW_SUMMARY_END -->
 
+<!-- PORTFOLIO_POSITIONING_SUMMARY_START -->
+
+## Portfolio Positioning Summary
+
+This repository demonstrates infrastructure operations capability across the full operational lifecycle.
+
+Rather than presenting isolated lab notes, it models hybrid infrastructure operations as a reusable operational capability platform.
+
+## Capability Areas Demonstrated
+
+| Capability Area | Demonstrated Through |
+|---|---|
+| Infrastructure Operations | Lifecycle-based scenarios for monitoring, analysis, recovery, resilience, and continuity |
+| Platform Engineering | Reusable modules, shared runtime concepts, generation tools, and validation workflows |
+| Observability Engineering | Visibility scenarios, telemetry aggregation, dashboard references, and signal interpretation |
+| Recovery Automation | Recovery orchestration, automation boundaries, validation evidence, and rollback decision points |
+| Resilience Engineering | Distributed impact handling, failover coordination, degraded-state reasoning, and survivability validation |
+| Operational Governance | Continuity scenarios, evidence standards, reporting outputs, and conservative relationship policies |
+| Documentation Automation | Generated READMEs, evidence artifacts, indexes, reports, poster rendering, and validation scripts |
+
+## What This Proves
+
+The project shows the ability to design, organize, document, validate, and explain infrastructure operations as a structured platform.
+
+It emphasizes operational thinking: detection, correlation, incident coordination, recovery, validation, reporting, and governance.
+
+<!-- PORTFOLIO_POSITIONING_SUMMARY_END -->
+
 ## Enterprise Operational Capability Platform
 
 SNSD Hybrid Infrastructure is a scenario-driven infrastructure operations portfolio designed to demonstrate reusable enterprise operational capabilities across hybrid infrastructure environments.
