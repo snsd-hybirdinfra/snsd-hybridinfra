@@ -1,10 +1,39 @@
-﻿# Evidence Runtime
+# Evidence Runtime
 
-Provides shared evidence generation and validation artifact concepts.
+## Runtime Purpose
 
-## Role
+Defines shared evidence generation, artifact tracking, and validation reporting patterns.
 
-- Generate scenario evidence artifacts
-- Support execution and validation evidence
-- Maintain artifact manifest and checksum concepts
-- Provide reviewer-readable operational outputs
+## Runtime Boundary
+
+This runtime layer produces evidence outputs. It does not decide operational severity or perform remediation.
+
+## Inputs
+
+- workflow result
+- validation criteria
+- artifact references
+- scenario execution context
+
+## Outputs
+
+- evidence summary
+- artifact manifest
+- validation report
+- reviewer-readable operational record
+
+## Operational Role
+
+The evidence runtime makes scenario outcomes traceable and reviewable.
+
+## Failure / Consistency Handling
+
+If evidence is incomplete, the workflow should mark the scenario as not fully validated instead of reporting false success.
+
+## Scenario Usage
+
+Scenarios use this shared runtime structure to keep operational workflows consistent across lifecycle levels. The runtime layer supports repeatable orchestration, telemetry handling, evidence generation, and integration behavior without turning each scenario into a one-off implementation note.
+
+## Implementation Note
+
+This directory describes reusable platform mechanics. It is intentionally separated from scenario README files, operational modules, and external adapters.
