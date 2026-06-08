@@ -75,6 +75,18 @@ Each scenario is mapped to a lifecycle maturity level and validates one or more 
 
 ---
 
+## Scenario Review Entry Points
+
+The repository contains 150 operational scenarios. The following entries provide a practical starting point for reviewing the lifecycle model across visibility, correlation, recovery, resilience, and continuity.
+
+- [VPN Connectivity Monitoring](./scenarios/level-1-visibility/vpn-connectivity-monitoring/README.md)
+- [VPN Latency Correlation](./scenarios/level-2-correlation/vpn-latency-correlation/README.md)
+- [VPN Tunnel Recovery Automation](./scenarios/level-3-recovery/vpn-tunnel-recovery-automation/README.md)
+- [Multi Site Routing Failover](./scenarios/level-4-resilience/multi-site-routing-failover/README.md)
+- [Enterprise Network Continuity](./scenarios/level-5-continuity/enterprise-network-continuity/README.md)
+
+These entries are review starting points, not a separate golden path. The full catalog remains organized under the lifecycle-based scenario inventory.
+
 ## Scenario Inventory
 
 The repository currently contains:
