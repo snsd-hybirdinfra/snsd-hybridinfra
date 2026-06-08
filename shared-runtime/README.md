@@ -1,32 +1,20 @@
-﻿# Shared Runtime
+# Shared Runtime
 
-The shared runtime layer contains reusable runtime concepts that support scenario orchestration, telemetry processing, evidence generation, and integration services across the SNSD Hybrid Infrastructure platform.
+This directory defines the shared runtime layer for the SNSD Hybrid Infrastructure platform.
 
-Shared runtime components are not scenario-specific. They provide common operational execution and data-flow structures used by modules, adapters, and scenario workflows.
+The shared runtime provides common orchestration, telemetry, evidence, schema, registry, and integration structures used across operational scenarios, modules, and adapters.
 
----
+## Runtime Purpose
 
-## Runtime Areas
+The shared runtime supports:
 
-| Runtime Area | Purpose |
-|---|---|
-| Orchestration Runtime | Coordinates scenario workflow execution and lifecycle step sequencing. |
-| Telemetry Pipeline | Normalizes operational signals from adapters and telemetry sources. |
-| Evidence Runtime | Produces reviewer-readable evidence artifacts and validation outputs. |
-| Integration Services | Provides reusable integration boundaries for tools, adapters, and reporting workflows. |
+- orchestration runtime patterns
+- telemetry pipeline structures
+- evidence generation and validation
+- integration service boundaries
+- reusable schemas and registries
+- platform-level consistency across scenarios
 
----
+## Runtime Role
 
-## Design Principles
-
-- Runtime components must remain reusable across scenarios.
-- Runtime logic should not embed scenario-specific assumptions.
-- Runtime outputs should support operational evidence and validation.
-- Runtime boundaries should support modules and adapters without creating vendor lock-in.
-- Runtime behavior should align with the operational lifecycle model.
-
----
-
-## Summary
-
-The shared runtime layer supports the platform-oriented structure of this repository by separating reusable execution, telemetry, evidence, and integration concerns from individual scenario workflows.
+The shared runtime separates reusable platform mechanics from individual scenario documentation. This keeps scenarios focused on operational workflows while preserving a consistent platform architecture.
