@@ -1,7 +1,7 @@
 SNSD HYBRID INFRASTRUCTURE - REPOSITORY SUMMARY REPORT
 ========================================================================
 
-Generated At: 2026-06-09 01:19:11
+Generated At: 2026-06-09 01:26:23
 
 1. Repository Positioning
 ------------------------------------------------------------------------
@@ -34,7 +34,7 @@ Top-Level Extra Directories: 0
 Top-Level Missing Directories: 0
 Root README Missing Links: 0
 Root README Missing Terms: 0
-Repository Language Hits: 2
+Repository Language Hits: 0
 Related Mapping Policy: Conservative lifecycle-only mapping
 Related Mapping Pending: 24
 
@@ -51,7 +51,7 @@ docs/: repository documentation
 
 6. Current Baseline
 ------------------------------------------------------------------------
-Portfolio Baseline Status: CHECK_REQUIRED
+Portfolio Baseline Status: PASS
 Validation Workflow: tools/content-generator/run_repository_validation.py
 
 7. Operational Summary
