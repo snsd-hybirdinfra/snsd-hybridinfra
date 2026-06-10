@@ -1,0 +1,6 @@
+﻿module_name: backup-recovery-evidence-generation-module
+module_title: Backup Recovery Evidence Generation Module
+lab: 08-backup-recovery-lab
+module_scope: lab-local
+purpose: "Generates raw, processed, and summary evidence from backup and restore validation output."
+status: draft

@@ -1,6 +1,25 @@
 ﻿lab_name: 08-backup-recovery-lab
 lab_title: Backup Recovery Lab
-lab_focus: "Backup monitoring, restoration, and recovery validation."
-status: draft
+lab_focus: "Backup job readiness, backup artifact validation, restore workflows, integrity checks, recovery validation, and backup recovery evidence generation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to backup and recovery implementation-oriented validation workflows
+primary_runtime:
+  - Ansible
+  - Filesystem backup workflows
+  - Restore validation scripts
+  - Python integrity checks
+  - Monitoring backup visibility
+lab_scope:
+  - Backup job readiness validation
+  - Backup artifact validation
+  - Backup metadata validation
+  - Backup repository validation
+  - Restore workflow validation
+  - Filesystem recovery validation
+  - Service recovery validation
+  - Integrity validation
+  - Evidence generation

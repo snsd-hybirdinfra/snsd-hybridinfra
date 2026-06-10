@@ -1,0 +1,6 @@
+﻿adapter_name: service-recovery-adapter
+adapter_title: Service Recovery Adapter
+lab: 08-backup-recovery-lab
+adapter_scope: lab-local
+purpose: "Validates service state before backup, after restore, and during recovery validation."
+status: draft

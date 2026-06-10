@@ -1,0 +1,6 @@
+﻿module_name: recovery-integrity-validation-module
+module_title: Recovery Integrity Validation Module
+lab: 08-backup-recovery-lab
+module_scope: lab-local
+purpose: "Validates restored files, checksums, services, configuration state, and recovery consistency."
+status: draft

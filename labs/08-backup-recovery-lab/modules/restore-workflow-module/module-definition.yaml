@@ -1,0 +1,6 @@
+﻿module_name: restore-workflow-module
+module_title: Restore Workflow Module
+lab: 08-backup-recovery-lab
+module_scope: lab-local
+purpose: "Defines restore execution, recovery workflow, and post-restore validation boundaries."
+status: draft

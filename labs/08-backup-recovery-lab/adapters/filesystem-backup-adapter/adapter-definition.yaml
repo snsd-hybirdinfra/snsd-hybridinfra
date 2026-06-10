@@ -1,0 +1,6 @@
+﻿adapter_name: filesystem-backup-adapter
+adapter_title: Filesystem Backup Adapter
+lab: 08-backup-recovery-lab
+adapter_scope: lab-local
+purpose: "Reads file, directory, checksum, artifact, and restored filesystem state."
+status: draft

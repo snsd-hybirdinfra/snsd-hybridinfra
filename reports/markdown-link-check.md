@@ -3,8 +3,8 @@
 ## Summary
 
 ```text
-readme_files: 343
-checked_relative_links: 1226
+readme_files: 361
+checked_relative_links: 1238
 broken_links: 0
 ```
 

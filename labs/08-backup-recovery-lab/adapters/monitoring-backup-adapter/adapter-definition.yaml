@@ -1,0 +1,6 @@
+﻿adapter_name: monitoring-backup-adapter
+adapter_title: Monitoring Backup Adapter
+lab: 08-backup-recovery-lab
+adapter_scope: lab-local
+purpose: "Provides future backup job, restore state, and recovery visibility boundary."
+status: draft

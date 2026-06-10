@@ -1,0 +1,6 @@
+﻿adapter_name: ansible-backup-adapter
+adapter_title: Ansible Backup Adapter
+lab: 08-backup-recovery-lab
+adapter_scope: lab-local
+purpose: "Executes backup, restore, validation, and cleanup automation boundaries."
+status: draft

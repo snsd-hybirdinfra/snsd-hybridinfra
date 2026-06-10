@@ -1,0 +1,6 @@
+﻿module_name: backup-job-validation-module
+module_title: Backup Job Validation Module
+lab: 08-backup-recovery-lab
+module_scope: lab-local
+purpose: "Validates backup job readiness, execution boundary, schedule readiness, and backup workflow state."
+status: draft

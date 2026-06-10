@@ -1,0 +1,6 @@
+﻿module_name: backup-artifact-validation-module
+module_title: Backup Artifact Validation Module
+lab: 08-backup-recovery-lab
+module_scope: lab-local
+purpose: "Validates backup artifact existence, metadata, retention boundary, and repository state."
+status: draft
