@@ -1,19 +1,18 @@
 ﻿# Linux Observability Lab
 
-## Lab Metadata
+## Lab Purpose
 
-| Field | Value |
-|---|---|
-| Lab Name | `01-linux-observability-lab` |
-| Status | draft |
-| Implementation Boundary | Lab |
+This lab defines the implementation boundary for:
+
+01-linux-observability-lab
+
+## Lab Focus
+
+Linux host visibility, process health, filesystem state, service monitoring, and system events.
 
 ---
 
-
----
-
-## Lab Status
+## Current Status
 
 | Area | Status |
 |---|---|
@@ -22,63 +21,44 @@
 | Execution Status | not yet executed |
 | Evidence Status | placeholder until lab execution |
 
-## Lab Focus
+---
 
-Linux host visibility and system monitoring.
+## Lab Boundary
+
+This lab is a documentation-ready implementation boundary.
+
+It does not claim completed runtime execution until actual deployment, automation execution, validation, and evidence collection are performed.
 
 ---
 
-## Standard Lab Structure
+## Core Documents
 
-README.md
-lab-metadata.yaml
-architecture/
-modules/
-adapters/
-shared-runtime/
-scenarios/
-evidence/
-validation-reports/
-scripts/
+| Document | Link |
+|---|---|
+| Implementation Plan | [architecture/implementation-plan.md](./architecture/implementation-plan.md) |
+| Scenario Coverage Report | [validation-reports/scenario-coverage-report.md](./validation-reports/scenario-coverage-report.md) |
+| Lab Validation Report | [validation-reports/lab-validation-report.md](./validation-reports/lab-validation-report.md) |
+| Evidence Boundary | [evidence/README.md](./evidence/README.md) |
+| Scripts Boundary | [scripts/README.md](./scripts/README.md) |
+| Shared Runtime | [shared-runtime/README.md](./shared-runtime/README.md) |
 
 ---
 
-## Purpose
+## Lab Components
 
-This lab acts as an implementation boundary for validating lifecycle-aligned operational scenarios using reusable modules, adapters, runtime utilities, evidence outputs, and validation reports.
-
----
-
-## Scenario Mapping
-
-Scenario mapping is maintained from the repository-level lab coverage matrix.
-
-- [Lab Coverage Matrix](../../docs/lab-coverage-matrix.md)
-
----
-
-## Implementation Plan
-
-- [Implementation Plan](./architecture/implementation-plan.md)
+| Component | Path |
+|---|---|
+| Modules | [modules/](./modules/) |
+| Adapters | [adapters/](./adapters/) |
+| Shared Runtime Runners | [shared-runtime/runners/README.md](./shared-runtime/runners/README.md) |
+| Shared Runtime Validators | [shared-runtime/validators/README.md](./shared-runtime/validators/README.md) |
+| Shared Runtime Parsers | [shared-runtime/parsers/README.md](./shared-runtime/parsers/README.md) |
+| Raw Evidence | [evidence/raw/README.md](./evidence/raw/README.md) |
+| Processed Evidence | [evidence/processed/README.md](./evidence/processed/README.md) |
+| Evidence Summary | [evidence/summary/README.md](./evidence/summary/README.md) |
 
 ---
 
-## Scenario Coverage Report
+## Implementation Note
 
-- [Scenario Coverage Report](./validation-reports/scenario-coverage-report.md)
-
----
-
-## Lab Validation Report
-
-- [Lab Validation Report](./validation-reports/lab-validation-report.md)
-
----
-
-## Evidence Boundary
-
-- [Evidence](./evidence/README.md)
-- [Raw Evidence](./evidence/raw/README.md)
-- [Processed Evidence](./evidence/processed/README.md)
-- [Evidence Summary](./evidence/summary/README.md)
-
+Runtime scripts, deployment artifacts, generated evidence, and execution outputs are planned for the implementation phase.

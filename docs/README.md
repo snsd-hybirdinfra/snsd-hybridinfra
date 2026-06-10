@@ -1,31 +1,23 @@
-# Repository Documentation
+﻿# Repository Documentation
 
-This directory contains repository-level documentation for the SNSD Hybrid Infrastructure platform.
+This directory contains stable reviewer-facing repository documentation.
 
-The documentation explains the repository vision, operational architecture, scenario standards, visualization standards, governance model, and portfolio presentation structure.
+---
 
-## Documentation Areas
+## Documents
 
-- Repository architecture
-- Scenario README standard
-- Scenario quality checklist
-- Scenario relationship policy
-- Poster YAML standard
-- Evidence standard
-- Technology rationale
-- Visualization standard
-- Governance documentation
+| Document | Purpose |
+|---|---|
+| [Lab Coverage Matrix](./lab-coverage-matrix.md) | Maps repository scenarios to implementation labs |
+| [Repository Tree](./repository-tree.md) | Shows reviewer-facing repository structure |
+| [Report Layer Guide](./report-layer-guide.md) | Explains docs, reports, and validation-reports roles |
 
-## Purpose
+---
 
-These documents support reviewer understanding of how the repository is structured as an Enterprise Operational Capability Platform rather than a collection of isolated infrastructure examples.
+## Documentation Policy
 
-## Core Standards
+Stable repository references belong in docs/.
 
-- [Scenario Review Entry Points](./scenario-review-entry-points.md)
-- [Repository Validation Workflow](./validation-workflow.md)
-- [Scenario README Standard](./scenario-readme-standard.md)
-- [Scenario Quality Checklist](./scenario-quality-checklist.md)
-- [Poster YAML Standard](./poster-yaml-standard.md)
-- [Evidence Standard](./evidence-standard.md)
-- [Scenario Relationship Map](./scenario-relationship-map.md)
+Generated checker outputs belong in reports/.
+
+Reviewer-facing validation summaries belong in validation-reports/.

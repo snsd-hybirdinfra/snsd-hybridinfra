@@ -5,7 +5,7 @@
 ```text
 scanned_extensions: .json, .md, .ps1, .py, .txt, .yaml, .yml
 bad_patterns: 10
-bad_pattern_hits: 0
+bad_pattern_hits: 4
 ```
 
 ## Scan Scope
@@ -19,4 +19,7 @@ excluded: generated evidence artifacts, checker self-pattern definitions, legacy
 
 | File | Line | Pattern | Text |
 |---|---:|---|---|
-| NONE | 0 | NONE | NONE |
+| `internal/scenario-quality-model.md` | 13 | `flagship` | * flagship scenario criteria |
+| `internal/scenario-quality-model.md` | 236 | `flagship` | # Flagship Scenario Criteria |
+| `internal/scenario-quality-model.md` | 238 | `flagship` | A flagship scenario should demonstrate: |
+| `internal/scenario-quality-model.md` | 250 | `flagship` | Flagship scenarios should represent the repository’s best operational design and realization quality. |
