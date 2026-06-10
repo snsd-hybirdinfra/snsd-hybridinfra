@@ -369,3 +369,9 @@ It presents infrastructure operations as a reusable, governed, and evidence-back
 
 
 
+
+---
+
+## Lab Readiness Summary
+
+- [Lab Readiness Summary](./validation-reports/lab-readiness-summary.md)
