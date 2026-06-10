@@ -1,6 +1,24 @@
 ﻿lab_name: 02-network-routing-lab
 lab_title: Network Routing Lab
-lab_focus: "Network routing, VPN, WAN, and path validation."
-status: draft
+lab_focus: "Network routing, VPN, WAN, DNS, load balancing, reachability, latency, packet loss, and route recovery validation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to network routing implementation-oriented validation workflows
+primary_runtime:
+  - Ansible
+  - Linux routing stack
+  - FRR
+  - Prometheus
+  - Grafana
+  - Python validation scripts
+lab_scope:
+  - Route table visibility
+  - Endpoint reachability
+  - DNS resolution validation
+  - VPN tunnel visibility
+  - WAN link monitoring
+  - Latency and packet loss checks
+  - Route recovery validation

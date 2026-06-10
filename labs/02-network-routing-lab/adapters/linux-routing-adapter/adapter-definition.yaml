@@ -1,0 +1,6 @@
+﻿adapter_name: linux-routing-adapter
+adapter_title: Linux Routing Adapter
+lab: 02-network-routing-lab
+adapter_scope: lab-local
+purpose: "Reads Linux interface, route table, next-hop, and path state."
+status: draft

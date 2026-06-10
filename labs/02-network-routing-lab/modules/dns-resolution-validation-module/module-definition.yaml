@@ -1,0 +1,6 @@
+﻿module_name: dns-resolution-validation-module
+module_title: DNS Resolution Validation Module
+lab: 02-network-routing-lab
+module_scope: lab-local
+purpose: "Checks DNS resolution behavior and name service reachability."
+status: draft

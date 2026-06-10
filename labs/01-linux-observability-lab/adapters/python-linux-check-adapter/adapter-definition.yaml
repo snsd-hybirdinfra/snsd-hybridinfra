@@ -1,0 +1,6 @@
+﻿adapter_name: python-linux-check-adapter
+adapter_title: Python Linux Check Adapter
+lab: 01-linux-observability-lab
+adapter_scope: lab-local
+purpose: "Runs lightweight Linux validation checks and evidence parsing."
+status: draft

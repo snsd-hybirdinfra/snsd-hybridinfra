@@ -1,0 +1,6 @@
+﻿adapter_name: python-network-check-adapter
+adapter_title: Python Network Check Adapter
+lab: 02-network-routing-lab
+adapter_scope: lab-local
+purpose: "Runs reachability, latency, DNS, and path validation checks."
+status: draft

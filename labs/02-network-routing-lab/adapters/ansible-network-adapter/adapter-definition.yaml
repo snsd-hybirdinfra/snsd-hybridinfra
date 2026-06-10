@@ -1,0 +1,6 @@
+﻿adapter_name: ansible-network-adapter
+adapter_title: Ansible Network Adapter
+lab: 02-network-routing-lab
+adapter_scope: lab-local
+purpose: "Executes network setup, route validation, and cleanup workflows."
+status: draft

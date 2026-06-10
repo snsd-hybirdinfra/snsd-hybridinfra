@@ -1,0 +1,6 @@
+﻿module_name: routing-state-collection-module
+module_title: Routing State Collection Module
+lab: 02-network-routing-lab
+module_scope: lab-local
+purpose: "Collects route table, next-hop, interface, and routing protocol state."
+status: draft

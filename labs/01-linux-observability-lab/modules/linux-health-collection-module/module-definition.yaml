@@ -1,0 +1,6 @@
+﻿module_name: linux-health-collection-module
+module_title: Linux Health Collection Module
+lab: 01-linux-observability-lab
+module_scope: lab-local
+purpose: "Collects CPU, memory, load, uptime, and host availability signals."
+status: draft

@@ -10,6 +10,18 @@
 
 ---
 
+
+---
+
+## Lab Status
+
+| Area | Status |
+|---|---|
+| Documentation Status | documentation-ready |
+| Implementation Status | planned |
+| Execution Status | not yet executed |
+| Evidence Status | placeholder until lab execution |
+
 ## Lab Focus
 
 Linux host visibility and system monitoring.
@@ -42,3 +54,31 @@ This lab acts as an implementation boundary for validating lifecycle-aligned ope
 Scenario mapping is maintained from the repository-level lab coverage matrix.
 
 - [Lab Coverage Matrix](../../docs/lab-coverage-matrix.md)
+
+---
+
+## Implementation Plan
+
+- [Implementation Plan](./architecture/implementation-plan.md)
+
+---
+
+## Scenario Coverage Report
+
+- [Scenario Coverage Report](./validation-reports/scenario-coverage-report.md)
+
+---
+
+## Lab Validation Report
+
+- [Lab Validation Report](./validation-reports/lab-validation-report.md)
+
+---
+
+## Evidence Boundary
+
+- [Evidence](./evidence/README.md)
+- [Raw Evidence](./evidence/raw/README.md)
+- [Processed Evidence](./evidence/processed/README.md)
+- [Evidence Summary](./evidence/summary/README.md)
+

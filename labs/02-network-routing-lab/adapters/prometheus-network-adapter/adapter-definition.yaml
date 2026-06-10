@@ -1,0 +1,6 @@
+﻿adapter_name: prometheus-network-adapter
+adapter_title: Prometheus Network Adapter
+lab: 02-network-routing-lab
+adapter_scope: lab-local
+purpose: "Collects network and host telemetry for routing validation."
+status: draft

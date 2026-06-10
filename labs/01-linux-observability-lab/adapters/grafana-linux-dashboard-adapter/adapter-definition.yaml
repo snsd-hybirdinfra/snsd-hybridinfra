@@ -1,0 +1,6 @@
+﻿adapter_name: grafana-linux-dashboard-adapter
+adapter_title: Grafana Linux Dashboard Adapter
+lab: 01-linux-observability-lab
+adapter_scope: lab-local
+purpose: "Provides dashboard visibility for Linux host telemetry."
+status: draft

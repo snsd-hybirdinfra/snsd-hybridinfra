@@ -1,0 +1,6 @@
+﻿module_name: network-evidence-generation-module
+module_title: Network Evidence Generation Module
+lab: 02-network-routing-lab
+module_scope: lab-local
+purpose: "Generates raw, processed, and summary evidence for network validation workflows."
+status: draft

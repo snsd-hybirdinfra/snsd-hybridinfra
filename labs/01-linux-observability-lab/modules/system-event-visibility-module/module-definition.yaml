@@ -1,0 +1,6 @@
+﻿module_name: system-event-visibility-module
+module_title: System Event Visibility Module
+lab: 01-linux-observability-lab
+module_scope: lab-local
+purpose: "Collects system event and journal visibility evidence."
+status: draft

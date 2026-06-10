@@ -1,0 +1,6 @@
+﻿module_name: process-visibility-module
+module_title: Process Visibility Module
+lab: 01-linux-observability-lab
+module_scope: lab-local
+purpose: "Validates process and service state for Linux workloads."
+status: draft

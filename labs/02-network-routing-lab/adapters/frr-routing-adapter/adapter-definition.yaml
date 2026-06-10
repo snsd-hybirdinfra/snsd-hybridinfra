@@ -1,0 +1,6 @@
+﻿adapter_name: frr-routing-adapter
+adapter_title: FRR Routing Adapter
+lab: 02-network-routing-lab
+adapter_scope: lab-local
+purpose: "Supports dynamic routing validation when FRR is used."
+status: draft

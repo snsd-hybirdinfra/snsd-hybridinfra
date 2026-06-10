@@ -1,0 +1,6 @@
+﻿module_name: vpn-visibility-module
+module_title: VPN Visibility Module
+lab: 02-network-routing-lab
+module_scope: lab-local
+purpose: "Validates VPN tunnel status, tunnel health, and connectivity state."
+status: draft

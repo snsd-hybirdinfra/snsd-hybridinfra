@@ -1,0 +1,6 @@
+﻿adapter_name: ansible-linux-adapter
+adapter_title: Ansible Linux Adapter
+lab: 01-linux-observability-lab
+adapter_scope: lab-local
+purpose: "Executes Linux setup, validation, and cleanup tasks."
+status: draft

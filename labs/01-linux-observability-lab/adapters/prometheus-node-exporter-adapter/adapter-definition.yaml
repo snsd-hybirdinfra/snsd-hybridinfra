@@ -1,0 +1,6 @@
+﻿adapter_name: prometheus-node-exporter-adapter
+adapter_title: Prometheus Node Exporter Adapter
+lab: 01-linux-observability-lab
+adapter_scope: lab-local
+purpose: "Collects Linux host metrics through node exporter."
+status: draft

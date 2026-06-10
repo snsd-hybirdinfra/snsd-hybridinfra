@@ -1,6 +1,21 @@
 ﻿lab_name: 01-linux-observability-lab
 lab_title: Linux Observability Lab
-lab_focus: "Linux host visibility and system monitoring."
-status: draft
+lab_focus: "Linux host visibility, process health, filesystem state, service monitoring, system events, and host-level telemetry."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to Linux observability implementation-oriented validation workflows
+primary_runtime:
+  - Ansible
+  - Prometheus Node Exporter
+  - Prometheus
+  - Grafana
+  - Python validation scripts
+lab_scope:
+  - Linux host health visibility
+  - Process and service monitoring
+  - Filesystem visibility
+  - System event visibility
+  - Evidence generation

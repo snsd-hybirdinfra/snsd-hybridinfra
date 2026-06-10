@@ -1,0 +1,6 @@
+﻿module_name: filesystem-visibility-module
+module_title: Filesystem Visibility Module
+lab: 01-linux-observability-lab
+module_scope: lab-local
+purpose: "Checks filesystem usage, mount availability, and capacity risk."
+status: draft

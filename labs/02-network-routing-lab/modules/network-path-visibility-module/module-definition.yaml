@@ -1,0 +1,6 @@
+﻿module_name: network-path-visibility-module
+module_title: Network Path Visibility Module
+lab: 02-network-routing-lab
+module_scope: lab-local
+purpose: "Validates endpoint reachability, path state, and network route visibility."
+status: draft
