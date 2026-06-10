@@ -1,0 +1,6 @@
+﻿module_name: container-recovery-module
+module_title: Container Recovery Module
+lab: 04-container-runtime-lab
+module_scope: lab-local
+purpose: "Defines container restart, recreate, and recovery workflow boundaries."
+status: draft

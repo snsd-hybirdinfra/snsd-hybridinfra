@@ -1,0 +1,6 @@
+﻿module_name: container-health-validation-module
+module_title: Container Health Validation Module
+lab: 04-container-runtime-lab
+module_scope: lab-local
+purpose: "Validates container health checks, running state, service state, and expected runtime behavior."
+status: draft

@@ -1,0 +1,6 @@
+﻿module_name: container-evidence-generation-module
+module_title: Container Evidence Generation Module
+lab: 04-container-runtime-lab
+module_scope: lab-local
+purpose: "Generates raw, processed, and summary evidence from container runtime validation."
+status: draft

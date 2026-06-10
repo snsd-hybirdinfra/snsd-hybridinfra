@@ -1,0 +1,6 @@
+﻿module_name: container-runtime-visibility-module
+module_title: Container Runtime Visibility Module
+lab: 04-container-runtime-lab
+module_scope: lab-local
+purpose: "Validates Docker runtime, container lifecycle, image, volume, network, and runtime state visibility."
+status: draft

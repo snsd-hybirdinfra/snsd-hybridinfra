@@ -1,0 +1,6 @@
+﻿adapter_name: ansible-container-adapter
+adapter_title: Ansible Container Adapter
+lab: 04-container-runtime-lab
+adapter_scope: lab-local
+purpose: "Executes container setup, validation, recovery, and cleanup workflows."
+status: draft

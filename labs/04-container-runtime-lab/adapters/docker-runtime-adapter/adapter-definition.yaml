@@ -1,0 +1,6 @@
+﻿adapter_name: docker-runtime-adapter
+adapter_title: Docker Runtime Adapter
+lab: 04-container-runtime-lab
+adapter_scope: lab-local
+purpose: "Reads container, image, volume, network, health, and runtime state."
+status: draft

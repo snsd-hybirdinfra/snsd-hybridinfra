@@ -1,6 +1,24 @@
 ﻿lab_name: 04-container-runtime-lab
 lab_title: Container Runtime Lab
-lab_focus: "Container runtime and Kubernetes scenario validation."
-status: draft
+lab_focus: "Docker runtime visibility, container lifecycle validation, container health checks, log collection, restart recovery, and container evidence generation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to container runtime implementation-oriented validation workflows
+primary_runtime:
+  - Docker
+  - Ansible
+  - Prometheus container metrics
+  - Python container checks
+lab_scope:
+  - Docker runtime availability validation
+  - Container lifecycle state validation
+  - Container health validation
+  - Image readiness validation
+  - Volume state validation
+  - Network state validation
+  - Container log collection
+  - Restart and recovery workflow validation
+  - Evidence generation

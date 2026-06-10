@@ -1,0 +1,6 @@
+﻿adapter_name: prometheus-container-adapter
+adapter_title: Prometheus Container Adapter
+lab: 04-container-runtime-lab
+adapter_scope: lab-local
+purpose: "Provides future container metric scrape validation boundary."
+status: draft

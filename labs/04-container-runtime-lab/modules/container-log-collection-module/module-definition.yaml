@@ -1,0 +1,6 @@
+﻿module_name: container-log-collection-module
+module_title: Container Log Collection Module
+lab: 04-container-runtime-lab
+module_scope: lab-local
+purpose: "Collects container logs, runtime events, and diagnostic output for validation."
+status: draft
