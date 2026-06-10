@@ -1,79 +1,17 @@
-# Network Foundation Module
+﻿# Network Foundation Module
 
-## Capability Purpose
+## Catalog Role
 
-Provides network topology, routing, connectivity, and path context for operational scenarios.
+This module is a repository-level operational capability definition.
 
-## Operational Boundary
+It describes a reusable capability boundary that can be referenced by scenarios and implemented inside lab-local module directories.
 
-This module represents network foundation context. It does not independently execute failover unless invoked by a recovery or resilience workflow.
+## Implementation Boundary
 
-## Inputs
+Lab-specific implementation belongs under:
 
-- network path state
-- routing or tunnel status
-- connectivity signals
-- gateway or link health
+labs/<lab-name>/modules/network-foundation-module/
 
-## Outputs
+## Usage
 
-- network dependency context
-- connectivity evidence
-- routing or path visibility
-- scenario-ready network state
-
-## Failure Handling Role
-
-Network foundation degradation is escalated when reachability, routing, or path health affects dependent services.
-
-## Validation Evidence
-
-Validation confirms path reachability, routing state, link health, and dependency impact evidence.
-
-## Scenario Usage
-
-This module is referenced by scenarios when the workflow requires this reusable operational capability. Scenario README files use module references to show how platform capabilities are composed into lifecycle-aligned operational workflows.
-
-<!-- MODULE_CONTRACT_START -->
-
-## Capability Contract
-
-### Responsibility
-
-Provides network topology, routing, connectivity, and path health context.
-
-### Non-Responsibility
-
-Does not independently perform failover unless invoked by a recovery or resilience workflow.
-
-### Input Contract
-
-- path reachability state
-- routing status
-- gateway or tunnel health
-- link availability indicators
-
-### Output Contract
-
-- network health context
-- connectivity evidence
-- routing dependency signal
-- network impact context
-
-### Lifecycle Contribution
-
-Supports visibility, correlation, recovery, and resilience workflows involving network operations.
-
-### Failure Mode
-
-If network reachability cannot be confirmed, dependent workflows must treat path state as unresolved.
-
-### Example Scenario Usage
-
-Used by vpn-connectivity-monitoring, network-path-visibility, and multi-site-routing-failover scenarios.
-
-<!-- MODULE_CONTRACT_END -->
-
-## Implementation Note
-
-This module describes a reusable capability boundary, not a single tool, product, or vendor-specific implementation.
+Scenarios may reference this module as part of their operational workflow, evidence generation, validation process, or lifecycle-aligned capability mapping.

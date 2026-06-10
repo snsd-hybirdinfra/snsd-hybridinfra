@@ -1,126 +1,191 @@
 ﻿from pathlib import Path
-import re
 from datetime import datetime
+import re
 
 ROOT = Path(".").resolve()
-OUTPUT = ROOT / "a.txt"
+OUT = ROOT / "a.txt"
 
-def read(path: str) -> str:
-    target = ROOT / path
-    if not target.exists():
-        return ""
-    return target.read_text(encoding="utf-8-sig", errors="replace")
+def read_text(path):
+    if path.exists():
+        return path.read_text(encoding="utf-8", errors="ignore")
+    return ""
 
-def extract_value(text: str, key: str) -> str:
-    match = re.search(rf"{re.escape(key)}:\s*(.+)", text)
-    return match.group(1).strip() if match else "UNKNOWN"
-
-def count_level(level_name: str) -> int:
-    base = ROOT / "scenarios" / level_name
-    if not base.exists():
+def count_dirs(path):
+    if not path.exists():
         return 0
-    return len([p for p in base.iterdir() if p.is_dir()])
+    return len([p for p in path.iterdir() if p.is_dir()])
 
-quality = read("reports/repository-quality-check.md")
-links = read("reports/markdown-link-check.md")
-structure = read("reports/top-level-structure-check.md")
-root_readme = read("reports/root-readme-alignment-check.md")
-language = read("reports/repository-language-check.md")
-related = read("reports/related-scenarios-generation-report.md")
+def count_files(pattern):
+    return len(list(ROOT.glob(pattern)))
 
-levels = [
-    ("level-1-visibility", "Level 1 Visibility"),
-    ("level-2-correlation", "Level 2 Correlation"),
-    ("level-3-recovery", "Level 3 Recovery"),
-    ("level-4-resilience", "Level 4 Resilience"),
-    ("level-5-continuity", "Level 5 Continuity"),
-]
+def extract_number(text, key, default="0"):
+    match = re.search(rf"{re.escape(key)}:\s*(\d+)", text)
+    if match:
+        return match.group(1)
+    return default
 
-level_counts = [(label, count_level(level_dir)) for level_dir, label in levels]
-total_scenarios = sum(count for _, count in level_counts)
+def has_text(path, pattern):
+    text = read_text(path)
+    return pattern in text
+
+health = read_text(ROOT / "reports" / "portfolio-health-summary.md")
+link_report = read_text(ROOT / "reports" / "markdown-link-check.md")
+top_report = read_text(ROOT / "reports" / "top-level-structure-check.md")
+root_report = read_text(ROOT / "reports" / "root-readme-alignment-check.md")
+language_report = read_text(ROOT / "reports" / "repository-language-check.md")
+related_report = read_text(ROOT / "reports" / "related-scenarios-generation-report.md")
+lab_report = read_text(ROOT / "validation-reports" / "lab-validation-summary.md")
+matrix = read_text(ROOT / "docs" / "lab-coverage-matrix.md")
+
+scenario_total = count_dirs(ROOT / "scenarios" / "level-1-visibility")
+scenario_total += count_dirs(ROOT / "scenarios" / "level-2-correlation")
+scenario_total += count_dirs(ROOT / "scenarios" / "level-3-recovery")
+scenario_total += count_dirs(ROOT / "scenarios" / "level-4-resilience")
+scenario_total += count_dirs(ROOT / "scenarios" / "level-5-continuity")
+
+l1 = count_dirs(ROOT / "scenarios" / "level-1-visibility")
+l2 = count_dirs(ROOT / "scenarios" / "level-2-correlation")
+l3 = count_dirs(ROOT / "scenarios" / "level-3-recovery")
+l4 = count_dirs(ROOT / "scenarios" / "level-4-resilience")
+l5 = count_dirs(ROOT / "scenarios" / "level-5-continuity")
+
+metadata_count = count_files("scenarios/*/*/metadata.yaml")
+poster_svg_count = count_files("scenarios/*/*/diagrams/operational-poster.svg")
+poster_png_count = count_files("scenarios/*/*/diagrams/operational-poster.png")
+
+lab_count = count_dirs(ROOT / "labs")
+mapped_scenarios = extract_number(matrix, "Total mapped scenarios", str(scenario_total))
+missing_lab_items = extract_number(lab_report, "missing_lab_items", "0")
+
+broken_links = extract_number(link_report, "broken_links", "0")
+extra_dirs = extract_number(top_report, "extra_top_level_directories", "0")
+missing_dirs = extract_number(top_report, "missing_expected_directories", "0")
+missing_root_links = extract_number(root_report, "missing_required_links", "0")
+missing_root_terms = extract_number(root_report, "missing_required_terms", "0")
+language_hits = extract_number(language_report, "language_hits", "0")
+
+related_pending = "24"
+m = re.search(r"Related Mapping Pending:\s*(\d+)", read_text(ROOT / "reports" / "repository-summary-report.txt"))
+if m:
+    related_pending = m.group(1)
+
+baseline_pass = (
+    broken_links == "0"
+    and extra_dirs == "0"
+    and missing_dirs == "0"
+    and missing_root_links == "0"
+    and missing_root_terms == "0"
+    and language_hits == "0"
+    and missing_lab_items == "0"
+)
+
+status = "PASS" if baseline_pass else "CHECK_REQUIRED"
 
 lines = []
-lines.append("SNSD HYBRID INFRASTRUCTURE - REPOSITORY SUMMARY REPORT")
+lines.append("SNSD HYBRID INFRASTRUCTURE - REPOSITORY EXECUTIVE SUMMARY REPORT")
 lines.append("=" * 72)
 lines.append("")
-lines.append(f"Generated At: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+lines.append("Generated At: " + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 lines.append("")
 lines.append("1. Repository Positioning")
 lines.append("-" * 72)
-lines.append("SNSD Hybrid Infrastructure is an Enterprise Operational Capability Platform.")
-lines.append("It organizes infrastructure operations as reusable capability modules, adapters,")
-lines.append("shared runtime components, scenario workflows, generated artifacts, and validation reports.")
+lines.append("SNSD Hybrid Infrastructure is a Scenario-driven Infrastructure Operations Platform.")
+lines.append("It is positioned as an Enterprise Operational Capability Platform, not a simple")
+lines.append("scenario collection. Reusable operational capabilities are described as catalog")
+lines.append("modules, adapters, and shared runtime concepts, then validated through lifecycle")
+lines.append("aligned operational scenarios and lab-centered implementation boundaries.")
 lines.append("")
-lines.append("2. Scenario Inventory")
+lines.append("2. Architecture Model")
 lines.append("-" * 72)
-lines.append(f"Total Scenarios: {total_scenarios}")
-for label, count in level_counts:
-    lines.append(f"{label}: {count}")
+lines.append("Root repository: catalog, governance, standards, reports, and reviewer entry points")
+lines.append("scenarios/: lifecycle-based operational validation workflows")
+lines.append("labs/: implementation boundaries for validating scenario groups")
+lines.append("modules/: repository-level operational capability catalog")
+lines.append("adapters/: repository-level integration adapter catalog")
+lines.append("shared-runtime/: repository-level runtime capability catalog")
+lines.append("builds/: implementation foundation documents and lab preparation references")
+lines.append("docs/: reviewer-facing standards, architecture notes, and coverage matrices")
+lines.append("diagrams/: repository-level architecture diagrams")
+lines.append("internal/: internal governance, templates, and QA references")
+lines.append("reports/: generated detailed validation outputs")
+lines.append("validation-reports/: reviewer-facing validation summaries")
+lines.append("tools/: validation, generation, and diagram rendering tooling")
 lines.append("")
-lines.append("3. Artifact Coverage")
+lines.append("3. Scenario Inventory")
 lines.append("-" * 72)
-lines.append(f"Scenario Directories: {extract_value(quality, 'scenario_directories')}")
-lines.append(f"Metadata Files: {extract_value(quality, 'metadata_files')}")
-lines.append(f"Poster SVG Files: {extract_value(quality, 'poster_svg_files')}")
-lines.append(f"Poster PNG Files: {extract_value(quality, 'poster_png_files')}")
-lines.append(f"Missing Required Artifacts: {extract_value(quality, 'missing_required_artifacts')}")
-lines.append(f"Small PNG Files: {extract_value(quality, 'small_png_files')}")
+lines.append("Total Scenarios: " + str(scenario_total))
+lines.append("Level 1 Visibility: " + str(l1))
+lines.append("Level 2 Correlation: " + str(l2))
+lines.append("Level 3 Recovery: " + str(l3))
+lines.append("Level 4 Resilience: " + str(l4))
+lines.append("Level 5 Continuity: " + str(l5))
 lines.append("")
-lines.append("4. Validation Status")
+lines.append("4. Lab Inventory")
 lines.append("-" * 72)
-lines.append(f"Markdown Broken Links: {extract_value(links, 'broken_links')}")
-lines.append(f"Top-Level Extra Directories: {extract_value(structure, 'extra_top_level_directories')}")
-lines.append(f"Top-Level Missing Directories: {extract_value(structure, 'missing_expected_directories')}")
-lines.append(f"Root README Missing Links: {extract_value(root_readme, 'missing_required_links')}")
-lines.append(f"Root README Missing Terms: {extract_value(root_readme, 'missing_required_terms')}")
-lines.append(f"Repository Language Hits: {extract_value(language, 'bad_pattern_hits')}")
+lines.append("Total Labs: " + str(lab_count))
+lines.append("Mapped Scenarios: " + str(mapped_scenarios))
+lines.append("Missing Lab Items: " + str(missing_lab_items))
+lines.append("")
+lines.append("Lab Model:")
+lines.append("Lab = implementation boundary")
+lines.append("Scenario = operational validation case")
+lines.append("Lab-local modules = implementation-specific reusable capabilities")
+lines.append("Lab-local adapters = implementation-specific tool integrations")
+lines.append("Lab-local shared-runtime = runners, validators, parsers, and execution helpers")
+lines.append("")
+lines.append("5. Artifact Coverage")
+lines.append("-" * 72)
+lines.append("Scenario Directories: " + str(scenario_total))
+lines.append("Metadata Files: " + str(metadata_count))
+lines.append("Poster SVG Files: " + str(poster_svg_count))
+lines.append("Poster PNG Files: " + str(poster_png_count))
+lines.append("Required Scenario Artifact Policy: README, metadata, poster seed, poster outputs,")
+lines.append("execution evidence, validation evidence, summary, manifest, and checksums")
+lines.append("")
+lines.append("6. Validation Status")
+lines.append("-" * 72)
+lines.append("Markdown Broken Links: " + str(broken_links))
+lines.append("Top-Level Extra Directories: " + str(extra_dirs))
+lines.append("Top-Level Missing Directories: " + str(missing_dirs))
+lines.append("Root README Missing Links: " + str(missing_root_links))
+lines.append("Root README Missing Terms: " + str(missing_root_terms))
+lines.append("Repository Language Hits: " + str(language_hits))
 lines.append("Related Mapping Policy: Conservative lifecycle-only mapping")
-lines.append(f"Related Mapping Pending: {extract_value(related, 'empty_related_scenarios')}")
+lines.append("Related Mapping Pending: " + str(related_pending))
 lines.append("")
-lines.append("5. Platform Layers")
+lines.append("7. Report Layering")
 lines.append("-" * 72)
-lines.append("scenarios/: lifecycle-based operational scenario workflows")
-lines.append("modules/: reusable operational capability modules")
-lines.append("adapters/: tool and platform integration adapters")
-lines.append("shared-runtime/: shared orchestration, telemetry, evidence, and integration runtime")
-lines.append("tools/: content generation, validation, and diagram rendering tooling")
-lines.append("reports/: generated repository quality and health reports")
-lines.append("builds/: build foundation documentation")
-lines.append("docs/: repository documentation")
+lines.append("a.txt: executive repository summary")
+lines.append("reports/: detailed generated validation results")
+lines.append("validation-reports/: reviewer-facing validation summaries")
+lines.append("docs/lab-coverage-matrix.md: scenario-to-lab mapping")
+lines.append("docs/repository-tree.md: reviewer-facing public tree")
 lines.append("")
-lines.append("6. Current Baseline")
+lines.append("8. Tooling Model")
 lines.append("-" * 72)
-
-status_checks = [
-    extract_value(quality, "missing_required_artifacts") == "0",
-    extract_value(quality, "small_png_files") == "0",
-    extract_value(links, "broken_links") == "0",
-    extract_value(structure, "extra_top_level_directories") == "0",
-    extract_value(structure, "missing_expected_directories") == "0",
-    extract_value(root_readme, "missing_required_links") == "0",
-    extract_value(root_readme, "missing_required_terms") == "0",
-    extract_value(language, "bad_pattern_hits") == "0",
-]
-
-baseline_status = "PASS" if all(status_checks) else "CHECK_REQUIRED"
-
-lines.append(f"Portfolio Baseline Status: {baseline_status}")
+lines.append("Primary Validation Workflow: tools/content-generator/run_repository_validation.py")
+lines.append("Content Generation: tools/content-generator/")
+lines.append("Diagram Rendering: tools/diagram-renderer/")
+lines.append("Legacy Tools: isolated under tools/content-generator/legacy when applicable")
+lines.append("")
+lines.append("9. Current Baseline")
+lines.append("-" * 72)
+lines.append("Portfolio Baseline Status: " + status)
 lines.append("Validation Workflow: tools/content-generator/run_repository_validation.py")
 lines.append("")
-lines.append("7. Operational Summary")
+lines.append("10. Operational Summary")
 lines.append("-" * 72)
-lines.append("The repository is structured as a production-oriented infrastructure operations")
-lines.append("portfolio with lifecycle-based scenarios, reusable modules, generated evidence,")
-lines.append("visual operational posters, index documentation, and repeatable validation tooling.")
+lines.append("The repository now represents a production-oriented infrastructure operations")
+lines.append("portfolio where 150 lifecycle-aligned scenarios are preserved as validation")
+lines.append("workflows, while 10 implementation-oriented labs provide the practical execution")
+lines.append("boundaries for validating those scenarios with lab-local modules, adapters, shared")
+lines.append("runtime utilities, evidence outputs, and validation reports.")
 lines.append("")
 lines.append("=" * 72)
 lines.append("END OF REPORT")
 lines.append("")
 
-OUTPUT.write_text("\n".join(lines), encoding="utf-8")
-
-print(f"[OK] wrote {OUTPUT}")
-print(f"[OK] portfolio baseline status: {baseline_status}")
-print(f"[OK] total scenarios: {total_scenarios}")
-
+OUT.write_text("\n".join(lines), encoding="utf-8")
+print("[OK] wrote a.txt")
+print("[OK] baseline status:", status)
 

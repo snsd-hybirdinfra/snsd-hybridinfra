@@ -31,8 +31,6 @@ EXCLUDED_PATH_PARTS = {
     "evidence/generated",
 
     # Legacy placeholder artifact generator is retained only as a utility reference.
-    "generate_placeholder_artifacts.py",
-
     # This checker necessarily contains the blocked terms as pattern definitions.
     "check_repository_language.py",
 }
@@ -53,6 +51,9 @@ BAD_PATTERNS = [
 hits = []
 
 for path in ROOT.rglob("*"):
+    normalized_path = str(path).replace("\\", "/")
+    if "tools/content-generator/legacy/" in normalized_path:
+        continue
     if not path.is_file():
         continue
 
@@ -116,3 +117,5 @@ print(f"[OK] bad pattern hits: {len(hits)}")
 
 if hits:
     sys.exit(1)
+
+

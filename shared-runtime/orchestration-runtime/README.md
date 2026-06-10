@@ -1,81 +1,17 @@
-# Orchestration Runtime
+﻿# Orchestration Runtime
 
-## Runtime Purpose
+## Catalog Role
 
-Defines shared orchestration patterns used to coordinate detection, correlation, recovery, validation, and reporting workflows.
+This shared runtime entry defines a repository-level runtime capability.
 
-## Runtime Boundary
+It describes reusable execution, telemetry, evidence, orchestration, or integration behavior used across operational scenarios.
 
-This runtime layer describes workflow coordination mechanics. It does not replace scenario-specific operational logic or execute vendor-specific automation directly.
+## Implementation Boundary
 
-## Inputs
+Lab-specific runtime implementation belongs under:
 
-- scenario workflow state
-- module execution context
-- adapter output
-- operator decision point
+labs/<lab-name>/shared-runtime/
 
-## Outputs
+## Usage
 
-- workflow transition context
-- orchestration evidence
-- execution handoff record
-- validation request
-
-## Operational Role
-
-The orchestration runtime keeps multi-step operational workflows consistent across scenarios.
-
-## Failure / Consistency Handling
-
-If orchestration context is incomplete, the workflow should pause, preserve state, and avoid unsafe downstream execution.
-
-## Scenario Usage
-
-Scenarios use this shared runtime structure to keep operational workflows consistent across lifecycle levels. The runtime layer supports repeatable orchestration, telemetry handling, evidence generation, and integration behavior without turning each scenario into a one-off implementation note.
-
-<!-- RUNTIME_CONTRACT_START -->
-
-## Runtime Contract
-
-### Responsibility
-
-Coordinates shared workflow transitions between detection, correlation, recovery, validation, and reporting stages.
-
-### Non-Responsibility
-
-Does not replace scenario-specific operational logic or execute vendor-specific automation directly.
-
-### Runtime Scope
-
-Workflow state, module handoff, adapter result handling, validation gate transition, and escalation state.
-
-### Input Contract
-
-- scenario workflow state
-- module execution context
-- adapter output
-- operator decision point
-- validation gate status
-
-### Output Contract
-
-- next workflow transition
-- orchestration evidence
-- execution handoff record
-- rollback or escalation context
-- validation request
-
-### Consistency Rule
-
-Workflow transitions must be explicit, traceable, and aligned with the scenario lifecycle level.
-
-### Failure Mode
-
-If orchestration context is incomplete, the workflow must pause and preserve state instead of advancing unsafely.
-
-<!-- RUNTIME_CONTRACT_END -->
-
-## Implementation Note
-
-This directory describes reusable platform mechanics. It is intentionally separated from scenario README files, operational modules, and external adapters.
+Labs may implement runners, validators, parsers, or runtime utilities based on this runtime capability definition.

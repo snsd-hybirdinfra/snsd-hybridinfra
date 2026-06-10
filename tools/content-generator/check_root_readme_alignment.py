@@ -17,6 +17,7 @@ required_patterns = [
     ("Lab Inventory", "./labs/README.md"),
     ("Lab Coverage Matrix", "./docs/lab-coverage-matrix.md"),
     ("Lab Validation Summary", "./validation-reports/lab-validation-summary.md"),
+    ("Validation Reports", "./validation-reports/README.md"),
     ("Portfolio Health Summary", "./reports/portfolio-health-summary.md"),
     ("Repository Quality Check", "./reports/repository-quality-check.md"),
     ("Markdown Link Check", "./reports/markdown-link-check.md"),
@@ -82,4 +83,5 @@ print(f"[OK] missing required terms: {len(missing_terms)}")
 
 if missing_links or missing_terms:
     sys.exit(1)
+
 

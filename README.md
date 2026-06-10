@@ -267,9 +267,11 @@ Platform indexes:
 - [Reports](./reports/README.md)
 - [Tools](./tools/README.md)
 - [Documentation](./docs/README.md)
+- [Repository Tree](./docs/repository-tree.md)
 - [Lab Inventory](./labs/README.md)
 - [Lab Coverage Matrix](./docs/lab-coverage-matrix.md)
 - [Lab Validation Summary](./validation-reports/lab-validation-summary.md)
+- [Validation Reports](./validation-reports/README.md)
 
 ---
 
@@ -364,4 +366,6 @@ This repository demonstrates the ability to:
 SNSD Hybrid Infrastructure is an enterprise infrastructure operations portfolio focused on operational capability design, scenario-based validation, and production-oriented documentation.
 
 It presents infrastructure operations as a reusable, governed, and evidence-backed platform rather than isolated troubleshooting examples.
+
+
 

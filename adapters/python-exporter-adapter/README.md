@@ -1,79 +1,17 @@
-# Python Exporter Adapter
+﻿# Python Exporter Adapter
 
-## Integration Target
+## Catalog Role
 
-Python-based custom telemetry exporters
+This adapter is a repository-level integration boundary definition.
 
-## Adapter Purpose
+It describes how scenarios may reference an external tool, platform, telemetry source, automation engine, or validation service.
 
-Provides custom signal collection for scenarios where standard telemetry sources do not fully capture the required operational condition.
+## Implementation Boundary
 
-## Operational Boundary
+Lab-specific adapter implementation belongs under:
 
-This adapter exposes custom telemetry signals. It does not replace centralized monitoring, correlation, or recovery orchestration modules.
+labs/<lab-name>/adapters/python-exporter-adapter/
 
-## Inputs
+## Usage
 
-- custom collection script
-- target endpoint or resource
-- exporter configuration
-- scenario-specific signal definition
-
-## Outputs
-
-- custom metric or signal
-- exporter execution evidence
-- scenario-specific visibility data
-- telemetry enrichment context
-
-## Failure Mode
-
-If custom collection fails, the adapter reports exporter failure separately from the infrastructure condition being observed.
-
-## Scenario Usage
-
-Scenarios reference this adapter when the workflow requires integration with the target system. The adapter supports telemetry collection, execution context, visualization, evidence generation, or validation depending on the scenario lifecycle level.
-
-<!-- ADAPTER_CONTRACT_START -->
-
-## Integration Contract
-
-### Responsibility
-
-Provides custom telemetry collection for scenario-specific signals not covered by standard monitoring sources.
-
-### Non-Responsibility
-
-Does not replace centralized telemetry, correlation logic, or recovery orchestration.
-
-### Integration Target
-
-Python-based exporters, custom probes, endpoint checks, and scenario-specific signal collectors.
-
-### Input Contract
-
-- custom collection script
-- target endpoint or resource
-- exporter configuration
-- signal definition
-
-### Output Contract
-
-- custom metric or signal
-- exporter execution evidence
-- scenario-specific visibility data
-- telemetry enrichment context
-
-### Failure Mode
-
-Exporter failure must be reported separately from the infrastructure condition being observed.
-
-### Scenario Usage
-
-Used when scenarios require custom operational signals or lightweight synthetic checks.
-
-<!-- ADAPTER_CONTRACT_END -->
-
-## Implementation Note
-
-This adapter describes an integration boundary. It is intentionally separated from operational modules so that tool integration remains distinct from reusable operational capability logic.
+Labs may implement this adapter locally when validating scenario workflows that require this integration capability.

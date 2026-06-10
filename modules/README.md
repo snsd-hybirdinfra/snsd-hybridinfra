@@ -22,17 +22,17 @@ Total modules: 11
 
 | Module | Purpose |
 |---|---|
-| [Automation Execution Module](./automation-execution-module/README.md) | Executes controlled automation actions after operational conditions, approvals, or validation gates are satisfied. |
-| [Compute Foundation Module](./compute-foundation-module/README.md) | Defines compute resource context used by visibility, correlation, recovery, and resilience scenarios. |
-| [Continuity Governance Module](./continuity-governance-module/README.md) | Supports enterprise continuity decisions, ownership tracking, governance reporting, and executive-level recovery assurance. |
-| [Dependency Correlation Module](./dependency-correlation-module/README.md) | Correlates signals across services, infrastructure components, and platform dependencies to distinguish root conditions from symptoms. |
-| [Infrastructure Provisioning Module](./infrastructure-provisioning-module/README.md) | Defines infrastructure build and provisioning context used to support operational scenarios and validation environments. |
-| [Network Foundation Module](./network-foundation-module/README.md) | Provides network topology, routing, connectivity, and path context for operational scenarios. |
-| [Observability Foundation Module](./observability-foundation-module/README.md) | Provides the monitoring and visibility foundation used by scenarios to collect, structure, and expose operational signals. |
-| [Recovery Orchestration Module](./recovery-orchestration-module/README.md) | Coordinates recovery workflows after incident qualification and before final recovery validation. |
-| [Security Baseline Module](./security-baseline-module/README.md) | Defines security posture, policy visibility, and baseline control context for operational scenarios. |
-| [Telemetry Aggregation Module](./telemetry-aggregation-module/README.md) | Collects, normalizes, and prepares operational telemetry for visibility, correlation, and validation workflows. |
-| [Validation Reporting Module](./validation-reporting-module/README.md) | Produces validation summaries, artifact manifests, evidence outputs, and reviewer-readable operational reports. |
+| [Automation Execution Module](./automation-execution-module/README.md) | ﻿# Automation Execution Module |
+| [Compute Foundation Module](./compute-foundation-module/README.md) | ﻿# Compute Foundation Module |
+| [Continuity Governance Module](./continuity-governance-module/README.md) | ﻿# Continuity Governance Module |
+| [Dependency Correlation Module](./dependency-correlation-module/README.md) | ﻿# Dependency Correlation Module |
+| [Infrastructure Provisioning Module](./infrastructure-provisioning-module/README.md) | ﻿# Infrastructure Provisioning Module |
+| [Network Foundation Module](./network-foundation-module/README.md) | ﻿# Network Foundation Module |
+| [Observability Foundation Module](./observability-foundation-module/README.md) | ﻿# Observability Foundation Module |
+| [Recovery Orchestration Module](./recovery-orchestration-module/README.md) | ﻿# Recovery Orchestration Module |
+| [Security Baseline Module](./security-baseline-module/README.md) | ﻿# Security Baseline Module |
+| [Telemetry Aggregation Module](./telemetry-aggregation-module/README.md) | ﻿# Telemetry Aggregation Module |
+| [Validation Reporting Module](./validation-reporting-module/README.md) | ﻿# Validation Reporting Module |
 
 ---
 

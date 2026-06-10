@@ -1,79 +1,17 @@
-# Grafana Adapter
+﻿# Grafana Adapter
 
-## Integration Target
+## Catalog Role
 
-Grafana dashboards and visualization references
+This adapter is a repository-level integration boundary definition.
 
-## Adapter Purpose
+It describes how scenarios may reference an external tool, platform, telemetry source, automation engine, or validation service.
 
-Provides dashboard visibility and reviewer-facing operational visualization context for scenario workflows.
+## Implementation Boundary
 
-## Operational Boundary
+Lab-specific adapter implementation belongs under:
 
-This adapter represents dashboard and visualization integration. It does not collect raw telemetry or execute operational actions.
+labs/<lab-name>/adapters/grafana-adapter/
 
-## Inputs
+## Usage
 
-- dashboard references
-- panel definitions
-- metric visualization requirements
-- scenario visibility context
-
-## Outputs
-
-- dashboard reference
-- visual operational context
-- reviewer-facing visibility evidence
-- monitoring view alignment
-
-## Failure Mode
-
-If dashboard references are unavailable, the scenario should still preserve telemetry evidence and mark visualization as incomplete.
-
-## Scenario Usage
-
-Scenarios reference this adapter when the workflow requires integration with the target system. The adapter supports telemetry collection, execution context, visualization, evidence generation, or validation depending on the scenario lifecycle level.
-
-<!-- ADAPTER_CONTRACT_START -->
-
-## Integration Contract
-
-### Responsibility
-
-Provides dashboard and visualization references for reviewer-facing operational visibility.
-
-### Non-Responsibility
-
-Does not collect raw telemetry, execute queries by itself, or perform remediation.
-
-### Integration Target
-
-Grafana dashboards, panels, visualization links, and monitoring views.
-
-### Input Contract
-
-- dashboard reference
-- panel or view identifier
-- scenario visibility context
-- metric visualization requirement
-
-### Output Contract
-
-- dashboard visibility reference
-- reviewer-facing monitoring context
-- visual evidence link
-- operational view alignment
-
-### Failure Mode
-
-If dashboard references are unavailable, the scenario should preserve telemetry evidence and mark visualization as incomplete.
-
-### Scenario Usage
-
-Used by visibility, correlation, and validation scenarios that require dashboard-backed operational interpretation.
-
-<!-- ADAPTER_CONTRACT_END -->
-
-## Implementation Note
-
-This adapter describes an integration boundary. It is intentionally separated from operational modules so that tool integration remains distinct from reusable operational capability logic.
+Labs may implement this adapter locally when validating scenario workflows that require this integration capability.

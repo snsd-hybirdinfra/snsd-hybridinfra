@@ -66,3 +66,4 @@ tools/**/debug/
 *.broken
 *.bak_*
 .pytest_cache/
+tree.md

@@ -1,20 +1,21 @@
-# Shared Runtime
+﻿# Shared Runtime
 
-This directory defines the shared runtime layer for the SNSD Hybrid Infrastructure platform.
+This directory is the repository-level shared runtime catalog.
 
-The shared runtime provides common orchestration, telemetry, evidence, schema, registry, and integration structures used across operational scenarios, modules, and adapters.
+Shared runtime entries describe common execution, telemetry, evidence, orchestration, and integration concepts used across the platform.
 
-## Runtime Purpose
+## Repository Role
 
-The shared runtime supports:
+Top-level shared-runtime is not the primary executable runtime location.
 
-- orchestration runtime patterns
-- telemetry pipeline structures
-- evidence generation and validation
-- integration service boundaries
-- reusable schemas and registries
-- platform-level consistency across scenarios
+It defines shared runtime capability boundaries and common operational patterns.
 
-## Runtime Role
+## Implementation Boundary
 
-The shared runtime separates reusable platform mechanics from individual scenario documentation. This keeps scenarios focused on operational workflows while preserving a consistent platform architecture.
+Actual lab-specific runners, validators, parsers, and execution utilities belong under:
+
+labs/<lab-name>/shared-runtime/
+
+## Runtime Catalog
+
+Shared runtime concepts include orchestration runtime, telemetry pipeline, evidence runtime, and integration services.

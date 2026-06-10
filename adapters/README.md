@@ -22,12 +22,12 @@ Total adapters: 6
 
 | Adapter | Integration Role |
 |---|---|
-| [Ansible Adapter](./ansible-adapter/README.md) | Ansible automation execution boundary |
-| [Grafana Adapter](./grafana-adapter/README.md) | Grafana dashboards and visualization references |
-| [Kubernetes Adapter](./kubernetes-adapter/README.md) | Kubernetes cluster API and workload state |
-| [Opensearch Adapter](./opensearch-adapter/README.md) | OpenSearch log and event query interface |
-| [Prometheus Adapter](./prometheus-adapter/README.md) | Prometheus-compatible metric collection and query interface |
-| [Python Exporter Adapter](./python-exporter-adapter/README.md) | Python-based custom telemetry exporters |
+| [Ansible Adapter](./ansible-adapter/README.md) | This adapter is a repository-level integration boundary definition. |
+| [Grafana Adapter](./grafana-adapter/README.md) | This adapter is a repository-level integration boundary definition. |
+| [Kubernetes Adapter](./kubernetes-adapter/README.md) | This adapter is a repository-level integration boundary definition. |
+| [Opensearch Adapter](./opensearch-adapter/README.md) | This adapter is a repository-level integration boundary definition. |
+| [Prometheus Adapter](./prometheus-adapter/README.md) | This adapter is a repository-level integration boundary definition. |
+| [Python Exporter Adapter](./python-exporter-adapter/README.md) | This adapter is a repository-level integration boundary definition. |
 
 ---
 
