@@ -1,0 +1,6 @@
+﻿adapter_name: ansible-failover-adapter
+adapter_title: Ansible Failover Adapter
+lab: 09-resilience-failover-lab
+adapter_scope: lab-local
+purpose: "Executes failover, validation, failback readiness, and cleanup automation boundaries."
+status: draft

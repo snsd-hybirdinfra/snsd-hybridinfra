@@ -1,0 +1,6 @@
+﻿module_name: post-failover-recovery-validation-module
+module_title: Post-Failover Recovery Validation Module
+lab: 09-resilience-failover-lab
+module_scope: lab-local
+purpose: "Confirms service health, availability, and recovery state after failover."
+status: draft

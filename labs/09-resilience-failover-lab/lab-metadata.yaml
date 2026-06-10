@@ -1,6 +1,24 @@
 ﻿lab_name: 09-resilience-failover-lab
 lab_title: Resilience Failover Lab
-lab_focus: "Failover coordination and distributed resilience validation."
-status: draft
+lab_focus: "Failure detection, failover decision boundaries, traffic shift validation, post-failover recovery validation, failback readiness, and resilience evidence generation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to resilience and failover implementation-oriented validation workflows
+primary_runtime:
+  - Ansible
+  - Load balancer validation boundary
+  - Routing failover checks
+  - Prometheus resilience signals
+  - Python resilience parsers
+lab_scope:
+  - Baseline availability validation
+  - Secondary service readiness validation
+  - Failure detection validation
+  - Failover decision validation
+  - Traffic shift validation
+  - Post-failover recovery validation
+  - Failback readiness validation
+  - Evidence generation

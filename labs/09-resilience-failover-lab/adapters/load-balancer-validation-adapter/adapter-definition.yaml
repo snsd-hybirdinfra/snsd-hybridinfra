@@ -1,0 +1,6 @@
+﻿adapter_name: load-balancer-validation-adapter
+adapter_title: Load Balancer Validation Adapter
+lab: 09-resilience-failover-lab
+adapter_scope: lab-local
+purpose: "Validates traffic shift or load balancing state."
+status: draft

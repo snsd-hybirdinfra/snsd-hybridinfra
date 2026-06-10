@@ -1,0 +1,6 @@
+﻿module_name: resilience-evidence-generation-module
+module_title: Resilience Evidence Generation Module
+lab: 09-resilience-failover-lab
+module_scope: lab-local
+purpose: "Generates raw, processed, and summary evidence from resilience and failover validation output."
+status: draft

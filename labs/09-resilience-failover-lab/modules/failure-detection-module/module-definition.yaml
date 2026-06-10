@@ -1,0 +1,6 @@
+﻿module_name: failure-detection-module
+module_title: Failure Detection Module
+lab: 09-resilience-failover-lab
+module_scope: lab-local
+purpose: "Validates failure signals, service unavailability detection, and incident trigger readiness boundaries."
+status: draft

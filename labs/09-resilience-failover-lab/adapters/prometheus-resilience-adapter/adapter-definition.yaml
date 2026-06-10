@@ -1,0 +1,6 @@
+﻿adapter_name: prometheus-resilience-adapter
+adapter_title: Prometheus Resilience Adapter
+lab: 09-resilience-failover-lab
+adapter_scope: lab-local
+purpose: "Queries service health, availability, and failover-related monitoring signals."
+status: draft

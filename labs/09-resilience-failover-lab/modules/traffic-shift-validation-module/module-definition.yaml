@@ -1,0 +1,6 @@
+﻿module_name: traffic-shift-validation-module
+module_title: Traffic Shift Validation Module
+lab: 09-resilience-failover-lab
+module_scope: lab-local
+purpose: "Validates routing, load balancing, DNS, proxy, or service path traffic shift boundaries."
+status: draft

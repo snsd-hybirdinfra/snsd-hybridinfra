@@ -1,0 +1,6 @@
+﻿module_name: failover-decision-module
+module_title: Failover Decision Module
+lab: 09-resilience-failover-lab
+module_scope: lab-local
+purpose: "Defines failover trigger, decision, execution readiness, and operational coordination boundaries."
+status: draft

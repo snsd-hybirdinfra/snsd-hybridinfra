@@ -1,0 +1,6 @@
+﻿adapter_name: python-resilience-parser-adapter
+adapter_title: Python Resilience Parser Adapter
+lab: 09-resilience-failover-lab
+adapter_scope: lab-local
+purpose: "Parses failover output, health checks, traffic shift state, and evidence summaries."
+status: draft

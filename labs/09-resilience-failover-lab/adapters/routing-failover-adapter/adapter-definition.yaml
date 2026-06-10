@@ -1,0 +1,6 @@
+﻿adapter_name: routing-failover-adapter
+adapter_title: Routing Failover Adapter
+lab: 09-resilience-failover-lab
+adapter_scope: lab-local
+purpose: "Validates route, path, or network-level failover state."
+status: draft
