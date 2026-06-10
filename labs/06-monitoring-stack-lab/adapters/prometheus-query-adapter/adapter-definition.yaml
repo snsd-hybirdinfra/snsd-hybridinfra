@@ -1,0 +1,6 @@
+﻿adapter_name: prometheus-query-adapter
+adapter_title: Prometheus Query Adapter
+lab: 06-monitoring-stack-lab
+adapter_scope: lab-local
+purpose: "Queries Prometheus targets, metrics, and alert rule readiness."
+status: draft

@@ -1,0 +1,6 @@
+﻿module_name: grafana-dashboard-module
+module_title: Grafana Dashboard Module
+lab: 06-monitoring-stack-lab
+module_scope: lab-local
+purpose: "Validates dashboard structure, panel readiness, and visualization availability."
+status: draft

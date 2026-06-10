@@ -1,0 +1,6 @@
+﻿adapter_name: python-monitoring-check-adapter
+adapter_title: Python Monitoring Check Adapter
+lab: 06-monitoring-stack-lab
+adapter_scope: lab-local
+purpose: "Runs monitoring API checks and evidence parsing."
+status: draft

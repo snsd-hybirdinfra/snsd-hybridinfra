@@ -1,0 +1,6 @@
+﻿module_name: alert-readiness-module
+module_title: Alert Readiness Module
+lab: 06-monitoring-stack-lab
+module_scope: lab-local
+purpose: "Validates alert rule structure and monitoring signal readiness."
+status: draft

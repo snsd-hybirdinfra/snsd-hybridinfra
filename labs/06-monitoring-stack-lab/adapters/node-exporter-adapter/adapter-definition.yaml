@@ -1,0 +1,6 @@
+﻿adapter_name: node-exporter-adapter
+adapter_title: Node Exporter Adapter
+lab: 06-monitoring-stack-lab
+adapter_scope: lab-local
+purpose: "Validates host-level exporter availability and scrape readiness."
+status: draft

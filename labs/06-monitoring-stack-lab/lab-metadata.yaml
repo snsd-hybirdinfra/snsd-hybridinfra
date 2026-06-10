@@ -1,6 +1,24 @@
 ﻿lab_name: 06-monitoring-stack-lab
 lab_title: Monitoring Stack Lab
-lab_focus: "Prometheus, Grafana, telemetry, and dashboard validation."
-status: draft
+lab_focus: "Prometheus, Grafana, exporter telemetry, dashboard readiness, alert readiness, and monitoring evidence generation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to monitoring stack implementation-oriented validation workflows
+primary_runtime:
+  - Prometheus
+  - Grafana
+  - Node Exporter
+  - Ansible
+  - Python monitoring checks
+lab_scope:
+  - Prometheus availability validation
+  - Grafana availability validation
+  - Exporter readiness validation
+  - Scrape target validation
+  - Metric query validation
+  - Dashboard readiness validation
+  - Alert readiness validation
+  - Evidence generation

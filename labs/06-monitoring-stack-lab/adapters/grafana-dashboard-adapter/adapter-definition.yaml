@@ -1,0 +1,6 @@
+﻿adapter_name: grafana-dashboard-adapter
+adapter_title: Grafana Dashboard Adapter
+lab: 06-monitoring-stack-lab
+adapter_scope: lab-local
+purpose: "Validates Grafana dashboard and panel readiness."
+status: draft

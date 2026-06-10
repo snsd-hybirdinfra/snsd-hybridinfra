@@ -1,0 +1,6 @@
+﻿module_name: monitoring-evidence-generation-module
+module_title: Monitoring Evidence Generation Module
+lab: 06-monitoring-stack-lab
+module_scope: lab-local
+purpose: "Generates raw, processed, and summary evidence from monitoring stack validation."
+status: draft

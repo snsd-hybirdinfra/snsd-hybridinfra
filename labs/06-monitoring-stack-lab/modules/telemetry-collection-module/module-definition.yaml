@@ -1,0 +1,6 @@
+﻿module_name: telemetry-collection-module
+module_title: Telemetry Collection Module
+lab: 06-monitoring-stack-lab
+module_scope: lab-local
+purpose: "Validates metric scrape availability and telemetry collection readiness."
+status: draft

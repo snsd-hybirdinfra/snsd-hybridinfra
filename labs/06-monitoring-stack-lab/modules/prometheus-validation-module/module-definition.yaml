@@ -1,0 +1,6 @@
+﻿module_name: prometheus-validation-module
+module_title: Prometheus Validation Module
+lab: 06-monitoring-stack-lab
+module_scope: lab-local
+purpose: "Validates Prometheus targets, metric queries, and alert rule readiness."
+status: draft

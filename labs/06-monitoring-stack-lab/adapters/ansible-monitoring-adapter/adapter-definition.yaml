@@ -1,0 +1,6 @@
+﻿adapter_name: ansible-monitoring-adapter
+adapter_title: Ansible Monitoring Adapter
+lab: 06-monitoring-stack-lab
+adapter_scope: lab-local
+purpose: "Executes monitoring stack setup and validation automation."
+status: draft
