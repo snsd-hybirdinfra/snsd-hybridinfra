@@ -17,12 +17,12 @@ commands = [
     ["python", "tools/content-generator/check_repository_quality.py"],
     ["python", "tools/content-generator/update_root_readme_inventory.py"],
 
+    ["python", "tools/content-generator/check_lab_structure.py"],
+
     ["python", "tools/content-generator/check_markdown_links.py"],
     ["python", "tools/content-generator/check_top_level_structure.py"],
     ["python", "tools/content-generator/check_root_readme_alignment.py"],
     ["python", "tools/content-generator/check_repository_language.py"],
-
-    ["python", "tools/content-generator/check_lab_structure.py"],
 
     ["python", "tools/content-generator/generate_portfolio_health_summary.py"],
     ["python", "tools/content-generator/generate_repository_summary_report.py"],
