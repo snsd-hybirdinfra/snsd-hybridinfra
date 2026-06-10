@@ -18,6 +18,7 @@ commands = [
     ["python", "tools/content-generator/update_root_readme_inventory.py"],
 
     ["python", "tools/content-generator/check_lab_structure.py"],
+    ["python", "tools/content-generator/check_lab_readiness_alignment.py"],
 
     ["python", "tools/content-generator/check_markdown_links.py"],
     ["python", "tools/content-generator/check_top_level_structure.py"],
@@ -45,3 +46,6 @@ for command in commands:
     print("")
 
 print("[OK] repository validation workflow completed")
+
+
+
