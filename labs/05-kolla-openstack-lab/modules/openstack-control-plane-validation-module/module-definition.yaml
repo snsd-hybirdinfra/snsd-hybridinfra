@@ -1,0 +1,6 @@
+﻿module_name: openstack-control-plane-validation-module
+module_title: OpenStack Control Plane Validation Module
+lab: 05-kolla-openstack-lab
+module_scope: lab-local
+purpose: "Validates OpenStack control plane services, API availability, service catalog, and endpoint readiness."
+status: draft

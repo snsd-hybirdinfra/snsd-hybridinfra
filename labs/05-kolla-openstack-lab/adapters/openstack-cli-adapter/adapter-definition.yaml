@@ -1,0 +1,6 @@
+﻿adapter_name: openstack-cli-adapter
+adapter_title: OpenStack CLI Adapter
+lab: 05-kolla-openstack-lab
+adapter_scope: lab-local
+purpose: "Queries service, endpoint, network, compute, project, and operational state."
+status: draft

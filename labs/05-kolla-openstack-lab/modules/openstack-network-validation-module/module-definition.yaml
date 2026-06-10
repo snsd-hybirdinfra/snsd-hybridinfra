@@ -1,0 +1,6 @@
+﻿module_name: openstack-network-validation-module
+module_title: OpenStack Network Validation Module
+lab: 05-kolla-openstack-lab
+module_scope: lab-local
+purpose: "Validates Neutron service, network, router, subnet, and connectivity boundaries."
+status: draft

@@ -1,0 +1,6 @@
+﻿module_name: openstack-evidence-generation-module
+module_title: OpenStack Evidence Generation Module
+lab: 05-kolla-openstack-lab
+module_scope: lab-local
+purpose: "Generates raw, processed, and summary evidence from OpenStack operational validation output."
+status: draft

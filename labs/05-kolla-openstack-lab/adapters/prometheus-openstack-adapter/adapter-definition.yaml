@@ -1,0 +1,6 @@
+﻿adapter_name: prometheus-openstack-adapter
+adapter_title: Prometheus OpenStack Adapter
+lab: 05-kolla-openstack-lab
+adapter_scope: lab-local
+purpose: "Provides future OpenStack service telemetry scrape validation boundary."
+status: draft

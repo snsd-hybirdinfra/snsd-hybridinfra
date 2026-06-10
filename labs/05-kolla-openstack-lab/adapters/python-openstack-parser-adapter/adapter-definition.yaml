@@ -1,0 +1,6 @@
+﻿adapter_name: python-openstack-parser-adapter
+adapter_title: Python OpenStack Parser Adapter
+lab: 05-kolla-openstack-lab
+adapter_scope: lab-local
+purpose: "Parses OpenStack CLI, API, and service output into evidence summaries."
+status: draft

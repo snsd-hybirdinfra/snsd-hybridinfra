@@ -1,0 +1,6 @@
+﻿adapter_name: kolla-ansible-adapter
+adapter_title: Kolla Ansible Adapter
+lab: 05-kolla-openstack-lab
+adapter_scope: lab-local
+purpose: "Executes Kolla-Ansible deployment, reconfigure, validation, and recovery boundaries."
+status: draft

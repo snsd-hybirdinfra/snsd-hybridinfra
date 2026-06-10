@@ -1,0 +1,6 @@
+﻿adapter_name: docker-service-container-adapter
+adapter_title: Docker Service Container Adapter
+lab: 05-kolla-openstack-lab
+adapter_scope: lab-local
+purpose: "Reads OpenStack service container state and restart boundaries."
+status: draft

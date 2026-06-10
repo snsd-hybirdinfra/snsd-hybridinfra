@@ -1,0 +1,6 @@
+﻿module_name: openstack-compute-visibility-module
+module_title: OpenStack Compute Visibility Module
+lab: 05-kolla-openstack-lab
+module_scope: lab-local
+purpose: "Validates compute service, hypervisor visibility, host state, and workload placement boundaries."
+status: draft

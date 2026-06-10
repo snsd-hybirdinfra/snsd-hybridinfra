@@ -1,6 +1,25 @@
 ﻿lab_name: 05-kolla-openstack-lab
 lab_title: Kolla OpenStack Lab
-lab_focus: "OpenStack-style control plane and cloud instance operations."
-status: draft
+lab_focus: "Kolla-Ansible based OpenStack control plane validation, compute visibility, network validation, service recovery boundaries, and OpenStack evidence generation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to private cloud infrastructure operations validation workflows
+primary_runtime:
+  - Kolla-Ansible
+  - OpenStack
+  - Docker service containers
+  - Prometheus OpenStack telemetry
+  - Python OpenStack parsers
+lab_scope:
+  - Kolla-Ansible readiness validation
+  - OpenStack service container validation
+  - Control plane API validation
+  - Service catalog validation
+  - Endpoint readiness validation
+  - Compute service visibility
+  - Network service validation
+  - Service recovery workflow validation
+  - Evidence generation

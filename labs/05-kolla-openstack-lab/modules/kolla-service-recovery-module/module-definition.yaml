@@ -1,0 +1,6 @@
+﻿module_name: kolla-service-recovery-module
+module_title: Kolla Service Recovery Module
+lab: 05-kolla-openstack-lab
+module_scope: lab-local
+purpose: "Defines Kolla-Ansible service restart, reconfigure, and recovery workflow boundaries."
+status: draft
