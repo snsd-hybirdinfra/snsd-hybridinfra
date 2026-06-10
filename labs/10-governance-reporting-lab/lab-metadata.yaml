@@ -1,0 +1,6 @@
+﻿lab_name: 10-governance-reporting-lab
+lab_title: Governance Reporting Lab
+lab_focus: "Continuity governance, reporting, and validation evidence."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

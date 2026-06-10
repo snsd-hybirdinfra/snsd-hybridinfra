@@ -1,0 +1,6 @@
+﻿lab_name: 05-kolla-openstack-lab
+lab_title: Kolla OpenStack Lab
+lab_focus: "OpenStack-style control plane and cloud instance operations."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

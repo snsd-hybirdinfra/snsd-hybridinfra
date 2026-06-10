@@ -1,0 +1,6 @@
+﻿lab_name: 06-monitoring-stack-lab
+lab_title: Monitoring Stack Lab
+lab_focus: "Prometheus, Grafana, telemetry, and dashboard validation."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

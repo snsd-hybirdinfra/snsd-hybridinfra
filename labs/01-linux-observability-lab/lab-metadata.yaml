@@ -1,0 +1,6 @@
+﻿lab_name: 01-linux-observability-lab
+lab_title: Linux Observability Lab
+lab_focus: "Linux host visibility and system monitoring."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

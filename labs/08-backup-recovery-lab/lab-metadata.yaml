@@ -1,0 +1,6 @@
+﻿lab_name: 08-backup-recovery-lab
+lab_title: Backup Recovery Lab
+lab_focus: "Backup monitoring, restoration, and recovery validation."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

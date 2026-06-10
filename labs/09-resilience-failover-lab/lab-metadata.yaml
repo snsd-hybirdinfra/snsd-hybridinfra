@@ -1,0 +1,6 @@
+﻿lab_name: 09-resilience-failover-lab
+lab_title: Resilience Failover Lab
+lab_focus: "Failover coordination and distributed resilience validation."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

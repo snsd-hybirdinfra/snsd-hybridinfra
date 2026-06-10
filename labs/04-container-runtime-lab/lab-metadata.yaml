@@ -1,0 +1,6 @@
+﻿lab_name: 04-container-runtime-lab
+lab_title: Container Runtime Lab
+lab_focus: "Container runtime and Kubernetes scenario validation."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

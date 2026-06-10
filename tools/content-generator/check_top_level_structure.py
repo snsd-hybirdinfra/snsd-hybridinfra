@@ -12,6 +12,10 @@ expected_dirs = [
     "reports",
     "builds",
     "docs",
+    "labs",
+    "validation-reports",
+    "diagrams",
+    "internal",
 ]
 
 actual_dirs = sorted([
@@ -80,3 +84,4 @@ print(f"[OK] wrote {REPORT}")
 print(f"[OK] missing dirs: {len(missing_dirs)}")
 print(f"[OK] extra dirs: {len(extra_dirs)}")
 print(f"[OK] missing README mentions: {len(missing_readme_mentions)}")
+

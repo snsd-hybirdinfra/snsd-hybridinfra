@@ -1,0 +1,6 @@
+﻿lab_name: 02-network-routing-lab
+lab_title: Network Routing Lab
+lab_focus: "Network routing, VPN, WAN, and path validation."
+status: draft
+implementation_boundary: lab
+scenario_relationship: maps repository scenarios to implementation-oriented validation workflows

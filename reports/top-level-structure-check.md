@@ -3,8 +3,8 @@
 ## Summary
 
 ```text
-expected_directories: 8
-actual_top_level_directories: 8
+expected_directories: 12
+actual_top_level_directories: 12
 missing_expected_directories: 0
 extra_top_level_directories: 0
 missing_root_readme_mentions: 0
@@ -21,6 +21,10 @@ tools
 reports
 builds
 docs
+labs
+validation-reports
+diagrams
+internal
 ```
 
 ## Actual Top-Level Directories
@@ -28,12 +32,16 @@ docs
 ```text
 adapters
 builds
+diagrams
 docs
+internal
+labs
 modules
 reports
 scenarios
 shared-runtime
 tools
+validation-reports
 ```
 
 ## Missing Expected Directories
