@@ -1,0 +1,6 @@
+﻿adapter_name: structure-check-adapter
+adapter_title: Structure Check Adapter
+lab: 10-governance-reporting-lab
+adapter_scope: lab-local
+purpose: "Validates top-level and lab-level repository structure."
+status: draft

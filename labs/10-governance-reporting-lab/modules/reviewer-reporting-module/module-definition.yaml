@@ -1,0 +1,6 @@
+﻿module_name: reviewer-reporting-module
+module_title: Reviewer Reporting Module
+lab: 10-governance-reporting-lab
+module_scope: lab-local
+purpose: "Produces reviewer-facing reports, summaries, and validation interpretation outputs."
+status: draft

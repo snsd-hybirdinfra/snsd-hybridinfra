@@ -1,0 +1,6 @@
+﻿adapter_name: report-generation-adapter
+adapter_title: Report Generation Adapter
+lab: 10-governance-reporting-lab
+adapter_scope: lab-local
+purpose: "Generates repository, lab, coverage, validation, and governance summary reports."
+status: draft

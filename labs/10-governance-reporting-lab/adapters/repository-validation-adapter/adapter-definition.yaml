@@ -1,0 +1,6 @@
+﻿adapter_name: repository-validation-adapter
+adapter_title: Repository Validation Adapter
+lab: 10-governance-reporting-lab
+adapter_scope: lab-local
+purpose: "Executes repository validation scripts and captures validation results."
+status: draft

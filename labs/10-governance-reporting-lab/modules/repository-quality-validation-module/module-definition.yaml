@@ -1,0 +1,6 @@
+﻿module_name: repository-quality-validation-module
+module_title: Repository Quality Validation Module
+lab: 10-governance-reporting-lab
+module_scope: lab-local
+purpose: "Validates repository-wide quality gates, artifact coverage, structure, and baseline readiness."
+status: draft

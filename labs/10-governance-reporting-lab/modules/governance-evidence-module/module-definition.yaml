@@ -1,0 +1,6 @@
+﻿module_name: governance-evidence-module
+module_title: Governance Evidence Module
+lab: 10-governance-reporting-lab
+module_scope: lab-local
+purpose: "Converts validation output into governance evidence and operational readiness summaries."
+status: draft

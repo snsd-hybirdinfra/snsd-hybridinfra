@@ -1,0 +1,6 @@
+﻿module_name: documentation-consistency-module
+module_title: Documentation Consistency Module
+lab: 10-governance-reporting-lab
+module_scope: lab-local
+purpose: "Validates README alignment, markdown links, repository language, and documentation consistency."
+status: draft

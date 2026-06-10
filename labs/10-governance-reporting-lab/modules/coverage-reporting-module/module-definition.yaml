@@ -1,0 +1,6 @@
+﻿module_name: coverage-reporting-module
+module_title: Coverage Reporting Module
+lab: 10-governance-reporting-lab
+module_scope: lab-local
+purpose: "Generates scenario, lab, lifecycle, module, adapter, and coverage summaries."
+status: draft
