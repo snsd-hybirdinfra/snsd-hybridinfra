@@ -1,0 +1,6 @@
+﻿adapter_name: linux-service-adapter
+adapter_title: Linux Service Adapter
+lab: 03-ansible-automation-lab
+adapter_scope: lab-local
+purpose: "Manages package, service, process, and filesystem state on Linux nodes."
+status: draft

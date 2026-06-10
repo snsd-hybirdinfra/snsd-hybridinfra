@@ -1,0 +1,6 @@
+﻿module_name: recovery-validation-module
+module_title: Recovery Validation Module
+lab: 03-ansible-automation-lab
+module_scope: lab-local
+purpose: "Confirms post-automation recovery state and validates expected outcomes."
+status: draft

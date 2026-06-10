@@ -1,0 +1,6 @@
+﻿module_name: inventory-validation-module
+module_title: Inventory Validation Module
+lab: 03-ansible-automation-lab
+module_scope: lab-local
+purpose: "Validates Ansible inventory structure, host grouping, and managed node reachability."
+status: draft

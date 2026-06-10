@@ -1,0 +1,6 @@
+﻿adapter_name: ansible-playbook-adapter
+adapter_title: Ansible Playbook Adapter
+lab: 03-ansible-automation-lab
+adapter_scope: lab-local
+purpose: "Executes setup, validation, recovery, rollback, and cleanup playbooks."
+status: draft

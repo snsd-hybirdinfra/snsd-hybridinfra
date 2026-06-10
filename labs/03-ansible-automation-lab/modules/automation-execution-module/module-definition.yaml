@@ -1,0 +1,6 @@
+﻿module_name: automation-execution-module
+module_title: Automation Execution Module
+lab: 03-ansible-automation-lab
+module_scope: lab-local
+purpose: "Executes setup, recovery, rollback, validation, and cleanup automation workflows."
+status: draft

@@ -1,0 +1,6 @@
+﻿module_name: automation-evidence-generation-module
+module_title: Automation Evidence Generation Module
+lab: 03-ansible-automation-lab
+module_scope: lab-local
+purpose: "Generates raw, processed, and summary evidence from automation execution output."
+status: draft

@@ -1,0 +1,6 @@
+﻿adapter_name: ssh-access-adapter
+adapter_title: SSH Access Adapter
+lab: 03-ansible-automation-lab
+adapter_scope: lab-local
+purpose: "Validates SSH-based managed node access and connectivity."
+status: draft

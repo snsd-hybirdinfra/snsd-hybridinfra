@@ -1,6 +1,22 @@
 ﻿lab_name: 03-ansible-automation-lab
 lab_title: Ansible Automation Lab
-lab_focus: "Recovery automation and configuration rollback."
-status: draft
+lab_focus: "Ansible-based setup, recovery execution, rollback workflows, validation checks, and evidence generation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to Ansible automation implementation-oriented validation workflows
+primary_runtime:
+  - Ansible
+  - SSH
+  - Linux managed nodes
+  - Python evidence parsers
+lab_scope:
+  - Inventory validation
+  - SSH reachability validation
+  - Playbook execution
+  - Configuration rollback
+  - Recovery workflow execution
+  - Post-execution validation
+  - Evidence generation

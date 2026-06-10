@@ -1,0 +1,6 @@
+﻿module_name: configuration-rollback-module
+module_title: Configuration Rollback Module
+lab: 03-ansible-automation-lab
+module_scope: lab-local
+purpose: "Defines configuration rollback workflow boundaries and recovery checkpoints."
+status: draft

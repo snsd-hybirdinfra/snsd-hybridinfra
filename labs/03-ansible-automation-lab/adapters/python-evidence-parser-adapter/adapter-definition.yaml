@@ -1,0 +1,6 @@
+﻿adapter_name: python-evidence-parser-adapter
+adapter_title: Python Evidence Parser Adapter
+lab: 03-ansible-automation-lab
+adapter_scope: lab-local
+purpose: "Parses automation execution output into evidence summaries."
+status: draft
