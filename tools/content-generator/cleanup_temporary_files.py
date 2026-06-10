@@ -1,76 +1,83 @@
 ﻿from pathlib import Path
+import shutil
 
-ROOT = Path(".").resolve()
+ROOT = Path(__file__).resolve().parents[2]
 
-DELETE_NAME_PATTERNS = [
-    "README.backup.md",
-    "update_root_readme.ps1",
-    "update_scenarios_readme.ps1",
-]
+REMOVE_DIR_NAMES = {
+    "__pycache__",
+    ".pytest_cache",
+}
 
-DELETE_SUFFIXES = [
-    ".bak",
-    ".backup",
-    ".tmp",
-    ".broken",
-]
+REMOVE_FILE_SUFFIXES = {
+    ".pyc",
+    ".pyo",
+}
 
-DELETE_DIRECTORIES = [
-    "runtime-workspace",
-]
+REMOVE_ROOT_FILE_NAMES = {
+    "tree.md",
+}
 
-PROTECTED_PARTS = [
-    "backup-automation-foundation",
-    "backup-job-monitoring",
-    "backup-failure-correlation",
-    "backup-restoration-automation",
-]
+PRESERVE_ROOT_FILE_NAMES = {
+    "README.md",
+    ".gitignore",
+    ".gitattributes",
+    "a.txt",
+}
 
-deleted = []
-protected_skipped = 0
+def is_accidental_root_file(path: Path) -> bool:
+    name = path.name
 
-for dirname in DELETE_DIRECTORIES:
-    target = ROOT / dirname
-    if target.exists() and target.is_dir():
-        for child in sorted(target.rglob("*"), reverse=True):
-            if child.is_file():
-                child.unlink()
-            elif child.is_dir():
-                child.rmdir()
-        target.rmdir()
-        deleted.append(dirname + "/")
+    if path.parent != ROOT:
+        return False
 
-for path in ROOT.rglob("*"):
-    if not path.is_file():
-        continue
+    if name in PRESERVE_ROOT_FILE_NAMES:
+        return False
 
-    rel = path.relative_to(ROOT).as_posix()
+    if name in REMOVE_ROOT_FILE_NAMES:
+        return True
 
-    should_delete = False
+    if name.startswith("lab is"):
+        return True
 
-    if path.name in DELETE_NAME_PATTERNS:
-        should_delete = True
+    if name.startswith("validated"):
+        return True
 
-    if any(path.name.endswith(suffix) for suffix in DELETE_SUFFIXES):
-        should_delete = True
+    if "\uf07c" in name:
+        return True
 
-    if not should_delete:
-        continue
+    return False
 
-    if any(protected in rel for protected in PROTECTED_PARTS):
-        protected_skipped += 1
-        continue
+def remove_path(path: Path) -> None:
+    if path.is_dir():
+        shutil.rmtree(path, ignore_errors=True)
+        print(f"[CLEANUP] removed directory: {path.relative_to(ROOT)}")
+    elif path.is_file():
+        path.unlink(missing_ok=True)
+        print(f"[CLEANUP] removed file: {path.relative_to(ROOT)}")
 
-    path.unlink()
-    deleted.append(rel)
+def main() -> None:
+    removed = 0
 
-print("[OK] cleanup completed")
-print(f"deleted_files: {len(deleted)}")
-print(f"protected_files_skipped: {protected_skipped}")
+    for path in ROOT.rglob("*"):
+        if ".git" in path.parts:
+            continue
 
-if deleted:
-    print("")
-    print("[DELETED]")
-    for item in deleted:
-        print(f"- {item}")
+        if path.is_dir() and path.name in REMOVE_DIR_NAMES:
+            remove_path(path)
+            removed += 1
+            continue
 
+        if path.is_file() and path.suffix in REMOVE_FILE_SUFFIXES:
+            remove_path(path)
+            removed += 1
+            continue
+
+    for path in ROOT.iterdir():
+        if path.is_file() and is_accidental_root_file(path):
+            remove_path(path)
+            removed += 1
+
+    print(f"[CLEANUP] completed. removed={removed}")
+
+if __name__ == "__main__":
+    main()

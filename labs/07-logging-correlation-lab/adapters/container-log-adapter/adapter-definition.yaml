@@ -1,0 +1,6 @@
+﻿adapter_name: container-log-adapter
+adapter_title: Container Log Adapter
+lab: 07-logging-correlation-lab
+adapter_scope: lab-local
+purpose: "Reads Docker and container runtime logs."
+status: draft

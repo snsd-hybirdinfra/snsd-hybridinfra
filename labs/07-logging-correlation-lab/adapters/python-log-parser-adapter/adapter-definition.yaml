@@ -1,0 +1,6 @@
+﻿adapter_name: python-log-parser-adapter
+adapter_title: Python Log Parser Adapter
+lab: 07-logging-correlation-lab
+adapter_scope: lab-local
+purpose: "Parses logs, search results, timelines, and correlation summaries."
+status: draft

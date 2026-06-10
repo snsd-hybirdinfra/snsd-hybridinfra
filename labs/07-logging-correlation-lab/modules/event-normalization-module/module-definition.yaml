@@ -1,0 +1,6 @@
+﻿module_name: event-normalization-module
+module_title: Event Normalization Module
+lab: 07-logging-correlation-lab
+module_scope: lab-local
+purpose: "Defines normalized event fields, parsing boundaries, and log structure consistency."
+status: draft

@@ -1,0 +1,6 @@
+﻿adapter_name: opensearch-query-adapter
+adapter_title: OpenSearch Query Adapter
+lab: 07-logging-correlation-lab
+adapter_scope: lab-local
+purpose: "Searches event data and validates log query readiness."
+status: draft

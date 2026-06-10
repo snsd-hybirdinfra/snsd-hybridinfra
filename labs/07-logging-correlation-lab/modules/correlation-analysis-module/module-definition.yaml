@@ -1,0 +1,6 @@
+﻿module_name: correlation-analysis-module
+module_title: Correlation Analysis Module
+lab: 07-logging-correlation-lab
+module_scope: lab-local
+purpose: "Groups related log events into operational incident context."
+status: draft

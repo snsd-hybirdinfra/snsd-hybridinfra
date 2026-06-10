@@ -1,0 +1,6 @@
+﻿adapter_name: log-forwarder-adapter
+adapter_title: Log Forwarder Adapter
+lab: 07-logging-correlation-lab
+adapter_scope: lab-local
+purpose: "Represents log collection and forwarding integration boundaries."
+status: draft

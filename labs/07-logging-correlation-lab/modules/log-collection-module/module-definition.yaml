@@ -1,0 +1,6 @@
+﻿module_name: log-collection-module
+module_title: Log Collection Module
+lab: 07-logging-correlation-lab
+module_scope: lab-local
+purpose: "Validates Linux, service, application, and container log collection readiness."
+status: draft

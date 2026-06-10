@@ -1,6 +1,26 @@
 ﻿lab_name: 07-logging-correlation-lab
 lab_title: Logging Correlation Lab
-lab_focus: "Log correlation, anomaly analysis, and event reasoning."
-status: draft
+lab_focus: "Log collection, event normalization, OpenSearch query readiness, correlation analysis, incident timeline reconstruction, and logging evidence generation."
+status: documentation-ready
+implementation_status: planned
+execution_status: not_yet_executed
+evidence_status: placeholder_until_lab_execution
 implementation_boundary: lab
-scenario_relationship: maps repository scenarios to implementation-oriented validation workflows
+scenario_relationship: maps repository scenarios to logging and correlation implementation-oriented validation workflows
+primary_runtime:
+  - OpenSearch
+  - OpenSearch Dashboards
+  - Log forwarding boundary
+  - Linux logs
+  - Container logs
+  - Python log parsers
+lab_scope:
+  - Log source availability validation
+  - Log forwarding readiness validation
+  - OpenSearch availability validation
+  - Index readiness validation
+  - Log search validation
+  - Event normalization validation
+  - Correlation analysis validation
+  - Incident timeline reconstruction
+  - Evidence generation

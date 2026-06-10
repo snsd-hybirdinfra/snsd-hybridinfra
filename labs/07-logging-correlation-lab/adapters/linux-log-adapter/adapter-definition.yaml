@@ -1,0 +1,6 @@
+﻿adapter_name: linux-log-adapter
+adapter_title: Linux Log Adapter
+lab: 07-logging-correlation-lab
+adapter_scope: lab-local
+purpose: "Reads Linux system, service, and operational log sources."
+status: draft
