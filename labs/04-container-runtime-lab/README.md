@@ -1,4 +1,4 @@
-﻿# Container Runtime Lab
+# Container Runtime Lab
 
 ## Lab Purpose
 
@@ -62,3 +62,7 @@ It does not claim completed runtime execution until actual deployment, automatio
 ## Implementation Note
 
 Runtime scripts, deployment artifacts, generated evidence, and execution outputs are planned for the implementation phase.
+
+## Execution Boundary Note
+
+- [Container Runtime Execution Boundary Note](validation-reports/container-runtime-execution-note.md)

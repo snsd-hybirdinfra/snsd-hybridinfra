@@ -4,7 +4,7 @@
 
 ```text
 readme_files: 393
-checked_relative_links: 1286
+checked_relative_links: 1287
 broken_links: 0
 ```
 

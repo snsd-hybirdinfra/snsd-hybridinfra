@@ -1,14 +1,16 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="04-container-runtime-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] cleanup started: ${LAB_NAME}"
-echo "[INFO] planned cleanup tasks:"
-echo "- remove temporary container validation files"
-echo "- preserve raw evidence"
-echo "- preserve processed evidence"
-echo "- preserve evidence summaries"
-echo "- preserve validation reports"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
 
-echo "[OK] cleanup stub completed: ${LAB_NAME}"
+echo "[INFO] container runtime cleanup started"
+
+docker compose -f compose/docker-compose.yml down -v \
+  | tee runtime-workspace/logs/cleanup.log
+
+cp runtime-workspace/logs/cleanup.log evidence/generated/raw/container-runtime-cleanup.log
+
+echo "[INFO] container runtime cleanup completed"

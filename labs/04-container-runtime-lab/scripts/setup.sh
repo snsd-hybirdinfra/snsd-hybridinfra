@@ -1,17 +1,19 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="04-container-runtime-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate Docker runtime prerequisite boundary"
-echo "- prepare validation container boundary"
-echo "- prepare image, volume, and network validation boundary"
-echo "- prepare evidence directories"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+echo "[INFO] container runtime setup started"
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+docker --version | tee runtime-workspace/logs/docker-version.log
+docker compose version | tee runtime-workspace/logs/docker-compose-version.log
+
+docker compose -f compose/docker-compose.yml up -d | tee runtime-workspace/logs/setup.log
+
+docker compose -f compose/docker-compose.yml ps | tee evidence/generated/raw/container-setup-ps.log
+
+echo "[INFO] container runtime setup completed"
