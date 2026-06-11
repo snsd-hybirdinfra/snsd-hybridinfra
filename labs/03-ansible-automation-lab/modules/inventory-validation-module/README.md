@@ -1,4 +1,4 @@
-﻿# Inventory Validation Module
+# Inventory Validation Module
 
 ## Module Purpose
 

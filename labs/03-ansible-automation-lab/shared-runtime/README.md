@@ -1,4 +1,4 @@
-﻿# Ansible Automation Lab Shared Runtime
+# Ansible Automation Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for Ansible automation validation.
 

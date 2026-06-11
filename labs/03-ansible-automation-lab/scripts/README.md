@@ -1,4 +1,4 @@
-﻿# Ansible Automation Lab Scripts
+# Ansible Automation Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Ansible Automation Lab.
 

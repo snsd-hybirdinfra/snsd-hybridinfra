@@ -1,4 +1,4 @@
-﻿# Python Evidence Parser Adapter
+# Python Evidence Parser Adapter
 
 ## Adapter Purpose
 

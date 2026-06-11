@@ -1,4 +1,4 @@
-﻿# Automation Evidence Generation Module
+# Automation Evidence Generation Module
 
 ## Module Purpose
 

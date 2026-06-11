@@ -1,4 +1,4 @@
-﻿# Recovery Validation Module
+# Recovery Validation Module
 
 ## Module Purpose
 

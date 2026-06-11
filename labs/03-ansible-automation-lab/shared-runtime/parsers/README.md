@@ -1,4 +1,4 @@
-﻿# Parsers
+# Parsers
 
 Runtime parsers convert Ansible execution output into validation evidence.
 

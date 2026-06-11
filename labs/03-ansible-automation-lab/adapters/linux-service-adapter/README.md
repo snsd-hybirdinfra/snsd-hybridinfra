@@ -1,4 +1,4 @@
-﻿# Linux Service Adapter
+# Linux Service Adapter
 
 ## Adapter Purpose
 

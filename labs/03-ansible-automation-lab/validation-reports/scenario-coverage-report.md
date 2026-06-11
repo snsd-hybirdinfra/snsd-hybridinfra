@@ -1,4 +1,4 @@
-﻿# Ansible Automation Lab Scenario Coverage Report
+# Ansible Automation Lab Scenario Coverage Report
 
 This report summarizes repository scenarios mapped to the Ansible Automation Lab.
 

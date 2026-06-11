@@ -1,4 +1,4 @@
-﻿# Ansible Automation Lab Validation Report
+# Ansible Automation Lab Validation Report
 
 ## Lab Summary
 

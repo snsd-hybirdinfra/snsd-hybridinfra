@@ -1,4 +1,4 @@
-﻿# Ansible Playbook Adapter
+# Ansible Playbook Adapter
 
 ## Adapter Purpose
 

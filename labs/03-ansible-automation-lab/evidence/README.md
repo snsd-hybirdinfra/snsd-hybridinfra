@@ -1,4 +1,4 @@
-﻿# Ansible Automation Lab Evidence
+# Ansible Automation Lab Evidence
 
 This directory stores lab-local evidence generated during validation execution.
 

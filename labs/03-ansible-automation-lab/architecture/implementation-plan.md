@@ -1,4 +1,4 @@
-﻿# Ansible Automation Lab Implementation Plan
+# Ansible Automation Lab Implementation Plan
 
 ## Lab Purpose
 

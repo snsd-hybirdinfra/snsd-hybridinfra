@@ -1,4 +1,4 @@
-﻿# SSH Access Adapter
+# SSH Access Adapter
 
 ## Adapter Purpose
 

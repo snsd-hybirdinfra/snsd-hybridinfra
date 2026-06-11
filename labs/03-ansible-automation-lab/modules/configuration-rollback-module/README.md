@@ -1,4 +1,4 @@
-﻿# Configuration Rollback Module
+# Configuration Rollback Module
 
 ## Module Purpose
 

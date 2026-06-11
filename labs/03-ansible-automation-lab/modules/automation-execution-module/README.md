@@ -1,4 +1,4 @@
-﻿# Automation Execution Module
+# Automation Execution Module
 
 ## Module Purpose
 
