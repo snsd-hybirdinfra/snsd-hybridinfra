@@ -1,4 +1,4 @@
-﻿# Kolla OpenStack Lab Scripts
+# Kolla OpenStack Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Kolla OpenStack Lab.
 

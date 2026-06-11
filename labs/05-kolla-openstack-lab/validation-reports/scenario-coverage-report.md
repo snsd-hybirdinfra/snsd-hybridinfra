@@ -1,4 +1,4 @@
-﻿# Kolla OpenStack Lab Scenario Coverage Report
+# Kolla OpenStack Lab Scenario Coverage Report
 
 This report summarizes repository scenarios mapped to the Kolla OpenStack Lab.
 

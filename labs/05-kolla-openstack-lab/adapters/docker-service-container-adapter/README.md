@@ -1,4 +1,4 @@
-﻿# Docker Service Container Adapter
+# Docker Service Container Adapter
 
 ## Adapter Purpose
 

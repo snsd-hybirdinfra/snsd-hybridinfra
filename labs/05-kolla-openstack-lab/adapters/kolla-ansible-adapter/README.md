@@ -1,4 +1,4 @@
-﻿# Kolla Ansible Adapter
+# Kolla Ansible Adapter
 
 ## Adapter Purpose
 

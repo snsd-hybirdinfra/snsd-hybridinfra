@@ -1,18 +1,19 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="05-kolla-openstack-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate Kolla-Ansible configuration boundary"
-echo "- prepare OpenStack service validation boundary"
-echo "- prepare API endpoint validation boundary"
-echo "- prepare compute and network validation boundary"
-echo "- prepare evidence directories"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+echo "[INFO] kolla openstack setup started"
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+test -f configs/kolla-lab-policy.env
+test -f configs/globals.yml
+test -f inventory/multinode.ini
+test -f scripts/kolla_preflight.py
+
+python3 --version | tee runtime-workspace/logs/python-version.log
+
+echo "[INFO] kolla openstack setup completed"

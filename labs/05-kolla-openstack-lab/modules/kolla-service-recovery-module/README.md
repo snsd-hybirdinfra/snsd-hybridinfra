@@ -1,4 +1,4 @@
-﻿# Kolla Service Recovery Module
+# Kolla Service Recovery Module
 
 ## Module Purpose
 

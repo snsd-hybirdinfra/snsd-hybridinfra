@@ -1,4 +1,4 @@
-﻿# Kolla OpenStack Lab Shared Runtime
+# Kolla OpenStack Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for OpenStack operational validation.
 

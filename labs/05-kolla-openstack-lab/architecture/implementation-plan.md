@@ -1,4 +1,4 @@
-﻿# Kolla OpenStack Lab Implementation Plan
+# Kolla OpenStack Lab Implementation Plan
 
 ## Lab Purpose
 

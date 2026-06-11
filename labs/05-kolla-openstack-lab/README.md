@@ -1,4 +1,4 @@
-﻿# Kolla OpenStack Lab
+# Kolla OpenStack Lab
 
 ## Lab Purpose
 

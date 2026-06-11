@@ -1,4 +1,4 @@
-﻿# OpenStack Evidence Generation Module
+# OpenStack Evidence Generation Module
 
 ## Module Purpose
 

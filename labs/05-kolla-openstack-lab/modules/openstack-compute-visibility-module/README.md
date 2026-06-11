@@ -1,4 +1,4 @@
-﻿# OpenStack Compute Visibility Module
+# OpenStack Compute Visibility Module
 
 ## Module Purpose
 

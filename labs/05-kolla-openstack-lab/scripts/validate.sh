@@ -1,42 +1,29 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="05-kolla-openstack-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] validation started: ${LAB_NAME}"
-echo "[INFO] planned validation checks:"
-echo "- Kolla-Ansible readiness"
-echo "- OpenStack service container state"
-echo "- control plane API availability"
-echo "- service catalog visibility"
-echo "- endpoint availability"
-echo "- compute service visibility"
-echo "- network service validation"
-echo "- service recovery workflow readiness"
-echo "- evidence output availability"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+RAW_LOG="evidence/generated/raw/kolla-openstack-validate.log"
+SUMMARY="evidence/generated/summary/kolla-openstack-execution-summary.md"
 
-cat > ../evidence/summary/kolla-openstack-validation-summary.md <<'EOF'
-# Kolla OpenStack Validation Summary
+echo "[INFO] kolla openstack preflight validation started"
 
-## Status
+python3 scripts/kolla_preflight.py | tee "$RAW_LOG"
 
-stub: validation workflow placeholder
+if [ ! -f "$SUMMARY" ]; then
+  echo "[ERROR] summary not generated"
+  exit 1
+fi
 
-## Planned Checks
+cat "$SUMMARY"
 
-- Kolla-Ansible readiness
-- OpenStack service container state
-- control plane API availability
-- service catalog visibility
-- endpoint availability
-- compute service visibility
-- network service validation
-- service recovery workflow readiness
-- evidence output availability
-EOF
+if ! grep -q "Overall Status: PASS" "$SUMMARY"; then
+  echo "[ERROR] kolla preflight summary is not PASS"
+  exit 1
+fi
 
-echo "[OK] validation stub completed: ${LAB_NAME}"
+echo "[INFO] kolla openstack preflight validation completed"

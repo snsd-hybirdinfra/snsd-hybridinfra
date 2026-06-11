@@ -1,4 +1,4 @@
-﻿# OpenStack Network Validation Module
+# OpenStack Network Validation Module
 
 ## Module Purpose
 

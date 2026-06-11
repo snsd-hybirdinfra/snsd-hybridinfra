@@ -1,4 +1,4 @@
-﻿# Kolla OpenStack Lab Validation Report
+# Kolla OpenStack Lab Validation Report
 
 ## Lab Summary
 

@@ -1,4 +1,4 @@
-﻿# Prometheus OpenStack Adapter
+# Prometheus OpenStack Adapter
 
 ## Adapter Purpose
 

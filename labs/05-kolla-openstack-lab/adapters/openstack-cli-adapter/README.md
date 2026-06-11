@@ -1,4 +1,4 @@
-﻿# OpenStack CLI Adapter
+# OpenStack CLI Adapter
 
 ## Adapter Purpose
 

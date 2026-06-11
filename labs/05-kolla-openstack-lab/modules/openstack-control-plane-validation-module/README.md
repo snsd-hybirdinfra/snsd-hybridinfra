@@ -1,4 +1,4 @@
-﻿# OpenStack Control Plane Validation Module
+# OpenStack Control Plane Validation Module
 
 ## Module Purpose
 

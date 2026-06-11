@@ -1,4 +1,4 @@
-﻿# Python OpenStack Parser Adapter
+# Python OpenStack Parser Adapter
 
 ## Adapter Purpose
 

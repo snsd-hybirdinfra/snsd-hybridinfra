@@ -1,4 +1,4 @@
-﻿# Kolla OpenStack Lab Evidence
+# Kolla OpenStack Lab Evidence
 
 This directory stores lab-local evidence generated during Kolla OpenStack validation execution.
 
