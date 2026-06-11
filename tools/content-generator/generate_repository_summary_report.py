@@ -290,6 +290,7 @@ def build_summary():
         lines.append(f"  Evidence Status: {get_metadata_value(lab, 'evidence_status')}")
         lines.append(f"  Execution Boundary Note: {get_execution_note_names(lab)}")
         lines.append(f"  Local Runtime Summary: {get_runtime_summary_status(lab)}")
+        lines.append(f"  Effective Runtime Status: {get_effective_runtime_status(lab)}")
         lines.append(f"  Focus: {get_lab_focus(lab)}")
     lines.append("")
 
@@ -374,6 +375,19 @@ def build_summary():
     lines.append("")
 
     return "\n".join(lines)
+
+
+def get_effective_runtime_status(lab_dir):
+    status = get_runtime_summary_status(lab_dir)
+    if ": PASS" in status:
+        return "local_runtime_pass"
+    if ": CHECK" in status:
+        return "local_runtime_check"
+    if ": FAIL" in status:
+        return "local_runtime_fail"
+    if status != "no local runtime summary":
+        return "local_runtime_present"
+    return "not_yet_executed"
 
 def main():
     OUTPUT.write_text(build_summary(), encoding="utf-8")
