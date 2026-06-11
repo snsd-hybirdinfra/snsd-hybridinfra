@@ -1,115 +1,207 @@
-﻿from pathlib import Path
+from pathlib import Path
 from datetime import datetime
+import re
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "a.txt"
-
-LABS = [
-    ("01-linux-observability-lab", "Linux Observability Lab", "Linux host visibility, process health, filesystem state, service monitoring, and system events."),
-    ("02-network-routing-lab", "Network Routing Lab", "Routing, VPN, WAN, DNS, reachability, latency, packet loss, and route recovery validation."),
-    ("03-ansible-automation-lab", "Ansible Automation Lab", "Inventory, SSH access, playbook execution, rollback, recovery, validation, and automation evidence."),
-    ("04-container-runtime-lab", "Container Runtime Lab", "Docker runtime visibility, container health, logs, restart recovery, and container evidence."),
-    ("05-kolla-openstack-lab", "Kolla OpenStack Lab", "Kolla-Ansible based OpenStack control plane, compute, network, service recovery, and evidence."),
-    ("06-monitoring-stack-lab", "Monitoring Stack Lab", "Prometheus, Grafana, exporter telemetry, dashboard readiness, alert readiness, and monitoring evidence."),
-    ("07-logging-correlation-lab", "Logging Correlation Lab", "Log collection, event normalization, OpenSearch query readiness, correlation, timeline reconstruction, and evidence."),
-    ("08-backup-recovery-lab", "Backup Recovery Lab", "Backup job readiness, artifact validation, restore workflows, integrity checks, and recovery evidence."),
-    ("09-resilience-failover-lab", "Resilience Failover Lab", "Failure detection, failover decision, traffic shift validation, recovery validation, and resilience evidence."),
-    ("10-governance-reporting-lab", "Governance Reporting Lab", "Repository validation, coverage reporting, quality gates, documentation consistency, and governance reporting."),
-]
+OUTPUT = ROOT / "a.txt"
 
 SCENARIO_LEVELS = [
-    ("Level 1 Visibility", 45),
-    ("Level 2 Correlation", 41),
-    ("Level 3 Recovery", 33),
-    ("Level 4 Resilience", 21),
-    ("Level 5 Continuity", 10),
+    ("level-1-visibility", "Level 1 Visibility"),
+    ("level-2-correlation", "Level 2 Correlation"),
+    ("level-3-recovery", "Level 3 Recovery"),
+    ("level-4-resilience", "Level 4 Resilience"),
+    ("level-5-continuity", "Level 5 Continuity"),
 ]
 
-REQUIRED_LAB_PATHS = [
-    "README.md",
-    "lab-metadata.yaml",
-    "architecture/implementation-plan.md",
-    "modules",
-    "adapters",
-    "shared-runtime/README.md",
-    "shared-runtime/runners/README.md",
-    "shared-runtime/validators/README.md",
-    "shared-runtime/parsers/README.md",
-    "scripts/README.md",
-    "scripts/setup.sh",
-    "scripts/validate.sh",
-    "scripts/cleanup.sh",
-    "evidence/README.md",
-    "evidence/raw/README.md",
-    "evidence/processed/README.md",
-    "evidence/summary/README.md",
-    "validation-reports/scenario-coverage-report.md",
-    "validation-reports/lab-validation-report.md",
+IMPLEMENTATION_ORDER = [
+    "01-linux-observability-lab",
+    "03-ansible-automation-lab",
+    "06-monitoring-stack-lab",
+    "04-container-runtime-lab",
+    "07-logging-correlation-lab",
+    "02-network-routing-lab",
+    "05-kolla-openstack-lab",
+    "08-backup-recovery-lab",
+    "09-resilience-failover-lab",
+    "10-governance-reporting-lab",
 ]
 
-def count_dirs(path: Path) -> int:
+def read_text(path):
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8", errors="ignore")
+
+def count_dirs(path):
     if not path.exists():
         return 0
     return sum(1 for item in path.iterdir() if item.is_dir())
 
-def count_files_by_name(root: Path, name: str) -> int:
-    if not root.exists():
-        return 0
-    return sum(1 for item in root.rglob(name) if item.is_file())
+def count_files(pattern):
+    return sum(1 for _ in ROOT.glob(pattern))
 
-def count_files_by_suffix(root: Path, suffix: str) -> int:
-    if not root.exists():
-        return 0
-    return sum(1 for item in root.rglob(f"*{suffix}") if item.is_file())
+def get_report_value(report_path, keys, default="not reported"):
+    text = read_text(report_path)
 
-def lab_missing_items(lab_name: str) -> list[str]:
-    base = ROOT / "labs" / lab_name
-    missing = []
-    for rel in REQUIRED_LAB_PATHS:
-        if not (base / rel).exists():
-            missing.append(rel)
-    return missing
+    for key in keys:
+        patterns = [
+            rf"{re.escape(key)}\s*:\s*([0-9]+)",
+            rf"\|\s*{re.escape(key)}\s*\|\s*([0-9]+)\s*\|",
+            rf"{re.escape(key)}.*?([0-9]+)",
+        ]
 
-def read_report_value(report_path: Path, label: str) -> str:
-    if not report_path.exists():
-        return "unknown"
-    text = report_path.read_text(encoding="utf-8", errors="ignore")
-    for line in text.splitlines():
-        if label in line:
-            return line.strip()
-    return "unknown"
+        for pattern in patterns:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                return match.group(1)
 
-def main() -> None:
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return default
 
-    scenario_count = count_dirs(ROOT / "scenarios" / "level-1-visibility")
-    scenario_count += count_dirs(ROOT / "scenarios" / "level-2-correlation")
-    scenario_count += count_dirs(ROOT / "scenarios" / "level-3-recovery")
-    scenario_count += count_dirs(ROOT / "scenarios" / "level-4-resilience")
-    scenario_count += count_dirs(ROOT / "scenarios" / "level-5-continuity")
+def get_metadata_value(lab_dir, key, default="not reported"):
+    text = read_text(lab_dir / "lab-metadata.yaml")
+    match = re.search(rf"^{re.escape(key)}\s*:\s*(.+)$", text, re.IGNORECASE | re.MULTILINE)
 
-    lab_count = count_dirs(ROOT / "labs")
-    metadata_count = count_files_by_name(ROOT / "scenarios", "metadata.yaml")
-    poster_svg_count = count_files_by_name(ROOT / "scenarios", "operational-poster.svg")
-    poster_png_count = count_files_by_name(ROOT / "scenarios", "operational-poster.png")
+    if match:
+        return match.group(1).strip().strip('"').strip("'")
 
-    missing_lab_total = 0
-    lab_lines = []
-    for lab_name, lab_title, focus in LABS:
-        missing = lab_missing_items(lab_name)
-        missing_lab_total += len(missing)
-        status = "PASS" if not missing else f"CHECK missing={len(missing)}"
-        lab_lines.append(f"- {lab_name} | {lab_title} | {status}")
-        lab_lines.append(f"  Focus: {focus}")
+    return default
+
+def get_lab_title(lab_dir):
+    for key in ["lab_title", "title", "name"]:
+        value = get_metadata_value(lab_dir, key, "")
+        if value:
+            return value
+
+    readme = read_text(lab_dir / "README.md")
+    match = re.search(r"^#\s+(.+)$", readme, re.MULTILINE)
+    if match:
+        return match.group(1).strip()
+
+    return lab_dir.name
+
+def get_lab_focus(lab_dir):
+    text = read_text(lab_dir / "README.md")
+    match = re.search(r"## Lab Focus\s+(.+?)(?:\n## |\Z)", text, re.IGNORECASE | re.DOTALL)
+
+    if not match:
+        return "not reported"
+
+    lines = []
+    for line in match.group(1).splitlines():
+        line = line.strip().strip("-").strip()
+        if line:
+            lines.append(line)
+
+    focus = " ".join(lines)
+    if len(focus) > 220:
+        return focus[:217] + "..."
+
+    return focus if focus else "not reported"
+
+def has_local_execution_note(lab_dir):
+    return (lab_dir / "validation-reports" / "local-execution-note.md").exists()
+
+def get_labs():
+    labs_root = ROOT / "labs"
+    if not labs_root.exists():
+        return []
+    return sorted([item for item in labs_root.iterdir() if item.is_dir()])
+
+def get_scenario_inventory():
+    rows = []
+    for dirname, label in SCENARIO_LEVELS:
+        rows.append((label, count_dirs(ROOT / "scenarios" / dirname)))
+    return rows
+
+def get_validation_values():
+    return {
+        "missing_required_artifacts": get_report_value(
+            ROOT / "reports" / "repository-quality-check.md",
+            ["missing_required_artifacts", "missing required artifacts"],
+        ),
+        "small_png_count": get_report_value(
+            ROOT / "reports" / "repository-quality-check.md",
+            ["small_png_count", "small png count"],
+        ),
+        "markdown_broken_links": get_report_value(
+            ROOT / "reports" / "markdown-link-check.md",
+            ["broken_links", "broken links"],
+        ),
+        "top_level_missing_directories": get_report_value(
+            ROOT / "reports" / "top-level-structure-check.md",
+            ["missing_expected_directories", "missing dirs"],
+        ),
+        "top_level_extra_directories": get_report_value(
+            ROOT / "reports" / "top-level-structure-check.md",
+            ["extra_top_level_directories", "extra dirs"],
+        ),
+        "top_level_missing_readme_mentions": get_report_value(
+            ROOT / "reports" / "top-level-structure-check.md",
+            ["missing_root_readme_mentions"],
+        ),
+        "root_readme_missing_links": get_report_value(
+            ROOT / "reports" / "root-readme-alignment-check.md",
+            ["root_readme_missing_links"],
+        ),
+        "root_readme_missing_terms": get_report_value(
+            ROOT / "reports" / "root-readme-alignment-check.md",
+            ["root_readme_missing_terms"],
+        ),
+        "repository_language_hits": get_report_value(
+            ROOT / "reports" / "repository-language-check.md",
+            ["bad_pattern_hits", "repository_language_hits"],
+        ),
+        "lab_missing_required_paths": get_report_value(
+            ROOT / "reports" / "lab-readiness-alignment-check.md",
+            ["missing required paths", "missing_required_paths"],
+        ),
+        "lab_missing_status_terms": get_report_value(
+            ROOT / "reports" / "lab-readiness-alignment-check.md",
+            ["missing required status terms", "missing_required_status_terms"],
+        ),
+    }
+
+def get_validation_status(values):
+    blocking_keys = [
+        "missing_required_artifacts",
+        "markdown_broken_links",
+        "top_level_missing_directories",
+        "top_level_extra_directories",
+        "top_level_missing_readme_mentions",
+        "root_readme_missing_links",
+        "root_readme_missing_terms",
+        "repository_language_hits",
+        "lab_missing_required_paths",
+        "lab_missing_status_terms",
+    ]
+
+    for key in blocking_keys:
+        value = values.get(key, "not reported")
+        if value not in ["0", "not reported"]:
+            return "CHECK"
+
+    return "PASS"
+
+def build_summary():
+    generated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    scenario_rows = get_scenario_inventory()
+    total_scenarios = sum(count for _, count in scenario_rows)
+
+    labs = get_labs()
+    values = get_validation_values()
+    validation_status = get_validation_status(values)
+
+    local_execution_labs = [lab.name for lab in labs if has_local_execution_note(lab)]
 
     lines = []
     lines.append("SNSD HYBRID INFRASTRUCTURE - LOCAL EXECUTIVE SUMMARY")
-    lines.append("=" * 72)
+    lines.append("========================================================================")
     lines.append("")
-    lines.append(f"Generated At: {now}")
+    lines.append(f"Generated At: {generated_at}")
     lines.append("File Role: Local-only executive repository summary")
     lines.append("Git Policy: a.txt is intentionally ignored and should not be committed")
     lines.append("")
+
     lines.append("1. Repository Positioning")
     lines.append("- Repository: SNSD Hybrid Infrastructure")
     lines.append("- Positioning: Enterprise Operational Capability Platform")
@@ -117,87 +209,127 @@ def main() -> None:
     lines.append("- Purpose: Validate reusable operational capabilities through lifecycle-aligned scenarios and implementation-oriented labs")
     lines.append("- Important Boundary: This is not a simple scenario collection")
     lines.append("")
+
     lines.append("2. Operational Lifecycle")
-    lines.append("- Detection")
-    lines.append("- Correlation & Analysis")
-    lines.append("- Incident Coordination")
-    lines.append("- Recovery & Automation")
-    lines.append("- Recovery Validation")
-    lines.append("- Governance & Reporting")
+    for item in [
+        "Detection",
+        "Correlation & Analysis",
+        "Incident Coordination",
+        "Recovery & Automation",
+        "Recovery Validation",
+        "Governance & Reporting",
+    ]:
+        lines.append(f"- {item}")
     lines.append("")
+
     lines.append("3. Scenario Inventory")
-    for level, count in SCENARIO_LEVELS:
-        lines.append(f"- {level}: {count}")
-    lines.append(f"- Total Scenarios: {scenario_count}")
+    for label, count in scenario_rows:
+        lines.append(f"- {label}: {count}")
+    lines.append(f"- Total Scenarios: {total_scenarios}")
     lines.append("")
+
     lines.append("4. Lab Inventory")
-    lines.append(f"- Total Labs: {lab_count}")
-    lines.append("- Lab Readiness: documentation-ready")
-    lines.append("- Implementation Status: planned")
-    lines.append("- Execution Status: not yet executed")
-    lines.append("- Evidence Status: placeholder until lab execution")
+    lines.append(f"- Total Labs: {len(labs)}")
+    lines.append(f"- Labs with local execution note: {len(local_execution_labs)}")
+    lines.append(f"- Repository validation target: {validation_status}")
     lines.append("")
-    lines.extend(lab_lines)
+
+    for lab in labs:
+        lines.append(f"- {lab.name} | {get_lab_title(lab)}")
+        lines.append(f"  Documentation Status: {get_metadata_value(lab, 'documentation_status', get_metadata_value(lab, 'status'))}")
+        lines.append(f"  Implementation Status: {get_metadata_value(lab, 'implementation_status')}")
+        lines.append(f"  Execution Status: {get_metadata_value(lab, 'execution_status')}")
+        lines.append(f"  Evidence Status: {get_metadata_value(lab, 'evidence_status')}")
+        lines.append(f"  Local Execution: {'local execution note present' if has_local_execution_note(lab) else 'no local execution note'}")
+        lines.append(f"  Focus: {get_lab_focus(lab)}")
     lines.append("")
+
     lines.append("5. Artifact Coverage")
-    lines.append(f"- Scenario metadata files: {metadata_count}")
-    lines.append(f"- Scenario poster SVG files: {poster_svg_count}")
-    lines.append(f"- Scenario poster PNG files: {poster_png_count}")
-    lines.append(f"- Missing required lab artifacts: {missing_lab_total}")
+    lines.append(f"- Scenario metadata files: {count_files('scenarios/*/*/metadata.yaml')}")
+    lines.append(f"- Scenario poster SVG files: {count_files('scenarios/**/*.svg')}")
+    lines.append(f"- Scenario poster PNG files: {count_files('scenarios/**/*.png')}")
+    lines.append(f"- Missing required artifacts: {values['missing_required_artifacts']}")
+    lines.append(f"- Small PNG count: {values['small_png_count']}")
     lines.append("")
-    lines.append("6. Report Layering")
+
+    lines.append("6. Validation Signals")
+    lines.append(f"- Markdown broken links: {values['markdown_broken_links']}")
+    lines.append(f"- Top-level missing directories: {values['top_level_missing_directories']}")
+    lines.append(f"- Top-level extra directories: {values['top_level_extra_directories']}")
+    lines.append(f"- Top-level missing README mentions: {values['top_level_missing_readme_mentions']}")
+    lines.append(f"- Root README missing links: {values['root_readme_missing_links']}")
+    lines.append(f"- Root README missing terms: {values['root_readme_missing_terms']}")
+    lines.append(f"- Repository language hits: {values['repository_language_hits']}")
+    lines.append(f"- Lab missing required paths: {values['lab_missing_required_paths']}")
+    lines.append(f"- Lab missing required status terms: {values['lab_missing_status_terms']}")
+    lines.append("")
+
+    lines.append("7. Report Layering")
     lines.append("- docs/: stable reviewer-facing repository documentation")
     lines.append("- reports/: generated detailed checker outputs for maintainers")
     lines.append("- validation-reports/: reviewer-facing validation summaries")
     lines.append("- a.txt: local-only executive summary")
     lines.append("")
-    lines.append("7. Reviewer Entry Points")
-    lines.append("- README.md")
-    lines.append("- validation-reports/lab-readiness-summary.md")
-    lines.append("- docs/lab-coverage-matrix.md")
-    lines.append("- docs/repository-tree.md")
-    lines.append("- docs/report-layer-guide.md")
-    lines.append("- scenarios/README.md")
-    lines.append("- labs/*/README.md")
+
+    lines.append("8. Reviewer Entry Points")
+    for entry in [
+        "README.md",
+        "validation-reports/lab-readiness-summary.md",
+        "docs/lab-coverage-matrix.md",
+        "docs/repository-tree.md",
+        "docs/report-layer-guide.md",
+        "scenarios/README.md",
+        "labs/*/README.md",
+    ]:
+        lines.append(f"- {entry}")
     lines.append("")
-    lines.append("8. Current Baseline")
-    lines.append("- 150 lifecycle-aligned scenarios")
-    lines.append("- 10 implementation labs")
-    lines.append("- 10 lab implementation plans")
-    lines.append("- 10 lab validation reports")
-    lines.append("- 10 scenario coverage reports")
-    lines.append("- 10 lab evidence boundaries")
-    lines.append("- 10 lab script boundaries")
-    lines.append("- Repository validation target: PASS")
+
+    lines.append("9. Current Baseline")
+    lines.append(f"- {total_scenarios} lifecycle-aligned scenarios")
+    lines.append(f"- {len(labs)} implementation labs")
+    lines.append(f"- {count_files('labs/*/architecture/implementation-plan.md')} lab implementation plans")
+    lines.append(f"- {count_files('labs/*/validation-reports/lab-validation-report.md')} lab validation reports")
+    lines.append(f"- {count_files('labs/*/validation-reports/scenario-coverage-report.md')} scenario coverage reports")
+    lines.append(f"- {count_files('labs/*/evidence/README.md')} lab evidence boundaries")
+    lines.append(f"- {count_files('labs/*/scripts/README.md')} lab script boundaries")
+    lines.append(f"- Repository validation target: {validation_status}")
     lines.append("")
-    lines.append("9. Implementation Boundary")
-    lines.append("- Current state is documentation-ready")
-    lines.append("- Runtime implementation is planned")
-    lines.append("- Actual execution evidence has not yet been produced")
-    lines.append("- Future implementation should begin with foundational labs")
+
+    lines.append("10. Implementation Boundary")
+    lines.append("- Current repository baseline remains documentation-ready")
+    lines.append("- Runtime implementation is planned and incrementally starting from foundational labs")
+    if local_execution_labs:
+        lines.append("- Local execution boundary has been documented for:")
+        for lab_name in local_execution_labs:
+            lines.append(f"  - {lab_name}")
+    else:
+        lines.append("- No local execution boundary has been documented yet")
+    lines.append("- Generated runtime evidence remains local-only unless explicitly promoted to reviewer-facing evidence")
     lines.append("")
-    lines.append("10. Recommended Implementation Order")
-    lines.append("- 01-linux-observability-lab")
-    lines.append("- 03-ansible-automation-lab")
-    lines.append("- 06-monitoring-stack-lab")
-    lines.append("- 04-container-runtime-lab")
-    lines.append("- 07-logging-correlation-lab")
-    lines.append("- 02-network-routing-lab")
-    lines.append("- 05-kolla-openstack-lab")
-    lines.append("- 08-backup-recovery-lab")
-    lines.append("- 09-resilience-failover-lab")
-    lines.append("- 10-governance-reporting-lab")
+
+    lines.append("11. Recommended Implementation Order")
+    for item in IMPLEMENTATION_ORDER:
+        status = "present" if (ROOT / "labs" / item).exists() else "missing"
+        lines.append(f"- {item} | {status}")
     lines.append("")
-    lines.append("11. Operational Summary")
-    lines.append("The repository now presents a complete documentation-ready portfolio baseline.")
+
+    lines.append("12. Operational Summary")
+    if validation_status == "PASS":
+        lines.append("The repository currently presents a validation-clean documentation-ready portfolio baseline.")
+    else:
+        lines.append("The repository currently requires validation follow-up before being treated as a clean baseline.")
     lines.append("Scenarios define operational validation cases.")
     lines.append("Labs define implementation boundaries.")
     lines.append("Modules, adapters, and shared runtime areas define capability and integration boundaries.")
     lines.append("The next major phase is executable lab implementation, starting with Linux observability.")
     lines.append("")
 
-    OUT.write_text("\n".join(lines), encoding="utf-8")
-    print(f"[OK] wrote {OUT.relative_to(ROOT)}")
+    return "\n".join(lines)
+
+def main():
+    OUTPUT.write_text(build_summary(), encoding="utf-8")
+    print("[OK] wrote a.txt")
+    return 0
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
