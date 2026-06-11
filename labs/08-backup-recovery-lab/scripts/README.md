@@ -1,4 +1,4 @@
-﻿# Backup Recovery Lab Scripts
+# Backup Recovery Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Backup Recovery Lab.
 

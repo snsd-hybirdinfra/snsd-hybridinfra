@@ -1,4 +1,4 @@
-﻿# Backup Recovery Lab Scenario Coverage Report
+# Backup Recovery Lab Scenario Coverage Report
 
 This report summarizes repository scenarios mapped to the Backup Recovery Lab.
 

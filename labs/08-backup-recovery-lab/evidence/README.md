@@ -1,4 +1,4 @@
-﻿# Backup Recovery Lab Evidence
+# Backup Recovery Lab Evidence
 
 This directory stores lab-local evidence generated during backup and recovery validation execution.
 

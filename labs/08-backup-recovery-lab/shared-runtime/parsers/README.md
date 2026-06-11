@@ -1,4 +1,4 @@
-﻿# Parsers
+# Parsers
 
 Runtime parsers convert backup and restore output into validation evidence.
 

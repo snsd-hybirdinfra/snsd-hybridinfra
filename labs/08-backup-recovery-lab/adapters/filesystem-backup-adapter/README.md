@@ -1,4 +1,4 @@
-﻿# Filesystem Backup Adapter
+# Filesystem Backup Adapter
 
 ## Adapter Purpose
 

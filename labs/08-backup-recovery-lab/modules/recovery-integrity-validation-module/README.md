@@ -1,4 +1,4 @@
-﻿# Recovery Integrity Validation Module
+# Recovery Integrity Validation Module
 
 ## Module Purpose
 

@@ -1,4 +1,4 @@
-﻿# Restore Workflow Module
+# Restore Workflow Module
 
 ## Module Purpose
 

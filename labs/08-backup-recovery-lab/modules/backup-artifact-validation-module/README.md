@@ -1,4 +1,4 @@
-﻿# Backup Artifact Validation Module
+# Backup Artifact Validation Module
 
 ## Module Purpose
 

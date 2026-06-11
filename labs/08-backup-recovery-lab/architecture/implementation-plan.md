@@ -1,4 +1,4 @@
-﻿# Backup Recovery Lab Implementation Plan
+# Backup Recovery Lab Implementation Plan
 
 ## Lab Purpose
 

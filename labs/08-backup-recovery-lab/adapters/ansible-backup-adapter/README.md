@@ -1,4 +1,4 @@
-﻿# Ansible Backup Adapter
+# Ansible Backup Adapter
 
 ## Adapter Purpose
 

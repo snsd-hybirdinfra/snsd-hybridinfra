@@ -1,4 +1,4 @@
-﻿# Python Integrity Check Adapter
+# Python Integrity Check Adapter
 
 ## Adapter Purpose
 

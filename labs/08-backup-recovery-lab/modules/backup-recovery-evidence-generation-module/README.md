@@ -1,4 +1,4 @@
-﻿# Backup Recovery Evidence Generation Module
+# Backup Recovery Evidence Generation Module
 
 ## Module Purpose
 

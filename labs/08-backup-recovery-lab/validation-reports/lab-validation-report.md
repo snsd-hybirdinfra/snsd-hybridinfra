@@ -1,4 +1,4 @@
-﻿# Backup Recovery Lab Validation Report
+# Backup Recovery Lab Validation Report
 
 ## Lab Summary
 

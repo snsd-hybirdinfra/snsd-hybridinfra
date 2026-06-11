@@ -1,4 +1,4 @@
-﻿# Service Recovery Adapter
+# Service Recovery Adapter
 
 ## Adapter Purpose
 

@@ -1,4 +1,4 @@
-﻿# Backup Job Validation Module
+# Backup Job Validation Module
 
 ## Module Purpose
 

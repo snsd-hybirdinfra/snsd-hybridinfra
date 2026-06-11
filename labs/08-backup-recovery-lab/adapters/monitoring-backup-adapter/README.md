@@ -1,4 +1,4 @@
-﻿# Monitoring Backup Adapter
+# Monitoring Backup Adapter
 
 ## Adapter Purpose
 

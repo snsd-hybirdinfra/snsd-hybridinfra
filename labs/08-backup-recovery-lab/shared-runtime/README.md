@@ -1,4 +1,4 @@
-﻿# Backup Recovery Lab Shared Runtime
+# Backup Recovery Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for backup and recovery validation.
 
