@@ -1,13 +1,16 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="02-network-routing-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] cleanup started: ${LAB_NAME}"
-echo "[INFO] planned cleanup tasks:"
-echo "- remove temporary execution files"
-echo "- preserve route validation evidence"
-echo "- preserve evidence summaries"
-echo "- preserve validation reports"
+echo "[INFO] network routing cleanup started"
 
-echo "[OK] cleanup stub completed: ${LAB_NAME}"
+rm -rf evidence/generated/raw
+rm -rf evidence/generated/summary
+rm -rf runtime-workspace/logs
+
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
+mkdir -p runtime-workspace/logs
+
+echo "[INFO] network routing cleanup completed"

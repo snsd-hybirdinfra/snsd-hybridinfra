@@ -1,19 +1,32 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="02-network-routing-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate management node dependencies"
-echo "- validate routing node reachability"
-echo "- prepare interface and route validation paths"
-echo "- prepare FRR or Linux routing configuration boundary"
-echo "- prepare DNS and reachability validation tools"
-echo "- prepare evidence directories"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+echo "[INFO] network routing setup started"
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+test -f configs/network-targets.env
+
+source configs/network-targets.env
+
+{
+  echo "# Network Routing Setup"
+  echo
+  echo "target_01=$TARGET_01_NAME $TARGET_01_IP"
+  echo "target_02=$TARGET_02_NAME $TARGET_02_IP"
+  echo "target_service_port=$TARGET_SERVICE_PORT"
+  echo
+  echo "## Local Route Table"
+  ip route || true
+  echo
+  echo "## Local Address"
+  ip addr || true
+} | tee runtime-workspace/logs/setup.log
+
+cp runtime-workspace/logs/setup.log evidence/generated/raw/network-routing-setup.log
+
+echo "[INFO] network routing setup completed"
