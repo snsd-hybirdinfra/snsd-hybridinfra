@@ -1,4 +1,4 @@
-﻿# Linux Observability Lab Scripts
+# Linux Observability Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Linux Observability Lab.
 
@@ -45,3 +45,31 @@ Generated evidence:
 | Script | Purpose |
 |---|---|
 | parse_evidence.py | Parses raw Ansible validation logs into processed and summary evidence |
+## Execution Modes
+
+### Local Node Execution
+
+Use this mode when the inventory uses ansible_connection=local.
+
+Command:
+
+    bash scripts/setup.sh
+    bash scripts/validate.sh
+
+### Remote Password Execution
+
+Use this mode when the inventory points to a remote Linux VM and SSH password authentication is required.
+
+Command:
+
+    ANSIBLE_ASK_PASS=true ANSIBLE_ASK_BECOME_PASS=true bash scripts/setup.sh
+    ANSIBLE_ASK_PASS=true ANSIBLE_ASK_BECOME_PASS=true bash scripts/validate.sh
+
+### Future Remote Key Execution
+
+Use this mode after SSH key authentication is configured for the target VM.
+
+Command:
+
+    bash scripts/setup.sh
+    bash scripts/validate.sh
