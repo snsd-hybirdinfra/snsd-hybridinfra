@@ -1,4 +1,4 @@
-﻿# Container Runtime Visibility Module
+# Container Runtime Visibility Module
 
 ## Module Purpose
 

@@ -1,4 +1,4 @@
-﻿# Container Runtime Lab Implementation Plan
+# Container Runtime Lab Implementation Plan
 
 ## Lab Purpose
 

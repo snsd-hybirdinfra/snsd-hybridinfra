@@ -1,4 +1,4 @@
-﻿# Container Runtime Lab Evidence
+# Container Runtime Lab Evidence
 
 This directory stores lab-local evidence generated during container runtime validation execution.
 

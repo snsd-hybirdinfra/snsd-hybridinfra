@@ -1,4 +1,4 @@
-﻿# Prometheus Container Adapter
+# Prometheus Container Adapter
 
 ## Adapter Purpose
 

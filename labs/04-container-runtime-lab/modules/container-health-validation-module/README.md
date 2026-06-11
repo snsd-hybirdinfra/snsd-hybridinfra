@@ -1,4 +1,4 @@
-﻿# Container Health Validation Module
+# Container Health Validation Module
 
 ## Module Purpose
 

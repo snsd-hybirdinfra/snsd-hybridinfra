@@ -1,0 +1,30 @@
+---
+correlation_rules:
+  - name: linux_observability_chain
+    required_events:
+      - login_success
+      - metrics_scrape
+      - playbook_task_ok
+    expected_result: linux_observability_validated
+
+  - name: container_runtime_recovery_chain
+    required_events:
+      - container_started
+      - container_health
+      - container_restart
+      - container_recovered
+    expected_result: container_runtime_recovery_validated
+
+  - name: monitoring_stack_visibility_chain
+    required_events:
+      - target_up
+      - dashboard_loaded
+    expected_result: monitoring_stack_visibility_validated
+
+  - name: end_to_end_runtime_correlation
+    required_events:
+      - playbook_task_ok
+      - container_recovered
+      - target_up
+      - correlation_completed
+    expected_result: runtime_chain_correlated

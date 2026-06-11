@@ -1,4 +1,4 @@
-﻿# Docker Runtime Adapter
+# Docker Runtime Adapter
 
 ## Adapter Purpose
 

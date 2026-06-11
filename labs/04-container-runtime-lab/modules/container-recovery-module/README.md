@@ -1,4 +1,4 @@
-﻿# Container Recovery Module
+# Container Recovery Module
 
 ## Module Purpose
 

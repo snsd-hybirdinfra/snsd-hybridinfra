@@ -1,4 +1,4 @@
-﻿# Validators
+# Validators
 
 Runtime validators check container runtime conditions.
 

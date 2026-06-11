@@ -1,4 +1,4 @@
-﻿# Container Runtime Lab Shared Runtime
+# Container Runtime Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for container runtime validation.
 

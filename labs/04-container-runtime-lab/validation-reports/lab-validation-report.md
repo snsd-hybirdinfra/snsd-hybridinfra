@@ -1,4 +1,4 @@
-﻿# Container Runtime Lab Validation Report
+# Container Runtime Lab Validation Report
 
 ## Lab Summary
 

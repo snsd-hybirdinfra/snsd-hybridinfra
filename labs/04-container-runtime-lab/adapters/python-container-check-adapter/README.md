@@ -1,4 +1,4 @@
-﻿# Python Container Check Adapter
+# Python Container Check Adapter
 
 ## Adapter Purpose
 

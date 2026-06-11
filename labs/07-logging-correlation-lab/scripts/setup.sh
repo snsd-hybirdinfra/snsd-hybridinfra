@@ -1,18 +1,18 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="07-logging-correlation-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate log source boundary"
-echo "- prepare log forwarding boundary"
-echo "- prepare OpenSearch search boundary"
-echo "- prepare correlation validation boundary"
-echo "- prepare evidence directories"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+echo "[INFO] logging correlation setup started"
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+python3 --version | tee runtime-workspace/logs/python-version.log
+
+test -f datasets/sample-events.log
+test -f configs/correlation-rules.yml
+test -f scripts/correlate_logs.py
+
+echo "[INFO] logging correlation setup completed"

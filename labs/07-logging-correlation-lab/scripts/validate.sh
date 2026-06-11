@@ -1,42 +1,24 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="07-logging-correlation-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] validation started: ${LAB_NAME}"
-echo "[INFO] planned validation checks:"
-echo "- log source availability"
-echo "- log forwarding readiness"
-echo "- OpenSearch availability"
-echo "- index readiness"
-echo "- log search result availability"
-echo "- event normalization readiness"
-echo "- correlation analysis readiness"
-echo "- incident timeline reconstruction readiness"
-echo "- evidence output availability"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+RAW_LOG="evidence/generated/raw/logging-correlation-validate.log"
+SUMMARY="evidence/generated/summary/logging-correlation-execution-summary.md"
 
-cat > ../evidence/summary/logging-correlation-validation-summary.md <<'EOF'
-# Logging Correlation Validation Summary
+echo "[INFO] logging correlation validation started"
 
-## Status
+python3 scripts/correlate_logs.py | tee "$RAW_LOG"
 
-stub: validation workflow placeholder
+if [ ! -f "$SUMMARY" ]; then
+  echo "[ERROR] summary not generated"
+  exit 1
+fi
 
-## Planned Checks
+cat "$SUMMARY"
 
-- log source availability
-- log forwarding readiness
-- OpenSearch availability
-- index readiness
-- log search result availability
-- event normalization readiness
-- correlation analysis readiness
-- incident timeline reconstruction readiness
-- evidence output availability
-EOF
-
-echo "[OK] validation stub completed: ${LAB_NAME}"
+echo "[INFO] logging correlation validation completed"

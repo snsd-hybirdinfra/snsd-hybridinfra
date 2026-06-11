@@ -1,4 +1,4 @@
-﻿# Container Log Collection Module
+# Container Log Collection Module
 
 ## Module Purpose
 

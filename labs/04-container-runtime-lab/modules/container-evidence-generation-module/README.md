@@ -1,4 +1,4 @@
-﻿# Container Evidence Generation Module
+# Container Evidence Generation Module
 
 ## Module Purpose
 

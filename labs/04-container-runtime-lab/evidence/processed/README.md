@@ -1,4 +1,4 @@
-﻿# Processed Evidence
+# Processed Evidence
 
 This directory stores processed validation output for Container Runtime Lab.
 

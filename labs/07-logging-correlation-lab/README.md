@@ -1,4 +1,4 @@
-﻿# Logging Correlation Lab
+# Logging Correlation Lab
 
 ## Lab Purpose
 
@@ -62,3 +62,7 @@ It does not claim completed runtime execution until actual deployment, automatio
 ## Implementation Note
 
 Runtime scripts, deployment artifacts, generated evidence, and execution outputs are planned for the implementation phase.
+
+## Execution Boundary Note
+
+- [Logging Correlation Execution Boundary Note](validation-reports/logging-correlation-execution-note.md)

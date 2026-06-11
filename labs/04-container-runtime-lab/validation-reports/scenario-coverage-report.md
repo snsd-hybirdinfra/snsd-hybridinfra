@@ -1,4 +1,4 @@
-﻿# Container Runtime Lab Scenario Coverage Report
+# Container Runtime Lab Scenario Coverage Report
 
 This report summarizes repository scenarios mapped to the Container Runtime Lab.
 

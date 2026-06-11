@@ -1,4 +1,4 @@
-﻿# Evidence Summary
+# Evidence Summary
 
 This directory stores reviewer-readable evidence summaries for Container Runtime Lab.
 

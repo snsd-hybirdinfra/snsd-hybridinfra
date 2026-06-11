@@ -1,4 +1,4 @@
-﻿# Runners
+# Runners
 
 Runtime runners execute container runtime lab workflows.
 

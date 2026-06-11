@@ -1,4 +1,4 @@
-﻿# Ansible Container Adapter
+# Ansible Container Adapter
 
 ## Adapter Purpose
 

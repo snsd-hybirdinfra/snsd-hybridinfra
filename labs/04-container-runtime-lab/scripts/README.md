@@ -1,4 +1,4 @@
-﻿# Container Runtime Lab Scripts
+# Container Runtime Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Container Runtime Lab.
 
