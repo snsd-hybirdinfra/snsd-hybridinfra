@@ -1,4 +1,4 @@
-﻿# Ansible Automation Lab
+# Ansible Automation Lab
 
 ## Lab Purpose
 
@@ -62,3 +62,7 @@ It does not claim completed runtime execution until actual deployment, automatio
 ## Implementation Note
 
 Runtime scripts, deployment artifacts, generated evidence, and execution outputs are planned for the implementation phase.
+
+## Execution Boundary Note
+
+- [Ansible Automation Execution Boundary Note](validation-reports/ansible-automation-execution-note.md)

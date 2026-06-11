@@ -1,0 +1,49 @@
+---
+- name: Execute Ansible automation setup boundary
+  hosts: ansible_automation_targets
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Ensure automation marker directory exists
+      ansible.builtin.file:
+        path: "{{ automation_marker_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Ensure automation test package is installed
+      ansible.builtin.package:
+        name: "{{ automation_test_package }}"
+        state: present
+
+    - name: Ensure automation test service is enabled and running
+      ansible.builtin.service:
+        name: "{{ automation_test_service }}"
+        state: started
+        enabled: true
+
+    - name: Write automation marker file
+      ansible.builtin.copy:
+        dest: "{{ automation_marker_file }}"
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          SNSD Ansible Automation Lab
+          Host: {{ inventory_hostname }}
+          Managed By: Ansible
+          Automation Boundary: setup
+          Package: {{ automation_test_package }}
+          Service: {{ automation_test_service }}
+
+    - name: Read automation marker file
+      ansible.builtin.command:
+        cmd: "cat {{ automation_marker_file }}"
+      register: marker_output
+      changed_when: false
+
+    - name: Show automation marker
+      ansible.builtin.debug:
+        var: marker_output.stdout_lines

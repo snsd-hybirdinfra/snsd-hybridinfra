@@ -1,13 +1,16 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="03-ansible-automation-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] cleanup started: ${LAB_NAME}"
-echo "[INFO] planned cleanup tasks:"
-echo "- remove temporary execution files"
-echo "- preserve automation evidence"
-echo "- preserve evidence summaries"
-echo "- preserve validation reports"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
 
-echo "[OK] cleanup stub completed: ${LAB_NAME}"
+echo "[INFO] ansible automation cleanup started"
+
+ansible-playbook playbooks/cleanup.yml \
+  | tee runtime-workspace/logs/cleanup.log
+
+cp runtime-workspace/logs/cleanup.log evidence/generated/raw/ansible-cleanup.log
+
+echo "[INFO] ansible automation cleanup completed"

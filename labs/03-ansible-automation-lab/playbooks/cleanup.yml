@@ -1,0 +1,15 @@
+---
+- name: Cleanup Ansible automation lab boundary
+  hosts: ansible_automation_targets
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Remove automation marker directory
+      ansible.builtin.file:
+        path: "{{ automation_marker_dir }}"
+        state: absent
+
+    - name: Report cleanup result
+      ansible.builtin.debug:
+        msg: "cleanup_status=PASS host={{ inventory_hostname }}"

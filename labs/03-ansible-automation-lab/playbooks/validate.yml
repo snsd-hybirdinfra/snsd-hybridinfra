@@ -1,0 +1,61 @@
+---
+- name: Validate Ansible automation execution boundary
+  hosts: ansible_automation_targets
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Validate automation marker directory
+      ansible.builtin.stat:
+        path: "{{ automation_marker_dir }}"
+      register: marker_dir
+
+    - name: Validate automation marker file
+      ansible.builtin.stat:
+        path: "{{ automation_marker_file }}"
+      register: marker_file
+
+    - name: Validate automation test package
+      ansible.builtin.command:
+        cmd: "dpkg -s {{ automation_test_package }}"
+      register: package_check
+      changed_when: false
+      failed_when: package_check.rc != 0
+
+    - name: Validate automation test service state
+      ansible.builtin.command:
+        cmd: "systemctl is-active {{ automation_test_service }}"
+      register: service_check
+      changed_when: false
+      failed_when: service_check.stdout.strip() != "active"
+
+    - name: Validate marker content
+      ansible.builtin.command:
+        cmd: "grep -q 'Managed By: Ansible' {{ automation_marker_file }}"
+      register: marker_content_check
+      changed_when: false
+      failed_when: marker_content_check.rc != 0
+
+    - name: Write host validation evidence
+      ansible.builtin.copy:
+        dest: "/tmp/snsd-ansible-automation-lab/validation-evidence.txt"
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          host={{ inventory_hostname }}
+          marker_dir={{ marker_dir.stat.exists }}
+          marker_file={{ marker_file.stat.exists }}
+          package={{ automation_test_package }}
+          package_status=present
+          service={{ automation_test_service }}
+          service_status={{ service_check.stdout }}
+          marker_content=valid
+          validation_status=PASS
+
+    - name: Show validation result
+      ansible.builtin.debug:
+        msg:
+          - "host={{ inventory_hostname }}"
+          - "validation_status=PASS"
+          - "service_status={{ service_check.stdout }}"

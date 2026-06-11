@@ -1,0 +1,5 @@
+---
+automation_marker_dir: /tmp/snsd-ansible-automation-lab
+automation_marker_file: /tmp/snsd-ansible-automation-lab/automation-marker.txt
+automation_test_package: curl
+automation_test_service: cron

@@ -1,18 +1,22 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="03-ansible-automation-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate Ansible control node dependencies"
-echo "- validate inventory path"
-echo "- validate SSH key and managed node access boundary"
-echo "- prepare playbook execution directories"
-echo "- prepare evidence directories"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+echo "[INFO] ansible automation setup started"
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+ansible --version | tee runtime-workspace/logs/ansible-version.log
+
+ansible -m ping ansible_automation_targets \
+  | tee runtime-workspace/logs/ansible-ping.log
+
+ansible-playbook playbooks/setup.yml \
+  | tee runtime-workspace/logs/setup.log
+
+cp runtime-workspace/logs/setup.log evidence/generated/raw/ansible-setup.log
+
+echo "[INFO] ansible automation setup completed"
