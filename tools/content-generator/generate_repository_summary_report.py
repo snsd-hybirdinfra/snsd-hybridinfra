@@ -97,8 +97,56 @@ def get_lab_focus(lab_dir):
 
     return focus if focus else "not reported"
 
-def has_local_execution_note(lab_dir):
-    return (lab_dir / "validation-reports" / "local-execution-note.md").exists()
+def get_execution_notes(lab_dir):
+    report_dir = lab_dir / "validation-reports"
+    if not report_dir.exists():
+        return []
+
+    patterns = [
+        "*execution-note.md",
+        "*execution-boundary*.md",
+        "local-execution-note.md",
+        "monitoring-stack-execution-note.md",
+    ]
+
+    found = []
+    for pattern in patterns:
+        found.extend(report_dir.glob(pattern))
+
+    unique = sorted(set(found))
+    return unique
+
+def has_execution_note(lab_dir):
+    return len(get_execution_notes(lab_dir)) > 0
+
+def get_execution_note_names(lab_dir):
+    notes = get_execution_notes(lab_dir)
+    if not notes:
+        return "none"
+    return ", ".join(note.name for note in notes)
+
+def get_runtime_summary_files(lab_dir):
+    summary_dir = lab_dir / "evidence" / "generated" / "summary"
+    if not summary_dir.exists():
+        return []
+    return sorted(summary_dir.glob("*.md"))
+
+def get_runtime_summary_status(lab_dir):
+    files = get_runtime_summary_files(lab_dir)
+    if not files:
+        return "no local runtime summary"
+
+    statuses = []
+    for file_path in files:
+        text = read_text(file_path)
+        if "Overall Status: PASS" in text or "Execution Status: PASS" in text:
+            statuses.append(f"{file_path.name}: PASS")
+        elif "Overall Status: CHECK" in text or "Execution Status: CHECK" in text:
+            statuses.append(f"{file_path.name}: CHECK")
+        else:
+            statuses.append(f"{file_path.name}: present")
+
+    return ", ".join(statuses)
 
 def get_labs():
     labs_root = ROOT / "labs"
@@ -191,7 +239,7 @@ def build_summary():
     values = get_validation_values()
     validation_status = get_validation_status(values)
 
-    local_execution_labs = [lab.name for lab in labs if has_local_execution_note(lab)]
+    execution_note_labs = [lab.name for lab in labs if has_execution_note(lab)]
 
     lines = []
     lines.append("SNSD HYBRID INFRASTRUCTURE - LOCAL EXECUTIVE SUMMARY")
@@ -230,7 +278,7 @@ def build_summary():
 
     lines.append("4. Lab Inventory")
     lines.append(f"- Total Labs: {len(labs)}")
-    lines.append(f"- Labs with local execution note: {len(local_execution_labs)}")
+    lines.append(f"- Labs with execution boundary note: {len(execution_note_labs)}")
     lines.append(f"- Repository validation target: {validation_status}")
     lines.append("")
 
@@ -240,7 +288,8 @@ def build_summary():
         lines.append(f"  Implementation Status: {get_metadata_value(lab, 'implementation_status')}")
         lines.append(f"  Execution Status: {get_metadata_value(lab, 'execution_status')}")
         lines.append(f"  Evidence Status: {get_metadata_value(lab, 'evidence_status')}")
-        lines.append(f"  Local Execution: {'local execution note present' if has_local_execution_note(lab) else 'no local execution note'}")
+        lines.append(f"  Execution Boundary Note: {get_execution_note_names(lab)}")
+        lines.append(f"  Local Runtime Summary: {get_runtime_summary_status(lab)}")
         lines.append(f"  Focus: {get_lab_focus(lab)}")
     lines.append("")
 
@@ -298,12 +347,12 @@ def build_summary():
     lines.append("10. Implementation Boundary")
     lines.append("- Current repository baseline remains documentation-ready")
     lines.append("- Runtime implementation is planned and incrementally starting from foundational labs")
-    if local_execution_labs:
-        lines.append("- Local execution boundary has been documented for:")
-        for lab_name in local_execution_labs:
+    if execution_note_labs:
+        lines.append("- Execution boundary has been documented for:")
+        for lab_name in execution_note_labs:
             lines.append(f"  - {lab_name}")
     else:
-        lines.append("- No local execution boundary has been documented yet")
+        lines.append("- No execution boundary has been documented yet")
     lines.append("- Generated runtime evidence remains local-only unless explicitly promoted to reviewer-facing evidence")
     lines.append("")
 

@@ -56,11 +56,60 @@ TARGETS_JSON="$(curl -fsS "$PROM_URL/api/v1/targets" || true)"
 echo "$TARGETS_JSON"
 echo
 
-if echo "$TARGETS_JSON" | grep -q "$TARGET_01" && echo "$TARGETS_JSON" | grep -A 30 "$TARGET_01" | grep -q '"health":"up"'; then
+TARGETS_JSON_FILE="evidence/generated/raw/prometheus-targets.json"
+printf "%s" "$TARGETS_JSON" > "$TARGETS_JSON_FILE"
+
+TARGET_STATUS_OUTPUT="$(python3 - "$TARGETS_JSON_FILE" "$TARGET_01" "$TARGET_02" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+json_file = Path(sys.argv[1])
+target_01 = sys.argv[2]
+target_02 = sys.argv[3]
+
+status = {
+    target_01: "CHECK",
+    target_02: "CHECK",
+}
+
+try:
+    data = json.loads(json_file.read_text(encoding="utf-8", errors="ignore"))
+    active_targets = data.get("data", {}).get("activeTargets", [])
+
+    for target in active_targets:
+        labels = target.get("labels", {})
+        discovered = target.get("discoveredLabels", {})
+        scrape_url = target.get("scrapeUrl", "")
+        health = target.get("health", "")
+
+        scrape_host = scrape_url.replace("http://", "").replace("https://", "").split("/")[0]
+
+        candidates = {
+            labels.get("instance", ""),
+            discovered.get("__address__", ""),
+            scrape_host,
+        }
+
+        for expected in list(status.keys()):
+            if expected in candidates and health == "up":
+                status[expected] = "PASS"
+
+except Exception as exc:
+    print(f"parser_error={exc}")
+
+for expected, result in status.items():
+    print(f"{expected}={result}")
+PY
+)"
+
+echo "$TARGET_STATUS_OUTPUT"
+
+if echo "$TARGET_STATUS_OUTPUT" | grep -q "^$TARGET_01=PASS$"; then
   TARGET_01_HEALTH="PASS"
 fi
 
-if echo "$TARGETS_JSON" | grep -q "$TARGET_02" && echo "$TARGETS_JSON" | grep -A 30 "$TARGET_02" | grep -q '"health":"up"'; then
+if echo "$TARGET_STATUS_OUTPUT" | grep -q "^$TARGET_02=PASS$"; then
   TARGET_02_HEALTH="PASS"
 fi
 
