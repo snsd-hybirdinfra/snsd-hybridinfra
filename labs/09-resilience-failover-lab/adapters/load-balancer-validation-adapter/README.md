@@ -1,4 +1,4 @@
-﻿# Load Balancer Validation Adapter
+# Load Balancer Validation Adapter
 
 ## Adapter Purpose
 

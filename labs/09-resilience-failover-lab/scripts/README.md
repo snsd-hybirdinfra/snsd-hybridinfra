@@ -1,4 +1,4 @@
-﻿# Resilience Failover Lab Scripts
+# Resilience Failover Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Resilience Failover Lab.
 

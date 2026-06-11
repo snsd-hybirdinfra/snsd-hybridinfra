@@ -1,4 +1,4 @@
-﻿# Resilience Failover Lab Implementation Plan
+# Resilience Failover Lab Implementation Plan
 
 ## Lab Purpose
 

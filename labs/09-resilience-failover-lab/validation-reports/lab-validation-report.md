@@ -1,4 +1,4 @@
-﻿# Resilience Failover Lab Validation Report
+# Resilience Failover Lab Validation Report
 
 ## Lab Summary
 

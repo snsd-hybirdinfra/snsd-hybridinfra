@@ -1,4 +1,4 @@
-﻿# Resilience Failover Lab Scenario Coverage Report
+# Resilience Failover Lab Scenario Coverage Report
 
 This report summarizes repository scenarios mapped to the Resilience Failover Lab.
 

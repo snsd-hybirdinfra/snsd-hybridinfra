@@ -1,4 +1,4 @@
-﻿# Resilience Failover Lab Evidence
+# Resilience Failover Lab Evidence
 
 This directory stores lab-local evidence generated during resilience and failover validation execution.
 

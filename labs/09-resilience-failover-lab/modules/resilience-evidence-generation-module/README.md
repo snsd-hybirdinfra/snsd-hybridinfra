@@ -1,4 +1,4 @@
-﻿# Resilience Evidence Generation Module
+# Resilience Evidence Generation Module
 
 ## Module Purpose
 

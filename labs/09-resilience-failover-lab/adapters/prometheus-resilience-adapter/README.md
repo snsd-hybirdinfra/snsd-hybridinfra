@@ -1,4 +1,4 @@
-﻿# Prometheus Resilience Adapter
+# Prometheus Resilience Adapter
 
 ## Adapter Purpose
 

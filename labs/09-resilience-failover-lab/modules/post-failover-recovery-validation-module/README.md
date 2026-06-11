@@ -1,4 +1,4 @@
-﻿# Post-Failover Recovery Validation Module
+# Post-Failover Recovery Validation Module
 
 ## Module Purpose
 

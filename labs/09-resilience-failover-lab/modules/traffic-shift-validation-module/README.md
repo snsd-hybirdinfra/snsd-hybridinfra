@@ -1,4 +1,4 @@
-﻿# Traffic Shift Validation Module
+# Traffic Shift Validation Module
 
 ## Module Purpose
 

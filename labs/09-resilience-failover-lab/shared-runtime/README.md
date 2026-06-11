@@ -1,4 +1,4 @@
-﻿# Resilience Failover Lab Shared Runtime
+# Resilience Failover Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for resilience and failover validation.
 

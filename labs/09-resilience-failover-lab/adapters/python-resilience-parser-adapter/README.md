@@ -1,4 +1,4 @@
-﻿# Python Resilience Parser Adapter
+# Python Resilience Parser Adapter
 
 ## Adapter Purpose
 

@@ -1,4 +1,4 @@
-﻿# Runners
+# Runners
 
 Runtime runners execute resilience failover lab workflows.
 

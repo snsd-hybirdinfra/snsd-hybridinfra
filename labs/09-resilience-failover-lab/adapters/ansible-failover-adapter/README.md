@@ -1,4 +1,4 @@
-﻿# Ansible Failover Adapter
+# Ansible Failover Adapter
 
 ## Adapter Purpose
 

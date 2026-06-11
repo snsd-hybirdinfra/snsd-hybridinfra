@@ -1,4 +1,4 @@
-﻿# Failure Detection Module
+# Failure Detection Module
 
 ## Module Purpose
 

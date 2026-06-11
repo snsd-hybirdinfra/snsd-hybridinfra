@@ -1,4 +1,4 @@
-﻿# Routing Failover Adapter
+# Routing Failover Adapter
 
 ## Adapter Purpose
 

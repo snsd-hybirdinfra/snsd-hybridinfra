@@ -1,4 +1,4 @@
-﻿# Failover Decision Module
+# Failover Decision Module
 
 ## Module Purpose
 
