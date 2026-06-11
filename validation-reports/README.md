@@ -1,4 +1,4 @@
-﻿# Validation Reports
+# Validation Reports
 
 This directory contains reviewer-facing validation summaries.
 
@@ -9,8 +9,8 @@ This directory contains reviewer-facing validation summaries.
 | Report | Purpose |
 |---|---|
 | [Lab Readiness Summary](./lab-readiness-summary.md) | Summarizes documentation readiness across all implementation labs |
-| [Portfolio Health Summary](./portfolio-health-summary.md) | Summarizes repository health and validation status when generated |
-| [Repository Summary](./repository-summary.md) | Summarizes repository baseline when generated |
+| [Portfolio Health Summary](../reports/portfolio-health-summary.md) | Summarizes repository health and validation status when generated |
+| Repository summary is generated locally as a.txt and is intentionally not committed. | Summarizes repository baseline when generated |
 
 ---
 

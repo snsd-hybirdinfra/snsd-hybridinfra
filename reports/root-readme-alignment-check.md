@@ -1,22 +1,19 @@
 # Root README Alignment Check
 
-## Summary
+| Check | Count |
+|---|---:|
+| root_readme_missing_links | 0 |
+| root_readme_missing_terms | 0 |
+| root_readme_missing_markers | 0 |
 
-```text
-required_links: 17
-missing_required_links: 0
-required_terms: 11
-missing_required_terms: 0
-```
+## Missing Links
 
-## Missing Required Links
+- None
 
-```text
-NONE
-```
+## Missing Terms
 
-## Missing Required Terms
+- None
 
-```text
-NONE
-```
+## Missing Markers
+
+- None

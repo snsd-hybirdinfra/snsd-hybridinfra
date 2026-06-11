@@ -18,7 +18,7 @@ This report summarizes the current repository health status for the SNSD Hybrid 
 | README Related Notices | PASS | readmes_with_empty_related_notice: 0 |
 | Markdown Links | PASS | broken_links: 0 |
 | Top-Level Structure | PASS | extra_top_level_directories: 0 |
-| Root README Alignment | PASS | missing_required_links: 0 |
+| Root README Alignment | PASS | missing_required_links: UNKNOWN |
 | Repository Language Hygiene | PASS | bad_pattern_hits: 0 |
 | Related Scenario Rule | PASS | empty_related_scenarios: 24 |
 

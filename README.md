@@ -138,3 +138,9 @@ Actual runtime execution, automation scripts, deployment artifacts, and evidence
 | repository_language_hits | not reported |
 | readmes_with_empty_related_notice | not reported |
 <!-- QUALITY_STATUS_END -->
+## Repository Support Areas
+
+- [Tools](tools/) - repository generation, validation, and content automation utilities
+- [Builds](builds/) - generated build and portfolio artifact index area
+- [Diagrams](diagrams/) - repository-level visualization and diagram artifact area
+- [Internal](internal/) - internal quality models, governance references, and repository control documents
