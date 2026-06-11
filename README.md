@@ -152,7 +152,7 @@ Local-only content includes:
 |---|---|
 | missing_required_artifacts | not reported |
 | small_png_count | not reported |
-| markdown_broken_links | 0 |
+| markdown_broken_links | not reported |
 | top_level_extra_directories | not reported |
 | top_level_missing_directories | not reported |
 | root_readme_missing_links | | root_readme_missing_links | 0 | |
