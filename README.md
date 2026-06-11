@@ -76,10 +76,13 @@ Recommended review order:
 5. [Implementation Labs](./labs/README.md)
 6. [Report Layer Guide](./docs/report-layer-guide.md)
 7. [Repository Tree](./docs/repository-tree.md)
+8. [Runtime Evidence Policy](./docs/runtime-evidence-policy.md)
 
 ## Runtime Evidence Policy
 
 Runtime evidence is generated locally and intentionally excluded from Git.
+
+See [Runtime Evidence Policy](./docs/runtime-evidence-policy.md) for the scenario evidence and lab runtime evidence boundary.
 
 Committed content includes:
 
