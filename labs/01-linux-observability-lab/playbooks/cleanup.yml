@@ -1,0 +1,11 @@
+---
+- name: Linux observability cleanup
+  hosts: linux_observability_targets
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Keep evidence directory but remove temporary runtime files
+      ansible.builtin.file:
+        path: /tmp/linux-observability-runtime
+        state: absent

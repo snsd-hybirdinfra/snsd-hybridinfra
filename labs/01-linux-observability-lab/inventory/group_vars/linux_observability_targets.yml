@@ -1,0 +1,23 @@
+---
+lab_name: 01-linux-observability-lab
+target_group: linux_observability_targets
+
+required_packages:
+  - curl
+  - wget
+  - vim
+  - git
+  - net-tools
+  - procps
+  - sysstat
+
+services_to_check:
+  - ssh
+
+filesystem_paths_to_check:
+  - /
+  - /var
+  - /tmp
+
+evidence_base_path: evidence/generated
+runtime_workspace: runtime-workspace

@@ -1,14 +1,15 @@
 ﻿# Linux Observability Lab Scripts
 
-This directory contains lab-local execution entrypoints.
+This directory contains lab-local execution entrypoints for the Linux Observability Lab.
 
 ## Script Roles
 
 | Script | Purpose |
 |---|---|
-| setup.sh | Prepare Linux observability lab prerequisites |
-| validate.sh | Execute lab validation checks |
-| cleanup.sh | Clean temporary lab execution outputs |
+| preflight.sh | Validate local execution prerequisites before setup or validation |
+| setup.sh | Prepare required packages and target evidence boundary |
+| validate.sh | Execute Linux observability validation and generate evidence |
+| cleanup.sh | Clean temporary runtime files while preserving evidence |
 
 ## Execution Boundary
 
@@ -16,16 +17,31 @@ These scripts belong only to:
 
 labs/01-linux-observability-lab/
 
-They are intended to coordinate lab-local modules, adapters, shared runtime utilities, and evidence generation workflows.
+They coordinate inventory, Ansible playbooks, runtime workspace, and generated evidence outputs.
 
-## Future Implementation
+## Execution Order
 
-Future implementation may include:
+1. preflight.sh
+2. setup.sh
+3. validate.sh
+4. cleanup.sh
 
-- Ansible inventory validation
-- node exporter deployment checks
-- Prometheus scrape validation
-- filesystem checks
-- process and service checks
-- system event collection
-- evidence generation
+## Output Boundaries
+
+Runtime logs:
+
+- runtime-workspace/logs/
+
+Generated evidence:
+
+- evidence/generated/raw/
+- evidence/generated/processed/
+- evidence/generated/summary/
+
+---
+
+## Evidence Parser
+
+| Script | Purpose |
+|---|---|
+| parse_evidence.py | Parses raw Ansible validation logs into processed and summary evidence |

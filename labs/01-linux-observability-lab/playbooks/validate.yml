@@ -1,0 +1,45 @@
+---
+- name: Linux observability validation
+  hosts: linux_observability_targets
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Collect uptime
+      ansible.builtin.command: uptime
+      register: uptime_result
+      changed_when: false
+
+    - name: Collect filesystem usage
+      ansible.builtin.command: df -h
+      register: filesystem_result
+      changed_when: false
+
+    - name: Collect memory usage
+      ansible.builtin.command: free -m
+      register: memory_result
+      changed_when: false
+
+    - name: Collect process snapshot
+      ansible.builtin.command: ps aux
+      register: process_result
+      changed_when: false
+
+    - name: Write raw validation evidence on target
+      ansible.builtin.copy:
+        dest: /tmp/linux-observability-evidence/basic-validation.txt
+        mode: "0644"
+        content: |
+          # Linux Observability Basic Validation
+
+          ## Uptime
+          {{ uptime_result.stdout }}
+
+          ## Filesystem
+          {{ filesystem_result.stdout }}
+
+          ## Memory
+          {{ memory_result.stdout }}
+
+          ## Process Snapshot
+          {{ process_result.stdout }}

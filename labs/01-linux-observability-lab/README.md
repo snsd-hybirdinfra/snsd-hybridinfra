@@ -1,4 +1,4 @@
-﻿# Linux Observability Lab
+# Linux Observability Lab
 
 ## Lab Purpose
 
@@ -62,3 +62,43 @@ It does not claim completed runtime execution until actual deployment, automatio
 ## Implementation Note
 
 Runtime scripts, deployment artifacts, generated evidence, and execution outputs are planned for the implementation phase.
+
+---
+
+## Execution Structure
+
+| Document | Link |
+|---|---|
+| Execution Structure | [architecture/execution-structure.md](./architecture/execution-structure.md) |
+
+---
+
+## Execution Guide
+
+| Document | Link |
+|---|---|
+| Execution Guide | [architecture/execution-guide.md](./architecture/execution-guide.md) |
+
+---
+
+## Execution Entrypoints
+
+| Script | Link |
+|---|---|
+| Preflight | [scripts/preflight.sh](./scripts/preflight.sh) |
+| Setup | [scripts/setup.sh](./scripts/setup.sh) |
+| Validate | [scripts/validate.sh](./scripts/validate.sh) |
+| Cleanup | [scripts/cleanup.sh](./scripts/cleanup.sh) |
+
+---
+
+## Evidence Parser
+
+| Script | Link |
+|---|---|
+| Evidence Parser | [scripts/parse_evidence.py](./scripts/parse_evidence.py) |
+
+
+## Local Execution Note
+
+- [Local Execution Note](validation-reports/local-execution-note.md)

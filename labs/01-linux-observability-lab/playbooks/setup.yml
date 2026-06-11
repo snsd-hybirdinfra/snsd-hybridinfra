@@ -1,0 +1,17 @@
+---
+- name: Linux observability setup
+  hosts: linux_observability_targets
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Ensure required packages are installed
+      ansible.builtin.package:
+        name: "{{ required_packages }}"
+        state: present
+
+    - name: Ensure evidence directory exists on target
+      ansible.builtin.file:
+        path: /tmp/linux-observability-evidence
+        state: directory
+        mode: "0755"
