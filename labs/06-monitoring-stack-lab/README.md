@@ -66,3 +66,10 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Upstream Dependency
 
 - [Upstream Linux Observability Dependency](architecture/upstream-linux-observability-dependency.md)
+## Monitoring Stack Execution
+
+- [Docker Compose Definition](compose/docker-compose.yml)
+- [Monitoring Stack Scripts](scripts/README.md)
+- [Prometheus VMware Config Example](configs/prometheus/prometheus.vmware.example.yml)
+- [Grafana Prometheus Datasource](configs/grafana/provisioning/datasources/prometheus.yml)
+- [Linux Node Exporter Basic Dashboard](configs/grafana/dashboards/linux-node-exporter-basic.json)
