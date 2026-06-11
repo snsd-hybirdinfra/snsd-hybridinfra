@@ -9,11 +9,11 @@ mkdir -p "${LAB_DIR}/evidence/generated/summary"
 
 cd "${COMPOSE_DIR}"
 
-docker compose up -d
+docker compose -p snsd-resilience-failover-lab up -d
 
 sleep 3
 
-docker compose ps > "${LAB_DIR}/evidence/generated/raw/failover-compose-ps.txt"
+docker compose -p snsd-resilience-failover-lab ps > "${LAB_DIR}/evidence/generated/raw/failover-compose-ps.txt"
 
 cat > "${LAB_DIR}/evidence/generated/summary/resilience-failover-runtime-summary.md" <<'SUMMARY'
 # Resilience Failover Runtime Summary

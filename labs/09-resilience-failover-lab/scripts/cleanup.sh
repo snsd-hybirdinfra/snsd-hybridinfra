@@ -6,6 +6,6 @@ COMPOSE_DIR="${LAB_DIR}/compose"
 
 cd "${COMPOSE_DIR}"
 
-docker compose down -v
+docker compose -p snsd-resilience-failover-lab down -v
 
 echo "[OK] resilience failover runtime cleaned up"

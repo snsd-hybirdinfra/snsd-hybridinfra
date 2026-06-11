@@ -9,7 +9,7 @@ mkdir -p "${LAB_DIR}/evidence/generated/summary"
 
 cd "${COMPOSE_DIR}"
 
-docker compose stop primary-backend
+docker compose -p snsd-resilience-failover-lab stop primary-backend
 
 sleep 5
 

@@ -1,3 +1,5 @@
+name: snsd-resilience-failover-lab
+
 services:
   failover-entrypoint:
     image: nginx:stable-alpine
