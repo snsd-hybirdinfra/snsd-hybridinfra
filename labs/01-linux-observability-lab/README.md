@@ -102,3 +102,12 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Local Execution Note
 
 - [Local Execution Note](validation-reports/local-execution-note.md)
+## Execution Boundary Status
+
+| Execution Mode | Status |
+|---|---|
+| local-node | validated |
+| remote-password | supported |
+| remote-key-single-node | validated |
+| remote-key-two-node | validated |
+| generated runtime evidence | local-only |

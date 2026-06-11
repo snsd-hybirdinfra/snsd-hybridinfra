@@ -2,13 +2,14 @@
 
 ## Execution Modes
 
-This lab supports three execution modes.
+This lab supports four execution modes.
 
 | Mode | Purpose | Git Policy |
 |---|---|---|
 | local-node | Validate Ansible and parser workflow against WSL local execution | Documentation only |
 | remote-password | Validate SSH-based execution against a Linux VM using password authentication | Runtime evidence remains local-only |
-| remote-key | Validate SSH key-based execution against a Linux VM without interactive SSH password input | Runtime evidence remains local-only |
+| remote-key-single-node | Validate SSH key-based execution against a single Linux VM | Runtime evidence remains local-only |
+| remote-key-two-node | Validate SSH key-based execution across two Linux VM targets | Runtime evidence remains local-only |
 
 ## Local Execution Boundary
 
@@ -24,13 +25,6 @@ This validates:
 - Evidence parser execution
 - Generated local evidence structure
 
-This does not validate:
-
-- Remote SSH target connectivity
-- Multi-node inventory execution
-- External VM or server reachability
-- Production network observability
-
 ## Remote Password Execution Boundary
 
 The remote-password mode uses WSL Ubuntu as the Ansible control node and a Linux VM as the managed target.
@@ -43,21 +37,10 @@ This validates:
 - Become privilege escalation
 - Remote setup playbook execution
 - Remote validation playbook execution
-- Local-only evidence parsing from captured Ansible output
 
-This does not validate:
+## Remote Key Single-Node Boundary
 
-- SSH key-based automation
-- Multi-node production inventory
-- Prometheus scrape integration
-- Grafana dashboard integration
-- Long-running observability telemetry collection
-
-## Remote Key Execution Boundary
-
-The remote-key mode uses WSL Ubuntu as the Ansible control node and a Linux VM as the managed target.
-
-The private key is stored outside the repository under the WSL user SSH directory. The repository only records the inventory boundary and execution workflow.
+The remote-key single-node mode validates passwordless SSH automation against one Linux VM target.
 
 This validates:
 
@@ -69,19 +52,32 @@ This validates:
 - Remote validation workflow execution
 - Evidence parser execution from captured Ansible output
 
+## Remote Key Two-Node Boundary
+
+The remote-key two-node mode validates that the lab can manage multiple Linux targets using the same Ansible execution workflow.
+
+This validates:
+
+- Multi-host inventory parsing
+- SSH key-based access across two Linux targets
+- Become privilege readiness across multiple targets
+- Setup workflow execution across multiple targets
+- Validation workflow execution across multiple targets
+- Local-only evidence parsing from multi-host Ansible output
+
 This does not validate:
 
-- Multi-node production inventory
-- Centralized monitoring integration
+- Production-scale dynamic inventory
 - Prometheus scrape lifecycle
 - Grafana dashboard publishing
 - Long-running alert lifecycle validation
+- Centralized telemetry retention
 
 ## Current Execution Status
 
 | Item | Status |
 |---|---|
-| Inventory mode | local-node, remote-password, and remote-key supported |
+| Inventory mode | local-node, remote-password, remote-key-single-node, and remote-key-two-node supported |
 | Ansible inventory check | validated |
 | Ansible ping | validated |
 | Become privilege path | validated |
@@ -98,4 +94,4 @@ Reviewer-facing documentation records the execution boundary, while raw local ru
 
 ## Next Execution Target
 
-The next implementation step is to expand from single-node remote-key execution to multi-node Linux observability validation.
+The next implementation step is to connect Linux observability outputs to a monitoring stack, starting with Prometheus-oriented telemetry collection.
