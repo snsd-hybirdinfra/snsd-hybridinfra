@@ -67,12 +67,11 @@ tools/**/debug/
 *.bak_*
 .pytest_cache/
 tree.md
-
-**/evidence/generated/
-
 *.pem
 **/inventory/*.pem
 **/inventory/ansible.pem
 *.key
 **/inventory/*.key
 **/inventory/id_*
+labs/*/evidence/generated/
+labs/*/runtime-workspace/
