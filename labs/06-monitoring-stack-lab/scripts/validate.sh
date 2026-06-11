@@ -32,7 +32,7 @@ exec > >(tee "$RAW_LOG") 2>&1
 echo "# Monitoring Stack Validation"
 echo
 echo "## Container Status"
-docker compose -f compose/docker-compose.yml ps || true
+docker compose -p snsd-monitoring-stack-lab -f compose/docker-compose.yml ps || true
 echo
 
 echo "## Prometheus Health"

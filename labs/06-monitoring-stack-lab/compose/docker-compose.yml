@@ -1,3 +1,5 @@
+name: snsd-monitoring-stack-lab
+
 services:
   prometheus:
     image: prom/prometheus:latest
