@@ -1,4 +1,4 @@
-﻿# Reviewer Reporting Module
+# Reviewer Reporting Module
 
 ## Module Purpose
 

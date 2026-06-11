@@ -1,4 +1,4 @@
-﻿# Governance Reporting Lab Scripts
+# Governance Reporting Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Governance Reporting Lab.
 

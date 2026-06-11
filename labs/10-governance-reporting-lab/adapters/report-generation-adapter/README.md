@@ -1,4 +1,4 @@
-﻿# Report Generation Adapter
+# Report Generation Adapter
 
 ## Adapter Purpose
 

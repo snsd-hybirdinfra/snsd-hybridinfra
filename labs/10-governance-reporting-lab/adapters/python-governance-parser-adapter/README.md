@@ -1,4 +1,4 @@
-﻿# Python Governance Parser Adapter
+# Python Governance Parser Adapter
 
 ## Adapter Purpose
 

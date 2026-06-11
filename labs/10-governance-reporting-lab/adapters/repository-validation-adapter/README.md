@@ -1,4 +1,4 @@
-﻿# Repository Validation Adapter
+# Repository Validation Adapter
 
 ## Adapter Purpose
 

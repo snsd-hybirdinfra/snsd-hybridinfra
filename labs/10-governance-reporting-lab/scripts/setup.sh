@@ -1,17 +1,17 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="10-governance-reporting-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate repository workspace boundary"
-echo "- prepare governance reporting boundary"
-echo "- prepare validation report boundary"
-echo "- prepare evidence directories"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+echo "[INFO] governance reporting setup started"
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+python3 --version | tee runtime-workspace/logs/python-version.log
+
+test -f configs/governance-reporting-policy.env
+test -f scripts/collect_governance_report.py
+
+echo "[INFO] governance reporting setup completed"

@@ -1,4 +1,4 @@
-﻿# Governance Reporting Lab Evidence
+# Governance Reporting Lab Evidence
 
 This directory stores lab-local evidence generated during governance reporting validation execution.
 

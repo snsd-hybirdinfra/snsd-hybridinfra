@@ -1,42 +1,33 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="10-governance-reporting-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] validation started: ${LAB_NAME}"
-echo "[INFO] planned validation checks:"
-echo "- repository quality validation"
-echo "- scenario inventory validation"
-echo "- lab coverage validation"
-echo "- markdown link validation"
-echo "- top-level structure validation"
-echo "- README alignment validation"
-echo "- repository language validation"
-echo "- report generation validation"
-echo "- governance evidence output availability"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+RAW_LOG="evidence/generated/raw/governance-reporting-validate.log"
+SUMMARY="evidence/generated/summary/governance-reporting-execution-summary.md"
 
-cat > ../evidence/summary/governance-reporting-validation-summary.md <<'EOF'
-# Governance Reporting Validation Summary
+set -a
+source configs/governance-reporting-policy.env
+set +a
 
-## Status
+echo "[INFO] governance reporting validation started"
 
-stub: validation workflow placeholder
+python3 scripts/collect_governance_report.py | tee "$RAW_LOG"
 
-## Planned Checks
+if [ ! -f "$SUMMARY" ]; then
+  echo "[ERROR] governance summary not generated"
+  exit 1
+fi
 
-- repository quality validation
-- scenario inventory validation
-- lab coverage validation
-- markdown link validation
-- top-level structure validation
-- README alignment validation
-- repository language validation
-- report generation validation
-- governance evidence output availability
-EOF
+cat "$SUMMARY"
 
-echo "[OK] validation stub completed: ${LAB_NAME}"
+if ! grep -q "Overall Status: PASS" "$SUMMARY"; then
+  echo "[ERROR] governance reporting summary is not PASS"
+  exit 1
+fi
+
+echo "[INFO] governance reporting validation completed"

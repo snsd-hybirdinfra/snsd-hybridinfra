@@ -1,4 +1,4 @@
-﻿# Governance Reporting Lab Shared Runtime
+# Governance Reporting Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for governance validation and reporting workflows.
 

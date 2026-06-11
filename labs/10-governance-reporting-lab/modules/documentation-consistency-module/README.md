@@ -1,4 +1,4 @@
-﻿# Documentation Consistency Module
+# Documentation Consistency Module
 
 ## Module Purpose
 

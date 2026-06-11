@@ -1,4 +1,4 @@
-﻿# Structure Check Adapter
+# Structure Check Adapter
 
 ## Adapter Purpose
 

@@ -1,4 +1,4 @@
-﻿# Governance Reporting Lab Implementation Plan
+# Governance Reporting Lab Implementation Plan
 
 ## Lab Purpose
 

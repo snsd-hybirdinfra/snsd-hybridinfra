@@ -1,4 +1,4 @@
-﻿# Coverage Reporting Module
+# Coverage Reporting Module
 
 ## Module Purpose
 

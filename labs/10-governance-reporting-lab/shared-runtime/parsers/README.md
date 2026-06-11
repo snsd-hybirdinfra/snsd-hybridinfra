@@ -1,4 +1,4 @@
-﻿# Parsers
+# Parsers
 
 Runtime parsers convert governance validation outputs into reviewer-readable evidence.
 

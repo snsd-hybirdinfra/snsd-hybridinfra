@@ -1,4 +1,4 @@
-﻿# Repository Quality Validation Module
+# Repository Quality Validation Module
 
 ## Module Purpose
 

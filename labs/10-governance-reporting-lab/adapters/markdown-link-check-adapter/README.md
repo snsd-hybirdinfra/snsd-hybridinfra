@@ -1,4 +1,4 @@
-﻿# Markdown Link Check Adapter
+# Markdown Link Check Adapter
 
 ## Adapter Purpose
 

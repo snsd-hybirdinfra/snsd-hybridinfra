@@ -1,4 +1,4 @@
-﻿# Governance Reporting Lab Validation Report
+# Governance Reporting Lab Validation Report
 
 ## Lab Summary
 

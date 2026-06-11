@@ -1,4 +1,4 @@
-﻿# Governance Evidence Module
+# Governance Evidence Module
 
 ## Module Purpose
 

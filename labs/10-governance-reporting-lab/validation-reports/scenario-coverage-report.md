@@ -1,4 +1,4 @@
-﻿# Governance Reporting Lab Scenario Coverage Report
+# Governance Reporting Lab Scenario Coverage Report
 
 This report summarizes repository scenarios mapped to the Governance Reporting Lab.
 
