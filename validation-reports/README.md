@@ -25,3 +25,4 @@ Reviewer-facing validation summaries belong in this directory.
 ## Lab Runtime Implementation
 
 - [Lab Runtime Implementation Summary](lab-runtime-implementation-summary.md)
+- [Phase 1 Baseline Summary](./phase-1-baseline-summary.md)
