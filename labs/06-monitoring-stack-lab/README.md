@@ -1,4 +1,4 @@
-﻿# Monitoring Stack Lab
+# Monitoring Stack Lab
 
 ## Lab Purpose
 
@@ -62,3 +62,7 @@ It does not claim completed runtime execution until actual deployment, automatio
 ## Implementation Note
 
 Runtime scripts, deployment artifacts, generated evidence, and execution outputs are planned for the implementation phase.
+
+## Upstream Dependency
+
+- [Upstream Linux Observability Dependency](architecture/upstream-linux-observability-dependency.md)

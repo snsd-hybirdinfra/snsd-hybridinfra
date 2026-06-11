@@ -111,3 +111,7 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 | remote-key-single-node | validated |
 | remote-key-two-node | validated |
 | generated runtime evidence | local-only |
+
+## Monitoring Handoff
+
+- [Monitoring Handoff Note](validation-reports/monitoring-handoff-note.md)
