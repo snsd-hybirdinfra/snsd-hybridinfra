@@ -1,4 +1,6 @@
-﻿# SNSD Hybrid Infrastructure
+# SNSD Hybrid Infrastructure
+
+Scenario-driven Infrastructure Operations Platform
 
 SNSD Hybrid Infrastructure is a scenario-driven infrastructure operations portfolio.
 
@@ -103,4 +105,36 @@ Detection → Correlation & Analysis → Incident Coordination → Recovery & Au
 The current repository state defines documentation-ready lab boundaries.
 
 Actual runtime execution, automation scripts, deployment artifacts, and evidence outputs are planned for the implementation phase.
+## Scenario Inventory
 
+<!-- SCENARIO_INVENTORY_START -->
+| Lifecycle Level | Scenario Count |
+|---|---:|
+| Level 1 Visibility | 45 |
+| Level 2 Correlation | 41 |
+| Level 3 Recovery | 33 |
+| Level 4 Resilience | 21 |
+| Level 5 Continuity | 10 |
+| Total | 150 |
+<!-- SCENARIO_INVENTORY_END -->
+
+
+
+## Shared Runtime
+
+- [Shared Runtime](shared-runtime/)
+## Quality Status
+
+<!-- QUALITY_STATUS_START -->
+| Quality Signal | Current Value |
+|---|---|
+| missing_required_artifacts | not reported |
+| small_png_count | not reported |
+| markdown_broken_links | not reported |
+| top_level_extra_directories | not reported |
+| top_level_missing_directories | not reported |
+| root_readme_missing_links | not reported |
+| root_readme_missing_terms | not reported |
+| repository_language_hits | not reported |
+| readmes_with_empty_related_notice | not reported |
+<!-- QUALITY_STATUS_END -->

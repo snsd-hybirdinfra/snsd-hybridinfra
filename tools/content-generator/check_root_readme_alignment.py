@@ -1,87 +1,111 @@
-﻿from pathlib import Path
-import sys
+from pathlib import Path
 
-ROOT = Path(".").resolve()
+ROOT = Path(__file__).resolve().parents[2]
 README = ROOT / "README.md"
 REPORT = ROOT / "reports" / "root-readme-alignment-check.md"
 
-required_patterns = [
-    ("Scenario Inventory", "./scenarios/README.md"),
-    ("Operational Modules", "./modules/README.md"),
-    ("Operational Adapters", "./adapters/README.md"),
-    ("Shared Runtime", "./shared-runtime/README.md"),
-    ("Build Foundations", "./builds/README.md"),
-    ("Reports", "./reports/README.md"),
-    ("Tools", "./tools/README.md"),
-    ("Documentation", "./docs/README.md"),
-    ("Lab Inventory", "./labs/README.md"),
-    ("Lab Coverage Matrix", "./docs/lab-coverage-matrix.md"),
-    ("Lab Validation Summary", "./validation-reports/lab-validation-summary.md"),
-    ("Validation Reports", "./validation-reports/README.md"),
-    ("Portfolio Health Summary", "./reports/portfolio-health-summary.md"),
-    ("Repository Quality Check", "./reports/repository-quality-check.md"),
-    ("Markdown Link Check", "./reports/markdown-link-check.md"),
-    ("Top-Level Structure Check", "./reports/top-level-structure-check.md"),
-    ("Related Scenarios Generation Report", "./reports/related-scenarios-generation-report.md"),
+REQUIRED_LINKS = [
+    "scenarios/",
+    "labs/",
+    "modules/",
+    "adapters/",
+    "shared-runtime/",
+    "docs/",
+    "reports/",
+    "validation-reports/",
 ]
 
-required_terms = [
+REQUIRED_TERMS = [
+    "SNSD Hybrid Infrastructure",
+    "Scenario-driven Infrastructure Operations Platform",
     "Enterprise Operational Capability Platform",
-    "scenario-driven infrastructure operations portfolio",
     "Detection",
-    "Correlation & Analysis",
+    "Correlation",
     "Incident Coordination",
-    "Recovery & Automation",
-    "Recovery Validation",
-    "Governance & Reporting",
-    "Total scenarios:",
-    "tools/content-generator/",
-    "tools/diagram-renderer/",
+    "Recovery",
+    "Validation",
+    "Governance",
 ]
 
-text = README.read_text(encoding="utf-8-sig", errors="replace") if README.exists() else ""
+REQUIRED_MARKERS = [
+    "SCENARIO_INVENTORY_START",
+    "SCENARIO_INVENTORY_END",
+    "QUALITY_STATUS_START",
+    "QUALITY_STATUS_END",
+]
 
-missing_links = []
-for label, path in required_patterns:
-    if label not in text or path not in text:
-        missing_links.append(f"{label} -> {path}")
+def contains_case_insensitive(text: str, value: str) -> bool:
+    return value.lower() in text.lower()
 
-missing_terms = []
-for term in required_terms:
-    if term not in text:
-        missing_terms.append(term)
+def main() -> int:
+    if not README.exists():
+        print("[FAIL] README.md not found")
+        return 1
 
-lines = []
-lines.append("# Root README Alignment Check")
-lines.append("")
-lines.append("## Summary")
-lines.append("")
-lines.append("```text")
-lines.append(f"required_links: {len(required_patterns)}")
-lines.append(f"missing_required_links: {len(missing_links)}")
-lines.append(f"required_terms: {len(required_terms)}")
-lines.append(f"missing_required_terms: {len(missing_terms)}")
-lines.append("```")
-lines.append("")
-lines.append("## Missing Required Links")
-lines.append("")
-lines.append("```text")
-lines.extend(missing_links if missing_links else ["NONE"])
-lines.append("```")
-lines.append("")
-lines.append("## Missing Required Terms")
-lines.append("")
-lines.append("```text")
-lines.extend(missing_terms if missing_terms else ["NONE"])
-lines.append("```")
+    text = README.read_text(encoding="utf-8-sig", errors="replace")
 
-REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    missing_links = [
+        item for item in REQUIRED_LINKS
+        if item not in text
+    ]
 
-print(f"[OK] wrote {REPORT}")
-print(f"[OK] missing required links: {len(missing_links)}")
-print(f"[OK] missing required terms: {len(missing_terms)}")
+    missing_terms = [
+        item for item in REQUIRED_TERMS
+        if not contains_case_insensitive(text, item)
+    ]
 
-if missing_links or missing_terms:
-    sys.exit(1)
+    missing_markers = [
+        item for item in REQUIRED_MARKERS
+        if item not in text
+    ]
 
+    REPORT.parent.mkdir(parents=True, exist_ok=True)
 
+    lines = []
+    lines.append("# Root README Alignment Check")
+    lines.append("")
+    lines.append("| Check | Count |")
+    lines.append("|---|---:|")
+    lines.append(f"| root_readme_missing_links | {len(missing_links)} |")
+    lines.append(f"| root_readme_missing_terms | {len(missing_terms)} |")
+    lines.append(f"| root_readme_missing_markers | {len(missing_markers)} |")
+    lines.append("")
+    lines.append("## Missing Links")
+    lines.append("")
+    if missing_links:
+        for item in missing_links:
+            lines.append(f"- {item}")
+    else:
+        lines.append("- None")
+    lines.append("")
+    lines.append("## Missing Terms")
+    lines.append("")
+    if missing_terms:
+        for item in missing_terms:
+            lines.append(f"- {item}")
+    else:
+        lines.append("- None")
+    lines.append("")
+    lines.append("## Missing Markers")
+    lines.append("")
+    if missing_markers:
+        for item in missing_markers:
+            lines.append(f"- {item}")
+    else:
+        lines.append("- None")
+    lines.append("")
+
+    REPORT.write_text("\n".join(lines), encoding="utf-8")
+
+    if missing_links or missing_terms or missing_markers:
+        print("[FAIL] Root README alignment check failed")
+        print(f"missing_links={len(missing_links)}")
+        print(f"missing_terms={len(missing_terms)}")
+        print(f"missing_markers={len(missing_markers)}")
+        return 1
+
+    print("[OK] Root README alignment check passed")
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())

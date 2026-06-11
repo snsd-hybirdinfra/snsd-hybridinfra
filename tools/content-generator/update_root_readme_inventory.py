@@ -1,103 +1,66 @@
 ﻿from pathlib import Path
-import re
 
-ROOT = Path(".").resolve()
+ROOT = Path(__file__).resolve().parents[2]
 README = ROOT / "README.md"
-QUALITY = ROOT / "reports" / "repository-quality-check.md"
+SCENARIOS = ROOT / "scenarios"
+
+START = "<!-- SCENARIO_INVENTORY_START -->"
+END = "<!-- SCENARIO_INVENTORY_END -->"
 
 LEVELS = [
-    ("level-1-visibility", "Level 1 Visibility scenarios"),
-    ("level-2-correlation", "Level 2 Correlation scenarios"),
-    ("level-3-recovery", "Level 3 Recovery scenarios"),
-    ("level-4-resilience", "Level 4 Resilience scenarios"),
-    ("level-5-continuity", "Level 5 Continuity scenarios"),
+    ("level-1-visibility", "Level 1 Visibility"),
+    ("level-2-correlation", "Level 2 Correlation"),
+    ("level-3-recovery", "Level 3 Recovery"),
+    ("level-4-resilience", "Level 4 Resilience"),
+    ("level-5-continuity", "Level 5 Continuity"),
 ]
 
-def count_level(level_dir: str) -> int:
-    base = ROOT / "scenarios" / level_dir
-    if not base.exists():
+def count_scenarios(level_dir: str) -> int:
+    path = SCENARIOS / level_dir
+    if not path.exists():
         return 0
-    return len([p for p in base.iterdir() if p.is_dir()])
+    return sum(1 for item in path.iterdir() if item.is_dir())
 
-def read_quality_value(text: str, key: str) -> str:
-    match = re.search(rf"{re.escape(key)}:\s*(.+)", text)
-    return match.group(1).strip() if match else "UNKNOWN"
+def build_block() -> str:
+    rows = []
+    total = 0
 
-readme_text = README.read_text(encoding="utf-8-sig", errors="replace")
-quality_text = QUALITY.read_text(encoding="utf-8-sig", errors="replace") if QUALITY.exists() else ""
+    rows.append(START)
+    rows.append("| Lifecycle Level | Scenario Count |")
+    rows.append("|---|---:|")
 
-counts = [(label, count_level(level_dir)) for level_dir, label in LEVELS]
-total = sum(count for _, count in counts)
+    for dirname, label in LEVELS:
+        count = count_scenarios(dirname)
+        total += count
+        rows.append(f"| {label} | {count} |")
 
-inventory_block = []
-inventory_block.append("The repository currently contains:")
-inventory_block.append("")
-inventory_block.append(f"    Total scenarios: {total}")
-for label, count in counts:
-    inventory_block.append(f"    {label}: {count}")
+    rows.append(f"| Total | {total} |")
+    rows.append(END)
 
-inventory_pattern = (
-    r"The repository currently contains:\s*\n\s*\n"
-    r"    Total scenarios: \d+\s*\n"
-    r"    Level 1 Visibility scenarios: \d+\s*\n"
-    r"    Level 2 Correlation scenarios: \d+\s*\n"
-    r"    Level 3 Recovery scenarios: \d+\s*\n"
-    r"    Level 4 Resilience scenarios: \d+\s*\n"
-    r"    Level 5 Continuity scenarios: \d+"
-)
+    return "\n".join(rows)
 
-readme_text, inventory_changed = re.subn(
-    inventory_pattern,
-    "\n".join(inventory_block),
-    readme_text,
-    count=1,
-)
+def main() -> int:
+    if not README.exists():
+        print("[FAIL] README.md not found")
+        return 1
 
-quality_values = {
-    "scenario_directories": read_quality_value(quality_text, "scenario_directories"),
-    "metadata_files": read_quality_value(quality_text, "metadata_files"),
-    "poster_svg_files": read_quality_value(quality_text, "poster_svg_files"),
-    "poster_png_files": read_quality_value(quality_text, "poster_png_files"),
-    "missing_required_artifacts": read_quality_value(quality_text, "missing_required_artifacts"),
-    "small_png_files": read_quality_value(quality_text, "small_png_files"),
-    "bad_phrase_hits": read_quality_value(quality_text, "bad_phrase_hits"),
-    "readmes_with_empty_related_notice": read_quality_value(quality_text, "readmes_with_empty_related_notice"),
-}
+    text = README.read_text(encoding="utf-8", errors="ignore")
+    block = build_block()
 
-quality_block = []
-quality_block.append("Current validation status:")
-quality_block.append("")
-for key, value in quality_values.items():
-    quality_block.append(f"    {key}: {value}")
+    if START not in text or END not in text:
+        append = "\n\n## Scenario Inventory\n\n" + block + "\n"
+        README.write_text(text.rstrip() + append, encoding="utf-8")
+        print("[OK] README scenario inventory block added")
+        return 0
 
-quality_pattern = (
-    r"Current validation status:\s*\n\s*\n"
-    r"    scenario_directories: .+\s*\n"
-    r"    metadata_files: .+\s*\n"
-    r"    poster_svg_files: .+\s*\n"
-    r"    poster_png_files: .+\s*\n"
-    r"    missing_required_artifacts: .+\s*\n"
-    r"    small_png_files: .+\s*\n"
-    r"    bad_phrase_hits: .+\s*\n"
-    r"    readmes_with_empty_related_notice: .+"
-)
+    before, rest = text.split(START, 1)
+    _, after = rest.split(END, 1)
 
-readme_text, quality_changed = re.subn(
-    quality_pattern,
-    "\n".join(quality_block),
-    readme_text,
-    count=1,
-)
+    new_text = before.rstrip() + "\n\n" + block + after
+    README.write_text(new_text, encoding="utf-8")
 
-if inventory_changed == 0:
-    raise SystemExit("[FAIL] README scenario inventory block not found")
+    print("[OK] README scenario inventory updated")
+    return 0
 
-if quality_changed == 0:
-    raise SystemExit("[FAIL] README quality status block not found")
-
-README.write_text(readme_text, encoding="utf-8")
-
-print("[OK] updated README inventory and quality status")
-print(f"[OK] total scenarios: {total}")
-for label, count in counts:
-    print(f"[OK] {label}: {count}")
+if __name__ == "__main__":
+    raise SystemExit(main())

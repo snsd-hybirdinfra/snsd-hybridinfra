@@ -1,0 +1,9 @@
+[linux_observability_targets]
+linux-node-01 ansible_host=<TARGET_IP_1>
+linux-node-02 ansible_host=<TARGET_IP_2>
+
+[linux_observability_targets:vars]
+ansible_user=<TARGET_USER>
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_private_key_file=./inventory/ansible.pem
+ansible_ssh_common_args=-o StrictHostKeyChecking=no
