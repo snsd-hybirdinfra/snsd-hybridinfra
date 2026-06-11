@@ -1,18 +1,48 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="08-backup-recovery-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate backup source boundary"
-echo "- prepare backup repository boundary"
-echo "- prepare restore target boundary"
-echo "- prepare integrity validation boundary"
-echo "- prepare evidence directories"
+source configs/backup-policy.env
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+mkdir -p "$BACKUP_SOURCE_DIR"
+mkdir -p "$BACKUP_OUTPUT_DIR"
+mkdir -p "$RESTORE_OUTPUT_DIR"
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+echo "[INFO] backup recovery setup started"
+
+cat > "$BACKUP_SOURCE_DIR/app-config.txt" <<EOF
+service_name=snsd-backup-recovery-lab
+environment=local-runtime
+validation_marker=$VALIDATION_MARKER
+EOF
+
+cat > "$BACKUP_SOURCE_DIR/runtime-state.txt" <<EOF
+state=healthy
+node=local-backup-target
+backup_policy=filesystem-archive
+validation_marker=$VALIDATION_MARKER
+EOF
+
+cat > "$BACKUP_SOURCE_DIR/operational-events.log" <<EOF
+2026-06-11T10:00:00Z event=backup_source_created status=ready marker=$VALIDATION_MARKER
+2026-06-11T10:01:00Z event=backup_policy_loaded status=ready marker=$VALIDATION_MARKER
+EOF
+
+{
+  echo "# Backup Recovery Setup"
+  echo
+  echo "source_dir=$BACKUP_SOURCE_DIR"
+  echo "backup_output_dir=$BACKUP_OUTPUT_DIR"
+  echo "restore_output_dir=$RESTORE_OUTPUT_DIR"
+  echo
+  echo "## Source Files"
+  find "$BACKUP_SOURCE_DIR" -type f -maxdepth 1 -print | sort
+} | tee runtime-workspace/logs/setup.log
+
+cp runtime-workspace/logs/setup.log evidence/generated/raw/backup-recovery-setup.log
+
+echo "[INFO] backup recovery setup completed"

@@ -1,14 +1,19 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="08-backup-recovery-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] cleanup started: ${LAB_NAME}"
-echo "[INFO] planned cleanup tasks:"
-echo "- remove temporary backup recovery validation files"
-echo "- preserve raw evidence"
-echo "- preserve processed evidence"
-echo "- preserve evidence summaries"
-echo "- preserve validation reports"
+echo "[INFO] backup recovery cleanup started"
 
-echo "[OK] cleanup stub completed: ${LAB_NAME}"
+rm -rf runtime-workspace
+rm -rf evidence/generated/raw
+rm -rf evidence/generated/summary
+
+mkdir -p runtime-workspace/data
+mkdir -p runtime-workspace/backup
+mkdir -p runtime-workspace/restore
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
+
+echo "[INFO] backup recovery cleanup completed"

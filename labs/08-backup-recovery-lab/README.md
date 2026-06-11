@@ -1,4 +1,4 @@
-﻿# Backup Recovery Lab
+# Backup Recovery Lab
 
 ## Lab Purpose
 
