@@ -19,5 +19,6 @@ if [[ "${ANSIBLE_ASK_BECOME_PASS:-false}" == "true" ]]; then
 fi
 
 ANSIBLE_CONFIG=./ansible.cfg ansible-playbook playbooks/setup.yml "${ANSIBLE_ARGS[@]}" | tee runtime-workspace/logs/setup.log
+ANSIBLE_CONFIG=./ansible.cfg ansible-playbook playbooks/node_exporter.yml "${ANSIBLE_ARGS[@]}" | tee runtime-workspace/logs/node-exporter-setup.log
 
 echo "[INFO] setup completed: 01-linux-observability-lab"

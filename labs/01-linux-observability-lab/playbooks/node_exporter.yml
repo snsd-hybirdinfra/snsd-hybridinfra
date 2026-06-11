@@ -1,0 +1,83 @@
+---
+- name: Configure node exporter for Linux observability targets
+  hosts: linux_observability_targets
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Ensure node exporter system user exists
+      ansible.builtin.user:
+        name: "{{ node_exporter_user }}"
+        shell: /usr/sbin/nologin
+        system: true
+        create_home: false
+
+    - name: Download node exporter archive
+      ansible.builtin.get_url:
+        url: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
+        dest: "/tmp/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
+        mode: "0644"
+
+    - name: Extract node exporter archive
+      ansible.builtin.unarchive:
+        src: "/tmp/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
+        dest: /tmp
+        remote_src: true
+
+    - name: Install node exporter binary
+      ansible.builtin.copy:
+        src: "/tmp/node_exporter-{{ node_exporter_version }}.linux-amd64/node_exporter"
+        dest: "{{ node_exporter_bin_path }}"
+        owner: root
+        group: root
+        mode: "0755"
+        remote_src: true
+
+    - name: Create node exporter systemd service
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/node_exporter.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Prometheus Node Exporter
+          Wants=network-online.target
+          After=network-online.target
+
+          [Service]
+          User={{ node_exporter_user }}
+          Group={{ node_exporter_user }}
+          Type=simple
+          ExecStart={{ node_exporter_bin_path }} --web.listen-address=:{{ node_exporter_port }}
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start node exporter
+      ansible.builtin.systemd:
+        name: "{{ node_exporter_service_name }}"
+        enabled: true
+        state: started
+
+    - name: Validate node exporter service
+      ansible.builtin.command: systemctl is-active node_exporter
+      register: node_exporter_active
+      changed_when: false
+
+    - name: Validate node exporter metrics endpoint
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:{{ node_exporter_port }}/metrics"
+        return_content: false
+        status_code: 200
+      register: node_exporter_metrics
+
+    - name: Print node exporter validation result
+      ansible.builtin.debug:
+        msg:
+          - "node_exporter_active={{ node_exporter_active.stdout }}"
+          - "node_exporter_metrics_status={{ node_exporter_metrics.status }}"

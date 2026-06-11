@@ -1,18 +1,12 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="06-monitoring-stack-lab"
+echo "[INFO] monitoring stack setup started"
 
-echo "[INFO] setup started: ${LAB_NAME}"
-echo "[INFO] planned setup tasks:"
-echo "- validate monitoring node prerequisites"
-echo "- prepare Prometheus configuration boundary"
-echo "- prepare Grafana dashboard boundary"
-echo "- prepare exporter target boundary"
-echo "- prepare evidence directories"
+cd "$(dirname "$0")/.."
 
-mkdir -p ../evidence/raw
-mkdir -p ../evidence/processed
-mkdir -p ../evidence/summary
+mkdir -p runtime-workspace/logs
 
-echo "[OK] setup stub completed: ${LAB_NAME}"
+docker compose -f compose/docker-compose.yml up -d | tee runtime-workspace/logs/setup.log
+
+echo "[INFO] monitoring stack setup completed"

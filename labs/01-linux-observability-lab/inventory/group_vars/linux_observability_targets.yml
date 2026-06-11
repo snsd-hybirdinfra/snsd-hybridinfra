@@ -21,3 +21,8 @@ filesystem_paths_to_check:
 
 evidence_base_path: evidence/generated
 runtime_workspace: runtime-workspace
+node_exporter_version: "1.8.2"
+node_exporter_port: 9100
+node_exporter_user: "node_exporter"
+node_exporter_bin_path: "/usr/local/bin/node_exporter"
+node_exporter_service_name: "node_exporter"

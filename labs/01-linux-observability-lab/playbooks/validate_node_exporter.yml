@@ -1,0 +1,42 @@
+---
+- name: Validate node exporter telemetry readiness
+  hosts: linux_observability_targets
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Check node exporter service state
+      ansible.builtin.command: systemctl is-active node_exporter
+      register: service_state
+      changed_when: false
+
+    - name: Check node exporter listening port
+      ansible.builtin.shell: "ss -lntp | grep ':9100'"
+      register: port_state
+      changed_when: false
+
+    - name: Check node exporter metrics endpoint
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9100/metrics"
+        return_content: true
+        status_code: 200
+      register: metrics_response
+
+    - name: Write node exporter validation evidence
+      ansible.builtin.copy:
+        dest: "/tmp/linux-observability-evidence/node-exporter-validation.txt"
+        mode: "0644"
+        content: |
+          host={{ inventory_hostname }}
+          service_state={{ service_state.stdout }}
+          port_check={{ port_state.stdout }}
+          metrics_status={{ metrics_response.status }}
+          metrics_contains_node_cpu={{ 'node_cpu_seconds_total' in metrics_response.content }}
+
+    - name: Print node exporter validation summary
+      ansible.builtin.debug:
+        msg:
+          - "host={{ inventory_hostname }}"
+          - "service_state={{ service_state.stdout }}"
+          - "metrics_status={{ metrics_response.status }}"
+          - "metrics_contains_node_cpu={{ 'node_cpu_seconds_total' in metrics_response.content }}"

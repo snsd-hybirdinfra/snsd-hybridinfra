@@ -19,6 +19,8 @@ if [[ "${ANSIBLE_ASK_BECOME_PASS:-false}" == "true" ]]; then
 fi
 
 ANSIBLE_CONFIG=./ansible.cfg ansible-playbook playbooks/validate.yml "${ANSIBLE_ARGS[@]}" | tee runtime-workspace/logs/validate.log
+ANSIBLE_CONFIG=./ansible.cfg ansible-playbook playbooks/validate_node_exporter.yml "${ANSIBLE_ARGS[@]}" | tee runtime-workspace/logs/node-exporter-validate.log
+cat runtime-workspace/logs/node-exporter-validate.log >> runtime-workspace/logs/validate.log
 
 cp runtime-workspace/logs/validate.log evidence/generated/raw/ansible-validate.log
 
