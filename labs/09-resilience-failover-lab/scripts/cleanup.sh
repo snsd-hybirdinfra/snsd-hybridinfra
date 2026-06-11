@@ -1,14 +1,17 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="09-resilience-failover-lab"
+cd "$(dirname "$0")/.."
 
-echo "[INFO] cleanup started: ${LAB_NAME}"
-echo "[INFO] planned cleanup tasks:"
-echo "- remove temporary resilience validation files"
-echo "- preserve raw evidence"
-echo "- preserve processed evidence"
-echo "- preserve evidence summaries"
-echo "- preserve validation reports"
+echo "[INFO] resilience failover cleanup started"
 
-echo "[OK] cleanup stub completed: ${LAB_NAME}"
+rm -rf runtime-workspace
+rm -rf evidence/generated/raw
+rm -rf evidence/generated/summary
+
+mkdir -p runtime-workspace/state
+mkdir -p runtime-workspace/logs
+mkdir -p evidence/generated/raw
+mkdir -p evidence/generated/summary
+
+echo "[INFO] resilience failover cleanup completed"
