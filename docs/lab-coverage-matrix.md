@@ -1,181 +1,220 @@
-﻿# Lab Coverage Matrix
+# Lab Coverage Matrix
 
-This document maps repository scenarios to implementation-oriented infrastructure operations labs.
+Generated At: 2026-06-11T18:42:56.199958Z
 
-Scenarios remain under /scenarios as lifecycle-aligned validation cases. Labs define implementation boundaries used to validate groups of scenarios through reusable modules, adapters, runtime utilities, and evidence workflows.
+## Purpose
 
----
+This document maps lifecycle-aligned operational scenarios to implementation lab boundaries.
+
+Scenarios define operational validation cases.
+
+Labs define reusable implementation boundaries that validate groups of scenarios.
+
+This matrix is generated from repository state and scenario naming taxonomy.
 
 ## Coverage Summary
 
-Total mapped scenarios: 150
-
-| Lab | Scenario Count |
+| Signal | Value |
 |---|---:|
-| [01-linux-observability-lab](../labs/01-linux-observability-lab/) | 8 |
-| [02-network-routing-lab](../labs/02-network-routing-lab/) | 26 |
-| [03-ansible-automation-lab](../labs/03-ansible-automation-lab/) | 3 |
-| [04-container-runtime-lab](../labs/04-container-runtime-lab/) | 12 |
-| [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/) | 6 |
-| [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/) | 6 |
-| [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) | 16 |
-| [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) | 9 |
-| [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) | 9 |
-| [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) | 55 |
+| Total scenarios | 150 |
+| Covered scenarios | 150 |
+| Uncovered scenarios | 0 |
+| Implementation labs | 10 |
 
----
+## Lifecycle Scenario Count
 
-## Scenario to Lab Mapping
+| Lifecycle Level | Scenario Count |
+|---|---:|
+| [Level 1 Visibility](../scenarios/level-1-visibility/README.md) | 45 |
+| [Level 2 Correlation](../scenarios/level-2-correlation/README.md) | 41 |
+| [Level 3 Recovery](../scenarios/level-3-recovery/README.md) | 33 |
+| [Level 4 Resilience](../scenarios/level-4-resilience/README.md) | 21 |
+| [Level 5 Continuity](../scenarios/level-5-continuity/README.md) | 10 |
 
-| Scenario | Level | Domain | Lab |
-|---|---|---|---|
-| [Api Gateway Health Monitoring](../scenarios/level-1-visibility/api-gateway-health-monitoring/) | level-1-visibility | API / Gateway | [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/) |
-| [Application Runtime Monitoring](../scenarios/level-1-visibility/application-runtime-monitoring/) | level-1-visibility | Application Runtime | [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/) |
-| [Audit Log Monitoring](../scenarios/level-1-visibility/audit-log-monitoring/) | level-1-visibility | Audit / Logging | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Backup Job Monitoring](../scenarios/level-1-visibility/backup-job-monitoring/) | level-1-visibility | Backup / Recovery | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Bgp Neighbor Visibility](../scenarios/level-1-visibility/bgp-neighbor-visibility/) | level-1-visibility | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Certificate Expiration Monitoring](../scenarios/level-1-visibility/certificate-expiration-monitoring/) | level-1-visibility | TLS / Certificate | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cloud Instance Health Monitoring](../scenarios/level-1-visibility/cloud-instance-health-monitoring/) | level-1-visibility | Cloud Instance | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/) |
-| [Compute Resource Monitoring](../scenarios/level-1-visibility/compute-resource-monitoring/) | level-1-visibility | Compute / Resource | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/) |
-| [Configuration Drift Monitoring](../scenarios/level-1-visibility/configuration-drift-monitoring/) | level-1-visibility | Configuration Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Container Runtime Visibility](../scenarios/level-1-visibility/container-runtime-visibility/) | level-1-visibility | Container / Runtime | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Control Plane Health Monitoring](../scenarios/level-1-visibility/control-plane-health-monitoring/) | level-1-visibility | Platform Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Database Health Monitoring](../scenarios/level-1-visibility/database-health-monitoring/) | level-1-visibility | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Database Replication Visibility](../scenarios/level-1-visibility/database-replication-visibility/) | level-1-visibility | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Database Runtime Visibility](../scenarios/level-1-visibility/database-runtime-visibility/) | level-1-visibility | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Dns Resolution Monitoring](../scenarios/level-1-visibility/dns-resolution-monitoring/) | level-1-visibility | DNS / Name Resolution | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Endpoint Reachability Monitoring](../scenarios/level-1-visibility/endpoint-reachability-monitoring/) | level-1-visibility | Endpoint | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Endpoint Security Visibility](../scenarios/level-1-visibility/endpoint-security-visibility/) | level-1-visibility | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Filesystem Health Visibility](../scenarios/level-1-visibility/filesystem-health-visibility/) | level-1-visibility | Filesystem | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Hardware Health Monitoring](../scenarios/level-1-visibility/hardware-health-monitoring/) | level-1-visibility | Hardware | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Hypervisor Resource Monitoring](../scenarios/level-1-visibility/hypervisor-resource-monitoring/) | level-1-visibility | Virtualization | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Identity Access Visibility](../scenarios/level-1-visibility/identity-access-visibility/) | level-1-visibility | Identity / Access | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Inter Region Connectivity Monitoring](../scenarios/level-1-visibility/inter-region-connectivity-monitoring/) | level-1-visibility | Network Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Kubernetes Cluster Health Monitoring](../scenarios/level-1-visibility/kubernetes-cluster-health-monitoring/) | level-1-visibility | Kubernetes / Cluster | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Kubernetes Cluster Visibility](../scenarios/level-1-visibility/kubernetes-cluster-visibility/) | level-1-visibility | Kubernetes / Cluster | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Load Balancer Health Monitoring](../scenarios/level-1-visibility/load-balancer-health-monitoring/) | level-1-visibility | Load Balancing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Message Queue Monitoring](../scenarios/level-1-visibility/message-queue-monitoring/) | level-1-visibility | Message Queue | [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/) |
-| [Microservice Health Monitoring](../scenarios/level-1-visibility/microservice-health-monitoring/) | level-1-visibility | Microservice | [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/) |
-| [Network Path Visibility](../scenarios/level-1-visibility/network-path-visibility/) | level-1-visibility | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Network Traffic Visibility](../scenarios/level-1-visibility/network-traffic-visibility/) | level-1-visibility | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Object Storage Health Monitoring](../scenarios/level-1-visibility/object-storage-health-monitoring/) | level-1-visibility | Storage | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Privileged Session Monitoring](../scenarios/level-1-visibility/privileged-session-monitoring/) | level-1-visibility | Privileged Access | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Process Health Monitoring](../scenarios/level-1-visibility/process-health-monitoring/) | level-1-visibility | Process / Service | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Security Event Monitoring](../scenarios/level-1-visibility/security-event-monitoring/) | level-1-visibility | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Security Policy Visibility](../scenarios/level-1-visibility/security-policy-visibility/) | level-1-visibility | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Security Telemetry Monitoring](../scenarios/level-1-visibility/security-telemetry-monitoring/) | level-1-visibility | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Service Health Visibility](../scenarios/level-1-visibility/service-health-visibility/) | level-1-visibility | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Service Mesh Traffic Visibility](../scenarios/level-1-visibility/service-mesh-traffic-visibility/) | level-1-visibility | Service Mesh | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Storage Capacity Monitoring](../scenarios/level-1-visibility/storage-capacity-monitoring/) | level-1-visibility | Storage | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Storage Latency Monitoring](../scenarios/level-1-visibility/storage-latency-monitoring/) | level-1-visibility | Storage | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [System Event Visibility](../scenarios/level-1-visibility/system-event-visibility/) | level-1-visibility | System Event | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Virtual Machine Health Monitoring](../scenarios/level-1-visibility/virtual-machine-health-monitoring/) | level-1-visibility | Virtual Machine | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Vpn Connectivity Monitoring](../scenarios/level-1-visibility/vpn-connectivity-monitoring/) | level-1-visibility | Network / VPN | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Vpn Latency Visibility](../scenarios/level-1-visibility/vpn-latency-visibility/) | level-1-visibility | Network / VPN | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Vpn Tunnel Health Monitoring](../scenarios/level-1-visibility/vpn-tunnel-health-monitoring/) | level-1-visibility | Network / VPN | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Wan Link Monitoring](../scenarios/level-1-visibility/wan-link-monitoring/) | level-1-visibility | Network / WAN | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Api Latency Correlation](../scenarios/level-2-correlation/api-latency-correlation/) | level-2-correlation | API / Service | [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/) |
-| [Authentication Anomaly Analysis](../scenarios/level-2-correlation/authentication-anomaly-analysis/) | level-2-correlation | Identity / Authentication | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Backup Failure Correlation](../scenarios/level-2-correlation/backup-failure-correlation/) | level-2-correlation | Backup / Recovery | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Change Impact Correlation](../scenarios/level-2-correlation/change-impact-correlation/) | level-2-correlation | Change Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cluster Resource Instability Analysis](../scenarios/level-2-correlation/cluster-resource-instability-analysis/) | level-2-correlation | Cluster / Platform | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/) |
-| [Compute Resource Correlation](../scenarios/level-2-correlation/compute-resource-correlation/) | level-2-correlation | Compute / Resource | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/) |
-| [Configuration Drift Correlation](../scenarios/level-2-correlation/configuration-drift-correlation/) | level-2-correlation | Configuration Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Container Dependency Analysis](../scenarios/level-2-correlation/container-dependency-analysis/) | level-2-correlation | Container / Runtime | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Control Plane Anomaly Correlation](../scenarios/level-2-correlation/control-plane-anomaly-correlation/) | level-2-correlation | Platform Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cross Domain Security Correlation](../scenarios/level-2-correlation/cross-domain-security-correlation/) | level-2-correlation | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Cross Region Network Anomaly Correlation](../scenarios/level-2-correlation/cross-region-network-anomaly-correlation/) | level-2-correlation | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Cross Server Failure Correlation](../scenarios/level-2-correlation/cross-server-failure-correlation/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cross Service Anomaly Correlation](../scenarios/level-2-correlation/cross-service-anomaly-correlation/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cross Service Database Dependency Analysis](../scenarios/level-2-correlation/cross-service-database-dependency-analysis/) | level-2-correlation | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Cross Site Network Correlation](../scenarios/level-2-correlation/cross-site-network-correlation/) | level-2-correlation | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Database Latency Correlation](../scenarios/level-2-correlation/database-latency-correlation/) | level-2-correlation | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Filesystem Failure Correlation](../scenarios/level-2-correlation/filesystem-failure-correlation/) | level-2-correlation | Filesystem | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Identity Risk Analysis](../scenarios/level-2-correlation/identity-risk-analysis/) | level-2-correlation | Identity / Access | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Infrastructure Anomaly Analysis](../scenarios/level-2-correlation/infrastructure-anomaly-analysis/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Inter Region Dependency Correlation](../scenarios/level-2-correlation/inter-region-dependency-correlation/) | level-2-correlation | Network Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Multi Region Latency Correlation](../scenarios/level-2-correlation/multi-region-latency-correlation/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Network Packet Loss Correlation](../scenarios/level-2-correlation/network-packet-loss-correlation/) | level-2-correlation | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Network Path Dependency Analysis](../scenarios/level-2-correlation/network-path-dependency-analysis/) | level-2-correlation | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Platform Dependency Correlation](../scenarios/level-2-correlation/platform-dependency-correlation/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Pod Failure Correlation](../scenarios/level-2-correlation/pod-failure-correlation/) | level-2-correlation | Container / Pod | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Privilege Escalation Correlation](../scenarios/level-2-correlation/privilege-escalation-correlation/) | level-2-correlation | Privileged Access | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Query Lock Analysis](../scenarios/level-2-correlation/query-lock-analysis/) | level-2-correlation | Database / Query | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Replication Failure Correlation](../scenarios/level-2-correlation/replication-failure-correlation/) | level-2-correlation | Database / Replication | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Resource Contention Correlation](../scenarios/level-2-correlation/resource-contention-correlation/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Routing Instability Correlation](../scenarios/level-2-correlation/routing-instability-correlation/) | level-2-correlation | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Runtime Instability Analysis](../scenarios/level-2-correlation/runtime-instability-analysis/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Security Anomaly Correlation](../scenarios/level-2-correlation/security-anomaly-correlation/) | level-2-correlation | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Security Policy Violation Analysis](../scenarios/level-2-correlation/security-policy-violation-analysis/) | level-2-correlation | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Service Dependency Correlation](../scenarios/level-2-correlation/service-dependency-correlation/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Service Mesh Latency Correlation](../scenarios/level-2-correlation/service-mesh-latency-correlation/) | level-2-correlation | Service Mesh | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Storage Io Instability Analysis](../scenarios/level-2-correlation/storage-io-instability-analysis/) | level-2-correlation | Storage | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Threat Propagation Analysis](../scenarios/level-2-correlation/threat-propagation-analysis/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Traffic Spike Correlation](../scenarios/level-2-correlation/traffic-spike-correlation/) | level-2-correlation | Traffic / Flow | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Virtualization Resource Correlation](../scenarios/level-2-correlation/virtualization-resource-correlation/) | level-2-correlation | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Vpn Latency Correlation](../scenarios/level-2-correlation/vpn-latency-correlation/) | level-2-correlation | Network / VPN | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Vpn Tunnel Instability Analysis](../scenarios/level-2-correlation/vpn-tunnel-instability-analysis/) | level-2-correlation | Network / VPN | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Api Service Recovery](../scenarios/level-3-recovery/api-service-recovery/) | level-3-recovery | API / Service | [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/) |
-| [Backup Restoration Automation](../scenarios/level-3-recovery/backup-restoration-automation/) | level-3-recovery | Backup / Recovery | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Certificate Renewal Automation](../scenarios/level-3-recovery/certificate-renewal-automation/) | level-3-recovery | Security Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Change Failure Rollback](../scenarios/level-3-recovery/change-failure-rollback/) | level-3-recovery | Change Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cloud Instance Recovery Automation](../scenarios/level-3-recovery/cloud-instance-recovery-automation/) | level-3-recovery | Cloud Instance | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/) |
-| [Cluster Node Recovery Orchestration](../scenarios/level-3-recovery/cluster-node-recovery-orchestration/) | level-3-recovery | Cluster / Platform | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/) |
-| [Compute Failover Orchestration](../scenarios/level-3-recovery/compute-failover-orchestration/) | level-3-recovery | Compute / Resource | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/) |
-| [Configuration Rollback Automation](../scenarios/level-3-recovery/configuration-rollback-automation/) | level-3-recovery | Configuration Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Container Failover Automation](../scenarios/level-3-recovery/container-failover-automation/) | level-3-recovery | Container / Runtime | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Control Plane Recovery Orchestration](../scenarios/level-3-recovery/control-plane-recovery-orchestration/) | level-3-recovery | Platform Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Database Failover Automation](../scenarios/level-3-recovery/database-failover-automation/) | level-3-recovery | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Database Recovery Orchestration](../scenarios/level-3-recovery/database-recovery-orchestration/) | level-3-recovery | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Database Service Restoration](../scenarios/level-3-recovery/database-service-restoration/) | level-3-recovery | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Data Recovery Orchestration](../scenarios/level-3-recovery/data-recovery-orchestration/) | level-3-recovery | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Dns Service Restoration](../scenarios/level-3-recovery/dns-service-restoration/) | level-3-recovery | DNS / Name Resolution | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Identity Access Remediation](../scenarios/level-3-recovery/identity-access-remediation/) | level-3-recovery | Identity Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Infrastructure Recovery Orchestration](../scenarios/level-3-recovery/infrastructure-recovery-orchestration/) | level-3-recovery | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Inter Region Routing Recovery](../scenarios/level-3-recovery/inter-region-routing-recovery/) | level-3-recovery | Network Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Kubernetes Control Plane Recovery](../scenarios/level-3-recovery/kubernetes-control-plane-recovery/) | level-3-recovery | Kubernetes Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Kubernetes Node Recovery](../scenarios/level-3-recovery/kubernetes-node-recovery/) | level-3-recovery | Kubernetes / Cluster | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Kubernetes Service Recovery](../scenarios/level-3-recovery/kubernetes-service-recovery/) | level-3-recovery | Kubernetes / Cluster | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Load Balancer Recovery](../scenarios/level-3-recovery/load-balancer-recovery/) | level-3-recovery | Load Balancing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Network Failover Automation](../scenarios/level-3-recovery/network-failover-automation/) | level-3-recovery | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Network Route Recovery Orchestration](../scenarios/level-3-recovery/network-route-recovery-orchestration/) | level-3-recovery | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Platform Runtime Restoration](../scenarios/level-3-recovery/platform-runtime-restoration/) | level-3-recovery | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Replication Recovery Orchestration](../scenarios/level-3-recovery/replication-recovery-orchestration/) | level-3-recovery | Database / Replication | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/) |
-| [Resource Rebalancing Automation](../scenarios/level-3-recovery/resource-rebalancing-automation/) | level-3-recovery | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Server Service Recovery](../scenarios/level-3-recovery/server-service-recovery/) | level-3-recovery | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Service Mesh Traffic Restoration](../scenarios/level-3-recovery/service-mesh-traffic-restoration/) | level-3-recovery | Service Mesh | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Storage Volume Recovery Automation](../scenarios/level-3-recovery/storage-volume-recovery-automation/) | level-3-recovery | Storage Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Traffic Restoration Workflow](../scenarios/level-3-recovery/traffic-restoration-workflow/) | level-3-recovery | Traffic / Flow | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Virtual Machine Restoration](../scenarios/level-3-recovery/virtual-machine-restoration/) | level-3-recovery | Virtual Machine | [01-linux-observability-lab](../labs/01-linux-observability-lab/) |
-| [Vpn Tunnel Recovery Automation](../scenarios/level-3-recovery/vpn-tunnel-recovery-automation/) | level-3-recovery | Network / VPN | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Backup Resilience Validation](../scenarios/level-4-resilience/backup-resilience-validation/) | level-4-resilience | Backup Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Change Resilience Coordination](../scenarios/level-4-resilience/change-resilience-coordination/) | level-4-resilience | Change Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Configuration Resilience Validation](../scenarios/level-4-resilience/configuration-resilience-validation/) | level-4-resilience | Configuration Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Control Plane Resilience](../scenarios/level-4-resilience/control-plane-resilience/) | level-4-resilience | Platform Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cross Region Data Survivability](../scenarios/level-4-resilience/cross-region-data-survivability/) | level-4-resilience | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Cross Region Kubernetes Resilience](../scenarios/level-4-resilience/cross-region-kubernetes-resilience/) | level-4-resilience | Kubernetes / Cluster | [04-container-runtime-lab](../labs/04-container-runtime-lab/) |
-| [Cross Region Network Resilience](../scenarios/level-4-resilience/cross-region-network-resilience/) | level-4-resilience | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Distributed Connectivity Survivability](../scenarios/level-4-resilience/distributed-connectivity-survivability/) | level-4-resilience | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Distributed Database Failover](../scenarios/level-4-resilience/distributed-database-failover/) | level-4-resilience | Database | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/) |
-| [Distributed Platform Survivability](../scenarios/level-4-resilience/distributed-platform-survivability/) | level-4-resilience | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Distributed Security Resilience](../scenarios/level-4-resilience/distributed-security-resilience/) | level-4-resilience | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Identity Failover Resilience](../scenarios/level-4-resilience/identity-failover-resilience/) | level-4-resilience | Identity Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Identity Resilience Coordination](../scenarios/level-4-resilience/identity-resilience-coordination/) | level-4-resilience | Identity / Access | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Inter Region Routing Resilience](../scenarios/level-4-resilience/inter-region-routing-resilience/) | level-4-resilience | Network Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Kubernetes Platform Resilience](../scenarios/level-4-resilience/kubernetes-platform-resilience/) | level-4-resilience | Kubernetes Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Multi Cluster Failover](../scenarios/level-4-resilience/multi-cluster-failover/) | level-4-resilience | Cluster / Platform | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/) |
-| [Multi Cluster Failover Coordination](../scenarios/level-4-resilience/multi-cluster-failover-coordination/) | level-4-resilience | Cluster / Platform | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/) |
-| [Multi Region Service Failover](../scenarios/level-4-resilience/multi-region-service-failover/) | level-4-resilience | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Multi Region Service Failover Resilience](../scenarios/level-4-resilience/multi-region-service-failover-resilience/) | level-4-resilience | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Multi Site Routing Failover](../scenarios/level-4-resilience/multi-site-routing-failover/) | level-4-resilience | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Storage Replication Resilience](../scenarios/level-4-resilience/storage-replication-resilience/) | level-4-resilience | Storage Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Change Continuity](../scenarios/level-5-continuity/enterprise-change-continuity/) | level-5-continuity | Continuity Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Cloud Continuity](../scenarios/level-5-continuity/enterprise-cloud-continuity/) | level-5-continuity | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Control Plane Continuity](../scenarios/level-5-continuity/enterprise-control-plane-continuity/) | level-5-continuity | Continuity Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Data Protection Continuity](../scenarios/level-5-continuity/enterprise-data-protection-continuity/) | level-5-continuity | Continuity Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Identity Continuity](../scenarios/level-5-continuity/enterprise-identity-continuity/) | level-5-continuity | Continuity Operations | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Network Continuity](../scenarios/level-5-continuity/enterprise-network-continuity/) | level-5-continuity | Network / Routing | [02-network-routing-lab](../labs/02-network-routing-lab/) |
-| [Enterprise Operational Continuity](../scenarios/level-5-continuity/enterprise-operational-continuity/) | level-5-continuity | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Platform Continuity](../scenarios/level-5-continuity/enterprise-platform-continuity/) | level-5-continuity | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
-| [Enterprise Security Continuity](../scenarios/level-5-continuity/enterprise-security-continuity/) | level-5-continuity | Security / Telemetry | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/) |
-| [Enterprise Service Continuity Coordination](../scenarios/level-5-continuity/enterprise-service-continuity-coordination/) | level-5-continuity | General Infrastructure | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/) |
+## Lab Coverage Count
+
+| Lab | Scope | Covered Scenarios |
+|---|---|---:|
+| [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) | Linux observability and host visibility | 25 |
+| [02-network-routing-lab](../labs/02-network-routing-lab/README.md) | Network routing, reachability, DNS, and latency validation | 15 |
+| [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) | Automation execution, recovery workflow, and validation | 13 |
+| [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) | Container runtime visibility and restart recovery | 7 |
+| [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/README.md) | OpenStack/Kolla-Ansible preflight and control plane readiness | 2 |
+| [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/README.md) | Prometheus/Grafana monitoring, scrape, and dashboard readiness | 0 |
+| [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) | Log normalization, timeline reconstruction, and correlation analysis | 36 |
+| [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) | Backup, restore, checksum, and integrity validation | 16 |
+| [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) | Failover decision, traffic shift, and resilience validation | 34 |
+| [10-governance-reporting-lab](../labs/10-governance-reporting-lab/README.md) | Repository validation, governance reporting, and quality gates | 2 |
+
+## Scenario-to-Lab Matrix
+
+| Lifecycle Level | Scenario | Implementation Lab |
+|---|---|---|
+| Level 1 Visibility | [api-gateway-health-monitoring](../scenarios/level-1-visibility/api-gateway-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [application-runtime-monitoring](../scenarios/level-1-visibility/application-runtime-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [audit-log-monitoring](../scenarios/level-1-visibility/audit-log-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [backup-job-monitoring](../scenarios/level-1-visibility/backup-job-monitoring/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 1 Visibility | [bgp-neighbor-visibility](../scenarios/level-1-visibility/bgp-neighbor-visibility/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [certificate-expiration-monitoring](../scenarios/level-1-visibility/certificate-expiration-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [cloud-instance-health-monitoring](../scenarios/level-1-visibility/cloud-instance-health-monitoring/README.md) | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/README.md) |
+| Level 1 Visibility | [compute-resource-monitoring](../scenarios/level-1-visibility/compute-resource-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [configuration-drift-monitoring](../scenarios/level-1-visibility/configuration-drift-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [container-runtime-visibility](../scenarios/level-1-visibility/container-runtime-visibility/README.md) | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) |
+| Level 1 Visibility | [control-plane-health-monitoring](../scenarios/level-1-visibility/control-plane-health-monitoring/README.md) | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/README.md) |
+| Level 1 Visibility | [database-health-monitoring](../scenarios/level-1-visibility/database-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [database-replication-visibility](../scenarios/level-1-visibility/database-replication-visibility/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 1 Visibility | [database-runtime-visibility](../scenarios/level-1-visibility/database-runtime-visibility/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [dns-resolution-monitoring](../scenarios/level-1-visibility/dns-resolution-monitoring/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [endpoint-reachability-monitoring](../scenarios/level-1-visibility/endpoint-reachability-monitoring/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [endpoint-security-visibility](../scenarios/level-1-visibility/endpoint-security-visibility/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [filesystem-health-visibility](../scenarios/level-1-visibility/filesystem-health-visibility/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [hardware-health-monitoring](../scenarios/level-1-visibility/hardware-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [hypervisor-resource-monitoring](../scenarios/level-1-visibility/hypervisor-resource-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [identity-access-visibility](../scenarios/level-1-visibility/identity-access-visibility/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [inter-region-connectivity-monitoring](../scenarios/level-1-visibility/inter-region-connectivity-monitoring/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [kubernetes-cluster-health-monitoring](../scenarios/level-1-visibility/kubernetes-cluster-health-monitoring/README.md) | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) |
+| Level 1 Visibility | [kubernetes-cluster-visibility](../scenarios/level-1-visibility/kubernetes-cluster-visibility/README.md) | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) |
+| Level 1 Visibility | [load-balancer-health-monitoring](../scenarios/level-1-visibility/load-balancer-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [message-queue-monitoring](../scenarios/level-1-visibility/message-queue-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [microservice-health-monitoring](../scenarios/level-1-visibility/microservice-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [network-path-visibility](../scenarios/level-1-visibility/network-path-visibility/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [network-traffic-visibility](../scenarios/level-1-visibility/network-traffic-visibility/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [object-storage-health-monitoring](../scenarios/level-1-visibility/object-storage-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [privileged-session-monitoring](../scenarios/level-1-visibility/privileged-session-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [process-health-monitoring](../scenarios/level-1-visibility/process-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [security-event-monitoring](../scenarios/level-1-visibility/security-event-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [security-policy-visibility](../scenarios/level-1-visibility/security-policy-visibility/README.md) | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/README.md) |
+| Level 1 Visibility | [security-telemetry-monitoring](../scenarios/level-1-visibility/security-telemetry-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [service-health-visibility](../scenarios/level-1-visibility/service-health-visibility/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [service-mesh-traffic-visibility](../scenarios/level-1-visibility/service-mesh-traffic-visibility/README.md) | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) |
+| Level 1 Visibility | [storage-capacity-monitoring](../scenarios/level-1-visibility/storage-capacity-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [storage-latency-monitoring](../scenarios/level-1-visibility/storage-latency-monitoring/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [system-event-visibility](../scenarios/level-1-visibility/system-event-visibility/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [virtual-machine-health-monitoring](../scenarios/level-1-visibility/virtual-machine-health-monitoring/README.md) | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) |
+| Level 1 Visibility | [vpn-connectivity-monitoring](../scenarios/level-1-visibility/vpn-connectivity-monitoring/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [vpn-latency-visibility](../scenarios/level-1-visibility/vpn-latency-visibility/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [vpn-tunnel-health-monitoring](../scenarios/level-1-visibility/vpn-tunnel-health-monitoring/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 1 Visibility | [wan-link-monitoring](../scenarios/level-1-visibility/wan-link-monitoring/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 2 Correlation | [api-latency-correlation](../scenarios/level-2-correlation/api-latency-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [authentication-anomaly-analysis](../scenarios/level-2-correlation/authentication-anomaly-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [backup-failure-correlation](../scenarios/level-2-correlation/backup-failure-correlation/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 2 Correlation | [change-impact-correlation](../scenarios/level-2-correlation/change-impact-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [cluster-resource-instability-analysis](../scenarios/level-2-correlation/cluster-resource-instability-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [compute-resource-correlation](../scenarios/level-2-correlation/compute-resource-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [configuration-drift-correlation](../scenarios/level-2-correlation/configuration-drift-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [container-dependency-analysis](../scenarios/level-2-correlation/container-dependency-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [control-plane-anomaly-correlation](../scenarios/level-2-correlation/control-plane-anomaly-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [cross-domain-security-correlation](../scenarios/level-2-correlation/cross-domain-security-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [cross-region-network-anomaly-correlation](../scenarios/level-2-correlation/cross-region-network-anomaly-correlation/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 2 Correlation | [cross-server-failure-correlation](../scenarios/level-2-correlation/cross-server-failure-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [cross-service-anomaly-correlation](../scenarios/level-2-correlation/cross-service-anomaly-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [cross-service-database-dependency-analysis](../scenarios/level-2-correlation/cross-service-database-dependency-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [cross-site-network-correlation](../scenarios/level-2-correlation/cross-site-network-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [database-latency-correlation](../scenarios/level-2-correlation/database-latency-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [filesystem-failure-correlation](../scenarios/level-2-correlation/filesystem-failure-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [identity-risk-analysis](../scenarios/level-2-correlation/identity-risk-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [infrastructure-anomaly-analysis](../scenarios/level-2-correlation/infrastructure-anomaly-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [inter-region-dependency-correlation](../scenarios/level-2-correlation/inter-region-dependency-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [multi-region-latency-correlation](../scenarios/level-2-correlation/multi-region-latency-correlation/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 2 Correlation | [network-packet-loss-correlation](../scenarios/level-2-correlation/network-packet-loss-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [network-path-dependency-analysis](../scenarios/level-2-correlation/network-path-dependency-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [platform-dependency-correlation](../scenarios/level-2-correlation/platform-dependency-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [pod-failure-correlation](../scenarios/level-2-correlation/pod-failure-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [privilege-escalation-correlation](../scenarios/level-2-correlation/privilege-escalation-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [query-lock-analysis](../scenarios/level-2-correlation/query-lock-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [replication-failure-correlation](../scenarios/level-2-correlation/replication-failure-correlation/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 2 Correlation | [resource-contention-correlation](../scenarios/level-2-correlation/resource-contention-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [routing-instability-correlation](../scenarios/level-2-correlation/routing-instability-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [runtime-instability-analysis](../scenarios/level-2-correlation/runtime-instability-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [security-anomaly-correlation](../scenarios/level-2-correlation/security-anomaly-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [security-policy-violation-analysis](../scenarios/level-2-correlation/security-policy-violation-analysis/README.md) | [10-governance-reporting-lab](../labs/10-governance-reporting-lab/README.md) |
+| Level 2 Correlation | [service-dependency-correlation](../scenarios/level-2-correlation/service-dependency-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [service-mesh-latency-correlation](../scenarios/level-2-correlation/service-mesh-latency-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [storage-io-instability-analysis](../scenarios/level-2-correlation/storage-io-instability-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [threat-propagation-analysis](../scenarios/level-2-correlation/threat-propagation-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [traffic-spike-correlation](../scenarios/level-2-correlation/traffic-spike-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [virtualization-resource-correlation](../scenarios/level-2-correlation/virtualization-resource-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [vpn-latency-correlation](../scenarios/level-2-correlation/vpn-latency-correlation/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 2 Correlation | [vpn-tunnel-instability-analysis](../scenarios/level-2-correlation/vpn-tunnel-instability-analysis/README.md) | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) |
+| Level 3 Recovery | [api-service-recovery](../scenarios/level-3-recovery/api-service-recovery/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [backup-restoration-automation](../scenarios/level-3-recovery/backup-restoration-automation/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [certificate-renewal-automation](../scenarios/level-3-recovery/certificate-renewal-automation/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [change-failure-rollback](../scenarios/level-3-recovery/change-failure-rollback/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [cloud-instance-recovery-automation](../scenarios/level-3-recovery/cloud-instance-recovery-automation/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [cluster-node-recovery-orchestration](../scenarios/level-3-recovery/cluster-node-recovery-orchestration/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [compute-failover-orchestration](../scenarios/level-3-recovery/compute-failover-orchestration/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 3 Recovery | [configuration-rollback-automation](../scenarios/level-3-recovery/configuration-rollback-automation/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [container-failover-automation](../scenarios/level-3-recovery/container-failover-automation/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 3 Recovery | [control-plane-recovery-orchestration](../scenarios/level-3-recovery/control-plane-recovery-orchestration/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [data-recovery-orchestration](../scenarios/level-3-recovery/data-recovery-orchestration/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [database-failover-automation](../scenarios/level-3-recovery/database-failover-automation/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 3 Recovery | [database-recovery-orchestration](../scenarios/level-3-recovery/database-recovery-orchestration/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [database-service-restoration](../scenarios/level-3-recovery/database-service-restoration/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [dns-service-restoration](../scenarios/level-3-recovery/dns-service-restoration/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [identity-access-remediation](../scenarios/level-3-recovery/identity-access-remediation/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [infrastructure-recovery-orchestration](../scenarios/level-3-recovery/infrastructure-recovery-orchestration/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [inter-region-routing-recovery](../scenarios/level-3-recovery/inter-region-routing-recovery/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 3 Recovery | [kubernetes-control-plane-recovery](../scenarios/level-3-recovery/kubernetes-control-plane-recovery/README.md) | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) |
+| Level 3 Recovery | [kubernetes-node-recovery](../scenarios/level-3-recovery/kubernetes-node-recovery/README.md) | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) |
+| Level 3 Recovery | [kubernetes-service-recovery](../scenarios/level-3-recovery/kubernetes-service-recovery/README.md) | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) |
+| Level 3 Recovery | [load-balancer-recovery](../scenarios/level-3-recovery/load-balancer-recovery/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 3 Recovery | [network-failover-automation](../scenarios/level-3-recovery/network-failover-automation/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 3 Recovery | [network-route-recovery-orchestration](../scenarios/level-3-recovery/network-route-recovery-orchestration/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 3 Recovery | [platform-runtime-restoration](../scenarios/level-3-recovery/platform-runtime-restoration/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [replication-recovery-orchestration](../scenarios/level-3-recovery/replication-recovery-orchestration/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [resource-rebalancing-automation](../scenarios/level-3-recovery/resource-rebalancing-automation/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [server-service-recovery](../scenarios/level-3-recovery/server-service-recovery/README.md) | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) |
+| Level 3 Recovery | [service-mesh-traffic-restoration](../scenarios/level-3-recovery/service-mesh-traffic-restoration/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [storage-volume-recovery-automation](../scenarios/level-3-recovery/storage-volume-recovery-automation/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [traffic-restoration-workflow](../scenarios/level-3-recovery/traffic-restoration-workflow/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [virtual-machine-restoration](../scenarios/level-3-recovery/virtual-machine-restoration/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 3 Recovery | [vpn-tunnel-recovery-automation](../scenarios/level-3-recovery/vpn-tunnel-recovery-automation/README.md) | [02-network-routing-lab](../labs/02-network-routing-lab/README.md) |
+| Level 4 Resilience | [backup-resilience-validation](../scenarios/level-4-resilience/backup-resilience-validation/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 4 Resilience | [change-resilience-coordination](../scenarios/level-4-resilience/change-resilience-coordination/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [configuration-resilience-validation](../scenarios/level-4-resilience/configuration-resilience-validation/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [control-plane-resilience](../scenarios/level-4-resilience/control-plane-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [cross-region-data-survivability](../scenarios/level-4-resilience/cross-region-data-survivability/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [cross-region-kubernetes-resilience](../scenarios/level-4-resilience/cross-region-kubernetes-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [cross-region-network-resilience](../scenarios/level-4-resilience/cross-region-network-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [distributed-connectivity-survivability](../scenarios/level-4-resilience/distributed-connectivity-survivability/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [distributed-database-failover](../scenarios/level-4-resilience/distributed-database-failover/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [distributed-platform-survivability](../scenarios/level-4-resilience/distributed-platform-survivability/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [distributed-security-resilience](../scenarios/level-4-resilience/distributed-security-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [identity-failover-resilience](../scenarios/level-4-resilience/identity-failover-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [identity-resilience-coordination](../scenarios/level-4-resilience/identity-resilience-coordination/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [inter-region-routing-resilience](../scenarios/level-4-resilience/inter-region-routing-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [kubernetes-platform-resilience](../scenarios/level-4-resilience/kubernetes-platform-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [multi-cluster-failover](../scenarios/level-4-resilience/multi-cluster-failover/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [multi-cluster-failover-coordination](../scenarios/level-4-resilience/multi-cluster-failover-coordination/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [multi-region-service-failover](../scenarios/level-4-resilience/multi-region-service-failover/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [multi-region-service-failover-resilience](../scenarios/level-4-resilience/multi-region-service-failover-resilience/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [multi-site-routing-failover](../scenarios/level-4-resilience/multi-site-routing-failover/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 4 Resilience | [storage-replication-resilience](../scenarios/level-4-resilience/storage-replication-resilience/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 5 Continuity | [enterprise-change-continuity](../scenarios/level-5-continuity/enterprise-change-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-cloud-continuity](../scenarios/level-5-continuity/enterprise-cloud-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-control-plane-continuity](../scenarios/level-5-continuity/enterprise-control-plane-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-data-protection-continuity](../scenarios/level-5-continuity/enterprise-data-protection-continuity/README.md) | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) |
+| Level 5 Continuity | [enterprise-identity-continuity](../scenarios/level-5-continuity/enterprise-identity-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-network-continuity](../scenarios/level-5-continuity/enterprise-network-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-operational-continuity](../scenarios/level-5-continuity/enterprise-operational-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-platform-continuity](../scenarios/level-5-continuity/enterprise-platform-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-security-continuity](../scenarios/level-5-continuity/enterprise-security-continuity/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+| Level 5 Continuity | [enterprise-service-continuity-coordination](../scenarios/level-5-continuity/enterprise-service-continuity-coordination/README.md) | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) |
+
+## Mapping Policy
+
+The matrix maps scenarios to labs based on operational domain and scenario naming taxonomy.
+
+A scenario does not require a dedicated standalone lab.
+
+Multiple scenarios may be validated through the same reusable implementation boundary.
+
+This keeps the repository scalable while preserving reviewer-readable operational coverage.
+
+## Important Boundary
+
+This matrix represents implementation coverage at the lab boundary level.
+
+It does not claim that every scenario has a separate runtime deployment.
+
+Generated by tools/content-generator/generate_lab_coverage_matrix.py
