@@ -57,3 +57,18 @@ Reviewer-facing documentation records the execution boundary, while raw local ru
 ## Next Execution Target
 
 The next implementation step is to formalize Prometheus target validation and dashboard readiness checks into repeatable validation scripts.
+## Runtime Validation Signals
+
+The monitoring stack validation script records the following local-only runtime signals:
+
+| Signal | Expected Result |
+|---|---|
+| Prometheus health endpoint | PASS |
+| Grafana health endpoint | PASS |
+| Prometheus target linux-node-01 node_exporter | PASS |
+| Prometheus target linux-node-02 node_exporter | PASS |
+| Grafana datasource provisioning file | PASS |
+| Grafana dashboard provider file | PASS |
+| Grafana dashboard JSON file | PASS |
+
+These signals are generated under evidence/generated/ and are intentionally not committed.
