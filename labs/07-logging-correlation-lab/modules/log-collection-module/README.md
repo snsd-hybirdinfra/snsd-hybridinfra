@@ -1,4 +1,4 @@
-﻿# Log Collection Module
+# Log Collection Module
 
 ## Module Purpose
 

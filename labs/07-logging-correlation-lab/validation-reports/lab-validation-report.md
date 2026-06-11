@@ -1,4 +1,4 @@
-﻿# Logging Correlation Lab Validation Report
+# Logging Correlation Lab Validation Report
 
 ## Lab Summary
 

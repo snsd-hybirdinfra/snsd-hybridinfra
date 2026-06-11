@@ -1,4 +1,4 @@
-﻿# FRR Routing Adapter
+# FRR Routing Adapter
 
 ## Adapter Purpose
 

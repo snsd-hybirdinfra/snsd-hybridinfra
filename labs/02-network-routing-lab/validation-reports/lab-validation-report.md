@@ -1,4 +1,4 @@
-﻿# Network Routing Lab Validation Report
+# Network Routing Lab Validation Report
 
 ## Lab Summary
 

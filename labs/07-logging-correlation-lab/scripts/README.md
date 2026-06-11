@@ -1,4 +1,4 @@
-﻿# Logging Correlation Lab Scripts
+# Logging Correlation Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Logging Correlation Lab.
 

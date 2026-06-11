@@ -1,4 +1,4 @@
-﻿# Log Forwarder Adapter
+# Log Forwarder Adapter
 
 ## Adapter Purpose
 

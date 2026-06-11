@@ -1,4 +1,4 @@
-﻿# Prometheus Network Adapter
+# Prometheus Network Adapter
 
 ## Adapter Purpose
 

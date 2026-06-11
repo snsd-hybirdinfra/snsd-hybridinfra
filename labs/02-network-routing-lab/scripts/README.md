@@ -1,4 +1,4 @@
-﻿# Network Routing Lab Scripts
+# Network Routing Lab Scripts
 
 This directory contains lab-local execution entrypoints for the Network Routing Lab.
 

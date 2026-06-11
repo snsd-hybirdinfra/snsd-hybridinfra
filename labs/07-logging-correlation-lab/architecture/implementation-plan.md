@@ -1,4 +1,4 @@
-﻿# Logging Correlation Lab Implementation Plan
+# Logging Correlation Lab Implementation Plan
 
 ## Lab Purpose
 

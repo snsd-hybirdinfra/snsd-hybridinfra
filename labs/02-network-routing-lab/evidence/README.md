@@ -1,4 +1,4 @@
-﻿# Network Routing Lab Evidence
+# Network Routing Lab Evidence
 
 This directory stores lab-local evidence generated during validation execution.
 

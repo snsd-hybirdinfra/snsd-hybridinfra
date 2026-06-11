@@ -1,4 +1,4 @@
-﻿# Logging Evidence Generation Module
+# Logging Evidence Generation Module
 
 ## Module Purpose
 

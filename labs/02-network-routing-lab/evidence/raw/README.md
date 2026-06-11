@@ -1,4 +1,4 @@
-﻿# Raw Evidence
+# Raw Evidence
 
 This directory stores raw execution output for Network Routing Lab.
 

@@ -1,4 +1,4 @@
-﻿# Container Log Adapter
+# Container Log Adapter
 
 ## Adapter Purpose
 

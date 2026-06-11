@@ -1,4 +1,4 @@
-﻿# Event Normalization Module
+# Event Normalization Module
 
 ## Module Purpose
 

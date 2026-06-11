@@ -1,4 +1,4 @@
-﻿# Network Routing Lab Shared Runtime
+# Network Routing Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for network routing validation.
 

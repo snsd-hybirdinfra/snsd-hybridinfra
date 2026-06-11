@@ -1,4 +1,4 @@
-﻿# Logging Correlation Lab Evidence
+# Logging Correlation Lab Evidence
 
 This directory stores lab-local evidence generated during logging and correlation validation execution.
 

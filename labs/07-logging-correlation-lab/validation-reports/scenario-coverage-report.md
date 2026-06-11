@@ -1,4 +1,4 @@
-﻿# Logging Correlation Lab Scenario Coverage Report
+# Logging Correlation Lab Scenario Coverage Report
 
 This report summarizes repository scenarios mapped to the Logging Correlation Lab.
 

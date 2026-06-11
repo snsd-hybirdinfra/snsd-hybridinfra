@@ -1,4 +1,4 @@
-﻿# Python Network Check Adapter
+# Python Network Check Adapter
 
 ## Adapter Purpose
 

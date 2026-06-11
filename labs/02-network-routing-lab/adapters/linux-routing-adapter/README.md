@@ -1,4 +1,4 @@
-﻿# Linux Routing Adapter
+# Linux Routing Adapter
 
 ## Adapter Purpose
 

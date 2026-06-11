@@ -1,4 +1,4 @@
-﻿# Linux Log Adapter
+# Linux Log Adapter
 
 ## Adapter Purpose
 

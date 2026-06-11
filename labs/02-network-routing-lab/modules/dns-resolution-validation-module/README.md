@@ -1,4 +1,4 @@
-﻿# DNS Resolution Validation Module
+# DNS Resolution Validation Module
 
 ## Module Purpose
 

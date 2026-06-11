@@ -1,4 +1,4 @@
-﻿# Ansible Network Adapter
+# Ansible Network Adapter
 
 ## Adapter Purpose
 

@@ -1,4 +1,4 @@
-﻿# Parsers
+# Parsers
 
 Runtime parsers convert network command output and telemetry responses into validation evidence.
 

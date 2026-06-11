@@ -1,4 +1,4 @@
-﻿# Parsers
+# Parsers
 
 Runtime parsers convert logging and correlation output into validation evidence.
 

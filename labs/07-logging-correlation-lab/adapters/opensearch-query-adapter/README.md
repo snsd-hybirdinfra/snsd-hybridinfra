@@ -1,4 +1,4 @@
-﻿# OpenSearch Query Adapter
+# OpenSearch Query Adapter
 
 ## Adapter Purpose
 

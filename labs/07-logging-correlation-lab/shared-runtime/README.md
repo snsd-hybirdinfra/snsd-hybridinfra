@@ -1,4 +1,4 @@
-﻿# Logging Correlation Lab Shared Runtime
+# Logging Correlation Lab Shared Runtime
 
 This shared runtime provides lab-local execution helpers for logging and correlation validation.
 

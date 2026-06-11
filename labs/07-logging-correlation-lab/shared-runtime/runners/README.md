@@ -1,4 +1,4 @@
-﻿# Runners
+# Runners
 
 Runtime runners execute logging correlation lab workflows.
 

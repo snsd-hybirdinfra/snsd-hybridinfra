@@ -1,4 +1,4 @@
-﻿# Routing State Collection Module
+# Routing State Collection Module
 
 ## Module Purpose
 

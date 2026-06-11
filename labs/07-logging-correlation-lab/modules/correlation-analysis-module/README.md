@@ -1,4 +1,4 @@
-﻿# Correlation Analysis Module
+# Correlation Analysis Module
 
 ## Module Purpose
 

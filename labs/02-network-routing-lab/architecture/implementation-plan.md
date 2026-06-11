@@ -1,4 +1,4 @@
-﻿# Network Routing Lab Implementation Plan
+# Network Routing Lab Implementation Plan
 
 ## Lab Purpose
 

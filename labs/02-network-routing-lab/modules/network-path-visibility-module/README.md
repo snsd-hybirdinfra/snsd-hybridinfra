@@ -1,4 +1,4 @@
-﻿# Network Path Visibility Module
+# Network Path Visibility Module
 
 ## Module Purpose
 

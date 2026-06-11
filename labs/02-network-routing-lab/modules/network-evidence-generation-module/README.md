@@ -1,4 +1,4 @@
-﻿# Network Evidence Generation Module
+# Network Evidence Generation Module
 
 ## Module Purpose
 

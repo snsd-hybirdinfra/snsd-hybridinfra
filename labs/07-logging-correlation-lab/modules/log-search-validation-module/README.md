@@ -1,4 +1,4 @@
-﻿# Log Search Validation Module
+# Log Search Validation Module
 
 ## Module Purpose
 

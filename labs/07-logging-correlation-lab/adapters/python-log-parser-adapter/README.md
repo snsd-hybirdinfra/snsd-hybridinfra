@@ -1,4 +1,4 @@
-﻿# Python Log Parser Adapter
+# Python Log Parser Adapter
 
 ## Adapter Purpose
 

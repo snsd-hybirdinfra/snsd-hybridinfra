@@ -1,4 +1,4 @@
-﻿# Validators
+# Validators
 
 Runtime validators check logging and correlation conditions.
 

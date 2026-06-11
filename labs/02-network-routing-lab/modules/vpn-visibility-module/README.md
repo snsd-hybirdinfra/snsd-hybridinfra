@@ -1,4 +1,4 @@
-﻿# VPN Visibility Module
+# VPN Visibility Module
 
 ## Module Purpose
 
