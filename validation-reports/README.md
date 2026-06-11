@@ -21,3 +21,7 @@ Detailed checker outputs belong in reports/.
 Stable reviewer documentation belongs in docs/.
 
 Reviewer-facing validation summaries belong in this directory.
+
+## Lab Runtime Implementation
+
+- [Lab Runtime Implementation Summary](lab-runtime-implementation-summary.md)

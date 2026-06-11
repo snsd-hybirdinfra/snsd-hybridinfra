@@ -144,3 +144,6 @@ Actual runtime execution, automation scripts, deployment artifacts, and evidence
 - [Builds](builds/) - generated build and portfolio artifact index area
 - [Diagrams](diagrams/) - repository-level visualization and diagram artifact area
 - [Internal](internal/) - internal quality models, governance references, and repository control documents
+## Runtime Implementation Summary
+
+- [Lab Runtime Implementation Summary](validation-reports/lab-runtime-implementation-summary.md)
