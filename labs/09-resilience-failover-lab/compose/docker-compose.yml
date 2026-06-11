@@ -1,0 +1,33 @@
+services:
+  failover-entrypoint:
+    image: nginx:stable-alpine
+    container_name: snsd-failover-entrypoint
+    ports:
+      - "19090:80"
+    volumes:
+      - ../configs/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - primary-backend
+      - secondary-backend
+    networks:
+      - failover-net
+
+  primary-backend:
+    image: nginx:stable-alpine
+    container_name: snsd-primary-backend
+    volumes:
+      - ../configs/backends/primary.html:/usr/share/nginx/html/index.html:ro
+    networks:
+      - failover-net
+
+  secondary-backend:
+    image: nginx:stable-alpine
+    container_name: snsd-secondary-backend
+    volumes:
+      - ../configs/backends/secondary.html:/usr/share/nginx/html/index.html:ro
+    networks:
+      - failover-net
+
+networks:
+  failover-net:
+    name: snsd-failover-net

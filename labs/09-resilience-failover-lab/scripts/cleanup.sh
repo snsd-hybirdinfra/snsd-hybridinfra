@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COMPOSE_DIR="${LAB_DIR}/compose"
 
-echo "[INFO] resilience failover cleanup started"
+cd "${COMPOSE_DIR}"
 
-rm -rf runtime-workspace
-rm -rf evidence/generated/raw
-rm -rf evidence/generated/summary
+docker compose down -v
 
-mkdir -p runtime-workspace/state
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
-
-echo "[INFO] resilience failover cleanup completed"
+echo "[OK] resilience failover runtime cleaned up"

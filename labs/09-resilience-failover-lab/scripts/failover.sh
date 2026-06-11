@@ -1,61 +1,51 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COMPOSE_DIR="${LAB_DIR}/compose"
 
-source configs/failover-policy.env
+mkdir -p "${LAB_DIR}/evidence/generated/raw"
+mkdir -p "${LAB_DIR}/evidence/generated/summary"
 
-mkdir -p runtime-workspace/state
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
+cd "${COMPOSE_DIR}"
 
-echo "[INFO] resilience failover simulation started"
+docker compose stop primary-backend
 
-# Simulate primary failure.
-echo "unhealthy" > "$PRIMARY_HEALTH_FILE"
+sleep 5
 
-PRIMARY_HEALTH="$(cat "$PRIMARY_HEALTH_FILE")"
-SECONDARY_HEALTH="$(cat "$SECONDARY_HEALTH_FILE")"
-CURRENT_ACTIVE="$(cat "$ACTIVE_ENDPOINT_FILE")"
+curl -fsS http://127.0.0.1:19090/ > "${LAB_DIR}/evidence/generated/raw/failover-response.txt"
 
-FAILOVER_DECISION="hold"
-
-if [ "$CURRENT_ACTIVE" = "$PRIMARY_ENDPOINT" ] &&
-   [ "$PRIMARY_HEALTH" = "unhealthy" ] &&
-   [ "$SECONDARY_HEALTH" = "healthy" ]; then
-  FAILOVER_DECISION="shift_to_secondary"
-  echo "$SECONDARY_ENDPOINT" > "$ACTIVE_ENDPOINT_FILE"
+if grep -q "SNSD_FAILOVER_BACKEND=secondary" "${LAB_DIR}/evidence/generated/raw/failover-response.txt"; then
+  STATUS="PASS"
+else
+  STATUS="FAIL"
 fi
 
-NEW_ACTIVE="$(cat "$ACTIVE_ENDPOINT_FILE")"
+cat > "${LAB_DIR}/evidence/generated/summary/resilience-failover-runtime-summary.md" <<SUMMARY
+# Resilience Failover Runtime Summary
 
-cat > "$FAILOVER_DECISION_LOG" <<EOF
-timestamp=2026-06-11T10:05:00Z
-current_active=$CURRENT_ACTIVE
-primary_health=$PRIMARY_HEALTH
-secondary_health=$SECONDARY_HEALTH
-decision=$FAILOVER_DECISION
-new_active=$NEW_ACTIVE
-marker=$VALIDATION_MARKER
-EOF
+Overall Status: ${STATUS}
 
-cat >> "$TRAFFIC_LOG" <<EOF
-2026-06-11T10:05:00Z,primary_failure_detected,$PRIMARY_ENDPOINT,unhealthy,$VALIDATION_MARKER
-2026-06-11T10:05:05Z,failover_decision,$NEW_ACTIVE,$FAILOVER_DECISION,$VALIDATION_MARKER
-2026-06-11T10:05:10Z,traffic_shifted,$NEW_ACTIVE,active,$VALIDATION_MARKER
-EOF
+## Failover Event
 
-{
-  echo "# Resilience Failover Simulation"
-  echo
-  cat "$FAILOVER_DECISION_LOG"
-  echo
-  echo "## Traffic Log"
-  cat "$TRAFFIC_LOG"
-} | tee runtime-workspace/logs/failover.log
+| Signal | Value |
+|---|---|
+| Primary backend stopped | yes |
+| Traffic response captured | yes |
+| Expected active backend after failure | secondary |
+| Secondary backend response detected | ${STATUS} |
 
-cp runtime-workspace/logs/failover.log evidence/generated/raw/resilience-failover-job.log
-cp "$FAILOVER_DECISION_LOG" evidence/generated/raw/failover-decision.log
-cp "$TRAFFIC_LOG" evidence/generated/raw/traffic-shift.log
+## Validation Marker
 
-echo "[INFO] resilience failover simulation completed"
+Expected marker:
+
+SNSD_RESILIENCE_FAILOVER_SECONDARY
+
+SUMMARY
+
+if [ "${STATUS}" != "PASS" ]; then
+  echo "[FAIL] failover validation failed"
+  exit 1
+fi
+
+echo "[OK] failover shifted traffic to secondary backend"
