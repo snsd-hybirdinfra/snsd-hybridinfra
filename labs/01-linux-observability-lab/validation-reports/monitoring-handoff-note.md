@@ -54,3 +54,13 @@ It means the Linux target layer is ready to be consumed by a monitoring stack im
 ## Next Implementation Step
 
 The next implementation step is to add node exporter installation and validation to the Linux Observability Lab, then consume those endpoints from the Monitoring Stack Lab.
+## Exporter Handoff
+
+The Linux Observability Lab prepares node exporter endpoints for downstream monitoring consumption.
+
+| Target | Exporter | Port | Downstream Consumer |
+|---|---|---:|---|
+| linux-node-01 | node_exporter | 9100 | 06-monitoring-stack-lab |
+| linux-node-02 | node_exporter | 9100 | 06-monitoring-stack-lab |
+
+The Monitoring Stack Lab consumes these endpoints through Prometheus scrape configuration.

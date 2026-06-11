@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: linux-observability-targets
+    static_configs:
+      - targets:
+          - linux-node-01:9100
+          - linux-node-02:9100
+        labels:
+          lab: 01-linux-observability-lab
+          role: linux-observability-target
