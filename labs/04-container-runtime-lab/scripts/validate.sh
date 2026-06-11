@@ -48,7 +48,7 @@ fi
   echo "## Compose Status"
 } | tee -a "$RAW_LOG"
 
-if docker compose -f compose/docker-compose.yml ps | tee -a "$RAW_LOG"; then
+if docker compose -p snsd-container-runtime-lab -f compose/docker-compose.yml ps | tee -a "$RAW_LOG"; then
   COMPOSE_STATUS="PASS"
 fi
 
@@ -151,7 +151,7 @@ Overall Status: $OVERALL_STATUS
 | Signal | Status |
 |---|---|
 | Docker runtime available | $DOCKER_STATUS |
-| Docker Compose status available | $COMPOSE_STATUS |
+| docker compose -p snsd-container-runtime-lab status available | $COMPOSE_STATUS |
 | Web container running | $WEB_RUNNING_STATUS |
 | Worker container running | $WORKER_RUNNING_STATUS |
 | Web container healthcheck | $WEB_HEALTH_STATUS |

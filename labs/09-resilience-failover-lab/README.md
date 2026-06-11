@@ -66,3 +66,58 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Execution Boundary Note
 
 - [Resilience Failover Execution Boundary Note](validation-reports/resilience-failover-execution-note.md)
+
+## Phase 2 NGINX Failover Runtime
+
+This lab includes an orchestrated local NGINX-based failover runtime.
+
+Runtime model:
+
+- NGINX failover entrypoint
+- primary backend
+- secondary backend
+- primary failure simulation
+- secondary traffic shift validation
+- primary recovery validation
+
+### One-command Execution
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/09-resilience-failover-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+### Manual Execution Flow
+
+    bash scripts/setup.sh
+    bash scripts/failover.sh
+    bash scripts/validate.sh
+    bash scripts/recover.sh
+    bash scripts/cleanup.sh
+
+### Expected Runtime Result
+
+The end-to-end execution validates:
+
+| Step | Expected Result |
+|---|---|
+| Initial response | primary backend |
+| Primary failure | primary backend stopped |
+| Failover response | secondary backend |
+| Recovery response | primary backend |
+| End-to-end orchestration | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/initial-primary-response.txt
+- evidence/generated/raw/failover-response.txt
+- evidence/generated/raw/recovery-response.txt
+- evidence/generated/summary/resilience-failover-runtime-summary.md

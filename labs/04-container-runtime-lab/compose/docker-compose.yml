@@ -1,3 +1,5 @@
+name: snsd-container-runtime-lab
+
 services:
   runtime-web:
     image: nginx:stable-alpine

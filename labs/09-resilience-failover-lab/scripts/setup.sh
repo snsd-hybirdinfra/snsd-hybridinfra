@@ -1,36 +1,32 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COMPOSE_DIR="${LAB_DIR}/compose"
 
-source configs/failover-policy.env
+mkdir -p "${LAB_DIR}/evidence/generated/raw"
+mkdir -p "${LAB_DIR}/evidence/generated/summary"
 
-mkdir -p runtime-workspace/state
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+cd "${COMPOSE_DIR}"
 
-echo "[INFO] resilience failover setup started"
+docker compose -p snsd-resilience-failover-lab up -d
 
-echo "$PRIMARY_ENDPOINT" > "$ACTIVE_ENDPOINT_FILE"
-echo "healthy" > "$PRIMARY_HEALTH_FILE"
-echo "healthy" > "$SECONDARY_HEALTH_FILE"
+sleep 3
 
-cat > "$TRAFFIC_LOG" <<EOF
-timestamp,event,endpoint,status,marker
-2026-06-11T10:00:00Z,traffic_initialized,$PRIMARY_ENDPOINT,active,$VALIDATION_MARKER
-EOF
+docker compose -p snsd-resilience-failover-lab ps > "${LAB_DIR}/evidence/generated/raw/failover-compose-ps.txt"
 
-{
-  echo "# Resilience Failover Setup"
-  echo
-  echo "primary_endpoint=$PRIMARY_ENDPOINT"
-  echo "secondary_endpoint=$SECONDARY_ENDPOINT"
-  echo "active_endpoint=$(cat "$ACTIVE_ENDPOINT_FILE")"
-  echo "primary_health=$(cat "$PRIMARY_HEALTH_FILE")"
-  echo "secondary_health=$(cat "$SECONDARY_HEALTH_FILE")"
-} | tee runtime-workspace/logs/setup.log
+cat > "${LAB_DIR}/evidence/generated/summary/resilience-failover-runtime-summary.md" <<'SUMMARY'
+# Resilience Failover Runtime Summary
 
-cp runtime-workspace/logs/setup.log evidence/generated/raw/resilience-failover-setup.log
+Setup Status: PASS
 
-echo "[INFO] resilience failover setup completed"
+Runtime Model:
+
+- NGINX failover entrypoint
+- primary backend
+- secondary backend
+- local traffic validation boundary
+
+SUMMARY
+
+echo "[OK] resilience failover runtime started"

@@ -1,39 +1,44 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COMPOSE_DIR="${LAB_DIR}/compose"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+SUMMARY="${SUMMARY_DIR}/resilience-failover-runtime-summary.md"
 
-source configs/failover-policy.env
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}"
 
-mkdir -p runtime-workspace/state
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
+cd "${COMPOSE_DIR}"
 
-echo "[INFO] primary recovery simulation started"
+docker compose -p snsd-resilience-failover-lab start primary-backend
 
-echo "healthy" > "$PRIMARY_HEALTH_FILE"
+sleep 5
 
-ACTIVE_ENDPOINT="$(cat "$ACTIVE_ENDPOINT_FILE")"
-PRIMARY_HEALTH="$(cat "$PRIMARY_HEALTH_FILE")"
-SECONDARY_HEALTH="$(cat "$SECONDARY_HEALTH_FILE")"
+curl -fsS http://127.0.0.1:19090/ > "${RAW_DIR}/recovery-response.txt"
 
-cat >> "$TRAFFIC_LOG" <<EOF
-2026-06-11T10:10:00Z,primary_recovered,$PRIMARY_ENDPOINT,healthy,$VALIDATION_MARKER
-2026-06-11T10:10:05Z,active_endpoint_confirmed,$ACTIVE_ENDPOINT,active,$VALIDATION_MARKER
-EOF
+if grep -q "SNSD_FAILOVER_BACKEND=primary" "${RAW_DIR}/recovery-response.txt"; then
+  RECOVERY_STATUS="PASS"
+else
+  RECOVERY_STATUS="CHECK"
+fi
 
-{
-  echo "# Primary Recovery Simulation"
-  echo
-  echo "active_endpoint=$ACTIVE_ENDPOINT"
-  echo "primary_health=$PRIMARY_HEALTH"
-  echo "secondary_health=$SECONDARY_HEALTH"
-  echo
-  echo "## Traffic Log"
-  cat "$TRAFFIC_LOG"
-} | tee runtime-workspace/logs/recover.log
+cat >> "${SUMMARY}" <<SUMMARY_APPEND
 
-cp runtime-workspace/logs/recover.log evidence/generated/raw/resilience-recover-job.log
-cp "$TRAFFIC_LOG" evidence/generated/raw/traffic-shift.log
+## Recovery Event
 
-echo "[INFO] primary recovery simulation completed"
+| Signal | Value |
+|---|---|
+| Primary backend restarted | yes |
+| Recovery response captured | yes |
+| Expected backend after recovery | primary |
+| Primary backend response detected | ${RECOVERY_STATUS} |
+
+SUMMARY_APPEND
+
+if [ "${RECOVERY_STATUS}" != "PASS" ]; then
+  echo "[CHECK] primary backend restarted, but response did not return to primary"
+  exit 1
+fi
+
+echo "[OK] primary backend restarted and recovery response returned to primary"

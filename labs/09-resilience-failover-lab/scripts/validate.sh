@@ -1,117 +1,83 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+SUMMARY="${SUMMARY_DIR}/resilience-failover-runtime-summary.md"
 
-source configs/failover-policy.env
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+ENTRYPOINT_STATUS="FAIL"
+PRIMARY_CONTAINER_STATE="stopped"
+SECONDARY_STATUS="FAIL"
+FAILOVER_STATUS="FAIL"
+RECOVERY_STATUS="not-run"
 
-RAW_LOG="evidence/generated/raw/resilience-failover-validate.log"
-SUMMARY="evidence/generated/summary/resilience-failover-execution-summary.md"
-
-ACTIVE_STATUS="CHECK"
-PRIMARY_FAILURE_STATUS="CHECK"
-SECONDARY_HEALTH_STATUS="CHECK"
-DECISION_STATUS="CHECK"
-TRAFFIC_SHIFT_STATUS="CHECK"
-RECOVERY_STATUS="CHECK"
-MARKER_STATUS="CHECK"
-OVERALL_STATUS="CHECK"
-
-ACTIVE_ENDPOINT="$(cat "$ACTIVE_ENDPOINT_FILE" 2>/dev/null || echo unknown)"
-PRIMARY_HEALTH="$(cat "$PRIMARY_HEALTH_FILE" 2>/dev/null || echo unknown)"
-SECONDARY_HEALTH="$(cat "$SECONDARY_HEALTH_FILE" 2>/dev/null || echo unknown)"
-
-: > "$RAW_LOG"
-
-echo "[INFO] resilience failover validation started"
-
-{
-  echo "# Resilience Failover Validation"
-  echo
-  echo "active_endpoint=$ACTIVE_ENDPOINT"
-  echo "primary_health=$PRIMARY_HEALTH"
-  echo "secondary_health=$SECONDARY_HEALTH"
-  echo
-  echo "## Failover Decision Log"
-  cat "$FAILOVER_DECISION_LOG"
-  echo
-  echo "## Traffic Shift Log"
-  cat "$TRAFFIC_LOG"
-} | tee -a "$RAW_LOG"
-
-if [ "$ACTIVE_ENDPOINT" = "$SECONDARY_ENDPOINT" ]; then
-  ACTIVE_STATUS="PASS"
+if curl -fsS http://127.0.0.1:19090/health | grep -q "failover-entrypoint-ok"; then
+  ENTRYPOINT_STATUS="PASS"
 fi
 
-if grep -q "primary_failure_detected" "$TRAFFIC_LOG" && grep -q "$PRIMARY_ENDPOINT,unhealthy" "$TRAFFIC_LOG"; then
-  PRIMARY_FAILURE_STATUS="PASS"
+if docker ps --format '{{.Names}}' | grep -q "snsd-primary-backend"; then
+  PRIMARY_CONTAINER_STATE="running"
 fi
 
-if [ "$SECONDARY_HEALTH" = "healthy" ]; then
-  SECONDARY_HEALTH_STATUS="PASS"
+if docker ps --format '{{.Names}}' | grep -q "snsd-secondary-backend"; then
+  SECONDARY_STATUS="PASS"
 fi
 
-if grep -q "decision=shift_to_secondary" "$FAILOVER_DECISION_LOG"; then
-  DECISION_STATUS="PASS"
+if [ -f "${RAW_DIR}/failover-response.txt" ] && grep -q "SNSD_FAILOVER_BACKEND=secondary" "${RAW_DIR}/failover-response.txt"; then
+  FAILOVER_STATUS="PASS"
 fi
 
-if grep -q "traffic_shifted,$SECONDARY_ENDPOINT,active" "$TRAFFIC_LOG"; then
-  TRAFFIC_SHIFT_STATUS="PASS"
+if [ -f "${RAW_DIR}/recovery-response.txt" ]; then
+  if grep -q "SNSD_FAILOVER_BACKEND=primary" "${RAW_DIR}/recovery-response.txt"; then
+    RECOVERY_STATUS="PASS"
+  else
+    RECOVERY_STATUS="CHECK"
+  fi
 fi
 
-if grep -q "primary_recovered,$PRIMARY_ENDPOINT,healthy" "$TRAFFIC_LOG"; then
-  RECOVERY_STATUS="PASS"
+if [ "${ENTRYPOINT_STATUS}" = "PASS" ] && \
+   [ "${SECONDARY_STATUS}" = "PASS" ] && \
+   [ "${FAILOVER_STATUS}" = "PASS" ] && \
+   { [ "${RECOVERY_STATUS}" = "PASS" ] || [ "${RECOVERY_STATUS}" = "not-run" ]; }; then
+  OVERALL="PASS"
+else
+  OVERALL="CHECK"
 fi
 
-if grep -R "$VALIDATION_MARKER" runtime-workspace > evidence/generated/raw/resilience-marker-check.log; then
-  MARKER_STATUS="PASS"
-fi
+cat > "${SUMMARY}" <<SUMMARY
+# Resilience Failover Runtime Summary
 
-if [ "$ACTIVE_STATUS" = "PASS" ] &&
-   [ "$PRIMARY_FAILURE_STATUS" = "PASS" ] &&
-   [ "$SECONDARY_HEALTH_STATUS" = "PASS" ] &&
-   [ "$DECISION_STATUS" = "PASS" ] &&
-   [ "$TRAFFIC_SHIFT_STATUS" = "PASS" ] &&
-   [ "$RECOVERY_STATUS" = "PASS" ] &&
-   [ "$MARKER_STATUS" = "PASS" ]; then
-  OVERALL_STATUS="PASS"
-fi
+Overall Status: ${OVERALL}
 
-cat > "$SUMMARY" <<EOF
-# Resilience Failover Execution Summary
-
-Execution Mode: state-file-failover-simulation
-Evidence Policy: local-only
-Overall Status: $OVERALL_STATUS
-
-## Validation Signals
+## Validation Matrix
 
 | Signal | Status |
 |---|---|
-| Active endpoint shifted to secondary | $ACTIVE_STATUS |
-| Primary failure detected | $PRIMARY_FAILURE_STATUS |
-| Secondary endpoint healthy | $SECONDARY_HEALTH_STATUS |
-| Failover decision generated | $DECISION_STATUS |
-| Traffic shift validated | $TRAFFIC_SHIFT_STATUS |
-| Primary recovery recorded | $RECOVERY_STATUS |
-| Validation marker present | $MARKER_STATUS |
+| NGINX failover entrypoint health | ${ENTRYPOINT_STATUS} |
+| Primary backend container state | ${PRIMARY_CONTAINER_STATE} |
+| Secondary backend container running | ${SECONDARY_STATUS} |
+| Traffic shifted to secondary after primary failure | ${FAILOVER_STATUS} |
+| Traffic returned to primary after recovery | ${RECOVERY_STATUS} |
 
-## Runtime State
+## Runtime Boundary
 
-| State | Value |
-|---|---|
-| Active endpoint | $ACTIVE_ENDPOINT |
-| Primary health | $PRIMARY_HEALTH |
-| Secondary health | $SECONDARY_HEALTH |
+This lab validates a local traffic failover runtime boundary using NGINX upstream failover behavior.
 
-## Boundary
+Generated runtime evidence remains local-only.
 
-This summary records local-only runtime validation for the Resilience Failover Lab.
-EOF
+## Interpretation
 
-echo "[INFO] resilience failover validation completed"
-echo "[INFO] overall_status=$OVERALL_STATUS"
+During failover validation, the primary backend is intentionally stopped.
+
+A stopped primary backend during the failover phase is expected behavior, not a runtime failure.
+
+SUMMARY
+
+cat "${SUMMARY}"
+
+if [ "${OVERALL}" != "PASS" ]; then
+  exit 1
+fi
