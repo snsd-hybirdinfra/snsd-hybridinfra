@@ -238,6 +238,7 @@ def main():
         "6. [Report Layer Guide](./docs/report-layer-guide.md)",
         "7. [Repository Tree](./docs/repository-tree.md)",
         "8. [Runtime Evidence Policy](./docs/runtime-evidence-policy.md)",
+        "9. [Phase 2 Backlog](./docs/phase-2-backlog.md)",
         "",
         "## Runtime Evidence Policy",
         "",
