@@ -1,69 +1,52 @@
-﻿# Lab Readiness Summary
+# Lab Readiness Summary
 
-This report summarizes the documentation readiness state of the repository implementation labs.
+Generated At: 2026-06-11T18:36:17.548953Z
 
-The labs are implementation boundaries for validating repository scenarios. They do not claim completed runtime execution until actual lab deployment, automation execution, and evidence collection are performed.
+## Purpose
 
-## Readiness Model
+This document summarizes reviewer-facing readiness for implementation labs.
 
-| Area | Meaning |
-|---|---|
-| Documentation Status | Lab documentation boundary is defined and reviewer-readable |
-| Implementation Status | Runtime implementation is planned but not yet executed |
-| Execution Status | Lab has not yet been executed unless later evidence proves otherwise |
-| Evidence Status | Evidence directories define expected evidence boundaries until execution |
+It is generated from repository state and does not depend on local runtime evidence.
 
-## Lab Inventory
+## Readiness Counters
 
-| Lab | Title | Focus | Documentation Status | Implementation Status | Execution Status |
-|---|---|---|---|---|---|
-| [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) | Linux Observability Lab | Linux host visibility, process health, filesystem state, service monitoring, and system events. | documentation-ready | planned | not yet executed |
-| [02-network-routing-lab](../labs/02-network-routing-lab/README.md) | Network Routing Lab | Routing, VPN, WAN, DNS, reachability, latency, packet loss, and route recovery validation. | documentation-ready | planned | not yet executed |
-| [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) | Ansible Automation Lab | Inventory, SSH access, playbook execution, rollback, recovery, validation, and automation evidence. | documentation-ready | planned | not yet executed |
-| [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) | Container Runtime Lab | Docker runtime visibility, container health, logs, restart recovery, and container evidence. | documentation-ready | planned | not yet executed |
-| [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/README.md) | Kolla OpenStack Lab | Kolla-Ansible based OpenStack control plane, compute, network, service recovery, and evidence. | documentation-ready | planned | not yet executed |
-| [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/README.md) | Monitoring Stack Lab | Prometheus, Grafana, exporter telemetry, dashboard readiness, alert readiness, and monitoring evidence. | documentation-ready | planned | not yet executed |
-| [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) | Logging Correlation Lab | Log collection, event normalization, OpenSearch query readiness, correlation, timeline reconstruction, and evidence. | documentation-ready | planned | not yet executed |
-| [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) | Backup Recovery Lab | Backup job readiness, artifact validation, restore workflows, integrity checks, and recovery evidence. | documentation-ready | planned | not yet executed |
-| [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) | Resilience Failover Lab | Failure detection, failover decision, traffic shift validation, recovery validation, and resilience evidence. | documentation-ready | planned | not yet executed |
-| [10-governance-reporting-lab](../labs/10-governance-reporting-lab/README.md) | Governance Reporting Lab | Repository validation, coverage reporting, quality gates, documentation consistency, and governance reporting. | documentation-ready | planned | not yet executed |
+| Counter | Value |
+|---|---:|
+| Total implementation labs | 10 |
+| Documentation-ready labs | 10 |
+| Labs needing attention | 0 |
 
-## Required Artifact Coverage
+## Readiness Matrix
 
-| Required Artifact | Status |
-|---|---|
-| Lab README | Present for all labs |
-| Lab metadata | Present for all labs |
-| Architecture implementation plan | Present for all labs |
-| Lab-local modules | Present for all labs |
-| Lab-local adapters | Present for all labs |
-| Lab-local shared runtime | Present for all labs |
-| Scripts boundary | Present for all labs |
-| Evidence boundary | Present for all labs |
-| Scenario coverage report | Present for all labs |
-| Lab validation report | Present for all labs |
+| Lab | README | Scripts | Validation Reports | Execution Note | Runtime Boundary Assets | Status |
+|---|---|---|---|---|---|---|
+| [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [02-network-routing-lab](../labs/02-network-routing-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [06-monitoring-stack-lab](../labs/06-monitoring-stack-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
+| [10-governance-reporting-lab](../labs/10-governance-reporting-lab/README.md) | PASS | PASS | PASS | PASS | PASS | documentation-ready |
 
-## Operational Interpretation
+## Readiness Policy
 
-The lab layer now provides a complete implementation-oriented documentation boundary across visibility, routing, automation, monitoring, container runtime, OpenStack, logging, backup recovery, resilience failover, and governance reporting.
+A lab is considered documentation-ready when it has:
 
-This enables the repository to present 150 lifecycle-aligned scenarios as operational validation cases mapped to 10 implementation labs.
+- a lab README
+- setup, validation, and cleanup scripts
+- a validation-reports directory
+- an execution boundary note
+- at least one runtime boundary asset directory such as configs, compose, playbooks, inventory, datasets, or architecture
 
-## Current Baseline
+Generated runtime evidence is intentionally excluded from this readiness check.
 
-- Lab count: 10
-- Scenario count: 150
-- Lab readiness: documentation-ready
-- Implementation status: planned
-- Execution status: not yet executed
-- Evidence status: placeholder until lab execution
+## Important Boundary
 
-## Next Implementation Step
+This summary validates repository readiness and reviewer-facing structure.
 
-The next phase should convert selected lab documentation boundaries into executable implementation artifacts, beginning with foundational labs:
+It does not claim that every lab runtime has been executed in the current Git checkout.
 
-1. 01-linux-observability-lab
-2. 03-ansible-automation-lab
-3. 06-monitoring-stack-lab
-4. 04-container-runtime-lab
-5. 07-logging-correlation-lab
+Generated by tools/content-generator/generate_lab_readiness_summary.py

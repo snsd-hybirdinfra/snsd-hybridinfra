@@ -1,42 +1,87 @@
-﻿# Lab Inventory
+# Implementation Labs
 
-This directory contains implementation-oriented infrastructure operations labs for the SNSD Hybrid Infrastructure portfolio.
+Generated At: 2026-06-11T18:38:47.803513Z
 
-Labs provide the practical execution boundary for validating repository scenarios through modules, adapters, shared runtime utilities, evidence outputs, and validation reports.
+## Purpose
 
----
+This directory contains implementation-oriented lab boundaries for validating lifecycle-aligned infrastructure operations scenarios.
 
-## Inventory Summary
+Labs are not isolated tutorials.
 
-Total labs: 10
+They are reusable execution boundaries that support scenario validation across observability, automation, recovery, resilience, and governance workflows.
 
-| Lab | Focus |
-|---|---|
-| [Linux Observability Lab](./01-linux-observability-lab/) | Linux host visibility and system monitoring. |
-| [Network Routing Lab](./02-network-routing-lab/) | Network routing, VPN, WAN, and path validation. |
-| [Ansible Automation Lab](./03-ansible-automation-lab/) | Recovery automation and configuration rollback. |
-| [Container Runtime Lab](./04-container-runtime-lab/) | Container runtime and Kubernetes scenario validation. |
-| [Kolla OpenStack Lab](./05-kolla-openstack-lab/) | OpenStack-style control plane and cloud instance operations. |
-| [Monitoring Stack Lab](./06-monitoring-stack-lab/) | Prometheus, Grafana, telemetry, and dashboard validation. |
-| [Logging Correlation Lab](./07-logging-correlation-lab/) | Log correlation, anomaly analysis, and event reasoning. |
-| [Backup Recovery Lab](./08-backup-recovery-lab/) | Backup monitoring, restoration, and recovery validation. |
-| [Resilience Failover Lab](./09-resilience-failover-lab/) | Failover coordination and distributed resilience validation. |
-| [Governance Reporting Lab](./10-governance-reporting-lab/) | Continuity governance, reporting, and validation evidence. |
+## Lab Baseline
 
----
+| Signal | Value |
+|---|---:|
+| Total implementation labs | 10 |
+| Documentation-ready labs | 10 |
+| Labs needing attention | 0 |
 
-## Lab Role
+## Lab Index
 
-Root repository = catalog, governance, standards, and validation index
-Lab = implementation boundary
-Scenario = operational validation case
-Module = lab-local reusable capability
-Adapter = lab-local tool integration
-Shared Runtime = lab-local execution and validation support
-Evidence = generated execution and validation output
+| Lab | Scope | Focus | Status |
+|---|---|---|---|
+| [01-linux-observability-lab](./01-linux-observability-lab/README.md) | Observability | Linux host visibility, process health, filesystem state, service monitoring, and system events | documentation-ready |
+| [02-network-routing-lab](./02-network-routing-lab/README.md) | Network | Routing, VPN, WAN, DNS, reachability, latency, packet loss, and route recovery validation | documentation-ready |
+| [03-ansible-automation-lab](./03-ansible-automation-lab/README.md) | Automation | Inventory, SSH access, playbook execution, rollback, recovery, validation, and automation evidence | documentation-ready |
+| [04-container-runtime-lab](./04-container-runtime-lab/README.md) | Container Runtime | Docker runtime visibility, container health, logs, restart recovery, and container evidence | documentation-ready |
+| [05-kolla-openstack-lab](./05-kolla-openstack-lab/README.md) | OpenStack Preflight | Kolla-Ansible based OpenStack control plane readiness, network model, service preflight, and validation evidence | documentation-ready |
+| [06-monitoring-stack-lab](./06-monitoring-stack-lab/README.md) | Monitoring | Prometheus, Grafana, exporter telemetry, dashboard readiness, alert readiness, and monitoring evidence | documentation-ready |
+| [07-logging-correlation-lab](./07-logging-correlation-lab/README.md) | Logging & Correlation | Log collection, event normalization, correlation, timeline reconstruction, and evidence | documentation-ready |
+| [08-backup-recovery-lab](./08-backup-recovery-lab/README.md) | Backup & Recovery | Backup job readiness, artifact validation, restore workflows, integrity checks, and recovery evidence | documentation-ready |
+| [09-resilience-failover-lab](./09-resilience-failover-lab/README.md) | Resilience | Failure detection, failover decision, traffic shift validation, recovery validation, and resilience evidence | documentation-ready |
+| [10-governance-reporting-lab](./10-governance-reporting-lab/README.md) | Governance | Repository validation, coverage reporting, quality gates, documentation consistency, and governance reporting | documentation-ready |
 
----
+## Readiness Matrix
 
-## Coverage Matrix
+| Lab | README | Scripts | Execution Note | Runtime Boundary Assets | Status |
+|---|---|---|---|---|---|
+| [01-linux-observability-lab](./01-linux-observability-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [02-network-routing-lab](./02-network-routing-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [03-ansible-automation-lab](./03-ansible-automation-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [04-container-runtime-lab](./04-container-runtime-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [05-kolla-openstack-lab](./05-kolla-openstack-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [06-monitoring-stack-lab](./06-monitoring-stack-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [07-logging-correlation-lab](./07-logging-correlation-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [08-backup-recovery-lab](./08-backup-recovery-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [09-resilience-failover-lab](./09-resilience-failover-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
+| [10-governance-reporting-lab](./10-governance-reporting-lab/README.md) | PASS | PASS | PASS | PASS | documentation-ready |
 
+## Execution Boundary Model
+
+Each lab provides a controlled implementation boundary for one or more operational capabilities.
+
+A lab boundary may include:
+
+- setup scripts
+- validation scripts
+- cleanup scripts
+- configuration examples
+- compose definitions
+- Ansible playbooks
+- datasets
+- architecture notes
+- execution boundary notes
+
+## Runtime Evidence Policy
+
+Generated lab runtime evidence is local-only and intentionally excluded from Git.
+
+Committed lab content should remain reviewer-readable and environment-neutral.
+
+Local-only runtime content includes:
+
+- raw command output
+- generated runtime summaries
+- temporary runtime workspaces
+- sensitive local execution artifacts
+
+## Related Repository Documents
+
+- [Lab Runtime Implementation Summary](../validation-reports/lab-runtime-implementation-summary.md)
+- [Lab Readiness Summary](../validation-reports/lab-readiness-summary.md)
 - [Lab Coverage Matrix](../docs/lab-coverage-matrix.md)
+- [Repository README](../README.md)
+
+Generated by tools/content-generator/generate_labs_readme.py
