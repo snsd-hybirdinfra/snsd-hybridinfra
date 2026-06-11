@@ -2,11 +2,22 @@
 
 Scenario-driven Infrastructure Operations Platform
 
-SNSD Hybrid Infrastructure is a scenario-driven infrastructure operations portfolio.
+## Executive Overview
 
-The repository models enterprise operational capabilities through lifecycle-aligned scenarios and implementation-oriented labs.
+SNSD Hybrid Infrastructure is an Enterprise Operational Capability Platform for scenario-driven infrastructure operations.
 
----
+This repository is not a simple scenario collection.
+
+It models reusable enterprise operational capabilities through lifecycle-aligned scenarios and validates them through implementation-oriented labs.
+
+The repository is organized around:
+
+- lifecycle-aligned operational scenarios
+- implementation labs
+- reusable module and adapter catalogs
+- shared runtime boundaries
+- reviewer-facing validation reports
+- local-only runtime evidence
 
 ## Repository Positioning
 
@@ -14,15 +25,11 @@ This repository is positioned as an:
 
 **Enterprise Operational Capability Platform**
 
-It is not a simple scenario collection.
-
 Scenarios define operational validation cases.
 
 Labs define implementation boundaries for validating those scenarios.
 
 Modules, adapters, and shared runtime directories define reusable capability catalogs and lab-local execution boundaries.
-
----
 
 ## Operational Lifecycle
 
@@ -30,18 +37,80 @@ The repository follows this operational lifecycle:
 
 Detection → Correlation & Analysis → Incident Coordination → Recovery & Automation → Recovery Validation → Governance & Reporting
 
----
+## Current Baseline
 
-## Repository Scope
-
-| Area | Count |
+| Area | Count / Status |
 |---|---:|
 | Lifecycle-aligned scenarios | 150 |
 | Implementation labs | 10 |
+| Execution boundary notes | 10 |
 | Scenario levels | 5 |
 | Operational lifecycle stages | 6 |
+| Scenario poster SVG artifacts | 150 |
+| Scenario poster PNG artifacts | 150 |
+| Repository validation target | PASS |
 
----
+## Runtime Implementation Baseline
+
+The current Phase 1 implementation baseline provides execution boundaries for all ten implementation labs.
+
+| Lab | Runtime Boundary | Status |
+|---|---|---|
+| [01-linux-observability-lab](./labs/01-linux-observability-lab/README.md) | Linux host visibility and node exporter preparation | local runtime present |
+| [02-network-routing-lab](./labs/02-network-routing-lab/README.md) | Route, DNS, latency, reachability, and service path validation | PASS |
+| [03-ansible-automation-lab](./labs/03-ansible-automation-lab/README.md) | SSH, sudo, package, service, and playbook validation | PASS |
+| [04-container-runtime-lab](./labs/04-container-runtime-lab/README.md) | Docker runtime, container health, endpoint, log, and restart validation | PASS |
+| [05-kolla-openstack-lab](./labs/05-kolla-openstack-lab/README.md) | Kolla-Ansible preflight, inventory, globals, and command validation | PASS |
+| [06-monitoring-stack-lab](./labs/06-monitoring-stack-lab/README.md) | Prometheus, Grafana, target scrape, and dashboard provisioning validation | PASS |
+| [07-logging-correlation-lab](./labs/07-logging-correlation-lab/README.md) | Log normalization, timeline reconstruction, and correlation validation | PASS |
+| [08-backup-recovery-lab](./labs/08-backup-recovery-lab/README.md) | Backup, restore, checksum, and integrity validation | PASS |
+| [09-resilience-failover-lab](./labs/09-resilience-failover-lab/README.md) | Failure detection, failover decision, traffic shift, and recovery validation | PASS |
+| [10-governance-reporting-lab](./labs/10-governance-reporting-lab/README.md) | Runtime summary aggregation and governance matrix validation | PASS |
+
+## Reviewer Quick Start
+
+Recommended review order:
+
+1. [Lab Runtime Implementation Summary](./validation-reports/lab-runtime-implementation-summary.md)
+2. [Lab Readiness Summary](./validation-reports/lab-readiness-summary.md)
+3. [Lab Coverage Matrix](./docs/lab-coverage-matrix.md)
+4. [Scenario Index](./scenarios/README.md)
+5. [Implementation Labs](./labs/README.md)
+6. [Report Layer Guide](./docs/report-layer-guide.md)
+7. [Repository Tree](./docs/repository-tree.md)
+
+## Runtime Evidence Policy
+
+Runtime evidence is generated locally and intentionally excluded from Git.
+
+Committed content includes:
+
+- lab execution scripts
+- validation scripts
+- configuration examples
+- execution boundary notes
+- reviewer-facing validation reports
+- repository quality reports
+
+Local-only content includes:
+
+- raw command output
+- generated runtime summaries
+- temporary runtime workspaces
+- sensitive local execution artifacts
+
+## Scenario Inventory
+
+<!-- SCENARIO_INVENTORY_START -->
+| Lifecycle Level | Scenario Count |
+|---|---:|
+| Level 1 Visibility | 45 |
+| Level 2 Correlation | 41 |
+| Level 3 Recovery | 33 |
+| Level 4 Resilience | 21 |
+| Level 5 Continuity | 10 |
+| Total | 150 |
+<!-- SCENARIO_INVENTORY_END -->
 
 ## Implementation Labs
 
@@ -58,36 +127,6 @@ Detection → Correlation & Analysis → Incident Coordination → Recovery & Au
 | [09-resilience-failover-lab](./labs/09-resilience-failover-lab/README.md) | Failure detection, failover decision, traffic shift validation, recovery validation, and resilience evidence |
 | [10-governance-reporting-lab](./labs/10-governance-reporting-lab/README.md) | Repository validation, coverage reporting, quality gates, documentation consistency, and governance reporting |
 
----
-
-## Reviewer Entry Points
-
-| Document | Purpose |
-|---|---|
-| [Lab Readiness Summary](./validation-reports/lab-readiness-summary.md) | Summarizes 10 lab documentation readiness |
-| [Lab Coverage Matrix](./docs/lab-coverage-matrix.md) | Maps scenarios to implementation labs |
-| [Repository Tree](./docs/repository-tree.md) | Shows reviewer-facing repository structure |
-| [Report Layer Guide](./docs/report-layer-guide.md) | Explains docs, reports, and validation-reports roles |
-| [Scenario Index](./scenarios/README.md) | Lists lifecycle-aligned operational scenarios |
-| [Modules Index](./modules/README.md) | Lists repository-level capability module catalog |
-| [Adapters Index](./adapters/README.md) | Lists repository-level adapter catalog |
-
----
-
-## Current Baseline
-
-| Area | Status |
-|---|---|
-| Scenario baseline | 150 scenarios |
-| Lab baseline | 10 implementation labs |
-| Lab readiness | documentation-ready |
-| Implementation status | planned |
-| Execution status | not yet executed |
-| Evidence status | placeholder until lab execution |
-| Repository validation | PASS |
-
----
-
 ## Report Layers
 
 | Directory | Role |
@@ -97,32 +136,17 @@ Detection → Correlation & Analysis → Incident Coordination → Recovery & Au
 | [docs/](./docs/) | Reviewer-facing repository documentation |
 | [labs/](./labs/) | Implementation-oriented lab boundaries |
 | [scenarios/](./scenarios/) | Lifecycle-aligned operational validation scenarios |
+| [modules/](./modules/) | Repository-level capability module catalog |
+| [adapters/](./adapters/) | Repository-level adapter catalog |
+| [shared-runtime/](./shared-runtime/) | Shared runtime and integration boundary catalog |
 
----
+## Repository Support Areas
 
-## Implementation Note
+- [Tools](./tools/) - repository generation, validation, and content automation utilities
+- [Builds](./builds/) - generated build and portfolio artifact index area
+- [Diagrams](./diagrams/) - repository-level visualization and diagram artifact area
+- [Internal](./internal/) - internal quality models, governance references, and repository control documents
 
-The current repository state defines documentation-ready lab boundaries.
-
-Actual runtime execution, automation scripts, deployment artifacts, and evidence outputs are planned for the implementation phase.
-## Scenario Inventory
-
-<!-- SCENARIO_INVENTORY_START -->
-| Lifecycle Level | Scenario Count |
-|---|---:|
-| Level 1 Visibility | 45 |
-| Level 2 Correlation | 41 |
-| Level 3 Recovery | 33 |
-| Level 4 Resilience | 21 |
-| Level 5 Continuity | 10 |
-| Total | 150 |
-<!-- SCENARIO_INVENTORY_END -->
-
-
-
-## Shared Runtime
-
-- [Shared Runtime](shared-runtime/)
 ## Quality Status
 
 <!-- QUALITY_STATUS_START -->
@@ -138,12 +162,9 @@ Actual runtime execution, automation scripts, deployment artifacts, and evidence
 | repository_language_hits | not reported |
 | readmes_with_empty_related_notice | not reported |
 <!-- QUALITY_STATUS_END -->
-## Repository Support Areas
 
-- [Tools](tools/) - repository generation, validation, and content automation utilities
-- [Builds](builds/) - generated build and portfolio artifact index area
-- [Diagrams](diagrams/) - repository-level visualization and diagram artifact area
-- [Internal](internal/) - internal quality models, governance references, and repository control documents
-## Runtime Implementation Summary
+## Important Boundary
 
-- [Lab Runtime Implementation Summary](validation-reports/lab-runtime-implementation-summary.md)
+This repository does not claim production deployment of every technology stack.
+
+It validates reusable operational capability boundaries through controlled, reviewer-readable lab implementations and lifecycle-aligned scenarios.
