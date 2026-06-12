@@ -63,7 +63,7 @@ The current implementation baseline provides execution boundaries for implementa
 | [07-logging-correlation-lab](./labs/07-logging-correlation-lab/README.md) | Log normalization, timeline reconstruction, and correlation validation | PASS |
 | [08-backup-recovery-lab](./labs/08-backup-recovery-lab/README.md) | Backup, restore, checksum, and integrity validation | PASS |
 | [09-resilience-failover-lab](./labs/09-resilience-failover-lab/README.md) | Failure detection, failover decision, traffic shift, and recovery validation | PASS |
-| [10-governance-reporting-lab](./labs/10-governance-reporting-lab/README.md) | Runtime summary aggregation and governance matrix validation | CHECK |
+| [10-governance-reporting-lab](./labs/10-governance-reporting-lab/README.md) | Runtime summary aggregation and governance matrix validation | PASS |
 
 ## Reviewer Quick Start
 

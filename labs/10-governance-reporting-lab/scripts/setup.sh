@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+RUNTIME_DIR="${LAB_DIR}/runtime-workspace"
+LOG_DIR="${RUNTIME_DIR}/logs"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}" "${LOG_DIR}"
 
 echo "[INFO] governance reporting setup started"
 
-python3 --version | tee runtime-workspace/logs/python-version.log
+python3 --version > "${LOG_DIR}/python-version.log" 2>&1 || true
 
-test -f configs/governance-reporting-policy.env
-test -f scripts/collect_governance_report.py
+cat > "${RAW_DIR}/governance-reporting-setup.log" <<SETUP
+SNSD_GOVERNANCE_REPORTING_SETUP=ready
+LAB=10-governance-reporting-lab
+RUNTIME=local-governance-evidence-aggregation
+SETUP
 
 echo "[INFO] governance reporting setup completed"

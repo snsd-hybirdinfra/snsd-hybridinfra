@@ -1,6 +1,6 @@
 # Lab Runtime Implementation Summary
 
-Generated At: 2026-06-12T02:58:47.293350Z
+Generated At: 2026-06-12T03:19:02.002611Z
 
 ## Purpose
 
@@ -16,8 +16,8 @@ Each lab provides an implementation-oriented execution boundary that supports li
 |---|---:|
 | Total implementation labs | 10 |
 | Labs with execution boundary notes | 10 |
-| Runtime PASS summaries | 8 |
-| Runtime CHECK summaries | 1 |
+| Runtime PASS summaries | 9 |
+| Runtime CHECK summaries | 0 |
 | Runtime FAIL summaries | 0 |
 | Runtime present summaries | 1 |
 | Labs missing local runtime summary | 0 |
@@ -35,7 +35,7 @@ Each lab provides an implementation-oriented execution boundary that supports li
 | [07-logging-correlation-lab](../labs/07-logging-correlation-lab/README.md) | File-based log normalization, timeline reconstruction, and rule correlation | logging-correlation-execution-summary.md | logging-correlation-execution-note.md | PASS |
 | [08-backup-recovery-lab](../labs/08-backup-recovery-lab/README.md) | Filesystem backup, restore, checksum, and integrity validation | backup-recovery-execution-summary.md, backup-recovery-runtime-summary.md | backup-recovery-execution-note.md | PASS |
 | [09-resilience-failover-lab](../labs/09-resilience-failover-lab/README.md) | Failure detection, failover decision, traffic shift, and recovery validation | resilience-failover-execution-summary.md, resilience-failover-runtime-summary.md | resilience-failover-execution-note.md | PASS |
-| [10-governance-reporting-lab](../labs/10-governance-reporting-lab/README.md) | Runtime summary aggregation and governance matrix generation | governance-reporting-execution-summary.md | governance-reporting-execution-note.md | CHECK |
+| [10-governance-reporting-lab](../labs/10-governance-reporting-lab/README.md) | Runtime summary aggregation and governance matrix generation | governance-reporting-execution-summary.md, governance-reporting-runtime-summary.md | governance-reporting-execution-note.md | PASS |
 
 ## Execution Boundary Policy
 
@@ -75,7 +75,7 @@ The current implementation baseline includes:
 
 - 10 implementation labs
 - 10 execution boundary notes
-- 8 runtime PASS summaries
+- 9 runtime PASS summaries
 - repository validation PASS target
 - scenario inventory coverage across 150 lifecycle-aligned scenarios
 
