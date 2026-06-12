@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RUNTIME_DIR="${LAB_DIR}/runtime-workspace"
 
 echo "[INFO] backup recovery cleanup started"
 
-rm -rf runtime-workspace
-rm -rf evidence/generated/raw
-rm -rf evidence/generated/summary
+rm -rf "${RUNTIME_DIR}/data" \
+       "${RUNTIME_DIR}/backup" \
+       "${RUNTIME_DIR}/restore" \
+       "${RUNTIME_DIR}/logs"
 
-mkdir -p runtime-workspace/data
-mkdir -p runtime-workspace/backup
-mkdir -p runtime-workspace/restore
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+mkdir -p "${RUNTIME_DIR}/data" \
+         "${RUNTIME_DIR}/backup" \
+         "${RUNTIME_DIR}/restore" \
+         "${RUNTIME_DIR}/logs"
 
 echo "[INFO] backup recovery cleanup completed"
