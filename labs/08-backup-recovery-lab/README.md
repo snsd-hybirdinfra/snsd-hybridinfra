@@ -62,3 +62,56 @@ It does not claim completed runtime execution until actual deployment, automatio
 ## Implementation Note
 
 Runtime scripts, deployment artifacts, generated evidence, and execution outputs are planned for the implementation phase.
+
+## Phase 2 Backup Recovery Runtime
+
+This lab includes deterministic local backup and restore validation as a Phase 2 runtime extension.
+
+Runtime model:
+
+- source dataset creation
+- backup artifact generation
+- restore workflow execution
+- checksum-based integrity validation
+- local-only generated validation evidence
+
+### One-command Execution
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/08-backup-recovery-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+### Manual Execution Flow
+
+    bash scripts/setup.sh
+    bash scripts/backup.sh
+    bash scripts/restore.sh
+    bash scripts/validate.sh
+    bash scripts/cleanup.sh
+
+### Expected Runtime Result
+
+| Signal | Expected Status |
+|---|---|
+| Source dataset created | PASS |
+| Backup artifact created | PASS |
+| Restore workflow completed | PASS |
+| Checksum integrity verified | PASS |
+| End-to-end orchestration | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/backup-job.log
+- evidence/generated/raw/restore-job.log
+- evidence/generated/raw/source-digest.sha256
+- evidence/generated/raw/restore-digest.sha256
+- evidence/generated/summary/backup-recovery-runtime-summary.md

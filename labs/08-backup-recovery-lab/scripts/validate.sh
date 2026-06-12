@@ -1,165 +1,145 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
 
-source configs/backup-policy.env
+DATA_DIR="${LAB_DIR}/runtime-workspace/data"
+BACKUP_DIR="${LAB_DIR}/runtime-workspace/backup"
+RESTORE_DIR="${LAB_DIR}/runtime-workspace/restore"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+BACKUP_ARCHIVE="${BACKUP_DIR}/snsd-backup-recovery-lab.tar.gz"
 
-RAW_LOG="evidence/generated/raw/backup-recovery-validate.log"
-SUMMARY="evidence/generated/summary/backup-recovery-execution-summary.md"
+SOURCE_DIGEST="${RAW_DIR}/source-digest.sha256"
+RESTORE_DIGEST="${RAW_DIR}/restore-digest.sha256"
+VALIDATE_LOG="${RAW_DIR}/backup-recovery-validate.log"
+MARKER_LOG="${RAW_DIR}/restore-marker-check.log"
 
-BACKUP_ARCHIVE="$BACKUP_OUTPUT_DIR/$BACKUP_ARCHIVE_NAME"
-CHECKSUM_PATH="$BACKUP_OUTPUT_DIR/$CHECKSUM_FILE"
+SUMMARY="${SUMMARY_DIR}/backup-recovery-runtime-summary.md"
+LEGACY_SUMMARY="${SUMMARY_DIR}/backup-recovery-execution-summary.md"
 
-SOURCE_FILE_COUNT="0"
-RESTORE_FILE_COUNT="0"
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}"
 
-SOURCE_STATUS="CHECK"
-BACKUP_ARCHIVE_STATUS="CHECK"
-CHECKSUM_STATUS="CHECK"
-RESTORE_STATUS="CHECK"
-INTEGRITY_STATUS="CHECK"
-MARKER_STATUS="CHECK"
-OVERALL_STATUS="CHECK"
-
-: > "$RAW_LOG"
+SOURCE_DATASET="FAIL"
+BACKUP_ARTIFACT="FAIL"
+RESTORE_COMPLETED="FAIL"
+CHECKSUM_INTEGRITY="FAIL"
+MARKER_VALIDATION="FAIL"
 
 echo "[INFO] backup recovery validation started"
 
-{
-  echo "# Backup Recovery Validation"
-  echo
-  echo "## Source State"
-} | tee -a "$RAW_LOG"
+SOURCE_COUNT="$(find "${DATA_DIR}" -maxdepth 1 -type f 2>/dev/null | wc -l | tr -d ' ')"
+RESTORE_COUNT="$(find "${RESTORE_DIR}" -maxdepth 1 -type f 2>/dev/null | wc -l | tr -d ' ')"
 
-if [ -d "$BACKUP_SOURCE_DIR" ]; then
-  SOURCE_FILE_COUNT="$(find "$BACKUP_SOURCE_DIR" -type f -maxdepth 1 | wc -l | tr -d ' ')"
-  echo "source_file_count=$SOURCE_FILE_COUNT" | tee -a "$RAW_LOG"
-  if [ "$SOURCE_FILE_COUNT" -ge 3 ]; then
-    SOURCE_STATUS="PASS"
-  fi
+if [ "${SOURCE_COUNT}" -gt 0 ]; then
+  SOURCE_DATASET="PASS"
 fi
 
-{
-  echo
-  echo "## Backup Archive"
-} | tee -a "$RAW_LOG"
-
-if [ -f "$BACKUP_ARCHIVE" ] && [ -s "$BACKUP_ARCHIVE" ]; then
-  BACKUP_ARCHIVE_STATUS="PASS"
-  ls -lh "$BACKUP_ARCHIVE" | tee -a "$RAW_LOG"
+if [ -f "${BACKUP_ARCHIVE}" ] && [ -s "${BACKUP_ARCHIVE}" ]; then
+  BACKUP_ARTIFACT="PASS"
 fi
 
-{
-  echo
-  echo "## Checksum File"
-} | tee -a "$RAW_LOG"
-
-if [ -f "$CHECKSUM_PATH" ] && grep -q "app-config.txt" "$CHECKSUM_PATH"; then
-  CHECKSUM_STATUS="PASS"
-  cat "$CHECKSUM_PATH" | tee -a "$RAW_LOG"
+if [ "${RESTORE_COUNT}" -gt 0 ]; then
+  RESTORE_COMPLETED="PASS"
 fi
 
-{
-  echo
-  echo "## Restore State"
-} | tee -a "$RAW_LOG"
+(
+  cd "${DATA_DIR}"
+  find . -maxdepth 1 -type f -print0 | sort -z | xargs -0 sha256sum | sed 's#  ./#  #'
+) > "${SOURCE_DIGEST}"
 
-if [ -d "$RESTORE_OUTPUT_DIR" ]; then
-  RESTORE_FILE_COUNT="$(find "$RESTORE_OUTPUT_DIR" -type f -maxdepth 1 | wc -l | tr -d ' ')"
-  echo "restore_file_count=$RESTORE_FILE_COUNT" | tee -a "$RAW_LOG"
+(
+  cd "${RESTORE_DIR}"
+  find . -maxdepth 1 -type f -print0 | sort -z | xargs -0 sha256sum | sed 's#  ./#  #'
+) > "${RESTORE_DIGEST}"
 
-  if [ "$RESTORE_FILE_COUNT" -eq "$SOURCE_FILE_COUNT" ] && [ "$RESTORE_FILE_COUNT" -ge 3 ]; then
-    RESTORE_STATUS="PASS"
-  fi
+if cmp -s "${SOURCE_DIGEST}" "${RESTORE_DIGEST}"; then
+  CHECKSUM_INTEGRITY="PASS"
 fi
 
-{
-  echo
-  echo "## Integrity Comparison"
-} | tee -a "$RAW_LOG"
-
-SOURCE_DIGEST="evidence/generated/raw/source-digest.sha256"
-RESTORE_DIGEST="evidence/generated/raw/restore-digest.sha256"
-
-find "$BACKUP_SOURCE_DIR" -type f -maxdepth 1 -print0 \
-  | sort -z \
-  | while IFS= read -r -d '' file; do
-      sha256sum "$file" | sed "s#$BACKUP_SOURCE_DIR/##"
-    done > "$SOURCE_DIGEST"
-
-find "$RESTORE_OUTPUT_DIR" -type f -maxdepth 1 -print0 \
-  | sort -z \
-  | while IFS= read -r -d '' file; do
-      sha256sum "$file" | sed "s#$RESTORE_OUTPUT_DIR/##"
-    done > "$RESTORE_DIGEST"
-
-cat "$SOURCE_DIGEST" | tee -a "$RAW_LOG"
-cat "$RESTORE_DIGEST" | tee -a "$RAW_LOG"
-
-if diff -u "$SOURCE_DIGEST" "$RESTORE_DIGEST" >> "$RAW_LOG"; then
-  INTEGRITY_STATUS="PASS"
+if grep -R "SNSD_BACKUP_RECOVERY_VALIDATION_MARKER" "${RESTORE_DIR}" > "${MARKER_LOG}" 2>/dev/null; then
+  MARKER_VALIDATION="PASS"
 fi
 
-{
-  echo
-  echo "## Marker Validation"
-} | tee -a "$RAW_LOG"
+cat > "${VALIDATE_LOG}" <<LOG
+# Backup Recovery Validation Raw Evidence
 
-if grep -R "$VALIDATION_MARKER" "$RESTORE_OUTPUT_DIR" > evidence/generated/raw/restore-marker-check.log; then
-  MARKER_STATUS="PASS"
-  cat evidence/generated/raw/restore-marker-check.log | tee -a "$RAW_LOG"
+source_dir=${DATA_DIR}
+backup_archive=${BACKUP_ARCHIVE}
+restore_dir=${RESTORE_DIR}
+
+source_file_count=${SOURCE_COUNT}
+restore_file_count=${RESTORE_COUNT}
+
+source_dataset=${SOURCE_DATASET}
+backup_artifact=${BACKUP_ARTIFACT}
+restore_completed=${RESTORE_COMPLETED}
+checksum_integrity=${CHECKSUM_INTEGRITY}
+marker_validation=${MARKER_VALIDATION}
+
+## Source Digest
+
+$(cat "${SOURCE_DIGEST}")
+
+## Restore Digest
+
+$(cat "${RESTORE_DIGEST}")
+
+## Marker Check
+
+$(cat "${MARKER_LOG}" 2>/dev/null || true)
+LOG
+
+if [ "${SOURCE_DATASET}" = "PASS" ] && \
+   [ "${BACKUP_ARTIFACT}" = "PASS" ] && \
+   [ "${RESTORE_COMPLETED}" = "PASS" ] && \
+   [ "${CHECKSUM_INTEGRITY}" = "PASS" ] && \
+   [ "${MARKER_VALIDATION}" = "PASS" ]; then
+  OVERALL="PASS"
+else
+  OVERALL="CHECK"
 fi
 
-if [ "$SOURCE_STATUS" = "PASS" ] &&
-   [ "$BACKUP_ARCHIVE_STATUS" = "PASS" ] &&
-   [ "$CHECKSUM_STATUS" = "PASS" ] &&
-   [ "$RESTORE_STATUS" = "PASS" ] &&
-   [ "$INTEGRITY_STATUS" = "PASS" ] &&
-   [ "$MARKER_STATUS" = "PASS" ]; then
-  OVERALL_STATUS="PASS"
-fi
+cat > "${SUMMARY}" <<SUMMARY
+# Backup Recovery Runtime Summary
 
-cat > "$SUMMARY" <<EOF
-# Backup Recovery Execution Summary
+Overall Status: ${OVERALL}
 
-Execution Mode: filesystem-backup-restore
-Evidence Policy: local-only
-Overall Status: $OVERALL_STATUS
-
-## Validation Signals
+## Validation Matrix
 
 | Signal | Status |
 |---|---|
-| Backup source files available | $SOURCE_STATUS |
-| Backup archive created | $BACKUP_ARCHIVE_STATUS |
-| Backup checksum generated | $CHECKSUM_STATUS |
-| Restore files recovered | $RESTORE_STATUS |
-| Restored data integrity validated | $INTEGRITY_STATUS |
-| Validation marker restored | $MARKER_STATUS |
+| Source dataset created | ${SOURCE_DATASET} |
+| Backup artifact created | ${BACKUP_ARTIFACT} |
+| Restore workflow completed | ${RESTORE_COMPLETED} |
+| Checksum integrity verified | ${CHECKSUM_INTEGRITY} |
+| Restore marker validated | ${MARKER_VALIDATION} |
 
-## Runtime Counters
+## Runtime Boundary
 
-| Counter | Value |
-|---|---:|
-| Source file count | $SOURCE_FILE_COUNT |
-| Restore file count | $RESTORE_FILE_COUNT |
+This lab validates local backup artifact creation, restore workflow execution, and checksum-based recovery integrity.
 
-## Backup Artifacts
+Generated runtime evidence remains local-only.
 
-| Artifact | Path |
+## Evidence Files
+
+| Evidence | Path |
 |---|---|
-| Backup archive | $BACKUP_ARCHIVE |
-| Checksum file | $CHECKSUM_PATH |
+| Source digest | evidence/generated/raw/source-digest.sha256 |
+| Restore digest | evidence/generated/raw/restore-digest.sha256 |
+| Marker check | evidence/generated/raw/restore-marker-check.log |
+| Validation log | evidence/generated/raw/backup-recovery-validate.log |
+SUMMARY
 
-## Boundary
+cp "${SUMMARY}" "${LEGACY_SUMMARY}"
 
-This summary records local-only runtime validation for the Backup Recovery Lab.
-EOF
+cat "${SUMMARY}"
+
+if [ "${OVERALL}" != "PASS" ]; then
+  echo "[CHECK] backup recovery validation did not reach PASS"
+  cat "${VALIDATE_LOG}" || true
+  exit 1
+fi
 
 echo "[INFO] backup recovery validation completed"
-echo "[INFO] overall_status=$OVERALL_STATUS"
