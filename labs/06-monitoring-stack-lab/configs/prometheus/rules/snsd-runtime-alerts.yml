@@ -1,0 +1,24 @@
+groups:
+  - name: snsd-runtime-health
+    rules:
+      - alert: SNSDTargetDown
+        expr: up == 0
+        for: 30s
+        labels:
+          severity: warning
+          lab: "06-monitoring-stack-lab"
+          lifecycle: "visibility"
+        annotations:
+          summary: "SNSD monitored target is down"
+          description: "A monitored runtime target has stopped responding to Prometheus scrape checks."
+
+      - alert: SNSDHighScrapeLatency
+        expr: scrape_duration_seconds > 1
+        for: 30s
+        labels:
+          severity: warning
+          lab: "06-monitoring-stack-lab"
+          lifecycle: "visibility"
+        annotations:
+          summary: "SNSD scrape latency is high"
+          description: "Prometheus scrape latency exceeded the expected operational threshold."
