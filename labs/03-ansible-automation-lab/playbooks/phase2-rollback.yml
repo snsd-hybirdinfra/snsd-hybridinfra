@@ -1,0 +1,15 @@
+---
+- name: SNSD Phase 2 rollback validation
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    runtime_dir: "{{ playbook_dir }}/../runtime-workspace/ansible-runtime"
+    marker_file: "{{ runtime_dir }}/phase2-idempotency-marker.txt"
+
+  tasks:
+    - name: Remove deterministic automation marker
+      ansible.builtin.file:
+        path: "{{ marker_file }}"
+        state: absent

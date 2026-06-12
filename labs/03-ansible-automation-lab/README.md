@@ -66,3 +66,58 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Execution Boundary Note
 
 - [Ansible Automation Execution Boundary Note](validation-reports/ansible-automation-execution-note.md)
+
+## Phase 2 Ansible Idempotency and Rollback Runtime
+
+This lab includes deterministic local Ansible automation validation as a Phase 2 runtime extension.
+
+Runtime model:
+
+- local Ansible CLI validation
+- deterministic automation marker creation
+- repeated playbook execution
+- idempotency validation on the second run
+- rollback playbook execution
+- rollback result validation
+- local-only generated validation evidence
+
+### One-command Execution
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/03-ansible-automation-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+### Manual Execution Flow
+
+    bash scripts/setup.sh
+    bash scripts/validate.sh
+    bash scripts/cleanup.sh
+
+### Expected Runtime Result
+
+| Signal | Expected Status |
+|---|---|
+| Ansible CLI available | PASS |
+| First automation apply completed | PASS |
+| Second automation apply completed | PASS |
+| Idempotency confirmed on second run | PASS |
+| Rollback playbook completed | PASS |
+| Rollback removed runtime marker | PASS |
+| End-to-end orchestration | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/ansible-version.txt
+- evidence/generated/raw/phase2-idempotency-first.log
+- evidence/generated/raw/phase2-idempotency-second.log
+- evidence/generated/raw/phase2-rollback.log
+- evidence/generated/summary/ansible-automation-runtime-summary.md
