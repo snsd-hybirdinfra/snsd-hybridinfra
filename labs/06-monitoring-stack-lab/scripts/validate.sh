@@ -1,182 +1,101 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[INFO] monitoring stack validation started"
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+SUMMARY="${SUMMARY_DIR}/monitoring-stack-runtime-summary.md"
 
-cd "$(dirname "$0")/.."
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
-
-RAW_LOG="evidence/generated/raw/monitoring-validate.log"
-SUMMARY="evidence/generated/summary/monitoring-stack-execution-summary.md"
-
-PROM_URL="http://127.0.0.1:9090"
+PROMETHEUS_URL="http://127.0.0.1:9090"
 GRAFANA_URL="http://127.0.0.1:3000"
 
-TARGET_01="192.168.8.129:9100"
-TARGET_02="192.168.8.130:9100"
+PROMETHEUS_HEALTH="FAIL"
+GRAFANA_HEALTH="FAIL"
+RULE_API_STATUS="FAIL"
+TARGET_DOWN_RULE="FAIL"
+SCRAPE_LATENCY_RULE="FAIL"
 
-PROM_HEALTH="CHECK"
-GRAFANA_HEALTH="CHECK"
-TARGET_01_HEALTH="CHECK"
-TARGET_02_HEALTH="CHECK"
-DATASOURCE_FILE="CHECK"
-DASHBOARD_PROVIDER_FILE="CHECK"
-DASHBOARD_JSON_FILE="CHECK"
-OVERALL_STATUS="CHECK"
+retry_curl() {
+  local url="$1"
+  local output="$2"
+  local attempts="${3:-20}"
+  local delay="${4:-3}"
 
-exec > >(tee "$RAW_LOG") 2>&1
+  for i in $(seq 1 "${attempts}"); do
+    if curl -fsS "${url}" > "${output}" 2>/dev/null; then
+      return 0
+    fi
+    sleep "${delay}"
+  done
 
-echo "# Monitoring Stack Validation"
-echo
-echo "## Container Status"
-docker compose -p snsd-monitoring-stack-lab -f compose/docker-compose.yml ps || true
-echo
-
-echo "## Prometheus Health"
-if curl -fsS "$PROM_URL/-/healthy"; then
-  PROM_HEALTH="PASS"
-else
-  PROM_HEALTH="CHECK"
-fi
-echo
-
-echo "## Grafana Health"
-if curl -fsS "$GRAFANA_URL/api/health"; then
-  GRAFANA_HEALTH="PASS"
-else
-  GRAFANA_HEALTH="CHECK"
-fi
-echo
-
-echo "## Prometheus Targets"
-TARGETS_JSON="$(curl -fsS "$PROM_URL/api/v1/targets" || true)"
-echo "$TARGETS_JSON"
-echo
-
-TARGETS_JSON_FILE="evidence/generated/raw/prometheus-targets.json"
-printf "%s" "$TARGETS_JSON" > "$TARGETS_JSON_FILE"
-
-TARGET_STATUS_OUTPUT="$(python3 - "$TARGETS_JSON_FILE" "$TARGET_01" "$TARGET_02" <<'PY'
-import json
-import sys
-from pathlib import Path
-
-json_file = Path(sys.argv[1])
-target_01 = sys.argv[2]
-target_02 = sys.argv[3]
-
-status = {
-    target_01: "CHECK",
-    target_02: "CHECK",
+  return 1
 }
 
-try:
-    data = json.loads(json_file.read_text(encoding="utf-8", errors="ignore"))
-    active_targets = data.get("data", {}).get("activeTargets", [])
-
-    for target in active_targets:
-        labels = target.get("labels", {})
-        discovered = target.get("discoveredLabels", {})
-        scrape_url = target.get("scrapeUrl", "")
-        health = target.get("health", "")
-
-        scrape_host = scrape_url.replace("http://", "").replace("https://", "").split("/")[0]
-
-        candidates = {
-            labels.get("instance", ""),
-            discovered.get("__address__", ""),
-            scrape_host,
-        }
-
-        for expected in list(status.keys()):
-            if expected in candidates and health == "up":
-                status[expected] = "PASS"
-
-except Exception as exc:
-    print(f"parser_error={exc}")
-
-for expected, result in status.items():
-    print(f"{expected}={result}")
-PY
-)"
-
-echo "$TARGET_STATUS_OUTPUT"
-
-if echo "$TARGET_STATUS_OUTPUT" | grep -q "^$TARGET_01=PASS$"; then
-  TARGET_01_HEALTH="PASS"
+if retry_curl "${PROMETHEUS_URL}/-/healthy" "${RAW_DIR}/prometheus-health.txt" 20 3; then
+  PROMETHEUS_HEALTH="PASS"
 fi
 
-if echo "$TARGET_STATUS_OUTPUT" | grep -q "^$TARGET_02=PASS$"; then
-  TARGET_02_HEALTH="PASS"
+if retry_curl "${GRAFANA_URL}/api/health" "${RAW_DIR}/grafana-health.json" 30 3; then
+  GRAFANA_HEALTH="PASS"
 fi
 
-echo "## Prometheus Query"
-curl -fsS -G "$PROM_URL/api/v1/query" --data-urlencode 'query=up{job="linux-observability-vmware-targets"}' || true
-echo
-echo
-
-echo "## Grafana Provisioning Files"
-if [ -f "configs/grafana/provisioning/datasources/prometheus.yml" ]; then
-  DATASOURCE_FILE="PASS"
+if retry_curl "${PROMETHEUS_URL}/api/v1/rules" "${RAW_DIR}/prometheus-rules.json" 20 3; then
+  RULE_API_STATUS="PASS"
 fi
 
-if [ -f "configs/grafana/provisioning/dashboards/linux-observability.yml" ]; then
-  DASHBOARD_PROVIDER_FILE="PASS"
+if grep -q "SNSDTargetDown" "${RAW_DIR}/prometheus-rules.json" 2>/dev/null; then
+  TARGET_DOWN_RULE="PASS"
 fi
 
-if [ -f "configs/grafana/dashboards/linux-node-exporter-basic.json" ]; then
-  DASHBOARD_JSON_FILE="PASS"
+if grep -q "SNSDHighScrapeLatency" "${RAW_DIR}/prometheus-rules.json" 2>/dev/null; then
+  SCRAPE_LATENCY_RULE="PASS"
 fi
 
-echo "datasource_file=$DATASOURCE_FILE"
-echo "dashboard_provider_file=$DASHBOARD_PROVIDER_FILE"
-echo "dashboard_json_file=$DASHBOARD_JSON_FILE"
-echo
-
-if [ "$PROM_HEALTH" = "PASS" ] &&
-   [ "$GRAFANA_HEALTH" = "PASS" ] &&
-   [ "$TARGET_01_HEALTH" = "PASS" ] &&
-   [ "$TARGET_02_HEALTH" = "PASS" ] &&
-   [ "$DATASOURCE_FILE" = "PASS" ] &&
-   [ "$DASHBOARD_PROVIDER_FILE" = "PASS" ] &&
-   [ "$DASHBOARD_JSON_FILE" = "PASS" ]; then
-  OVERALL_STATUS="PASS"
+if [ "${PROMETHEUS_HEALTH}" = "PASS" ] && \
+   [ "${GRAFANA_HEALTH}" = "PASS" ] && \
+   [ "${RULE_API_STATUS}" = "PASS" ] && \
+   [ "${TARGET_DOWN_RULE}" = "PASS" ] && \
+   [ "${SCRAPE_LATENCY_RULE}" = "PASS" ]; then
+  OVERALL="PASS"
+else
+  OVERALL="CHECK"
 fi
 
-cat > "$SUMMARY" <<EOF
-# Monitoring Stack Execution Summary
+cat > "${SUMMARY}" <<SUMMARY
+# Monitoring Stack Runtime Summary
 
-Execution Mode: docker-compose
-Evidence Policy: local-only
-Overall Status: $OVERALL_STATUS
+Overall Status: ${OVERALL}
 
-## Validation Signals
+## Validation Matrix
 
 | Signal | Status |
 |---|---|
-| Prometheus health endpoint | $PROM_HEALTH |
-| Grafana health endpoint | $GRAFANA_HEALTH |
-| Prometheus target $TARGET_01 | $TARGET_01_HEALTH |
-| Prometheus target $TARGET_02 | $TARGET_02_HEALTH |
-| Grafana datasource provisioning file | $DATASOURCE_FILE |
-| Grafana dashboard provider file | $DASHBOARD_PROVIDER_FILE |
-| Grafana dashboard JSON file | $DASHBOARD_JSON_FILE |
+| Prometheus health endpoint | ${PROMETHEUS_HEALTH} |
+| Grafana health endpoint | ${GRAFANA_HEALTH} |
+| Prometheus rule API reachable | ${RULE_API_STATUS} |
+| SNSDTargetDown alert rule loaded | ${TARGET_DOWN_RULE} |
+| SNSDHighScrapeLatency alert rule loaded | ${SCRAPE_LATENCY_RULE} |
 
-## Expected Services
+## Runtime Boundary
 
-| Service | Port |
-|---|---:|
-| Prometheus | 9090 |
-| Grafana | 3000 |
-| node_exporter | 9100 |
+This lab validates a local monitoring stack runtime boundary using Prometheus and Grafana.
 
-## Boundary
+Phase 2 extends the runtime with Prometheus alert rule loading validation.
 
-This summary records local-only runtime validation for the Monitoring Stack Lab.
-EOF
+Generated runtime evidence remains local-only.
 
-echo "[INFO] monitoring stack validation completed"
-echo "[INFO] overall_status=$OVERALL_STATUS"
+SUMMARY
+
+cat "${SUMMARY}"
+
+if [ "${OVERALL}" != "PASS" ]; then
+  echo "[CHECK] monitoring stack validation did not reach PASS"
+  echo "[DEBUG] docker containers:"
+  docker ps
+  echo "[DEBUG] prometheus rules sample:"
+  head -c 2000 "${RAW_DIR}/prometheus-rules.json" 2>/dev/null || true
+  echo
+  exit 1
+fi

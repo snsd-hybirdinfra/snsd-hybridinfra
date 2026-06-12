@@ -73,3 +73,56 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 - [Prometheus VMware Config Example](configs/prometheus/prometheus.vmware.example.yml)
 - [Grafana Prometheus Datasource](configs/grafana/provisioning/datasources/prometheus.yml)
 - [Linux Node Exporter Basic Dashboard](configs/grafana/dashboards/linux-node-exporter-basic.json)
+
+## Phase 2 Prometheus Alert Rule Runtime
+
+This lab includes Prometheus alert rule loading validation as a Phase 2 runtime extension.
+
+Runtime model:
+
+- Prometheus runtime
+- Grafana runtime
+- Prometheus alert rule file
+- Prometheus rule API validation
+- local-only generated validation evidence
+
+### Alert Rules
+
+The lab validates the following alert rules:
+
+| Alert | Purpose |
+|---|---|
+| SNSDTargetDown | Detects unavailable monitored targets |
+| SNSDHighScrapeLatency | Detects elevated scrape latency |
+
+### Runtime Validation
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/06-monitoring-stack-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+Expected result:
+
+| Signal | Expected Status |
+|---|---|
+| Prometheus health endpoint | PASS |
+| Grafana health endpoint | PASS |
+| Prometheus rule API reachable | PASS |
+| SNSDTargetDown alert rule loaded | PASS |
+| SNSDHighScrapeLatency alert rule loaded | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/prometheus-health.txt
+- evidence/generated/raw/grafana-health.json
+- evidence/generated/raw/prometheus-rules.json
+- evidence/generated/summary/monitoring-stack-runtime-summary.md
