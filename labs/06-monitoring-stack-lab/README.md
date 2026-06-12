@@ -100,9 +100,11 @@ The lab validates the following alert rules:
 Run from WSL:
 
     cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/06-monitoring-stack-lab"
-    bash scripts/setup.sh
-    bash scripts/validate.sh
-    bash scripts/cleanup.sh
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
 
 Expected result:
 

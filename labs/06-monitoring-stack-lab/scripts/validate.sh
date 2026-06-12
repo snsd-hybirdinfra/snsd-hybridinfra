@@ -24,7 +24,7 @@ retry_curl() {
   local delay="${4:-3}"
 
   for i in $(seq 1 "${attempts}"); do
-    if curl -fsS "${url}" > "${output}"; then
+    if curl -fsS "${url}" > "${output}" 2>/dev/null; then
       return 0
     fi
     sleep "${delay}"
