@@ -1,0 +1,25 @@
+---
+- name: SNSD Phase 2 idempotency apply validation
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+    runtime_dir: "{{ playbook_dir }}/../runtime-workspace/ansible-runtime"
+    marker_file: "{{ runtime_dir }}/phase2-idempotency-marker.txt"
+
+  tasks:
+    - name: Ensure runtime validation directory exists
+      ansible.builtin.file:
+        path: "{{ runtime_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: Ensure deterministic automation marker exists
+      ansible.builtin.copy:
+        dest: "{{ marker_file }}"
+        content: |
+          SNSD_ANSIBLE_PHASE2_MARKER=present
+          AUTOMATION_VALIDATION=idempotency
+          ROLLBACK_TARGET=phase2-idempotency-marker
+        mode: "0644"

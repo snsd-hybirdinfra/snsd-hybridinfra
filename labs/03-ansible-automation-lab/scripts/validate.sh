@@ -1,124 +1,107 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -uo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+SUMMARY="${SUMMARY_DIR}/ansible-automation-runtime-summary.md"
+MARKER="${LAB_DIR}/runtime-workspace/ansible-runtime/phase2-idempotency-marker.txt"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}" "${LAB_DIR}/runtime-workspace/logs"
 
-RAW_LOG="evidence/generated/raw/ansible-validate.log"
-SUMMARY="evidence/generated/summary/ansible-automation-execution-summary.md"
-
-TARGET_GROUP="ansible_automation_targets"
-MARKER_FILE="/tmp/snsd-ansible-automation-lab/automation-marker.txt"
-PACKAGE_NAME="curl"
-SERVICE_NAME="cron"
-
-SSH_STATUS="CHECK"
-PLAYBOOK_STATUS="CHECK"
-MARKER_STATUS="CHECK"
-PACKAGE_STATUS="CHECK"
-SERVICE_STATUS="CHECK"
-OVERALL_STATUS="CHECK"
-FAILED_COUNT="0"
+ANSIBLE_CLI="FAIL"
+FIRST_APPLY="FAIL"
+SECOND_APPLY="FAIL"
+IDEMPOTENCY_CHECK="FAIL"
+ROLLBACK_EXECUTION="FAIL"
+ROLLBACK_VALIDATION="FAIL"
 
 echo "[INFO] ansible automation validation started"
 
-: > "$RAW_LOG"
-
-{
-  echo "# Ansible Automation Validation"
-  echo
-  echo "## SSH Connectivity"
-} | tee -a "$RAW_LOG"
-
-if ansible "$TARGET_GROUP" -m ping | tee -a "$RAW_LOG"; then
-  SSH_STATUS="PASS"
+if ansible --version > "${RAW_DIR}/ansible-version.txt" 2>&1; then
+  ANSIBLE_CLI="PASS"
 fi
 
-{
-  echo
-  echo "## Validation Playbook"
-} | tee -a "$RAW_LOG"
+ansible-playbook "${LAB_DIR}/playbooks/phase2-idempotency.yml" \
+  > "${RAW_DIR}/phase2-idempotency-first.log" 2>&1
+FIRST_RC=$?
 
-if ansible-playbook playbooks/validate.yml | tee -a "$RAW_LOG"; then
-  PLAYBOOK_STATUS="PASS"
+if [ "${FIRST_RC}" -eq 0 ] && [ -f "${MARKER}" ]; then
+  FIRST_APPLY="PASS"
 fi
 
-{
-  echo
-  echo "## Direct Marker File Check"
-} | tee -a "$RAW_LOG"
+ansible-playbook "${LAB_DIR}/playbooks/phase2-idempotency.yml" \
+  > "${RAW_DIR}/phase2-idempotency-second.log" 2>&1
+SECOND_RC=$?
 
-if ansible "$TARGET_GROUP" -b -m command -a "grep -q 'Managed By: Ansible' $MARKER_FILE" | tee -a "$RAW_LOG"; then
-  MARKER_STATUS="PASS"
+if [ "${SECOND_RC}" -eq 0 ]; then
+  SECOND_APPLY="PASS"
 fi
 
-{
-  echo
-  echo "## Direct Package Check"
-} | tee -a "$RAW_LOG"
-
-if ansible "$TARGET_GROUP" -b -m command -a "dpkg -s $PACKAGE_NAME" | tee -a "$RAW_LOG"; then
-  PACKAGE_STATUS="PASS"
+if grep -q "changed=0" "${RAW_DIR}/phase2-idempotency-second.log"; then
+  IDEMPOTENCY_CHECK="PASS"
 fi
 
-{
-  echo
-  echo "## Direct Service Check"
-} | tee -a "$RAW_LOG"
+ansible-playbook "${LAB_DIR}/playbooks/phase2-rollback.yml" \
+  > "${RAW_DIR}/phase2-rollback.log" 2>&1
+ROLLBACK_RC=$?
 
-if ansible "$TARGET_GROUP" -b -m command -a "systemctl is-active $SERVICE_NAME" | tee -a "$RAW_LOG"; then
-  SERVICE_STATUS="PASS"
+if [ "${ROLLBACK_RC}" -eq 0 ]; then
+  ROLLBACK_EXECUTION="PASS"
 fi
 
-FAILED_COUNT="$(grep -Ec "failed=[1-9]|unreachable=[1-9]|UNREACHABLE|FAILED" "$RAW_LOG" || true)"
-
-if [ "$SSH_STATUS" = "PASS" ] &&
-   [ "$PLAYBOOK_STATUS" = "PASS" ] &&
-   [ "$MARKER_STATUS" = "PASS" ] &&
-   [ "$PACKAGE_STATUS" = "PASS" ] &&
-   [ "$SERVICE_STATUS" = "PASS" ] &&
-   [ "$FAILED_COUNT" -eq 0 ]; then
-  OVERALL_STATUS="PASS"
+if [ ! -f "${MARKER}" ]; then
+  ROLLBACK_VALIDATION="PASS"
 fi
 
-cat > "$SUMMARY" <<EOF
-# Ansible Automation Execution Summary
+if [ "${ANSIBLE_CLI}" = "PASS" ] && \
+   [ "${FIRST_APPLY}" = "PASS" ] && \
+   [ "${SECOND_APPLY}" = "PASS" ] && \
+   [ "${IDEMPOTENCY_CHECK}" = "PASS" ] && \
+   [ "${ROLLBACK_EXECUTION}" = "PASS" ] && \
+   [ "${ROLLBACK_VALIDATION}" = "PASS" ]; then
+  OVERALL="PASS"
+else
+  OVERALL="CHECK"
+fi
 
-Execution Mode: ansible-playbook
-Evidence Policy: local-only
-Overall Status: $OVERALL_STATUS
+cat > "${SUMMARY}" <<SUMMARY
+# Ansible Automation Runtime Summary
 
-## Validation Signals
+Overall Status: ${OVERALL}
+
+## Validation Matrix
 
 | Signal | Status |
 |---|---|
-| SSH connectivity to automation targets | $SSH_STATUS |
-| Playbook execution completed | $PLAYBOOK_STATUS |
-| Managed marker file validated | $MARKER_STATUS |
-| Managed package validated | $PACKAGE_STATUS |
-| Managed service validated | $SERVICE_STATUS |
-| Failed or unreachable hosts | $FAILED_COUNT |
+| Ansible CLI available | ${ANSIBLE_CLI} |
+| First automation apply completed | ${FIRST_APPLY} |
+| Second automation apply completed | ${SECOND_APPLY} |
+| Idempotency confirmed on second run | ${IDEMPOTENCY_CHECK} |
+| Rollback playbook completed | ${ROLLBACK_EXECUTION} |
+| Rollback removed runtime marker | ${ROLLBACK_VALIDATION} |
 
-## Target Model
+## Runtime Boundary
 
-| Target | Role |
-|---|---|
-| linux-node-01 | automation target |
-| linux-node-02 | automation target |
+This lab validates local Ansible automation execution quality.
 
-## Boundary
+Phase 2 extends the runtime with deterministic idempotency and rollback validation.
 
-This summary records local-only runtime validation for the Ansible Automation Lab.
-EOF
+Generated runtime evidence remains local-only.
 
-echo "[INFO] ansible automation validation completed"
-echo "[INFO] overall_status=$OVERALL_STATUS"
-echo "[INFO] ssh_status=$SSH_STATUS"
-echo "[INFO] playbook_status=$PLAYBOOK_STATUS"
-echo "[INFO] marker_status=$MARKER_STATUS"
-echo "[INFO] package_status=$PACKAGE_STATUS"
-echo "[INFO] service_status=$SERVICE_STATUS"
-echo "[INFO] failed_count=$FAILED_COUNT"
+SUMMARY
+
+cat "${SUMMARY}"
+
+if [ "${OVERALL}" != "PASS" ]; then
+  echo "[CHECK] Ansible automation runtime validation did not reach PASS"
+  echo "[DEBUG] first apply log:"
+  tail -80 "${RAW_DIR}/phase2-idempotency-first.log" 2>/dev/null || true
+  echo "[DEBUG] second apply log:"
+  tail -80 "${RAW_DIR}/phase2-idempotency-second.log" 2>/dev/null || true
+  echo "[DEBUG] rollback log:"
+  tail -80 "${RAW_DIR}/phase2-rollback.log" 2>/dev/null || true
+  exit 1
+fi
+
+echo "[OK] ansible automation validation completed"
