@@ -1,76 +1,18 @@
 ﻿# Repository Report Layer Guide
 
-This document defines the role of repository documentation and report layers.
+This document defines how the repository separates stable documentation, generated diagnostics, and reviewer-facing summaries.
 
----
+## Layer model
 
-## Layer Model
-
-| Directory | Role | Audience |
-|---|---|---|
-| docs/ | Reviewer-facing repository documentation and coverage references | Reviewer |
-| reports/ | Generated detailed checker outputs | Maintainer |
-| validation-reports/ | Reviewer-facing validation summaries | Reviewer |
-
----
-
-## docs/
-
-The docs directory contains stable repository documentation.
-
-Expected contents include:
-
-- lab coverage matrix
-- repository tree
-- reviewer-facing reference documents
-
-The docs directory should not be used for raw checker output.
-
----
-
-## reports/
-
-The reports directory contains generated checker outputs.
-
-Expected contents include:
-
-- markdown link check results
-- top-level structure check results
-- repository language check results
-- lab readiness alignment check results
-- simplification candidate reports
-- detailed validation diagnostics
-
-The reports directory is useful for maintainers and repository quality control.
-
----
-
-## validation-reports/
-
-The validation-reports directory contains reviewer-facing summaries.
-
-Expected contents include:
-
-- lab readiness summary
-- portfolio health summary
-- repository validation summary
-- final readiness summaries
-
-The validation-reports directory should be concise and easy to review.
-
----
-
-## Local-Only Output
-
-The local file a.txt is used as an executive repository summary during local validation.
-
-It is intentionally local-only and should not be committed.
-
----
+| Directory | Purpose |
+|---|---|
+| docs/ | Stable reviewer documentation and reference material |
+| reports/ | Detailed generated validation diagnostics for maintainers |
+| validation-reports/ | Concise review summaries for reviewers |
 
 ## Policy
 
-- Detailed diagnostics belong in reports/
-- Reviewer-facing validation summaries belong in validation-reports/
-- Stable repository references belong in docs/
-- Local-only working summaries remain ignored
+- Keep stable references in docs/
+- Keep detailed checker output in reports/
+- Keep reviewer-facing summaries in validation-reports/
+- Keep local-only runtime summaries such as a.txt out of Git
