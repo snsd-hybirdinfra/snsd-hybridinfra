@@ -16,7 +16,7 @@ echo "[INFO] backup job started"
 
 tar -czf "$BACKUP_ARCHIVE" -C "$BACKUP_SOURCE_DIR" .
 
-find "$BACKUP_SOURCE_DIR" -type f -maxdepth 1 -print0 \
+find "$BACKUP_SOURCE_DIR" -maxdepth 1 -type f -print0 \
   | sort -z \
   | xargs -0 sha256sum > "$CHECKSUM_PATH"
 
