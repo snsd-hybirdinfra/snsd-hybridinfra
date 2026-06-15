@@ -1,18 +1,21 @@
 ﻿# Shared Runtime
 
-This directory contains the repository-level shared runtime catalog.
+This directory is the repository-level shared runtime catalog.
 
-## Purpose
+Shared runtime entries describe common execution, telemetry, evidence, orchestration, and integration concepts used across the platform.
 
-It defines common runtime concepts and execution boundaries used across the platform, such as orchestration, telemetry handling, evidence collection, and integration services.
+## Repository Role
 
-## Boundary
+Top-level shared-runtime is not the primary executable runtime location.
 
-Lab-specific execution utilities belong under the relevant lab directories rather than here.
+It defines shared runtime capability boundaries and common operational patterns.
 
-## Inventory
+## Implementation Boundary
 
-- [evidence-runtime](evidence-runtime/)
-- [integration-services](integration-services/)
-- [orchestration-runtime](orchestration-runtime/)
-- [telemetry-pipeline](telemetry-pipeline/)
+Actual lab-specific runners, validators, parsers, and execution utilities belong under:
+
+labs/<lab-name>/shared-runtime/
+
+## Runtime Catalog
+
+Shared runtime concepts include orchestration runtime, telemetry pipeline, evidence runtime, and integration services.

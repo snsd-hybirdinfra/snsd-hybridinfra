@@ -1,24 +1,28 @@
 # Validation Reports
 
-This directory contains reviewer-facing validation summaries for the repository.
+This directory contains reviewer-facing validation summaries.
 
-## Start here
+---
 
-- [Lab Readiness Summary](lab-readiness-summary.md) — overall lab documentation readiness
-- [Lab Runtime Implementation Summary](lab-runtime-implementation-summary.md) — runtime boundary implementation status
-- [Repository Validation Summary](repository-validation-summary.md) — repository-wide validation status
-
-## Primary reports
+## Primary Reports
 
 | Report | Purpose |
 |---|---|
-| [Lab Readiness Summary](lab-readiness-summary.md) | Summarizes documentation readiness across all labs |
-| [Lab Runtime Implementation Summary](lab-runtime-implementation-summary.md) | Summarizes runtime boundary implementation across labs |
-| [Repository Validation Summary](repository-validation-summary.md) | Summarizes repository-level validation outcomes |
-| [Scenario Validation Summary](scenario-validation-summary.md) | Summarizes scenario validation coverage and evidence status |
+| [Lab Readiness Summary](./lab-readiness-summary.md) | Summarizes documentation readiness across all implementation labs |
+| [Portfolio Health Summary](../reports/portfolio-health-summary.md) | Summarizes repository health and validation status when generated |
+| Repository summary is generated locally as a.txt and is intentionally not committed. | Summarizes repository baseline when generated |
 
-## Report layer policy
+---
 
-- Detailed checker outputs belong in [reports/](../reports/)
-- Stable reviewer documentation belongs in [docs/](../docs/)
-- Reviewer-facing validation summaries belong in this directory
+## Report Layer Policy
+
+Detailed checker outputs belong in reports/.
+
+Stable reviewer documentation belongs in docs/.
+
+Reviewer-facing validation summaries belong in this directory.
+
+## Lab Runtime Implementation
+
+- [Lab Runtime Implementation Summary](lab-runtime-implementation-summary.md)
+- [Phase 1 Baseline Summary](./phase-1-baseline-summary.md)
