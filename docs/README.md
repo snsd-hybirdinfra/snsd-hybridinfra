@@ -1,4 +1,4 @@
-﻿# Repository Documentation
+# Repository Documentation
 
 This directory contains stable reviewer-facing repository documentation.
 
@@ -21,3 +21,8 @@ Stable repository references belong in docs/.
 Generated checker outputs belong in reports/.
 
 Reviewer-facing validation summaries belong in validation-reports/.
+
+## Reviewer Navigation
+
+- [Reviewer Navigation Guide](reviewer-navigation-guide.md)
+- [Phase 4 Reviewer Navigation Report](../validation-reports/phase-4-reviewer-navigation-report.md)
