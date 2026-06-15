@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="01-linux-observability-lab"
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RUNTIME_DIR="${LAB_DIR}/runtime-workspace"
 
-echo "[INFO] cleanup started: ${LAB_NAME}"
+echo "[INFO] linux observability cleanup started"
 
-ANSIBLE_CONFIG=./ansible.cfg ansible-playbook playbooks/cleanup.yml | tee runtime-workspace/logs/cleanup.log
+rm -rf "${RUNTIME_DIR}/logs" "${RUNTIME_DIR}/tmp"
+mkdir -p "${RUNTIME_DIR}/logs" "${RUNTIME_DIR}/tmp"
 
-echo "[OK] cleanup completed: ${LAB_NAME}"
+echo "[INFO] linux observability cleanup completed"

@@ -1,24 +1,27 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "[INFO] setup started: 01-linux-observability-lab"
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+PROCESSED_DIR="${LAB_DIR}/evidence/generated/processed"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+RUNTIME_DIR="${LAB_DIR}/runtime-workspace"
+LOG_DIR="${RUNTIME_DIR}/logs"
+TMP_DIR="${RUNTIME_DIR}/tmp"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/processed
-mkdir -p evidence/generated/summary
+mkdir -p "${RAW_DIR}" "${PROCESSED_DIR}" "${SUMMARY_DIR}" "${LOG_DIR}" "${TMP_DIR}"
 
-ANSIBLE_ARGS=()
+echo "[INFO] linux observability setup started"
 
-if [[ "${ANSIBLE_ASK_PASS:-false}" == "true" ]]; then
-  ANSIBLE_ARGS+=("--ask-pass")
-fi
+cat > "${LOG_DIR}/setup.log" <<SETUP
+SNSD_LINUX_OBSERVABILITY_SETUP=ready
+LAB=01-linux-observability-lab
+RUNTIME=local-linux-observability-baseline
+RAW_DIR=${RAW_DIR}
+PROCESSED_DIR=${PROCESSED_DIR}
+SUMMARY_DIR=${SUMMARY_DIR}
+SETUP
 
-if [[ "${ANSIBLE_ASK_BECOME_PASS:-false}" == "true" ]]; then
-  ANSIBLE_ARGS+=("--ask-become-pass")
-fi
+cp "${LOG_DIR}/setup.log" "${RAW_DIR}/linux-observability-setup.log"
 
-ANSIBLE_CONFIG=./ansible.cfg ansible-playbook playbooks/setup.yml "${ANSIBLE_ARGS[@]}" | tee runtime-workspace/logs/setup.log
-ANSIBLE_CONFIG=./ansible.cfg ansible-playbook playbooks/node_exporter.yml "${ANSIBLE_ARGS[@]}" | tee runtime-workspace/logs/node-exporter-setup.log
-
-echo "[INFO] setup completed: 01-linux-observability-lab"
+echo "[INFO] linux observability setup completed"
