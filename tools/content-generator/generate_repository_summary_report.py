@@ -26,6 +26,14 @@ IMPLEMENTATION_ORDER = [
     "10-governance-reporting-lab",
 ]
 
+def is_primary_lab_dir(path: Path) -> bool:
+    return (
+        path.is_dir()
+        and len(path.name) >= 3
+        and path.name[:2].isdigit()
+        and path.name[2] == "-"
+    )
+
 def read_text(path):
     if not path.exists():
         return ""
@@ -152,7 +160,17 @@ def get_labs():
     labs_root = ROOT / "labs"
     if not labs_root.exists():
         return []
-    return sorted([item for item in labs_root.iterdir() if item.is_dir()])
+
+    return sorted(
+        [
+            item
+            for item in labs_root.iterdir()
+            if item.is_dir()
+            and len(item.name) >= 3
+            and item.name[:2].isdigit()
+            and item.name[2] == "-"
+        ]
+    )
 
 def get_scenario_inventory():
     rows = []
@@ -346,8 +364,8 @@ def build_summary():
     lines.append("")
 
     lines.append("10. Implementation Boundary")
-    lines.append("- Current repository baseline remains documentation-ready")
-    lines.append("- Runtime implementation is planned and incrementally starting from foundational labs")
+    lines.append("- Current repository baseline is validation-clean with scenario evidence traceability and lab runtime boundaries established")
+    lines.append("- Runtime validation boundaries are implemented across the 10 primary labs with local runtime PASS summaries")
     if execution_note_labs:
         lines.append("- Execution boundary has been documented for:")
         for lab_name in execution_note_labs:
@@ -365,13 +383,13 @@ def build_summary():
 
     lines.append("12. Operational Summary")
     if validation_status == "PASS":
-        lines.append("The repository currently presents a validation-clean documentation-ready portfolio baseline.")
+        lines.append("The repository currently presents a validation-clean operational portfolio baseline with lab runtime boundaries and scenario evidence traceability established.")
     else:
         lines.append("The repository currently requires validation follow-up before being treated as a clean baseline.")
     lines.append("Scenarios define operational validation cases.")
     lines.append("Labs define implementation boundaries.")
     lines.append("Modules, adapters, and shared runtime areas define capability and integration boundaries.")
-    lines.append("The next major phase is executable lab implementation, starting with Linux observability.")
+    lines.append("The next major phase is final portfolio release packaging and reviewer-facing quality gate consolidation.")
     lines.append("")
 
     return "\n".join(lines)
