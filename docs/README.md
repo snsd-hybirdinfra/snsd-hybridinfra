@@ -26,3 +26,8 @@ Reviewer-facing validation summaries belong in validation-reports/.
 
 - [Reviewer Navigation Guide](reviewer-navigation-guide.md)
 - [Phase 4 Reviewer Navigation Report](../validation-reports/phase-4-reviewer-navigation-report.md)
+
+## Phase 5 Scenario Test Evidence
+
+- [Scenario Test Evidence Index](scenario-test-evidence-index.md)
+- [Phase 5 Scenario Evidence Report](../validation-reports/phase-5-scenario-evidence-report.md)
