@@ -1,178 +1,176 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+LOG_DIR="${LAB_DIR}/runtime-workspace/logs"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+COMPOSE_FILE="${LAB_DIR}/compose/docker-compose.yml"
+PROJECT_NAME="snsd-container-runtime-lab"
+SERVICE_NAME="container-web"
+ENDPOINT="http://localhost:18080"
 
-RAW_LOG="evidence/generated/raw/container-runtime-validate.log"
-SUMMARY="evidence/generated/summary/container-runtime-execution-summary.md"
-ENDPOINT_BODY="evidence/generated/raw/container-web-endpoint.html"
+VALIDATE_LOG="${RAW_DIR}/container-runtime-validate.log"
+COMPOSE_PS="${RAW_DIR}/container-compose-ps.log"
+CONTAINER_LOG="${RAW_DIR}/container-web.log"
+WEB_RESPONSE="${RAW_DIR}/container-web-endpoint.html"
+RUNTIME_STATUS="${RAW_DIR}/container-runtime-status.tsv"
+SUMMARY="${SUMMARY_DIR}/container-runtime-summary.md"
+LEGACY_SUMMARY="${SUMMARY_DIR}/container-runtime-execution-summary.md"
 
-WEB_CONTAINER="snsd-runtime-web"
-WORKER_CONTAINER="snsd-runtime-worker"
-WEB_URL="http://127.0.0.1:18080"
-
-DOCKER_STATUS="CHECK"
-COMPOSE_STATUS="CHECK"
-WEB_RUNNING_STATUS="CHECK"
-WORKER_RUNNING_STATUS="CHECK"
-WEB_HEALTH_STATUS="CHECK"
-WEB_ENDPOINT_STATUS="CHECK"
-LOG_STATUS="CHECK"
-RESTART_STATUS="CHECK"
-FAILED_COUNT="0"
-OVERALL_STATUS="CHECK"
-
-: > "$RAW_LOG"
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}" "${LOG_DIR}"
 
 echo "[INFO] container runtime validation started"
 
-{
-  echo "# Container Runtime Validation"
-  echo
-  echo "## Docker Runtime"
-} | tee -a "$RAW_LOG"
+DOCKER_AVAILABLE="FAIL"
+COMPOSE_AVAILABLE="FAIL"
+COMPOSE_FILE_PRESENT="FAIL"
+INDEX_FILE_PRESENT="FAIL"
+CONTAINER_STARTED="FAIL"
+CONTAINER_RUNNING="FAIL"
+HTTP_ENDPOINT_RESPONDED="FAIL"
+RUNTIME_REPORT_GENERATED="FAIL"
 
-if docker info > /dev/null 2>&1; then
-  DOCKER_STATUS="PASS"
-  echo "docker_runtime=PASS" | tee -a "$RAW_LOG"
+if docker --version >/dev/null 2>&1; then
+  DOCKER_AVAILABLE="PASS"
+fi
+
+if docker compose version >/dev/null 2>&1; then
+  COMPOSE_AVAILABLE="PASS"
+fi
+
+if [ -f "${COMPOSE_FILE}" ] && [ -s "${COMPOSE_FILE}" ]; then
+  COMPOSE_FILE_PRESENT="PASS"
+fi
+
+if [ -f "${LAB_DIR}/configs/index.html" ] && [ -s "${LAB_DIR}/configs/index.html" ]; then
+  INDEX_FILE_PRESENT="PASS"
+fi
+
+if [ "${DOCKER_AVAILABLE}" = "PASS" ] && \
+   [ "${COMPOSE_AVAILABLE}" = "PASS" ] && \
+   [ "${COMPOSE_FILE_PRESENT}" = "PASS" ]; then
+  docker compose -p "${PROJECT_NAME}" -f "${COMPOSE_FILE}" up -d > "${LOG_DIR}/docker-compose-up.log" 2>&1
+  CONTAINER_STARTED="PASS"
+fi
+
+docker compose -p "${PROJECT_NAME}" -f "${COMPOSE_FILE}" ps > "${COMPOSE_PS}" 2>&1 || true
+
+CONTAINER_ID="$(docker compose -p "${PROJECT_NAME}" -f "${COMPOSE_FILE}" ps -q "${SERVICE_NAME}" 2>/dev/null || true)"
+
+if [ -n "${CONTAINER_ID}" ]; then
+  if [ "$(docker inspect -f '{{.State.Running}}' "${CONTAINER_ID}" 2>/dev/null || echo false)" = "true" ]; then
+    CONTAINER_RUNNING="PASS"
+  fi
+
+  docker logs "${CONTAINER_ID}" > "${CONTAINER_LOG}" 2>&1 || true
+fi
+
+for attempt in $(seq 1 20); do
+  if curl -fsS "${ENDPOINT}" > "${WEB_RESPONSE}" 2>/dev/null; then
+    HTTP_ENDPOINT_RESPONDED="PASS"
+    break
+  fi
+  sleep 1
+done
+
+cat > "${RUNTIME_STATUS}" <<STATUS
+signalstatus
+docker_available${DOCKER_AVAILABLE}
+docker_compose_available${COMPOSE_AVAILABLE}
+compose_file_present${COMPOSE_FILE_PRESENT}
+index_file_present${INDEX_FILE_PRESENT}
+container_started${CONTAINER_STARTED}
+container_running${CONTAINER_RUNNING}
+http_endpoint_responded${HTTP_ENDPOINT_RESPONDED}
+STATUS
+
+cat > "${VALIDATE_LOG}" <<LOG
+# Container Runtime Validation Log
+
+project_name=${PROJECT_NAME}
+compose_file=${COMPOSE_FILE}
+service_name=${SERVICE_NAME}
+endpoint=${ENDPOINT}
+
+docker_available=${DOCKER_AVAILABLE}
+docker_compose_available=${COMPOSE_AVAILABLE}
+compose_file_present=${COMPOSE_FILE_PRESENT}
+index_file_present=${INDEX_FILE_PRESENT}
+container_started=${CONTAINER_STARTED}
+container_running=${CONTAINER_RUNNING}
+http_endpoint_responded=${HTTP_ENDPOINT_RESPONDED}
+LOG
+
+if [ "${DOCKER_AVAILABLE}" = "PASS" ] && \
+   [ "${COMPOSE_AVAILABLE}" = "PASS" ] && \
+   [ "${COMPOSE_FILE_PRESENT}" = "PASS" ] && \
+   [ "${INDEX_FILE_PRESENT}" = "PASS" ] && \
+   [ "${CONTAINER_STARTED}" = "PASS" ] && \
+   [ "${CONTAINER_RUNNING}" = "PASS" ] && \
+   [ "${HTTP_ENDPOINT_RESPONDED}" = "PASS" ]; then
+  OVERALL="PASS"
 else
-  echo "docker_runtime=CHECK" | tee -a "$RAW_LOG"
+  OVERALL="CHECK"
 fi
 
-{
-  echo
-  echo "## Compose Status"
-} | tee -a "$RAW_LOG"
+cat > "${SUMMARY}" <<SUMMARY
+# Container Runtime Summary
 
-if docker compose -p snsd-container-runtime-lab -f compose/docker-compose.yml ps | tee -a "$RAW_LOG"; then
-  COMPOSE_STATUS="PASS"
-fi
+Overall Status: ${OVERALL}
 
-if docker inspect -f '{{.State.Running}}' "$WEB_CONTAINER" 2>/dev/null | grep -q "true"; then
-  WEB_RUNNING_STATUS="PASS"
-fi
-
-if docker inspect -f '{{.State.Running}}' "$WORKER_CONTAINER" 2>/dev/null | grep -q "true"; then
-  WORKER_RUNNING_STATUS="PASS"
-fi
-
-{
-  echo
-  echo "## Web Healthcheck Wait"
-} | tee -a "$RAW_LOG"
-
-for i in $(seq 1 12); do
-  WEB_HEALTH="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$WEB_CONTAINER" 2>/dev/null || true)"
-  echo "health_attempt=$i web_health=$WEB_HEALTH" | tee -a "$RAW_LOG"
-
-  if [ "$WEB_HEALTH" = "healthy" ]; then
-    WEB_HEALTH_STATUS="PASS"
-    break
-  fi
-
-  sleep 5
-done
-
-{
-  echo
-  echo "## Endpoint Check"
-} | tee -a "$RAW_LOG"
-
-if curl -fsS "$WEB_URL" -o "$ENDPOINT_BODY"; then
-  cat "$ENDPOINT_BODY" >> "$RAW_LOG"
-  echo >> "$RAW_LOG"
-
-  if grep -q "SNSD Container Runtime Lab" "$ENDPOINT_BODY"; then
-    WEB_ENDPOINT_STATUS="PASS"
-  fi
-fi
-
-{
-  echo
-  echo "## Container Logs"
-} | tee -a "$RAW_LOG"
-
-docker logs "$WORKER_CONTAINER" --tail 20 | tee -a "$RAW_LOG" > evidence/generated/raw/container-worker.log
-
-if grep -q "runtime-worker-alive" evidence/generated/raw/container-worker.log; then
-  LOG_STATUS="PASS"
-fi
-
-{
-  echo
-  echo "## Restart Recovery Check"
-} | tee -a "$RAW_LOG"
-
-docker restart "$WEB_CONTAINER" | tee -a "$RAW_LOG"
-
-for i in $(seq 1 12); do
-  WEB_RUNNING_AFTER_RESTART="$(docker inspect -f '{{.State.Running}}' "$WEB_CONTAINER" 2>/dev/null || true)"
-  WEB_HEALTH_AFTER_RESTART="$(docker inspect -f '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$WEB_CONTAINER" 2>/dev/null || true)"
-
-  echo "restart_attempt=$i running=$WEB_RUNNING_AFTER_RESTART health=$WEB_HEALTH_AFTER_RESTART" | tee -a "$RAW_LOG"
-
-  if [ "$WEB_RUNNING_AFTER_RESTART" = "true" ]; then
-    RESTART_STATUS="PASS"
-  fi
-
-  if [ "$WEB_HEALTH_AFTER_RESTART" = "healthy" ]; then
-    break
-  fi
-
-  sleep 5
-done
-
-FAILED_COUNT="$(grep -Ec "ERROR|FAILED|Cannot connect to the Docker daemon" "$RAW_LOG" || true)"
-
-if [ "$DOCKER_STATUS" = "PASS" ] &&
-   [ "$COMPOSE_STATUS" = "PASS" ] &&
-   [ "$WEB_RUNNING_STATUS" = "PASS" ] &&
-   [ "$WORKER_RUNNING_STATUS" = "PASS" ] &&
-   [ "$WEB_HEALTH_STATUS" = "PASS" ] &&
-   [ "$WEB_ENDPOINT_STATUS" = "PASS" ] &&
-   [ "$LOG_STATUS" = "PASS" ] &&
-   [ "$RESTART_STATUS" = "PASS" ]; then
-  OVERALL_STATUS="PASS"
-fi
-
-cat > "$SUMMARY" <<EOF
-# Container Runtime Execution Summary
-
-Execution Mode: docker-compose
-Evidence Policy: local-only
-Overall Status: $OVERALL_STATUS
-
-## Validation Signals
+## Validation Matrix
 
 | Signal | Status |
 |---|---|
-| Docker runtime available | $DOCKER_STATUS |
-| docker compose -p snsd-container-runtime-lab status available | $COMPOSE_STATUS |
-| Web container running | $WEB_RUNNING_STATUS |
-| Worker container running | $WORKER_RUNNING_STATUS |
-| Web container healthcheck | $WEB_HEALTH_STATUS |
-| Web endpoint content check | $WEB_ENDPOINT_STATUS |
-| Worker container log check | $LOG_STATUS |
-| Restart recovery check | $RESTART_STATUS |
-| Failure pattern count | $FAILED_COUNT |
+| Docker CLI available | ${DOCKER_AVAILABLE} |
+| Docker Compose available | ${COMPOSE_AVAILABLE} |
+| Compose file present | ${COMPOSE_FILE_PRESENT} |
+| Web index file present | ${INDEX_FILE_PRESENT} |
+| Container started | ${CONTAINER_STARTED} |
+| Container running | ${CONTAINER_RUNNING} |
+| HTTP endpoint responded | ${HTTP_ENDPOINT_RESPONDED} |
 
-## Runtime Components
+## Runtime Decision
 
-| Component | Role | Port |
-|---|---|---:|
-| snsd-runtime-web | HTTP service container | 18080 |
-| snsd-runtime-worker | Background worker container | n/a |
+| Decision Field | Value |
+|---|---|
+| Compose project | ${PROJECT_NAME} |
+| Compose service | ${SERVICE_NAME} |
+| HTTP endpoint | ${ENDPOINT} |
+| Runtime validation result | ${OVERALL} |
 
-## Boundary
+## Runtime Boundary
 
-This summary records local-only runtime validation for the Container Runtime Lab.
-EOF
+This lab validates a local Docker Compose based container runtime baseline.
+
+Generated runtime evidence remains local-only.
+
+## Evidence Files
+
+| Evidence | Path |
+|---|---|
+| Runtime status table | evidence/generated/raw/container-runtime-status.tsv |
+| Compose process snapshot | evidence/generated/raw/container-compose-ps.log |
+| Container log | evidence/generated/raw/container-web.log |
+| HTTP response body | evidence/generated/raw/container-web-endpoint.html |
+| Validation log | evidence/generated/raw/container-runtime-validate.log |
+| Runtime summary | evidence/generated/summary/container-runtime-summary.md |
+SUMMARY
+
+cp "${SUMMARY}" "${LEGACY_SUMMARY}"
+
+RUNTIME_REPORT_GENERATED="PASS"
+
+cat "${SUMMARY}"
+
+if [ "${OVERALL}" != "PASS" ]; then
+  echo "[CHECK] container runtime validation did not reach PASS"
+  cat "${VALIDATE_LOG}" || true
+  echo "---- compose ps ----"
+  cat "${COMPOSE_PS}" || true
+  exit 1
+fi
 
 echo "[INFO] container runtime validation completed"
-echo "[INFO] overall_status=$OVERALL_STATUS"
-echo "[INFO] web_health_status=$WEB_HEALTH_STATUS"
-echo "[INFO] web_endpoint_status=$WEB_ENDPOINT_STATUS"

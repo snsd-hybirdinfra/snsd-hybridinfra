@@ -66,3 +66,81 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Execution Boundary Note
 
 - [Container Runtime Execution Boundary Note](validation-reports/container-runtime-execution-note.md)
+
+## Phase 2 Container Runtime
+
+This lab includes deterministic local Docker Compose runtime validation as a Phase 2 runtime extension.
+
+Runtime model:
+
+- container runtime workspace setup
+- Docker CLI availability validation
+- Docker Compose availability validation
+- Docker Compose service startup
+- container running-state validation
+- HTTP endpoint response validation
+- local-only generated validation evidence
+
+### Container Runtime Model
+
+The runtime starts a local NGINX container through Docker Compose.
+
+Validated runtime inputs:
+
+| Input | Purpose |
+|---|---|
+| compose/docker-compose.yml | Docker Compose runtime definition |
+| configs/index.html | Static web response used for endpoint validation |
+| scripts/run.sh | One-command runtime orchestration entrypoint |
+
+Runtime endpoint:
+
+    http://localhost:18080
+
+Compose project name:
+
+    snsd-container-runtime-lab
+
+### One-command Execution
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/04-container-runtime-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+### Manual Execution Flow
+
+    bash scripts/setup.sh
+    bash scripts/validate.sh
+    bash scripts/cleanup.sh
+
+### Expected Runtime Result
+
+| Signal | Expected Status |
+|---|---|
+| Docker CLI available | PASS |
+| Docker Compose available | PASS |
+| Compose file present | PASS |
+| Web index file present | PASS |
+| Container started | PASS |
+| Container running | PASS |
+| HTTP endpoint responded | PASS |
+| End-to-end orchestration | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/container-runtime-status.tsv
+- evidence/generated/raw/container-compose-ps.log
+- evidence/generated/raw/container-web.log
+- evidence/generated/raw/container-web-endpoint.html
+- evidence/generated/raw/container-runtime-validate.log
+- evidence/generated/summary/container-runtime-summary.md
+- evidence/generated/summary/container-runtime-execution-summary.md
