@@ -1,6 +1,6 @@
 # Lab Runtime Implementation Summary
 
-Generated At: 2026-06-15T00:25:32.005464Z
+Generated At: 2026-06-15T00:42:59.066570Z
 
 ## Purpose
 
@@ -27,7 +27,7 @@ Each lab provides an implementation-oriented execution boundary that supports li
 | Lab | Runtime Boundary | Runtime Summary | Execution Boundary Note | Status |
 |---|---|---|---|---|
 | [01-linux-observability-lab](../labs/01-linux-observability-lab/README.md) | Linux host visibility and node exporter preparation | linux-observability-execution-summary.md | local-execution-note.md | local runtime present |
-| [02-network-routing-lab](../labs/02-network-routing-lab/README.md) | Reachability, route, DNS, latency, and service path validation | network-routing-execution-summary.md | network-routing-execution-note.md | PASS |
+| [02-network-routing-lab](../labs/02-network-routing-lab/README.md) | Reachability, route, DNS, latency, and service path validation | network-routing-execution-summary.md, network-routing-runtime-summary.md | network-routing-execution-note.md | PASS |
 | [03-ansible-automation-lab](../labs/03-ansible-automation-lab/README.md) | SSH, sudo, package, service, marker, and validation automation | ansible-automation-execution-summary.md, ansible-automation-runtime-summary.md | ansible-automation-execution-note.md | PASS |
 | [04-container-runtime-lab](../labs/04-container-runtime-lab/README.md) | Docker runtime, container health, endpoint, logs, and restart validation | container-runtime-execution-summary.md, container-runtime-summary.md | container-runtime-execution-note.md | PASS |
 | [05-kolla-openstack-lab](../labs/05-kolla-openstack-lab/README.md) | Kolla-Ansible preflight, inventory, globals, and command validation | kolla-openstack-execution-summary.md, kolla-openstack-runtime-summary.md | kolla-openstack-execution-note.md | PASS |
