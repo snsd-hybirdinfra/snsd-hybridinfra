@@ -129,3 +129,10 @@ This structure demonstrates infrastructure operations capability design, not iso
 ## 10. Final Navigation Statement
 
 A reviewer should be able to enter from the root README, follow the Phase 2 and Phase 3 reports, inspect labs and scenarios, and understand how the repository validates operational capabilities through implementation labs.
+
+## Phase 5 Scenario Test Evidence
+
+| Document | Path | Review Purpose |
+|---|---|---|
+| Scenario Test Evidence Index | docs/scenario-test-evidence-index.md | Scenario-level mapping to lab evidence boundaries |
+| Phase 5 Scenario Evidence Report | validation-reports/phase-5-scenario-evidence-report.md | Scenario evidence collection status |
