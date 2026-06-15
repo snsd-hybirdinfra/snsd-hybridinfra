@@ -66,3 +66,74 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Execution Boundary Note
 
 - [Logging Correlation Execution Boundary Note](validation-reports/logging-correlation-execution-note.md)
+
+## Phase 2 Logging Correlation Runtime
+
+This lab includes deterministic local log correlation validation as a Phase 2 runtime extension.
+
+Runtime model:
+
+- logging correlation workspace setup
+- deterministic operational log dataset generation
+- event normalization into tabular evidence
+- correlation-id based event grouping
+- error, warning, and recovery pattern validation
+- local-only generated validation evidence
+
+### Correlation Model
+
+The runtime validates an incident sequence using a deterministic correlation id:
+
+    INC-2026-0701
+
+The correlated event flow represents:
+
+1. request intake
+2. latency degradation
+3. upstream timeout
+4. retry execution
+5. recovery completion
+6. request completion
+
+### One-command Execution
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/07-logging-correlation-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+### Manual Execution Flow
+
+    bash scripts/setup.sh
+    bash scripts/validate.sh
+    bash scripts/cleanup.sh
+
+### Expected Runtime Result
+
+| Signal | Expected Status |
+|---|---|
+| Logging workspace prepared | PASS |
+| Operational log dataset created | PASS |
+| Correlation source scan completed | PASS |
+| Incident correlation key detected | PASS |
+| Related events correlated | PASS |
+| Error or warning pattern detected | PASS |
+| Recovery pattern detected | PASS |
+| Correlation report generated | PASS |
+| End-to-end orchestration | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/normalized-events.tsv
+- evidence/generated/raw/correlation-timeline.md
+- evidence/generated/raw/logging-correlation-validate.log
+- evidence/generated/summary/logging-correlation-runtime-summary.md
+- evidence/generated/summary/logging-correlation-execution-summary.md
