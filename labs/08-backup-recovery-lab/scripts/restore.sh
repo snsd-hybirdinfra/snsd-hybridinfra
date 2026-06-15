@@ -25,7 +25,7 @@ tar -xzf "$BACKUP_ARCHIVE" -C "$RESTORE_OUTPUT_DIR"
   echo "restore_output_dir=$RESTORE_OUTPUT_DIR"
   echo
   echo "## Restored Files"
-  find "$RESTORE_OUTPUT_DIR" -type f -maxdepth 1 -print | sort
+  find "$RESTORE_OUTPUT_DIR" -maxdepth 1 -type f -print | sort
 } | tee runtime-workspace/logs/restore.log
 
 cp runtime-workspace/logs/restore.log evidence/generated/raw/restore-job.log

@@ -40,7 +40,7 @@ EOF
   echo "restore_output_dir=$RESTORE_OUTPUT_DIR"
   echo
   echo "## Source Files"
-  find "$BACKUP_SOURCE_DIR" -type f -maxdepth 1 -print | sort
+  find "$BACKUP_SOURCE_DIR" -maxdepth 1 -type f -print | sort
 } | tee runtime-workspace/logs/setup.log
 
 cp runtime-workspace/logs/setup.log evidence/generated/raw/backup-recovery-setup.log
