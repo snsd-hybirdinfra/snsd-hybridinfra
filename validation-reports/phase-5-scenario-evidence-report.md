@@ -10,6 +10,9 @@ Phase 5 scenario evidence status: **PASS**
 |---|---|
 | Scenario traceability source available | PASS |
 | Scenario evidence index generated | PASS |
+| Per-scenario evidence manifests generated | PASS |
+| Per-scenario evidence matrix generated | PASS |
+| Per-scenario validation results generated | PASS |
 | All scenarios have evidence mapping | PASS |
 | All 10 labs expose evidence boundary | PASS |
 | All 10 labs referenced by scenario evidence index | PASS |
@@ -22,6 +25,9 @@ Phase 5 scenario evidence status: **PASS**
 | Total mapped scenarios | 150 |
 | Total labs referenced | 10 |
 | Total evidence boundaries | 10 |
+| Per-scenario manifest files expected | 150 |
+| Per-scenario matrix files expected | 150 |
+| Per-scenario validation result files expected | 150 |
 
 ## 4. Lab Evidence Coverage
 
@@ -44,7 +50,10 @@ Phase 5 scenario evidence status: **PASS**
 |---|---|
 | Scenario test evidence index | docs/scenario-test-evidence-index.md |
 | Phase 5 scenario evidence report | validation-reports/phase-5-scenario-evidence-report.md |
+| Per-scenario evidence manifest | scenarios/<level>/<scenario>/evidence/generated/scenario-test-evidence.md |
+| Per-scenario evidence matrix | scenarios/<level>/<scenario>/evidence/generated/scenario-evidence-matrix.tsv |
+| Per-scenario validation result | scenarios/<level>/<scenario>/evidence/generated/scenario-validation-result.md |
 
 ## 6. Final Statement
 
-Phase 5 establishes scenario-level evidence traceability from operational scenarios to lab runtime evidence boundaries.
+Phase 5 establishes scenario-level evidence traceability from operational scenarios to lab runtime evidence boundaries and per-scenario evidence artifacts.

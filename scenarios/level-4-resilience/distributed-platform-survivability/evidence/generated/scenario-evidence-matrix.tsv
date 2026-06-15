@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+distributed-platform-survivability	level-4-resilience	General Infrastructure	09-resilience-failover-lab	Failover, recovery, and traffic-shift evidence	labs/09-resilience-failover-lab/evidence/generated/summary/resilience-failover-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

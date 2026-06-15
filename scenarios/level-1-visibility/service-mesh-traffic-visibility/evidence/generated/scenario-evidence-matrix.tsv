@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+service-mesh-traffic-visibility	level-1-visibility	Service Mesh	04-container-runtime-lab	Container runtime and HTTP service evidence	labs/04-container-runtime-lab/evidence/generated/summary/container-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+runtime-instability-analysis	level-2-correlation	General Infrastructure	07-logging-correlation-lab	Log normalization, correlation, and incident timeline evidence	labs/07-logging-correlation-lab/evidence/generated/summary/logging-correlation-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

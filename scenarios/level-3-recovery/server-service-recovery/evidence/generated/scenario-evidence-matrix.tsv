@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+server-service-recovery	level-3-recovery	General Infrastructure	01-linux-observability-lab	Linux host observability evidence	labs/01-linux-observability-lab/evidence/generated/summary/linux-observability-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+enterprise-operational-continuity	level-5-continuity	General Infrastructure	10-governance-reporting-lab	Evidence aggregation and governance reporting evidence	labs/10-governance-reporting-lab/evidence/generated/summary/governance-reporting-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS
