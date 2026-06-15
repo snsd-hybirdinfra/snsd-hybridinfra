@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+change-failure-rollback	level-3-recovery	Change Operations	03-ansible-automation-lab	Ansible idempotency and rollback evidence	labs/03-ansible-automation-lab/evidence/generated/summary/ansible-automation-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

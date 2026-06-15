@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+bgp-neighbor-visibility	level-1-visibility	Network / Routing	02-network-routing-lab	Network route, gateway, subnet, and reachability evidence	labs/02-network-routing-lab/evidence/generated/summary/network-routing-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

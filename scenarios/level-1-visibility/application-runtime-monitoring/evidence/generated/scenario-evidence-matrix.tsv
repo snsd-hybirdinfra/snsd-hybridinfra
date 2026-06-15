@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+application-runtime-monitoring	level-1-visibility	Application Runtime	06-monitoring-stack-lab	Prometheus, Grafana, and alert-rule evidence	labs/06-monitoring-stack-lab/evidence/generated/summary/monitoring-stack-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

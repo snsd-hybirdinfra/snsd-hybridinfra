@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+traffic-restoration-workflow	level-3-recovery	Traffic / Flow	08-backup-recovery-lab	Backup, restore, and checksum integrity evidence	labs/08-backup-recovery-lab/evidence/generated/summary/backup-recovery-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS

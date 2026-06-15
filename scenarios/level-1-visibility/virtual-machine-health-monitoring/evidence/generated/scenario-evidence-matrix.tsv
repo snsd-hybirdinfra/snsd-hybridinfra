@@ -1,0 +1,2 @@
+scenario_name	lifecycle	primary_domain	mapped_lab	evidence_boundary	runtime_summary	validation_report	evidence_status	validation_result
+virtual-machine-health-monitoring	level-1-visibility	Virtual Machine	05-kolla-openstack-lab	Kolla OpenStack readiness evidence	labs/05-kolla-openstack-lab/evidence/generated/summary/kolla-openstack-runtime-summary.md	validation-reports/lab-runtime-implementation-summary.md	Mapped	PASS
