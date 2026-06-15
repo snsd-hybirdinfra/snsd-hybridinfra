@@ -54,7 +54,7 @@ The current implementation baseline provides execution boundaries for implementa
 
 | Lab | Runtime Boundary | Runtime Status |
 |---|---|---|
-| [01-linux-observability-lab](./labs/01-linux-observability-lab/README.md) | Linux host visibility and node exporter preparation | local runtime present |
+| [01-linux-observability-lab](./labs/01-linux-observability-lab/README.md) | Linux host visibility and node exporter preparation | PASS |
 | [02-network-routing-lab](./labs/02-network-routing-lab/README.md) | Route, DNS, latency, reachability, and service path validation | PASS |
 | [03-ansible-automation-lab](./labs/03-ansible-automation-lab/README.md) | SSH, sudo, package, service, and playbook validation | PASS |
 | [04-container-runtime-lab](./labs/04-container-runtime-lab/README.md) | Docker runtime, container health, endpoint, log, and restart validation | PASS |

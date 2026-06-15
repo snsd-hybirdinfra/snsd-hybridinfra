@@ -1,66 +1,49 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-LAB_NAME="01-linux-observability-lab"
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+LOG_DIR="${LAB_DIR}/runtime-workspace/logs"
 
-echo "[INFO] preflight started: ${LAB_NAME}"
+mkdir -p "${RAW_DIR}" "${LOG_DIR}"
 
-check_file() {
-  local path="$1"
-  if [ -f "$path" ]; then
-    echo "[OK] file exists: $path"
-  else
-    echo "[FAIL] missing file: $path"
-    exit 1
-  fi
-}
+echo "[INFO] linux observability preflight started"
 
-check_dir() {
-  local path="$1"
-  if [ -d "$path" ]; then
-    echo "[OK] directory exists: $path"
-  else
-    echo "[FAIL] missing directory: $path"
-    exit 1
-  fi
-}
+OS_RELEASE_STATUS="FAIL"
+PROC_CPUINFO_STATUS="FAIL"
+PROC_MEMINFO_STATUS="FAIL"
+DF_STATUS="FAIL"
+PS_STATUS="FAIL"
 
-check_command() {
-  local cmd="$1"
-  if command -v "$cmd" >/dev/null 2>&1; then
-    echo "[OK] command exists: $cmd"
-  else
-    echo "[FAIL] command not found: $cmd"
-    exit 1
-  fi
-}
+[ -f /etc/os-release ] && OS_RELEASE_STATUS="PASS"
+[ -f /proc/cpuinfo ] && PROC_CPUINFO_STATUS="PASS"
+[ -f /proc/meminfo ] && PROC_MEMINFO_STATUS="PASS"
 
-check_command ansible
-check_command ansible-playbook
+if df -h >/dev/null 2>&1; then
+  DF_STATUS="PASS"
+fi
 
-check_file ansible.cfg
-check_file inventory/hosts.ini
-check_file inventory/group_vars/linux_observability_targets.yml
+if ps -eo pid,comm >/dev/null 2>&1; then
+  PS_STATUS="PASS"
+fi
 
-check_file playbooks/setup.yml
-check_file playbooks/validate.yml
-check_file playbooks/cleanup.yml
+cat > "${RAW_DIR}/linux-observability-preflight.log" <<PREFLIGHT
+os_release_available=${OS_RELEASE_STATUS}
+proc_cpuinfo_available=${PROC_CPUINFO_STATUS}
+proc_meminfo_available=${PROC_MEMINFO_STATUS}
+df_available=${DF_STATUS}
+ps_available=${PS_STATUS}
+PREFLIGHT
 
-check_dir evidence/generated/raw
-check_dir evidence/generated/processed
-check_dir evidence/generated/summary
-check_dir runtime-workspace/logs
-check_dir runtime-workspace/tmp
+cat "${RAW_DIR}/linux-observability-preflight.log"
 
-echo "[INFO] ansible version"
-ansible --version | head -n 5
+if [ "${OS_RELEASE_STATUS}" != "PASS" ] || \
+   [ "${PROC_CPUINFO_STATUS}" != "PASS" ] || \
+   [ "${PROC_MEMINFO_STATUS}" != "PASS" ] || \
+   [ "${DF_STATUS}" != "PASS" ] || \
+   [ "${PS_STATUS}" != "PASS" ]; then
+  echo "[CHECK] linux observability preflight has missing signals"
+  exit 1
+fi
 
-echo "[INFO] inventory graph"
-ANSIBLE_CONFIG=./ansible.cfg ansible-inventory --graph
-
-echo "[INFO] playbook syntax checks"
-ANSIBLE_CONFIG=./ansible.cfg ansible-playbook --syntax-check playbooks/setup.yml
-ANSIBLE_CONFIG=./ansible.cfg ansible-playbook --syntax-check playbooks/validate.yml
-ANSIBLE_CONFIG=./ansible.cfg ansible-playbook --syntax-check playbooks/cleanup.yml
-
-echo "[OK] preflight completed: ${LAB_NAME}"
+echo "[INFO] linux observability preflight completed"

@@ -115,3 +115,85 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Monitoring Handoff
 
 - [Monitoring Handoff Note](validation-reports/monitoring-handoff-note.md)
+
+## Phase 2 Linux Observability Runtime
+
+This lab includes deterministic local Linux observability validation as a Phase 2 runtime extension.
+
+Runtime model:
+
+- Linux observability preflight validation
+- runtime workspace setup
+- OS release signal collection
+- CPU signal collection
+- memory signal collection
+- disk usage signal collection
+- process snapshot collection
+- service-like signal collection
+- local-only generated validation evidence
+
+### Observability Validation Model
+
+This lab validates local Linux host observability signals without requiring privileged host changes.
+
+Validated signal groups:
+
+| Signal Group | Evidence Purpose |
+|---|---|
+| OS release | Host identity and platform visibility |
+| CPU | Processor visibility baseline |
+| Memory | Host memory visibility baseline |
+| Disk usage | Filesystem visibility baseline |
+| Process snapshot | Process visibility baseline |
+| Service-like signals | Runtime service/process visibility baseline |
+
+### One-command Execution
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/01-linux-observability-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+### Manual Execution Flow
+
+    bash scripts/preflight.sh
+    bash scripts/setup.sh
+    bash scripts/validate.sh
+    bash scripts/cleanup.sh
+
+### Expected Runtime Result
+
+| Signal | Expected Status |
+|---|---|
+| Linux observability preflight | PASS |
+| Linux observability workspace prepared | PASS |
+| OS release signal collected | PASS |
+| CPU signal collected | PASS |
+| Memory signal collected | PASS |
+| Disk usage signal collected | PASS |
+| Process snapshot collected | PASS |
+| Service-like signal collected | PASS |
+| End-to-end orchestration | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/linux-observability-preflight.log
+- evidence/generated/raw/linux-observability-setup.log
+- evidence/generated/raw/linux-os-release.log
+- evidence/generated/raw/linux-cpuinfo.log
+- evidence/generated/raw/linux-meminfo.log
+- evidence/generated/raw/linux-disk-usage.log
+- evidence/generated/raw/linux-process-snapshot.log
+- evidence/generated/raw/linux-service-like-signals.log
+- evidence/generated/raw/linux-observability-validate.log
+- evidence/generated/processed/linux-observability-processed-summary.md
+- evidence/generated/summary/linux-observability-runtime-summary.md
+- evidence/generated/summary/linux-observability-execution-summary.md
