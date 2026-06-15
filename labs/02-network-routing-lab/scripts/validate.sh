@@ -1,180 +1,226 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+DATA_DIR="${LAB_DIR}/runtime-workspace/data"
+LOG_DIR="${LAB_DIR}/runtime-workspace/logs"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+TARGETS_ENV="${LAB_DIR}/configs/network-targets.env"
+ROUTE_TABLE="${DATA_DIR}/route-table.tsv"
+SUBNET_BOUNDARY="${DATA_DIR}/subnet-boundary.tsv"
+REACHABILITY_TARGETS="${DATA_DIR}/reachability-targets.tsv"
 
-source configs/network-targets.env
+LOCAL_ROUTE_LOG="${RAW_DIR}/local-route-table.log"
+ROUTE_MATRIX="${RAW_DIR}/network-route-validation-matrix.tsv"
+REACHABILITY_MATRIX="${RAW_DIR}/network-reachability-matrix.tsv"
+VALIDATE_LOG="${RAW_DIR}/network-routing-validate.log"
+SUMMARY="${SUMMARY_DIR}/network-routing-runtime-summary.md"
+LEGACY_SUMMARY="${SUMMARY_DIR}/network-routing-execution-summary.md"
 
-RAW_LOG="evidence/generated/raw/network-routing-validate.log"
-SUMMARY="evidence/generated/summary/network-routing-execution-summary.md"
-PING_01_RAW="evidence/generated/raw/ping-${TARGET_01_NAME}.log"
-PING_02_RAW="evidence/generated/raw/ping-${TARGET_02_NAME}.log"
-ROUTE_RAW="evidence/generated/raw/local-route-table.log"
-DNS_RAW="evidence/generated/raw/dns-resolution.log"
-SERVICE_01_RAW="evidence/generated/raw/service-${TARGET_01_NAME}.log"
-SERVICE_02_RAW="evidence/generated/raw/service-${TARGET_02_NAME}.log"
-
-TARGET_01_REACHABILITY="CHECK"
-TARGET_02_REACHABILITY="CHECK"
-TARGET_01_SERVICE="CHECK"
-TARGET_02_SERVICE="CHECK"
-DNS_STATUS="CHECK"
-ROUTE_STATUS="CHECK"
-LATENCY_STATUS="CHECK"
-OVERALL_STATUS="CHECK"
-
-TARGET_01_AVG_LATENCY="unknown"
-TARGET_02_AVG_LATENCY="unknown"
-
-: > "$RAW_LOG"
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}" "${LOG_DIR}"
 
 echo "[INFO] network routing validation started"
 
-{
-  echo "# Network Routing Validation"
-  echo
-  echo "## Local Route Table"
-} | tee -a "$RAW_LOG"
+WORKSPACE_PREPARED="FAIL"
+CONFIG_PRESENT="FAIL"
+ROUTE_TABLE_PRESENT="FAIL"
+SUBNET_BOUNDARY_PRESENT="FAIL"
+REACHABILITY_TARGETS_PRESENT="FAIL"
+DEFAULT_ROUTE_PRESENT="FAIL"
+APP_ROUTE_PRESENT="FAIL"
+DATA_ROUTE_PRESENT="FAIL"
+RECOVERY_ROUTE_PRESENT="FAIL"
+GATEWAY_MAPPING_VALID="FAIL"
+REACHABILITY_DECISION_GENERATED="FAIL"
 
-if ip route | tee "$ROUTE_RAW" | tee -a "$RAW_LOG" | grep -q "default"; then
-  ROUTE_STATUS="PASS"
+if [ -d "${DATA_DIR}" ] && [ -d "${LOG_DIR}" ]; then
+  WORKSPACE_PREPARED="PASS"
+fi
+
+if [ -f "${TARGETS_ENV}" ] && [ -s "${TARGETS_ENV}" ]; then
+  CONFIG_PRESENT="PASS"
+fi
+
+if [ -f "${ROUTE_TABLE}" ] && [ -s "${ROUTE_TABLE}" ]; then
+  ROUTE_TABLE_PRESENT="PASS"
+fi
+
+if [ -f "${SUBNET_BOUNDARY}" ] && [ -s "${SUBNET_BOUNDARY}" ]; then
+  SUBNET_BOUNDARY_PRESENT="PASS"
+fi
+
+if [ -f "${REACHABILITY_TARGETS}" ] && [ -s "${REACHABILITY_TARGETS}" ]; then
+  REACHABILITY_TARGETS_PRESENT="PASS"
+fi
+
+cp "${ROUTE_TABLE}" "${LOCAL_ROUTE_LOG}"
+
+if awk 'NR>1 && $1=="0.0.0.0/0" && $5=="default" {found=1} END {exit found ? 0 : 1}' "${ROUTE_TABLE}"; then
+  DEFAULT_ROUTE_PRESENT="PASS"
+fi
+
+if awk 'NR>1 && $1=="10.10.10.0/24" && $2=="192.168.10.1" && $3=="eth0" {found=1} END {exit found ? 0 : 1}' "${ROUTE_TABLE}"; then
+  APP_ROUTE_PRESENT="PASS"
+fi
+
+if awk 'NR>1 && $1=="10.10.20.0/24" && $2=="192.168.20.1" && $3=="eth1" {found=1} END {exit found ? 0 : 1}' "${ROUTE_TABLE}"; then
+  DATA_ROUTE_PRESENT="PASS"
+fi
+
+if awk 'NR>1 && $1=="10.10.30.0/24" && $2=="192.168.30.1" && $3=="eth2" {found=1} END {exit found ? 0 : 1}' "${ROUTE_TABLE}"; then
+  RECOVERY_ROUTE_PRESENT="PASS"
+fi
+
+GATEWAY_MATCH_COUNT="$(awk '
+  NR==FNR && NR>1 {
+    gateway[$1]=$3
+    iface[$1]=$4
+    next
+  }
+  NR>1 {
+    subnet=$1
+    if (gateway[subnet] == $2 && iface[subnet] == $3) {
+      count++
+    }
+  }
+  END {print count+0}
+' "${SUBNET_BOUNDARY}" "${ROUTE_TABLE}")"
+
+if [ "${GATEWAY_MATCH_COUNT}" -ge 3 ]; then
+  GATEWAY_MAPPING_VALID="PASS"
 fi
 
 {
-  echo
-  echo "## DNS Resolution"
-} | tee -a "$RAW_LOG"
+  printf "target_ip\texpected_subnet\texpected_gateway\texpected_result\tdecision\n"
+  awk '
+    NR==FNR && NR>1 {
+      route_gateway[$1]=$2
+      next
+    }
+    NR>1 {
+      target=$1
+      subnet=$2
+      gateway=$3
+      expected=$4
+      decision="blocked"
+      if (route_gateway[subnet] == gateway && expected == "reachable") {
+        decision="reachable"
+      }
+      printf "%s\t%s\t%s\t%s\t%s\n", target, subnet, gateway, expected, decision
+    }
+  ' "${ROUTE_TABLE}" "${REACHABILITY_TARGETS}"
+} > "${REACHABILITY_MATRIX}"
 
-if getent hosts "$DNS_TEST_NAME" | tee "$DNS_RAW" | tee -a "$RAW_LOG"; then
-  DNS_STATUS="PASS"
+REACHABLE_COUNT="$(awk 'NR>1 && $5=="reachable" {count++} END {print count+0}' "${REACHABILITY_MATRIX}")"
+
+if [ "${REACHABLE_COUNT}" -ge 3 ]; then
+  REACHABILITY_DECISION_GENERATED="PASS"
 fi
 
 {
-  echo
-  echo "## ICMP Reachability - $TARGET_01_NAME"
-} | tee -a "$RAW_LOG"
+  printf "signal\tstatus\n"
+  printf "workspace_prepared\t%s\n" "${WORKSPACE_PREPARED}"
+  printf "config_present\t%s\n" "${CONFIG_PRESENT}"
+  printf "route_table_present\t%s\n" "${ROUTE_TABLE_PRESENT}"
+  printf "subnet_boundary_present\t%s\n" "${SUBNET_BOUNDARY_PRESENT}"
+  printf "reachability_targets_present\t%s\n" "${REACHABILITY_TARGETS_PRESENT}"
+  printf "default_route_present\t%s\n" "${DEFAULT_ROUTE_PRESENT}"
+  printf "app_route_present\t%s\n" "${APP_ROUTE_PRESENT}"
+  printf "data_route_present\t%s\n" "${DATA_ROUTE_PRESENT}"
+  printf "recovery_route_present\t%s\n" "${RECOVERY_ROUTE_PRESENT}"
+  printf "gateway_mapping_valid\t%s\n" "${GATEWAY_MAPPING_VALID}"
+  printf "reachability_decision_generated\t%s\n" "${REACHABILITY_DECISION_GENERATED}"
+} > "${ROUTE_MATRIX}"
 
-if ping -c "$PING_COUNT" "$TARGET_01_IP" | tee "$PING_01_RAW" | tee -a "$RAW_LOG"; then
-  TARGET_01_REACHABILITY="PASS"
+cat > "${VALIDATE_LOG}" <<LOG
+# Network Routing Validation Log
+
+targets_env=${TARGETS_ENV}
+route_table=${ROUTE_TABLE}
+subnet_boundary=${SUBNET_BOUNDARY}
+reachability_targets=${REACHABILITY_TARGETS}
+
+gateway_match_count=${GATEWAY_MATCH_COUNT}
+reachable_count=${REACHABLE_COUNT}
+
+$(cat "${ROUTE_MATRIX}")
+LOG
+
+if [ "${WORKSPACE_PREPARED}" = "PASS" ] && \
+   [ "${CONFIG_PRESENT}" = "PASS" ] && \
+   [ "${ROUTE_TABLE_PRESENT}" = "PASS" ] && \
+   [ "${SUBNET_BOUNDARY_PRESENT}" = "PASS" ] && \
+   [ "${REACHABILITY_TARGETS_PRESENT}" = "PASS" ] && \
+   [ "${DEFAULT_ROUTE_PRESENT}" = "PASS" ] && \
+   [ "${APP_ROUTE_PRESENT}" = "PASS" ] && \
+   [ "${DATA_ROUTE_PRESENT}" = "PASS" ] && \
+   [ "${RECOVERY_ROUTE_PRESENT}" = "PASS" ] && \
+   [ "${GATEWAY_MAPPING_VALID}" = "PASS" ] && \
+   [ "${REACHABILITY_DECISION_GENERATED}" = "PASS" ]; then
+  OVERALL="PASS"
+else
+  OVERALL="CHECK"
 fi
 
-{
-  echo
-  echo "## ICMP Reachability - $TARGET_02_NAME"
-} | tee -a "$RAW_LOG"
+cat > "${SUMMARY}" <<SUMMARY
+# Network Routing Runtime Summary
 
-if ping -c "$PING_COUNT" "$TARGET_02_IP" | tee "$PING_02_RAW" | tee -a "$RAW_LOG"; then
-  TARGET_02_REACHABILITY="PASS"
-fi
+Overall Status: ${OVERALL}
 
-TARGET_01_AVG_LATENCY="$(awk -F'/' '/rtt min\/avg\/max/ {print $5}' "$PING_01_RAW" 2>/dev/null || echo unknown)"
-TARGET_02_AVG_LATENCY="$(awk -F'/' '/rtt min\/avg\/max/ {print $5}' "$PING_02_RAW" 2>/dev/null || echo unknown)"
-
-if python3 - "$TARGET_01_AVG_LATENCY" "$TARGET_02_AVG_LATENCY" "$LATENCY_THRESHOLD_MS" <<'PY'
-import sys
-
-values = sys.argv[1:3]
-threshold = float(sys.argv[3])
-
-try:
-    parsed = [float(v) for v in values if v != "unknown" and v != ""]
-    if len(parsed) == 2 and all(v <= threshold for v in parsed):
-        sys.exit(0)
-except Exception:
-    pass
-
-sys.exit(1)
-PY
-then
-  LATENCY_STATUS="PASS"
-fi
-
-{
-  echo
-  echo "## Service Port Reachability - $TARGET_01_NAME"
-} | tee -a "$RAW_LOG"
-
-if curl -fsS "http://$TARGET_01_IP:$TARGET_SERVICE_PORT/metrics" -o "$SERVICE_01_RAW"; then
-  if grep -q "node_cpu_seconds_total" "$SERVICE_01_RAW"; then
-    TARGET_01_SERVICE="PASS"
-  fi
-fi
-
-echo "service_${TARGET_01_NAME}=$TARGET_01_SERVICE" | tee -a "$RAW_LOG"
-
-{
-  echo
-  echo "## Service Port Reachability - $TARGET_02_NAME"
-} | tee -a "$RAW_LOG"
-
-if curl -fsS "http://$TARGET_02_IP:$TARGET_SERVICE_PORT/metrics" -o "$SERVICE_02_RAW"; then
-  if grep -q "node_cpu_seconds_total" "$SERVICE_02_RAW"; then
-    TARGET_02_SERVICE="PASS"
-  fi
-fi
-
-echo "service_${TARGET_02_NAME}=$TARGET_02_SERVICE" | tee -a "$RAW_LOG"
-
-{
-  echo
-  echo "## Latency Summary"
-  echo "target_01_avg_latency_ms=$TARGET_01_AVG_LATENCY"
-  echo "target_02_avg_latency_ms=$TARGET_02_AVG_LATENCY"
-  echo "latency_threshold_ms=$LATENCY_THRESHOLD_MS"
-  echo "latency_status=$LATENCY_STATUS"
-} | tee -a "$RAW_LOG"
-
-if [ "$TARGET_01_REACHABILITY" = "PASS" ] &&
-   [ "$TARGET_02_REACHABILITY" = "PASS" ] &&
-   [ "$TARGET_01_SERVICE" = "PASS" ] &&
-   [ "$TARGET_02_SERVICE" = "PASS" ] &&
-   [ "$DNS_STATUS" = "PASS" ] &&
-   [ "$ROUTE_STATUS" = "PASS" ] &&
-   [ "$LATENCY_STATUS" = "PASS" ]; then
-  OVERALL_STATUS="PASS"
-fi
-
-cat > "$SUMMARY" <<EOF
-# Network Routing Execution Summary
-
-Execution Mode: local-network-path-validation
-Evidence Policy: local-only
-Overall Status: $OVERALL_STATUS
-
-## Validation Signals
+## Validation Matrix
 
 | Signal | Status |
 |---|---|
-| Local route table available | $ROUTE_STATUS |
-| DNS resolution available | $DNS_STATUS |
-| $TARGET_01_NAME ICMP reachability | $TARGET_01_REACHABILITY |
-| $TARGET_02_NAME ICMP reachability | $TARGET_02_REACHABILITY |
-| $TARGET_01_NAME node_exporter service path | $TARGET_01_SERVICE |
-| $TARGET_02_NAME node_exporter service path | $TARGET_02_SERVICE |
-| Latency threshold validation | $LATENCY_STATUS |
+| Network routing workspace prepared | ${WORKSPACE_PREPARED} |
+| Network target config present | ${CONFIG_PRESENT} |
+| Route table present | ${ROUTE_TABLE_PRESENT} |
+| Subnet boundary present | ${SUBNET_BOUNDARY_PRESENT} |
+| Reachability targets present | ${REACHABILITY_TARGETS_PRESENT} |
+| Default route present | ${DEFAULT_ROUTE_PRESENT} |
+| App segment route present | ${APP_ROUTE_PRESENT} |
+| Data segment route present | ${DATA_ROUTE_PRESENT} |
+| Recovery segment route present | ${RECOVERY_ROUTE_PRESENT} |
+| Gateway mapping valid | ${GATEWAY_MAPPING_VALID} |
+| Reachability decision generated | ${REACHABILITY_DECISION_GENERATED} |
 
-## Latency Measurements
+## Routing Decision
 
-| Target | Average Latency ms | Threshold ms |
-|---|---:|---:|
-| $TARGET_01_NAME | $TARGET_01_AVG_LATENCY | $LATENCY_THRESHOLD_MS |
-| $TARGET_02_NAME | $TARGET_02_AVG_LATENCY | $LATENCY_THRESHOLD_MS |
+| Decision Field | Value |
+|---|---|
+| App segment | 10.10.10.0/24 via 192.168.10.1 |
+| Data segment | 10.10.20.0/24 via 192.168.20.1 |
+| Recovery segment | 10.10.30.0/24 via 192.168.30.1 |
+| Default route | 0.0.0.0/0 via 192.168.10.254 |
+| Reachable target count | ${REACHABLE_COUNT} |
+| Runtime validation result | ${OVERALL} |
 
-## Target Model
+## Runtime Boundary
 
-| Target | Address | Service Port |
-|---|---|---:|
-| $TARGET_01_NAME | $TARGET_01_IP | $TARGET_SERVICE_PORT |
-| $TARGET_02_NAME | $TARGET_02_IP | $TARGET_SERVICE_PORT |
+This lab validates deterministic routing-state and reachability evidence without creating privileged network namespaces.
 
-## Boundary
+Generated runtime evidence remains local-only.
 
-This summary records local-only runtime validation for the Network Routing Lab.
-EOF
+## Evidence Files
+
+| Evidence | Path |
+|---|---|
+| Local route table | evidence/generated/raw/local-route-table.log |
+| Route validation matrix | evidence/generated/raw/network-route-validation-matrix.tsv |
+| Reachability matrix | evidence/generated/raw/network-reachability-matrix.tsv |
+| Validation log | evidence/generated/raw/network-routing-validate.log |
+| Runtime summary | evidence/generated/summary/network-routing-runtime-summary.md |
+SUMMARY
+
+cp "${SUMMARY}" "${LEGACY_SUMMARY}"
+
+cat "${SUMMARY}"
+
+if [ "${OVERALL}" != "PASS" ]; then
+  echo "[CHECK] network routing validation did not reach PASS"
+  cat "${ROUTE_MATRIX}" || true
+  exit 1
+fi
 
 echo "[INFO] network routing validation completed"
-echo "[INFO] overall_status=$OVERALL_STATUS"

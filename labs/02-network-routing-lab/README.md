@@ -66,3 +66,78 @@ Runtime scripts, deployment artifacts, generated evidence, and execution outputs
 ## Execution Boundary Note
 
 - [Network Routing Execution Boundary Note](validation-reports/network-routing-execution-note.md)
+
+## Phase 2 Network Routing Runtime
+
+This lab includes deterministic local network routing validation as a Phase 2 runtime extension.
+
+Runtime model:
+
+- network routing workspace setup
+- deterministic route table generation
+- subnet boundary validation
+- gateway mapping validation
+- reachability decision generation
+- local-only generated validation evidence
+
+### Routing Validation Model
+
+This lab does not create privileged Linux network namespaces.
+
+Instead, it validates a deterministic routing-state dataset that represents operational network path validation.
+
+Validated routing segments:
+
+| Segment | Route | Gateway | Interface |
+|---|---|---|---|
+| App segment | 10.10.10.0/24 | 192.168.10.1 | eth0 |
+| Data segment | 10.10.20.0/24 | 192.168.20.1 | eth1 |
+| Recovery segment | 10.10.30.0/24 | 192.168.30.1 | eth2 |
+| Default route | 0.0.0.0/0 | 192.168.10.254 | eth0 |
+
+### One-command Execution
+
+Run from WSL:
+
+    cd "/mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/labs/02-network-routing-lab"
+    bash scripts/run.sh
+
+Run and clean up automatically:
+
+    bash scripts/run.sh --cleanup
+
+### Manual Execution Flow
+
+    bash scripts/setup.sh
+    bash scripts/validate.sh
+    bash scripts/cleanup.sh
+
+### Expected Runtime Result
+
+| Signal | Expected Status |
+|---|---|
+| Network routing workspace prepared | PASS |
+| Network target config present | PASS |
+| Route table present | PASS |
+| Subnet boundary present | PASS |
+| Reachability targets present | PASS |
+| Default route present | PASS |
+| App segment route present | PASS |
+| Data segment route present | PASS |
+| Recovery segment route present | PASS |
+| Gateway mapping valid | PASS |
+| Reachability decision generated | PASS |
+| End-to-end orchestration | PASS |
+
+### Runtime Evidence
+
+Generated runtime evidence is local-only and excluded from Git.
+
+Local evidence paths:
+
+- evidence/generated/raw/local-route-table.log
+- evidence/generated/raw/network-route-validation-matrix.tsv
+- evidence/generated/raw/network-reachability-matrix.tsv
+- evidence/generated/raw/network-routing-validate.log
+- evidence/generated/summary/network-routing-runtime-summary.md
+- evidence/generated/summary/network-routing-execution-summary.md
