@@ -1,23 +1,52 @@
 # Runtime Evidence Policy
 
-This document defines how evidence is handled in the repository.
+## Purpose
 
-## Policy summary
+This document defines how generated evidence is handled in SNSD Hybrid Infrastructure.
 
-- Scenario evidence is committed when it is reviewer-readable and stable.
-- Lab runtime evidence is generated locally and intentionally excluded from Git.
-- Sensitive or environment-specific artifacts are not committed.
+The repository separates reviewer-readable scenario evidence from local-only lab runtime evidence.
 
-## Evidence boundary
+## Evidence Classification
 
-| Area | Git policy | Purpose |
+| Evidence Area | Git Policy | Purpose |
 |---|---|---|
-| scenarios/*/evidence/generated/ | committed | Stable reviewer-facing evidence placeholders |
+| scenarios/*/evidence/generated/ | committed | Reviewer-readable placeholder evidence and stable scenario links |
 | labs/*/evidence/generated/ | ignored | Local runtime execution evidence |
 | labs/*/runtime-workspace/ | ignored | Temporary runtime workspace |
-| a.txt | ignored | Local repository summary output |
-| *.pem, *.key, id_* | ignored | Sensitive local execution material |
+| a.txt | ignored | Local repository summary report |
+| *.pem / *.key / id_* | ignored | Sensitive local execution material |
 
-## Why this matters
+## Scenario Evidence
 
-This keeps the repository reviewable while preserving local execution flexibility and avoiding the commit of environment-specific data.
+Scenario evidence is committed intentionally.
+
+It provides stable reviewer-facing links for:
+
+- scenario summaries
+- execution evidence placeholders
+- validation evidence placeholders
+- artifact manifests
+- artifact checksums
+
+Scenario evidence does not represent live runtime execution.
+
+## Lab Runtime Evidence
+
+Lab runtime evidence is generated locally and excluded from Git.
+
+It may include:
+
+- raw command output
+- generated runtime summaries
+- runtime workspaces
+- local IP addresses
+- environment-specific paths
+- temporary validation artifacts
+
+This keeps the repository reviewer-readable and avoids committing environment-specific or sensitive data.
+
+## Boundary
+
+The repository commits implementation scripts, validation scripts, configuration examples, execution notes, and reviewer-facing summaries.
+
+The repository does not commit raw local runtime output from lab execution.

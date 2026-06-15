@@ -1,22 +1,33 @@
 # Repository Documentation
 
-This directory contains stable reviewer-facing documentation for the repository.
+This directory contains stable reviewer-facing repository documentation.
 
-## Start here
+---
 
-- [Repository Orientation](repository-orientation.md) — short map of the repository and reading path
-- [Reviewer Navigation Guide](reviewer-navigation-guide.md) — recommended review order for reviewers
-
-## Core documents
+## Documents
 
 | Document | Purpose |
 |---|---|
-| [Lab Coverage Matrix](lab-coverage-matrix.md) | Maps scenarios to implementation labs |
-| [Repository Tree](repository-tree.md) | Shows the repository structure at a glance |
-| [Scenario Test Evidence Index](scenario-test-evidence-index.md) | Connects scenarios to evidence and lab boundaries |
+| [Lab Coverage Matrix](./lab-coverage-matrix.md) | Maps repository scenarios to implementation labs |
+| [Repository Tree](./repository-tree.md) | Shows reviewer-facing repository structure |
+| [Report Layer Guide](./report-layer-guide.md) | Explains docs, reports, and validation-reports roles |
 
-## Documentation policy
+---
 
-- Stable repository references belong in docs/
-- Detailed checker outputs belong in reports/
-- Reviewer-facing validation summaries belong in validation-reports/
+## Documentation Policy
+
+Stable repository references belong in docs/.
+
+Generated checker outputs belong in reports/.
+
+Reviewer-facing validation summaries belong in validation-reports/.
+
+## Reviewer Navigation
+
+- [Reviewer Navigation Guide](reviewer-navigation-guide.md)
+- [Phase 4 Reviewer Navigation Report](../validation-reports/phase-4-reviewer-navigation-report.md)
+
+## Phase 5 Scenario Test Evidence
+
+- [Scenario Test Evidence Index](scenario-test-evidence-index.md)
+- [Phase 5 Scenario Evidence Report](../validation-reports/phase-5-scenario-evidence-report.md)
