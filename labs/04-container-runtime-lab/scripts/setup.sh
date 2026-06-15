@@ -1,19 +1,31 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RAW_DIR="${LAB_DIR}/evidence/generated/raw"
+SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
+RUNTIME_DIR="${LAB_DIR}/runtime-workspace"
+LOG_DIR="${RUNTIME_DIR}/logs"
 
-mkdir -p runtime-workspace/logs
-mkdir -p evidence/generated/raw
-mkdir -p evidence/generated/summary
+mkdir -p "${RAW_DIR}" "${SUMMARY_DIR}" "${LOG_DIR}"
 
 echo "[INFO] container runtime setup started"
 
-docker --version | tee runtime-workspace/logs/docker-version.log
-docker compose -p snsd-container-runtime-lab version | tee runtime-workspace/logs/docker-compose-version.log
+docker --version > "${LOG_DIR}/docker-version.log" 2>&1 || true
+docker compose version > "${LOG_DIR}/docker-compose-version.log" 2>&1 || true
 
-docker compose -p snsd-container-runtime-lab -f compose/docker-compose.yml up -d | tee runtime-workspace/logs/setup.log
+cat > "${LOG_DIR}/setup.log" <<SETUP
+SNSD_CONTAINER_RUNTIME_SETUP=ready
+LAB=04-container-runtime-lab
+RUNTIME=local-docker-compose-nginx
+COMPOSE_FILE=compose/docker-compose.yml
+ENDPOINT=http://localhost:18080
+SETUP
 
-docker compose -p snsd-container-runtime-lab -f compose/docker-compose.yml ps | tee evidence/generated/raw/container-setup-ps.log
+cat > "${RAW_DIR}/container-runtime-setup.log" <<SETUP_RAW
+SNSD_CONTAINER_RUNTIME_SETUP=ready
+LAB=04-container-runtime-lab
+RUNTIME=local-docker-compose-nginx
+SETUP_RAW
 
 echo "[INFO] container runtime setup completed"
