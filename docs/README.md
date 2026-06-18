@@ -1,33 +1,42 @@
-# Repository Documentation
+﻿# Documentation Index
 
-This directory contains stable reviewer-facing repository documentation.
+This directory contains stable reviewer-facing documentation for the SNSD Hybrid Infrastructure portfolio.
 
----
+The recommended reviewer path starts from the root README and then continues through the documents listed below.
 
-## Documents
+## Primary Reviewer Documents
 
 | Document | Purpose |
 |---|---|
-| [Lab Coverage Matrix](./lab-coverage-matrix.md) | Maps repository scenarios to implementation labs |
-| [Repository Tree](./repository-tree.md) | Shows reviewer-facing repository structure |
-| [Report Layer Guide](./report-layer-guide.md) | Explains docs, reports, and validation-reports roles |
+| reviewer-navigation-guide.md | Reviewer-oriented navigation path |
+| scenario-to-lab-traceability.md | Scenario-to-lab mapping |
+| scenario-test-evidence-index.md | Scenario-level evidence coverage |
+| lab-coverage-matrix.md | Lab coverage overview |
+| runtime-evidence-policy.md | Runtime evidence boundary policy |
+| report-layer-guide.md | Documentation and report layering |
 
----
+## Standards and Quality Documents
 
-## Documentation Policy
+| Document | Purpose |
+|---|---|
+| evidence-standard.md | Evidence artifact standard |
+| scenario-readme-standard.md | Scenario README standard |
+| poster-yaml-standard.md | Poster metadata standard |
+| scenario-quality-checklist.md | Scenario quality checklist |
+| validation-workflow.md | Validation workflow |
 
-Stable repository references belong in docs/.
+## Repository Reference Documents
 
-Generated checker outputs belong in reports/.
+| Document | Purpose |
+|---|---|
+| repository-tree.md | Repository structure reference |
+| scenario-relationship-map.md | Scenario relationship reference |
+| scenario-review-entry-points.md | Scenario review entry reference |
+| phase-2-backlog.md | Historical Phase 2 backlog reference |
 
-Reviewer-facing validation summaries belong in validation-reports/.
+## Boundary
 
-## Reviewer Navigation
+This directory should remain reviewer-facing and relatively stable.
 
-- [Reviewer Navigation Guide](reviewer-navigation-guide.md)
-- [Phase 4 Reviewer Navigation Report](../validation-reports/phase-4-reviewer-navigation-report.md)
-
-## Phase 5 Scenario Test Evidence
-
-- [Scenario Test Evidence Index](scenario-test-evidence-index.md)
-- [Phase 5 Scenario Evidence Report](../validation-reports/phase-5-scenario-evidence-report.md)
+Generated maintainer-oriented reports belong under `reports/`.
+Reviewer-facing validation summaries belong under `validation-reports/`.
