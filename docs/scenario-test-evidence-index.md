@@ -1,4 +1,4 @@
-# Scenario Test Evidence Index
+﻿# Scenario Test Evidence Index
 
 This document indexes scenario-level test evidence and mapped lab relationships across the SNSD Hybrid Infrastructure repository.
 
@@ -231,5 +231,6 @@ scenarios/<level>/<scenario>/evidence/generated/lab-based-study-validation.md
 - Study Evidence indicates whether lab-based-study-validation.md exists for the scenario.
 - STUDY_VALIDATED means the scenario has baseline generated evidence and lab-based study evidence.
 - EVIDENCE_READY means baseline scenario evidence exists but lab-based study evidence has not been generated yet.
-- PARTIAL_EVIDENCE means at least one expected baseline evidence file is missing.
-- MISSING_MAPPING means no mapped lab could be extracted.
+- PARTIAL_EVIDENCE status means at least one expected baseline evidence file is missing.
+- MISSING_MAPPING status means no mapped lab could be extracted.
+
