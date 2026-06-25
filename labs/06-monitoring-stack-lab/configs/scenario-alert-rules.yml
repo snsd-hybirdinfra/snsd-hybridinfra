@@ -1,0 +1,62 @@
+﻿groups:
+  - name: snsd-scenario-signal-rules
+    rules:
+      - alert: SNSDServiceDown
+        expr: snsd_service_up == 0
+        for: 1m
+        labels:
+          severity: critical
+          scenario_signal: service-health
+        annotations:
+          summary: SNSD service target is down
+          description: A monitored scenario service target is reporting down state.
+
+      - alert: SNSDHighApiLatency
+        expr: snsd_api_latency_seconds > 0.5
+        for: 1m
+        labels:
+          severity: warning
+          scenario_signal: api-latency
+        annotations:
+          summary: SNSD API latency is above threshold
+          description: API latency exceeded the scenario visibility threshold.
+
+      - alert: SNSDCertificateExpiringSoon
+        expr: snsd_certificate_days_remaining < 30
+        for: 1m
+        labels:
+          severity: warning
+          scenario_signal: certificate-expiration
+        annotations:
+          summary: SNSD certificate expiration window reached
+          description: Certificate remaining days are below the scenario threshold.
+
+      - alert: SNSDStorageCapacityHigh
+        expr: snsd_storage_usage_percent > 80
+        for: 1m
+        labels:
+          severity: warning
+          scenario_signal: storage-capacity
+        annotations:
+          summary: SNSD storage usage is high
+          description: Storage usage exceeded the scenario visibility threshold.
+
+      - alert: SNSDDatabaseDown
+        expr: snsd_database_up == 0
+        for: 1m
+        labels:
+          severity: critical
+          scenario_signal: database-health
+        annotations:
+          summary: SNSD database target is down
+          description: Database health signal reports an unavailable state.
+
+      - alert: SNSDMessageQueueBacklogHigh
+        expr: snsd_message_queue_depth > 100
+        for: 1m
+        labels:
+          severity: warning
+          scenario_signal: message-queue
+        annotations:
+          summary: SNSD message queue backlog is high
+          description: Message queue depth exceeded the scenario visibility threshold.

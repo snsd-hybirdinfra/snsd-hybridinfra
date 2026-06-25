@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 set -euo pipefail
 
 LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -58,3 +58,8 @@ else
 fi
 
 echo "[OK] monitoring stack runtime orchestration completed"
+echo "[INFO] running scenario signal validation"
+bash "${SCRIPT_DIR}/validate-scenario-signals.sh"
+
+echo "[OK] scenario signal validation completed"
+

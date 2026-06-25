@@ -126,3 +126,23 @@ Local evidence paths:
 - evidence/generated/raw/grafana-health.json
 - evidence/generated/raw/prometheus-rules.json
 - evidence/generated/summary/monitoring-stack-runtime-summary.md
+
+## Scenario Signal Validation
+
+This lab includes scenario-level mock monitoring signals in addition to basic Prometheus and Grafana readiness checks.
+
+Additional validation script:
+
+- scripts/validate-scenario-signals.sh
+
+Scenario signal coverage:
+
+- service availability
+- API latency
+- certificate expiration
+- storage capacity
+- database health
+- message queue backlog
+- scrape latency
+
+The generated runtime evidence remains local-only under evidence/generated.
