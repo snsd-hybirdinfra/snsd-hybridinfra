@@ -1,32 +1,40 @@
 # Resilience Failover Lab Scripts
 
-This directory contains lab-local execution entrypoints for the Resilience Failover Lab.
+This directory contains lab-local execution scripts for the Resilience Failover Lab.
 
 ## Script Roles
 
 | Script | Purpose |
 |---|---|
-| setup.sh | Prepare primary service, secondary service, traffic shift, and evidence boundaries |
-| validate.sh | Execute availability, failure detection, failover, traffic shift, recovery, failback readiness, and evidence validation checks |
-| cleanup.sh | Clean temporary resilience validation outputs while preserving evidence |
+| setup.sh | Prepares runtime workspace, configuration, fixtures, and evidence boundaries |
+| failover.sh | Executes failover transition logic |
+| recover.sh | Executes recovery workflow logic |
+| validate.sh | Validates runtime results and writes validation evidence |
+| cleanup.sh | Cleans runtime workspace outputs |
+| run.sh | Orchestrates the full lab runtime workflow |
 
-## Execution Boundary
+## Execution
 
-These scripts belong only to:
+Recommended entrypoint from the lab root:
 
-labs/09-resilience-failover-lab/
+bash scripts/run.sh
 
-They coordinate lab-local modules, adapters, shared runtime utilities, and evidence generation workflows.
+Optional cleanup execution:
 
-## Future Implementation
+bash scripts/run.sh --cleanup
 
-Future implementation may include:
+## Runtime Boundary
 
-- primary service availability checks
-- secondary service readiness checks
-- failure detection validation
-- failover decision validation
-- traffic shift validation
-- post-failover health validation
-- failback readiness validation
-- resilience evidence generation
+This lab validates a local resilience and failover runtime boundary.
+
+The runtime boundary is intentionally scoped to lab-local execution and reviewer-readable validation evidence.
+
+## Evidence Boundary
+
+Generated evidence is written under evidence/generated/.
+
+Generated runtime evidence remains local-only unless explicitly promoted to reviewer-facing evidence.
+
+## Scenario Study Usage
+
+This lab can be used to study failover visibility, resilience validation, service continuity, traffic shift validation, and recovery confirmation scenarios.

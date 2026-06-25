@@ -1,23 +1,38 @@
-# Monitoring Stack Scripts
+# Monitoring Stack Lab Scripts
 
-## Purpose
+This directory contains lab-local execution scripts for the Monitoring Stack Lab.
 
-These scripts define the execution boundary for the Monitoring Stack Lab.
-
-## Scripts
+## Script Roles
 
 | Script | Purpose |
 |---|---|
-| setup.sh | Start Prometheus and Grafana through Docker Compose |
-| validate.sh | Validate container status, Prometheus health, Prometheus targets, and Grafana health |
-| cleanup.sh | Stop and remove the monitoring stack containers |
+| setup.sh | Prepares runtime workspace, configuration, fixtures, and evidence boundaries |
+| validate.sh | Validates runtime results and writes validation evidence |
+| cleanup.sh | Cleans runtime workspace outputs |
+| run.sh | Orchestrates the full lab runtime workflow |
 
-## Execution Flow
+## Execution
 
-    bash scripts/setup.sh
-    bash scripts/validate.sh
-    bash scripts/cleanup.sh
+Recommended entrypoint from the lab root:
 
-## Evidence Policy
+bash scripts/run.sh
 
-Generated runtime evidence under evidence/generated/ is local-only and intentionally ignored by Git.
+Optional cleanup execution:
+
+bash scripts/run.sh --cleanup
+
+## Runtime Boundary
+
+This lab validates a local Prometheus and Grafana monitoring runtime boundary.
+
+The runtime boundary is intentionally scoped to lab-local execution and reviewer-readable validation evidence.
+
+## Evidence Boundary
+
+Generated evidence is written under evidence/generated/.
+
+Generated runtime evidence remains local-only unless explicitly promoted to reviewer-facing evidence.
+
+## Scenario Study Usage
+
+This lab can be used to study monitoring readiness, service health, application health, API gateway health, certificate visibility, alert readiness, and dashboard visibility scenarios.

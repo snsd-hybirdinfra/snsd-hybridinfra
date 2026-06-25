@@ -1,33 +1,40 @@
 # Backup Recovery Lab Scripts
 
-This directory contains lab-local execution entrypoints for the Backup Recovery Lab.
+This directory contains lab-local execution scripts for the Backup Recovery Lab.
 
 ## Script Roles
 
 | Script | Purpose |
 |---|---|
-| setup.sh | Prepare backup source, repository, restore target, and evidence boundaries |
-| validate.sh | Execute backup job, artifact, metadata, restore, integrity, service recovery, and evidence validation checks |
-| cleanup.sh | Clean temporary backup recovery validation outputs while preserving evidence |
+| setup.sh | Prepares runtime workspace, configuration, fixtures, and evidence boundaries |
+| backup.sh | Creates backup artifacts and backup-related evidence |
+| restore.sh | Restores data or runtime state from backup artifacts |
+| validate.sh | Validates runtime results and writes validation evidence |
+| cleanup.sh | Cleans runtime workspace outputs |
+| run.sh | Orchestrates the full lab runtime workflow |
 
-## Execution Boundary
+## Execution
 
-These scripts belong only to:
+Recommended entrypoint from the lab root:
 
-labs/08-backup-recovery-lab/
+bash scripts/run.sh
 
-They coordinate lab-local modules, adapters, shared runtime utilities, and evidence generation workflows.
+Optional cleanup execution:
 
-## Future Implementation
+bash scripts/run.sh --cleanup
 
-Future implementation may include:
+## Runtime Boundary
 
-- backup source readiness checks
-- backup repository readiness checks
-- backup job execution checks
-- backup artifact validation
-- backup metadata validation
-- restore workflow validation
-- checksum and integrity validation
-- service recovery validation
-- backup recovery evidence generation
+This lab validates a local backup and restore runtime boundary.
+
+The runtime boundary is intentionally scoped to lab-local execution and reviewer-readable validation evidence.
+
+## Evidence Boundary
+
+Generated evidence is written under evidence/generated/.
+
+Generated runtime evidence remains local-only unless explicitly promoted to reviewer-facing evidence.
+
+## Scenario Study Usage
+
+This lab can be used to study backup job monitoring, backup artifact visibility, restore readiness, checksum validation, and recovery evidence scenarios.

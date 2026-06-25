@@ -1,75 +1,39 @@
 # Linux Observability Lab Scripts
 
-This directory contains lab-local execution entrypoints for the Linux Observability Lab.
+This directory contains lab-local execution scripts for the Linux Observability Lab.
 
 ## Script Roles
 
 | Script | Purpose |
 |---|---|
-| preflight.sh | Validate local execution prerequisites before setup or validation |
-| setup.sh | Prepare required packages and target evidence boundary |
-| validate.sh | Execute Linux observability validation and generate evidence |
-| cleanup.sh | Clean temporary runtime files while preserving evidence |
+| preflight.sh | Checks local runtime prerequisites before setup and validation |
+| setup.sh | Prepares runtime workspace, configuration, fixtures, and evidence boundaries |
+| validate.sh | Validates runtime results and writes validation evidence |
+| cleanup.sh | Cleans runtime workspace outputs |
+| run.sh | Orchestrates the full lab runtime workflow |
 
-## Execution Boundary
+## Execution
 
-These scripts belong only to:
+Recommended entrypoint from the lab root:
 
-labs/01-linux-observability-lab/
+bash scripts/run.sh
 
-They coordinate inventory, Ansible playbooks, runtime workspace, and generated evidence outputs.
+Optional cleanup execution:
 
-## Execution Order
+bash scripts/run.sh --cleanup
 
-1. preflight.sh
-2. setup.sh
-3. validate.sh
-4. cleanup.sh
+## Runtime Boundary
 
-## Output Boundaries
+This lab validates a local Linux host observability runtime boundary.
 
-Runtime logs:
+The runtime boundary is intentionally scoped to lab-local execution and reviewer-readable validation evidence.
 
-- runtime-workspace/logs/
+## Evidence Boundary
 
-Generated evidence:
+Generated evidence is written under evidence/generated/.
 
-- evidence/generated/raw/
-- evidence/generated/processed/
-- evidence/generated/summary/
+Generated runtime evidence remains local-only unless explicitly promoted to reviewer-facing evidence.
 
----
+## Scenario Study Usage
 
-## Evidence Parser
-
-| Script | Purpose |
-|---|---|
-| parse_evidence.py | Parses raw Ansible validation logs into processed and summary evidence |
-## Execution Modes
-
-### Local Node Execution
-
-Use this mode when the inventory uses ansible_connection=local.
-
-Command:
-
-    bash scripts/setup.sh
-    bash scripts/validate.sh
-
-### Remote Password Execution
-
-Use this mode when the inventory points to a remote Linux VM and SSH password authentication is required.
-
-Command:
-
-    ANSIBLE_ASK_PASS=true ANSIBLE_ASK_BECOME_PASS=true bash scripts/setup.sh
-    ANSIBLE_ASK_PASS=true ANSIBLE_ASK_BECOME_PASS=true bash scripts/validate.sh
-
-### Future Remote Key Execution
-
-Use this mode after SSH key authentication is configured for the target VM.
-
-Command:
-
-    bash scripts/setup.sh
-    bash scripts/validate.sh
+This lab can be used to study Linux host visibility, process health, filesystem health, service state, and system event visibility scenarios.

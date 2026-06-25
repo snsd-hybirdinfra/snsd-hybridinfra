@@ -1,31 +1,38 @@
 # Container Runtime Lab Scripts
 
-This directory contains lab-local execution entrypoints for the Container Runtime Lab.
+This directory contains lab-local execution scripts for the Container Runtime Lab.
 
 ## Script Roles
 
 | Script | Purpose |
 |---|---|
-| setup.sh | Prepare Docker runtime validation targets and evidence directories |
-| validate.sh | Execute Docker runtime, container health, log, recovery, and evidence validation checks |
-| cleanup.sh | Clean temporary container validation outputs while preserving evidence |
+| setup.sh | Prepares runtime workspace, configuration, fixtures, and evidence boundaries |
+| validate.sh | Validates runtime results and writes validation evidence |
+| cleanup.sh | Cleans runtime workspace outputs |
+| run.sh | Orchestrates the full lab runtime workflow |
 
-## Execution Boundary
+## Execution
 
-These scripts belong only to:
+Recommended entrypoint from the lab root:
 
-labs/04-container-runtime-lab/
+bash scripts/run.sh
 
-They coordinate lab-local modules, adapters, shared runtime utilities, and evidence generation workflows.
+Optional cleanup execution:
 
-## Future Implementation
+bash scripts/run.sh --cleanup
 
-Future implementation may include:
+## Runtime Boundary
 
-- Docker runtime availability checks
-- validation container preparation
-- container image validation
-- container health validation
-- container log collection
-- restart and recovery workflow validation
-- container evidence generation
+This lab validates a local container runtime visibility and recovery boundary.
+
+The runtime boundary is intentionally scoped to lab-local execution and reviewer-readable validation evidence.
+
+## Evidence Boundary
+
+Generated evidence is written under evidence/generated/.
+
+Generated runtime evidence remains local-only unless explicitly promoted to reviewer-facing evidence.
+
+## Scenario Study Usage
+
+This lab can be used to study container runtime visibility, container health, application runtime visibility, and container recovery scenarios.
