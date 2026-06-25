@@ -1,4 +1,4 @@
-﻿# Scenario Test Evidence Index
+# Scenario Test Evidence Index
 
 This document indexes scenario-level test evidence and mapped lab relationships across the SNSD Hybrid Infrastructure repository.
 
@@ -15,7 +15,7 @@ scenarios/<level>/<scenario>/evidence/generated/lab-based-study-validation.md
 | Metric | Value |
 |---|---|
 | Total scenarios | 150 |
-| Scenarios with lab-based study evidence | 45 |
+| Scenarios with lab-based study evidence | 86 |
 | Labs referenced | 10 |
 
 ## Scenario Count by Level
@@ -47,8 +47,8 @@ scenarios/<level>/<scenario>/evidence/generated/lab-based-study-validation.md
 
 | Status | Count |
 |---|---:|
-| EVIDENCE_READY | 105 |
-| STUDY_VALIDATED | 45 |
+| EVIDENCE_READY | 64 |
+| STUDY_VALIDATED | 86 |
 
 ## Level 1 Visibility
 
@@ -104,47 +104,47 @@ scenarios/<level>/<scenario>/evidence/generated/lab-based-study-validation.md
 
 | Scenario | Mapped Lab | Study Evidence | Status | Evidence Path |
 |---|---|---|---|---|
-| api-latency-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/api-latency-correlation/evidence/generated/scenario-test-evidence.md |
-| authentication-anomaly-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/authentication-anomaly-analysis/evidence/generated/scenario-test-evidence.md |
-| backup-failure-correlation | 08-backup-recovery-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/backup-failure-correlation/evidence/generated/scenario-test-evidence.md |
-| change-impact-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/change-impact-correlation/evidence/generated/scenario-test-evidence.md |
-| cluster-resource-instability-analysis | 04-container-runtime-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/cluster-resource-instability-analysis/evidence/generated/scenario-test-evidence.md |
-| compute-resource-correlation | 01-linux-observability-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/compute-resource-correlation/evidence/generated/scenario-test-evidence.md |
-| configuration-drift-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/configuration-drift-correlation/evidence/generated/scenario-test-evidence.md |
-| container-dependency-analysis | 04-container-runtime-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/container-dependency-analysis/evidence/generated/scenario-test-evidence.md |
-| control-plane-anomaly-correlation | 05-kolla-openstack-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/control-plane-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
-| cross-domain-security-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/cross-domain-security-correlation/evidence/generated/scenario-test-evidence.md |
-| cross-region-network-anomaly-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/cross-region-network-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
-| cross-server-failure-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/cross-server-failure-correlation/evidence/generated/scenario-test-evidence.md |
-| cross-service-anomaly-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/cross-service-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
-| cross-service-database-dependency-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/cross-service-database-dependency-analysis/evidence/generated/scenario-test-evidence.md |
-| cross-site-network-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/cross-site-network-correlation/evidence/generated/scenario-test-evidence.md |
-| database-latency-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/database-latency-correlation/evidence/generated/scenario-test-evidence.md |
-| filesystem-failure-correlation | 01-linux-observability-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/filesystem-failure-correlation/evidence/generated/scenario-test-evidence.md |
-| identity-risk-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/identity-risk-analysis/evidence/generated/scenario-test-evidence.md |
-| infrastructure-anomaly-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/infrastructure-anomaly-analysis/evidence/generated/scenario-test-evidence.md |
-| inter-region-dependency-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/inter-region-dependency-correlation/evidence/generated/scenario-test-evidence.md |
-| multi-region-latency-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/multi-region-latency-correlation/evidence/generated/scenario-test-evidence.md |
-| network-packet-loss-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/network-packet-loss-correlation/evidence/generated/scenario-test-evidence.md |
-| network-path-dependency-analysis | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/network-path-dependency-analysis/evidence/generated/scenario-test-evidence.md |
-| platform-dependency-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/platform-dependency-correlation/evidence/generated/scenario-test-evidence.md |
-| pod-failure-correlation | 04-container-runtime-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/pod-failure-correlation/evidence/generated/scenario-test-evidence.md |
-| privilege-escalation-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/privilege-escalation-correlation/evidence/generated/scenario-test-evidence.md |
-| query-lock-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/query-lock-analysis/evidence/generated/scenario-test-evidence.md |
-| replication-failure-correlation | 08-backup-recovery-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/replication-failure-correlation/evidence/generated/scenario-test-evidence.md |
-| resource-contention-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/resource-contention-correlation/evidence/generated/scenario-test-evidence.md |
-| routing-instability-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/routing-instability-correlation/evidence/generated/scenario-test-evidence.md |
-| runtime-instability-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/runtime-instability-analysis/evidence/generated/scenario-test-evidence.md |
-| security-anomaly-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/security-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
-| security-policy-violation-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/security-policy-violation-analysis/evidence/generated/scenario-test-evidence.md |
-| service-dependency-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/service-dependency-correlation/evidence/generated/scenario-test-evidence.md |
-| service-mesh-latency-correlation | 04-container-runtime-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/service-mesh-latency-correlation/evidence/generated/scenario-test-evidence.md |
-| storage-io-instability-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/storage-io-instability-analysis/evidence/generated/scenario-test-evidence.md |
-| threat-propagation-analysis | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/threat-propagation-analysis/evidence/generated/scenario-test-evidence.md |
-| traffic-spike-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/traffic-spike-correlation/evidence/generated/scenario-test-evidence.md |
-| virtualization-resource-correlation | 07-logging-correlation-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/virtualization-resource-correlation/evidence/generated/scenario-test-evidence.md |
-| vpn-latency-correlation | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/vpn-latency-correlation/evidence/generated/scenario-test-evidence.md |
-| vpn-tunnel-instability-analysis | 02-network-routing-lab | NO | EVIDENCE_READY | scenarios/level-2-correlation/vpn-tunnel-instability-analysis/evidence/generated/scenario-test-evidence.md |
+| api-latency-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/api-latency-correlation/evidence/generated/scenario-test-evidence.md |
+| authentication-anomaly-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/authentication-anomaly-analysis/evidence/generated/scenario-test-evidence.md |
+| backup-failure-correlation | 08-backup-recovery-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/backup-failure-correlation/evidence/generated/scenario-test-evidence.md |
+| change-impact-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/change-impact-correlation/evidence/generated/scenario-test-evidence.md |
+| cluster-resource-instability-analysis | 04-container-runtime-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/cluster-resource-instability-analysis/evidence/generated/scenario-test-evidence.md |
+| compute-resource-correlation | 01-linux-observability-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/compute-resource-correlation/evidence/generated/scenario-test-evidence.md |
+| configuration-drift-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/configuration-drift-correlation/evidence/generated/scenario-test-evidence.md |
+| container-dependency-analysis | 04-container-runtime-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/container-dependency-analysis/evidence/generated/scenario-test-evidence.md |
+| control-plane-anomaly-correlation | 05-kolla-openstack-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/control-plane-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
+| cross-domain-security-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/cross-domain-security-correlation/evidence/generated/scenario-test-evidence.md |
+| cross-region-network-anomaly-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/cross-region-network-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
+| cross-server-failure-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/cross-server-failure-correlation/evidence/generated/scenario-test-evidence.md |
+| cross-service-anomaly-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/cross-service-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
+| cross-service-database-dependency-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/cross-service-database-dependency-analysis/evidence/generated/scenario-test-evidence.md |
+| cross-site-network-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/cross-site-network-correlation/evidence/generated/scenario-test-evidence.md |
+| database-latency-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/database-latency-correlation/evidence/generated/scenario-test-evidence.md |
+| filesystem-failure-correlation | 01-linux-observability-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/filesystem-failure-correlation/evidence/generated/scenario-test-evidence.md |
+| identity-risk-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/identity-risk-analysis/evidence/generated/scenario-test-evidence.md |
+| infrastructure-anomaly-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/infrastructure-anomaly-analysis/evidence/generated/scenario-test-evidence.md |
+| inter-region-dependency-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/inter-region-dependency-correlation/evidence/generated/scenario-test-evidence.md |
+| multi-region-latency-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/multi-region-latency-correlation/evidence/generated/scenario-test-evidence.md |
+| network-packet-loss-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/network-packet-loss-correlation/evidence/generated/scenario-test-evidence.md |
+| network-path-dependency-analysis | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/network-path-dependency-analysis/evidence/generated/scenario-test-evidence.md |
+| platform-dependency-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/platform-dependency-correlation/evidence/generated/scenario-test-evidence.md |
+| pod-failure-correlation | 04-container-runtime-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/pod-failure-correlation/evidence/generated/scenario-test-evidence.md |
+| privilege-escalation-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/privilege-escalation-correlation/evidence/generated/scenario-test-evidence.md |
+| query-lock-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/query-lock-analysis/evidence/generated/scenario-test-evidence.md |
+| replication-failure-correlation | 08-backup-recovery-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/replication-failure-correlation/evidence/generated/scenario-test-evidence.md |
+| resource-contention-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/resource-contention-correlation/evidence/generated/scenario-test-evidence.md |
+| routing-instability-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/routing-instability-correlation/evidence/generated/scenario-test-evidence.md |
+| runtime-instability-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/runtime-instability-analysis/evidence/generated/scenario-test-evidence.md |
+| security-anomaly-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/security-anomaly-correlation/evidence/generated/scenario-test-evidence.md |
+| security-policy-violation-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/security-policy-violation-analysis/evidence/generated/scenario-test-evidence.md |
+| service-dependency-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/service-dependency-correlation/evidence/generated/scenario-test-evidence.md |
+| service-mesh-latency-correlation | 04-container-runtime-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/service-mesh-latency-correlation/evidence/generated/scenario-test-evidence.md |
+| storage-io-instability-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/storage-io-instability-analysis/evidence/generated/scenario-test-evidence.md |
+| threat-propagation-analysis | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/threat-propagation-analysis/evidence/generated/scenario-test-evidence.md |
+| traffic-spike-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/traffic-spike-correlation/evidence/generated/scenario-test-evidence.md |
+| virtualization-resource-correlation | 07-logging-correlation-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/virtualization-resource-correlation/evidence/generated/scenario-test-evidence.md |
+| vpn-latency-correlation | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/vpn-latency-correlation/evidence/generated/scenario-test-evidence.md |
+| vpn-tunnel-instability-analysis | 02-network-routing-lab | YES | STUDY_VALIDATED | scenarios/level-2-correlation/vpn-tunnel-instability-analysis/evidence/generated/scenario-test-evidence.md |
 
 ## Level 3 Recovery
 
@@ -231,6 +231,5 @@ scenarios/<level>/<scenario>/evidence/generated/lab-based-study-validation.md
 - Study Evidence indicates whether lab-based-study-validation.md exists for the scenario.
 - STUDY_VALIDATED means the scenario has baseline generated evidence and lab-based study evidence.
 - EVIDENCE_READY means baseline scenario evidence exists but lab-based study evidence has not been generated yet.
-- PARTIAL_EVIDENCE status means at least one expected baseline evidence file is missing.
-- MISSING_MAPPING status means no mapped lab could be extracted.
-
+- PARTIAL_EVIDENCE means at least one expected baseline evidence file is missing.
+- MISSING_MAPPING means no mapped lab could be extracted.
