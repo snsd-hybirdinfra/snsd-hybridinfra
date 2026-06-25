@@ -1,4 +1,4 @@
-# Scenario Test Evidence Manifest
+﻿# Scenario Test Evidence Manifest
 
 ## 1. Scenario
 
@@ -34,3 +34,4 @@ This file is a scenario-level evidence artifact. It does not duplicate raw runti
 ## 5. Traceability Chain
 
 Scenario -> Implementation Lab -> Runtime Evidence Boundary -> Expected Evidence Files -> Validation Report
+

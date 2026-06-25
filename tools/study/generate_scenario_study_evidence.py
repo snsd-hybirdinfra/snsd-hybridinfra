@@ -36,9 +36,15 @@ LAB_RUNTIME_RESULTS = {
         "Runtime summary generated: PASS",
     ],
     "05-kolla-openstack-lab": [
-        "Kolla OpenStack lab boundary: PASS",
-        "Control plane visibility readiness: PASS",
-        "Service validation readiness: PASS",
+        "OpenStack readiness workspace prepared: PASS",
+        "Kolla inventory present: PASS",
+        "Kolla globals present: PASS",
+        "Control group present: PASS",
+        "Compute group present: PASS",
+        "Network group present: PASS",
+        "Required globals present: PASS",
+        "Deployment boundary defined: PASS",
+        "Deployment gate result: PASS",
         "Runtime summary generated: PASS",
     ],
     "06-monitoring-stack-lab": [
@@ -83,7 +89,7 @@ LAB_OBJECTIVES = {
     "02-network-routing-lab": "network routing, reachability, and path visibility signals",
     "03-ansible-automation-lab": "automation execution and operational control signals",
     "04-container-runtime-lab": "container runtime visibility and health signals",
-    "05-kolla-openstack-lab": "cloud control plane and OpenStack service readiness signals",
+    "05-kolla-openstack-lab": "Kolla-Ansible OpenStack deployment readiness, inventory, globals, control group, compute group, and network group readiness signals",
     "06-monitoring-stack-lab": "monitoring, alert readiness, dashboard readiness, and target visibility signals",
     "07-logging-correlation-lab": "log collection, normalization, search, and event correlation signals",
     "08-backup-recovery-lab": "backup artifact, restore readiness, and integrity validation signals",
@@ -277,3 +283,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

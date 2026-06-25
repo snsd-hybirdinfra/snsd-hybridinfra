@@ -1,4 +1,4 @@
-# Scenario Test Evidence Manifest
+﻿# Scenario Test Evidence Manifest
 
 ## 1. Scenario
 
@@ -13,9 +13,9 @@
 
 | Field | Value |
 |---|---|
-| Mapped lab | 01-linux-observability-lab |
+| Mapped lab | 07-logging-correlation-lab |
 | Evidence boundary | Linux host observability evidence |
-| Runtime summary | labs/01-linux-observability-lab/evidence/generated/summary/linux-observability-runtime-summary.md |
+| Runtime summary | labs/07-logging-correlation-lab/evidence/generated/summary/linux-observability-runtime-summary.md |
 | Validation report | validation-reports/lab-runtime-implementation-summary.md |
 | Evidence status | Mapped |
 | Scenario validation result | PASS |
@@ -37,3 +37,4 @@ This file is a scenario-level evidence artifact. It does not duplicate raw runti
 ## 5. Traceability Chain
 
 Scenario -> Implementation Lab -> Runtime Evidence Boundary -> Expected Evidence Files -> Validation Report
+

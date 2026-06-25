@@ -1,4 +1,4 @@
-# Scenario Test Evidence Manifest
+﻿# Scenario Test Evidence Manifest
 
 ## 1. Scenario
 
@@ -13,9 +13,9 @@
 
 | Field | Value |
 |---|---|
-| Mapped lab | 06-monitoring-stack-lab |
+| Mapped lab | 03-ansible-automation-lab |
 | Evidence boundary | Prometheus, Grafana, and alert-rule evidence |
-| Runtime summary | labs/06-monitoring-stack-lab/evidence/generated/summary/monitoring-stack-runtime-summary.md |
+| Runtime summary | labs/03-ansible-automation-lab/evidence/generated/summary/monitoring-stack-runtime-summary.md |
 | Validation report | validation-reports/lab-runtime-implementation-summary.md |
 | Evidence status | Mapped |
 | Scenario validation result | PASS |
@@ -34,3 +34,4 @@ This file is a scenario-level evidence artifact. It does not duplicate raw runti
 ## 5. Traceability Chain
 
 Scenario -> Implementation Lab -> Runtime Evidence Boundary -> Expected Evidence Files -> Validation Report
+
