@@ -141,3 +141,26 @@ Local evidence paths:
 - evidence/generated/raw/network-routing-validate.log
 - evidence/generated/summary/network-routing-runtime-summary.md
 - evidence/generated/summary/network-routing-execution-summary.md
+
+## Scenario Signal Validation
+
+This lab includes scenario-level network signal validation in addition to basic routing readiness checks.
+
+Additional validation script:
+
+- scripts/validate-network-scenario-signals.sh
+
+Scenario signal coverage:
+
+- network path visibility
+- endpoint reachability
+- gateway reachability boundary
+- DNS resolution boundary
+- network interface visibility
+- latency visibility
+- packet loss visibility
+- VPN connectivity boundary
+- WAN link boundary
+- load balancer path boundary
+
+The generated runtime evidence remains local-only under evidence/generated.

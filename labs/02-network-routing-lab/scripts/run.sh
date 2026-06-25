@@ -48,3 +48,7 @@ else
 fi
 
 echo "[OK] network routing runtime orchestration completed"
+echo "[INFO] running network scenario signal validation"
+bash "${SCRIPT_DIR}/validate-network-scenario-signals.sh"
+
+echo "[OK] network scenario signal validation completed"
