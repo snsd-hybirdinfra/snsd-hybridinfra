@@ -1,4 +1,4 @@
-# Scenario Test Evidence Manifest
+﻿# Scenario Test Evidence Manifest
 
 ## 1. Scenario
 
@@ -13,9 +13,9 @@
 
 | Field | Value |
 |---|---|
-| Mapped lab | 08-backup-recovery-lab |
+| Mapped lab | 09-resilience-failover-lab |
 | Evidence boundary | Backup, restore, and checksum integrity evidence |
-| Runtime summary | labs/08-backup-recovery-lab/evidence/generated/summary/backup-recovery-runtime-summary.md |
+| Runtime summary | labs/09-resilience-failover-lab/evidence/generated/summary/backup-recovery-runtime-summary.md |
 | Validation report | validation-reports/lab-runtime-implementation-summary.md |
 | Evidence status | Mapped |
 | Scenario validation result | PASS |
@@ -35,3 +35,4 @@ This file is a scenario-level evidence artifact. It does not duplicate raw runti
 ## 5. Traceability Chain
 
 Scenario -> Implementation Lab -> Runtime Evidence Boundary -> Expected Evidence Files -> Validation Report
+
