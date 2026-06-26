@@ -137,3 +137,32 @@ Local evidence paths:
 - evidence/generated/raw/logging-correlation-validate.log
 - evidence/generated/summary/logging-correlation-runtime-summary.md
 - evidence/generated/summary/logging-correlation-execution-summary.md
+
+## Scenario Correlation Validation
+
+This lab includes scenario-level logging and correlation validation in addition to basic logging readiness checks.
+
+Additional validation script:
+
+- scripts/validate-correlation-signals.sh
+
+Scenario signal coverage:
+
+- authentication anomaly analysis
+- privilege escalation correlation
+- change impact correlation
+- cross-service anomaly correlation
+- security policy violation analysis
+- query lock analysis
+- service dependency correlation
+- traffic spike correlation
+
+Generated correlation artifacts:
+
+- raw mock events
+- normalized events
+- event timeline
+- correlation findings
+- root-cause hints
+
+The generated runtime evidence remains local-only under evidence/generated.

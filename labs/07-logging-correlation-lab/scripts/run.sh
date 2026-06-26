@@ -48,3 +48,7 @@ else
 fi
 
 echo "[OK] logging correlation runtime orchestration completed"
+echo "[INFO] running logging correlation scenario signal validation"
+bash "${SCRIPT_DIR}/validate-correlation-signals.sh"
+
+echo "[OK] logging correlation scenario signal validation completed"
