@@ -131,3 +131,37 @@ Local evidence paths:
 - evidence/generated/raw/governance-reporting-validate.log
 - evidence/generated/summary/governance-reporting-runtime-summary.md
 - evidence/generated/summary/governance-reporting-execution-summary.md
+
+## Scenario Governance Reporting Validation
+
+This lab includes scenario-level governance and reporting validation in addition to basic reporting readiness checks.
+
+Additional validation script:
+
+- scripts/validate-governance-reporting-signals.sh
+
+Scenario signal coverage:
+
+- enterprise change continuity
+- enterprise cloud continuity
+- enterprise control plane continuity
+- enterprise data protection continuity
+- enterprise identity continuity
+- enterprise network continuity
+- enterprise operational continuity
+- enterprise platform continuity
+- enterprise security continuity
+- enterprise service continuity coordination
+- governance reporting
+- risk boundary management
+
+Generated governance artifacts:
+
+- enterprise scenario coverage summary
+- continuity governance decision log
+- governance risk register
+- executive continuity report
+- scenario signal matrix
+- governance reporting runtime summary
+
+The generated runtime evidence remains local-only under evidence/generated.
