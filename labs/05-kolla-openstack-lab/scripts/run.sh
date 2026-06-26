@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LAB_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
 LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SUMMARY="${LAB_DIR}/evidence/generated/summary/kolla-openstack-runtime-summary.md"
 
@@ -48,3 +51,7 @@ else
 fi
 
 echo "[OK] kolla openstack readiness runtime orchestration completed"
+echo "[INFO] running openstack readiness scenario signal validation"
+bash "${SCRIPT_DIR}/validate-openstack-readiness-signals.sh"
+
+echo "[OK] openstack readiness scenario signal validation completed"

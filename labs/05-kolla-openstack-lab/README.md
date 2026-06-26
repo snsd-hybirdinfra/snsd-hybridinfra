@@ -133,3 +133,39 @@ Local evidence paths:
 - evidence/generated/raw/kolla-openstack-validate.log
 - evidence/generated/summary/kolla-openstack-runtime-summary.md
 - evidence/generated/summary/kolla-openstack-execution-summary.md
+
+## Scenario OpenStack Readiness Validation
+
+This lab includes scenario-level OpenStack readiness validation in addition to Kolla deployment readiness checks.
+
+Additional validation script:
+
+- scripts/validate-openstack-readiness-signals.sh
+
+Scenario signal coverage:
+
+- cloud instance health monitoring
+- virtual machine health monitoring
+- virtual machine restoration
+- hypervisor resource monitoring
+- control plane health monitoring
+- control plane anomaly correlation
+- control plane recovery orchestration
+- Kubernetes control plane recovery boundary
+- object storage health monitoring
+- cloud instance recovery automation
+- enterprise cloud continuity
+- enterprise control plane continuity
+
+Generated OpenStack readiness artifacts:
+
+- mock Kolla inventory
+- mock Kolla globals
+- inventory boundary log
+- globals boundary log
+- OpenStack service readiness boundary
+- OpenStack resource boundary
+- scenario signal matrix
+- OpenStack readiness runtime summary
+
+The generated runtime evidence remains local-only under evidence/generated and runtime/.
