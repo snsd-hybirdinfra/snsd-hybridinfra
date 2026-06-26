@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LAB_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
 LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RAW_DIR="${LAB_DIR}/evidence/generated/raw"
 SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
@@ -69,3 +72,7 @@ else
 fi
 
 echo "[OK] backup recovery runtime orchestration completed"
+echo "[INFO] running backup recovery scenario signal validation"
+bash "${SCRIPT_DIR}/validate-backup-recovery-signals.sh"
+
+echo "[OK] backup recovery scenario signal validation completed"

@@ -115,3 +115,36 @@ Local evidence paths:
 - evidence/generated/raw/source-digest.sha256
 - evidence/generated/raw/restore-digest.sha256
 - evidence/generated/summary/backup-recovery-runtime-summary.md
+
+## Scenario Recovery Validation
+
+This lab includes scenario-level backup and recovery validation in addition to basic backup readiness checks.
+
+Additional validation script:
+
+- scripts/validate-backup-recovery-signals.sh
+
+Scenario signal coverage:
+
+- backup job monitoring
+- backup failure correlation
+- backup restoration automation
+- database recovery orchestration
+- database service restoration
+- data recovery orchestration
+- replication recovery orchestration
+- backup resilience validation
+- enterprise data protection continuity
+
+Generated recovery artifacts:
+
+- source mock application state
+- backup artifact
+- restore artifact
+- source checksum
+- backup checksum
+- restore checksum
+- recovery validation log
+- scenario runtime summary
+
+The generated runtime evidence remains local-only under evidence/generated and runtime/.
