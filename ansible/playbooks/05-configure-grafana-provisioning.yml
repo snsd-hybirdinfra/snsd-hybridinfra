@@ -1,0 +1,288 @@
+---
+- name: Configure Grafana provisioning
+  hosts: monitoring
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Ensure Grafana provisioning directories exist
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: grafana
+        group: grafana
+        mode: "0755"
+      loop:
+        - /etc/grafana/provisioning/datasources
+        - /etc/grafana/provisioning/dashboards
+        - /var/lib/grafana/dashboards
+
+    - name: Provision Prometheus datasource
+      ansible.builtin.copy:
+        dest: /etc/grafana/provisioning/datasources/prometheus.yml
+        owner: grafana
+        group: grafana
+        mode: "0644"
+        content: |
+          apiVersion: 1
+
+          datasources:
+            - name: Prometheus
+              uid: Prometheus
+              type: prometheus
+              access: proxy
+              url: http://127.0.0.1:9090
+              isDefault: true
+              editable: true
+
+    - name: Provision dashboard provider
+      ansible.builtin.copy:
+        dest: /etc/grafana/provisioning/dashboards/snsd-lab-dashboards.yml
+        owner: grafana
+        group: grafana
+        mode: "0644"
+        content: |
+          apiVersion: 1
+
+          providers:
+            - name: SNSD Lab Dashboards
+              orgId: 1
+              folder: SNSD Hybrid Infra
+              type: file
+              disableDeletion: false
+              editable: true
+              options:
+                path: /var/lib/grafana/dashboards
+
+    - name: Create SNSD node exporter summary dashboard
+      ansible.builtin.copy:
+        dest: /var/lib/grafana/dashboards/snsd-node-exporter-summary.json
+        owner: grafana
+        group: grafana
+        mode: "0644"
+        content: |
+          {
+            "annotations": {
+              "list": [
+                {
+                  "builtIn": 1,
+                  "datasource": {
+                    "type": "grafana",
+                    "uid": "-- Grafana --"
+                  },
+                  "enable": true,
+                  "hide": true,
+                  "iconColor": "rgba(0, 211, 255, 1)",
+                  "name": "Annotations & Alerts",
+                  "type": "dashboard"
+                }
+              ]
+            },
+            "editable": true,
+            "fiscalYearStartMonth": 0,
+            "graphTooltip": 0,
+            "id": null,
+            "links": [],
+            "liveNow": false,
+            "panels": [
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "Prometheus"
+                },
+                "fieldConfig": {
+                  "defaults": {
+                    "unit": "percent"
+                  },
+                  "overrides": []
+                },
+                "gridPos": {
+                  "h": 8,
+                  "w": 12,
+                  "x": 0,
+                  "y": 0
+                },
+                "id": 1,
+                "options": {
+                  "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                  },
+                  "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                  }
+                },
+                "targets": [
+                  {
+                    "expr": "100 - (avg by(instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+                    "legendFormat": "{{ "{{" }}instance{{ "}}" }} CPU",
+                    "refId": "A"
+                  }
+                ],
+                "title": "CPU Usage by Node",
+                "type": "timeseries"
+              },
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "Prometheus"
+                },
+                "fieldConfig": {
+                  "defaults": {
+                    "unit": "percent"
+                  },
+                  "overrides": []
+                },
+                "gridPos": {
+                  "h": 8,
+                  "w": 12,
+                  "x": 12,
+                  "y": 0
+                },
+                "id": 2,
+                "options": {
+                  "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                  },
+                  "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                  }
+                },
+                "targets": [
+                  {
+                    "expr": "(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100",
+                    "legendFormat": "{{ "{{" }}instance{{ "}}" }} Memory",
+                    "refId": "A"
+                  }
+                ],
+                "title": "Memory Usage by Node",
+                "type": "timeseries"
+              },
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "Prometheus"
+                },
+                "fieldConfig": {
+                  "defaults": {
+                    "unit": "percent"
+                  },
+                  "overrides": []
+                },
+                "gridPos": {
+                  "h": 8,
+                  "w": 12,
+                  "x": 0,
+                  "y": 8
+                },
+                "id": 3,
+                "options": {
+                  "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                  },
+                  "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                  }
+                },
+                "targets": [
+                  {
+                    "expr": "100 - ((node_filesystem_avail_bytes{fstype!~\"tmpfs|overlay\"} * 100) / node_filesystem_size_bytes{fstype!~\"tmpfs|overlay\"})",
+                    "legendFormat": "{{ "{{" }}instance{{ "}}" }} {{ "{{" }}mountpoint{{ "}}" }}",
+                    "refId": "A"
+                  }
+                ],
+                "title": "Filesystem Usage",
+                "type": "timeseries"
+              },
+              {
+                "datasource": {
+                  "type": "prometheus",
+                  "uid": "Prometheus"
+                },
+                "fieldConfig": {
+                  "defaults": {
+                    "unit": "short"
+                  },
+                  "overrides": []
+                },
+                "gridPos": {
+                  "h": 8,
+                  "w": 12,
+                  "x": 12,
+                  "y": 8
+                },
+                "id": 4,
+                "options": {
+                  "legend": {
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                  },
+                  "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                  }
+                },
+                "targets": [
+                  {
+                    "expr": "up{job=\"node_exporter\"}",
+                    "legendFormat": "{{ "{{" }}instance{{ "}}" }}",
+                    "refId": "A"
+                  }
+                ],
+                "title": "Node Exporter Target UP",
+                "type": "timeseries"
+              }
+            ],
+            "refresh": "10s",
+            "schemaVersion": 39,
+            "style": "dark",
+            "tags": [
+              "snsd",
+              "node-exporter",
+              "lab"
+            ],
+            "templating": {
+              "list": []
+            },
+            "time": {
+              "from": "now-30m",
+              "to": "now"
+            },
+            "timepicker": {},
+            "timezone": "",
+            "title": "SNSD Node Exporter Summary",
+            "uid": "snsd-node-exporter-summary",
+            "version": 1,
+            "weekStart": ""
+          }
+
+    - name: Restart Grafana
+      ansible.builtin.systemd:
+        name: grafana-server
+        state: restarted
+        enabled: true
+
+    - name: Wait for Grafana API
+      ansible.builtin.uri:
+        url: http://127.0.0.1:3000/api/health
+        method: GET
+        status_code: 200
+      register: grafana_health
+      retries: 10
+      delay: 3
+      until: grafana_health.status == 200
+
+    - name: Print Grafana access
+      ansible.builtin.debug:
+        msg:
+          - "Grafana: http://192.168.1.40:3000"
+          - "Dashboard: SNSD Hybrid Infra / SNSD Node Exporter Summary"

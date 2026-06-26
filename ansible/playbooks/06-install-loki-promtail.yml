@@ -1,0 +1,349 @@
+---
+- name: Install Loki on data-ops-node
+  hosts: monitoring
+  become: true
+  gather_facts: true
+
+  vars:
+    loki_version: "2.9.8"
+    loki_arch: "amd64"
+
+  tasks:
+    - name: Install unzip
+      ansible.builtin.apt:
+        name:
+          - unzip
+          - curl
+        state: present
+        update_cache: true
+
+    - name: Create loki user
+      ansible.builtin.user:
+        name: loki
+        shell: /usr/sbin/nologin
+        system: true
+        create_home: false
+
+    - name: Create loki directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: loki
+        group: loki
+        mode: "0755"
+      loop:
+        - /etc/loki
+        - /var/lib/loki
+        - /var/lib/loki/chunks
+        - /var/lib/loki/rules
+        - /var/lib/loki/boltdb-cache
+        - /var/lib/loki/boltdb-shipper-active
+        - /var/lib/loki/boltdb-shipper-cache
+        - /var/lib/loki/compactor
+
+    - name: Download Loki
+      ansible.builtin.get_url:
+        url: "https://github.com/grafana/loki/releases/download/v{{ loki_version }}/loki-linux-{{ loki_arch }}.zip"
+        dest: "/tmp/loki-linux-{{ loki_arch }}.zip"
+        mode: "0644"
+
+    - name: Extract Loki
+      ansible.builtin.unarchive:
+        src: "/tmp/loki-linux-{{ loki_arch }}.zip"
+        dest: /tmp
+        remote_src: true
+
+    - name: Install Loki binary
+      ansible.builtin.copy:
+        src: "/tmp/loki-linux-{{ loki_arch }}"
+        dest: /usr/local/bin/loki
+        owner: root
+        group: root
+        mode: "0755"
+        remote_src: true
+
+    - name: Create Loki config
+      ansible.builtin.copy:
+        dest: /etc/loki/loki.yml
+        owner: loki
+        group: loki
+        mode: "0644"
+        content: |
+          auth_enabled: false
+
+          server:
+            http_listen_port: 3100
+            grpc_listen_port: 9096
+
+          common:
+            path_prefix: /var/lib/loki
+            storage:
+              filesystem:
+                chunks_directory: /var/lib/loki/chunks
+                rules_directory: /var/lib/loki/rules
+            replication_factor: 1
+            ring:
+              kvstore:
+                store: inmemory
+
+          schema_config:
+            configs:
+              - from: 2024-01-01
+                store: boltdb-shipper
+                object_store: filesystem
+                schema: v12
+                index:
+                  prefix: index_
+                  period: 24h
+
+          storage_config:
+            boltdb_shipper:
+              active_index_directory: /var/lib/loki/boltdb-shipper-active
+              cache_location: /var/lib/loki/boltdb-shipper-cache
+              shared_store: filesystem
+            filesystem:
+              directory: /var/lib/loki/chunks
+
+          compactor:
+            working_directory: /var/lib/loki/compactor
+            shared_store: filesystem
+
+          limits_config:
+            retention_period: 168h
+            reject_old_samples: true
+            reject_old_samples_max_age: 168h
+
+          table_manager:
+            retention_deletes_enabled: true
+            retention_period: 168h
+
+    - name: Create Loki systemd unit
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/loki.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Loki Log Aggregation System
+          Wants=network-online.target
+          After=network-online.target
+
+          [Service]
+          User=loki
+          Group=loki
+          Type=simple
+          ExecStart=/usr/local/bin/loki -config.file=/etc/loki/loki.yml
+          Restart=always
+          RestartSec=5
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start Loki
+      ansible.builtin.systemd:
+        name: loki
+        enabled: true
+        state: restarted
+
+    - name: Check Loki ready
+      ansible.builtin.uri:
+        url: http://127.0.0.1:3100/ready
+        method: GET
+        status_code: 200
+      register: loki_ready
+      retries: 15
+      delay: 3
+      until: loki_ready.status == 200
+
+- name: Install Promtail on all Ubuntu nodes
+  hosts: ubuntu_nodes
+  become: true
+  gather_facts: true
+
+  vars:
+    loki_version: "2.9.8"
+    loki_arch: "amd64"
+    loki_push_url: "http://192.168.1.40:3100/loki/api/v1/push"
+
+  tasks:
+    - name: Install unzip
+      ansible.builtin.apt:
+        name:
+          - unzip
+          - curl
+        state: present
+        update_cache: true
+
+    - name: Create promtail user
+      ansible.builtin.user:
+        name: promtail
+        shell: /usr/sbin/nologin
+        system: true
+        create_home: false
+        groups:
+          - adm
+        append: true
+
+    - name: Create promtail directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: promtail
+        group: promtail
+        mode: "0755"
+      loop:
+        - /etc/promtail
+        - /var/lib/promtail
+
+    - name: Download Promtail
+      ansible.builtin.get_url:
+        url: "https://github.com/grafana/loki/releases/download/v{{ loki_version }}/promtail-linux-{{ loki_arch }}.zip"
+        dest: "/tmp/promtail-linux-{{ loki_arch }}.zip"
+        mode: "0644"
+
+    - name: Extract Promtail
+      ansible.builtin.unarchive:
+        src: "/tmp/promtail-linux-{{ loki_arch }}.zip"
+        dest: /tmp
+        remote_src: true
+
+    - name: Install Promtail binary
+      ansible.builtin.copy:
+        src: "/tmp/promtail-linux-{{ loki_arch }}"
+        dest: /usr/local/bin/promtail
+        owner: root
+        group: root
+        mode: "0755"
+        remote_src: true
+
+    - name: Create Promtail config
+      ansible.builtin.copy:
+        dest: /etc/promtail/promtail.yml
+        owner: promtail
+        group: promtail
+        mode: "0644"
+        content: |
+          server:
+            http_listen_port: 9080
+            grpc_listen_port: 0
+
+          positions:
+            filename: /var/lib/promtail/positions.yml
+
+          clients:
+            - url: {{ loki_push_url }}
+
+          scrape_configs:
+            - job_name: system
+              static_configs:
+                - targets:
+                    - localhost
+                  labels:
+                    job: varlogs
+                    host: {{ inventory_hostname }}
+                    __path__: /var/log/*.log
+
+            - job_name: auth
+              static_configs:
+                - targets:
+                    - localhost
+                  labels:
+                    job: auth
+                    host: {{ inventory_hostname }}
+                    __path__: /var/log/auth.log
+
+            - job_name: syslog
+              static_configs:
+                - targets:
+                    - localhost
+                  labels:
+                    job: syslog
+                    host: {{ inventory_hostname }}
+                    __path__: /var/log/syslog
+
+    - name: Create Promtail systemd unit
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/promtail.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Promtail Log Shipper
+          Wants=network-online.target
+          After=network-online.target
+
+          [Service]
+          User=promtail
+          Group=promtail
+          Type=simple
+          ExecStart=/usr/local/bin/promtail -config.file=/etc/promtail/promtail.yml
+          Restart=always
+          RestartSec=5
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start Promtail
+      ansible.builtin.systemd:
+        name: promtail
+        enabled: true
+        state: restarted
+
+    - name: Check Promtail service
+      ansible.builtin.command: systemctl is-active promtail
+      register: promtail_state
+      changed_when: false
+
+    - name: Print Promtail state
+      ansible.builtin.debug:
+        msg:
+          - "host={{ inventory_hostname }}"
+          - "promtail={{ promtail_state.stdout }}"
+          - "loki_push_url={{ loki_push_url }}"
+
+- name: Add Loki datasource to Grafana
+  hosts: monitoring
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Ensure Grafana datasource provisioning directory exists
+      ansible.builtin.file:
+        path: /etc/grafana/provisioning/datasources
+        state: directory
+        owner: grafana
+        group: grafana
+        mode: "0755"
+
+    - name: Provision Loki datasource
+      ansible.builtin.copy:
+        dest: /etc/grafana/provisioning/datasources/loki.yml
+        owner: grafana
+        group: grafana
+        mode: "0644"
+        content: |
+          apiVersion: 1
+
+          datasources:
+            - name: Loki
+              uid: Loki
+              type: loki
+              access: proxy
+              url: http://127.0.0.1:3100
+              editable: true
+
+    - name: Restart Grafana
+      ansible.builtin.systemd:
+        name: grafana-server
+        state: restarted
+        enabled: true

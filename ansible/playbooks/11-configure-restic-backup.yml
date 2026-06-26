@@ -1,0 +1,286 @@
+---
+- name: Configure Restic backup on data-ops-node
+  hosts: data_ops
+  become: true
+  gather_facts: true
+
+  vars:
+    restic_repo: "/srv/restic-repo"
+    restic_password_file: "/etc/restic/snsd-restic-password"
+    restic_password: "snsd_restic_lab_password"
+    backup_root: "/opt/snsd-backup"
+    backup_source_dir: "/opt/snsd-backup/source"
+    backup_restore_dir: "/opt/snsd-backup/restore-test"
+    backup_scripts_dir: "/opt/snsd-backup/scripts"
+    backup_metrics_dir: "/var/lib/node_exporter/textfile_collector"
+    backup_metrics_file: "/var/lib/node_exporter/textfile_collector/snsd_backup.prom"
+
+  tasks:
+    - name: Install backup packages
+      ansible.builtin.apt:
+        name:
+          - restic
+          - mariadb-client
+          - gzip
+          - rsync
+          - coreutils
+        state: present
+        update_cache: true
+
+    - name: Create backup directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+      loop:
+        - "{{ restic_repo }}"
+        - /etc/restic
+        - "{{ backup_root }}"
+        - "{{ backup_source_dir }}"
+        - "{{ backup_restore_dir }}"
+        - "{{ backup_scripts_dir }}"
+        - "{{ backup_metrics_dir }}"
+
+    - name: Write Restic password file
+      ansible.builtin.copy:
+        dest: "{{ restic_password_file }}"
+        owner: root
+        group: root
+        mode: "0600"
+        content: "{{ restic_password }}\n"
+
+    - name: Initialize Restic repository if needed
+      ansible.builtin.shell: |
+        if [ ! -f "{{ restic_repo }}/config" ]; then
+          restic -r "{{ restic_repo }}" --password-file "{{ restic_password_file }}" init
+        else
+          echo "restic repository already initialized"
+        fi
+      args:
+        executable: /bin/bash
+      changed_when: false
+
+    - name: Create sample application state file
+      ansible.builtin.copy:
+        dest: "{{ backup_source_dir }}/service-state.txt"
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          service=snsd-sample-web
+          status=healthy
+          owner=data-ops-node
+          backup_scope=file-and-database
+          updated_at={{ ansible_date_time.iso8601 }}
+
+    - name: Create backup script
+      ansible.builtin.copy:
+        dest: "{{ backup_scripts_dir }}/backup-snsd-state.sh"
+        owner: root
+        group: root
+        mode: "0755"
+        content: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          RESTIC_REPO="{{ restic_repo }}"
+          RESTIC_PASSWORD_FILE="{{ restic_password_file }}"
+          BACKUP_ROOT="{{ backup_root }}"
+          SOURCE_DIR="{{ backup_source_dir }}"
+          METRICS_FILE="{{ backup_metrics_file }}"
+          TMP_METRICS="${METRICS_FILE}.tmp"
+          DB_DUMP_DIR="${BACKUP_ROOT}/db-dumps"
+          TS="$(date -Iseconds)"
+          START_EPOCH="$(date +%s)"
+
+          mkdir -p "${DB_DUMP_DIR}"
+          mkdir -p "$(dirname "${METRICS_FILE}")"
+
+          STATUS=1
+          SNAPSHOT_COUNT=0
+
+          {
+            echo "[INFO] backup started at ${TS}"
+
+            if systemctl is-active --quiet mariadb; then
+              mysqldump --single-transaction snsd_lab | gzip > "${DB_DUMP_DIR}/snsd_lab.sql.gz"
+              echo "[INFO] database dump completed"
+            else
+              echo "[WARN] mariadb is not active, database dump skipped"
+            fi
+
+            restic -r "${RESTIC_REPO}" --password-file "${RESTIC_PASSWORD_FILE}" backup "${SOURCE_DIR}" "${DB_DUMP_DIR}"
+
+            SNAPSHOT_COUNT="$(restic -r "${RESTIC_REPO}" --password-file "${RESTIC_PASSWORD_FILE}" snapshots --json | python3 -c 'import sys,json; print(len(json.load(sys.stdin)))')"
+
+            STATUS=0
+          } || {
+            STATUS=1
+          }
+
+          END_EPOCH="$(date +%s)"
+          DURATION="$((END_EPOCH - START_EPOCH))"
+
+          cat > "${TMP_METRICS}" <<METRICS
+          # HELP snsd_backup_last_success Backup success status. 1 means success, 0 means failure.
+          # TYPE snsd_backup_last_success gauge
+          snsd_backup_last_success $(( STATUS == 0 ? 1 : 0 ))
+          # HELP snsd_backup_last_duration_seconds Backup duration in seconds.
+          # TYPE snsd_backup_last_duration_seconds gauge
+          snsd_backup_last_duration_seconds ${DURATION}
+          # HELP snsd_backup_snapshot_count Restic snapshot count.
+          # TYPE snsd_backup_snapshot_count gauge
+          snsd_backup_snapshot_count ${SNAPSHOT_COUNT}
+          # HELP snsd_backup_last_run_timestamp_seconds Last backup run timestamp.
+          # TYPE snsd_backup_last_run_timestamp_seconds gauge
+          snsd_backup_last_run_timestamp_seconds ${END_EPOCH}
+          METRICS
+
+          mv "${TMP_METRICS}" "${METRICS_FILE}"
+
+          if [ "${STATUS}" -ne 0 ]; then
+            echo "[ERROR] backup failed"
+            exit 1
+          fi
+
+          echo "[OK] backup completed"
+
+    - name: Create restore validation script
+      ansible.builtin.copy:
+        dest: "{{ backup_scripts_dir }}/restore-validate-snsd-state.sh"
+        owner: root
+        group: root
+        mode: "0755"
+        content: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          RESTIC_REPO="{{ restic_repo }}"
+          RESTIC_PASSWORD_FILE="{{ restic_password_file }}"
+          RESTORE_DIR="{{ backup_restore_dir }}"
+          RESTORE_METRICS="/var/lib/node_exporter/textfile_collector/snsd_restore.prom"
+          TMP_METRICS="${RESTORE_METRICS}.tmp"
+          START_EPOCH="$(date +%s)"
+
+          rm -rf "${RESTORE_DIR}"
+          mkdir -p "${RESTORE_DIR}"
+
+          STATUS=1
+
+          {
+            restic -r "${RESTIC_REPO}" --password-file "${RESTIC_PASSWORD_FILE}" restore latest --target "${RESTORE_DIR}"
+
+            test -f "${RESTORE_DIR}/opt/snsd-backup/source/service-state.txt"
+            grep -q "service=snsd-sample-web" "${RESTORE_DIR}/opt/snsd-backup/source/service-state.txt"
+
+            STATUS=0
+          } || {
+            STATUS=1
+          }
+
+          END_EPOCH="$(date +%s)"
+          DURATION="$((END_EPOCH - START_EPOCH))"
+
+          cat > "${TMP_METRICS}" <<METRICS
+          # HELP snsd_restore_validation_success Restore validation success status. 1 means success, 0 means failure.
+          # TYPE snsd_restore_validation_success gauge
+          snsd_restore_validation_success $(( STATUS == 0 ? 1 : 0 ))
+          # HELP snsd_restore_validation_duration_seconds Restore validation duration in seconds.
+          # TYPE snsd_restore_validation_duration_seconds gauge
+          snsd_restore_validation_duration_seconds ${DURATION}
+          # HELP snsd_restore_validation_last_run_timestamp_seconds Last restore validation timestamp.
+          # TYPE snsd_restore_validation_last_run_timestamp_seconds gauge
+          snsd_restore_validation_last_run_timestamp_seconds ${END_EPOCH}
+          METRICS
+
+          mv "${TMP_METRICS}" "${RESTORE_METRICS}"
+
+          if [ "${STATUS}" -ne 0 ]; then
+            echo "[ERROR] restore validation failed"
+            exit 1
+          fi
+
+          echo "[OK] restore validation completed"
+
+    - name: Create systemd backup service
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/snsd-restic-backup.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=SNSD Restic Backup Job
+          Wants=network-online.target
+          After=network-online.target mariadb.service
+
+          [Service]
+          Type=oneshot
+          ExecStart={{ backup_scripts_dir }}/backup-snsd-state.sh
+
+    - name: Create systemd backup timer
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/snsd-restic-backup.timer
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Run SNSD Restic Backup Job every 15 minutes
+
+          [Timer]
+          OnBootSec=2min
+          OnUnitActiveSec=15min
+          Unit=snsd-restic-backup.service
+
+          [Install]
+          WantedBy=timers.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start backup timer
+      ansible.builtin.systemd:
+        name: snsd-restic-backup.timer
+        enabled: true
+        state: started
+
+    - name: Run initial backup
+      ansible.builtin.command: "{{ backup_scripts_dir }}/backup-snsd-state.sh"
+      changed_when: true
+
+    - name: Run restore validation
+      ansible.builtin.command: "{{ backup_scripts_dir }}/restore-validate-snsd-state.sh"
+      changed_when: true
+
+    - name: Check backup metrics endpoint through node exporter
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9100/metrics
+        method: GET
+        status_code: 200
+        return_content: true
+      register: node_metrics
+
+    - name: Print backup summary
+      ansible.builtin.debug:
+        msg:
+          - "restic_repo={{ restic_repo }}"
+          - "backup_script={{ backup_scripts_dir }}/backup-snsd-state.sh"
+          - "restore_validation_script={{ backup_scripts_dir }}/restore-validate-snsd-state.sh"
+          - "backup_metrics={{ backup_metrics_file }}"
+          - "node_exporter_metrics=http://192.168.1.40:9100/metrics"
+
+- name: Add backup metric notes to Prometheus scrape path
+  hosts: monitoring
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Restart node_exporter to ensure textfile collector flag check is visible
+      ansible.builtin.systemd:
+        name: node_exporter
+        state: restarted
+        enabled: true

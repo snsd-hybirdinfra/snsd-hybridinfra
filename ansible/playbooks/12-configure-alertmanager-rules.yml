@@ -1,0 +1,286 @@
+---
+- name: Install Alertmanager and configure Prometheus alert rules
+  hosts: monitoring
+  become: true
+  gather_facts: true
+
+  vars:
+    alertmanager_version: "0.27.0"
+    alertmanager_arch: "linux-amd64"
+    alertmanager_user: "alertmanager"
+
+  tasks:
+    - name: Create alertmanager system user
+      ansible.builtin.user:
+        name: "{{ alertmanager_user }}"
+        shell: /usr/sbin/nologin
+        system: true
+        create_home: false
+
+    - name: Create alertmanager directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ alertmanager_user }}"
+        group: "{{ alertmanager_user }}"
+        mode: "0755"
+      loop:
+        - /etc/alertmanager
+        - /var/lib/alertmanager
+
+    - name: Download Alertmanager archive
+      ansible.builtin.get_url:
+        url: "https://github.com/prometheus/alertmanager/releases/download/v{{ alertmanager_version }}/alertmanager-{{ alertmanager_version }}.{{ alertmanager_arch }}.tar.gz"
+        dest: "/tmp/alertmanager-{{ alertmanager_version }}.{{ alertmanager_arch }}.tar.gz"
+        mode: "0644"
+
+    - name: Extract Alertmanager archive
+      ansible.builtin.unarchive:
+        src: "/tmp/alertmanager-{{ alertmanager_version }}.{{ alertmanager_arch }}.tar.gz"
+        dest: /tmp
+        remote_src: true
+
+    - name: Install Alertmanager binaries
+      ansible.builtin.copy:
+        src: "/tmp/alertmanager-{{ alertmanager_version }}.{{ alertmanager_arch }}/{{ item }}"
+        dest: "/usr/local/bin/{{ item }}"
+        owner: root
+        group: root
+        mode: "0755"
+        remote_src: true
+      loop:
+        - alertmanager
+        - amtool
+
+    - name: Create Alertmanager config
+      ansible.builtin.copy:
+        dest: /etc/alertmanager/alertmanager.yml
+        owner: "{{ alertmanager_user }}"
+        group: "{{ alertmanager_user }}"
+        mode: "0644"
+        content: |
+          global:
+            resolve_timeout: 5m
+
+          route:
+            receiver: "snsd-local-receiver"
+            group_by:
+              - alertname
+              - severity
+            group_wait: 10s
+            group_interval: 1m
+            repeat_interval: 30m
+
+          receivers:
+            - name: "snsd-local-receiver"
+
+    - name: Create Alertmanager systemd unit
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/alertmanager.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Prometheus Alertmanager
+          Wants=network-online.target
+          After=network-online.target
+
+          [Service]
+          User={{ alertmanager_user }}
+          Group={{ alertmanager_user }}
+          Type=simple
+          ExecStart=/usr/local/bin/alertmanager \
+            --config.file=/etc/alertmanager/alertmanager.yml \
+            --storage.path=/var/lib/alertmanager \
+            --web.listen-address=0.0.0.0:9093
+
+          Restart=always
+          RestartSec=5
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Create SNSD Prometheus alert rules
+      ansible.builtin.copy:
+        dest: /etc/prometheus/snsd-alert-rules.yml
+        owner: prometheus
+        group: prometheus
+        mode: "0644"
+        content: |
+          {% raw %}
+          groups:
+            - name: snsd-node-health
+              rules:
+                - alert: SNSDNodeExporterDown
+                  expr: up{job="node_exporter"} == 0
+                  for: 1m
+                  labels:
+                    severity: critical
+                    lifecycle: detection
+                  annotations:
+                    summary: "Node exporter target is down"
+                    description: "Node exporter target {{ $labels.instance }} has been down for more than 1 minute."
+
+                - alert: SNSDHighCpuUsage
+                  expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+                  for: 3m
+                  labels:
+                    severity: warning
+                    lifecycle: detection
+                  annotations:
+                    summary: "High CPU usage detected"
+                    description: "CPU usage on {{ $labels.instance }} is above 80%."
+
+                - alert: SNSDHighMemoryUsage
+                  expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 85
+                  for: 3m
+                  labels:
+                    severity: warning
+                    lifecycle: detection
+                  annotations:
+                    summary: "High memory usage detected"
+                    description: "Memory usage on {{ $labels.instance }} is above 85%."
+
+                - alert: SNSDHighFilesystemUsage
+                  expr: 100 - ((node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"} * 100) / node_filesystem_size_bytes{fstype!~"tmpfs|overlay"}) > 85
+                  for: 3m
+                  labels:
+                    severity: warning
+                    lifecycle: detection
+                  annotations:
+                    summary: "High filesystem usage detected"
+                    description: "Filesystem usage on {{ $labels.instance }} {{ $labels.mountpoint }} is above 85%."
+
+            - name: snsd-probe-health
+              rules:
+                - alert: SNSDBlackboxProbeFailed
+                  expr: probe_success == 0
+                  for: 1m
+                  labels:
+                    severity: critical
+                    lifecycle: detection
+                  annotations:
+                    summary: "Blackbox probe failed"
+                    description: "Probe failed for {{ $labels.instance }}."
+
+            - name: snsd-database-health
+              rules:
+                - alert: SNSDMariaDBExporterDown
+                  expr: up{job="mysqld_exporter"} == 0
+                  for: 1m
+                  labels:
+                    severity: critical
+                    lifecycle: detection
+                  annotations:
+                    summary: "MariaDB exporter is down"
+                    description: "mysqld_exporter target {{ $labels.instance }} is down."
+
+                - alert: SNSDMariaDBDown
+                  expr: mysql_up == 0
+                  for: 1m
+                  labels:
+                    severity: critical
+                    lifecycle: detection
+                  annotations:
+                    summary: "MariaDB is down"
+                    description: "MariaDB health metric mysql_up is 0."
+
+            - name: snsd-backup-recovery
+              rules:
+                - alert: SNSDBackupFailed
+                  expr: snsd_backup_last_success == 0
+                  for: 1m
+                  labels:
+                    severity: critical
+                    lifecycle: recovery-validation
+                  annotations:
+                    summary: "Backup job failed"
+                    description: "SNSD Restic backup reported failure."
+
+                - alert: SNSDRestoreValidationFailed
+                  expr: snsd_restore_validation_success == 0
+                  for: 1m
+                  labels:
+                    severity: critical
+                    lifecycle: recovery-validation
+                  annotations:
+                    summary: "Restore validation failed"
+                    description: "SNSD restore validation reported failure."
+
+                - alert: SNSDBackupStale
+                  expr: time() - snsd_backup_last_run_timestamp_seconds > 3600
+                  for: 5m
+                  labels:
+                    severity: warning
+                    lifecycle: recovery-validation
+                  annotations:
+                    summary: "Backup result is stale"
+                    description: "No backup metric update has been observed for more than 1 hour."
+          {% endraw %}
+
+    - name: Add Alertmanager and rule_files section to Prometheus config
+      ansible.builtin.blockinfile:
+        path: /etc/prometheus/prometheus.yml
+        marker: "# {mark} SNSD ALERTING CONFIG"
+        insertafter: EOF
+        block: |
+          alerting:
+            alertmanagers:
+              - static_configs:
+                  - targets:
+                      - "127.0.0.1:9093"
+
+          rule_files:
+            - /etc/prometheus/snsd-alert-rules.yml
+
+    - name: Validate Alertmanager config
+      ansible.builtin.command: amtool check-config /etc/alertmanager/alertmanager.yml
+      changed_when: false
+
+    - name: Validate Prometheus config
+      ansible.builtin.command: promtool check config /etc/prometheus/prometheus.yml
+      changed_when: false
+
+    - name: Validate Prometheus alert rules
+      ansible.builtin.command: promtool check rules /etc/prometheus/snsd-alert-rules.yml
+      changed_when: false
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start Alertmanager
+      ansible.builtin.systemd:
+        name: alertmanager
+        enabled: true
+        state: restarted
+
+    - name: Restart Prometheus
+      ansible.builtin.systemd:
+        name: prometheus
+        state: restarted
+        enabled: true
+
+    - name: Check Alertmanager health
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9093/-/healthy
+        method: GET
+        status_code: 200
+
+    - name: Check Prometheus health
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9090/-/healthy
+        method: GET
+        status_code: 200
+      register: prometheus_health
+      retries: 10
+      delay: 3
+      until: prometheus_health.status == 200
+
+    - name: Print alerting access
+      ansible.builtin.debug:
+        msg:
+          - "Prometheus Alerts: http://192.168.1.40:9090/alerts"
+          - "Prometheus Rules: http://192.168.1.40:9090/rules"
+          - "Alertmanager: http://192.168.1.40:9093"

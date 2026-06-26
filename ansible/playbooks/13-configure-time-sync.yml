@@ -1,0 +1,69 @@
+---
+- name: Configure timezone and time synchronization
+  hosts: ubuntu_nodes
+  become: true
+  gather_facts: true
+
+  vars:
+    timezone_name: "Asia/Seoul"
+
+  tasks:
+    - name: Set timezone to Asia/Seoul
+      community.general.timezone:
+        name: "{{ timezone_name }}"
+
+    - name: Install chrony
+      ansible.builtin.apt:
+        name: chrony
+        state: present
+        update_cache: true
+
+    - name: Configure chrony
+      ansible.builtin.copy:
+        dest: /etc/chrony/chrony.conf
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          pool ntp.ubuntu.com iburst
+          pool time.google.com iburst
+          pool time.cloudflare.com iburst
+
+          driftfile /var/lib/chrony/chrony.drift
+          makestep 1.0 3
+          rtcsync
+
+          logdir /var/log/chrony
+
+    - name: Enable and restart chrony
+      ansible.builtin.systemd:
+        name: chrony
+        enabled: true
+        state: restarted
+
+    - name: Wait briefly for chrony
+      ansible.builtin.pause:
+        seconds: 5
+
+    - name: Force chrony time step if needed
+      ansible.builtin.command: chronyc makestep
+      changed_when: false
+      failed_when: false
+
+    - name: Check timedatectl
+      ansible.builtin.command: timedatectl
+      register: timedatectl_result
+      changed_when: false
+
+    - name: Check chrony tracking
+      ansible.builtin.command: chronyc tracking
+      register: chrony_tracking
+      changed_when: false
+      failed_when: false
+
+    - name: Print time sync summary
+      ansible.builtin.debug:
+        msg:
+          - "host={{ inventory_hostname }}"
+          - "{{ timedatectl_result.stdout_lines }}"
+          - "{{ chrony_tracking.stdout_lines }}"

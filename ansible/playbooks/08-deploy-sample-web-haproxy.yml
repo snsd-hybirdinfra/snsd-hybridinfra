@@ -1,0 +1,128 @@
+---
+- name: Deploy sample web apps on app nodes
+  hosts: app
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Ensure sample web directory exists
+      ansible.builtin.file:
+        path: /opt/snsd-web
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Create sample index page
+      ansible.builtin.copy:
+        dest: /opt/snsd-web/index.html
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          <!doctype html>
+          <html>
+          <head>
+            <title>SNSD Sample Web</title>
+          </head>
+          <body>
+            <h1>SNSD Sample Web</h1>
+            <p>hostname: {{ inventory_hostname }}</p>
+            <p>role: application node</p>
+            <p>status: healthy</p>
+          </body>
+          </html>
+
+    - name: Run sample nginx container
+      community.docker.docker_container:
+        name: snsd-sample-web
+        image: nginx:stable-alpine
+        state: started
+        restart_policy: always
+        published_ports:
+          - "80:80"
+        volumes:
+          - /opt/snsd-web/index.html:/usr/share/nginx/html/index.html:ro
+
+    - name: Check local web endpoint
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        status_code: 200
+
+- name: Configure HAProxy on proxy node
+  hosts: proxy
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Install HAProxy
+      ansible.builtin.apt:
+        name:
+          - haproxy
+        state: present
+        update_cache: true
+
+    - name: Configure HAProxy
+      ansible.builtin.copy:
+        dest: /etc/haproxy/haproxy.cfg
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          global
+              log /dev/log local0
+              log /dev/log local1 notice
+              daemon
+              maxconn 2048
+
+          defaults
+              log global
+              mode http
+              option httplog
+              option dontlognull
+              timeout connect 5s
+              timeout client  30s
+              timeout server  30s
+
+          frontend snsd_http_frontend
+              bind *:80
+              default_backend snsd_web_backend
+
+          backend snsd_web_backend
+              balance roundrobin
+              option httpchk GET /
+              http-check expect status 200
+              server app-node-01 192.168.1.31:80 check
+              server app-node-02 192.168.1.32:80 check
+
+          listen stats
+              bind *:8404
+              stats enable
+              stats uri /stats
+              stats refresh 10s
+              stats admin if LOCALHOST
+
+    - name: Enable and restart HAProxy
+      ansible.builtin.systemd:
+        name: haproxy
+        enabled: true
+        state: restarted
+
+    - name: Check HAProxy service
+      ansible.builtin.command: systemctl is-active haproxy
+      register: haproxy_state
+      changed_when: false
+
+    - name: Check HAProxy frontend
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        status_code: 200
+
+    - name: Print HAProxy access
+      ansible.builtin.debug:
+        msg:
+          - "haproxy={{ haproxy_state.stdout }}"
+          - "frontend=http://192.168.1.20"
+          - "stats=http://192.168.1.20:8404/stats"

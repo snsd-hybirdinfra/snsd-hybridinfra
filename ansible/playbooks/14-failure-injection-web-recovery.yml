@@ -1,0 +1,120 @@
+---
+- name: Inject web node failure on app-node-02
+  hosts: app-node-02
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Stop sample web container on app-node-02
+      ansible.builtin.command: docker stop snsd-sample-web
+      changed_when: true
+      failed_when: false
+
+    - name: Confirm sample web container is stopped
+      ansible.builtin.shell: docker ps --filter name=snsd-sample-web --format '{{ "{{" }}.Names{{ "}}" }}'
+      register: docker_ps_result
+      changed_when: false
+
+    - name: Print failure injection result
+      ansible.builtin.debug:
+        msg:
+          - "failure_injected=true"
+          - "host=app-node-02"
+          - "running_container={{ docker_ps_result.stdout | default('') }}"
+
+- name: Validate service continuity through HAProxy
+  hosts: proxy
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Check HAProxy frontend after app-node-02 failure
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        status_code: 200
+        return_content: true
+      register: haproxy_response
+      retries: 10
+      delay: 3
+      until: haproxy_response.status == 200
+
+    - name: Print HAProxy continuity result
+      ansible.builtin.debug:
+        msg:
+          - "haproxy_continuity=pass"
+          - "response_contains={{ haproxy_response.content | regex_search('app-node-01|app-node-02') }}"
+
+- name: Wait for Prometheus alert evaluation
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait 90 seconds for Prometheus rule evaluation
+      ansible.builtin.pause:
+        seconds: 90
+
+    - name: Query active blackbox alerts
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9090/api/v1/alerts
+        method: GET
+        return_content: true
+      register: prometheus_alerts
+
+    - name: Print Prometheus alert response summary
+      ansible.builtin.debug:
+        msg:
+          - "Prometheus Alerts: http://192.168.1.40:9090/alerts"
+          - "Alertmanager: http://192.168.1.40:9093"
+          - "Check SNSDBlackboxProbeFailed for app-node-02/http target"
+
+- name: Recover web node on app-node-02
+  hosts: app-node-02
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Start sample web container on app-node-02
+      ansible.builtin.command: docker start snsd-sample-web
+      changed_when: true
+
+    - name: Check local web endpoint after recovery
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        status_code: 200
+      register: local_web_recovery
+      retries: 10
+      delay: 3
+      until: local_web_recovery.status == 200
+
+    - name: Print recovery result
+      ansible.builtin.debug:
+        msg:
+          - "recovery=pass"
+          - "host=app-node-02"
+          - "endpoint=http://192.168.1.32"
+
+- name: Validate HAProxy after recovery
+  hosts: proxy
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Check HAProxy frontend after recovery
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        status_code: 200
+      register: haproxy_recovery
+      retries: 10
+      delay: 3
+      until: haproxy_recovery.status == 200
+
+    - name: Print final recovery validation
+      ansible.builtin.debug:
+        msg:
+          - "haproxy_recovery=pass"
+          - "frontend=http://192.168.1.20"
+          - "stats=http://192.168.1.20:8404/stats"

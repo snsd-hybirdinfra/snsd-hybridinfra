@@ -1,0 +1,204 @@
+---
+- name: Install MariaDB and mysqld_exporter on data-ops-node
+  hosts: data_ops
+  become: true
+  gather_facts: true
+
+  vars:
+    mysqld_exporter_version: "0.15.1"
+    mysqld_exporter_arch: "linux-amd64"
+    mysqld_exporter_user: "mysqld_exporter"
+    exporter_db_user: "exporter"
+    exporter_db_password: "snsd_exporter_password"
+
+  tasks:
+    - name: Install MariaDB and dependencies
+      ansible.builtin.apt:
+        name:
+          - mariadb-server
+          - mariadb-client
+          - python3-pymysql
+          - curl
+          - wget
+        state: present
+        update_cache: true
+
+    - name: Enable and start MariaDB
+      ansible.builtin.systemd:
+        name: mariadb
+        enabled: true
+        state: started
+
+    - name: Create sample database
+      community.mysql.mysql_db:
+        name: snsd_lab
+        state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
+
+    - name: Create sample table
+      community.mysql.mysql_query:
+        login_unix_socket: /run/mysqld/mysqld.sock
+        login_db: snsd_lab
+        query: |
+          CREATE TABLE IF NOT EXISTS service_state (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            service_name VARCHAR(64),
+            status VARCHAR(32),
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+          );
+
+    - name: Insert sample service state
+      community.mysql.mysql_query:
+        login_unix_socket: /run/mysqld/mysqld.sock
+        login_db: snsd_lab
+        query: |
+          INSERT INTO service_state (service_name, status)
+          VALUES ('wordpress', 'healthy');
+
+    - name: Create exporter database user
+      community.mysql.mysql_user:
+        name: "{{ exporter_db_user }}"
+        password: "{{ exporter_db_password }}"
+        host: "localhost"
+        priv: "*.*:PROCESS,REPLICATION CLIENT,SELECT"
+        state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
+
+    - name: Create mysqld_exporter system user
+      ansible.builtin.user:
+        name: "{{ mysqld_exporter_user }}"
+        shell: /usr/sbin/nologin
+        system: true
+        create_home: false
+
+    - name: Download mysqld_exporter archive
+      ansible.builtin.get_url:
+        url: "https://github.com/prometheus/mysqld_exporter/releases/download/v{{ mysqld_exporter_version }}/mysqld_exporter-{{ mysqld_exporter_version }}.{{ mysqld_exporter_arch }}.tar.gz"
+        dest: "/tmp/mysqld_exporter-{{ mysqld_exporter_version }}.{{ mysqld_exporter_arch }}.tar.gz"
+        mode: "0644"
+
+    - name: Extract mysqld_exporter archive
+      ansible.builtin.unarchive:
+        src: "/tmp/mysqld_exporter-{{ mysqld_exporter_version }}.{{ mysqld_exporter_arch }}.tar.gz"
+        dest: /tmp
+        remote_src: true
+
+    - name: Install mysqld_exporter binary
+      ansible.builtin.copy:
+        src: "/tmp/mysqld_exporter-{{ mysqld_exporter_version }}.{{ mysqld_exporter_arch }}/mysqld_exporter"
+        dest: /usr/local/bin/mysqld_exporter
+        owner: root
+        group: root
+        mode: "0755"
+        remote_src: true
+
+    - name: Create mysqld_exporter config
+      ansible.builtin.copy:
+        dest: /etc/.mysqld_exporter.cnf
+        owner: "{{ mysqld_exporter_user }}"
+        group: "{{ mysqld_exporter_user }}"
+        mode: "0600"
+        content: |
+          [client]
+          user={{ exporter_db_user }}
+          password={{ exporter_db_password }}
+          host=localhost
+
+    - name: Create mysqld_exporter systemd unit
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/mysqld_exporter.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Prometheus MySQL/MariaDB Exporter
+          Wants=network-online.target
+          After=network-online.target
+          After=mariadb.service
+
+          [Service]
+          User={{ mysqld_exporter_user }}
+          Group={{ mysqld_exporter_user }}
+          Type=simple
+          ExecStart=/usr/local/bin/mysqld_exporter \
+            --config.my-cnf=/etc/.mysqld_exporter.cnf \
+            --web.listen-address=:9104
+
+          Restart=always
+          RestartSec=5
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start mysqld_exporter
+      ansible.builtin.systemd:
+        name: mysqld_exporter
+        enabled: true
+        state: restarted
+
+    - name: Check MariaDB service
+      ansible.builtin.command: systemctl is-active mariadb
+      register: mariadb_state
+      changed_when: false
+
+    - name: Check mysqld_exporter service
+      ansible.builtin.command: systemctl is-active mysqld_exporter
+      register: exporter_state
+      changed_when: false
+
+    - name: Check mysqld_exporter metrics endpoint
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9104/metrics
+        method: GET
+        status_code: 200
+
+    - name: Print MariaDB exporter summary
+      ansible.builtin.debug:
+        msg:
+          - "mariadb={{ mariadb_state.stdout }}"
+          - "mysqld_exporter={{ exporter_state.stdout }}"
+          - "metrics=http://192.168.1.40:9104/metrics"
+
+- name: Add mysqld_exporter scrape job to Prometheus
+  hosts: monitoring
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Insert mysqld_exporter scrape job into Prometheus config
+      ansible.builtin.blockinfile:
+        path: /etc/prometheus/prometheus.yml
+        marker: "# {mark} SNSD MYSQLD EXPORTER SCRAPE JOB"
+        insertafter: EOF
+        block: |
+
+          # SNSD MariaDB metrics
+            - job_name: "mysqld_exporter"
+              static_configs:
+                - targets:
+                    - "192.168.1.40:9104"
+
+    - name: Validate Prometheus config
+      ansible.builtin.command: promtool check config /etc/prometheus/prometheus.yml
+      changed_when: false
+
+    - name: Restart Prometheus
+      ansible.builtin.systemd:
+        name: prometheus
+        state: restarted
+        enabled: true
+
+    - name: Check Prometheus health
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9090/-/healthy
+        method: GET
+        status_code: 200
+      register: prometheus_health
+      retries: 10
+      delay: 3
+      until: prometheus_health.status == 200

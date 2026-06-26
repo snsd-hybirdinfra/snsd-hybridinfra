@@ -1,0 +1,219 @@
+---
+- name: Install Blackbox Exporter on data-ops-node
+  hosts: monitoring
+  become: true
+  gather_facts: true
+
+  vars:
+    blackbox_exporter_version: "0.25.0"
+    blackbox_exporter_arch: "linux-amd64"
+    blackbox_exporter_user: "blackbox_exporter"
+
+  tasks:
+    - name: Create blackbox_exporter system user
+      ansible.builtin.user:
+        name: "{{ blackbox_exporter_user }}"
+        shell: /usr/sbin/nologin
+        system: true
+        create_home: false
+
+    - name: Create blackbox_exporter directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ blackbox_exporter_user }}"
+        group: "{{ blackbox_exporter_user }}"
+        mode: "0755"
+      loop:
+        - /etc/blackbox_exporter
+
+    - name: Download blackbox_exporter archive
+      ansible.builtin.get_url:
+        url: "https://github.com/prometheus/blackbox_exporter/releases/download/v{{ blackbox_exporter_version }}/blackbox_exporter-{{ blackbox_exporter_version }}.{{ blackbox_exporter_arch }}.tar.gz"
+        dest: "/tmp/blackbox_exporter-{{ blackbox_exporter_version }}.{{ blackbox_exporter_arch }}.tar.gz"
+        mode: "0644"
+
+    - name: Extract blackbox_exporter archive
+      ansible.builtin.unarchive:
+        src: "/tmp/blackbox_exporter-{{ blackbox_exporter_version }}.{{ blackbox_exporter_arch }}.tar.gz"
+        dest: /tmp
+        remote_src: true
+
+    - name: Install blackbox_exporter binary
+      ansible.builtin.copy:
+        src: "/tmp/blackbox_exporter-{{ blackbox_exporter_version }}.{{ blackbox_exporter_arch }}/blackbox_exporter"
+        dest: /usr/local/bin/blackbox_exporter
+        owner: root
+        group: root
+        mode: "0755"
+        remote_src: true
+
+    - name: Create blackbox_exporter config
+      ansible.builtin.copy:
+        dest: /etc/blackbox_exporter/blackbox.yml
+        owner: "{{ blackbox_exporter_user }}"
+        group: "{{ blackbox_exporter_user }}"
+        mode: "0644"
+        content: |
+          modules:
+            http_2xx:
+              prober: http
+              timeout: 5s
+              http:
+                valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
+                valid_status_codes: []
+                method: GET
+                preferred_ip_protocol: "ip4"
+
+            tcp_connect:
+              prober: tcp
+              timeout: 5s
+              tcp:
+                preferred_ip_protocol: "ip4"
+
+            icmp:
+              prober: icmp
+              timeout: 5s
+              icmp:
+                preferred_ip_protocol: "ip4"
+
+    - name: Create blackbox_exporter systemd unit
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/blackbox_exporter.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Prometheus Blackbox Exporter
+          Wants=network-online.target
+          After=network-online.target
+
+          [Service]
+          User={{ blackbox_exporter_user }}
+          Group={{ blackbox_exporter_user }}
+          Type=simple
+          ExecStart=/usr/local/bin/blackbox_exporter \
+            --config.file=/etc/blackbox_exporter/blackbox.yml \
+            --web.listen-address=:9115
+          AmbientCapabilities=CAP_NET_RAW
+          CapabilityBoundingSet=CAP_NET_RAW
+          NoNewPrivileges=true
+          Restart=always
+          RestartSec=5
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start blackbox_exporter
+      ansible.builtin.systemd:
+        name: blackbox_exporter
+        enabled: true
+        state: restarted
+
+    - name: Check blackbox_exporter health
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9115/metrics
+        method: GET
+        status_code: 200
+
+- name: Configure Prometheus blackbox scrape jobs
+  hosts: monitoring
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Insert blackbox scrape jobs into Prometheus config
+      ansible.builtin.blockinfile:
+        path: /etc/prometheus/prometheus.yml
+        marker: "# {mark} SNSD BLACKBOX SCRAPE JOBS"
+        insertafter: EOF
+        block: |
+
+          # SNSD blackbox endpoint probes
+            - job_name: "blackbox_http"
+              metrics_path: /probe
+              params:
+                module: [http_2xx]
+              static_configs:
+                - targets:
+                    - http://192.168.1.20
+                    - http://192.168.1.31
+                    - http://192.168.1.32
+              relabel_configs:
+                - source_labels: [__address__]
+                  target_label: __param_target
+                - source_labels: [__param_target]
+                  target_label: instance
+                - target_label: __address__
+                  replacement: 127.0.0.1:9115
+
+            - job_name: "blackbox_tcp"
+              metrics_path: /probe
+              params:
+                module: [tcp_connect]
+              static_configs:
+                - targets:
+                    - 192.168.1.10:9100
+                    - 192.168.1.20:9100
+                    - 192.168.1.31:9100
+                    - 192.168.1.32:9100
+                    - 192.168.1.40:9100
+                    - 192.168.1.40:3000
+                    - 192.168.1.40:3100
+              relabel_configs:
+                - source_labels: [__address__]
+                  target_label: __param_target
+                - source_labels: [__param_target]
+                  target_label: instance
+                - target_label: __address__
+                  replacement: 127.0.0.1:9115
+
+            - job_name: "blackbox_icmp"
+              metrics_path: /probe
+              params:
+                module: [icmp]
+              static_configs:
+                - targets:
+                    - 192.168.1.10
+                    - 192.168.1.20
+                    - 192.168.1.31
+                    - 192.168.1.32
+                    - 192.168.1.40
+              relabel_configs:
+                - source_labels: [__address__]
+                  target_label: __param_target
+                - source_labels: [__param_target]
+                  target_label: instance
+                - target_label: __address__
+                  replacement: 127.0.0.1:9115
+
+    - name: Validate Prometheus config
+      ansible.builtin.command: promtool check config /etc/prometheus/prometheus.yml
+      changed_when: false
+
+    - name: Restart Prometheus
+      ansible.builtin.systemd:
+        name: prometheus
+        state: restarted
+        enabled: true
+
+    - name: Check Prometheus health
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9090/-/healthy
+        method: GET
+        status_code: 200
+      register: prometheus_health
+      retries: 10
+      delay: 3
+      until: prometheus_health.status == 200
+
+    - name: Print access URLs
+      ansible.builtin.debug:
+        msg:
+          - "Blackbox Exporter: http://192.168.1.40:9115/metrics"
+          - "Prometheus Targets: http://192.168.1.40:9090/targets"
