@@ -121,3 +121,36 @@ Local evidence paths:
 - evidence/generated/raw/phase2-idempotency-second.log
 - evidence/generated/raw/phase2-rollback.log
 - evidence/generated/summary/ansible-automation-runtime-summary.md
+
+## Scenario Automation Validation
+
+This lab includes scenario-level Ansible automation validation in addition to basic automation readiness checks.
+
+Additional validation script:
+
+- scripts/validate-ansible-automation-signals.sh
+
+Scenario signal coverage:
+
+- API service recovery
+- certificate renewal automation
+- change failure rollback
+- configuration rollback automation
+- identity access remediation
+- infrastructure recovery orchestration
+- resource rebalancing automation
+- storage volume recovery automation
+- database failover automation
+- recovery orchestration
+
+Generated automation artifacts:
+
+- mock inventory
+- mock remediation playbook
+- automation task plan
+- dry-run boundary log
+- rollback boundary log
+- scenario signal matrix
+- Ansible automation runtime summary
+
+The generated runtime evidence remains local-only under evidence/generated and runtime/.
