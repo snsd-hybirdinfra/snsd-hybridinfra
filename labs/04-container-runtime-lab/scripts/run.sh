@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LAB_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
 LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SUMMARY="${LAB_DIR}/evidence/generated/summary/container-runtime-summary.md"
 
@@ -48,3 +51,7 @@ else
 fi
 
 echo "[OK] container runtime orchestration completed"
+echo "[INFO] running container runtime scenario signal validation"
+bash "${SCRIPT_DIR}/validate-container-runtime-signals.sh"
+
+echo "[OK] container runtime scenario signal validation completed"

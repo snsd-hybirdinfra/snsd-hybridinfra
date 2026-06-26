@@ -144,3 +144,38 @@ Local evidence paths:
 - evidence/generated/raw/container-runtime-validate.log
 - evidence/generated/summary/container-runtime-summary.md
 - evidence/generated/summary/container-runtime-execution-summary.md
+
+## Scenario Container Runtime Validation
+
+This lab includes scenario-level container runtime validation in addition to basic runtime readiness checks.
+
+Additional validation script:
+
+- scripts/validate-container-runtime-signals.sh
+
+Scenario signal coverage:
+
+- container runtime visibility
+- Kubernetes cluster visibility
+- Kubernetes cluster health monitoring
+- pod failure correlation
+- container dependency analysis
+- container failover automation
+- cluster node recovery orchestration
+- Kubernetes node recovery
+- Kubernetes service recovery
+- service mesh traffic visibility
+- service mesh latency correlation
+- cross-region Kubernetes resilience
+
+Generated container runtime artifacts:
+
+- mock container workload spec
+- runtime boundary log
+- container health signal log
+- restart/failover boundary log
+- service dependency boundary log
+- scenario signal matrix
+- container runtime summary
+
+The generated runtime evidence remains local-only under evidence/generated and runtime/.
