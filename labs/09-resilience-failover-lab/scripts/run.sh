@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LAB_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
 LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RAW_DIR="${LAB_DIR}/evidence/generated/raw"
 SUMMARY_DIR="${LAB_DIR}/evidence/generated/summary"
@@ -91,3 +94,7 @@ else
 fi
 
 echo "[OK] resilience failover runtime orchestration completed"
+echo "[INFO] running resilience failover scenario signal validation"
+bash "${SCRIPT_DIR}/validate-resilience-failover-signals.sh"
+
+echo "[OK] resilience failover scenario signal validation completed"

@@ -121,3 +121,34 @@ Local evidence paths:
 - evidence/generated/raw/failover-response.txt
 - evidence/generated/raw/recovery-response.txt
 - evidence/generated/summary/resilience-failover-runtime-summary.md
+
+## Scenario Failover Validation
+
+This lab includes scenario-level resilience and failover validation in addition to basic failover readiness checks.
+
+Additional validation script:
+
+- scripts/validate-resilience-failover-signals.sh
+
+Scenario signal coverage:
+
+- multi-site routing failover
+- multi-region service failover
+- distributed connectivity survivability
+- distributed platform survivability
+- distributed database failover
+- storage replication resilience
+- control plane resilience
+- Kubernetes platform resilience
+- multi-cluster failover
+- enterprise service continuity coordination
+
+Generated failover artifacts:
+
+- failover event log
+- failover decision log
+- resilience validation log
+- scenario signal matrix
+- resilience runtime summary
+
+The generated runtime evidence remains local-only under evidence/generated and runtime/.
