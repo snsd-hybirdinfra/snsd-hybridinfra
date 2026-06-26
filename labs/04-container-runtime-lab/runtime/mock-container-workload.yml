@@ -1,0 +1,17 @@
+apiVersion: snsd.local/v1
+kind: MockContainerWorkload
+metadata:
+  name: snsd-container-runtime-workload
+spec:
+  runtime: docker-or-podman-boundary
+  service: api-runtime
+  replicas: 2
+  healthCheck:
+    path: /health
+    expectedStatus: 200
+  dependency:
+    database: mock-db
+    messageQueue: mock-queue
+  recovery:
+    restartPolicy: on-failure
+    failoverBoundary: secondary-replica
