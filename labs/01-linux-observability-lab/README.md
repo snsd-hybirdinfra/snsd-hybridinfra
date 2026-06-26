@@ -197,3 +197,37 @@ Local evidence paths:
 - evidence/generated/processed/linux-observability-processed-summary.md
 - evidence/generated/summary/linux-observability-runtime-summary.md
 - evidence/generated/summary/linux-observability-execution-summary.md
+
+## Scenario Observability Validation
+
+This lab includes scenario-level Linux observability validation in addition to basic host readiness checks.
+
+Additional validation script:
+
+- scripts/validate-linux-observability-signals.sh
+
+Scenario signal coverage:
+
+- compute resource monitoring
+- filesystem health visibility
+- process health monitoring
+- hardware health monitoring boundary
+- server service recovery visibility
+- compute resource correlation
+- filesystem failure correlation
+- Linux operational visibility
+- system event visibility
+
+Generated observability artifacts:
+
+- system identity sample
+- CPU sample
+- memory sample
+- disk sample
+- filesystem sample
+- process sample
+- system event boundary
+- scenario signal matrix
+- Linux observability runtime summary
+
+The generated runtime evidence remains local-only under evidence/generated.

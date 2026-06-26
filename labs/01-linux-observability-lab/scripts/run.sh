@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LAB_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
 LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SUMMARY="${LAB_DIR}/evidence/generated/summary/linux-observability-runtime-summary.md"
 
@@ -52,3 +55,7 @@ else
 fi
 
 echo "[OK] linux observability runtime orchestration completed"
+echo "[INFO] running linux observability scenario signal validation"
+bash "${SCRIPT_DIR}/validate-linux-observability-signals.sh"
+
+echo "[OK] linux observability scenario signal validation completed"
