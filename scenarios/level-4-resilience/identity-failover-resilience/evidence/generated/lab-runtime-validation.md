@@ -1,6 +1,6 @@
 # Lab Runtime Validation Evidence
 
-Generated At: 2026-06-29 10:54:13
+Generated At: 2026-06-29 13:20:49
 
 Scenario: `identity-failover-resilience`  
 Level: `level-4-resilience`
@@ -23,6 +23,7 @@ The validation scope is not a full production certification. It records observab
 - `labs/evidence/generated/monitoring-target-status.md`
 - `labs/evidence/generated/alerting-validation-summary.md`
 - `labs/evidence/generated/recovery-validation-summary.md`
+- `labs/evidence/generated/resilience-failure-suite-summary.md`
 
 ## Validation Summary
 
@@ -40,7 +41,7 @@ The validation scope is not a full production certification. It records observab
 ```json
 # Monitoring Target Status
 
-Generated At: 2026-06-29 10:54:08 KST +0900
+Generated At: 2026-06-29 13:20:47 KST +0900
 
 Source: Prometheus API /api/v1/targets
 
@@ -70,20 +71,6 @@ Source: Prometheus API /api/v1/targets
     },
     {
       "job": "blackbox_icmp",
-      "instance": "192.168.1.10",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.10",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.20",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.20",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
       "instance": "192.168.1.31",
       "health": "up",
       "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.31",
@@ -104,10 +91,17 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:3000",
+      "job": "blackbox_icmp",
+      "instance": "192.168.1.10",
       "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3000",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.10",
+      "lastError": ""
+    },
+    {
+      "job": "blackbox_icmp",
+      "instance": "192.168.1.20",
+      "health": "up",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.20",
       "lastError": ""
     },
     {
@@ -153,6 +147,13 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
+      "job": "blackbox_tcp",
+      "instance": "192.168.1.40:3000",
+      "health": "up",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3000",
+      "lastError": ""
+    },
+    {
       "job": "cadvisor",
       "instance": "192.168.1.31:8080",
       "health": "up",
@@ -171,6 +172,20 @@ Source: Prometheus API /api/v1/targets
       "instance": "192.168.1.40:9104",
       "health": "up",
       "scrapeUrl": "http://192.168.1.40:9104/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "node_exporter",
+      "instance": "192.168.1.32:9100",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.32:9100/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "node_exporter",
+      "instance": "192.168.1.40:9100",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.40:9100/metrics",
       "lastError": ""
     },
     {
@@ -195,20 +210,6 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
-      "job": "node_exporter",
-      "instance": "192.168.1.32:9100",
-      "health": "up",
-      "scrapeUrl": "http://192.168.1.32:9100/metrics",
-      "lastError": ""
-    },
-    {
-      "job": "node_exporter",
-      "instance": "192.168.1.40:9100",
-      "health": "up",
-      "scrapeUrl": "http://192.168.1.40:9100/metrics",
-      "lastError": ""
-    },
-    {
       "job": "prometheus",
       "instance": "127.0.0.1:9090",
       "health": "up",
@@ -225,7 +226,7 @@ Source: Prometheus API /api/v1/targets
 ```json
 # Alerting Validation Summary
 
-Generated At: 2026-06-29 10:54:08 KST +0900
+Generated At: 2026-06-29 13:20:47 KST +0900
 
 ## Prometheus Alerts
 
@@ -270,36 +271,36 @@ Generated At: 2026-06-29 10:54:08 KST +0900
 ```text
 # Recovery Validation Summary
 
-Generated At: 2026-06-29 10:54:08 KST +0900
+Generated At: 2026-06-29 13:20:47 KST +0900
 
 ## Backup / Restore Metrics
 
 ----- BEGIN BACKUP RESTORE METRICS -----
 # HELP node_textfile_mtime_seconds Unixtime mtime of textfiles successfully read.
 # TYPE node_textfile_mtime_seconds gauge
-node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_backup.prom"} 1.782697811e+09
-node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_restore.prom"} 1.782697812e+09
+node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_backup.prom"} 1.782706804e+09
+node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_restore.prom"} 1.782706783e+09
 # HELP node_textfile_scrape_error 1 if there was an error opening or reading a file, 0 otherwise
 # TYPE node_textfile_scrape_error gauge
 node_textfile_scrape_error 0
 # HELP snsd_backup_last_duration_seconds Backup duration in seconds.
 # TYPE snsd_backup_last_duration_seconds gauge
-snsd_backup_last_duration_seconds 1
+snsd_backup_last_duration_seconds 2
 # HELP snsd_backup_last_run_timestamp_seconds Last backup run timestamp.
 # TYPE snsd_backup_last_run_timestamp_seconds gauge
-snsd_backup_last_run_timestamp_seconds 1.782697811e+09
+snsd_backup_last_run_timestamp_seconds 1.782706804e+09
 # HELP snsd_backup_last_success Backup success status. 1 means success, 0 means failure.
 # TYPE snsd_backup_last_success gauge
 snsd_backup_last_success 1
 # HELP snsd_backup_snapshot_count Restic snapshot count.
 # TYPE snsd_backup_snapshot_count gauge
-snsd_backup_snapshot_count 34
+snsd_backup_snapshot_count 50
 # HELP snsd_restore_validation_duration_seconds Restore validation duration in seconds.
 # TYPE snsd_restore_validation_duration_seconds gauge
-snsd_restore_validation_duration_seconds 0
+snsd_restore_validation_duration_seconds 1
 # HELP snsd_restore_validation_last_run_timestamp_seconds Last restore validation timestamp.
 # TYPE snsd_restore_validation_last_run_timestamp_seconds gauge
-snsd_restore_validation_last_run_timestamp_seconds 1.782697812e+09
+snsd_restore_validation_last_run_timestamp_seconds 1.782706783e+09
 # HELP snsd_restore_validation_success Restore validation success status. 1 means success, 0 means failure.
 # TYPE snsd_restore_validation_success gauge
 snsd_restore_validation_success 1
@@ -309,7 +310,7 @@ snsd_restore_validation_success 1
 
 ----- BEGIN HAPROXY PROBE CONTINUITY -----
 ## HAProxy Frontend
-  <p>hostname: app-node-01</p>
+  <p>hostname: app-node-02</p>
   <p>status: healthy</p>
 
 ## Backend Direct Checks
@@ -327,6 +328,58 @@ probe_success 1
 # TYPE probe_success gauge
 probe_success 1
 ----- END HAPROXY PROBE CONTINUITY -----
+```
+
+### Resilience Failure Suite Summary
+
+```text
+# Resilience Failure Suite Summary
+
+Generated At: 2026-06-29 13:08:59 KST +0900
+
+Repository: /mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra
+Inventory: /mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/inventory/lab/hosts.ini
+
+## Suite Scope
+
+- Web backend failure and recovery
+- Observability loss and recovery
+- Database failure and recovery
+- Proxy entrypoint failure and recovery
+- Backup failure and recovery validation
+
+## Execution Log
+
+
+### Web backend failure and recovery
+
+- Playbook: ansible/playbooks/14-failure-injection-web-recovery.yml
+- Result: PASS
+- Finished At: 2026-06-29 13:10:55 KST +0900
+
+### Observability loss and recovery
+
+- Playbook: ansible/playbooks/15-failure-injection-observability-loss.yml
+- Result: PASS
+- Finished At: 2026-06-29 13:13:15 KST +0900
+
+### Database failure and recovery
+
+- Playbook: ansible/playbooks/16-failure-injection-database-recovery.yml
+- Result: PASS
+- Finished At: 2026-06-29 13:15:39 KST +0900
+
+### Proxy entrypoint failure and recovery
+
+- Playbook: ansible/playbooks/17-failure-injection-proxy-recovery.yml
+- Result: PASS
+- Finished At: 2026-06-29 13:18:04 KST +0900
+
+### Backup failure and recovery validation
+
+- Playbook: ansible/playbooks/18-failure-injection-backup-recovery.yml
+- Result: PASS
+- Finished At: 2026-06-29 13:20:30 KST +0900
 ```
 
 ## Reviewer Note

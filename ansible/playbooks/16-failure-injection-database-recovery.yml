@@ -1,0 +1,130 @@
+---
+- name: Inject MariaDB failure on data-ops-node
+  hosts: data_ops
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Stop MariaDB service
+      ansible.builtin.systemd:
+        name: mariadb
+        state: stopped
+
+    - name: Confirm MariaDB is stopped
+      ansible.builtin.command: systemctl is-active mariadb
+      register: mariadb_state
+      changed_when: false
+      failed_when: false
+
+    - name: Print database failure injection result
+      ansible.builtin.debug:
+        msg:
+          - "failure_type=database_down"
+          - "target_host=data-ops-node"
+          - "target_metric=mysql_up"
+          - "mariadb_state={{ mariadb_state.stdout }}"
+
+- name: Validate Prometheus detects MariaDB failure
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape and alert evaluation
+      ansible.builtin.pause:
+        seconds: 90
+
+    - name: Query mysql_up metric
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=mysql_up"
+        method: GET
+        return_content: true
+      register: mysql_up_query
+
+    - name: Query active MariaDB alerts
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/alerts"
+        method: GET
+        return_content: true
+      register: prometheus_alerts
+
+    - name: Print database detection validation result
+      ansible.builtin.debug:
+        msg:
+          - "prometheus_query_url=http://192.168.1.40:9090/graph?g0.expr=mysql_up"
+          - "prometheus_alerts_url=http://192.168.1.40:9090/alerts"
+          - "expected_alert=SNSDMariaDBDown"
+          - "query_response={{ mysql_up_query.content }}"
+
+- name: Recover MariaDB service
+  hosts: data_ops
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Start MariaDB service
+      ansible.builtin.systemd:
+        name: mariadb
+        state: started
+        enabled: true
+
+    - name: Restart mysqld_exporter after MariaDB recovery
+      ansible.builtin.systemd:
+        name: mysqld_exporter
+        state: restarted
+        enabled: true
+
+    - name: Confirm MariaDB is active
+      ansible.builtin.command: systemctl is-active mariadb
+      register: mariadb_recovery_state
+      changed_when: false
+      retries: 10
+      delay: 3
+      until: mariadb_recovery_state.stdout == "active"
+
+    - name: Confirm mysqld_exporter is active
+      ansible.builtin.command: systemctl is-active mysqld_exporter
+      register: exporter_recovery_state
+      changed_when: false
+      retries: 10
+      delay: 3
+      until: exporter_recovery_state.stdout == "active"
+
+    - name: Check database query after recovery
+      ansible.builtin.shell: mysql -e 'SELECT COUNT(*) AS service_state_count FROM snsd_lab.service_state;'
+      register: db_query_result
+      changed_when: false
+
+    - name: Print database recovery result
+      ansible.builtin.debug:
+        msg:
+          - "recovery=pass"
+          - "target_host=data-ops-node"
+          - "mariadb_state={{ mariadb_recovery_state.stdout }}"
+          - "mysqld_exporter_state={{ exporter_recovery_state.stdout }}"
+          - "db_query={{ db_query_result.stdout_lines }}"
+
+- name: Validate Prometheus database metric recovery
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape after database recovery
+      ansible.builtin.pause:
+        seconds: 45
+
+    - name: Query mysql_up metric after recovery
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=mysql_up"
+        method: GET
+        return_content: true
+      register: recovery_query
+
+    - name: Print final database recovery validation
+      ansible.builtin.debug:
+        msg:
+          - "recovery_validation=completed"
+          - "target_metric=mysql_up"
+          - "expected_value=1"
+          - "query_response={{ recovery_query.content }}"

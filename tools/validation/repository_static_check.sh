@@ -66,6 +66,12 @@ else
   fail "docs/lab-runtime-validation-index.md missing"
 fi
 
+if [ -f docs/failure-injection-scenarios.md ]; then
+  pass "docs/failure-injection-scenarios.md exists"
+else
+  fail "docs/failure-injection-scenarios.md missing"
+fi
+
 if [ -f docs/lab-runtime-validation-index.md ]; then
   index_total="$(grep -E 'Total scenarios:' docs/lab-runtime-validation-index.md | head -1 | sed 's/[^0-9]//g')"
   index_ok="$(grep -E 'OK:' docs/lab-runtime-validation-index.md | head -1 | sed 's/[^0-9]//g')"
@@ -110,6 +116,21 @@ else
   pass "labs/evidence/generated not staged as reviewer evidence"
 fi
 
+section "Failure Injection Playbooks"
+for file in \
+  ansible/playbooks/14-failure-injection-web-recovery.yml \
+  ansible/playbooks/15-failure-injection-observability-loss.yml \
+  ansible/playbooks/16-failure-injection-database-recovery.yml \
+  ansible/playbooks/17-failure-injection-proxy-recovery.yml \
+  ansible/playbooks/18-failure-injection-backup-recovery.yml
+do
+  if [ -f "${file}" ]; then
+    pass "${file} exists"
+  else
+    fail "${file} missing"
+  fi
+done
+
 section "Tool Files"
 for file in \
   tools/evidence/collect_runtime_evidence.sh \
@@ -117,7 +138,9 @@ for file in \
   tools/evidence/generate_lab_runtime_validation_index.py \
   tools/validation/runtime_smoke_check.sh \
   tools/validation/repository_static_check.sh \
-  tools/pipeline/run_runtime_validation_pipeline.sh
+  tools/pipeline/run_runtime_validation_pipeline.sh \
+  tools/bootstrap/run_ansible_lab_bootstrap.sh \
+  tools/failure/run_resilience_failure_suite.sh
 do
   if [ -f "${file}" ]; then
     pass "${file} exists"

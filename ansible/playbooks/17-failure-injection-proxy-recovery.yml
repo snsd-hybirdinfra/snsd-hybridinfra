@@ -1,0 +1,132 @@
+---
+- name: Inject HAProxy failure on proxy-network-node
+  hosts: proxy
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Stop HAProxy service
+      ansible.builtin.systemd:
+        name: haproxy
+        state: stopped
+
+    - name: Confirm HAProxy is stopped
+      ansible.builtin.command: systemctl is-active haproxy
+      register: haproxy_state
+      changed_when: false
+      failed_when: false
+
+    - name: Confirm frontend is unavailable locally
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        status_code: 200
+      register: frontend_check
+      failed_when: false
+      changed_when: false
+
+    - name: Print proxy failure injection result
+      ansible.builtin.debug:
+        msg:
+          - "failure_type=proxy_down"
+          - "target_host=proxy-network-node"
+          - "target_endpoint=http://192.168.1.20"
+          - "haproxy_state={{ haproxy_state.stdout }}"
+          - "frontend_status={{ frontend_check.status | default('unreachable') }}"
+
+- name: Validate Prometheus detects proxy failure
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape and alert evaluation
+      ansible.builtin.pause:
+        seconds: 90
+
+    - name: Query blackbox HTTP probe for HAProxy
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22http%3A%2F%2F192.168.1.20%22%7D"
+        method: GET
+        return_content: true
+      register: proxy_probe_query
+
+    - name: Query active blackbox alerts
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/alerts"
+        method: GET
+        return_content: true
+      register: prometheus_alerts
+
+    - name: Print proxy detection validation result
+      ansible.builtin.debug:
+        msg:
+          - "prometheus_query_url=http://192.168.1.40:9090/graph?g0.expr=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22http%3A%2F%2F192.168.1.20%22%7D"
+          - "prometheus_alerts_url=http://192.168.1.40:9090/alerts"
+          - "expected_alert=SNSDBlackboxProbeFailed"
+          - "query_response={{ proxy_probe_query.content }}"
+
+- name: Recover HAProxy service
+  hosts: proxy
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Start HAProxy service
+      ansible.builtin.systemd:
+        name: haproxy
+        state: started
+        enabled: true
+
+    - name: Confirm HAProxy is active
+      ansible.builtin.command: systemctl is-active haproxy
+      register: haproxy_recovery_state
+      changed_when: false
+      retries: 10
+      delay: 3
+      until: haproxy_recovery_state.stdout == "active"
+
+    - name: Check HAProxy frontend after recovery
+      ansible.builtin.uri:
+        url: http://127.0.0.1/
+        method: GET
+        status_code: 200
+        return_content: true
+      register: frontend_recovery
+      retries: 10
+      delay: 3
+      until: frontend_recovery.status == 200
+
+    - name: Print proxy recovery result
+      ansible.builtin.debug:
+        msg:
+          - "recovery=pass"
+          - "target_host=proxy-network-node"
+          - "haproxy_state={{ haproxy_recovery_state.stdout }}"
+          - "frontend_status={{ frontend_recovery.status }}"
+          - "frontend=http://192.168.1.20"
+
+- name: Validate Prometheus proxy metric recovery
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape after proxy recovery
+      ansible.builtin.pause:
+        seconds: 45
+
+    - name: Query blackbox HTTP probe after recovery
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22http%3A%2F%2F192.168.1.20%22%7D"
+        method: GET
+        return_content: true
+      register: recovery_query
+
+    - name: Print final proxy recovery validation
+      ansible.builtin.debug:
+        msg:
+          - "recovery_validation=completed"
+          - "target_endpoint=http://192.168.1.20"
+          - "expected_probe_success=1"
+          - "query_response={{ recovery_query.content }}"

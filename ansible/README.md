@@ -20,6 +20,10 @@ This directory contains implementation playbooks for the SNSD Hybrid Infrastruct
 | 12 | `playbooks/12-configure-restic-backup.yml` | Configure Restic backup and restore validation |
 | 13 | `playbooks/13-configure-alertmanager-rules.yml` | Install Alertmanager and configure Prometheus alert rules |
 | 14 | `playbooks/14-failure-injection-web-recovery.yml` | Inject web-node failure and validate recovery behavior |
+| 15 | `playbooks/15-failure-injection-observability-loss.yml` | Stop node_exporter on app-node-02 and validate observability loss/recovery |
+| 16 | `playbooks/16-failure-injection-database-recovery.yml` | Stop MariaDB and validate database failure detection and recovery |
+| 17 | `playbooks/17-failure-injection-proxy-recovery.yml` | Stop HAProxy and validate service entrypoint failure detection and recovery |
+| 18 | `playbooks/18-failure-injection-backup-recovery.yml` | Break Restic backup configuration and validate backup failure detection and recovery |
 
 ## Standard Execution
 
@@ -48,3 +52,21 @@ Run failure injection only when testing recovery behavior.
 Ansible playbooks are used for VM configuration, service deployment, and controlled failure/recovery validation.
 
 Runtime evidence collection and generated scenario documentation are handled by `tools/evidence/` and `tools/pipeline/`.
+
+## Resilience Failure Suite
+
+The repository provides a wrapper script for running the failure injection scenarios as a resilience validation suite.
+
+Run from WSL:
+
+    tools/failure/run_resilience_failure_suite.sh
+
+The suite runs:
+
+    14-failure-injection-web-recovery.yml
+    15-failure-injection-observability-loss.yml
+    16-failure-injection-database-recovery.yml
+    17-failure-injection-proxy-recovery.yml
+    18-failure-injection-backup-recovery.yml
+
+The suite performs a runtime smoke check before and after the failure sequence, then refreshes runtime validation evidence through the runtime validation pipeline.

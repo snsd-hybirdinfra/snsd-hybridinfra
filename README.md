@@ -66,6 +66,7 @@ Primary documents:
 
 - docs/runtime-validation-pipeline.md
 - docs/lab-runtime-validation-index.md
+- docs/failure-injection-scenarios.md
 
 ## Evidence Model
 
@@ -85,6 +86,7 @@ Primary documents:
 - docs/scenario-quality-checklist.md
 - docs/runtime-validation-pipeline.md
 - docs/lab-runtime-validation-index.md
+- docs/failure-injection-scenarios.md
 
 ## Standard Workflow
 

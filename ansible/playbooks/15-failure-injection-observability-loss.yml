@@ -1,0 +1,108 @@
+---
+- name: Inject observability loss on app-node-02
+  hosts: app-node-02
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Stop node_exporter on app-node-02
+      ansible.builtin.systemd:
+        name: node_exporter
+        state: stopped
+
+    - name: Confirm node_exporter is stopped
+      ansible.builtin.command: systemctl is-active node_exporter
+      register: node_exporter_state
+      changed_when: false
+      failed_when: false
+
+    - name: Print observability failure injection result
+      ansible.builtin.debug:
+        msg:
+          - "failure_type=observability_loss"
+          - "target_host=app-node-02"
+          - "target_metric=up{job=\"node_exporter\",instance=\"192.168.1.32:9100\"}"
+          - "node_exporter_state={{ node_exporter_state.stdout }}"
+
+- name: Validate Prometheus detects node_exporter down
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape interval and alert evaluation
+      ansible.builtin.pause:
+        seconds: 90
+
+    - name: Query node_exporter target value
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=up%7Bjob%3D%22node_exporter%22%2Cinstance%3D%22192.168.1.32%3A9100%22%7D"
+        method: GET
+        return_content: true
+      register: node_exporter_query
+
+    - name: Query active SNSDNodeExporterDown alerts
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/alerts"
+        method: GET
+        return_content: true
+      register: prometheus_alerts
+
+    - name: Print detection validation result
+      ansible.builtin.debug:
+        msg:
+          - "prometheus_query_url=http://192.168.1.40:9090/graph?g0.expr=up%7Bjob%3D%22node_exporter%22%2Cinstance%3D%22192.168.1.32%3A9100%22%7D"
+          - "prometheus_alerts_url=http://192.168.1.40:9090/alerts"
+          - "expected_alert=SNSDNodeExporterDown"
+          - "query_response={{ node_exporter_query.content }}"
+
+- name: Recover node_exporter on app-node-02
+  hosts: app-node-02
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Start node_exporter on app-node-02
+      ansible.builtin.systemd:
+        name: node_exporter
+        state: started
+        enabled: true
+
+    - name: Confirm node_exporter is active
+      ansible.builtin.command: systemctl is-active node_exporter
+      register: node_exporter_recovery_state
+      changed_when: false
+      retries: 10
+      delay: 3
+      until: node_exporter_recovery_state.stdout == "active"
+
+    - name: Print recovery result
+      ansible.builtin.debug:
+        msg:
+          - "recovery=pass"
+          - "target_host=app-node-02"
+          - "node_exporter_state={{ node_exporter_recovery_state.stdout }}"
+
+- name: Validate Prometheus target recovery
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape after recovery
+      ansible.builtin.pause:
+        seconds: 45
+
+    - name: Query node_exporter target value after recovery
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=up%7Bjob%3D%22node_exporter%22%2Cinstance%3D%22192.168.1.32%3A9100%22%7D"
+        method: GET
+        return_content: true
+      register: recovery_query
+
+    - name: Print final recovery validation
+      ansible.builtin.debug:
+        msg:
+          - "recovery_validation=completed"
+          - "target=192.168.1.32:9100"
+          - "query_response={{ recovery_query.content }}"

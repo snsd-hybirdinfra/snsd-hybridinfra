@@ -154,3 +154,5 @@ git add scenarios/*/*/evidence/generated/lab-runtime-validation.md
 git commit -m "Document runtime validation pipeline"
 git push
 ```
+
+Detailed failure injection scenario documentation is available at `docs/failure-injection-scenarios.md`.

@@ -1,0 +1,149 @@
+---
+- name: Inject backup failure on data-ops-node
+  hosts: data_ops
+  become: true
+  gather_facts: false
+
+  vars:
+    restic_password_file: "/etc/restic/snsd-restic-password"
+    backup_script: "/opt/snsd-backup/scripts/backup-snsd-state.sh"
+    restore_script: "/opt/snsd-backup/scripts/restore-validate-snsd-state.sh"
+    correct_restic_password: "snsd_restic_lab_password"
+
+  tasks:
+    - name: Break Restic password intentionally
+      ansible.builtin.copy:
+        dest: "{{ restic_password_file }}"
+        owner: root
+        group: root
+        mode: "0600"
+        content: "wrong_password_for_failure_injection\n"
+
+    - name: Run backup script and expect failure
+      ansible.builtin.command: "{{ backup_script }}"
+      register: backup_failure_result
+      changed_when: true
+      failed_when: false
+
+    - name: Confirm backup failure metric file
+      ansible.builtin.shell: cat /var/lib/node_exporter/textfile_collector/snsd_backup.prom || true
+      register: backup_failure_metric
+      changed_when: false
+
+    - name: Print backup failure injection result
+      ansible.builtin.debug:
+        msg:
+          - "failure_type=backup_failure"
+          - "target_host=data-ops-node"
+          - "backup_rc={{ backup_failure_result.rc }}"
+          - "expected_metric=snsd_backup_last_success 0"
+          - "metric_output={{ backup_failure_metric.stdout_lines }}"
+
+- name: Validate Prometheus detects backup failure
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape and alert evaluation
+      ansible.builtin.pause:
+        seconds: 90
+
+    - name: Query backup failure metric
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=snsd_backup_last_success"
+        method: GET
+        return_content: true
+      register: backup_metric_query
+
+    - name: Query active backup alerts
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/alerts"
+        method: GET
+        return_content: true
+      register: prometheus_alerts
+
+    - name: Print backup detection validation result
+      ansible.builtin.debug:
+        msg:
+          - "prometheus_query_url=http://192.168.1.40:9090/graph?g0.expr=snsd_backup_last_success"
+          - "prometheus_alerts_url=http://192.168.1.40:9090/alerts"
+          - "expected_alert=SNSDBackupFailed"
+          - "query_response={{ backup_metric_query.content }}"
+
+- name: Recover backup configuration and validate restore
+  hosts: data_ops
+  become: true
+  gather_facts: false
+
+  vars:
+    restic_password_file: "/etc/restic/snsd-restic-password"
+    backup_script: "/opt/snsd-backup/scripts/backup-snsd-state.sh"
+    restore_script: "/opt/snsd-backup/scripts/restore-validate-snsd-state.sh"
+    correct_restic_password: "snsd_restic_lab_password"
+
+  tasks:
+    - name: Restore correct Restic password
+      ansible.builtin.copy:
+        dest: "{{ restic_password_file }}"
+        owner: root
+        group: root
+        mode: "0600"
+        content: "{{ correct_restic_password }}\n"
+
+    - name: Run backup script after recovery
+      ansible.builtin.command: "{{ backup_script }}"
+      register: backup_recovery_result
+      changed_when: true
+
+    - name: Run restore validation script after recovery
+      ansible.builtin.command: "{{ restore_script }}"
+      register: restore_recovery_result
+      changed_when: true
+
+    - name: Read backup and restore metrics after recovery
+      ansible.builtin.shell: cat /var/lib/node_exporter/textfile_collector/snsd_backup.prom /var/lib/node_exporter/textfile_collector/snsd_restore.prom
+      register: recovery_metrics
+      changed_when: false
+
+    - name: Print backup recovery result
+      ansible.builtin.debug:
+        msg:
+          - "recovery=pass"
+          - "backup_rc={{ backup_recovery_result.rc }}"
+          - "restore_rc={{ restore_recovery_result.rc }}"
+          - "expected_metrics=snsd_backup_last_success 1, snsd_restore_validation_success 1"
+          - "metric_output={{ recovery_metrics.stdout_lines }}"
+
+- name: Validate Prometheus backup metric recovery
+  hosts: monitoring
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Prometheus scrape after backup recovery
+      ansible.builtin.pause:
+        seconds: 45
+
+    - name: Query backup metric after recovery
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=snsd_backup_last_success"
+        method: GET
+        return_content: true
+      register: backup_recovery_query
+
+    - name: Query restore metric after recovery
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9090/api/v1/query?query=snsd_restore_validation_success"
+        method: GET
+        return_content: true
+      register: restore_recovery_query
+
+    - name: Print final backup recovery validation
+      ansible.builtin.debug:
+        msg:
+          - "recovery_validation=completed"
+          - "expected_backup_metric=1"
+          - "expected_restore_metric=1"
+          - "backup_query_response={{ backup_recovery_query.content }}"
+          - "restore_query_response={{ restore_recovery_query.content }}"

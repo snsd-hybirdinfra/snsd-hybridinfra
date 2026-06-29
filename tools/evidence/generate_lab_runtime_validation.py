@@ -10,6 +10,7 @@ RUNTIME_FILES = {
     "monitoring_target_status": RUNTIME_EVIDENCE_DIR / "monitoring-target-status.md",
     "alerting_validation_summary": RUNTIME_EVIDENCE_DIR / "alerting-validation-summary.md",
     "recovery_validation_summary": RUNTIME_EVIDENCE_DIR / "recovery-validation-summary.md",
+    "resilience_failure_suite_summary": RUNTIME_EVIDENCE_DIR / "resilience-failure-suite-summary.md",
 }
 
 
@@ -96,6 +97,36 @@ def scenario_text(scenario_dir: Path) -> str:
             parts.append(p.read_text(encoding="utf-8", errors="replace"))
     return "\n".join(parts)
 
+def should_include_failure_suite(scenario_dir: Path, text: str) -> bool:
+    level = scenario_dir.parent.name.lower()
+    name = scenario_dir.name.lower()
+    t = text.lower()
+
+    if level in {
+        "level-3-recovery",
+        "level-4-distributed-resilience",
+        "level-5-enterprise-continuity",
+    }:
+        return True
+
+    keywords = [
+        "recovery",
+        "restore",
+        "backup",
+        "failover",
+        "resilience",
+        "continuity",
+        "incident",
+        "alert",
+        "validation",
+        "automation",
+        "database",
+        "proxy",
+        "observability",
+    ]
+
+    return any(keyword in name or keyword in t for keyword in keywords)
+
 def fenced_block(language: str, body: str) -> str:
     return "```" + language + "\n" + body.rstrip() + "\n```\n"
 
@@ -151,10 +182,15 @@ def main() -> int:
         content.append("")
 
         content.append("## Runtime Evidence Sources\n")
+        include_failure_suite = should_include_failure_suite(scenario_dir, text)
+
         content.append("- `labs/evidence/generated/runtime-service-inventory.md`")
         content.append("- `labs/evidence/generated/monitoring-target-status.md`")
         content.append("- `labs/evidence/generated/alerting-validation-summary.md`")
-        content.append("- `labs/evidence/generated/recovery-validation-summary.md`\n")
+        content.append("- `labs/evidence/generated/recovery-validation-summary.md`")
+        if include_failure_suite:
+            content.append("- `labs/evidence/generated/resilience-failure-suite-summary.md`")
+        content.append("")
 
         content.append("## Validation Summary\n")
         content.append("| Validation Area | Runtime Basis | Result |")
@@ -174,6 +210,10 @@ def main() -> int:
 
         content.append("### Recovery Validation Summary\n")
         content.append(fenced_block("text", runtime_contents["recovery_validation_summary"][:6000]))
+
+        if include_failure_suite:
+            content.append("### Resilience Failure Suite Summary\n")
+            content.append(fenced_block("text", runtime_contents["resilience_failure_suite_summary"][:6000]))
 
         content.append("## Reviewer Note\n")
         content.append(
