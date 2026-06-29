@@ -1,6 +1,6 @@
 # Lab Runtime Validation Evidence
 
-Generated At: 2026-06-29 10:39:25
+Generated At: 2026-06-29 10:54:13
 
 Scenario: `compute-resource-monitoring`  
 Level: `level-1-visibility`
@@ -40,7 +40,7 @@ The validation scope is not a full production certification. It records observab
 ```json
 # Monitoring Target Status
 
-Generated At: 2026-06-29 10:39:22 KST +0900
+Generated At: 2026-06-29 10:54:08 KST +0900
 
 Source: Prometheus API /api/v1/targets
 
@@ -66,13 +66,6 @@ Source: Prometheus API /api/v1/targets
       "instance": "http://192.168.1.32",
       "health": "up",
       "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.32",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.40",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.40",
       "lastError": ""
     },
     {
@@ -104,17 +97,10 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.32:9100",
+      "job": "blackbox_icmp",
+      "instance": "192.168.1.40",
       "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.32%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A9100",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.40",
       "lastError": ""
     },
     {
@@ -153,6 +139,20 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
+      "job": "blackbox_tcp",
+      "instance": "192.168.1.32:9100",
+      "health": "up",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.32%3A9100",
+      "lastError": ""
+    },
+    {
+      "job": "blackbox_tcp",
+      "instance": "192.168.1.40:9100",
+      "health": "up",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A9100",
+      "lastError": ""
+    },
+    {
       "job": "cadvisor",
       "instance": "192.168.1.31:8080",
       "health": "up",
@@ -171,6 +171,20 @@ Source: Prometheus API /api/v1/targets
       "instance": "192.168.1.40:9104",
       "health": "up",
       "scrapeUrl": "http://192.168.1.40:9104/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "node_exporter",
+      "instance": "192.168.1.10:9100",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.10:9100/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "node_exporter",
+      "instance": "192.168.1.20:9100",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.20:9100/metrics",
       "lastError": ""
     },
     {
@@ -195,20 +209,6 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
-      "job": "node_exporter",
-      "instance": "192.168.1.10:9100",
-      "health": "up",
-      "scrapeUrl": "http://192.168.1.10:9100/metrics",
-      "lastError": ""
-    },
-    {
-      "job": "node_exporter",
-      "instance": "192.168.1.20:9100",
-      "health": "up",
-      "scrapeUrl": "http://192.168.1.20:9100/metrics",
-      "lastError": ""
-    },
-    {
       "job": "prometheus",
       "instance": "127.0.0.1:9090",
       "health": "up",
@@ -225,7 +225,7 @@ Source: Prometheus API /api/v1/targets
 ```json
 # Alerting Validation Summary
 
-Generated At: 2026-06-29 10:39:22 KST +0900
+Generated At: 2026-06-29 10:54:08 KST +0900
 
 ## Prometheus Alerts
 
@@ -240,11 +240,11 @@ Generated At: 2026-06-29 10:39:22 KST +0900
 ----- BEGIN ALERTMANAGER STATUS JSON -----
 {
   "cluster": {
-    "name": "01KW8FFJ6A48W1PM64QV11JYEY",
+    "name": "01KW8H45CMR1H6JCWHWD1YCV12",
     "peers": [
       {
         "address": "192.168.8.135:9094",
-        "name": "01KW8FFJ6A48W1PM64QV11JYEY"
+        "name": "01KW8H45CMR1H6JCWHWD1YCV12"
       }
     ],
     "status": "ready"
@@ -252,7 +252,7 @@ Generated At: 2026-06-29 10:39:22 KST +0900
   "config": {
     "original": "global:\n  resolve_timeout: 5m\n  http_config:\n    follow_redirects: true\n    enable_http2: true\n  smtp_hello: localhost\n  smtp_require_tls: true\n  pagerduty_url: https://events.pagerduty.com/v2/enqueue\n  opsgenie_api_url: https://api.opsgenie.com/\n  wechat_api_url: https://qyapi.weixin.qq.com/cgi-bin/\n  victorops_api_url: https://alert.victorops.com/integrations/generic/20131114/alert/\n  telegram_api_url: https://api.telegram.org\n  webex_api_url: https://webexapis.com/v1/messages\nroute:\n  receiver: snsd-local-receiver\n  group_by:\n  - alertname\n  - severity\n  continue: false\n  group_wait: 10s\n  group_interval: 1m\n  repeat_interval: 30m\nreceivers:\n- name: snsd-local-receiver\ntemplates: []\n"
   },
-  "uptime": "2026-06-29T10:21:42.091+09:00",
+  "uptime": "2026-06-29T10:50:25.686+09:00",
   "versionInfo": {
     "branch": "HEAD",
     "buildDate": "20240228-11:51:20",
@@ -270,36 +270,36 @@ Generated At: 2026-06-29 10:39:22 KST +0900
 ```text
 # Recovery Validation Summary
 
-Generated At: 2026-06-29 10:39:22 KST +0900
+Generated At: 2026-06-29 10:54:08 KST +0900
 
 ## Backup / Restore Metrics
 
 ----- BEGIN BACKUP RESTORE METRICS -----
 # HELP node_textfile_mtime_seconds Unixtime mtime of textfiles successfully read.
 # TYPE node_textfile_mtime_seconds gauge
-node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_backup.prom"} 1.78269682e+09
-node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_restore.prom"} 1.782696821e+09
+node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_backup.prom"} 1.782697811e+09
+node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_restore.prom"} 1.782697812e+09
 # HELP node_textfile_scrape_error 1 if there was an error opening or reading a file, 0 otherwise
 # TYPE node_textfile_scrape_error gauge
 node_textfile_scrape_error 0
 # HELP snsd_backup_last_duration_seconds Backup duration in seconds.
 # TYPE snsd_backup_last_duration_seconds gauge
-snsd_backup_last_duration_seconds 2
+snsd_backup_last_duration_seconds 1
 # HELP snsd_backup_last_run_timestamp_seconds Last backup run timestamp.
 # TYPE snsd_backup_last_run_timestamp_seconds gauge
-snsd_backup_last_run_timestamp_seconds 1.78269682e+09
+snsd_backup_last_run_timestamp_seconds 1.782697811e+09
 # HELP snsd_backup_last_success Backup success status. 1 means success, 0 means failure.
 # TYPE snsd_backup_last_success gauge
 snsd_backup_last_success 1
 # HELP snsd_backup_snapshot_count Restic snapshot count.
 # TYPE snsd_backup_snapshot_count gauge
-snsd_backup_snapshot_count 32
+snsd_backup_snapshot_count 34
 # HELP snsd_restore_validation_duration_seconds Restore validation duration in seconds.
 # TYPE snsd_restore_validation_duration_seconds gauge
-snsd_restore_validation_duration_seconds 1
+snsd_restore_validation_duration_seconds 0
 # HELP snsd_restore_validation_last_run_timestamp_seconds Last restore validation timestamp.
 # TYPE snsd_restore_validation_last_run_timestamp_seconds gauge
-snsd_restore_validation_last_run_timestamp_seconds 1.782696821e+09
+snsd_restore_validation_last_run_timestamp_seconds 1.782697812e+09
 # HELP snsd_restore_validation_success Restore validation success status. 1 means success, 0 means failure.
 # TYPE snsd_restore_validation_success gauge
 snsd_restore_validation_success 1
