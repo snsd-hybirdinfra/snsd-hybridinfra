@@ -75,3 +75,4 @@ tree.md
 **/inventory/id_*
 labs/*/evidence/generated/
 labs/*/runtime-workspace/
+labs/evidence/generated/

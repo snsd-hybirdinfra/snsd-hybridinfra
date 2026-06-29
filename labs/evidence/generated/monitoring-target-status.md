@@ -1,6 +1,6 @@
 # Monitoring Target Status
 
-Generated At: 2026-06-26 17:34:33 KST +0900
+Generated At: 2026-06-29 09:48:56 KST +0900
 
 Source: Prometheus API /api/v1/targets
 
@@ -26,13 +26,6 @@ Source: Prometheus API /api/v1/targets
       "instance": "http://192.168.1.32",
       "health": "up",
       "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.32",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.31",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.31",
       "lastError": ""
     },
     {
@@ -64,24 +57,10 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:3100",
+      "job": "blackbox_icmp",
+      "instance": "192.168.1.31",
       "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.10:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.10%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.20:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.20%3A9100",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.31",
       "lastError": ""
     },
     {
@@ -113,6 +92,27 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
+      "job": "blackbox_tcp",
+      "instance": "192.168.1.40:3100",
+      "health": "up",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3100",
+      "lastError": ""
+    },
+    {
+      "job": "blackbox_tcp",
+      "instance": "192.168.1.10:9100",
+      "health": "up",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.10%3A9100",
+      "lastError": ""
+    },
+    {
+      "job": "blackbox_tcp",
+      "instance": "192.168.1.20:9100",
+      "health": "up",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.20%3A9100",
+      "lastError": ""
+    },
+    {
       "job": "cadvisor",
       "instance": "192.168.1.31:8080",
       "health": "up",
@@ -135,20 +135,6 @@ Source: Prometheus API /api/v1/targets
     },
     {
       "job": "node_exporter",
-      "instance": "192.168.1.32:9100",
-      "health": "up",
-      "scrapeUrl": "http://192.168.1.32:9100/metrics",
-      "lastError": ""
-    },
-    {
-      "job": "node_exporter",
-      "instance": "192.168.1.40:9100",
-      "health": "up",
-      "scrapeUrl": "http://192.168.1.40:9100/metrics",
-      "lastError": ""
-    },
-    {
-      "job": "node_exporter",
       "instance": "192.168.1.10:9100",
       "health": "up",
       "scrapeUrl": "http://192.168.1.10:9100/metrics",
@@ -166,6 +152,20 @@ Source: Prometheus API /api/v1/targets
       "instance": "192.168.1.31:9100",
       "health": "up",
       "scrapeUrl": "http://192.168.1.31:9100/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "node_exporter",
+      "instance": "192.168.1.32:9100",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.32:9100/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "node_exporter",
+      "instance": "192.168.1.40:9100",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.40:9100/metrics",
       "lastError": ""
     },
     {

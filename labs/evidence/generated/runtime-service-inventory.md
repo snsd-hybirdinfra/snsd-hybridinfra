@@ -1,44 +1,16 @@
 # Runtime Service Inventory
 
-Generated At: 2026-06-26 17:34:33 KST +0900
+Generated At: 2026-06-29 09:48:56 KST +0900
 
 Source: ansible ubuntu_nodes service and port collection
 
 ----- BEGIN RUNTIME INVENTORY -----
-app-node-02 | CHANGED | rc=0 >>
-## Host
-app-node-02
-
-## Time
-2026-06-26 17:34:37 KST +0900
-
-## IP Address
-192.168.8.134 192.168.1.32 172.17.0.1 
-
-## Active Services
-docker: active
-node_exporter: active
-promtail: active
-chrony: active
-
-## Listening Ports
-State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                                 
-LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*    users:(("systemd-resolve",pid=671,fd=17))              
-LISTEN 0      4096         0.0.0.0:80         0.0.0.0:*    users:(("docker-proxy",pid=20309,fd=8))                
-LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*    users:(("sshd",pid=2200,fd=3),("systemd",pid=1,fd=127))
-LISTEN 0      128        127.0.0.1:35221      0.0.0.0:*    users:(("code-7e7950df89",pid=1580,fd=10))             
-LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*    users:(("systemd-resolve",pid=671,fd=15))              
-LISTEN 0      4096         0.0.0.0:8080       0.0.0.0:*    users:(("docker-proxy",pid=15399,fd=8))                
-LISTEN 0      4096            [::]:22            [::]:*    users:(("sshd",pid=2200,fd=4),("systemd",pid=1,fd=130))
-LISTEN 0      4096               *:9080             *:*    users:(("promtail",pid=14430,fd=8))                    
-LISTEN 0      4096               *:9100             *:*    users:(("node_exporter",pid=12672,fd=3))               
-LISTEN 0      4096               *:39591            *:*    users:(("promtail",pid=14430,fd=9))                    
 data-ops-node | CHANGED | rc=0 >>
 ## Host
 data-ops-node
 
 ## Time
-2026-06-26 17:34:37 KST +0900
+2026-06-29 09:48:58 KST +0900
 
 ## IP Address
 192.168.8.135 192.168.1.40 172.17.0.1 
@@ -74,12 +46,40 @@ LISTEN 0      4096            [::]:22            [::]:*    users:(("sshd",pid=63
 LISTEN 0      4096               *:3100             *:*    users:(("loki",pid=17117,fd=8))                                               
 LISTEN 0      4096               *:3000             *:*    users:(("grafana",pid=18245,fd=32))                                           
 LISTEN 0      4096               *:43505            *:*    users:(("promtail",pid=18123,fd=9))                                           
+app-node-02 | CHANGED | rc=0 >>
+## Host
+app-node-02
+
+## Time
+2026-06-29 09:48:58 KST +0900
+
+## IP Address
+192.168.8.134 192.168.1.32 172.17.0.1 
+
+## Active Services
+docker: active
+node_exporter: active
+promtail: active
+chrony: active
+
+## Listening Ports
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                                 
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*    users:(("systemd-resolve",pid=671,fd=17))              
+LISTEN 0      4096         0.0.0.0:80         0.0.0.0:*    users:(("docker-proxy",pid=20309,fd=8))                
+LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*    users:(("sshd",pid=2200,fd=3),("systemd",pid=1,fd=127))
+LISTEN 0      128        127.0.0.1:35221      0.0.0.0:*    users:(("code-7e7950df89",pid=1580,fd=10))             
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*    users:(("systemd-resolve",pid=671,fd=15))              
+LISTEN 0      4096         0.0.0.0:8080       0.0.0.0:*    users:(("docker-proxy",pid=15399,fd=8))                
+LISTEN 0      4096            [::]:22            [::]:*    users:(("sshd",pid=2200,fd=4),("systemd",pid=1,fd=130))
+LISTEN 0      4096               *:9080             *:*    users:(("promtail",pid=14430,fd=8))                    
+LISTEN 0      4096               *:9100             *:*    users:(("node_exporter",pid=12672,fd=3))               
+LISTEN 0      4096               *:39591            *:*    users:(("promtail",pid=14430,fd=9))                    
 app-node-01 | CHANGED | rc=0 >>
 ## Host
 app-node-01
 
 ## Time
-2026-06-26 17:34:38 KST +0900
+2026-06-29 09:48:58 KST +0900
 
 ## IP Address
 192.168.8.133 192.168.1.31 172.17.0.1 
@@ -107,7 +107,7 @@ proxy-network-node | CHANGED | rc=0 >>
 proxy-network-node
 
 ## Time
-2026-06-26 17:34:40 KST +0900
+2026-06-29 09:49:00 KST +0900
 
 ## IP Address
 192.168.8.132 192.168.1.20 172.17.0.1 
@@ -136,7 +136,7 @@ openstack-node | CHANGED | rc=0 >>
 openstack-node
 
 ## Time
-2026-06-26 17:34:39 KST +0900
+2026-06-29 09:49:00 KST +0900
 
 ## IP Address
 192.168.8.131 192.168.1.10 172.17.0.1 
