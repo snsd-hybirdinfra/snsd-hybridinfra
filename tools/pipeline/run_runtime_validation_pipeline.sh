@@ -37,6 +37,13 @@ tools/validation/runtime_smoke_check.sh
 
 echo
 echo "============================================================"
+echo "Step 5. Run repository static check"
+echo "============================================================"
+tools/validation/repository_static_check.sh
+
+
+echo
+echo "============================================================"
 echo "Pipeline Summary"
 echo "============================================================"
 
