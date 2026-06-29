@@ -8,6 +8,7 @@
     node_exporter_version: "1.8.2"
     node_exporter_arch: "linux-amd64"
     node_exporter_user: "node_exporter"
+    node_exporter_textfile_dir: "/var/lib/node_exporter/textfile_collector"
 
   tasks:
     - name: Create node_exporter system user
@@ -16,6 +17,15 @@
         shell: /usr/sbin/nologin
         system: true
         create_home: false
+
+    - name: Create node_exporter textfile collector directory
+      ansible.builtin.file:
+        path: "{{ node_exporter_textfile_dir }}"
+        state: directory
+        owner: "{{ node_exporter_user }}"
+        group: "{{ node_exporter_user }}"
+        mode: "0755"
+
 
     - name: Download node_exporter archive
       ansible.builtin.get_url:
@@ -55,7 +65,8 @@
           Group={{ node_exporter_user }}
           Type=simple
           ExecStart=/usr/local/bin/node_exporter \
-            --web.listen-address=:9100
+            --web.listen-address=:9100 \
+            --collector.textfile.directory={{ node_exporter_textfile_dir }}
 
           Restart=always
           RestartSec=5
