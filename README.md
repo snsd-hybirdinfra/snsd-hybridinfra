@@ -1,22 +1,24 @@
 ## Reviewer Quick Start
 
+## Evaluator Summary
+
+SNSD Hybrid Infrastructure is a scenario-driven hybrid infrastructure operations portfolio.
+
+It demonstrates how a shared lab runtime can support observability, alerting, incident coordination, backup and restore validation, and controlled recovery scenarios.
+
+This repository is not just a collection of scenario documents. It connects lifecycle-aligned scenario packages with executable Ansible playbooks, runtime validation scripts, and generated evidence.
+
 ## Evaluator Quick Path
-
-This repository is a scenario-driven hybrid infrastructure operations portfolio.
-
-The implementation demonstrates an operational lifecycle from observability to recovery validation.
-
-### What to Review First
 
 | Order | Document | Purpose |
 |---:|---|---|
-| 1 | `docs/architecture.md` | Understand the overall runtime and operational architecture |
-| 2 | `docs/runtime-validation-pipeline.md` | Understand how the lab is validated |
-| 3 | `docs/failure-injection-scenarios.md` | Understand controlled failure and recovery scenarios |
-| 4 | `docs/lab-runtime-validation-index.md` | Review scenario-level runtime evidence coverage |
-| 5 | `ansible/README.md` | Review playbook execution order |
+| 1 | `docs/architecture.md` | Runtime architecture and operational control points |
+| 2 | `docs/runtime-validation-pipeline.md` | Evidence generation and validation flow |
+| 3 | `docs/failure-injection-scenarios.md` | Controlled failure injection and recovery scenarios |
+| 4 | `docs/lab-runtime-validation-index.md` | Scenario-level runtime evidence coverage |
+| 5 | `ansible/README.md` | Playbook order and execution boundary |
 
-### Runtime Model
+## Implemented Runtime Capabilities
 
 | Area | Implementation |
 |---|---|
@@ -29,9 +31,9 @@ The implementation demonstrates an operational lifecycle from observability to r
 | Alerting | Prometheus rules and Alertmanager |
 | Incident coordination | Alertmanager webhook receiver |
 | Backup and restore | Restic backup and restore validation |
-| Failure injection | Controlled web, observability, database, proxy, and backup recovery scenarios |
+| Failure injection | Web, observability, database, proxy, and backup recovery scenarios |
 
-### Execution Boundary
+## Execution Boundary
 
 Normal operating baseline:
 
@@ -41,74 +43,23 @@ Controlled failure injection:
 
     ansible/playbooks/21-*.yml through ansible/playbooks/25-*.yml
 
-Bootstrap executes only the normal operating baseline.
+Bootstrap:
 
-Failure injection is executed separately through:
+    tools/bootstrap/run_ansible_lab_bootstrap.sh
+
+Failure suite:
 
     tools/failure/run_resilience_failure_suite.sh
 
-Runtime validation is executed through:
+Runtime validation pipeline:
 
     tools/pipeline/run_runtime_validation_pipeline.sh
 
-### Scenario Catalog
+## Scenario Catalog Boundary
 
 The `scenarios/` directory contains lifecycle-aligned scenario packages.
 
-The 150 scenarios are not separate infrastructure deployments. They are a reviewer-readable operational scenario catalog connected to shared lab runtime evidence.
-
-
-SNSD Hybrid Infrastructure is a scenario-driven hybrid infrastructure operations portfolio.
-
-It demonstrates how infrastructure operations capabilities can be validated through lifecycle-aligned scenarios, runtime labs, observability, automation, recovery validation, and controlled failure injection.
-
-### What is validated
-
-- 150 lifecycle-aligned infrastructure operations scenarios
-- 10 reusable runtime lab domains
-- Ansible-based deployment and validation workflows
-- Prometheus, Grafana, Loki, Promtail, Blackbox Exporter, Alertmanager, HAProxy, MariaDB, and backup/restore runtime checks
-- Controlled failure injection for web, observability, database, proxy, and backup failure paths
-- HAProxy HTTPS service entrypoint with HTTP redirect, TLS termination, stats page, and Blackbox HTTPS probing
-- Scenario-level generated evidence under each scenario directory
-
-### Recommended review path
-
-1. `docs/architecture.md`
-2. `docs/runtime-validation-pipeline.md`
-3. `docs/failure-injection-scenarios.md`
-4. `docs/lab-runtime-validation-index.md`
-5. `ansible/README.md`
-6. `scenarios/<level>/<scenario>/evidence/generated/lab-runtime-validation.md`
-
-### Runtime validation commands
-
-Run from WSL at the repository root.
-
-    tools/pipeline/run_runtime_validation_pipeline.sh
-    tools/failure/run_resilience_failure_suite.sh --precheck-only
-
-Full failure injection suite:
-
-    tools/failure/run_resilience_failure_suite.sh
-
-### Evidence boundary
-
-Local raw runtime evidence is generated under:
-
-    labs/evidence/generated/
-
-Reviewer-facing scenario evidence is generated under:
-
-    scenarios/<level>/<scenario>/evidence/generated/lab-runtime-validation.md
-
-Raw runtime evidence is local-only. Scenario-level generated evidence is intended for review.
-
-﻿# SNSD Hybrid Infrastructure
-
-SNSD Hybrid Infrastructure is a scenario-driven hybrid infrastructure operations portfolio.
-
-It validates reusable operational capabilities across observability, correlation, automation, recovery, resilience, and governance scenarios.
+The 150 scenarios are not 150 separate infrastructure deployments. They are a reviewer-readable operational scenario catalog connected to shared lab runtime evidence.
 
 ## Positioning
 
