@@ -1,42 +1,70 @@
-﻿# Documentation Index
+# Documentation Guide
 
-This directory contains stable reviewer-facing documentation for the SNSD Hybrid Infrastructure portfolio.
+This directory contains reviewer-facing documentation for the SNSD Hybrid Infrastructure portfolio.
 
-The recommended reviewer path starts from the root README and then continues through the documents listed below.
+## Review Order
 
-## Primary Reviewer Documents
+| Order | Document | Role |
+|---:|---|---|
+| 1 | `architecture.md` | Understand the runtime architecture and operational control points |
+| 2 | `runtime-validation-pipeline.md` | Understand how runtime evidence is collected, generated, and validated |
+| 3 | `failure-injection-scenarios.md` | Understand controlled failure injection and recovery validation |
+| 4 | `lab-runtime-validation-index.md` | Review lifecycle scenario evidence coverage |
 
-| Document | Purpose |
-|---|---|
-| reviewer-navigation-guide.md | Reviewer-oriented navigation path |
-| scenario-to-lab-traceability.md | Scenario-to-lab mapping |
-| scenario-test-evidence-index.md | Scenario-level evidence coverage |
-| lab-coverage-matrix.md | Lab coverage overview |
-| runtime-evidence-policy.md | Runtime evidence boundary policy |
-| report-layer-guide.md | Documentation and report layering |
+## Document Boundaries
 
-## Standards and Quality Documents
+### `architecture.md`
 
-| Document | Purpose |
-|---|---|
-| evidence-standard.md | Evidence artifact standard |
-| scenario-readme-standard.md | Scenario README standard |
-| poster-yaml-standard.md | Poster metadata standard |
-| scenario-quality-checklist.md | Scenario quality checklist |
-| validation-workflow.md | Validation workflow |
+Architecture-level explanation.
 
-## Repository Reference Documents
+Use this document to understand:
 
-| Document | Purpose |
-|---|---|
-| repository-tree.md | Repository structure reference |
-| scenario-relationship-map.md | Scenario relationship reference |
-| scenario-review-entry-points.md | Scenario review entry reference |
-| phase-2-backlog.md | Historical Phase 2 backlog reference |
+- Runtime architecture layers
+- Service entrypoint model
+- Observability components
+- Incident coordination layer
+- Runtime validation and failure injection control points
 
-## Boundary
+### `runtime-validation-pipeline.md`
 
-This directory should remain reviewer-facing and relatively stable.
+Validation-flow explanation.
 
-Generated maintainer-oriented reports belong under `reports/`.
-Reviewer-facing validation summaries belong under `validation-reports/`.
+Use this document to understand:
+
+- Runtime evidence collection
+- Scenario-level evidence generation
+- Validation index generation
+- Runtime smoke checks
+- Repository static checks
+- Recommended validation order
+
+### `failure-injection-scenarios.md`
+
+Failure-and-recovery explanation.
+
+Use this document to understand:
+
+- Web backend failure
+- Observability loss
+- Database failure
+- HAProxy service entrypoint failure
+- Backup failure
+- Recovery evidence model
+
+### `lab-runtime-validation-index.md`
+
+Evidence coverage index.
+
+Use this document to review:
+
+- Total scenario count
+- Evidence status
+- Missing evidence detection
+- NOT_FOUND detection
+- Scenario-to-evidence mapping
+
+## Important Boundary
+
+The 150 scenarios are not 150 separate infrastructure deployments.
+
+They are lifecycle-aligned operational scenario packages connected to shared lab runtime evidence.

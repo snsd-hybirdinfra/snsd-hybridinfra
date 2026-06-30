@@ -12,6 +12,8 @@ This repository is not just a collection of scenario documents. It connects life
 
 | Order | Document | Purpose |
 |---:|---|---|
+| 0 | `docs/README.md` | Documentation guide and recommended review order |
+| 0 | `docs/README.md` | Documentation guide and review order |
 | 1 | `docs/architecture.md` | Runtime architecture and operational control points |
 | 2 | `docs/runtime-validation-pipeline.md` | Evidence generation and validation flow |
 | 3 | `docs/failure-injection-scenarios.md` | Controlled failure injection and recovery scenarios |

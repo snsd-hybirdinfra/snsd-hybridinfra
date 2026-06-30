@@ -135,7 +135,8 @@ check_contains() {
   fi
 }
 
-check_contains "README.md" "docs/architecture.md" "README links architecture"
+check_contains "README.md" "docs/README.md
+  docs/architecture.md" "README links architecture"
 check_contains "README.md" "docs/runtime-validation-pipeline.md" "README links runtime validation pipeline"
 check_contains "README.md" "docs/failure-injection-scenarios.md" "README links failure injection scenarios"
 check_contains "README.md" "docs/lab-runtime-validation-index.md" "README links runtime validation index"
