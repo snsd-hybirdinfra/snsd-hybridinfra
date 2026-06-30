@@ -1,5 +1,63 @@
 ## Reviewer Quick Start
 
+## Evaluator Quick Path
+
+This repository is a scenario-driven hybrid infrastructure operations portfolio.
+
+The implementation demonstrates an operational lifecycle from observability to recovery validation.
+
+### What to Review First
+
+| Order | Document | Purpose |
+|---:|---|---|
+| 1 | `docs/architecture.md` | Understand the overall runtime and operational architecture |
+| 2 | `docs/runtime-validation-pipeline.md` | Understand how the lab is validated |
+| 3 | `docs/failure-injection-scenarios.md` | Understand controlled failure and recovery scenarios |
+| 4 | `docs/lab-runtime-validation-index.md` | Review scenario-level runtime evidence coverage |
+| 5 | `ansible/README.md` | Review playbook execution order |
+
+### Runtime Model
+
+| Area | Implementation |
+|---|---|
+| Service entrypoint | HAProxy HTTPS, HTTP redirect, stats page |
+| External availability | Blackbox HTTPS probe |
+| Proxy observability | HAProxy Exporter |
+| Node observability | node_exporter |
+| Container observability | cAdvisor |
+| Database observability | mysqld_exporter |
+| Alerting | Prometheus rules and Alertmanager |
+| Incident coordination | Alertmanager webhook receiver |
+| Backup and restore | Restic backup and restore validation |
+| Failure injection | Controlled web, observability, database, proxy, and backup recovery scenarios |
+
+### Execution Boundary
+
+Normal operating baseline:
+
+    ansible/playbooks/01-*.yml through ansible/playbooks/15-*.yml
+
+Controlled failure injection:
+
+    ansible/playbooks/21-*.yml through ansible/playbooks/25-*.yml
+
+Bootstrap executes only the normal operating baseline.
+
+Failure injection is executed separately through:
+
+    tools/failure/run_resilience_failure_suite.sh
+
+Runtime validation is executed through:
+
+    tools/pipeline/run_runtime_validation_pipeline.sh
+
+### Scenario Catalog
+
+The `scenarios/` directory contains lifecycle-aligned scenario packages.
+
+The 150 scenarios are not separate infrastructure deployments. They are a reviewer-readable operational scenario catalog connected to shared lab runtime evidence.
+
+
 SNSD Hybrid Infrastructure is a scenario-driven hybrid infrastructure operations portfolio.
 
 It demonstrates how infrastructure operations capabilities can be validated through lifecycle-aligned scenarios, runtime labs, observability, automation, recovery validation, and controlled failure injection.
