@@ -1,6 +1,6 @@
 # Monitoring Target Status
 
-Generated At: 2026-06-29 10:39:22 KST +0900
+Generated At: 2026-06-30 11:44:42 KST +0900
 
 Source: Prometheus API /api/v1/targets
 
@@ -9,37 +9,9 @@ Source: Prometheus API /api/v1/targets
   "activeTargets": [
     {
       "job": "blackbox_http",
-      "instance": "http://192.168.1.20",
+      "instance": "https://192.168.1.20",
       "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.20",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_http",
-      "instance": "http://192.168.1.31",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.31",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_http",
-      "instance": "http://192.168.1.32",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.32",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.40",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.40",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.10",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.10",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=https%3A%2F%2F192.168.1.20",
       "lastError": ""
     },
     {
@@ -47,69 +19,6 @@ Source: Prometheus API /api/v1/targets
       "instance": "192.168.1.20",
       "health": "up",
       "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.20",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.31",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.31",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.32",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.32",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.32:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.32%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:3000",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3000",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:3100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.10:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.10%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.20:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.20%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.31:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.31%3A9100",
       "lastError": ""
     },
     {
@@ -124,6 +33,13 @@ Source: Prometheus API /api/v1/targets
       "instance": "192.168.1.32:8080",
       "health": "up",
       "scrapeUrl": "http://192.168.1.32:8080/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "haproxy_exporter",
+      "instance": "192.168.1.20:9101",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.20:9101/metrics",
       "lastError": ""
     },
     {
