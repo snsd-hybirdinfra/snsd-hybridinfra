@@ -1,8 +1,0 @@
-service=wordpress
-database=mariadb
-backup_policy=daily
-recovery_objective=restore_validation
-record_001=customer-session-state
-record_002=service-configuration-state
-record_003=database-reference-state
-record_004=application-runtime-state
