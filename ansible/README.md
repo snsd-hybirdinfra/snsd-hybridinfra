@@ -18,12 +18,14 @@ This directory contains implementation playbooks for the SNSD Hybrid Infrastruct
 | 10 | `playbooks/10-install-cadvisor.yml` | Install cAdvisor for container runtime metrics |
 | 11 | `playbooks/11-install-mariadb-exporter.yml` | Install MariaDB and mysqld_exporter |
 | 12 | `playbooks/12-configure-restic-backup.yml` | Configure Restic backup and restore validation |
-| 13 | `playbooks/13-configure-alertmanager-rules.yml` | Install Alertmanager and configure Prometheus alert rules |
-| 14 | `playbooks/14-failure-injection-web-recovery.yml` | Inject web-node failure and validate recovery behavior |
-| 15 | `playbooks/15-failure-injection-observability-loss.yml` | Stop node_exporter on app-node-02 and validate observability loss/recovery |
-| 16 | `playbooks/16-failure-injection-database-recovery.yml` | Stop MariaDB and validate database failure detection and recovery |
-| 17 | `playbooks/17-failure-injection-proxy-recovery.yml` | Stop HAProxy and validate service entrypoint failure detection and recovery |
-| 18 | `playbooks/18-failure-injection-backup-recovery.yml` | Break Restic backup configuration and validate backup failure detection and recovery |
+| 13 | `playbooks/15-configure-alertmanager-rules.yml` | Install Alertmanager and configure Prometheus alert rules |
+| 14 | `playbooks/21-failure-injection-web-recovery.yml` | Inject web-node failure and validate recovery behavior |
+| 15 | `playbooks/22-failure-injection-observability-loss.yml` | Stop node_exporter on app-node-02 and validate observability loss/recovery |
+| 16 | `playbooks/23-failure-injection-database-recovery.yml` | Stop MariaDB and validate database failure detection and recovery |
+| 17 | `playbooks/24-failure-injection-proxy-recovery.yml` | Stop HAProxy and validate service entrypoint failure detection and recovery |
+| 18 | `playbooks/25-failure-injection-backup-recovery.yml` | Break Restic backup configuration and validate backup failure detection and recovery |
+| 19 | `playbooks/13-install-haproxy-exporter.yml` | Install HAProxy exporter for backend/server metric visibility |
+| 20 | `playbooks/14-install-alert-webhook-receiver.yml` | Install mock Alertmanager webhook receiver for incident coordination validation |
 
 ## Standard Execution
 
@@ -41,11 +43,11 @@ Run from WSL at the repository root.
     ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/10-install-cadvisor.yml
     ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/11-install-mariadb-exporter.yml
     ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/12-configure-restic-backup.yml
-    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/13-configure-alertmanager-rules.yml
+    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/15-configure-alertmanager-rules.yml
 
 Run failure injection only when testing recovery behavior.
 
-    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/14-failure-injection-web-recovery.yml
+    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/21-failure-injection-web-recovery.yml
 
 ## Boundary
 
@@ -63,10 +65,40 @@ Run from WSL:
 
 The suite runs:
 
-    14-failure-injection-web-recovery.yml
-    15-failure-injection-observability-loss.yml
-    16-failure-injection-database-recovery.yml
-    17-failure-injection-proxy-recovery.yml
-    18-failure-injection-backup-recovery.yml
+    21-failure-injection-web-recovery.yml
+    22-failure-injection-observability-loss.yml
+    23-failure-injection-database-recovery.yml
+    24-failure-injection-proxy-recovery.yml
+    25-failure-injection-backup-recovery.yml
 
 The suite performs a runtime smoke check before and after the failure sequence, then refreshes runtime validation evidence through the runtime validation pipeline.
+
+## Playbook Order
+
+| Order | Playbook | Purpose |
+|---:|---|---|
+| 01 | `playbooks/01-common-base.yml` | Configure common base packages and node prerequisites |
+| 02 | `playbooks/02-configure-time-sync.yml` | Configure time synchronization |
+| 03 | `playbooks/03-install-docker.yml` | Install Docker runtime |
+| 04 | `playbooks/04-install-node-exporter.yml` | Install node_exporter with textfile collector support |
+| 05 | `playbooks/05-install-prometheus-grafana.yml` | Install Prometheus and Grafana, including scrape configuration |
+| 06 | `playbooks/06-configure-grafana-provisioning.yml` | Configure Grafana provisioning |
+| 07 | `playbooks/07-install-loki-promtail.yml` | Install Loki and Promtail |
+| 08 | `playbooks/08-install-blackbox-exporter.yml` | Install Blackbox Exporter probe modules |
+| 09 | `playbooks/09-deploy-sample-web-haproxy.yml` | Deploy sample web service, HAProxy HTTPS entrypoint, and stats page |
+| 10 | `playbooks/10-install-cadvisor.yml` | Install cAdvisor container telemetry |
+| 11 | `playbooks/11-install-mariadb-exporter.yml` | Install MariaDB exporter |
+| 12 | `playbooks/12-configure-restic-backup.yml` | Configure Restic backup and restore validation |
+| 13 | `playbooks/13-install-haproxy-exporter.yml` | Install HAProxy exporter for backend/server metric visibility |
+| 14 | `playbooks/14-install-alert-webhook-receiver.yml` | Install mock Alertmanager webhook receiver for incident coordination validation |
+| 15 | `playbooks/15-configure-alertmanager-rules.yml` | Configure Prometheus alerting rules and Alertmanager integration |
+| 21 | `playbooks/21-failure-injection-web-recovery.yml` | Validate web backend failure and recovery |
+| 22 | `playbooks/22-failure-injection-observability-loss.yml` | Validate observability loss and recovery |
+| 23 | `playbooks/23-failure-injection-database-recovery.yml` | Validate database failure and recovery |
+| 24 | `playbooks/24-failure-injection-proxy-recovery.yml` | Validate HAProxy HTTPS entrypoint failure and recovery |
+| 25 | `playbooks/25-failure-injection-backup-recovery.yml` | Validate backup failure and recovery |
+
+Playbooks `01` through `15` represent the normal operating baseline.
+
+Playbooks `21` through `25` are controlled failure injection scenarios and are intentionally excluded from the bootstrap flow.
+

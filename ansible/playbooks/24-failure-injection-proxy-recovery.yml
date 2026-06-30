@@ -16,11 +16,12 @@
       changed_when: false
       failed_when: false
 
-    - name: Confirm frontend is unavailable locally
+    - name: Confirm HTTPS frontend is unavailable locally
       ansible.builtin.uri:
-        url: http://127.0.0.1/
+        url: https://127.0.0.1/
         method: GET
         status_code: 200
+        validate_certs: false
       register: frontend_check
       failed_when: false
       changed_when: false
@@ -30,7 +31,7 @@
         msg:
           - "failure_type=proxy_down"
           - "target_host=proxy-network-node"
-          - "target_endpoint=http://192.168.1.20"
+          - "target_endpoint=https://192.168.1.20"
           - "haproxy_state={{ haproxy_state.stdout }}"
           - "frontend_status={{ frontend_check.status | default('unreachable') }}"
 
@@ -44,9 +45,9 @@
       ansible.builtin.pause:
         seconds: 90
 
-    - name: Query blackbox HTTP probe for HAProxy
+    - name: Query blackbox HTTPS probe for HAProxy
       ansible.builtin.uri:
-        url: "http://127.0.0.1:9090/api/v1/query?query=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22http%3A%2F%2F192.168.1.20%22%7D"
+        url: "http://127.0.0.1:9090/api/v1/query?query=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22https%3A%2F%2F192.168.1.20%22%7D"
         method: GET
         return_content: true
       register: proxy_probe_query
@@ -61,7 +62,7 @@
     - name: Print proxy detection validation result
       ansible.builtin.debug:
         msg:
-          - "prometheus_query_url=http://192.168.1.40:9090/graph?g0.expr=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22http%3A%2F%2F192.168.1.20%22%7D"
+          - "prometheus_query_url=http://192.168.1.40:9090/graph?g0.expr=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22https%3A%2F%2F192.168.1.20%22%7D"
           - "prometheus_alerts_url=http://192.168.1.40:9090/alerts"
           - "expected_alert=SNSDBlackboxProbeFailed"
           - "query_response={{ proxy_probe_query.content }}"
@@ -86,16 +87,38 @@
       delay: 3
       until: haproxy_recovery_state.stdout == "active"
 
-    - name: Check HAProxy frontend after recovery
+    - name: Check HAProxy HTTP redirect after recovery
       ansible.builtin.uri:
         url: http://127.0.0.1/
         method: GET
-        status_code: 200
-        return_content: true
-      register: frontend_recovery
+        status_code: 301
+        follow_redirects: none
+      register: http_redirect_recovery
       retries: 10
       delay: 3
-      until: frontend_recovery.status == 200
+      until: http_redirect_recovery.status == 301
+
+    - name: Check HAProxy HTTPS frontend after recovery
+      ansible.builtin.uri:
+        url: https://127.0.0.1/
+        method: GET
+        status_code: 200
+        validate_certs: false
+        return_content: true
+      register: https_frontend_recovery
+      retries: 10
+      delay: 3
+      until: https_frontend_recovery.status == 200
+
+    - name: Check HAProxy stats page after recovery
+      ansible.builtin.uri:
+        url: http://127.0.0.1:8404/stats
+        method: GET
+        status_code: 200
+      register: stats_recovery
+      retries: 10
+      delay: 3
+      until: stats_recovery.status == 200
 
     - name: Print proxy recovery result
       ansible.builtin.debug:
@@ -103,8 +126,11 @@
           - "recovery=pass"
           - "target_host=proxy-network-node"
           - "haproxy_state={{ haproxy_recovery_state.stdout }}"
-          - "frontend_status={{ frontend_recovery.status }}"
-          - "frontend=http://192.168.1.20"
+          - "http_redirect_status={{ http_redirect_recovery.status }}"
+          - "https_frontend_status={{ https_frontend_recovery.status }}"
+          - "stats_status={{ stats_recovery.status }}"
+          - "frontend=https://192.168.1.20"
+          - "stats=http://192.168.1.20:8404/stats"
 
 - name: Validate Prometheus proxy metric recovery
   hosts: monitoring
@@ -116,9 +142,9 @@
       ansible.builtin.pause:
         seconds: 45
 
-    - name: Query blackbox HTTP probe after recovery
+    - name: Query blackbox HTTPS probe after recovery
       ansible.builtin.uri:
-        url: "http://127.0.0.1:9090/api/v1/query?query=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22http%3A%2F%2F192.168.1.20%22%7D"
+        url: "http://127.0.0.1:9090/api/v1/query?query=probe_success%7Bjob%3D%22blackbox_http%22%2Cinstance%3D%22https%3A%2F%2F192.168.1.20%22%7D"
         method: GET
         return_content: true
       register: recovery_query
@@ -127,6 +153,6 @@
       ansible.builtin.debug:
         msg:
           - "recovery_validation=completed"
-          - "target_endpoint=http://192.168.1.20"
+          - "target_endpoint=https://192.168.1.20"
           - "expected_probe_success=1"
           - "query_response={{ recovery_query.content }}"

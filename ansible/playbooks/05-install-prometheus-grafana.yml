@@ -93,11 +93,20 @@
             scrape_interval: 15s
             evaluation_interval: 15s
 
+          rule_files:
+            - /etc/prometheus/rules/*.yml
+
+          alerting:
+            alertmanagers:
+              - static_configs:
+                  - targets:
+                      - 127.0.0.1:9093
+
           scrape_configs:
             - job_name: "prometheus"
               static_configs:
                 - targets:
-                    - "127.0.0.1:9090"
+                    - 127.0.0.1:9090
 
             - job_name: "node_exporter"
               static_configs:
@@ -105,6 +114,59 @@
           {% for target in prometheus_targets %}
                     - "{{ target }}"
           {% endfor %}
+
+            - job_name: "cadvisor"
+              static_configs:
+                - targets:
+                    - 192.168.1.31:8080
+                    - 192.168.1.32:8080
+
+            - job_name: "mysqld_exporter"
+              static_configs:
+                - targets:
+                    - 192.168.1.40:9104
+
+            - job_name: "haproxy_exporter"
+              static_configs:
+                - targets:
+                    - 192.168.1.20:9101
+
+            - job_name: "blackbox_http"
+              metrics_path: /probe
+              params:
+                module:
+                  - http_2xx
+              static_configs:
+                - targets:
+                    - https://192.168.1.20
+              relabel_configs:
+                - source_labels:
+                    - __address__
+                  target_label: __param_target
+                - source_labels:
+                    - __param_target
+                  target_label: instance
+                - target_label: __address__
+                  replacement: 127.0.0.1:9115
+
+            - job_name: "blackbox_icmp"
+              metrics_path: /probe
+              params:
+                module:
+                  - icmp
+              static_configs:
+                - targets:
+                    - 192.168.1.20
+              relabel_configs:
+                - source_labels:
+                    - __address__
+                  target_label: __param_target
+                - source_labels:
+                    - __param_target
+                  target_label: instance
+                - target_label: __address__
+                  replacement: 127.0.0.1:9115
+
 
     - name: Create Prometheus systemd unit
       ansible.builtin.copy:

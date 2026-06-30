@@ -1,3 +1,51 @@
+## Reviewer Quick Start
+
+SNSD Hybrid Infrastructure is a scenario-driven hybrid infrastructure operations portfolio.
+
+It demonstrates how infrastructure operations capabilities can be validated through lifecycle-aligned scenarios, runtime labs, observability, automation, recovery validation, and controlled failure injection.
+
+### What is validated
+
+- 150 lifecycle-aligned infrastructure operations scenarios
+- 10 reusable runtime lab domains
+- Ansible-based deployment and validation workflows
+- Prometheus, Grafana, Loki, Promtail, Blackbox Exporter, Alertmanager, HAProxy, MariaDB, and backup/restore runtime checks
+- Controlled failure injection for web, observability, database, proxy, and backup failure paths
+- HAProxy HTTPS service entrypoint with HTTP redirect, TLS termination, stats page, and Blackbox HTTPS probing
+- Scenario-level generated evidence under each scenario directory
+
+### Recommended review path
+
+1. `docs/architecture.md`
+2. `docs/runtime-validation-pipeline.md`
+3. `docs/failure-injection-scenarios.md`
+4. `docs/lab-runtime-validation-index.md`
+5. `ansible/README.md`
+6. `scenarios/<level>/<scenario>/evidence/generated/lab-runtime-validation.md`
+
+### Runtime validation commands
+
+Run from WSL at the repository root.
+
+    tools/pipeline/run_runtime_validation_pipeline.sh
+    tools/failure/run_resilience_failure_suite.sh --precheck-only
+
+Full failure injection suite:
+
+    tools/failure/run_resilience_failure_suite.sh
+
+### Evidence boundary
+
+Local raw runtime evidence is generated under:
+
+    labs/evidence/generated/
+
+Reviewer-facing scenario evidence is generated under:
+
+    scenarios/<level>/<scenario>/evidence/generated/lab-runtime-validation.md
+
+Raw runtime evidence is local-only. Scenario-level generated evidence is intended for review.
+
 ﻿# SNSD Hybrid Infrastructure
 
 SNSD Hybrid Infrastructure is a scenario-driven hybrid infrastructure operations portfolio.

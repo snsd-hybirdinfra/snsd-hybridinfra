@@ -3,9 +3,11 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 EVIDENCE_DIR="${REPO_ROOT}/labs/evidence/generated"
+ALERTING_VALIDATION_SUMMARY="${EVIDENCE_DIR}/alerting-validation-summary.md"
 INVENTORY="${REPO_ROOT}/inventory/lab/hosts.ini"
 
 mkdir -p "${EVIDENCE_DIR}"
+: > "${ALERTING_VALIDATION_SUMMARY}"
 
 GENERATED_AT="$(date '+%Y-%m-%d %H:%M:%S %Z %z')"
 
@@ -115,7 +117,7 @@ ss -lntp || true
   echo
   echo "----- BEGIN HAPROXY PROBE CONTINUITY -----"
   echo "## HAProxy Frontend"
-  curl -s http://192.168.1.20 | grep -E "hostname|status" || true
+  curl -k -s https://192.168.1.20 | grep -E "hostname|status" || true
   echo
   echo "## Backend Direct Checks"
   curl -s http://192.168.1.31 | grep -E "hostname|status" || true
@@ -123,10 +125,24 @@ ss -lntp || true
   curl -s http://192.168.1.32 | grep -E "hostname|status" || true
   echo
   echo "## Blackbox Probe Success"
-  curl -s "http://192.168.1.40:9115/probe?target=http://192.168.1.20&module=http_2xx" | grep probe_success || true
+  curl -s "http://192.168.1.40:9115/probe?target=https://192.168.1.20&module=http_2xx" | grep probe_success || true
   curl -s "http://192.168.1.40:9115/probe?target=192.168.1.20&module=icmp" | grep probe_success || true
   echo "----- END HAPROXY PROBE CONTINUITY -----"
 } > "${EVIDENCE_DIR}/recovery-validation-summary.md"
 
 echo "[OK] generated runtime evidence files"
 find "${EVIDENCE_DIR}" -maxdepth 1 -type f -name "*.md" -print
+
+{
+  echo
+  echo "## Alert Webhook Receiver"
+  echo
+  echo "### Health"
+  curl -s http://192.168.1.40:5001/health || true
+  echo
+  echo
+  echo "### Recent Alert Webhook Payloads"
+  curl -s http://192.168.1.40:5001/alerts || true
+  echo
+} >> "${ALERTING_VALIDATION_SUMMARY}"
+

@@ -60,22 +60,17 @@
               prober: http
               timeout: 5s
               http:
-                valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
-                valid_status_codes: []
-                method: GET
-                preferred_ip_protocol: "ip4"
-
-            tcp_connect:
-              prober: tcp
-              timeout: 5s
-              tcp:
-                preferred_ip_protocol: "ip4"
+                preferred_ip_protocol: ip4
+                follow_redirects: true
+                tls_config:
+                  insecure_skip_verify: true
 
             icmp:
               prober: icmp
               timeout: 5s
               icmp:
-                preferred_ip_protocol: "ip4"
+                preferred_ip_protocol: ip4
+
 
     - name: Create blackbox_exporter systemd unit
       ansible.builtin.copy:
@@ -127,75 +122,6 @@
   gather_facts: false
 
   tasks:
-    - name: Insert blackbox scrape jobs into Prometheus config
-      ansible.builtin.blockinfile:
-        path: /etc/prometheus/prometheus.yml
-        marker: "# {mark} SNSD BLACKBOX SCRAPE JOBS"
-        insertafter: EOF
-        block: |
-
-          # SNSD blackbox endpoint probes
-            - job_name: "blackbox_http"
-              metrics_path: /probe
-              params:
-                module: [http_2xx]
-              static_configs:
-                - targets:
-                    - http://192.168.1.20
-                    - http://192.168.1.31
-                    - http://192.168.1.32
-              relabel_configs:
-                - source_labels: [__address__]
-                  target_label: __param_target
-                - source_labels: [__param_target]
-                  target_label: instance
-                - target_label: __address__
-                  replacement: 127.0.0.1:9115
-
-            - job_name: "blackbox_tcp"
-              metrics_path: /probe
-              params:
-                module: [tcp_connect]
-              static_configs:
-                - targets:
-                    - 192.168.1.10:9100
-                    - 192.168.1.20:9100
-                    - 192.168.1.31:9100
-                    - 192.168.1.32:9100
-                    - 192.168.1.40:9100
-                    - 192.168.1.40:3000
-                    - 192.168.1.40:3100
-              relabel_configs:
-                - source_labels: [__address__]
-                  target_label: __param_target
-                - source_labels: [__param_target]
-                  target_label: instance
-                - target_label: __address__
-                  replacement: 127.0.0.1:9115
-
-            - job_name: "blackbox_icmp"
-              metrics_path: /probe
-              params:
-                module: [icmp]
-              static_configs:
-                - targets:
-                    - 192.168.1.10
-                    - 192.168.1.20
-                    - 192.168.1.31
-                    - 192.168.1.32
-                    - 192.168.1.40
-              relabel_configs:
-                - source_labels: [__address__]
-                  target_label: __param_target
-                - source_labels: [__param_target]
-                  target_label: instance
-                - target_label: __address__
-                  replacement: 127.0.0.1:9115
-
-    - name: Validate Prometheus config
-      ansible.builtin.command: promtool check config /etc/prometheus/prometheus.yml
-      changed_when: false
-
     - name: Restart Prometheus
       ansible.builtin.systemd:
         name: prometheus

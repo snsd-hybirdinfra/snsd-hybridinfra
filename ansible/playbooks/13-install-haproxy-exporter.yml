@@ -1,0 +1,85 @@
+---
+- name: Install HAProxy exporter on proxy-network-node
+  hosts: proxy
+  become: true
+  gather_facts: true
+
+  vars:
+    haproxy_exporter_version: "0.15.0"
+    haproxy_exporter_arch: "linux-amd64"
+    haproxy_exporter_url: "https://github.com/prometheus/haproxy_exporter/releases/download/v{{ haproxy_exporter_version }}/haproxy_exporter-{{ haproxy_exporter_version }}.{{ haproxy_exporter_arch }}.tar.gz"
+    haproxy_exporter_web_listen: "0.0.0.0:9101"
+    haproxy_stats_url: "http://127.0.0.1:8404/stats;csv"
+
+  tasks:
+    - name: Download HAProxy exporter archive
+      ansible.builtin.get_url:
+        url: "{{ haproxy_exporter_url }}"
+        dest: "/tmp/haproxy_exporter-{{ haproxy_exporter_version }}.{{ haproxy_exporter_arch }}.tar.gz"
+        mode: "0644"
+
+    - name: Extract HAProxy exporter archive
+      ansible.builtin.unarchive:
+        src: "/tmp/haproxy_exporter-{{ haproxy_exporter_version }}.{{ haproxy_exporter_arch }}.tar.gz"
+        dest: /tmp
+        remote_src: true
+
+    - name: Install HAProxy exporter binary
+      ansible.builtin.copy:
+        src: "/tmp/haproxy_exporter-{{ haproxy_exporter_version }}.{{ haproxy_exporter_arch }}/haproxy_exporter"
+        dest: /usr/local/bin/haproxy_exporter
+        owner: root
+        group: root
+        mode: "0755"
+        remote_src: true
+
+    - name: Create HAProxy exporter systemd unit
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/haproxy_exporter.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=Prometheus HAProxy Exporter
+          Wants=network-online.target
+          After=network-online.target haproxy.service
+
+          [Service]
+          Type=simple
+          ExecStart=/usr/local/bin/haproxy_exporter \
+            --web.listen-address={{ haproxy_exporter_web_listen }} \
+            --haproxy.scrape-uri={{ haproxy_stats_url }}
+          Restart=always
+          RestartSec=5
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start HAProxy exporter
+      ansible.builtin.systemd:
+        name: haproxy_exporter
+        state: restarted
+        enabled: true
+
+    - name: Check HAProxy exporter metrics endpoint
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9101/metrics
+        method: GET
+        status_code: 200
+        return_content: true
+      register: haproxy_exporter_metrics
+      retries: 10
+      delay: 3
+      until: haproxy_exporter_metrics.status == 200
+
+    - name: Print HAProxy exporter validation
+      ansible.builtin.debug:
+        msg:
+          - "haproxy_exporter=http://192.168.1.20:9101/metrics"
+          - "haproxy_stats={{ haproxy_stats_url }}"
+          - "status={{ haproxy_exporter_metrics.status }}"

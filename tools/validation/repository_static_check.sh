@@ -116,13 +116,59 @@ else
   pass "labs/evidence/generated not staged as reviewer evidence"
 fi
 
+section "Documentation Link Integrity"
+
+check_contains() {
+  local file="$1"
+  local pattern="$2"
+  local label="$3"
+
+  if [ ! -f "${file}" ]; then
+    fail "${file} missing for ${label}"
+    return
+  fi
+
+  if grep -q "${pattern}" "${file}"; then
+    pass "${label}"
+  else
+    fail "${label}"
+  fi
+}
+
+check_contains "README.md" "docs/architecture.md" "README links architecture"
+check_contains "README.md" "docs/runtime-validation-pipeline.md" "README links runtime validation pipeline"
+check_contains "README.md" "docs/failure-injection-scenarios.md" "README links failure injection scenarios"
+check_contains "README.md" "docs/lab-runtime-validation-index.md" "README links runtime validation index"
+
+check_contains "docs/architecture.md" "Runtime Validation" "architecture describes runtime validation"
+check_contains "docs/architecture.md" "Failure Injection" "architecture describes failure injection"
+check_contains "docs/architecture.md" "tools/failure/run_resilience_failure_suite.sh" "architecture links resilience failure suite"
+
+check_contains "docs/runtime-validation-pipeline.md" "docs/failure-injection-scenarios.md" "runtime pipeline links failure injection doc"
+check_contains "docs/runtime-validation-pipeline.md" "docs/lab-runtime-validation-index.md" "runtime pipeline references validation index"
+check_contains "docs/runtime-validation-pipeline.md" "labs/evidence/generated" "runtime pipeline documents raw evidence boundary"
+check_contains "docs/runtime-validation-pipeline.md" "scenarios/<level>/<scenario>/evidence/generated/lab-runtime-validation.md" "runtime pipeline documents scenario evidence path"
+
+check_contains "docs/failure-injection-scenarios.md" "tools/failure/run_resilience_failure_suite.sh" "failure doc includes suite command"
+check_contains "docs/failure-injection-scenarios.md" "labs/evidence/generated/resilience-failure-suite-summary.md" "failure doc documents suite summary"
+check_contains "docs/failure-injection-scenarios.md" "Detection" "failure doc explains detection path"
+check_contains "docs/failure-injection-scenarios.md" "Recovery" "failure doc explains recovery path"
+
+check_contains "docs/lab-runtime-validation-index.md" "Total scenarios" "index contains total scenario summary"
+check_contains "docs/lab-runtime-validation-index.md" "Missing evidence" "index contains missing evidence summary"
+check_contains "docs/lab-runtime-validation-index.md" "Contains NOT_FOUND" "index contains NOT_FOUND summary"
+check_contains "docs/lab-runtime-validation-index.md" "scenarios/<level>/<scenario>/evidence/generated/lab-runtime-validation.md" "index documents scenario evidence path"
+
+
 section "Failure Injection Playbooks"
 for file in \
-  ansible/playbooks/14-failure-injection-web-recovery.yml \
-  ansible/playbooks/15-failure-injection-observability-loss.yml \
-  ansible/playbooks/16-failure-injection-database-recovery.yml \
-  ansible/playbooks/17-failure-injection-proxy-recovery.yml \
-  ansible/playbooks/18-failure-injection-backup-recovery.yml
+  ansible/playbooks/21-failure-injection-web-recovery.yml \
+  ansible/playbooks/22-failure-injection-observability-loss.yml \
+  ansible/playbooks/23-failure-injection-database-recovery.yml \
+  ansible/playbooks/24-failure-injection-proxy-recovery.yml \
+  ansible/playbooks/25-failure-injection-backup-recovery.yml \
+  ansible/playbooks/13-install-haproxy-exporter.yml \
+  ansible/playbooks/14-install-alert-webhook-receiver.yml
 do
   if [ -f "${file}" ]; then
     pass "${file} exists"

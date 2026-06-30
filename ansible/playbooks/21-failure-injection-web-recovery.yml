@@ -30,7 +30,8 @@
   tasks:
     - name: Check HAProxy frontend after app-node-02 failure
       ansible.builtin.uri:
-        url: http://127.0.0.1/
+        url: https://127.0.0.1/
+        validate_certs: false
         method: GET
         status_code: 200
         return_content: true
@@ -81,7 +82,8 @@
 
     - name: Check local web endpoint after recovery
       ansible.builtin.uri:
-        url: http://127.0.0.1/
+        url: https://127.0.0.1/
+        validate_certs: false
         method: GET
         status_code: 200
       register: local_web_recovery
@@ -104,7 +106,8 @@
   tasks:
     - name: Check HAProxy frontend after recovery
       ansible.builtin.uri:
-        url: http://127.0.0.1/
+        url: https://127.0.0.1/
+        validate_certs: false
         method: GET
         status_code: 200
       register: haproxy_recovery
@@ -116,5 +119,5 @@
       ansible.builtin.debug:
         msg:
           - "haproxy_recovery=pass"
-          - "frontend=http://192.168.1.20"
-          - "stats=http://192.168.1.20:8404/stats"
+          - "frontend=https://192.168.1.20"
+          - "stats=https://192.168.1.20:8404/stats"

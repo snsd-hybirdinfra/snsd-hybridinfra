@@ -1,5 +1,5 @@
 ---
-- name: Deploy sample web apps on app nodes
+- name: Deploy sample web containers on app nodes
   hosts: app
   become: true
   gather_facts: true
@@ -13,7 +13,7 @@
         group: root
         mode: "0755"
 
-    - name: Create sample index page
+    - name: Render sample web index
       ansible.builtin.copy:
         dest: /opt/snsd-web/index.html
         owner: root
@@ -27,43 +27,96 @@
           </head>
           <body>
             <h1>SNSD Sample Web</h1>
-            <p>hostname: {{ inventory_hostname }}</p>
-            <p>role: application node</p>
-            <p>status: healthy</p>
+            <p>hostname={{ inventory_hostname }}</p>
+            <p>status=ok</p>
+            <p>service=sample-web</p>
           </body>
           </html>
+
+    - name: Render health endpoint
+      ansible.builtin.copy:
+        dest: /opt/snsd-web/health
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          status=ok
+          service=sample-web
+          host={{ inventory_hostname }}
+
+    - name: Render ready endpoint
+      ansible.builtin.copy:
+        dest: /opt/snsd-web/ready
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          ready=true
+          service=sample-web
+          host={{ inventory_hostname }}
 
     - name: Run sample nginx container
       community.docker.docker_container:
         name: snsd-sample-web
         image: nginx:stable-alpine
         state: started
-        restart_policy: always
+        restart_policy: unless-stopped
+        recreate: true
         published_ports:
-          - "80:80"
+          - "18080:80"
         volumes:
-          - /opt/snsd-web/index.html:/usr/share/nginx/html/index.html:ro
+          - /opt/snsd-web:/usr/share/nginx/html:ro
 
-    - name: Check local web endpoint
-      ansible.builtin.uri:
-        url: http://127.0.0.1/
-        method: GET
-        status_code: 200
-
-- name: Configure HAProxy on proxy node
+- name: Deploy HAProxy service entrypoint
   hosts: proxy
   become: true
-  gather_facts: true
+  gather_facts: false
+
+  vars:
+    haproxy_cert_dir: /etc/haproxy/certs
+    haproxy_cert_file: /etc/haproxy/certs/snsd-haproxy.pem
 
   tasks:
-    - name: Install HAProxy
+    - name: Install HAProxy and OpenSSL
       ansible.builtin.apt:
         name:
           - haproxy
+          - openssl
         state: present
         update_cache: true
 
-    - name: Configure HAProxy
+    - name: Ensure HAProxy certificate directory exists
+      ansible.builtin.file:
+        path: "{{ haproxy_cert_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Generate self-signed HAProxy certificate
+      ansible.builtin.command:
+        cmd: >
+          openssl req -x509 -nodes -newkey rsa:2048
+          -keyout /etc/haproxy/certs/snsd-haproxy.key
+          -out /etc/haproxy/certs/snsd-haproxy.crt
+          -days 365
+          -subj /CN=snsd-haproxy.local
+      args:
+        creates: /etc/haproxy/certs/snsd-haproxy.crt
+
+    - name: Combine certificate and key for HAProxy
+      ansible.builtin.shell: cat /etc/haproxy/certs/snsd-haproxy.crt /etc/haproxy/certs/snsd-haproxy.key > {{ haproxy_cert_file }}
+      args:
+        creates: "{{ haproxy_cert_file }}"
+
+    - name: Set HAProxy certificate permissions
+      ansible.builtin.file:
+        path: "{{ haproxy_cert_file }}"
+        owner: root
+        group: root
+        mode: "0600"
+
+    - name: Configure HAProxy with HTTPS termination and stats
       ansible.builtin.copy:
         dest: /etc/haproxy/haproxy.cfg
         owner: root
@@ -73,56 +126,95 @@
           global
               log /dev/log local0
               log /dev/log local1 notice
+              chroot /var/lib/haproxy
+              stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+              stats timeout 30s
+              user haproxy
+              group haproxy
               daemon
-              maxconn 2048
+              ssl-default-bind-options no-sslv3 no-tlsv10 no-tlsv11
+              ssl-default-bind-ciphers ECDHE+AESGCM:ECDHE+CHACHA20:DHE+AESGCM:DHE+CHACHA20:!aNULL:!MD5:!DSS
 
           defaults
               log global
               mode http
               option httplog
               option dontlognull
+              option forwardfor
               timeout connect 5s
-              timeout client  30s
-              timeout server  30s
+              timeout client 50s
+              timeout server 50s
 
-          frontend snsd_http_frontend
+          frontend http_in
               bind *:80
-              default_backend snsd_web_backend
+              mode http
+              redirect scheme https code 301 if !{ ssl_fc }
 
-          backend snsd_web_backend
+          frontend https_in
+              bind *:443 ssl crt {{ haproxy_cert_file }}
+              mode http
+              http-response set-header X-Service-Entrypoint haproxy-https
+              default_backend app_backends
+
+          backend app_backends
+              mode http
               balance roundrobin
-              option httpchk GET /
+              option httpchk GET /health
               http-check expect status 200
-              server app-node-01 192.168.1.31:80 check
-              server app-node-02 192.168.1.32:80 check
+              server app-node-01 192.168.1.31:18080 check
+              server app-node-02 192.168.1.32:18080 check
 
           listen stats
               bind *:8404
+              mode http
               stats enable
               stats uri /stats
               stats refresh 10s
-              stats admin if LOCALHOST
+              stats show-legends
+              stats show-node
+
+    - name: Validate HAProxy configuration
+      ansible.builtin.command: haproxy -c -f /etc/haproxy/haproxy.cfg
+      changed_when: false
 
     - name: Enable and restart HAProxy
       ansible.builtin.systemd:
         name: haproxy
-        enabled: true
         state: restarted
+        enabled: true
 
-    - name: Check HAProxy service
-      ansible.builtin.command: systemctl is-active haproxy
-      register: haproxy_state
-      changed_when: false
-
-    - name: Check HAProxy frontend
+    - name: Validate HTTP redirects to HTTPS
       ansible.builtin.uri:
         url: http://127.0.0.1/
         method: GET
-        status_code: 200
+        status_code: 301
+        follow_redirects: none
+      register: http_redirect_check
 
-    - name: Print HAProxy access
+    - name: Validate HTTPS frontend
+      ansible.builtin.uri:
+        url: https://127.0.0.1/
+        method: GET
+        status_code: 200
+        validate_certs: false
+        return_content: true
+      register: https_check
+      retries: 10
+      delay: 3
+      until: https_check.status == 200
+
+    - name: Validate HAProxy stats page
+      ansible.builtin.uri:
+        url: http://127.0.0.1:8404/stats
+        method: GET
+        status_code: 200
+      register: stats_check
+
+    - name: Print service entrypoint validation
       ansible.builtin.debug:
         msg:
-          - "haproxy={{ haproxy_state.stdout }}"
-          - "frontend=http://192.168.1.20"
-          - "stats=http://192.168.1.20:8404/stats"
+          - "http_redirect_status={{ http_redirect_check.status }}"
+          - "https_status={{ https_check.status }}"
+          - "stats_status={{ stats_check.status }}"
+          - "service_entrypoint=https://192.168.1.20"
+          - "stats_url=http://192.168.1.20:8404/stats"

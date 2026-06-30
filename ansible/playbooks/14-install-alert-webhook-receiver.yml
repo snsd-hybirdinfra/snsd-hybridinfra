@@ -1,0 +1,225 @@
+---
+- name: Install Alertmanager webhook receiver mock
+  hosts: monitoring
+  become: true
+  gather_facts: false
+
+  vars:
+    webhook_dir: /opt/snsd-alert-webhook
+    webhook_log_dir: /var/log/snsd-alert-webhook
+    webhook_script: /opt/snsd-alert-webhook/snsd_alert_webhook.py
+    webhook_port: 5001
+    alertmanager_config: /etc/alertmanager/alertmanager.yml
+
+  tasks:
+    - name: Ensure webhook receiver directory exists
+      ansible.builtin.file:
+        path: "{{ webhook_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Ensure webhook log directory exists
+      ansible.builtin.file:
+        path: "{{ webhook_log_dir }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Install webhook receiver script
+      ansible.builtin.copy:
+        dest: "{{ webhook_script }}"
+        owner: root
+        group: root
+        mode: "0755"
+        content: |
+          #!/usr/bin/env python3
+          import json
+          import os
+          from datetime import datetime, timezone
+          from http.server import BaseHTTPRequestHandler, HTTPServer
+
+          LOG_DIR = "/var/log/snsd-alert-webhook"
+          LOG_FILE = os.path.join(LOG_DIR, "alerts.jsonl")
+
+          class Handler(BaseHTTPRequestHandler):
+              def _send_json(self, status, payload):
+                  body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+                  self.send_response(status)
+                  self.send_header("Content-Type", "application/json")
+                  self.send_header("Content-Length", str(len(body)))
+                  self.end_headers()
+                  self.wfile.write(body)
+
+              def do_GET(self):
+                  if self.path == "/health":
+                      self._send_json(200, {"status": "ok", "service": "snsd-alert-webhook"})
+                      return
+
+                  if self.path == "/alerts":
+                      if not os.path.exists(LOG_FILE):
+                          self._send_json(200, {"alerts": []})
+                          return
+
+                      with open(LOG_FILE, "r", encoding="utf-8") as f:
+                          lines = f.readlines()[-20:]
+
+                      alerts = []
+                      for line in lines:
+                          try:
+                              alerts.append(json.loads(line))
+                          except Exception:
+                              pass
+
+                      self._send_json(200, {"alerts": alerts})
+                      return
+
+                  self._send_json(404, {"error": "not_found"})
+
+              def do_POST(self):
+                  length = int(self.headers.get("Content-Length", "0"))
+                  raw = self.rfile.read(length).decode("utf-8", errors="replace")
+
+                  try:
+                      payload = json.loads(raw) if raw else {}
+                  except Exception:
+                      payload = {"raw": raw}
+
+                  record = {
+                      "received_at": datetime.now(timezone.utc).isoformat(),
+                      "path": self.path,
+                      "payload": payload,
+                  }
+
+                  os.makedirs(LOG_DIR, exist_ok=True)
+                  with open(LOG_FILE, "a", encoding="utf-8") as f:
+                      f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+                  self._send_json(200, {"status": "received"})
+
+              def log_message(self, fmt, *args):
+                  return
+
+          if __name__ == "__main__":
+              server = HTTPServer(("0.0.0.0", 5001), Handler)
+              server.serve_forever()
+
+    - name: Create webhook receiver systemd unit
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/snsd-alert-webhook.service
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=SNSD Alertmanager Webhook Receiver
+          Wants=network-online.target
+          After=network-online.target alertmanager.service
+
+          [Service]
+          Type=simple
+          ExecStart=/usr/bin/python3 {{ webhook_script }}
+          Restart=always
+          RestartSec=5
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: Enable and start webhook receiver
+      ansible.builtin.systemd:
+        name: snsd-alert-webhook
+        state: restarted
+        enabled: true
+
+    - name: Check webhook receiver health
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:{{ webhook_port }}/health"
+        method: GET
+        status_code: 200
+        return_content: true
+      register: webhook_health
+      retries: 10
+      delay: 3
+      until: webhook_health.status == 200
+
+    - name: Configure Alertmanager webhook receiver
+      ansible.builtin.copy:
+        dest: "{{ alertmanager_config }}"
+        owner: alertmanager
+        group: alertmanager
+        mode: "0644"
+        content: |
+          global:
+            resolve_timeout: 5m
+
+          route:
+            receiver: snsd-webhook
+            group_by:
+              - alertname
+              - instance
+            group_wait: 10s
+            group_interval: 30s
+            repeat_interval: 5m
+
+          receivers:
+            - name: snsd-webhook
+              webhook_configs:
+                - url: http://127.0.0.1:5001/alertmanager
+                  send_resolved: true
+
+    - name: Validate Alertmanager configuration
+      ansible.builtin.command: amtool check-config "{{ alertmanager_config }}"
+      changed_when: false
+
+    - name: Restart Alertmanager
+      ansible.builtin.systemd:
+        name: alertmanager
+        state: restarted
+        enabled: true
+
+    - name: Check Alertmanager health
+      ansible.builtin.uri:
+        url: http://127.0.0.1:9093/-/healthy
+        method: GET
+        status_code: 200
+
+    - name: Send test webhook payload
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:{{ webhook_port }}/alertmanager"
+        method: POST
+        body_format: json
+        body:
+          receiver: snsd-webhook
+          status: firing
+          alerts:
+            - status: firing
+              labels:
+                alertname: SNSDWebhookReceiverTest
+                severity: info
+              annotations:
+                summary: SNSD webhook receiver test
+        status_code: 200
+
+    - name: Read webhook receiver recent alerts
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:{{ webhook_port }}/alerts"
+        method: GET
+        status_code: 200
+        return_content: true
+      register: webhook_alerts
+
+    - name: Print webhook receiver validation
+      ansible.builtin.debug:
+        msg:
+          - "webhook_receiver=http://192.168.1.40:5001"
+          - "health=http://192.168.1.40:5001/health"
+          - "recent_alerts=http://192.168.1.40:5001/alerts"
+          - "log_file=/var/log/snsd-alert-webhook/alerts.jsonl"
+          - "webhook_health={{ webhook_health.status }}"
+          - "recent_alerts_response={{ webhook_alerts.content }}"

@@ -94,11 +94,11 @@ precheck_only() {
   echo "checked_at=$(date '+%Y-%m-%d %H:%M:%S %Z %z')"
 
   print_header "Check failure playbook files"
-  check_file_exists "ansible/playbooks/14-failure-injection-web-recovery.yml"
-  check_file_exists "ansible/playbooks/15-failure-injection-observability-loss.yml"
-  check_file_exists "ansible/playbooks/16-failure-injection-database-recovery.yml"
-  check_file_exists "ansible/playbooks/17-failure-injection-proxy-recovery.yml"
-  check_file_exists "ansible/playbooks/18-failure-injection-backup-recovery.yml"
+  check_file_exists "ansible/playbooks/21-failure-injection-web-recovery.yml"
+  check_file_exists "ansible/playbooks/22-failure-injection-observability-loss.yml"
+  check_file_exists "ansible/playbooks/23-failure-injection-database-recovery.yml"
+  check_file_exists "ansible/playbooks/24-failure-injection-proxy-recovery.yml"
+  check_file_exists "ansible/playbooks/25-failure-injection-backup-recovery.yml"
 
   print_header "Check Ansible connectivity"
   ansible -i "${INVENTORY}" ubuntu_nodes -m ping
@@ -128,11 +128,11 @@ run_suite() {
   print_header "Precheck: runtime smoke check"
   tools/validation/runtime_smoke_check.sh
 
-  run_failure_playbook "14-failure-injection-web-recovery.yml" "Web backend failure and recovery"
-  run_failure_playbook "15-failure-injection-observability-loss.yml" "Observability loss and recovery"
-  run_failure_playbook "16-failure-injection-database-recovery.yml" "Database failure and recovery"
-  run_failure_playbook "17-failure-injection-proxy-recovery.yml" "Proxy entrypoint failure and recovery"
-  run_failure_playbook "18-failure-injection-backup-recovery.yml" "Backup failure and recovery validation"
+  run_failure_playbook "21-failure-injection-web-recovery.yml" "Web backend failure and recovery"
+  run_failure_playbook "22-failure-injection-observability-loss.yml" "Observability loss and recovery"
+  run_failure_playbook "23-failure-injection-database-recovery.yml" "Database failure and recovery"
+  run_failure_playbook "24-failure-injection-proxy-recovery.yml" "Proxy entrypoint failure and recovery"
+  run_failure_playbook "25-failure-injection-backup-recovery.yml" "Backup failure and recovery validation"
 
   print_header "Postcheck: runtime smoke check"
   tools/validation/runtime_smoke_check.sh

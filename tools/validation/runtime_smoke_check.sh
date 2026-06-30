@@ -85,14 +85,14 @@ check_cmd "Loki ready" \
 check_cmd "Alertmanager healthy" \
   bash -c "curl -fsS http://192.168.1.40:9093/-/healthy >/dev/null"
 
-check_cmd "HAProxy frontend HTTP 200" \
-  bash -c "curl -fsS http://192.168.1.20 >/dev/null"
+check_cmd "HAProxy HTTP redirects to HTTPS" \
+  bash -c 'code=$(curl -s -o /dev/null -w "%{http_code}" http://192.168.1.20); [ "$code" = "301" ]'
 
-check_cmd "app-node-01 HTTP 200" \
-  bash -c "curl -fsS http://192.168.1.31 >/dev/null"
+check_cmd "app-node-01 sample web health HTTP 200" \
+  bash -c "curl -fsS http://192.168.1.31:18080/health >/dev/null"
 
-check_cmd "app-node-02 HTTP 200" \
-  bash -c "curl -fsS http://192.168.1.32 >/dev/null"
+check_cmd "app-node-02 sample web health HTTP 200" \
+  bash -c "curl -fsS http://192.168.1.32:18080/health >/dev/null"
 
 section "Prometheus Target Health"
 check_cmd "all Prometheus active targets are up" \
@@ -100,7 +100,7 @@ check_cmd "all Prometheus active targets are up" \
 
 section "Blackbox Probe"
 check_cmd "blackbox HTTP proxy probe success" \
-  bash -c 'curl -fsS "http://192.168.1.40:9115/probe?target=http://192.168.1.20&module=http_2xx" | grep -q "probe_success 1"'
+  bash -c 'curl -fsS "http://192.168.1.40:9115/probe?target=https://192.168.1.20&module=http_2xx" | grep -q "probe_success 1"'
 
 check_cmd "blackbox ICMP proxy probe success" \
   bash -c 'curl -fsS "http://192.168.1.40:9115/probe?target=192.168.1.20&module=icmp" | grep -q "probe_success 1"'

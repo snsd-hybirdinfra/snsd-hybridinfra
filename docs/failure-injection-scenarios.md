@@ -14,25 +14,108 @@ The current failure injection scope covers:
 - Proxy entrypoint failure
 - Backup failure and recovery validation
 
+## Why These Failure Scenarios Matter
+
+The failure injection suite is designed to validate operational capability rather than simply demonstrate that a service can be stopped and restarted.
+
+Each failure domain maps to a different infrastructure operations concern.
+
+| Failure Domain | Operational Meaning | Capability Demonstrated |
+|---|---|---|
+| Web backend failure | Partial application service degradation | Backend failure detection, service continuity through proxy routing, and recovery validation |
+| Observability loss | Monitoring blind spot | Telemetry source loss detection and restoration of metric visibility |
+| Database failure | Stateful service interruption | Database health detection, exporter signal validation, and service recovery |
+| Proxy entrypoint failure | User-facing service entrypoint outage | External HTTPS availability detection, blackbox probing, TLS entrypoint recovery, and stats validation |
+| Backup failure | Recovery assurance failure | Backup validation, restore-readiness signal, and recovery evidence generation |
+
+This gives the portfolio coverage across four operational dimensions:
+
+1. Service availability
+2. Observability integrity
+3. Stateful dependency health
+4. Recovery validation
+
+The purpose is not chaos testing at production scale.
+
+The purpose is controlled lab validation of the full operational loop:
+
+    Failure
+      -> Detection
+      -> Alert signal
+      -> Recovery action
+      -> Metric recovery
+      -> Evidence generation
+
+
+## Service Entrypoint Hardening
+
+The HAProxy service entrypoint now validates a hardened access path:
+
+- HTTP port 80 redirects to HTTPS
+- HTTPS port 443 terminates TLS at HAProxy
+- HAProxy forwards traffic to application backends on port 18080
+- cAdvisor remains on port 8080
+- HAProxy stats are exposed on port 8404
+- Blackbox HTTP probing validates `https://192.168.1.20`
+- HAProxy Exporter exposes backend and server metrics on `192.168.1.20:9101`
+
+This separates external service availability from internal backend and container telemetry paths.
+
+### Proxy Failure Signal Separation
+
+Proxy-related validation now separates external and internal signals.
+
+| Signal | Meaning |
+|---|---|
+| `probe_success` from Blackbox | User-facing HTTPS availability |
+| HAProxy exporter metrics | Internal HAProxy backend and server visibility |
+| HAProxy stats page | Operator-readable backend/server status |
+
+This makes proxy failure validation stronger than a simple process restart check.
+
+
+## Incident Coordination Validation
+
+Alertmanager is connected to a local webhook receiver mock.
+
+This validates the incident coordination path after alert detection.
+
+    Prometheus Rule
+      -> Alertmanager
+      -> Webhook Receiver
+      -> JSONL Alert Log
+      -> Runtime Evidence
+
+The webhook receiver runs on the monitoring node:
+
+    http://192.168.1.40:5001/health
+    http://192.168.1.40:5001/alerts
+
+The received alert payloads are stored locally at:
+
+    /var/log/snsd-alert-webhook/alerts.jsonl
+
+This gives the lab a visible alert delivery path instead of stopping at Prometheus alert state only.
+
 ## Scenario Matrix
 
 | ID | Playbook | Failure Type | Detection Basis | Expected Alert | Recovery Basis |
 |---:|---|---|---|---|---|
-| 14 | ansible/playbooks/14-failure-injection-web-recovery.yml | Web backend container stop | HAProxy backend health and blackbox HTTP probe | SNSDBlackboxProbeFailed | Container restart and HAProxy frontend HTTP 200 |
-| 15 | ansible/playbooks/15-failure-injection-observability-loss.yml | node_exporter stop | up{job="node_exporter"} = 0 | SNSDNodeExporterDown | node_exporter active and target UP |
-| 16 | ansible/playbooks/16-failure-injection-database-recovery.yml | MariaDB stop | mysql_up = 0 | SNSDMariaDBDown | MariaDB active and mysql_up = 1 |
-| 17 | ansible/playbooks/17-failure-injection-proxy-recovery.yml | HAProxy stop | blackbox_http probe_success = 0 | SNSDBlackboxProbeFailed | HAProxy active and proxy HTTP 200 |
-| 18 | ansible/playbooks/18-failure-injection-backup-recovery.yml | Restic backup failure | snsd_backup_last_success = 0 | SNSDBackupFailed | backup success = 1 and restore validation success = 1 |
+| 14 | ansible/playbooks/21-failure-injection-web-recovery.yml | Web backend container stop | HAProxy backend health and blackbox HTTP probe | SNSDBlackboxProbeFailed | Container restart and HAProxy frontend HTTP 200 |
+| 15 | ansible/playbooks/22-failure-injection-observability-loss.yml | node_exporter stop | up{job="node_exporter"} = 0 | SNSDNodeExporterDown | node_exporter active and target UP |
+| 16 | ansible/playbooks/23-failure-injection-database-recovery.yml | MariaDB stop | mysql_up = 0 | SNSDMariaDBDown | MariaDB active and mysql_up = 1 |
+| 17 | ansible/playbooks/24-failure-injection-proxy-recovery.yml | HAProxy stop | blackbox_http probe_success = 0 for `https://192.168.1.20` | SNSDBlackboxProbeFailed | HAProxy active, HTTP 301 redirect, HTTPS 200, and stats page 200 |
+| 18 | ansible/playbooks/25-failure-injection-backup-recovery.yml | Restic backup failure | snsd_backup_last_success = 0 | SNSDBackupFailed | backup success = 1 and restore validation success = 1 |
 
 ## Individual Execution
 
 Run from WSL at the repository root.
 
-    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/14-failure-injection-web-recovery.yml
-    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/15-failure-injection-observability-loss.yml
-    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/16-failure-injection-database-recovery.yml
-    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/17-failure-injection-proxy-recovery.yml
-    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/18-failure-injection-backup-recovery.yml
+    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/21-failure-injection-web-recovery.yml
+    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/22-failure-injection-observability-loss.yml
+    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/23-failure-injection-database-recovery.yml
+    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/24-failure-injection-proxy-recovery.yml
+    ansible-playbook -i inventory/lab/hosts.ini ansible/playbooks/25-failure-injection-backup-recovery.yml
 
 ## Precheck Only Mode
 

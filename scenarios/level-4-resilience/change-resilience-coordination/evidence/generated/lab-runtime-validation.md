@@ -1,6 +1,6 @@
 # Lab Runtime Validation Evidence
 
-Generated At: 2026-06-29 13:20:49
+Generated At: 2026-06-30 11:44:43
 
 Scenario: `change-resilience-coordination`  
 Level: `level-4-resilience`
@@ -41,7 +41,7 @@ The validation scope is not a full production certification. It records observab
 ```json
 # Monitoring Target Status
 
-Generated At: 2026-06-29 13:20:47 KST +0900
+Generated At: 2026-06-30 11:44:42 KST +0900
 
 Source: Prometheus API /api/v1/targets
 
@@ -50,51 +50,9 @@ Source: Prometheus API /api/v1/targets
   "activeTargets": [
     {
       "job": "blackbox_http",
-      "instance": "http://192.168.1.20",
+      "instance": "https://192.168.1.20",
       "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.20",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_http",
-      "instance": "http://192.168.1.31",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.31",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_http",
-      "instance": "http://192.168.1.32",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=http%3A%2F%2F192.168.1.32",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.31",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.31",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.32",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.32",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.40",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.40",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_icmp",
-      "instance": "192.168.1.10",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.10",
+      "scrapeUrl": "http://127.0.0.1:9115/probe?module=http_2xx&target=https%3A%2F%2F192.168.1.20",
       "lastError": ""
     },
     {
@@ -102,55 +60,6 @@ Source: Prometheus API /api/v1/targets
       "instance": "192.168.1.20",
       "health": "up",
       "scrapeUrl": "http://127.0.0.1:9115/probe?module=icmp&target=192.168.1.20",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:3100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.10:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.10%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.20:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.20%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.31:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.31%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.32:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.32%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:9100",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A9100",
-      "lastError": ""
-    },
-    {
-      "job": "blackbox_tcp",
-      "instance": "192.168.1.40:3000",
-      "health": "up",
-      "scrapeUrl": "http://127.0.0.1:9115/probe?module=tcp_connect&target=192.168.1.40%3A3000",
       "lastError": ""
     },
     {
@@ -168,10 +77,24 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
+      "job": "haproxy_exporter",
+      "instance": "192.168.1.20:9101",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.20:9101/metrics",
+      "lastError": ""
+    },
+    {
       "job": "mysqld_exporter",
       "instance": "192.168.1.40:9104",
       "health": "up",
       "scrapeUrl": "http://192.168.1.40:9104/metrics",
+      "lastError": ""
+    },
+    {
+      "job": "node_exporter",
+      "instance": "192.168.1.31:9100",
+      "health": "up",
+      "scrapeUrl": "http://192.168.1.31:9100/metrics",
       "lastError": ""
     },
     {
@@ -203,13 +126,6 @@ Source: Prometheus API /api/v1/targets
       "lastError": ""
     },
     {
-      "job": "node_exporter",
-      "instance": "192.168.1.31:9100",
-      "health": "up",
-      "scrapeUrl": "http://192.168.1.31:9100/metrics",
-      "lastError": ""
-    },
-    {
       "job": "prometheus",
       "instance": "127.0.0.1:9090",
       "health": "up",
@@ -226,7 +142,7 @@ Source: Prometheus API /api/v1/targets
 ```json
 # Alerting Validation Summary
 
-Generated At: 2026-06-29 13:20:47 KST +0900
+Generated At: 2026-06-30 11:44:42 KST +0900
 
 ## Prometheus Alerts
 
@@ -241,19 +157,19 @@ Generated At: 2026-06-29 13:20:47 KST +0900
 ----- BEGIN ALERTMANAGER STATUS JSON -----
 {
   "cluster": {
-    "name": "01KW8H45CMR1H6JCWHWD1YCV12",
+    "name": "01KWB2NMH08DR664KD8RK0ZVK8",
     "peers": [
       {
         "address": "192.168.8.135:9094",
-        "name": "01KW8H45CMR1H6JCWHWD1YCV12"
+        "name": "01KWB2NMH08DR664KD8RK0ZVK8"
       }
     ],
     "status": "ready"
   },
   "config": {
-    "original": "global:\n  resolve_timeout: 5m\n  http_config:\n    follow_redirects: true\n    enable_http2: true\n  smtp_hello: localhost\n  smtp_require_tls: true\n  pagerduty_url: https://events.pagerduty.com/v2/enqueue\n  opsgenie_api_url: https://api.opsgenie.com/\n  wechat_api_url: https://qyapi.weixin.qq.com/cgi-bin/\n  victorops_api_url: https://alert.victorops.com/integrations/generic/20131114/alert/\n  telegram_api_url: https://api.telegram.org\n  webex_api_url: https://webexapis.com/v1/messages\nroute:\n  receiver: snsd-local-receiver\n  group_by:\n  - alertname\n  - severity\n  continue: false\n  group_wait: 10s\n  group_interval: 1m\n  repeat_interval: 30m\nreceivers:\n- name: snsd-local-receiver\ntemplates: []\n"
+    "original": "global:\n  resolve_timeout: 5m\n  http_config:\n    follow_redirects: true\n    enable_http2: true\n  smtp_hello: localhost\n  smtp_require_tls: true\n  pagerduty_url: https://events.pagerduty.com/v2/enqueue\n  opsgenie_api_url: https://api.opsgenie.com/\n  wechat_api_url: https://qyapi.weixin.qq.com/cgi-bin/\n  victorops_api_url: https://alert.victorops.com/integrations/generic/20131114/alert/\n  telegram_api_url: https://api.telegram.org\n  webex_api_url: https://webexapis.com/v1/messages\nroute:\n  receiver: snsd-webhook\n  group_by:\n  - alertname\n  - instance\n  continue: false\n  group_wait: 10s\n  group_interval: 30s\n  repeat_interval: 5m\nreceivers:\n- name: snsd-webhook\n  webhook_configs:\n  - send_resolved: true\n    http_config:\n      follow_redirects: true\n      enable_http2: true\n    url: <secret>\n    url_file: \"\"\n    max_alerts: 0\ntemplates: []\n"
   },
-  "uptime": "2026-06-29T10:50:25.686+09:00",
+  "uptime": "2026-06-30T10:35:32.900+09:00",
   "versionInfo": {
     "branch": "HEAD",
     "buildDate": "20240228-11:51:20",
@@ -264,6 +180,14 @@ Generated At: 2026-06-29 13:20:47 KST +0900
   }
 }
 ----- END ALERTMANAGER STATUS JSON -----
+
+## Alert Webhook Receiver
+
+### Health
+{"status": "ok", "service": "snsd-alert-webhook"}
+
+### Recent Alert Webhook Payloads
+{"alerts": [{"received_at": "2026-06-30T01:35:33.659197+00:00", "path": "/alertmanager", "payload": {"receiver": "snsd-webhook", "status": "firing", "alerts": [{"status": "firing", "labels": {"alertname": "SNSDWebhookReceiverTest", "severity": "info"}, "annotations": {"summary": "SNSD webhook receiver test"}}]}}]}
 ```
 
 ### Recovery Validation Summary
@@ -271,30 +195,30 @@ Generated At: 2026-06-29 13:20:47 KST +0900
 ```text
 # Recovery Validation Summary
 
-Generated At: 2026-06-29 13:20:47 KST +0900
+Generated At: 2026-06-30 11:44:42 KST +0900
 
 ## Backup / Restore Metrics
 
 ----- BEGIN BACKUP RESTORE METRICS -----
 # HELP node_textfile_mtime_seconds Unixtime mtime of textfiles successfully read.
 # TYPE node_textfile_mtime_seconds gauge
-node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_backup.prom"} 1.782706804e+09
+node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_backup.prom"} 1.782787438e+09
 node_textfile_mtime_seconds{file="/var/lib/node_exporter/textfile_collector/snsd_restore.prom"} 1.782706783e+09
 # HELP node_textfile_scrape_error 1 if there was an error opening or reading a file, 0 otherwise
 # TYPE node_textfile_scrape_error gauge
 node_textfile_scrape_error 0
 # HELP snsd_backup_last_duration_seconds Backup duration in seconds.
 # TYPE snsd_backup_last_duration_seconds gauge
-snsd_backup_last_duration_seconds 2
+snsd_backup_last_duration_seconds 1
 # HELP snsd_backup_last_run_timestamp_seconds Last backup run timestamp.
 # TYPE snsd_backup_last_run_timestamp_seconds gauge
-snsd_backup_last_run_timestamp_seconds 1.782706804e+09
+snsd_backup_last_run_timestamp_seconds 1.782787438e+09
 # HELP snsd_backup_last_success Backup success status. 1 means success, 0 means failure.
 # TYPE snsd_backup_last_success gauge
 snsd_backup_last_success 1
 # HELP snsd_backup_snapshot_count Restic snapshot count.
 # TYPE snsd_backup_snapshot_count gauge
-snsd_backup_snapshot_count 50
+snsd_backup_snapshot_count 76
 # HELP snsd_restore_validation_duration_seconds Restore validation duration in seconds.
 # TYPE snsd_restore_validation_duration_seconds gauge
 snsd_restore_validation_duration_seconds 1
@@ -310,15 +234,11 @@ snsd_restore_validation_success 1
 
 ----- BEGIN HAPROXY PROBE CONTINUITY -----
 ## HAProxy Frontend
-  <p>hostname: app-node-02</p>
-  <p>status: healthy</p>
+  <p>hostname=app-node-01</p>
+  <p>status=ok</p>
 
 ## Backend Direct Checks
-  <p>hostname: app-node-01</p>
-  <p>status: healthy</p>
 
-  <p>hostname: app-node-02</p>
-  <p>status: healthy</p>
 
 ## Blackbox Probe Success
 # HELP probe_success Displays whether or not the probe was a success
@@ -380,6 +300,12 @@ Inventory: /mnt/c/Users/swfco/OneDrive/바탕 화면/github/snsd-hybridinfra/inv
 - Playbook: ansible/playbooks/18-failure-injection-backup-recovery.yml
 - Result: PASS
 - Finished At: 2026-06-29 13:20:30 KST +0900
+
+## Final Result
+
+- Result: PASS
+- Finished At: 2026-06-29 13:21:31 KST +0900
+- Runtime Evidence Refreshed: yes
 ```
 
 ## Reviewer Note
