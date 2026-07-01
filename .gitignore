@@ -79,3 +79,5 @@ labs/evidence/generated/
 labs/evidence/generated/
 ansible/playbooks/labs/
 *.bak
+*.log
+*.pyc
