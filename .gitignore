@@ -81,3 +81,5 @@ ansible/playbooks/labs/
 *.bak
 *.log
 *.pyc
+tree.txt
+a.txt
